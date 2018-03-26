@@ -22,31 +22,31 @@ public class HuskysMinecraftAddon {
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
 
-    public final CreativeTabs OVERWORLD_EXPANSION_TAB = new CreativeTabs("overworld_expansion") {
+    public static final CreativeTabs OVERWORLD_EXPANSION_TAB = new CreativeTabs("overworld_expansion") {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Item.getItemFromBlock(MCAddonBlocks.brain_coral[0]));
         }
     };
 
-    public final CreativeTabs NETHER_EXPANSION_TAB = new CreativeTabs("nether_expansion") {
+    public static final CreativeTabs NETHER_EXPANSION_TAB = new CreativeTabs("nether_expansion") {
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(Item.getItemFromBlock(Blocks.NETHER_BRICK);
+            return new ItemStack(Item.getItemFromBlock(Blocks.NETHER_BRICK));
         }
     };
 
-    public final CreativeTabs END_EXPANSION_TAB = new CreativeTabs("end_expansion") {
+    public static final CreativeTabs END_EXPANSION_TAB = new CreativeTabs("end_expansion") {
         @Override
         public ItemStack getTabIconItem() {
-            return null;
+            return ItemStack.EMPTY;
         }
     };
 
-    public final CreativeTabs WEAPON_EXPANSION_TAB = new CreativeTabs("weapons_expansion") {
+    public static final CreativeTabs WEAPON_EXPANSION_TAB = new CreativeTabs("weapons_expansion") {
         @Override
         public ItemStack getTabIconItem() {
-            return null;
+            return ItemStack.EMPTY;
         }
     };
 
