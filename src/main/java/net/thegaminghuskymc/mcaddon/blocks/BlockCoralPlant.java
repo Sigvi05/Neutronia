@@ -35,9 +35,9 @@ public class BlockCoralPlant extends BlockModBush {
     private final EnumCoralColor color;
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
-    public BlockCoralPlant(EnumCoralColor colorIn, String name) {
-        super(Material.WATER, colorIn + "_" + name, MOD_ID);
-        this.color = colorIn;
+    public BlockCoralPlant(EnumCoralColor coralColor, String name) {
+        super(Material.CORAL, coralColor + "_" + name, MOD_ID);
+        this.color = coralColor;
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
         StateMap.Builder builder = new StateMap.Builder();

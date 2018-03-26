@@ -39,7 +39,7 @@ public class BlockDoubleCoralPlant extends BlockModBush {
     public static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
     public BlockDoubleCoralPlant(EnumCoralColor coralColor, String name) {
-        super(Material.WATER, coralColor + "_" + name, MOD_ID);
+        super(Material.CORAL, coralColor + "_" + name, MOD_ID);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockDoubleCoralPlant.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
         StateMap.Builder builder = new StateMap.Builder();
         ModelLoader.setCustomStateMapper(this, builder.ignore(LEVEL).build());

@@ -1,7 +1,7 @@
 {
   "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "block/coral_fan",
+  "parent": "block/cube_all",
   "textures": {
-    "fan": "mc_addon:blocks/dead_coral_fan"
+    "all": "mc_addon:blocks/pink_dead_coral"
   }
 }

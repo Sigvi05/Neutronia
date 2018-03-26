@@ -1,5 +1,10 @@
 {
   "_comment": "Generated using Husky's JSON Generator v1.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "mc_addon:blue_coral_fan"
+  },
   "variants": {
     "facing=north": {
       "model": "mc_addon:blue_coral_fan"

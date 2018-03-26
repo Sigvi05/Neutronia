@@ -1,6 +1,6 @@
 {
   "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "block/coral_fan",
+  "parent": "mc_addon:block/coral_fan",
   "textures": {
     "fan": "mc_addon:blocks/purple_coral_fan"
   }

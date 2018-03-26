@@ -1,7 +1,7 @@
 {
   "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "mc_addon:block/yellow_dead_brain_coral",
+  "parent": "block/cube_all",
   "textures": {
-    "normal": "mc_addon:blocks/yellow_dead_brain_coral"
+    "all": "mc_addon:blocks/yellow_dead_brain_coral"
   }
 }
