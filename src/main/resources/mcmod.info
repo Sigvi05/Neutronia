@@ -5,7 +5,7 @@
   "description": "This is a mod which adds different things to Minecraft",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "authorList": ["TheGamingHuskyMC"],
+  "authorList": ["TheGamingHuskyMC", "Blommm"],
   "credits": "Thanks to Nox, Goopy25 and AbsolemJackdaw for their awesome art",
   "logoFile": "/assets/mc_addon/textures/logo",
   "screenshots": [],
