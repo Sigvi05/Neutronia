@@ -7,8 +7,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
-public class HuskysMinecraftAddon {
-
+public class HuskysMinecraftAddon
+{
     public HuskysMinecraftAddon instance;
 
     public HuskysMinecraftAddon instance() {
@@ -16,18 +16,11 @@ public class HuskysMinecraftAddon {
     }
 
     @SubscribeEvent
-    public static void preInit(FMLPreInitializationEvent event) {
-
-    }
+    public static void preInit(FMLPreInitializationEvent event) {}
 
     @SubscribeEvent
-    public static void init(FMLInitializationEvent event) {
-
-    }
+    public static void init(FMLInitializationEvent event) {}
 
     @SubscribeEvent
-    public static void postInit(FMLPostInitializationEvent event) {
-
-    }
-
+    public static void postInit(FMLPostInitializationEvent event) {}
 }
