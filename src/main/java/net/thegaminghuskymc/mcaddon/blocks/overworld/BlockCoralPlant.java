@@ -1,22 +1,17 @@
-package net.thegaminghuskymc.mcaddon.blocks;
+package net.thegaminghuskymc.mcaddon.blocks.overworld;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.statemap.StateMap;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +20,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.blocks.BlockModBush;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
@@ -36,12 +33,15 @@ public class BlockCoralPlant extends BlockModBush {
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
     public BlockCoralPlant(EnumCoralColor coralColor, String name) {
-        super(Material.CORAL, coralColor + "_" + name, MOD_ID);
+        super(Material.WATER, coralColor + "_" + name, MOD_ID);
         this.color = coralColor;
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        this.setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
-        StateMap.Builder builder = new StateMap.Builder();
-        ModelLoader.setCustomStateMapper(this, builder.ignore(LEVEL).build());
+    }
+
+    @Override
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[] {LEVEL};
     }
 
     @SideOnly(Side.CLIENT)

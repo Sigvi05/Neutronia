@@ -5,24 +5,26 @@ import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-import net.thegaminghuskymc.huskylib2.lib.interf.IModBlock;
-import net.thegaminghuskymc.huskylib2.lib.items.blocks.ItemModBlock;
-import net.thegaminghuskymc.huskylib2.lib.utils.ProxyRegistry;
+import net.thegaminghuskymc.huskylib2.interf.IModBlock;
+import net.thegaminghuskymc.huskylib2.items.blocks.ItemModBlock;
+import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
 
 public class BlockModBush extends BlockBush implements IModBlock {
 
 	private final String[] variants;
 	private final String bareName, modid;
 
-	BlockModBush(Material material, String name, String modid) {
+	public BlockModBush(Material material, String name, String modid) {
 	    super(material);
 		variants = new String[] { name };
 		bareName = name;
 		this.modid = modid;
 
 		setUnlocalizedName(name);
+		setCreativeTab(CreativeTabs.SEARCH);
 	}
 
 	public Block setUnlocalizedName(String name) {

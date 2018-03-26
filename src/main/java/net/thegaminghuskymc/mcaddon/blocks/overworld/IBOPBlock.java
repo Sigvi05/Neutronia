@@ -1,4 +1,4 @@
-package net.thegaminghuskymc.mcaddon.blocks;
+package net.thegaminghuskymc.mcaddon.blocks.overworld;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;

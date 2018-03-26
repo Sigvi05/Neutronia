@@ -1,12 +1,14 @@
 package net.thegaminghuskymc.mcaddon.init;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.thegaminghuskymc.mcaddon.blocks.BlockCoral;
-import net.thegaminghuskymc.mcaddon.blocks.BlockCoralPlant;
-import net.thegaminghuskymc.mcaddon.blocks.BlockDoubleCoralPlant;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockCoral;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockCoralPlant;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockDoubleCoralPlant;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockOverworldBase;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
@@ -24,6 +26,8 @@ public class MCAddonBlocks {
     public static Block[] dead_pipe_coral = new Block[5];
     public static Block[] sea_fan = new Block[5];
     public static Block[] dead_sea_fan = new Block[5];
+    public static final Block dried_kelp_block;
+
 
     static {
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
@@ -38,6 +42,7 @@ public class MCAddonBlocks {
             sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "sea_fan");
             dead_sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_sea_fan");
         }
+        dried_kelp_block = new BlockOverworldBase(Material.LEAVES, "dried_kelp_block");
     }
 
     @SubscribeEvent

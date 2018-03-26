@@ -1,17 +1,16 @@
-package net.thegaminghuskymc.mcaddon.blocks;
+package net.thegaminghuskymc.mcaddon.blocks.overworld;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.huskylib2.lib.blocks.BlockMod;
+import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
+import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 
-import static net.minecraft.block.BlockLiquid.LEVEL;
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 
 public class BlockCoral extends BlockMod {
@@ -21,7 +20,7 @@ public class BlockCoral extends BlockMod {
     public BlockCoral(EnumCoralColor colorIn, String name) {
         super(Material.CORAL, MOD_ID, colorIn + "_" + name);
         this.color = colorIn;
-        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        this.setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
     }
 
     @Override

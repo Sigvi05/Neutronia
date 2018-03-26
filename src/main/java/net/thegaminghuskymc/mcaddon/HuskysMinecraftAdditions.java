@@ -14,10 +14,10 @@ import net.thegaminghuskymc.mcaddon.init.MCAddonBlocks;
 import net.thegaminghuskymc.mcaddon.proxy.CommonProxy;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
-public class HuskysMinecraftAddon {
+public class HuskysMinecraftAdditions {
 
     @Mod.Instance
-    public static HuskysMinecraftAddon instance;
+    public static HuskysMinecraftAdditions instance;
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
@@ -39,7 +39,7 @@ public class HuskysMinecraftAddon {
     public static final CreativeTabs END_EXPANSION_TAB = new CreativeTabs("end_expansion") {
         @Override
         public ItemStack getTabIconItem() {
-            return ItemStack.EMPTY;
+            return new ItemStack(Item.getItemFromBlock(Blocks.END_BRICKS));
         }
     };
 
