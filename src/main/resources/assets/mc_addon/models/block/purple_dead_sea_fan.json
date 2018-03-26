@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "parent": "block/orientable",
+  "textures": {
+    "top": "mc_addon:blocks/purple_dead_sea_fan",
+    "front": "mc_addon:blocks/purple_dead_sea_fan",
+    "side": "mc_addon:blocks/purple_dead_sea_fan"
+  }
+}

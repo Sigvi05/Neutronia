@@ -1,0 +1,23 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "facing": {
+      "north": {},
+      "south": {"y": 180},
+      "west": {"y": 270},
+      "east": {"y": 90}
+    },
+    "half": {
+      "upper": {
+        "model": "mc_addon:yellow_pipe_coral_top"
+      },
+      "lower": {
+        "model": "mc_addon:yellow_pipe_coral_bottom"
+      }
+    }
+  }
+}

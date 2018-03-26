@@ -1,0 +1,14 @@
+[
+{
+  "modid": "mc_addon",
+  "name": "Husky's Minecraft Addon",
+  "description": "This is a mod which adds different things to Minecraft",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "authorList": ["TheGamingHuskyMC"],
+  "credits": "Thanks to Nox, Goopy25 and AbsolemJackdaw for their awesome art",
+  "logoFile": "/assets/mc_addon/textures/logo",
+  "screenshots": [],
+  "dependencies": []
+}
+]
