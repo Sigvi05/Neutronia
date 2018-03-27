@@ -1,0 +1,20 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "variants": {
+    "facing=north": {
+      "model": "hmca:blue_dead_coral_fan"
+    },
+    "facing=south": {
+      "model": "hmca:blue_dead_coral_fan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hmca:blue_dead_coral_fan",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "hmca:blue_dead_coral_fan",
+      "y": 90
+    }
+  }
+}

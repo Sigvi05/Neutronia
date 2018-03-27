@@ -22,6 +22,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
 import net.thegaminghuskymc.mcaddon.blocks.BlockModBush;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
@@ -46,6 +48,11 @@ public class BlockDoubleCoralPlant extends BlockModBush {
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return FULL_BLOCK_AABB;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean hasCustomBreakingProgress(IBlockState state) {
+        return true;
     }
 
     public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {

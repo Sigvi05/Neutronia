@@ -63,6 +63,21 @@ public class BlockCoralPlant extends BlockModBush {
     }
 
     @SideOnly(Side.CLIENT)
+    public boolean hasCustomBreakingProgress(IBlockState state) {
+        return true;
+    }
+
+    @Override
+    public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side) {
+        if(this == Block.getBlockFromName("hmca:" + color.getName() + "_coral_fan")) {
+            return side != EnumFacing.DOWN && side != EnumFacing.UP;
+        } else {
+            return true;
+        }
+    }
+
+
+    @SideOnly(Side.CLIENT)
     private EnumCoralColor getColor() {
         return this.color;
     }

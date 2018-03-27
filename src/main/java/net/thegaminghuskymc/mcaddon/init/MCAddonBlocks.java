@@ -9,7 +9,9 @@ import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockCoral;
 import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockCoralPlant;
 import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockDoubleCoralPlant;
 import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockOverworldBase;
+import net.thegaminghuskymc.mcaddon.properties.EnumAquamarineVariants;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
+import net.thegaminghuskymc.mcaddon.properties.EnumNewStoneVariants;
 
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 
@@ -28,6 +30,10 @@ public class MCAddonBlocks {
     public static Block[] dead_sea_fan = new Block[5];
     public static final Block dried_kelp_block;
 
+    public static Block[] naturalAquamarine = new Block[6];
+    public static Block[] aquamarine = new Block[6];
+
+    public static Block[] newStoneVariants = new Block[25];
 
     static {
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
@@ -42,7 +48,15 @@ public class MCAddonBlocks {
             sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "sea_fan");
             dead_sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_sea_fan");
         }
+        for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
+            naturalAquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName() + "_natural_aquamarine");
+            aquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName() + "_aquamarine");
+        }
         dried_kelp_block = new BlockOverworldBase(Material.LEAVES, "dried_kelp_block");
+
+        for(EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
+            newStoneVariants[newStoneVariant.getMetadata()] = new BlockOverworldBase(Material.ROCK, newStoneVariant.getName());
+        }
     }
 
     @SubscribeEvent

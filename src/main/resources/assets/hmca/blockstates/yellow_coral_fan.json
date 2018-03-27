@@ -1,0 +1,25 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "hmca:yellow_coral_fan"
+  },
+  "variants": {
+    "facing=north": {
+      "model": "hmca:yellow_coral_fan"
+    },
+    "facing=south": {
+      "model": "hmca:yellow_coral_fan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hmca:yellow_coral_fan",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "hmca:yellow_coral_fan",
+      "y": 90
+    }
+  }
+}

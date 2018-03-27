@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "block/orientable",
-  "textures": {
-    "top": "mc_addon:blocks/red_dead_pipe_coral",
-    "front": "mc_addon:blocks/red_dead_pipe_coral",
-    "side": "mc_addon:blocks/red_dead_pipe_coral"
-  }
-}

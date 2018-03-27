@@ -1,0 +1,7 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "parent": "hmca:block/marble_chiseled",
+  "textures": {
+    "normal": "hmca:blocks/marble_chiseled"
+  }
+}

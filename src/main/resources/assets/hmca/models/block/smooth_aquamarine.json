@@ -1,0 +1,7 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "parent": "hmca:block/smooth_aquamarine",
+  "textures": {
+    "normal": "hmca:blocks/smooth_aquamarine"
+  }
+}
