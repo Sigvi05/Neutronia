@@ -1,0 +1,8 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "parent": "th2:block/cube_bottom_half_overlay_all",
+  "textures": {
+    "overlay": "hmca:blocks/runes/red_coral",
+    "all": "hmca:blocks/rune_stone"
+  }
+}

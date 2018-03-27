@@ -1,0 +1,11 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "variants": {
+    "half=bottom": {
+      "model": "hmca:half_purple_dead_brain_coral_slab"
+    },
+    "half=top": {
+      "model": "hmca:upper_purple_dead_brain_coral_slab"
+    }
+  }
+}

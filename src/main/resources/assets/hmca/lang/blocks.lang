@@ -1,0 +1,123 @@
+tile.yellow_coral.name=Yellow Coral
+tile.yellow_dead_coral.name=Yellow Dead Coral
+tile.yellow_brain_coral.name=Yellow Brain Coral
+tile.yellow_dead_brain_coral.name=Yellow Dead Brain Coral
+tile.yellow_coral_fan.name=Yellow Coral Fan
+tile.yellow_dead_coral_fan.name=Yellow Dead Coral Fan
+tile.yellow_pipe_coral.name=Yellow Pipe Coral
+tile.yellow_dead_pipe_coral.name=Yellow Dead Pipe Coral
+tile.yellow_sea_fan.name=Yellow Sea Fan
+tile.yellow_dead_sea_fan.name=Yellow Dead Sea Fan
+
+tile.pink_coral.name=Pink Coral
+tile.pink_dead_coral.name=Pink Dead Coral
+tile.pink_brain_coral.name=Pink Brain Coral
+tile.pink_dead_brain_coral.name=Pink Dead Brain Coral
+tile.pink_coral_fan.name=Pink Coral Fan
+tile.pink_dead_coral_fan.name=Pink Dead Coral Fan
+tile.pink_pipe_coral.name=Pink Pipe Coral
+tile.pink_dead_pipe_coral.name=Pink Dead Pipe Coral
+tile.pink_sea_fan.name=Pink Sea Fan
+tile.pink_dead_sea_fan.name=Pink Dead Sea Fan
+
+tile.purple_coral.name=Purple Coral
+tile.purple_dead_coral.name=Purple Dead Coral
+tile.purple_brain_coral.name=Purple Brain Coral
+tile.purple_dead_brain_coral.name=Purple Dead Brain Coral
+tile.purple_coral_fan.name=Purple Coral Fan
+tile.purple_dead_coral_fan.name=Purple Dead Coral Fan
+tile.purple_pipe_coral.name=Purple Pipe Coral
+tile.purple_dead_pipe_coral.name=Purple Dead Pipe Coral
+tile.purple_sea_fan.name=Purple Sea Fan
+tile.purple_dead_sea_fan.name=Purple Dead Sea Fan
+
+tile.blue_coral.name=Blue Coral
+tile.blue_dead_coral.name=Blue Dead Coral
+tile.blue_brain_coral.name=Blue Brain Coral
+tile.blue_dead_brain_coral.name=Blue Dead Brain Coral
+tile.blue_coral_fan.name=Blue Coral Fan
+tile.blue_dead_coral_fan.name=Blue Dead Coral Fan
+tile.blue_pipe_coral.name=Blue Pipe Coral
+tile.blue_dead_pipe_coral.name=Blue Dead Pipe Coral
+tile.blue_sea_fan.name=Blue Sea Fan
+tile.blue_dead_sea_fan.name=Blue Dead Sea Fan
+
+tile.red_coral.name=Red Coral
+tile.red_dead_coral.name=Red Dead Coral
+tile.red_brain_coral.name=Red Brain Coral
+tile.red_dead_brain_coral.name=Red Dead Brain Coral
+tile.red_coral_fan.name=Red Coral Fan
+tile.red_dead_coral_fan.name=Red Dead Coral Fan
+tile.red_pipe_coral.name=Red Pipe Coral
+tile.red_dead_pipe_coral.name=Red Dead Pipe Coral
+tile.red_sea_fan.name=Red Sea Fan
+tile.red_dead_sea_fan.name=Red Dead Sea Fan
+
+tile.bricks_natural_aquamarine.name=Bricks Natural Aquamarine
+tile.bricks_aquamarine.name=Bricks Aquamarine
+
+tile.chiseled_natural_aquamarine.name=Chiseled Natural Aquamarine
+tile.chiseled_aquamarine.name=Chiseled Aquamarine
+
+tile.pillar_natural_aquamarine.name=Pillar Natural Aquamarine
+tile.pillar_aquamarine.name=Pillar Aquamarine
+
+tile.raw_natural_aquamarine.name=Raw Natural Aquamarine
+tile.raw_aquamarine.name=Raw Aquamarine
+
+tile.small_bricks_natural_aquamarine.name=Small Bricks Natural Aquamarine
+tile.small_bricks_aquamarine.name=Small Bricks Aquamarine
+
+tile.smooth_natural_aquamarine.name=Smooth Natural Aquamarine
+tile.smooth_aquamarine.name=Smooth Aquamarine
+
+tile.granite_bricks.name=Granite Bricks
+
+tile.granite_cobble.name=Granite Cobble
+
+tile.diorite_bricks.name=Diorite Bricks
+
+tile.diorite_cobble.name=Diorite Cobble
+
+tile.andesite_bricks.name=Andesite Bricks
+
+tile.andesite_cobble.name=Andesite Cobble
+
+tile.raw_basalt.name=Raw Basalt
+
+tile.smooth_basalt.name=Smooth Basalt
+
+tile.chiseled_basalt.name=Chiseled Basalt
+
+tile.basalt_bricks.name=Basalt Bricks
+
+tile.basalt_cobble.name=Basalt Cobble
+
+tile.raw_marble.name=Raw Marble
+
+tile.smooth_marble.name=Smooth Marble
+
+tile.marble_chiseled.name=Marble Chiseled
+
+tile.marble_bricks.name=Marble Bricks
+
+tile.marble_cobblestone.name=Marble Cobblestone
+
+tile.raw_asphalt.name=Raw Asphalt
+
+tile.raw_limestone.name=Raw Limestone
+
+tile.smooth_limestone.name=Smooth Limestone
+
+tile.limestone_chiseled.name=Limestone Chiseled
+
+tile.limestone_bricks.name=Limestone Bricks
+
+tile.limestone_cobble.name=Limestone Cobble
+
+tile.raw_meteorite.name=Raw Meteorite
+
+tile.meteorite_bricks.name=Meteorite Bricks
+
+tile.smooth_meteorite.name=Smooth Meteorite
+
