@@ -1,0 +1,64 @@
+//Items
+
+//Blocks
+tile.yellow_brain_coarl.name=Yellow Brain Coarl 
+tile.yellow_dead_brain_coral.name=Yellow Dead Brain Coarl
+tile.yellow_coral.name=Yellow Coarl
+tile.yellow_coral_fan.name=Yellow Fan Coarl
+tile.yellow_dead_coral_fan.name=Dead Fan Coarl
+tile.yellow_pipe_coral.name=Yellow Pipe Coarl
+tile.yellow_dead_coral_plant.name=Dead Coarl Plant
+tile.yellow_pipe_coral.name=Yellow Pipe Coarl
+tile.yellow_sea_fan.name=Yellow Sea Fan
+tile.yellow_dead_sea_fan.name=Dead Sea Fan
+tile.pink_brain_coarl.name=pink Brain Coarl 
+tile.pink_dead_brain_coral.name=pink Dead Brain Coarl
+tile.pink_coral.name=pink Coarl
+tile.pink_coral_fan.name=pink Fan Coarl
+tile.pink_dead_coral_fan.name=Dead Fan Coarl
+tile.pink_pipe_coral.name=pink Pipe Coarl
+tile.pink_dead_coral_plant.name=Dead Coarl Plant
+tile.pink_pipe_coral.name=pink Pipe Coarl
+tile.pink_sea_fan.name=pink Sea Fan
+tile.pink_dead_sea_fan.name=Dead Sea Fan
+tile.purple_brain_coarl.name=purple Brain Coarl 
+tile.purple_dead_brain_coral.name=purple Dead Brain Coarl
+tile.purple_coral.name=purple Coarl
+tile.purple_coral_fan.name=purple Fan Coarl
+tile.purple_dead_coral_fan.name=Dead Fan Coarl
+tile.purple_pipe_coral.name=purple Pipe Coarl
+tile.purple_dead_coral_plant.name=Dead Coarl Plant
+tile.purple_pipe_coral.name=purple Pipe Coarl
+tile.purple_sea_fan.name=purple Sea Fan
+tile.purple_dead_sea_fan.name=Dead Sea Fan
+tile.blue_brain_coarl.name=blue Brain Coarl 
+tile.blue_dead_brain_coral.name=blue Dead Brain Coarl
+tile.blue_coral.name=blue Coarl
+tile.blue_coral_fan.name=blue Fan Coarl
+tile.blue_dead_coral_fan.name=Dead Fan Coarl
+tile.blue_pipe_coral.name=blue Pipe Coarl
+tile.blue_dead_coral_plant.name=Dead Coarl Plant
+tile.blue_pipe_coral.name=blue Pipe Coarl
+tile.blue_sea_fan.name=blue Sea Fan
+tile.blue_dead_sea_fan.name=Dead Sea Fan
+tile.red_brain_coarl.name=red Brain Coarl 
+tile.red_dead_brain_coral.name=red Dead Brain Coarl
+tile.red_coral.name=red Coarl
+tile.red_coral_fan.name=red Fan Coarl
+tile.red_dead_coral_fan.name=Dead Fan Coarl
+tile.red_pipe_coral.name=red Pipe Coarl
+tile.red_dead_coral_plant.name=Dead Coarl Plant
+tile.red_pipe_coral.name=red Pipe Coarl
+tile.red_sea_fan.name=red Sea Fan
+tile.red_dead_sea_fan.name=Dead Sea Fan
+tile.dried_kelp_block.name=Dried Kelp
+//Tools
+
+//Armors
+
+//Creative Tabs
+itemGroup.overworld_expansion=Overworld Expansion 
+itemGroup.nether_expansion=Nether Expansion 
+itemGroup.end_expansion=End Expansion
+itemGroup.weapons_expansion=Weapons Expansion
+//Entitys
