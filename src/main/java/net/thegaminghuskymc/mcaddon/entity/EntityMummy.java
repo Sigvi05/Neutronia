@@ -32,7 +32,6 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIMummyAttack;
-import net.thegaminghuskymc.mcaddon.init.MCAddonItems;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;

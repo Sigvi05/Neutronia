@@ -1,7 +1,5 @@
 package net.thegaminghuskymc.mcaddon.world.gen.generators;
 
-import java.util.Random;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
@@ -11,6 +9,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.thegaminghuskymc.mcaddon.util.interfaces.IStructure;
+
+import java.util.Random;
 
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 
