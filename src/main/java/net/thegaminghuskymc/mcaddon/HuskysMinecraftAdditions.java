@@ -1,22 +1,16 @@
 package net.thegaminghuskymc.mcaddon;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.thegaminghuskymc.mcaddon.init.BiomeInit;
 import net.thegaminghuskymc.mcaddon.init.MCAddonBlocks;
@@ -60,7 +54,7 @@ public class HuskysMinecraftAdditions {
             return ItemStack.EMPTY;
         }
     };
-
+//
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
@@ -68,15 +62,14 @@ public class HuskysMinecraftAdditions {
 
     @Mod.EventHandler
     public static void init(FMLInitializationEvent event) {
-        MinecraftForge.TERRAIN_GEN_BUS.register(new TerrainEventHandlers());
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
-        BiomeInit.registerBiomes();
+        MinecraftForge.TERRAIN_GEN_BUS.register(new TerrainEventHandlers());
         proxy.init(event);
     }
 
     @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent event) {
-        WorldType BASALT = new WorldTypeBasalt();
+//        BiomeInit.postInit();
         proxy.postInit(event);
     }
 

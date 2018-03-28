@@ -1,7 +1,6 @@
 package net.thegaminghuskymc.mcaddon.blocks.overworld;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModSlab;
 import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
 

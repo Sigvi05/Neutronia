@@ -15,7 +15,10 @@ public class TerrainEventHandlers {
         World world = event.getWorld();
         if(world.getBiome(event.getPos()) == BiomeInit.BASALT) {
             if (!world.isRemote) {
-                if(event.getType() != CUSTOM) event.setResult(Event.Result.DENY);
+                if(event.getType() != CUSTOM) {
+                    event.setResult(Event.Result.DENY);
+                    System.out.print("Denying vanilla worldgen for this biome");
+                }
             }
         }
     }
