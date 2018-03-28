@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -61,7 +62,7 @@ public class HuskysMinecraftAdditions {
     public static void init(FMLInitializationEvent event) {
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
         BiomeInit.registerBiomes();
-//        MinecraftForge.TERRAIN_GEN_BUS.register(new TerrainEventHandlers());
+        MinecraftForge.TERRAIN_GEN_BUS.register(new TerrainEventHandlers());
         proxy.init(event);
     }
 
