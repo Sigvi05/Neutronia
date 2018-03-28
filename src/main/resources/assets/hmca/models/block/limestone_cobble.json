@@ -1,7 +1,7 @@
 {
   "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "hmca:block/limestone_cobble",
+  "parent": "block/cube_all",
   "textures": {
-    "normal": "hmca:blocks/limestone_cobble"
+    "all": "hmca:blocks/limestone_cobble"
   }
 }

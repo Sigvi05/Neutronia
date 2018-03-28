@@ -11,10 +11,12 @@ import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 public class BiomeInit {
 
     public static final Biome BASALT = new BiomeBasalt();
+    public static final Biome RED_DESERT = new BiomeBasalt();
 
     public static void registerBiomes()
     {
-        initBiome(BASALT, "Basalt", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DEAD);
+        initBiome(BASALT, "basalt", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DEAD);
+        initBiome(RED_DESERT, "red_desert", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY);
     }
 
     private static Biome initBiome(Biome biome, String name, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types)

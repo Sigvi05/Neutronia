@@ -2,6 +2,6 @@
   "_comment": "Generated using Husky's JSON Generator v1.",
   "parent": "block/cube_all",
   "textures": {
-    "normal": "hmca:blocks/basalt_cobble"
+    "all": "hmca:blocks/basalt_cobble"
   }
 }
