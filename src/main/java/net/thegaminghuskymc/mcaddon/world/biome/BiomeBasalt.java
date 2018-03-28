@@ -22,11 +22,10 @@ import java.awt.*;
 import java.util.Objects;
 import java.util.Random;
 
-@Mod.EventBusSubscriber
 public class BiomeBasalt extends Biome  {
 
     public BiomeBasalt()  {
-        super(new BiomeProperties("Basalt").setBaseHeight(1.0F).setHeightVariation(0.3F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled().setWaterColor(Color.GREEN.getRGB()));
+        super(new BiomeProperties("Basalt").setBaseHeight(1.0F).setHeightVariation(0.3F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled().setWaterColor(Color.getHSBColor(120, 100, 100).getRGB()));
 
         topBlock = Objects.requireNonNull(Block.getBlockFromName("hmca:raw_basalt")).getDefaultState();
         fillerBlock = Objects.requireNonNull(Block.getBlockFromName("hmca:raw_basalt")).getDefaultState();
