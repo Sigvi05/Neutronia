@@ -32,15 +32,11 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIMummyAttack;
-import net.thegaminghuskymc.mcaddon.init.MCAddonItems;
-import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
 public class EntityMummy extends EntityMob {
-
-    private ResourceLocation loot_table = LootTableHandler.MUMMY;
 
     private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.<Integer>createKey(EntityMummy.class, DataSerializers.VARINT);
     public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.<Boolean>createKey(EntityMummy.class, DataSerializers.BOOLEAN);
@@ -190,7 +186,7 @@ public class EntityMummy extends EntityMob {
     @Nullable
     @Override
     protected ResourceLocation getLootTable() {
-        return loot_table;
+        return LootTableList.ENTITIES_ZOMBIE;
     }
 
     @Override
@@ -221,10 +217,6 @@ public class EntityMummy extends EntityMob {
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         this.setBreakDoorAItask(compound.getBoolean("CanBreakDoors"));
-    }
-
-    public void setLootTable(ResourceLocation table) {
-        this.loot_table = table;
     }
 
     @Override

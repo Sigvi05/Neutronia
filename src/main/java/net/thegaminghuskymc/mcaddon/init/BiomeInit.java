@@ -3,32 +3,34 @@ package net.thegaminghuskymc.mcaddon.init;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.thegaminghuskymc.mcaddon.world.biome.BiomeBasalt;
+
+import java.util.Objects;
 
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 
-public class BiomeInit {
+//@Mod.EventBusSubscriber(modid = MOD_ID)
+//@GameRegistry.ObjectHolder(MOD_ID)
+public class BiomeInit  {
 
-    public static final Biome BASALT = new BiomeBasalt();
-    public static final Biome RED_DESERT = new BiomeBasalt();
+    public static final Biome BASALT = null;
 
-    public static void registerBiomes()
+    @SubscribeEvent
+    public static void registerBiomes(RegistryEvent.Register<Biome> event)
     {
-        initBiome(BASALT, "basalt", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DEAD);
-        initBiome(RED_DESERT, "red_desert", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY);
+        event.getRegistry().register(new BiomeBasalt().setRegistryName(MOD_ID, "basalt"));
     }
 
-    private static Biome initBiome(Biome biome, String name, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types)
+    public static void postInit()
     {
-        biome.setRegistryName(MOD_ID, name);
-        ForgeRegistries.BIOMES.register(biome);
-        System.out.println(String.format("Biome: %s is now registered", name));
-        BiomeDictionary.addTypes(biome, types);
-        BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, 10));
-        BiomeManager.addSpawnBiome(biome);
-        System.out.println(String.format("Biome: %s is now added to the spawn biome's", name));
-        return biome;
-    }
+        BiomeDictionary.addTypes(Objects.requireNonNull(BASALT), BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.DRY);
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(BASALT, 1));
+        BiomeManager.addSpawnBiome(BASALT);
 
+        System.out.println("Basalt biome: " + BASALT);
+    }
 }
