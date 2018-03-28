@@ -29,7 +29,9 @@ public enum EnumNewStoneVariants implements IStringSerializable {
     LIMESTONE_COBBLE(21, MapColor.STONE, "limestone_cobble", "limestoneCobble", false),
     METEORITE(22, MapColor.STONE, "raw_meteorite", false),
     METEORITE_BRICKS(23, MapColor.STONE, "meteorite_bricks", "meteoriteBricks", false),
-    METEORITE_SMOOTH(24, MapColor.STONE, "smooth_meteorite", "meteoriteSmooth", false);
+    METEORITE_SMOOTH(24, MapColor.STONE, "smooth_meteorite", "meteoriteSmooth", false),
+    FIERY_STONE(25, MapColor.RED_STAINED_HARDENED_CLAY, "fiery_stone", "fieryStone", false),
+    FROSTY_STONE(25, MapColor.LIGHT_BLUE_STAINED_HARDENED_CLAY, "frosty_stone", "frostyStone", false);
 
     private static final EnumNewStoneVariants[] META_LOOKUP = new EnumNewStoneVariants[values().length];
 

@@ -2,6 +2,7 @@ package net.thegaminghuskymc.mcaddon.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemSlab;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -49,14 +50,18 @@ public class MCAddonBlocks {
     public static Block[] naturalAquamarineStairs = new Block[6];
     public static Block[] aquamarineStairs = new Block[6];
     public static Block[] naturalAquamarineSlabs = new Block[6];
+    public static Block[] naturalAquamarineSlabsVertical = new Block[6];
     public static Block[] aquamarineSlabs = new Block[6];
+    public static Block[] aquamarineSlabsVertical = new Block[6];
     public static Block[] naturalAquamarineSlabsDouble = new Block[6];
     public static Block[] aquamarineSlabsDouble = new Block[6];
+    public static Block[] aquamarineSlabsDoubleVertical = new Block[6];
 
-    public static Block[] newStoneVariants = new Block[25];
-    public static Block[] newStoneVariantStairs = new Block[25];
-    public static Block[] newStoneVariantSlabs = new Block[25];
-    public static Block[] newStoneVariantSlabsDouble = new Block[25];
+    public static Block[] newStoneVariants = new Block[27];
+    public static Block[] newStoneVariantStairs = new Block[27];
+    public static Block[] newStoneVariantSlabs = new Block[27];
+    public static Block[] newStoneVariantSlabsVertical = new Block[27];
+    public static Block[] newStoneVariantSlabsDouble = new Block[27];
 
     static {
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
@@ -95,8 +100,8 @@ public class MCAddonBlocks {
             BlockModSlab.initSlab(dead_brain_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModSlab) deadBrainCoralSlab[coralColor.getMetadata()], (BlockModSlab) deadBrainCoralSlabDouble[coralColor.getMetadata()]);
             BlockModSlab.initSlab(normal_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModSlab) coralSlab[coralColor.getMetadata()], (BlockModSlab) coralSlabDouble[coralColor.getMetadata()]);
             BlockModSlab.initSlab(dead_normal_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModSlab) deadCoralSlab[coralColor.getMetadata()], (BlockModSlab) deadCoralSlabDouble[coralColor.getMetadata()]);
-
         }
+
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
             naturalAquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName() + "_natural_aquamarine");
             aquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName() + "_aquamarine");
@@ -107,9 +112,12 @@ public class MCAddonBlocks {
             naturalAquamarineSlabs[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_natural_aquamarine_slab", false);
             naturalAquamarineSlabsDouble[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_natural_aquamarine_slab", true);
             BlockModSlab.initSlab(naturalAquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModSlab) naturalAquamarineSlabs[aquamarineVariants.ordinal()], (BlockModSlab) naturalAquamarineSlabsDouble[aquamarineVariants.ordinal()]);
-            naturalAquamarineSlabs[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_aquamarine_slab", false);
-            naturalAquamarineSlabsDouble[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_aquamarine_slab", true);
-//            BlockModSlab.initSlab(aquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModSlab) aquamarineSlabs[aquamarineVariants.ordinal()], (BlockModSlab) aquamarineSlabsDouble[aquamarineVariants.ordinal()]);
+            aquamarineSlabs[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_aquamarine_vertical_slab", false);
+            aquamarineSlabsVertical[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_aquamarine_slab", false);
+            aquamarineSlabsDouble[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_aquamarine_slab", true);
+            aquamarineSlabsDoubleVertical[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_aquamarine_vertical_slab", true);
+            BlockModSlab.initSlab(aquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModSlab) aquamarineSlabs[aquamarineVariants.ordinal()], (BlockModSlab) aquamarineSlabsDouble[aquamarineVariants.ordinal()]);
+            BlockModSlab.initSlab(aquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModSlab) aquamarineSlabsVertical[aquamarineVariants.ordinal()], (BlockModSlab) aquamarineSlabsDoubleVertical[aquamarineVariants.ordinal()]);
         }
         dried_kelp_block = new BlockOverworldBase(Material.LEAVES, "dried_kelp_block");
 

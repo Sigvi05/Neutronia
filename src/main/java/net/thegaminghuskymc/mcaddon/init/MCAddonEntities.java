@@ -33,7 +33,7 @@ public class MCAddonEntities {
     }
 
     private static void addSpawns() {
-        EntityRegistry.addSpawn(EntityMummy.class, 20, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
+        EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
     }
 
     private static int entityID = 0;
@@ -48,7 +48,7 @@ public class MCAddonEntities {
         return BiomeDictionary.getBiomes(type).toArray(new Biome[0]);
     }
 
-    //For use later...
+    //for use later...
     private static void copySpawns(final Class<? extends EntityLiving> classToAdd, final EnumCreatureType creatureTypeToAdd, final Class<? extends EntityLiving> classToCopy, final EnumCreatureType creatureTypeToCopy) {
         for (final Biome biome : ForgeRegistries.BIOMES) {
             biome.getSpawnableList(creatureTypeToCopy).stream()

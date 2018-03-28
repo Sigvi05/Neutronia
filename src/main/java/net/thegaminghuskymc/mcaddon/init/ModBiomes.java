@@ -14,12 +14,12 @@ import static net.minecraftforge.common.BiomeDictionary.Type.*;
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 
 @SuppressWarnings("WeakerAccess")
-@GameRegistry.ObjectHolder(MOD_ID)
+//@GameRegistry.ObjectHolder(MOD_ID)
 public class ModBiomes {
 
 	public static final BiomeBasalt DESERT_TEST = null;
 
-	@Mod.EventBusSubscriber(modid = MOD_ID)
+//	@Mod.EventBusSubscriber(modid = MOD_ID)
 	public static class RegistrationHandler {
 
 		/**

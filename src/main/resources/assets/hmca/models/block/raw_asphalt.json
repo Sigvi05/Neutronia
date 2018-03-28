@@ -1,7 +1,7 @@
 {
   "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "hmca:block/raw_asphalt",
+  "parent": "block/cube_all",
   "textures": {
-    "normal": "hmca:blocks/raw_asphalt"
+    "all": "hmca:blocks/ash_block"
   }
 }
