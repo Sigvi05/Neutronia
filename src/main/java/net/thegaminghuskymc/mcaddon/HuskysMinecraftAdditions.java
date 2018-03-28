@@ -55,20 +55,19 @@ public class HuskysMinecraftAdditions {
         }
     };
 
-    @SubscribeEvent
+    @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
-
-        BiomeInit.registerBiomes();
         proxy.preInit(event);
     }
 
-    @SubscribeEvent
+    @Mod.EventHandler
     public static void init(FMLInitializationEvent event) {
+        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+        BiomeInit.registerBiomes();
         proxy.init(event);
     }
 
-    @SubscribeEvent
+    @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent event) {
         WorldType BASALT = new WorldTypeBasalt();
         proxy.postInit(event);

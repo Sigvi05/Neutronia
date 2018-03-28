@@ -43,5 +43,11 @@ public class WorldGenStructure extends WorldGenerator implements IStructure
 			world.notifyBlockUpdate(pos, state, state, 3);
 			template.addBlocksToWorldChunk(world, pos, settings);
 		}
+
+        if(template == null)
+        {
+            System.out.println("NO STRUCTURE");
+        }
+
 	}
 }
