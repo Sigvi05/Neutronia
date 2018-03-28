@@ -154,3 +154,5 @@ itemGroup.nether_expansion=Nether Expansion
 itemGroup.end_expansion=End Expansion
 itemGroup.weapons_expansion=Weapons Expansion
 //Entitys
+entity.hmca:mummy.name=Mummy
+entity.hmca:mummy_villager.name=Mummy Villager

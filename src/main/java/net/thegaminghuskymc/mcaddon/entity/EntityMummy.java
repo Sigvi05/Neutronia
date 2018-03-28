@@ -37,9 +37,6 @@ import net.thegaminghuskymc.mcaddon.init.MCAddonItems;
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
-/**
- * TODO: Fix Texture and Model
- */
 public class EntityMummy extends EntityMob {
 
     private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.<Integer>createKey(EntityMummy.class, DataSerializers.VARINT);
@@ -156,17 +153,17 @@ public class EntityMummy extends EntityMob {
      */
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return SoundEvents.ENTITY_BAT_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return super.getHurtSound(damageSourceIn);
+        return SoundEvents.BLOCK_ANVIL_USE;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return super.getDeathSound();
+        return SoundEvents.ENTITY_DONKEY_DEATH;
     }
 
     protected SoundEvent getStepSound()
@@ -200,11 +197,10 @@ public class EntityMummy extends EntityMob {
         if (this.rand.nextFloat() < (this.world.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F)) {
             int i = this.rand.nextInt(3);
 
-            /*if (i == 0)
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(MCAddonItems.sword));
+            if (i == 0)
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(MCAddonItems.ANCIENT_SWORD));
             else
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));*/
-            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
         }
     }
 
@@ -233,19 +229,19 @@ public class EntityMummy extends EntityMob {
                 return;
 
             EntityVillager entityVillager = (EntityVillager) entityLivingIn;
-            EntityMummyVillager entitymummyVillager = new EntityMummyVillager(this.world);
-            entitymummyVillager.copyLocationAndAnglesFrom(entityVillager);
+            EntityMummyVillager entityMummyVillager = new EntityMummyVillager(this.world);
+            entityMummyVillager.copyLocationAndAnglesFrom(entityVillager);
             this.world.removeEntity(entityVillager);
-            entitymummyVillager.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entitymummyVillager)), null);
-            entitymummyVillager.setProfession(entityVillager.getProfession());
-            entitymummyVillager.setNoAI(entityVillager.isAIDisabled());
+            entityMummyVillager.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entityMummyVillager)), null);
+            entityMummyVillager.setProfession(entityVillager.getProfession());
+            entityMummyVillager.setNoAI(entityVillager.isAIDisabled());
 
             if (entityVillager.hasCustomName()) {
-                entitymummyVillager.setCustomNameTag(entityVillager.getCustomNameTag());
-                entitymummyVillager.setAlwaysRenderNameTag(entityVillager.getAlwaysRenderNameTag());
+                entityMummyVillager.setCustomNameTag(entityVillager.getCustomNameTag());
+                entityMummyVillager.setAlwaysRenderNameTag(entityVillager.getAlwaysRenderNameTag());
             }
 
-            this.world.spawnEntity(entitymummyVillager);
+            this.world.spawnEntity(entityMummyVillager);
             this.world.playEvent((EntityPlayer)null, 1026, new BlockPos(this), 0);
         }
     }
@@ -255,10 +251,10 @@ public class EntityMummy extends EntityMob {
         return 1.74F;
     }
 
-    /*@Override
+    @Override
     protected boolean canEquipItem(ItemStack stack) {
-        return stack.getItem() == MCAddonItems.sword;
-    }*/
+        return stack.getItem() == MCAddonItems.ANCIENT_SWORD;
+    }
 
     @Override
     public boolean getCanSpawnHere() {

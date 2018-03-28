@@ -28,6 +28,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -269,7 +270,7 @@ public class EntityMummyVillager extends EntityMummy {
     @Nullable
     protected ResourceLocation getLootTable()
     {
-        return LootTableList.ENTITIES_ZOMBIE_VILLAGER;
+        return LootTableHandler.MUMMY_VILLAGER;
     }
 
     protected ItemStack getSkullDrop()

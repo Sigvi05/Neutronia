@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.registry.*;
 import net.thegaminghuskymc.mcaddon.Reference;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummy;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
+import net.thegaminghuskymc.mcaddon.util.handlers.RenderHandler;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class MCAddonEntities {
@@ -24,6 +25,7 @@ public class MCAddonEntities {
             createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build()
         };
         event.getRegistry().registerAll(entries);
+        RenderHandler.registerEntityRenders();
         addSpawns();
     }
 
