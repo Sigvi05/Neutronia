@@ -1,7 +1,6 @@
 package net.thegaminghuskymc.mcaddon.properties;
 
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

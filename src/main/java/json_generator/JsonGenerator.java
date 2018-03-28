@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
-import net.minecraft.crash.CrashReport;
 import net.thegaminghuskymc.mcaddon.properties.EnumAquamarineVariants;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 import net.thegaminghuskymc.mcaddon.properties.EnumNewStoneVariants;
@@ -14,12 +13,10 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.Locale;
 
 public class JsonGenerator {
 

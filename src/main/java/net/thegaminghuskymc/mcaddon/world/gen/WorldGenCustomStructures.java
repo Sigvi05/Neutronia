@@ -1,23 +1,18 @@
 package net.thegaminghuskymc.mcaddon.world.gen;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockVine;
-import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeDesert;
+import net.minecraft.world.biome.BiomeJungle;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.thegaminghuskymc.mcaddon.world.gen.generators.WorldGenStructure;
 import net.thegaminghuskymc.mcaddon.world.utils.WorldGenerationTools;
 
@@ -58,15 +53,15 @@ public class WorldGenCustomStructures implements IWorldGenerator  {
 //            generateStructure(LIVING_CORAL_REEF, world, random, chunkX, chunkZ, 100, Blocks.GRAVEL, BiomeOcean.class);
 //            generateStructure(DEAD_CORAL_REEF, world, random, chunkX, chunkZ, 200, Blocks.GRAVEL, BiomeOcean.class);
 
-            generateStructure(DESERT_HOUSE_1, world, random, chunkX, chunkZ, 20, Blocks.SAND, BiomeDesert.class);
-            generateStructure(DESERT_HOUSE_2, world, random, chunkX, chunkZ, 20, Blocks.SAND, BiomeDesert.class);
-            generateStructure(JUNGLE_VILLAGER_TOTEM, world, random, chunkX, chunkZ, 30, Blocks.GRASS, BiomeJungle.class);
+//            generateStructure(DESERT_HOUSE_1, world, random, chunkX, chunkZ, 20, Blocks.SAND, BiomeDesert.class);
+//            generateStructure(DESERT_HOUSE_2, world, random, chunkX, chunkZ, 20, Blocks.SAND, BiomeDesert.class);
+//            generateStructure(JUNGLE_VILLAGER_TOTEM, world, random, chunkX, chunkZ, 30, Blocks.GRASS, BiomeJungle.class);
 
-            generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-            generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-            generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-            generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-            generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
+//            generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
+//            generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
+//            generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
+//            generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
+//            generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
 			
 			break;
 			
