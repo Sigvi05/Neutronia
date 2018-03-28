@@ -14,11 +14,9 @@ import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 public class MCAddonItems {
 
     public static final Item test;
-    public static final Item sword;
 
     static {
         test = new ItemTest();
-        sword = new ItemAncientSword();
     }
 
     @SubscribeEvent
