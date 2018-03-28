@@ -13,9 +13,13 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.thegaminghuskymc.mcaddon.world.biome.BiomeBasalt;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.Event;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.thegaminghuskymc.mcaddon.world.gen.generators.WorldGenStructure;
+import net.thegaminghuskymc.mcaddon.world.utils.WorldGenerationTools;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -88,6 +92,7 @@ public class WorldGenCustomStructures implements IWorldGenerator  {
 			{
 				if(random.nextInt(chance) == 0)
 				{
+                    WorldGenerationTools.findSuitableEmptySpot(world, x, z);
 					generator.generate(world, random, pos);
 				}
 			}

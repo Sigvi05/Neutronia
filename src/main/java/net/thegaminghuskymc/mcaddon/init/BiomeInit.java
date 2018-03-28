@@ -1,8 +1,11 @@
 package net.thegaminghuskymc.mcaddon.init;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.thegaminghuskymc.mcaddon.world.biome.BiomeBasalt;
 
@@ -17,9 +20,10 @@ public class BiomeInit
 	
 	private static Biome initBiome(Biome biome, String name, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types)
 	{
+
 		biome.setRegistryName(name);
 		ForgeRegistries.BIOMES.register(biome);
-		System.out.println("Biome Registered");
+		System.out.println(String.format("%s Registered", name));
 		BiomeDictionary.addTypes(biome, types);
 		BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, 10));
 		BiomeManager.addSpawnBiome(biome);
