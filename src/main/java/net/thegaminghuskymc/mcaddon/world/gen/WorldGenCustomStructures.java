@@ -1,6 +1,7 @@
 package net.thegaminghuskymc.mcaddon.world.gen;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -57,11 +58,11 @@ public class WorldGenCustomStructures implements IWorldGenerator  {
 //            generateStructure(DESERT_HOUSE_2, world, random, chunkX, chunkZ, 20, Blocks.SAND, BiomeDesert.class);
 //            generateStructure(JUNGLE_VILLAGER_TOTEM, world, random, chunkX, chunkZ, 30, Blocks.GRASS, BiomeJungle.class);
 
-//            generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-//            generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-//            generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-//            generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
-//            generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biome.getBiome(24).getBiomeClass());
+            generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biomes.DEEP_OCEAN.getBiomeClass());
+            generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biomes.DEEP_OCEAN.getBiomeClass());
+            generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biomes.DEEP_OCEAN.getBiomeClass());
+            generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biomes.DEEP_OCEAN.getBiomeClass());
+            generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Biomes.DEEP_OCEAN.getBiomeClass());
 			
 			break;
 			
@@ -87,7 +88,6 @@ public class WorldGenCustomStructures implements IWorldGenerator  {
 			{
 				if(random.nextInt(chance) == 0)
 				{
-                    WorldGenerationTools.findSuitableEmptySpot(world, x, z);
 					generator.generate(world, random, pos);
 				}
 			}
