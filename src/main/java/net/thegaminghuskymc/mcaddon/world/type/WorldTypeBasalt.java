@@ -16,7 +16,11 @@ public class WorldTypeBasalt extends WorldType {
 	@Override
 	public BiomeProvider getBiomeProvider(World world)
 	{
-		return new BiomeProviderSingle(BiomeInit.BASALT);
+		if(world.provider.getDimension() == 1) {
+            return new BiomeProviderSingle(BiomeInit.BASALT);
+        } else {
+		    return null;
+        }
 	}
 
 }

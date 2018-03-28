@@ -50,7 +50,7 @@ public class WorldGenCustomStructures implements IWorldGenerator  {
 			
 		case 0:
 			
-			generateStructure(VOLCANO, world, random, chunkX, chunkZ, 20, Block.getBlockFromName("hmca:raw_basalt"), BiomeBasalt.class);
+//			generateStructure(VOLCANO, world, random, chunkX, chunkZ, 20, Block.getBlockFromName("hmca:raw_basalt"), BiomeBasalt.class);
 //            generateStructure(LIVING_CORAL_REEF, world, random, chunkX, chunkZ, 100, Blocks.GRAVEL, BiomeOcean.class);
 //            generateStructure(DEAD_CORAL_REEF, world, random, chunkX, chunkZ, 200, Blocks.GRAVEL, BiomeOcean.class);
 

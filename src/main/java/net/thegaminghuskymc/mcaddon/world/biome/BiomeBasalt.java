@@ -6,13 +6,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 
+import java.awt.*;
 import java.util.Objects;
 import java.util.Random;
 
 public class BiomeBasalt extends Biome  {
 
     public BiomeBasalt()  {
-        super(new BiomeProperties("Basalt").setBaseHeight(0.3F).setHeightVariation(1.0F).setRainDisabled().setTemperature(1.0F).setWaterColor(0xFFFFFF));
+        super(new BiomeProperties("Basalt").setBaseHeight(1.0F).setHeightVariation(0.3F).setRainDisabled().setTemperature(1.0F).setWaterColor(Color.RED.getRGB()));
         this.decorator.treesPerChunk = -999;
 
 

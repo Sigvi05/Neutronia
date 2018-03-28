@@ -12,7 +12,7 @@ public class BiomeInit
 	
 	public static void registerBiomes()
 	{
-		initBiome(BASALT, "Basalt", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY);
+		initBiome(BASALT, "Basalt", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.DRY);
 	}
 	
 	private static Biome initBiome(Biome biome, String name, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types)
