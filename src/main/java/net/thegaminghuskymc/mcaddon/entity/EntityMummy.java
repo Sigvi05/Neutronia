@@ -200,10 +200,11 @@ public class EntityMummy extends EntityMob {
         if (this.rand.nextFloat() < (this.world.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F)) {
             int i = this.rand.nextInt(3);
 
-            if (i == 0)
+            /*if (i == 0)
                 this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(MCAddonItems.sword));
             else
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));*/
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
         }
     }
 
@@ -254,10 +255,10 @@ public class EntityMummy extends EntityMob {
         return 1.74F;
     }
 
-    @Override
+    /*@Override
     protected boolean canEquipItem(ItemStack stack) {
         return stack.getItem() == MCAddonItems.sword;
-    }
+    }*/
 
     @Override
     public boolean getCanSpawnHere() {

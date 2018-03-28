@@ -4,14 +4,19 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.WorldType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.thegaminghuskymc.mcaddon.init.BiomeInit;
 import net.thegaminghuskymc.mcaddon.init.MCAddonBlocks;
 import net.thegaminghuskymc.mcaddon.proxy.CommonProxy;
+import net.thegaminghuskymc.mcaddon.world.gen.WorldGenCustomStructures;
+import net.thegaminghuskymc.mcaddon.world.type.WorldTypeBasalt;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
 public class HuskysMinecraftAdditions {
@@ -52,6 +57,9 @@ public class HuskysMinecraftAdditions {
 
     @SubscribeEvent
     public static void preInit(FMLPreInitializationEvent event) {
+        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+
+        BiomeInit.registerBiomes();
         proxy.preInit(event);
     }
 
@@ -62,6 +70,7 @@ public class HuskysMinecraftAdditions {
 
     @SubscribeEvent
     public static void postInit(FMLPostInitializationEvent event) {
+        WorldType BASALT = new WorldTypeBasalt();
         proxy.postInit(event);
     }
 
