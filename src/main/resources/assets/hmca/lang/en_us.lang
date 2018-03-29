@@ -156,3 +156,4 @@ itemGroup.weapons_expansion=Weapons Expansion
 //Entitys
 entity.hmca:mummy.name=Mummy
 entity.hmca:mummy_villager.name=Mummy Villager
+entity.hmca:scorpion.name=Scorpion
