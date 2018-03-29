@@ -7,6 +7,9 @@ import net.thegaminghuskymc.mcaddon.Reference;
 import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
 import net.thegaminghuskymc.mcaddon.entity.render.model.ModelScorp;
 
+/*
+ *TODO:Add Custom Model and Textures
+ */
 public class RenderScorp extends RenderLiving<EntityScorp>
 {
     public static final ResourceLocation SCORP_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/scorp.png");
