@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.thegaminghuskymc.mcaddon.Reference;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummy;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
+import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
 import net.thegaminghuskymc.mcaddon.util.handlers.RenderHandler;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
@@ -25,7 +26,8 @@ public class MCAddonEntities {
     public static void RegisterEntitys(RegistryEvent.Register<EntityEntry> event) {
         final EntityEntry[] entries = {
             createBuilder("mummy").entity(EntityMummy.class).tracker(80, 3, true).egg(0xC9CE92, 0x444444).build(),
-            createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build()
+            createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
+            createBuilder("Scorpion").entity(EntityScorp.class).tracker(30,3,true).egg(65401,6201209).build()
         };
         event.getRegistry().registerAll(entries);
         RenderHandler.registerEntityRenders();
@@ -34,6 +36,7 @@ public class MCAddonEntities {
 
     private static void addSpawns() {
         EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
+        EntityRegistry.addSpawn(EntityScorp.class, 9,2,8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
     }
 
     private static int entityID = 0;

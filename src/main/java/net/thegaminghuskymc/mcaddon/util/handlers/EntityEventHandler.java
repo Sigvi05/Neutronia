@@ -35,13 +35,13 @@ public class EntityEventHandler {
                 if (entityMob instanceof EntitySpider || entityMob instanceof EntityMummy)
                     return;
 
-            EntityMummy mummy = new EntityMummy(world);
-            if (mummy.isAIDisabled())
-                mummy.setNoAI(false);
-            mummy.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, mummy.rotationYaw, mummy.cameraPitch);
-            mummy.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(mummy)), null);
-            mummy.setLootTable(LootTableHandler.MUMMY);
-            world.spawnEntity(mummy);
+                EntityMummy mummy = new EntityMummy(world);
+                if (mummy.isAIDisabled())
+                    mummy.setNoAI(false);
+                mummy.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, mummy.rotationYaw, mummy.cameraPitch);
+                mummy.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(mummy)), null);
+                mummy.setLootTable(LootTableHandler.MUMMY);
+                world.spawnEntity(mummy);
             }
         }
     }

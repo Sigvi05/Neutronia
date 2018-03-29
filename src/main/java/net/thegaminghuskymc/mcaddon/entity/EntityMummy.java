@@ -32,11 +32,15 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIMummyAttack;
+import net.thegaminghuskymc.mcaddon.init.MCAddonItems;
+import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
 public class EntityMummy extends EntityMob {
+
+    private ResourceLocation loot_table = LootTableHandler.MUMMY;
 
     private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.<Integer>createKey(EntityMummy.class, DataSerializers.VARINT);
     public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.<Boolean>createKey(EntityMummy.class, DataSerializers.BOOLEAN);
@@ -186,7 +190,7 @@ public class EntityMummy extends EntityMob {
     @Nullable
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTableList.ENTITIES_ZOMBIE;
+        return loot_table;
     }
 
     @Override
@@ -217,6 +221,10 @@ public class EntityMummy extends EntityMob {
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         this.setBreakDoorAItask(compound.getBoolean("CanBreakDoors"));
+    }
+
+    public void setLootTable(ResourceLocation table) {
+        this.loot_table = table;
     }
 
     @Override
@@ -263,36 +271,36 @@ public class EntityMummy extends EntityMob {
     @Nullable
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-       if (!getCanSpawnHere())
-           despawnEntity();
-       else {
-           livingdata = super.onInitialSpawn(difficulty, livingdata);
-           float f = difficulty.getClampedAdditionalDifficulty();
-           this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
-           this.setBreakDoorAItask(this.rand.nextFloat() < f * 0.1F);
-           this.setEquipmentBasedOnDifficulty(difficulty);
-           this.setEnchantmentBasedOnDifficulty(difficulty);
+        if (!getCanSpawnHere())
+            despawnEntity();
+        else {
+            livingdata = super.onInitialSpawn(difficulty, livingdata);
+            float f = difficulty.getClampedAdditionalDifficulty();
+            this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
+            this.setBreakDoorAItask(this.rand.nextFloat() < f * 0.1F);
+            this.setEquipmentBasedOnDifficulty(difficulty);
+            this.setEnchantmentBasedOnDifficulty(difficulty);
 
-           if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
-               Calendar calendar = this.world.getCurrentDate();
-               if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31 && this.rand.nextFloat() < 0.25F) {
-                   this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(this.rand.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN));
-                   this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
-               }
-           }
+            if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
+                Calendar calendar = this.world.getCurrentDate();
+                if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31 && this.rand.nextFloat() < 0.25F) {
+                    this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(this.rand.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN));
+                    this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
+                }
+            }
 
-           this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Spawn Bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
-           double d0 = this.rand.nextDouble() * 1.5D * (double) f;
+            this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Spawn Bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
+            double d0 = this.rand.nextDouble() * 1.5D * (double) f;
 
-           if (d0 > 1.0D)
-               this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random mummy-spawn bonus", d0, 2));
+            if (d0 > 1.0D)
+                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random mummy-spawn bonus", d0, 2));
 
-           if (this.rand.nextFloat() < f * 0.0F && this.world.getDifficulty() == EnumDifficulty.HARD) {
-               this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader mummy bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
-               this.setBreakDoorAItask(true);
-           }
-       }
-       return livingdata;
+            if (this.rand.nextFloat() < f * 0.0F && this.world.getDifficulty() == EnumDifficulty.HARD) {
+                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader mummy bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
+                this.setBreakDoorAItask(true);
+            }
+        }
+        return livingdata;
     }
 
     public double getYOffset() {

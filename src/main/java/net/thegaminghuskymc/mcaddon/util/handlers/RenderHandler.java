@@ -6,8 +6,10 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummy;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
+import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
 import net.thegaminghuskymc.mcaddon.entity.render.RenderMummy;
 import net.thegaminghuskymc.mcaddon.entity.render.RenderMummyVillager;
+import net.thegaminghuskymc.mcaddon.entity.render.RenderScorp;
 
 public class RenderHandler {
 
@@ -23,6 +25,15 @@ public class RenderHandler {
             @Override
             public Render<? super EntityMummyVillager> createRenderFor(RenderManager manager) {
                 return new RenderMummyVillager(manager);
+            }
+        });
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityScorp.class, new IRenderFactory<EntityScorp>()
+        {
+            @Override
+            public Render<? super EntityScorp> createRenderFor(RenderManager manager)
+            {
+                return new RenderScorp(manager);
             }
         });
     }
