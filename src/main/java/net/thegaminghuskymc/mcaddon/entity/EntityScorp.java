@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
@@ -32,7 +33,7 @@ import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
  *TODO:Optimize Mob, Add Custom Sounds, Add Animations
  */
 
-public class EntityScorp extends EntityMob
+public class EntityScorp extends EntitySpider
 {
     private ResourceLocation loot_table = LootTableHandler.SCORP;
 
