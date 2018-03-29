@@ -6,6 +6,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
@@ -33,17 +34,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIMummyAttack;
 import net.thegaminghuskymc.mcaddon.init.MCAddonItems;
-import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
 public class EntityMummy extends EntityMob {
 
-    private ResourceLocation loot_table = LootTableHandler.MUMMY;
-
-    private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.<Integer>createKey(EntityMummy.class, DataSerializers.VARINT);
-    public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.<Boolean>createKey(EntityMummy.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.createKey(EntityMummy.class, DataSerializers.VARINT);
+    public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityMummy.class, DataSerializers.BOOLEAN);
 
     private final EntityAIBreakDoor breakDoor = new EntityAIBreakDoor(this);
     private boolean isBreakDoorsTaskSet;
@@ -95,7 +93,7 @@ public class EntityMummy extends EntityMob {
 
     @SideOnly(Side.CLIENT)
     public boolean isArmsRaised() {
-        return ((Boolean)this.getDataManager().get(ARMS_RAISED)).booleanValue();
+        return this.getDataManager().get(ARMS_RAISED).booleanValue();
     }
 
     public boolean isBreakDoorsTaskSet() {
@@ -131,11 +129,7 @@ public class EntityMummy extends EntityMob {
 
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
-        if (super.attackEntityFrom(source, amount)) {
-            return true;
-        }
-        else
-            return false;
+        return super.attackEntityFrom(source, amount);
     }
 
     @Override
@@ -190,7 +184,7 @@ public class EntityMummy extends EntityMob {
     @Nullable
     @Override
     protected ResourceLocation getLootTable() {
-        return loot_table;
+        return LootTableList.ENTITIES_ZOMBIE;
     }
 
     @Override
@@ -223,10 +217,6 @@ public class EntityMummy extends EntityMob {
         this.setBreakDoorAItask(compound.getBoolean("CanBreakDoors"));
     }
 
-    public void setLootTable(ResourceLocation table) {
-        this.loot_table = table;
-    }
-
     @Override
     public void onKillEntity(EntityLivingBase entityLivingIn) {
         super.onKillEntity(entityLivingIn);
@@ -249,7 +239,7 @@ public class EntityMummy extends EntityMob {
             }
 
             this.world.spawnEntity(entityMummyVillager);
-            this.world.playEvent((EntityPlayer)null, 1026, new BlockPos(this), 0);
+            this.world.playEvent(null, 1026, new BlockPos(this), 0);
         }
     }
 

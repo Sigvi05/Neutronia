@@ -1,9 +1,7 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "block/orientable",
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "parent": "hmca:block/coral_fan",
   "textures": {
-    "top": "hmca:blocks/pink_dead_coral_fan",
-    "front": "hmca:blocks/pink_dead_coral_fan",
-    "side": "hmca:blocks/pink_dead_coral_fan"
+    "fan": "hmca:blocks/pink_dead_coral_fan"
   }
 }

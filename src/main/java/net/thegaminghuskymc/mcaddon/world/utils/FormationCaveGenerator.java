@@ -54,14 +54,14 @@ public class FormationCaveGenerator implements IWorldGenerator {
 		Vec3d expansion = new Vec3d(expandX, expandY, expandZ).normalize();
 		Vec3d curvature = new Vec3d(curveX, curveY, curveZ);
 
-		int color1 = rand.nextInt(17);
+		int color1 = rand.nextInt(5);
 		int color2;
 		do {
-			color2 = rand.nextInt(17);
+			color2 = rand.nextInt(5);
 		} while(color2 == color1);
 
-		IBlockState crystal1 = MCAddonBlocks.newStoneVariants[color1].getDefaultState();
-		IBlockState crystal2 = MCAddonBlocks.newStoneVariants[color2].getDefaultState();
+		IBlockState crystal1 = MCAddonBlocks.brain_coral[color1].getDefaultState();
+		IBlockState crystal2 = MCAddonBlocks.brain_coral[color2].getDefaultState();
 
 		int length = 12 + rand.nextInt(10);
 		int size = 4 + rand.nextInt(3);

@@ -1,7 +1,7 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v1.",
+  "_comment": "Generated using Husky's JSON Generator v2.",
   "parent": "hmca:block/coral_fan",
   "textures": {
-    "fan": "hmca:blocks/blue_coral_fan_dead"
+    "fan": "hmca:blocks/blue_dead_coral_fan"
   }
 }
