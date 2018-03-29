@@ -28,6 +28,10 @@ import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpAttack;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpTarget;
 import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
+/*
+ *TODO:Optimize Mob, Add Custom Sounds, Add Animations
+ */
+
 public class EntityScorp extends EntityMob
 {
     private ResourceLocation loot_table = LootTableHandler.SCORP;
