@@ -23,16 +23,16 @@ public class JsonGenerator {
     public static void main(String[] args) {
 
         for (EnumCoralColor type : EnumCoralColor.values()) {
-
+            genFenceBlock("hmca", type.getName() + "_brain_coral_fence", type.getName() + "_brain_coral");
         }
 
-        for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
+        /*for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
 
         }
 
         for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
 
-        }
+        }*/
 
         genBlock("test", "test", "test");
 

@@ -10,9 +10,9 @@ import java.awt.*;
 import java.util.Objects;
 import java.util.Random;
 
-public class BiomeBasalt extends Biome  {
+public class BiomeBasaltOverworld extends Biome {
 
-    public BiomeBasalt()  {
+    public BiomeBasaltOverworld() {
         super(new BiomeProperties("Basalt").setBaseHeight(1.0F).setHeightVariation(0.3F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled().setWaterColor(Color.GREEN.getRGB()));
 
         topBlock = Objects.requireNonNull(Block.getBlockFromName("hmca:raw_basalt")).getDefaultState();

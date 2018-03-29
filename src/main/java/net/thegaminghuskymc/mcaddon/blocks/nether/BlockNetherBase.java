@@ -10,7 +10,7 @@ public class BlockNetherBase extends BlockMod {
 
     public BlockNetherBase(Material material, String name) {
         super(material, MOD_ID, name);
-        setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
     }
 
 }

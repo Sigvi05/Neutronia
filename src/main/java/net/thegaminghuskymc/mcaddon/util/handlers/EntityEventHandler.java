@@ -40,7 +40,7 @@ public class EntityEventHandler {
                 mummy.setNoAI(false);
             mummy.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, mummy.rotationYaw, mummy.cameraPitch);
             mummy.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(mummy)), null);
-            mummy.setLootTable(LootTableHandler.MUMMY);
+//            mummy.setLootTable(LootTableHandler.MUMMY);
             world.spawnEntity(mummy);
             }
         }

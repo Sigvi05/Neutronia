@@ -10,7 +10,7 @@ public class BlockNetherStairBase extends BlockModStairs {
 
     public BlockNetherStairBase(String name, IBlockState state) {
         super(name, state);
-        setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
     }
 
     @Override

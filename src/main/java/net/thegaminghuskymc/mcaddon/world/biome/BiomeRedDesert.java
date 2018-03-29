@@ -5,6 +5,7 @@ import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityRabbit;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -16,8 +17,8 @@ import java.util.Random;
 
 public class BiomeRedDesert extends Biome {
 
-    public BiomeRedDesert()  {
-        super((new Biome.BiomeProperties("Desert")).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
+    public BiomeRedDesert() {
+        super((new Biome.BiomeProperties("red_desert")).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled().setBaseBiome(Biomes.DESERT.getBiomeName()));
         this.spawnableCreatureList.clear();
         this.topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
         this.fillerBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
@@ -35,22 +36,18 @@ public class BiomeRedDesert extends Biome {
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityHusk.class, 80, 4, 4));
     }
 
-    public void decorate(World worldIn, Random rand, BlockPos pos)
-    {
+    public void decorate(World worldIn, Random rand, BlockPos pos) {
         super.decorate(worldIn, rand, pos);
-
-        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.DESERT_WELL))
-            if (rand.nextInt(1000) == 0)
-            {
+        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.DESERT_WELL))
+            if (rand.nextInt(1000) == 0) {
                 int i = rand.nextInt(16) + 8;
                 int j = rand.nextInt(16) + 8;
                 BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
                 (new WorldGenDesertWells()).generate(worldIn, rand, blockpos);
             }
 
-        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
-            if (rand.nextInt(64) == 0)
-            {
+        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
+            if (rand.nextInt(64) == 0) {
                 (new WorldGenFossils()).generate(worldIn, rand, pos);
             }
     }

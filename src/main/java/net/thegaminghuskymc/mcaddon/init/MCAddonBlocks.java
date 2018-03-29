@@ -8,9 +8,15 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModSlab;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModStairs;
+import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.blocks.base.BlockModFence;
+import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherBase;
+import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherSlabBase;
+import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherStairBase;
 import net.thegaminghuskymc.mcaddon.blocks.overworld.*;
 import net.thegaminghuskymc.mcaddon.properties.EnumAquamarineVariants;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
+import net.thegaminghuskymc.mcaddon.properties.EnumNetherBlocks;
 import net.thegaminghuskymc.mcaddon.properties.EnumNewStoneVariants;
 
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
@@ -29,11 +35,14 @@ public class MCAddonBlocks {
     public static Block[] sea_fan = new Block[5];
     public static Block[] dead_sea_fan = new Block[5];
     public static final Block dried_kelp_block;
+    public static final Block blackSand;
 
     public static Block[] brainCoralStair = new Block[5];
     public static Block[] deadBrainCoralStair = new Block[5];
     public static Block[] coralStair = new Block[5];
     public static Block[] deadCoralStair = new Block[5];
+
+    public static Block[] brainCoralFence = new Block[5];
 
     public static Block[] brainCoralSlab = new Block[5];
     public static Block[] deadBrainCoralSlab = new Block[5];
@@ -57,11 +66,19 @@ public class MCAddonBlocks {
     public static Block[] aquamarineSlabsDouble = new Block[6];
     public static Block[] aquamarineSlabsDoubleVertical = new Block[6];
 
-    public static Block[] newStoneVariants = new Block[27];
-    public static Block[] newStoneVariantStairs = new Block[27];
-    public static Block[] newStoneVariantSlabs = new Block[27];
-    public static Block[] newStoneVariantSlabsVertical = new Block[27];
-    public static Block[] newStoneVariantSlabsDouble = new Block[27];
+    public static Block[] newStoneVariants = new Block[26];
+    public static Block[] newStoneVariantStairs = new Block[26];
+    public static Block[] newStoneVariantSlabs = new Block[26];
+    public static Block[] newStoneVariantSlabsVertical = new Block[26];
+    public static Block[] newStoneVariantSlabsDouble = new Block[26];
+
+    public static Block[] netherBlocks = new Block[6];
+    public static Block[] netherBlocksStairs = new Block[6];
+    public static Block[] netherBlocksSlabs = new Block[6];
+    public static Block[] netherBlocksSlabsVertical = new Block[6];
+    public static Block[] netherBlocksSlabsDouble = new Block[6];
+    public static Block[] netherBlocksFences = new Block[6];
+    public static Block[] netherBlocksFenceGates = new Block[6];
 
     static {
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
@@ -75,6 +92,8 @@ public class MCAddonBlocks {
             dead_pipe_coral[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_coral_plant");
             sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "sea_fan");
             dead_sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_sea_fan");
+
+            brainCoralFence[coralColor.getMetadata()] = new BlockModFence(Material.CORAL, MOD_ID, coralColor.getName() + "_brain_coral_fence").setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
 
             brainCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_brain_coral_stairs", brain_coral[coralColor.getMetadata()].getDefaultState());
             deadBrainCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_dead_brain_coral_stairs", dead_brain_coral[coralColor.getMetadata()].getDefaultState());
@@ -120,6 +139,17 @@ public class MCAddonBlocks {
             BlockModSlab.initSlab(aquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModSlab) aquamarineSlabsVertical[aquamarineVariants.ordinal()], (BlockModSlab) aquamarineSlabsDoubleVertical[aquamarineVariants.ordinal()]);
         }
         dried_kelp_block = new BlockOverworldBase(Material.LEAVES, "dried_kelp_block");
+        blackSand = new BlockOverworldBase(Material.SAND, "black_sand");
+
+        for(EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
+            netherBlocks[netherBlockTypes.getMetadata()] = new BlockNetherBase(Material.ROCK, netherBlockTypes.getName());
+            netherBlocksStairs[netherBlockTypes.getMetadata()] = new BlockNetherStairBase(netherBlockTypes.getName() + "_stairs", netherBlocks[netherBlockTypes.getMetadata()].getDefaultState());
+            BlockModStairs.initStairs(netherBlocks[netherBlockTypes.getMetadata()], netherBlockTypes.getMetadata(), (BlockModStairs) netherBlocksStairs[netherBlockTypes.getMetadata()]);
+            netherBlocksSlabs[netherBlockTypes.getMetadata()] = new BlockNetherSlabBase(netherBlockTypes.getName() + "_slab", false);
+            netherBlocksSlabsVertical[netherBlockTypes.getMetadata()] = new BlockNetherSlabBase(netherBlockTypes.getName() + "_slab_vertical", false);
+            netherBlocksSlabsDouble[netherBlockTypes.getMetadata()] = new BlockNetherSlabBase(netherBlockTypes.getName() + "_slab", true);
+            BlockModSlab.initSlab(netherBlocks[netherBlockTypes.getMetadata()], netherBlockTypes.getMetadata(), (BlockModSlab) netherBlocksSlabs[netherBlockTypes.getMetadata()], (BlockModSlab) netherBlocksSlabsDouble[netherBlockTypes.getMetadata()]);
+        }
 
         for(EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
             newStoneVariants[newStoneVariant.getMetadata()] = new BlockOverworldBase(Material.ROCK, newStoneVariant.getName());
