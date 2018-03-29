@@ -8,5 +8,5 @@ public class LootTableHandler {
 
     public static final ResourceLocation MUMMY = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "mummy"));
     public static final ResourceLocation MUMMY_VILLAGER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "mummy_villager"));
-    public static final ResourceLocation SCORP = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "scorpion"));
+    public static final ResourceLocation SCORP = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "scorp"));
 }

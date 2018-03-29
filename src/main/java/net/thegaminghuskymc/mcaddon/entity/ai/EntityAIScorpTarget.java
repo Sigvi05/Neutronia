@@ -13,7 +13,6 @@ public class EntityAIScorpTarget<T extends EntityLivingBase> extends EntityAINea
 
     public boolean shouldExecute()
     {
-        float f = this.taskOwner.getBrightness();
-        return f >= 0.5F ? false : super.shouldExecute();
+        return super.shouldExecute();
     }
 }

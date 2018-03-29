@@ -23,6 +23,7 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpAttack;
@@ -44,6 +45,12 @@ public class EntityScorp extends EntitySpider
     {
         super(worldIn);
     }
+
+    protected ResourceLocation getLootTable() {
+        return LootTableHandler.SCORP;
+    }
+
+    public void setLoot_table(ResourceLocation loot_table) { this.loot_table = loot_table; }
 
     @Override
     protected void initEntityAI()
@@ -147,11 +154,6 @@ public class EntityScorp extends EntitySpider
         super.onLivingUpdate();
     }
 
-    public void setLoot_table(ResourceLocation loot_table)
-    {
-        this.loot_table = loot_table;
-    }
-
     @Override
     public boolean attackEntityAsMob(Entity entityIn)
     {
@@ -199,11 +201,6 @@ public class EntityScorp extends EntitySpider
     public EnumCreatureAttribute getCreatureAttribute()
     {
         return EnumCreatureAttribute.ARTHROPOD;
-    }
-
-    public ResourceLocation getLoot_table()
-    {
-        return loot_table;
     }
 
     @Override

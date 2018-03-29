@@ -13,12 +13,14 @@ import net.thegaminghuskymc.mcaddon.items.ItemTest;
 import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
-public class MCAddonItems {
-
+public class MCAddonItems
+{
     public static final Item test;
     public static final Item ANCIENT_SWORD;
     public static final Item BANDAGE;
     public static final Item witherBone, witherBonemeal;
+    public static final Item STINGER;
+    public static final Item CHITIN;
 
     static {
         test = new ItemTest();
@@ -26,6 +28,8 @@ public class MCAddonItems {
         BANDAGE = new ItemBandage();
         witherBone = new ItemBase("wither_bone", HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
         witherBonemeal = new ItemBase("wither_bonemeal", HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
+        STINGER = new ItemBase("stinger", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        CHITIN = new ItemBase("chitin", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
     }
 
     @SubscribeEvent
