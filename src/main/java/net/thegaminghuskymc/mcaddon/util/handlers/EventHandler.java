@@ -3,7 +3,6 @@ package net.thegaminghuskymc.mcaddon.util.handlers;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -24,7 +23,7 @@ import net.thegaminghuskymc.mcaddon.init.MCAddonItems;
 import java.util.ListIterator;
 import java.util.Random;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @SuppressWarnings("ConstantConditions")
 @Mod.EventBusSubscriber(modid = MOD_ID)

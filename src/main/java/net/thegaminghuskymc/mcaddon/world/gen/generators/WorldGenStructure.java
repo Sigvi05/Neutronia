@@ -12,7 +12,7 @@ import net.thegaminghuskymc.mcaddon.util.interfaces.IStructure;
 
 import java.util.Random;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 public class WorldGenStructure extends WorldGenerator implements IStructure
 {

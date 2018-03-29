@@ -8,7 +8,7 @@ import net.thegaminghuskymc.mcaddon.world.biome.BiomeBasaltOverworld;
 import net.thegaminghuskymc.mcaddon.world.biome.BiomeBlackDesert;
 import net.thegaminghuskymc.mcaddon.world.biome.BiomeRedDesert;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 public class BiomeInit {
 

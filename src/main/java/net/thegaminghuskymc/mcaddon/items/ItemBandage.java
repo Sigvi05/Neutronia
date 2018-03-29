@@ -1,7 +1,6 @@
 package net.thegaminghuskymc.mcaddon.items;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -9,7 +8,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.thegaminghuskymc.huskylib2.items.ItemMod;
 import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
-import net.thegaminghuskymc.mcaddon.Reference;
+import net.thegaminghuskymc.mcaddon.util.Reference;
 
 public class ItemBandage extends ItemMod {
 

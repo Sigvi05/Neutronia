@@ -2,7 +2,7 @@ package net.thegaminghuskymc.mcaddon.util.handlers;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
-import net.thegaminghuskymc.mcaddon.Reference;
+import net.thegaminghuskymc.mcaddon.util.Reference;
 
 public class LootTableHandler {
 

@@ -3,7 +3,7 @@ package net.thegaminghuskymc.mcaddon.items;
 import net.minecraftforge.common.util.EnumHelper;
 import net.thegaminghuskymc.huskylib2.items.ItemModSword;
 import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
-import net.thegaminghuskymc.mcaddon.Reference;
+import net.thegaminghuskymc.mcaddon.util.Reference;
 
 public class ItemAncientSword extends ItemModSword {
 

@@ -10,7 +10,7 @@ import net.thegaminghuskymc.mcaddon.items.ItemBandage;
 import net.thegaminghuskymc.mcaddon.items.ItemBase;
 import net.thegaminghuskymc.mcaddon.items.ItemTest;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class MCAddonItems

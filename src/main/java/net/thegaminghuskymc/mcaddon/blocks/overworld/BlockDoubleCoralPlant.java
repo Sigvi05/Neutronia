@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.Random;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 public class BlockDoubleCoralPlant extends BlockModBush {
 

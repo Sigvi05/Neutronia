@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.thegaminghuskymc.mcaddon.Reference;
+import net.thegaminghuskymc.mcaddon.util.Reference;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummy;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
 import net.thegaminghuskymc.mcaddon.entity.EntityScorp;

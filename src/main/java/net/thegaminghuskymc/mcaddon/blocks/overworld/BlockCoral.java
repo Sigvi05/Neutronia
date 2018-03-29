@@ -14,7 +14,7 @@ import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
 import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 public class BlockCoral extends BlockMod {
 

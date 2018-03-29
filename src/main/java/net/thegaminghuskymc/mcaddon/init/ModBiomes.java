@@ -9,7 +9,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.thegaminghuskymc.mcaddon.world.biome.BiomeBasaltOverworld;
 
 import static net.minecraftforge.common.BiomeDictionary.Type.*;
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @SuppressWarnings("WeakerAccess")
 //@GameRegistry.ObjectHolder(MOD_ID)
