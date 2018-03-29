@@ -1,4 +1,4 @@
-package net.thegaminghuskymc.mcaddon;
+package net.thegaminghuskymc.mcaddon.util.handlers;
 
 import net.minecraft.world.World;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
