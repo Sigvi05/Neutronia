@@ -209,6 +209,7 @@ public class EntityScorp extends EntitySpider
     {
         return EnumCreatureAttribute.ARTHROPOD;
     }
+    
 
     @Override
     public boolean getCanSpawnHere()

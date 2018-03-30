@@ -5,9 +5,9 @@ import net.thegaminghuskymc.huskylib2.items.ItemModAxe;
 
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
-public class BaseAxe extends ItemModAxe  {
+public class BaseAxe extends ItemModAxe {
 
-    public BaseAxe(String name, ToolMaterial material)  {
+    public BaseAxe(String name, ToolMaterial material) {
         super(material.getAttackDamage(), 1.0f, material, name, MOD_ID);
         setCreativeTab(CreativeTabs.TOOLS);
     }
