@@ -23,7 +23,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.blocks.BlockModBush;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 
@@ -42,7 +42,7 @@ public class BlockDoubleCoralPlant extends BlockModBush {
     public BlockDoubleCoralPlant(EnumCoralColor coralColor, String name) {
         super(Material.WATER, coralColor + "_" + name, MOD_ID);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockDoubleCoralPlant.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
-        setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

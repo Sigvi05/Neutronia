@@ -1,6 +1,6 @@
 package net.thegaminghuskymc.mcaddon.util;
 
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 
 import java.io.*;
 import java.net.JarURLConnection;
@@ -13,7 +13,7 @@ public class FileUtil
 {
     public static void extractFromJar(String sourcePath, String destinationPath)
     {
-        URL sourceURL = HuskysMinecraftAdditions.class.getResource(sourcePath);
+        URL sourceURL = Main.class.getResource(sourcePath);
         String fromPath = sourcePath.substring(1);
 
         if(sourceURL != null && sourceURL.getProtocol().equals("jar"))

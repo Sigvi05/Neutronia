@@ -2,7 +2,7 @@ package net.thegaminghuskymc.mcaddon.blocks.nether;
 
 import net.minecraft.block.state.IBlockState;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModStairs;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
@@ -10,7 +10,7 @@ public class BlockNetherStairBase extends BlockModStairs {
 
     public BlockNetherStairBase(String name, IBlockState state) {
         super(name, state);
-        setCreativeTab(HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
+        setCreativeTab(Main.NETHER_EXPANSION_TAB);
     }
 
     @Override

@@ -18,7 +18,7 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.util.BlockUtil;
 import net.thegaminghuskymc.mcaddon.util.FileUtil;
 import net.thegaminghuskymc.mcaddon.world.gen.feature.*;
@@ -45,8 +45,8 @@ public class NetherBiomeManager {
 
             LOGGER.info("Copying the Biome List Directory to the config folder.");
 
-            if (HuskysMinecraftAdditions.isInDevEnv) {
-                FileUtils.copyDirectory(new File(HuskysMinecraftAdditions.class.getResource("/assets/hmca/biome_lists").getFile()), directory);
+            if (Main.isInDevEnv) {
+                FileUtils.copyDirectory(new File(Main.class.getResource("/assets/hmca/biome_lists").getFile()), directory);
             } else {
                 FileUtil.extractFromJar("/assets/hmca/biome_lists", directory.getPath());
             }

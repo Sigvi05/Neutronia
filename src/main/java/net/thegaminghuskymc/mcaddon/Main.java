@@ -29,12 +29,10 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -45,8 +43,6 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.commands.TPBiomeCommand;
 import net.thegaminghuskymc.mcaddon.commands.TPDimensionCommand;
 import net.thegaminghuskymc.mcaddon.init.BiomeInit;
@@ -69,12 +65,12 @@ import java.util.*;
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @Mod(modid = MOD_ID, name = Reference.NAME, version = Reference.VERSION)
-public class HuskysMinecraftAdditions {
+public class Main {
 
     @Mod.Instance
-    public static HuskysMinecraftAdditions instance;
+    public static Main instance;
     private List<String> allowedBlocks;
-    public static boolean isInDevEnv = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");;
+    public static boolean isInDevEnv = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
 
     private static File configDirectory;
 
@@ -166,7 +162,7 @@ public class HuskysMinecraftAdditions {
         event.registerServerCommand(new TPDimensionCommand());
     }
 
-    @Mod.EventHandler
+    @SubscribeEvent
     public void onSpawn(LivingSpawnEvent.CheckSpawn event) {
         allowedBlocks = Arrays.asList(Objects.requireNonNull(Blocks.NETHERRACK.getRegistryName()).toString(),
                 Objects.requireNonNull(Blocks.SOUL_SAND.getRegistryName()).toString(),
@@ -186,7 +182,7 @@ public class HuskysMinecraftAdditions {
         }
     }
 
-    @Mod.EventHandler
+    @SubscribeEvent
     public void decorate(DecorateBiomeEvent.Decorate event) {
         World world = event.getWorld();
         Biome biome = world.getBiome(event.getPos());
@@ -209,7 +205,7 @@ public class HuskysMinecraftAdditions {
         }
     }
 
-    @Mod.EventHandler
+    @SubscribeEvent
     public void onDungeonSpawn(PopulateChunkEvent.Populate event) {
         if(event.getType() != PopulateChunkEvent.Populate.EventType.DUNGEON)
             return;

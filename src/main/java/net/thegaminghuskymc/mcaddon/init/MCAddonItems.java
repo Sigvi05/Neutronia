@@ -5,7 +5,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.items.*;
 import net.thegaminghuskymc.mcaddon.items.base.tools.*;
 
@@ -36,11 +36,11 @@ public class MCAddonItems
     static {
         ANCIENT_SWORD = new ItemAncientSword();
         BANDAGE = new ItemBandage();
-        witherBone = new ItemBase("wither_bone", HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
-        witherBonemeal = new ItemBase("wither_bonemeal", HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
-        driedKelp = new ItemFood("dried_kelp", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
-        STINGER = new ItemBase("stinger", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
-        CHITIN = new ItemBase("chitin", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        witherBone = new ItemBase("wither_bone", Main.NETHER_EXPANSION_TAB);
+        witherBonemeal = new ItemBase("wither_bonemeal", Main.NETHER_EXPANSION_TAB);
+        driedKelp = new ItemFood("dried_kelp", Main.OVERWORLD_EXPANSION_TAB);
+        STINGER = new ItemBase("stinger", Main.OVERWORLD_EXPANSION_TAB);
+        CHITIN = new ItemBase("chitin", Main.OVERWORLD_EXPANSION_TAB);
 
         AXE_CHITIN = new BaseAxe("axe_chitin", CAXE);
         PICKAXE_CHITIN = new BasePickaxe("pickaxe_chitin", CPICK);

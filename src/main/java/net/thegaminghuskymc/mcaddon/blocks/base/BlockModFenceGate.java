@@ -1,7 +1,6 @@
 package net.thegaminghuskymc.mcaddon.blocks.base;
 
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -13,13 +12,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.huskylib2.interf.IModBlock;
 import net.thegaminghuskymc.huskylib2.items.blocks.ItemModBlock;
 import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Random;

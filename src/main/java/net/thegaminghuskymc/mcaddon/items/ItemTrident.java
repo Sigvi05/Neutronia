@@ -1,12 +1,12 @@
 package net.thegaminghuskymc.mcaddon.items;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 
 public class ItemTrident extends ItemBase {
 
     public ItemTrident(String name, CreativeTabs creativeTabs) {
-        super("trident", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        super("trident", Main.OVERWORLD_EXPANSION_TAB);
     }
 
 }

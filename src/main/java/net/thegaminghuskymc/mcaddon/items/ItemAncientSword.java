@@ -7,7 +7,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.thegaminghuskymc.huskylib2.items.ItemModSword;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ItemAncientSword extends ItemModSword {
 
     public ItemAncientSword() {
         super("khopesh", MOD_ID, ancientToolMaterial);
-        setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
     }
 
     @Override

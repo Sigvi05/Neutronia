@@ -4,7 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.blocks.BlockModBush;
 
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
@@ -13,7 +13,7 @@ public class BlockDesertPlantBase extends BlockModBush {
 
     public BlockDesertPlantBase(String name) {
         super(Material.PLANTS, name, MOD_ID);
-        this.setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
     }
 
     public boolean isOpaqueCube(IBlockState state) {

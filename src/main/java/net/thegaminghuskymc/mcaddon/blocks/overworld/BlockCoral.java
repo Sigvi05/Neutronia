@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
@@ -23,7 +23,7 @@ public class BlockCoral extends BlockMod {
     public BlockCoral(EnumCoralColor colorIn, String name) {
         super(Material.CORAL, MOD_ID, colorIn + "_" + name);
         this.color = colorIn;
-        this.setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
     }
 
     @Override

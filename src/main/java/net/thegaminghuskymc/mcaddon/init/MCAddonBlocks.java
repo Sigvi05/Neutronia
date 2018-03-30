@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModSlab;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModStairs;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.blocks.base.BlockModFence;
 import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherBase;
 import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherSlabBase;
@@ -92,7 +92,7 @@ public class MCAddonBlocks {
             sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "sea_fan");
             dead_sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_sea_fan");
 
-            brainCoralFence[coralColor.getMetadata()] = new BlockModFence(Material.CORAL, MOD_ID, coralColor.getName() + "_brain_coral_fence").setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+            brainCoralFence[coralColor.getMetadata()] = new BlockModFence(Material.CORAL, MOD_ID, coralColor.getName() + "_brain_coral_fence").setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
 
             brainCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_brain_coral_stairs", brain_coral[coralColor.getMetadata()].getDefaultState());
             deadBrainCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_dead_brain_coral_stairs", dead_brain_coral[coralColor.getMetadata()].getDefaultState());
