@@ -1,7 +1,5 @@
 package net.thegaminghuskymc.mcaddon;
 
-import com.leviathanstudio.craftstudio.client.json.CSReadedAnim;
-import com.leviathanstudio.craftstudio.client.json.CSReadedModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -31,7 +29,6 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
@@ -45,10 +42,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.client.tesr.RenderAnimatedBlock;
 import net.thegaminghuskymc.mcaddon.commands.TPBiomeCommand;
 import net.thegaminghuskymc.mcaddon.commands.TPDimensionCommand;
@@ -73,10 +67,10 @@ import java.util.*;
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @Mod(modid = MOD_ID, name = Reference.NAME, version = Reference.VERSION)
-public class HuskysMinecraftAdditions {
+public class Main {
 
     @Mod.Instance
-    public static HuskysMinecraftAdditions instance;
+    public static Main instance;
     private List<String> allowedBlocks;
     public static boolean isInDevEnv = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");;
 

@@ -3,7 +3,7 @@ package net.thegaminghuskymc.mcaddon.items;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
 import net.thegaminghuskymc.huskylib2.items.ItemModSword;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
@@ -13,7 +13,7 @@ public class ItemAncientSword extends ItemModSword {
 
     public ItemAncientSword() {
         super("ancient_sword", MOD_ID, ancientToolMaterial);
-        setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
     }
 
 }

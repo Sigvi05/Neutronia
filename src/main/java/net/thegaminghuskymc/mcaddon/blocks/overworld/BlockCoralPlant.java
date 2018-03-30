@@ -17,7 +17,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.blocks.BlockModBush;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 
@@ -32,7 +32,7 @@ public class BlockCoralPlant extends BlockModBush {
     public BlockCoralPlant(EnumCoralColor coralColor, String name) {
         super(Material.WATER, coralColor + "_" + name, MOD_ID);
         this.color = coralColor;
-        this.setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
     }
 

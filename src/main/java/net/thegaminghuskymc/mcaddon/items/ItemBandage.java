@@ -7,14 +7,14 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.thegaminghuskymc.huskylib2.items.ItemMod;
-import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
+import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.util.Reference;
 
 public class ItemBandage extends ItemMod {
 
     public ItemBandage() {
         super("bandage", Reference.MOD_ID);
-        this.setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
     }
 
     @Override
