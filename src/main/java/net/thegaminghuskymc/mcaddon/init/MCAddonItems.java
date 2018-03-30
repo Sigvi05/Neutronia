@@ -22,6 +22,12 @@ public class MCAddonItems
     public static final Item STINGER;
     public static final Item CHITIN;
 
+    public static final Item AXE_CHITIN;
+    public static final Item PICKAXE_CHITIN;
+    public static final Item HOE_CHITIN;
+    public static final Item SHOVEL_CHITIN;
+    public static final Item SWORD_CHITIN;
+
     static {
         test = new ItemTest();
         ANCIENT_SWORD = new ItemAncientSword();
@@ -30,6 +36,12 @@ public class MCAddonItems
         witherBonemeal = new ItemBase("wither_bonemeal", HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
         STINGER = new ItemBase("stinger", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
         CHITIN = new ItemBase("chitin", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
+
+        AXE_CHITIN = new ItemBase("axe_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
+        PICKAXE_CHITIN = new ItemBase("pickaxe_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
+        HOE_CHITIN = new ItemBase("hoe_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
+        SHOVEL_CHITIN = new ItemBase("shovel_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
+        SWORD_CHITIN = new ItemBase("sword_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
     }
 
     @SubscribeEvent
