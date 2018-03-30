@@ -21,35 +21,19 @@ import java.nio.file.StandardOpenOption;
 
 public class JsonGenerator {
 
-    private static String[] keys = new String[] {
-            "x",
-            "y",
-            "z"
-    };
-
-    private static String[] values = new String[] {
-            "minecraft:apple",
-            "minecraft:water_bucket",
-            "minecraft:lava_bucket"
-    };
-
     public static void main(String[] args) {
 
         for (EnumCoralColor type : EnumCoralColor.values()) {
 
         }
 
-        genItemModel("hmca", "kelp", "kelp");
-
-        genShapedRecipe("test", "test", true, "xxx", "yyy", "zzz", keys, values, "minecraft:string", 1);
-
-        /*for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
+        for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
 
         }
 
         for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
-
-        }*/
+            genSlabBlock("hmca", newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
+        }
 
     }
 
@@ -546,11 +530,12 @@ public class JsonGenerator {
 
             jw.beginObject();
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value("th2:block/cube_bottom_half_overlay_all");
+            jw.name("parent").value("hmca:block/slab");
             jw.name("textures");
             jw.beginObject();
-            jw.name("overlay").value(modId + ":blocks/runes/" + textureName);
-            jw.name("all").value(modId + ":blocks/rune_stone");
+            jw.name("top").value(modId + ":blocks/" + textureName);
+            jw.name("side").value(modId + ":blocks/" + textureName);
+            jw.name("bottom").value(modId + ":blocks/" + textureName);
             jw.endObject();
             jw.endObject();
 
@@ -561,11 +546,12 @@ public class JsonGenerator {
 
             jw2.beginObject();
             jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw2.name("parent").value("th2:block/cube_top_half_overlay_all");
+            jw2.name("parent").value("hmca:block/slab_top");
             jw2.name("textures");
             jw2.beginObject();
-            jw2.name("overlay").value(modId + ":blocks/runes/" + textureName);
-            jw2.name("all").value(modId + ":blocks/rune_stone");
+            jw2.name("top").value(modId + ":blocks/" + textureName);
+            jw2.name("side").value(modId + ":blocks/" + textureName);
+            jw2.name("bottom").value(modId + ":blocks/" + textureName);
             jw2.endObject();
             jw2.endObject();
 

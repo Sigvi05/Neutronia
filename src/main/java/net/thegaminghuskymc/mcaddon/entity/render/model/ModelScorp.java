@@ -9,9 +9,9 @@ import net.minecraft.entity.Entity;
  * Created using Tabula 7.0.0
  */
 public class ModelScorp extends ModelBase {
-    public ModelRenderer field_78207_b;
-    public ModelRenderer field_78205_d;
-    public ModelRenderer field_78212_h;
+    private ModelRenderer field_78207_b;
+    private ModelRenderer field_78205_d;
+    private ModelRenderer field_78212_h;
     public ModelRenderer field_78210_j;
     public ModelRenderer field_78209_a;
     public ModelRenderer field_78208_c;

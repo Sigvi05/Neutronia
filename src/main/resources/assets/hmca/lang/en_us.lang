@@ -156,3 +156,11 @@ itemGroup.weapons_expansion=Weapons Expansion
 //Entitys
 entity.hmca:mummy.name=Mummy
 entity.hmca:mummy_villager.name=Mummy Villager
+entity.hmca:phantom.name=The Phantom
+entity.hmca:hovering_inferno.name=Hovering Inferno
+entity.hmca:ravenous_killer_squid.name=Ravenous Killer Squid
+entity.hmca:turtle.name=Turtle
+entity.hmca:drowned.name=The Drowned
+entity.hmca:scuba_divers.name=Scuba Divers
+entity.hmca:drowned_villager.name=Drowned Villager
+entity.hmca:great_hunger.name=The Great Hunger

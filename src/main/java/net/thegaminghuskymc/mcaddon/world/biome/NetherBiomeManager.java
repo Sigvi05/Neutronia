@@ -35,7 +35,7 @@ import java.util.Random;
 
 @SuppressWarnings("ConstantConditions")
 public class NetherBiomeManager {
-    private static final Logger LOGGER = LogManager.getLogger("NetherEx|NetherBiomeManager");
+    private static final Logger LOGGER = LogManager.getLogger("Husky's Minecraft Additions | NetherBiomeManager");
 
     public static void postInit(File directory) {
         try {
@@ -46,9 +46,9 @@ public class NetherBiomeManager {
             LOGGER.info("Copying the Biome List Directory to the config folder.");
 
             if (HuskysMinecraftAdditions.isInDevEnv) {
-                FileUtils.copyDirectory(new File(HuskysMinecraftAdditions.class.getResource("/assets/nex/biome_lists").getFile()), directory);
+                FileUtils.copyDirectory(new File(HuskysMinecraftAdditions.class.getResource("/assets/hmca/biome_lists").getFile()), directory);
             } else {
-                FileUtil.extractFromJar("/assets/nex/biome_lists", directory.getPath());
+                FileUtil.extractFromJar("/assets/hmca/biome_lists", directory.getPath());
             }
         } catch (IOException e) {
             LOGGER.fatal("The attempt to copy the Biome List Directory to the config folder was unsuccessful.");
@@ -67,7 +67,7 @@ public class NetherBiomeManager {
 
                 for (NetherBiome.Mod biomeMod : biomeList.getMods()) {
                     for (NetherBiome netherBiome : biomeMod.getBiomes()) {
-                        ResourceLocation biomeRegistryName = new ResourceLocation(biomeMod.getId() + ":" + netherBiome.getId());
+                        ResourceLocation biomeRegistryName = new ResourceLocation(biomeMod.getId(), netherBiome.getId());
                         Biome biome = ForgeRegistries.BIOMES.getValue(biomeRegistryName);
 
                         if (biome == null) {

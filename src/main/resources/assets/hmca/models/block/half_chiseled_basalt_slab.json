@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "parent": "hmca:block/slab",
+  "textures": {
+    "top": "hmca:blocks/chiseled_basalt",
+    "side": "hmca:blocks/chiseled_basalt",
+    "bottom": "hmca:blocks/chiseled_basalt"
+  }
+}

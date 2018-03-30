@@ -1,0 +1,11 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "variants": {
+    "half=bottom": {
+      "model": "hmca:half_marble_cobblestone_slab"
+    },
+    "half=top": {
+      "model": "hmca:upper_marble_cobblestone_slab"
+    }
+  }
+}

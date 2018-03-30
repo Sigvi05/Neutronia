@@ -1,0 +1,11 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "variants": {
+    "normal": {
+      "model": "hmca:meteorite_bricks"
+    },
+    "all": {
+      "model": "hmca:meteorite_bricks"
+    }
+  }
+}

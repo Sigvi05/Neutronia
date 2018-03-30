@@ -28,12 +28,14 @@ import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpAttack;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpTarget;
 import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
+import java.util.Objects;
+
 public class EntityScorp extends EntityMob
 {
     private ResourceLocation loot_table = LootTableHandler.SCORP;
 
-    public static final DataParameter<Boolean> TAIL_OUT = EntityDataManager.<Boolean>createKey(EntityScorp.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Byte> CLIMBING = EntityDataManager.<Byte>createKey(EntityScorp.class, DataSerializers.BYTE);
+    public static final DataParameter<Boolean> TAIL_OUT = EntityDataManager.createKey(EntityScorp.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityScorp.class, DataSerializers.BYTE);
 
     public EntityScorp(World worldIn)
     {
@@ -59,8 +61,8 @@ public class EntityScorp extends EntityMob
     protected void applyEntityAI()
     {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget<>(this, EntityVillager.class, true));
     }
 
     public void onUpdate()
@@ -75,7 +77,7 @@ public class EntityScorp extends EntityMob
 
     public void setBesideClimbableBlock(boolean climbing)
     {
-        byte b0 = ((Byte)this.dataManager.get(CLIMBING)).byteValue();
+        byte b0 = this.dataManager.get(CLIMBING);
 
         if (climbing)
         {
@@ -86,7 +88,7 @@ public class EntityScorp extends EntityMob
             b0 = (byte)(b0 & -2);
         }
 
-        this.dataManager.set(CLIMBING, Byte.valueOf(b0));
+        this.dataManager.set(CLIMBING, b0);
     }
 
     public float getEyeHeight()
@@ -118,11 +120,11 @@ public class EntityScorp extends EntityMob
 
     public void setTailOut(boolean tailOut)
     {
-        this.getDataManager().set(TAIL_OUT, Boolean.valueOf(tailOut));
+        this.getDataManager().set(TAIL_OUT, tailOut);
     }
 
     @SideOnly(Side.CLIENT)
-    public boolean isTailOut(){ return  ((Boolean)this.getDataManager().get(TAIL_OUT)).booleanValue();}
+    public boolean isTailOut(){ return this.getDataManager().get(TAIL_OUT);}
 
     @Override
     protected int getExperiencePoints(EntityPlayer player)
@@ -142,7 +144,7 @@ public class EntityScorp extends EntityMob
         super.onLivingUpdate();
     }
 
-    public void setLoot_table(ResourceLocation loot_table)
+    public void setLootTable(ResourceLocation loot_table)
     {
         this.loot_table = loot_table;
     }
@@ -154,7 +156,7 @@ public class EntityScorp extends EntityMob
         {
             if (entityIn instanceof EntityLivingBase)
             {
-                ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(Potion.getPotionById(19), 12 * 20, 0));
+                ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(Objects.requireNonNull(Potion.getPotionById(19)), 12 * 20, 0));
             }
             return true;
         } else
@@ -196,7 +198,7 @@ public class EntityScorp extends EntityMob
         return EnumCreatureAttribute.ARTHROPOD;
     }
 
-    public ResourceLocation getLoot_table()
+    public ResourceLocation getLootTable()
     {
         return loot_table;
     }

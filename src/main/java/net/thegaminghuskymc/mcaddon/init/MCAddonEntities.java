@@ -1,25 +1,25 @@
 package net.thegaminghuskymc.mcaddon.init;
 
+import net.minecraft.client.renderer.entity.RenderHusk;
+import net.minecraft.client.renderer.entity.RenderStray;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityEntry;
-import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.*;
 import net.thegaminghuskymc.mcaddon.Reference;
-import net.thegaminghuskymc.mcaddon.entity.EntityMummy;
-import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
-import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
+import net.thegaminghuskymc.mcaddon.entity.*;
 import net.thegaminghuskymc.mcaddon.util.handlers.RenderHandler;
 
-@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
+import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID)
 public class MCAddonEntities {
 
     @SubscribeEvent
@@ -27,23 +27,44 @@ public class MCAddonEntities {
         final EntityEntry[] entries = {
             createBuilder("mummy").entity(EntityMummy.class).tracker(80, 3, true).egg(0xC9CE92, 0x444444).build(),
             createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
-            createBuilder("Scorpion").entity(EntityScorp.class).tracker(30,3,true).egg(65401,6201209).build()
+            createBuilder("scorpion").entity(EntityScorp.class).tracker(30,3,true).egg(0x65401,0x6201209).build(),
+            createBuilder("phantom").entity(EntityPhantom.class).tracker(80, 3, true).egg(0x302c3d, 0x548330).build(),
+            createBuilder("hovering_inferno").entity(EntityHoveringInferno.class).tracker(80, 3, true).egg(0x864500, 0xd36d00).build(),
+            createBuilder("ravenous_killer_squid").entity(EntityMonsterOfTheOceanDepths.class).tracker(80, 3, true).egg(0x03002e, 0x060081).build(),
+            createBuilder("turtle").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xFFFFFF, 0x008d8d).build(),
+            createBuilder("drowned").entity(EntityDrowned.class).tracker(80, 3, true).egg(0x86e2ca, 0x617d51).build(),
+            createBuilder("scuba_divers").entity(EntityScubaDivers.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
+            createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
+            createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build()
         };
         event.getRegistry().registerAll(entries);
         RenderHandler.registerEntityRenders();
         addSpawns();
     }
 
+    @SubscribeEvent
+    public static void registerNewVillagerProffesions(RegistryEvent.Register<VillagerRegistry.VillagerProfession> event) {
+        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/miner").toString()));
+        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "scuba_diver").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/scuba_diver").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/scuba_diver").toString()));
+        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/explorer").toString()));
+        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/magician").toString()));
+        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "guard").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/guard").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/guard").toString()));
+    }
+
     private static void addSpawns() {
         EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
         EntityRegistry.addSpawn(EntityScorp.class, 9,2,8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
+        EntityRegistry.addSpawn(EntityDrowned.class, 9,2,8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityHoveringInferno.class, 9,2,8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.NETHER));
+        EntityRegistry.addSpawn(EntityGreatHunger.class, 9,2,8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
+        EntityRegistry.addSpawn(EntityTurtle.class, 9,2,8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.BEACH));
     }
 
     private static int entityID = 0;
 
     private static <E extends Entity> EntityEntryBuilder<E> createBuilder(final String name) {
         final EntityEntryBuilder<E> builder = EntityEntryBuilder.create();
-        final ResourceLocation registryName = new ResourceLocation(Reference.MOD_ID, name);
+        final ResourceLocation registryName = new ResourceLocation(MOD_ID, name);
         return builder.id(registryName, entityID++).name(registryName.toString());
     }
 

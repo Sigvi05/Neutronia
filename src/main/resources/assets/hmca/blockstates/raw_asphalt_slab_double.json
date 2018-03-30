@@ -1,0 +1,11 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "variants": {
+    "normal": {
+      "model": "hmca:raw_asphalt"
+    },
+    "all": {
+      "model": "hmca:raw_asphalt"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "variants": {
+    "half=bottom": {
+      "model": "hmca:half_limestone_chiseled_slab"
+    },
+    "half=top": {
+      "model": "hmca:upper_limestone_chiseled_slab"
+    }
+  }
+}

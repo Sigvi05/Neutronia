@@ -1,6 +1,8 @@
 package net.thegaminghuskymc.mcaddon.init;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFishFood;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

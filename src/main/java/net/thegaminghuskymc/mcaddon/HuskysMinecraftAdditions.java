@@ -10,6 +10,7 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.launchwrapper.Launch;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
@@ -38,12 +39,17 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.thegaminghuskymc.mcaddon.commands.TPBiomeCommand;
+import net.thegaminghuskymc.mcaddon.commands.TPDimensionCommand;
 import net.thegaminghuskymc.mcaddon.init.BiomeInit;
 import net.thegaminghuskymc.mcaddon.init.MCAddonBlocks;
 import net.thegaminghuskymc.mcaddon.init.NetherExBiomes;
 import net.thegaminghuskymc.mcaddon.proxy.CommonProxy;
+import net.thegaminghuskymc.mcaddon.world.biome.NetherBiomeManager;
+import net.thegaminghuskymc.mcaddon.world.dungeons.DungeonGenerator;
 import net.thegaminghuskymc.mcaddon.world.gen.WorldGenCustomStructures;
 import net.thegaminghuskymc.mcaddon.world.utils.ClayGenerator;
 import net.thegaminghuskymc.mcaddon.world.utils.FormationCaveGenerator;
@@ -62,9 +68,9 @@ public class HuskysMinecraftAdditions {
     @Mod.Instance
     public static HuskysMinecraftAdditions instance;
     private List<String> allowedBlocks;
-    public static boolean isInDevEnv = false;
+    public static boolean isInDevEnv = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");;
 
-    private File configDirectory;
+    private static File configDirectory;
 
     private static final Logger LOGGER = LogManager.getLogger("Husky's Minecraft Additions | Main");
 
@@ -109,8 +115,9 @@ public class HuskysMinecraftAdditions {
 
         LOGGER.info("PreInitialization started.");
 
-        GameRegistry.registerWorldGenerator(new ClayGenerator(20, 3), 0);
-        GameRegistry.registerWorldGenerator(new FormationCaveGenerator(), 1);
+        configDirectory = event.getModConfigurationDirectory();
+        GameRegistry.registerWorldGenerator(new ClayGenerator(20, 3), 1);
+        GameRegistry.registerWorldGenerator(new FormationCaveGenerator(), 0);
         proxy.preInit(event);
 
         LOGGER.info("PreInitialization completed.");
@@ -123,6 +130,7 @@ public class HuskysMinecraftAdditions {
         LOGGER.info("Initialization started.");
 
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+        GameRegistry.registerWorldGenerator(new DungeonGenerator(), 1);
         Biome.SpawnListEntry blazeEntry = new Biome.SpawnListEntry(EntityBlaze.class, 5, 1, 2);
         BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER).forEach(biome -> biome.getSpawnableList(EnumCreatureType.MONSTER).add(blazeEntry));
         BiomeInit.registerBiomes();
@@ -139,10 +147,17 @@ public class HuskysMinecraftAdditions {
         LOGGER.info("PostInitialization started.");
 
         NetherExBiomes.postInit();
+        NetherBiomeManager.postInit(new File(configDirectory, "/Husky's Minecraft Additions/Biome Lists"));
         proxy.postInit(event);
 
         LOGGER.info("PostInitialization completed.");
 
+    }
+
+    @Mod.EventHandler
+    public static void serverInit(FMLServerStartingEvent event) {
+        event.registerServerCommand(new TPBiomeCommand());
+        event.registerServerCommand(new TPDimensionCommand());
     }
 
     @Mod.EventHandler
