@@ -18,10 +18,4 @@ public class CommonProxy {
 
     }
 
-    public void registerCraftStudioModels()
-    {}
-
-    public void registerCraftStudioAnimations()
-    {}
-
 }

@@ -1,7 +1,5 @@
 package net.thegaminghuskymc.mcaddon;
 
-import com.leviathanstudio.craftstudio.client.json.CSReadedAnim;
-import com.leviathanstudio.craftstudio.client.json.CSReadedModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -49,14 +47,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.mcaddon.client.tesr.RenderAnimatedBlock;
 import net.thegaminghuskymc.mcaddon.commands.TPBiomeCommand;
 import net.thegaminghuskymc.mcaddon.commands.TPDimensionCommand;
 import net.thegaminghuskymc.mcaddon.init.BiomeInit;
 import net.thegaminghuskymc.mcaddon.init.MCAddonBlocks;
 import net.thegaminghuskymc.mcaddon.init.NetherExBiomes;
 import net.thegaminghuskymc.mcaddon.proxy.CommonProxy;
-import net.thegaminghuskymc.mcaddon.tileentity.te.TileEntityBlockAnimated;
 import net.thegaminghuskymc.mcaddon.util.Reference;
 import net.thegaminghuskymc.mcaddon.world.biome.NetherBiomeManager;
 import net.thegaminghuskymc.mcaddon.world.dungeons.DungeonGenerator;
@@ -130,8 +126,6 @@ public class HuskysMinecraftAdditions {
         GameRegistry.registerWorldGenerator(new FormationCaveGenerator(), 0);
         proxy.preInit(event);
 
-        GameRegistry.registerTileEntity(TileEntityBlockAnimated.class, "hmca:block_animated");
-
         LOGGER.info("PreInitialization completed.");
 
     }
@@ -148,7 +142,6 @@ public class HuskysMinecraftAdditions {
         BiomeInit.registerBiomes();
         NetherExBiomes.init();
         proxy.init(event);
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlockAnimated.class, new RenderAnimatedBlock<>());
 
         LOGGER.info("Initialization completed.");
 
@@ -238,7 +231,7 @@ public class HuskysMinecraftAdditions {
         }
     }
 
-    public boolean couldDungeonGenerate(World worldIn, Random rand, BlockPos position) {
+    private boolean couldDungeonGenerate(World worldIn, Random rand, BlockPos position) {
         int i = 3;
         int j = rand.nextInt(2) + 2;
         int k = -j - 1;

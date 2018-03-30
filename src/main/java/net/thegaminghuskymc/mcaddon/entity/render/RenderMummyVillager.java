@@ -1,25 +1,21 @@
 package net.thegaminghuskymc.mcaddon.entity.render;
 
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelZombieVillager;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RenderZombieVillager;
 import net.minecraft.util.ResourceLocation;
 import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
 import net.thegaminghuskymc.mcaddon.entity.render.model.ModelMummyVillager;
 
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
+
 public class RenderMummyVillager extends RenderBiped<EntityMummyVillager> {
-    /**
-     * TODO: Change Textures
-     * Set to Zombie Villager for now
-     */
-    private static final ResourceLocation ZOMBIE_VILLAGER_TEXTURES = new ResourceLocation("minecraft:textures/entity/zombie_villager/zombie_villager.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_FARMER_LOCATION = new ResourceLocation("minecraft:textures/entity/zombie_villager/zombie_farmer.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_LIBRARIAN_LOC = new ResourceLocation("minecraft:textures/entity/zombie_villager/zombie_librarian.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_PRIEST_LOCATION = new ResourceLocation("minecraft:textures/entity/zombie_villager/zombie_priest.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_SMITH_LOCATION = new ResourceLocation("minecraft:textures/entity/zombie_villager/zombie_smith.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_BUTCHER_LOCATION = new ResourceLocation("minecraft:textures/entity/zombie_villager/zombie_butcher.png");
+
+    private static final ResourceLocation ZOMBIE_VILLAGER_TEXTURES = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_villager.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_FARMER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_farmer.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_LIBRARIAN_LOC = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_librarian.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_PRIEST_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_priest.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_SMITH_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_smith.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_BUTCHER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_butcher.png");
 
     public RenderMummyVillager(RenderManager renderManagerIn) {
         super(renderManagerIn, new ModelMummyVillager(), 0.5F);
@@ -27,8 +23,6 @@ public class RenderMummyVillager extends RenderBiped<EntityMummyVillager> {
 
     @Override
     protected ResourceLocation getEntityTexture(EntityMummyVillager entity) {
-        if (true) return entity.getForgeProfession().getZombieSkin();
-
         switch (entity.getProfession()) {
             case 0:
                 return ZOMBIE_VILLAGER_FARMER_LOCATION;

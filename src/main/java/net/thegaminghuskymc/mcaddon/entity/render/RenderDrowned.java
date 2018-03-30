@@ -1,5 +1,6 @@
 package net.thegaminghuskymc.mcaddon.entity.render;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -17,6 +18,11 @@ public class RenderDrowned extends RenderBiped<EntityDrowned> {
     public RenderDrowned(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelZombie(), 0.5F);
         this.addLayer(new LayerDrownedOuter(this));
+    }
+
+    @Override
+    protected boolean setBrightness(EntityDrowned entitylivingbaseIn, float partialTicks, boolean combineTextures) {
+        return true;
     }
 
     @Override
