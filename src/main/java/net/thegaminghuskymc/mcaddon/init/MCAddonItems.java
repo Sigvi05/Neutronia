@@ -1,6 +1,7 @@
 package net.thegaminghuskymc.mcaddon.init;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -9,12 +10,19 @@ import net.thegaminghuskymc.mcaddon.items.ItemAncientSword;
 import net.thegaminghuskymc.mcaddon.items.ItemBandage;
 import net.thegaminghuskymc.mcaddon.items.ItemBase;
 import net.thegaminghuskymc.mcaddon.items.ItemTest;
+import net.thegaminghuskymc.mcaddon.tools.*;
 
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class MCAddonItems
 {
+    public static final Item.ToolMaterial CAXE = EnumHelper.addToolMaterial("caxe", 3, 350, 7.0F, 4.0F, 12);
+    public static final Item.ToolMaterial CPICK = EnumHelper.addToolMaterial("cpick", 3, 350, 7.0F, 4.0F, 12);
+    public static final Item.ToolMaterial CHOE = EnumHelper.addToolMaterial("choe", 3, 325, 7.0F, 4.0F, 12);
+    public static final Item.ToolMaterial CSHOVEL = EnumHelper.addToolMaterial("cshovel", 3, 325, 7.0F, 4.0F, 12);
+    public static final Item.ToolMaterial CSWORD = EnumHelper.addToolMaterial("csword", 3, 325, 7.0F, 8.0F, 12);
+
     public static final Item test;
     public static final Item ANCIENT_SWORD;
     public static final Item BANDAGE;
@@ -37,11 +45,11 @@ public class MCAddonItems
         STINGER = new ItemBase("stinger", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
         CHITIN = new ItemBase("chitin", HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
 
-        AXE_CHITIN = new ItemBase("axe_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
-        PICKAXE_CHITIN = new ItemBase("pickaxe_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
-        HOE_CHITIN = new ItemBase("hoe_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
-        SHOVEL_CHITIN = new ItemBase("shovel_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
-        SWORD_CHITIN = new ItemBase("sword_chitin", HuskysMinecraftAdditions.WEAPON_EXPANSION_TAB);
+        AXE_CHITIN = new BaseAxe("axe_chitin", CAXE);
+        PICKAXE_CHITIN = new BasePickaxe("pickaxe_chitin", CPICK);
+        HOE_CHITIN = new BaseHoe("hoe_chitin", CHOE);
+        SHOVEL_CHITIN = new BaseShovel("shovel_chitin", CSHOVEL);
+        SWORD_CHITIN = new BaseSword("sword_chitin", CSWORD);
     }
 
     @SubscribeEvent
