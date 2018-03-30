@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 public class TPBiomeCommand extends CommandBase {
 

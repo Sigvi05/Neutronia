@@ -37,7 +37,7 @@ import java.util.UUID;
 @SuppressWarnings("ConstantConditions")
 public class WorldGenUtil
 {
-    private static final Field FIELD_BLOCKS = ReflectionHelper.findField(Template.class, "field_186270_a", "blocks");
+    private static final Field FIELD_BLOCKS = ReflectionHelper.findField(Template.class, "field_186270_a", "animations.blocks");
     private static final Field FIELD_ENTITIES = ReflectionHelper.findField(Template.class, "field_186271_b", "entities");
 
     public static BlockPos getSuitableGroundPos(World world, BlockPos pos, BlockPos structureSize, float percentage)

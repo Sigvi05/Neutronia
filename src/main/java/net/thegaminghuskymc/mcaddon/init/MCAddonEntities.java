@@ -41,7 +41,8 @@ public class MCAddonEntities {
             createBuilder("drowned").entity(EntityDrowned.class).tracker(80, 3, true).egg(0x86e2ca, 0x617d51).build(),
             createBuilder("scuba_divers").entity(EntityScubaDivers.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
             createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
-            createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build()
+            createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
+            createBuilder("cod").entity(EntityCod.class).tracker(30, 3, true).egg(0xb89e70, 0x786749).build()
         };
         event.getRegistry().registerAll(entries);
         RenderHandler.registerEntityRenders();

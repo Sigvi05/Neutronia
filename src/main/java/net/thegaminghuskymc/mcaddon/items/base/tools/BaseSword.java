@@ -8,8 +8,6 @@ public class BaseSword extends ItemModSword  {
 
     public BaseSword(String name, ToolMaterial material) {
         super(name, MOD_ID, material);
-        setUnlocalizedName(name);
-        setRegistryName(name);
     }
 
 }

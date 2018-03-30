@@ -26,7 +26,7 @@ public class WorldGenerationTools {
             return -1;
         }
 
-        y--;            // y should now be at a solid or liquid block.
+        y--;            // y should now be at a solid or liquid animation.animations.blocks.
 
         if (y > world.getHeight() - 5) {
             y = world.getHeight() / 2;
@@ -47,7 +47,7 @@ public class WorldGenerationTools {
         return y;
     }
 
-    // Return true if this block is solid.
+    // Return true if this animation.animations.blocks is solid.
     public static boolean isSolid(World world, int x, int y, int z) {
         if (world.isAirBlock(new BlockPos(x, y, z))) {
             return false;
@@ -57,7 +57,7 @@ public class WorldGenerationTools {
         return block.getMaterial(state).blocksMovement();
     }
 
-    // Return true if this block is solid.
+    // Return true if this animation.animations.blocks is solid.
     public static boolean isAir(World world, int x, int y, int z) {
         if (world.isAirBlock(new BlockPos(x, y, z))) {
             return true;
@@ -66,8 +66,8 @@ public class WorldGenerationTools {
         return block == null;
     }
 
-    // Starting at the current height, go down and fill all air blocks with stone until a
-    // non-air block is encountered.
+    // Starting at the current height, go down and fill all air animations.blocks with stone until a
+    // non-air animation.animations.blocks is encountered.
     public static void fillEmptyWithStone(World world, int x, int y, int z) {
         while (y > 0 && !isSolid(world, x, y, z)) {
             world.setBlockState(new BlockPos(x, y, z), Blocks.STONE.getDefaultState(), 2);

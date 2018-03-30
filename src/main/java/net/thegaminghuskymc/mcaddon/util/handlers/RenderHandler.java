@@ -1,14 +1,9 @@
 package net.thegaminghuskymc.mcaddon.util.handlers;
 
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.thegaminghuskymc.mcaddon.entity.EntityDrowned;
-import net.thegaminghuskymc.mcaddon.entity.EntityMummy;
-import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
-import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
-import net.thegaminghuskymc.mcaddon.entity.render.RenderDrowned;
-import net.thegaminghuskymc.mcaddon.entity.render.RenderMummy;
-import net.thegaminghuskymc.mcaddon.entity.render.RenderMummyVillager;
-import net.thegaminghuskymc.mcaddon.entity.render.RenderScorp;
+import net.thegaminghuskymc.mcaddon.entity.*;
+import net.thegaminghuskymc.mcaddon.entity.render.*;
 
 public class RenderHandler {
 
@@ -17,6 +12,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityMummyVillager.class, RenderMummyVillager::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityScorp.class, RenderScorp::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDrowned.class, RenderDrowned::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityCod.class, RenderCod::new);
     }
 
 }

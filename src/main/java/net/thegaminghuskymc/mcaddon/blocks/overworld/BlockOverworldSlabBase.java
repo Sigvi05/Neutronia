@@ -9,17 +9,8 @@ import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 public class BlockOverworldSlabBase extends BlockModSlab {
 
     public BlockOverworldSlabBase(String name, boolean isDouble) {
-        super(name, Material.ROCK, isDouble);
+        super(name, MOD_ID, Material.ROCK, isDouble);
         setCreativeTab(HuskysMinecraftAdditions.OVERWORLD_EXPANSION_TAB);
     }
 
-    @Override
-    public String getModNamespace() {
-        return MOD_ID;
-    }
-
-    @Override
-    public String getPrefix() {
-        return MOD_ID;
-    }
 }

@@ -22,8 +22,8 @@ public class ConfigHandler
     @Config.LangKey("config.hmca:dimension")
     public static Dimension dimension = new Dimension();
 
-    @Config.Name("block")
-    @Config.LangKey("config.hmca:block")
+    @Config.Name("animation.animations.blocks")
+    @Config.LangKey("config.hmca:animation.animations.blocks")
     public static Block block = new Block();
 
     @Config.Name("potion_effect")
@@ -75,86 +75,86 @@ public class ConfigHandler
     public static class Block
     {
         @Config.Name("nether_portal")
-        @Config.LangKey("config.hmca:block.netherPortal")
+        @Config.LangKey("config.hmca:animation.animations.blocks.netherPortal")
         public NetherPortal netherPortal = new NetherPortal();
 
         @Config.Name("netherrack")
-        @Config.LangKey("config.hmca:block.netherrack")
+        @Config.LangKey("config.hmca:animation.animations.blocks.netherrack")
         public Netherrack netherrack = new Netherrack();
 
         @Config.Name("soul_sand")
-        @Config.LangKey("config.hmca:block.soulSand")
+        @Config.LangKey("config.hmca:animation.animations.blocks.soulSand")
         public SoulSand soulSand = new SoulSand();
 
         @Config.Name("magma")
-        @Config.LangKey("config.hmca:block.magma")
+        @Config.LangKey("config.hmca:animation.animations.blocks.magma")
         public Magma magma = new Magma();
 
         @Config.Name("rime")
-        @Config.LangKey("config.hmca:block.rime")
+        @Config.LangKey("config.hmca:animation.animations.blocks.rime")
         public Rime rime = new Rime();
 
         @Config.Name("thornstalk")
-        @Config.LangKey("config.hmca:block.thornstalk")
+        @Config.LangKey("config.hmca:animation.animations.blocks.thornstalk")
         public Thornstalk thornstalk = new Thornstalk();
 
         @Config.Name("hyphae")
-        @Config.LangKey("config.hmca:block.hyphae")
+        @Config.LangKey("config.hmca:animation.animations.blocks.hyphae")
         public Hyphae hyphae = new Hyphae();
 
         public class NetherPortal
         {
-            @Config.LangKey("config.hmca:block.netherrack.allowPigmanSpawning")
+            @Config.LangKey("config.hmca:animation.animations.blocks.netherrack.allowPigmanSpawning")
             public boolean allowPigmanSpawning = true;
 
             @Config.RangeInt(min = 4, max = 2048)
-            @Config.LangKey("config.hmca:block.netherrack.pigmanSpawnRarity")
+            @Config.LangKey("config.hmca:animation.animations.blocks.netherrack.pigmanSpawnRarity")
             @Config.Comment({"The higher the number, the rarer it is for Pigman to spawn", "The lower the number, the more common it is for Pigman to spawn"})
             public int pigmanSpawnRarity = 2000;
         }
 
         public class Netherrack
         {
-            @Config.LangKey("config.hmca:block.netherrack.allowAllShovelsToFlatten")
+            @Config.LangKey("config.hmca:animation.animations.blocks.netherrack.allowAllShovelsToFlatten")
             public boolean allowAllShovelsToFlatten = false;
         }
 
         public class SoulSand
         {
-            @Config.LangKey("config.hmca:block.soulSand.doesNetherwartUseNewGrowthSystem")
+            @Config.LangKey("config.hmca:animation.animations.blocks.soulSand.doesNetherwartUseNewGrowthSystem")
             public boolean doesNetherwartUseNewGrowthSystem = true;
 
-            @Config.LangKey("config.hmca:block.soulSand.allowAllHoesToTill")
+            @Config.LangKey("config.hmca:animation.animations.blocks.soulSand.allowAllHoesToTill")
             public boolean allowAllHoesToTill = false;
 
-            @Config.LangKey("config.hmca:block.soulSand.doesRequireIchor")
+            @Config.LangKey("config.hmca:animation.animations.blocks.soulSand.doesRequireIchor")
             public boolean doesRequireIchor = true;
         }
 
         public class Magma
         {
-            @Config.LangKey("config.hmca:block.magma.turnIntoLava")
+            @Config.LangKey("config.hmca:animation.animations.blocks.magma.turnIntoLava")
             public boolean turnIntoLava = false;
         }
 
         public class Rime
         {
-            @Config.LangKey("config.hmca:block.rime.canFreezeWater")
+            @Config.LangKey("config.hmca:animation.animations.blocks.rime.canFreezeWater")
             public boolean canFreezeWater = true;
 
-            @Config.LangKey("config.hmca:block.rime.canFreezeLava")
+            @Config.LangKey("config.hmca:animation.animations.blocks.rime.canFreezeLava")
             public boolean canFreezeLava = true;
 
-            @Config.LangKey("config.hmca:block.rime.canFreezeMobs")
+            @Config.LangKey("config.hmca:animation.animations.blocks.rime.canFreezeMobs")
             public boolean canFreezeMobs = true;
         }
 
         public class Thornstalk
         {
-            @Config.LangKey("config.hmca:block.thornstalk.canDestroyItems")
+            @Config.LangKey("config.hmca:animation.animations.blocks.thornstalk.canDestroyItems")
             public boolean canDestroyItems = false;
 
-            @Config.LangKey("config.hmca:block.thornstalk.blacklist")
+            @Config.LangKey("config.hmca:animation.animations.blocks.thornstalk.blacklist")
             @Config.Comment("Mobs the Thornstalk shouldn't hurt")
             public String[] blacklist = new String[]{
                     "minecraft:wither_skeleton",
@@ -165,7 +165,7 @@ public class ConfigHandler
 
         public class Hyphae
         {
-            @Config.LangKey("config.hmca:block.hyphae.doesSpread")
+            @Config.LangKey("config.hmca:animation.animations.blocks.hyphae.doesSpread")
             public boolean doesSpread = false;
         }
     }

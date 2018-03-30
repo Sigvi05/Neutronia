@@ -30,17 +30,13 @@ import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpAttack;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpTarget;
 import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
-<<<<<<< HEAD
 import java.util.Objects;
 
-public class EntityScorp extends EntityMob
-=======
 /*
  *TODO:Optimize Mob, Add Custom Sounds, Add Animations
  */
 
 public class EntityScorp extends EntitySpider
->>>>>>> 5f1d2f937279ddbf8c94a9a40841f09c781929c6
 {
     private ResourceLocation loot_table = LootTableHandler.SCORP;
 
@@ -160,14 +156,11 @@ public class EntityScorp extends EntitySpider
         super.onLivingUpdate();
     }
 
-<<<<<<< HEAD
     public void setLootTable(ResourceLocation loot_table)
     {
         this.loot_table = loot_table;
     }
 
-=======
->>>>>>> 5f1d2f937279ddbf8c94a9a40841f09c781929c6
     @Override
     public boolean attackEntityAsMob(Entity entityIn)
     {
@@ -217,14 +210,6 @@ public class EntityScorp extends EntitySpider
         return EnumCreatureAttribute.ARTHROPOD;
     }
 
-<<<<<<< HEAD
-    public ResourceLocation getLootTable()
-    {
-        return loot_table;
-    }
-
-=======
->>>>>>> 5f1d2f937279ddbf8c94a9a40841f09c781929c6
     @Override
     public boolean getCanSpawnHere()
     {

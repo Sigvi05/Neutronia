@@ -9,7 +9,7 @@ import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 public class BlockNetherSlabBase extends BlockModSlab {
 
     public BlockNetherSlabBase(String name, boolean isDouble) {
-        super(name, Material.ROCK, isDouble);
+        super(name, MOD_ID, Material.ROCK, isDouble);
         setCreativeTab(HuskysMinecraftAdditions.NETHER_EXPANSION_TAB);
     }
 

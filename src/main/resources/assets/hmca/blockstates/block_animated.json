@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal": { "model": "hmca:block_animated" }
+  }
+}

@@ -106,7 +106,7 @@ public class BlockUtil
     }
 
     /**
-     * A method that harvests blocks when they aren't able to normally
+     * A method that harvests animations.blocks when they aren't able to normally
      * <p>
      * Written by VapourDrive here:
      * https://github.com/VapourDrive/Hammerz/blob/55d31b8f8fd463d127110de04b2562605604e85c/src/main/java/vapourdrive/hammerz/utils/BlockUtils.java#L21

@@ -35,6 +35,7 @@ public class MCAddonBlocks {
     public static Block[] dead_sea_fan = new Block[5];
     public static final Block dried_kelp_block;
     public static final Block blackSand;
+    public static final Block blockAnimated;
 
     public static Block[] brainCoralStair = new Block[5];
     public static Block[] deadBrainCoralStair = new Block[5];
@@ -139,6 +140,7 @@ public class MCAddonBlocks {
         }
         dried_kelp_block = new BlockOverworldBase(Material.LEAVES, "dried_kelp_block");
         blackSand = new BlockOverworldBase(Material.SAND, "black_sand");
+        blockAnimated = new BlockAnimatedTest();
 
         for(EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
             netherBlocks[netherBlockTypes.getMetadata()] = new BlockNetherBase(Material.ROCK, netherBlockTypes.getName());

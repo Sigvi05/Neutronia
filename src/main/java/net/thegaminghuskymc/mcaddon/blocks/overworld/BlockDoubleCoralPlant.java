@@ -85,7 +85,7 @@ public class BlockDoubleCoralPlant extends BlockModBush {
 
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
         if (state.getBlock() != this)
-            return super.canBlockStay(worldIn, pos, state); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+            return super.canBlockStay(worldIn, pos, state); //Forge: This function is called during world gen and placement, before this animation.animations.blocks is set, so if we are not 'here' then assume it's the pre-check.
         if (state.getValue(HALF) == BlockDoubleCoralPlant.EnumBlockHalf.UPPER) {
             return worldIn.getBlockState(pos.down()).getBlock() == this;
         } else {
