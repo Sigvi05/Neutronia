@@ -2,7 +2,6 @@ package net.thegaminghuskymc.mcaddon.commands;
 
 import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
@@ -13,7 +12,7 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.Collections;
 import java.util.List;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 public class TPDimensionCommand extends CommandBase {
     private final List<String> aliases = Lists.newArrayList(MOD_ID, "TP", "tp", "tpdim", "tpdimension", "teleport");

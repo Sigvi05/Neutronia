@@ -1,11 +1,8 @@
 package net.thegaminghuskymc.mcaddon.init;
 
-import net.minecraft.client.renderer.entity.RenderHusk;
-import net.minecraft.client.renderer.entity.RenderStray;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
