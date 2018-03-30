@@ -50,6 +50,7 @@ import net.thegaminghuskymc.mcaddon.init.NetherExBiomes;
 import net.thegaminghuskymc.mcaddon.proxy.CommonProxy;
 import net.thegaminghuskymc.mcaddon.world.biome.NetherBiomeManager;
 import net.thegaminghuskymc.mcaddon.world.dungeons.DungeonGenerator;
+import net.thegaminghuskymc.mcaddon.util.Reference;
 import net.thegaminghuskymc.mcaddon.world.gen.WorldGenCustomStructures;
 import net.thegaminghuskymc.mcaddon.world.utils.ClayGenerator;
 import net.thegaminghuskymc.mcaddon.world.utils.FormationCaveGenerator;
@@ -60,7 +61,7 @@ import java.io.File;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @Mod(modid = MOD_ID, name = Reference.NAME, version = Reference.VERSION)
 public class HuskysMinecraftAdditions {

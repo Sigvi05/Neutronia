@@ -2,7 +2,6 @@ package net.thegaminghuskymc.mcaddon.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemSlab;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -19,7 +18,7 @@ import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 import net.thegaminghuskymc.mcaddon.properties.EnumNetherBlocks;
 import net.thegaminghuskymc.mcaddon.properties.EnumNewStoneVariants;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class MCAddonBlocks {

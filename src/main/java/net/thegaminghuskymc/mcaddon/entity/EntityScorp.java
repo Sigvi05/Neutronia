@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
@@ -22,15 +23,24 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpAttack;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIScorpTarget;
 import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
+<<<<<<< HEAD
 import java.util.Objects;
 
 public class EntityScorp extends EntityMob
+=======
+/*
+ *TODO:Optimize Mob, Add Custom Sounds, Add Animations
+ */
+
+public class EntityScorp extends EntitySpider
+>>>>>>> 5f1d2f937279ddbf8c94a9a40841f09c781929c6
 {
     private ResourceLocation loot_table = LootTableHandler.SCORP;
 
@@ -41,6 +51,12 @@ public class EntityScorp extends EntityMob
     {
         super(worldIn);
     }
+
+    protected ResourceLocation getLootTable() {
+        return LootTableHandler.SCORP;
+    }
+
+    public void setLoot_table(ResourceLocation loot_table) { this.loot_table = loot_table; }
 
     @Override
     protected void initEntityAI()
@@ -144,11 +160,14 @@ public class EntityScorp extends EntityMob
         super.onLivingUpdate();
     }
 
+<<<<<<< HEAD
     public void setLootTable(ResourceLocation loot_table)
     {
         this.loot_table = loot_table;
     }
 
+=======
+>>>>>>> 5f1d2f937279ddbf8c94a9a40841f09c781929c6
     @Override
     public boolean attackEntityAsMob(Entity entityIn)
     {
@@ -198,11 +217,14 @@ public class EntityScorp extends EntityMob
         return EnumCreatureAttribute.ARTHROPOD;
     }
 
+<<<<<<< HEAD
     public ResourceLocation getLootTable()
     {
         return loot_table;
     }
 
+=======
+>>>>>>> 5f1d2f937279ddbf8c94a9a40841f09c781929c6
     @Override
     public boolean getCanSpawnHere()
     {

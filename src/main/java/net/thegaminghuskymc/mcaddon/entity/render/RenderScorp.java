@@ -3,7 +3,7 @@ package net.thegaminghuskymc.mcaddon.entity.render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.thegaminghuskymc.mcaddon.Reference;
+import net.thegaminghuskymc.mcaddon.util.Reference;
 import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
 import net.thegaminghuskymc.mcaddon.entity.render.model.ModelScorp;
 

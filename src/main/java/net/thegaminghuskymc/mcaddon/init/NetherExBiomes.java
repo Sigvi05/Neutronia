@@ -15,7 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static net.minecraftforge.common.BiomeDictionary.Type.*;
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @SuppressWarnings("ConstantConditions")
 @GameRegistry.ObjectHolder(MOD_ID)

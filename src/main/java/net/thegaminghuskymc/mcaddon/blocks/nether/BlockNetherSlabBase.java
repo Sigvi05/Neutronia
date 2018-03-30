@@ -4,7 +4,7 @@ import net.minecraft.block.material.Material;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModSlab;
 import net.thegaminghuskymc.mcaddon.HuskysMinecraftAdditions;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 public class BlockNetherSlabBase extends BlockModSlab {
 

@@ -1,4 +1,4 @@
-package net.thegaminghuskymc.mcaddon;
+package net.thegaminghuskymc.mcaddon.util;
 
 public class Reference
 {

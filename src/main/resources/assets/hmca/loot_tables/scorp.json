@@ -12,7 +12,7 @@
         {
           "type": "item",
           "weight": 80,
-          "name": "minecraft:bone",
+          "name": "hmca:chitin",
           "quality": 1,
           "functions": [
             {

@@ -13,11 +13,17 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.*;
-import net.thegaminghuskymc.mcaddon.Reference;
 import net.thegaminghuskymc.mcaddon.entity.*;
+import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.thegaminghuskymc.mcaddon.entity.EntityMummy;
+import net.thegaminghuskymc.mcaddon.entity.EntityMummyVillager;
+import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
 import net.thegaminghuskymc.mcaddon.util.handlers.RenderHandler;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class MCAddonEntities {

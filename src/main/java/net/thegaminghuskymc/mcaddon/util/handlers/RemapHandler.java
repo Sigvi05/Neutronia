@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import static net.thegaminghuskymc.mcaddon.Reference.MOD_ID;
+import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
 /**
  * Remaps this mod's {@link Block}s and {@link Item}s after registry names have been changed.
