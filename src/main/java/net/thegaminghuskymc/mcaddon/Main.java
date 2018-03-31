@@ -64,7 +64,7 @@ import java.util.*;
 
 import static net.thegaminghuskymc.mcaddon.util.Reference.MOD_ID;
 
-@Mod(modid = MOD_ID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(modid = MOD_ID, name = Reference.NAME, version = Reference.VERSION, dependencies = "required-after:llibrary@[1.7.9,)")
 public class Main {
 
     @Mod.Instance
