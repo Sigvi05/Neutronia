@@ -34,6 +34,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIMummyAttack;
 import net.thegaminghuskymc.mcaddon.init.MCAddonItems;
+import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;
@@ -184,7 +185,7 @@ public class EntityMummy extends EntityMob {
     @Nullable
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTableList.ENTITIES_ZOMBIE;
+        return LootTableHandler.MUMMY;
     }
 
     @Override

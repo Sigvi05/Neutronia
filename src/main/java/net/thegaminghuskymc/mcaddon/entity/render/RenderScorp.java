@@ -3,20 +3,18 @@ package net.thegaminghuskymc.mcaddon.entity.render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.thegaminghuskymc.mcaddon.entity.render.model.ModelScorpion;
 import net.thegaminghuskymc.mcaddon.util.Reference;
 import net.thegaminghuskymc.mcaddon.entity.EntityScorp;
 import net.thegaminghuskymc.mcaddon.entity.render.model.ModelScorp;
 
-/*
- *TODO:Add Custom Model and Textures
- */
 public class RenderScorp extends RenderLiving<EntityScorp>
 {
-    public static final ResourceLocation SCORP_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/scorp.png");
+    public static final ResourceLocation SCORP_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/scorpion.png");
 
     public  RenderScorp(RenderManager manager)
     {
-        super(manager, new ModelScorp(), 0.5F);
+        super(manager, new ModelScorpion(), 0.5F);
     }
 
     @Override

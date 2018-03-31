@@ -82,7 +82,7 @@
             {
               "featureType": "ore",
               "blockToSpawn": { "blockId": "hmca:ore_amethyst", "meta": 0 },
-              "targetBlock": { "blockId": "hmca:raw_basalt", "meta": 0 },
+              "targetBlock": { "blockId": "minecraft:netherrack", "meta": 0 },
               "size": 3,
               "rarity": 16,
               "minHeight": 10,
@@ -91,7 +91,7 @@
             {
               "featureType": "ore",
               "blockToSpawn": { "blockId": "minecraft:magma", "meta": 0 },
-              "targetBlock": { "blockId": "hmca:raw_basalt", "meta": 0 },
+              "targetBlock": { "blockId": "minecraft:netherrack", "meta": 0 },
               "size": 32,
               "rarity": 4,
               "minHeight": 28,
@@ -100,7 +100,7 @@
             {
               "featureType": "fluid",
               "blockToSpawn": { "blockId": "minecraft:flowing_lava", "meta": 0 },
-              "targetBlock": { "blockId": "hmca:raw_basalt", "meta": 0 },
+              "targetBlock": { "blockId": "minecraft:netherrack", "meta": 0 },
               "hidden": true,
               "rarity": 16,
               "minHeight": 10,
@@ -331,7 +331,7 @@
         },
         {
           "biomeId": "basalt_nether",
-          "weight": 10,
+          "weight": 3,
           "climateType": "warm",
           "topBlock": { "blockId": "hmca:raw_basalt", "meta": 0 },
           "fillerBlock": { "blockId": "hmca:raw_basalt", "meta": 0 },
@@ -341,7 +341,8 @@
             { "entityId": "minecraft:ghast", "creatureType": "monster", "weight": 50, "minGroupCount": 4, "maxGroupCount": 4 },
             { "entityId": "minecraft:blaze", "creatureType": "monster", "weight": 3, "minGroupCount": 4, "maxGroupCount": 4 },
             { "entityId": "minecraft:magma_cube", "creatureType": "monster", "weight": 2, "minGroupCount": 4, "maxGroupCount": 4 },
-            { "entityId": "minecraft:enderman", "creatureType": "monster", "weight": 1, "minGroupCount": 4, "maxGroupCount": 4 }
+            { "entityId": "minecraft:enderman", "creatureType": "monster", "weight": 1, "minGroupCount": 4, "maxGroupCount": 4 },
+            { "entityId": "hmca:hovering_inferno", "creatureType": "monster", "weight": 1, "minGroupCount": 4, "maxGroupCount": 4 }
           ],
           "featureList": [
             {

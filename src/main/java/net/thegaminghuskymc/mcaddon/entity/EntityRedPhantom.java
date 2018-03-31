@@ -1,35 +1,24 @@
 package net.thegaminghuskymc.mcaddon.entity;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.entity.RenderDragon;
 import net.minecraft.entity.*;
-import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.passive.EntityAmbientCreature;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;
-import java.util.List;
 
-public class EntityPhantom extends EntityLiving implements IEntityMultiPart, IMob {
-    
+public class EntityRedPhantom extends EntityLiving implements IEntityMultiPart, IMob {
+
     /** An array containing all body parts of this dragon */
     public MultiPartEntityPart[] phantomPartArray;
     /** The head bounding box of a dragon */
@@ -44,18 +33,18 @@ public class EntityPhantom extends EntityLiving implements IEntityMultiPart, IMo
     public float prevAnimTime;
     /** Animation time, used to control the speed of the animation cycles (wings flapping, jaw opening, etc.) */
     public float animTime;
-    
-    
+
+
     /**
      * Coordinates of where the bat spawned.
      */
     private BlockPos spawnPosition;
 
-    public EntityPhantom(World worldIn) {
+    public EntityRedPhantom(World worldIn) {
         super(worldIn);
         this.phantomPartArray = new MultiPartEntityPart[] {this.phantomPartHead, this.phantomPartBody, this.phantomPartWing1, this.phantomPartWing2, this.phantomPartTail1, this.phantomPartTail2};
-        this.setHealth(10f);
-        this.setSize(5.40F, 4F);
+        this.setHealth(this.getMaxHealth());
+        this.setSize(16.0F, 8.0F);
         this.noClip = true;
         this.isImmuneToFire = true;
         this.ignoreFrustumCheck = true;
@@ -230,7 +219,7 @@ public class EntityPhantom extends EntityLiving implements IEntityMultiPart, IMo
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTableHandler.PHANTOM;
+        return LootTableHandler.RED_PHANTOM;
     }
 
     @Override

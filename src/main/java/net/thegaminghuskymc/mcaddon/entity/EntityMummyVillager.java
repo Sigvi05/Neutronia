@@ -31,6 +31,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -39,8 +40,8 @@ import java.util.UUID;
  */
 public class EntityMummyVillager extends EntityMummy {
 
-    private static final DataParameter<Boolean> CONVERTING = EntityDataManager.<Boolean>createKey(EntityMummyVillager.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Integer> PROFESSION = EntityDataManager.<Integer>createKey(EntityMummyVillager.class, DataSerializers.VARINT);
+    private static final DataParameter<Boolean> CONVERTING = EntityDataManager.createKey(EntityMummyVillager.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Integer> PROFESSION = EntityDataManager.createKey(EntityMummyVillager.class, DataSerializers.VARINT);
 
     private int conversionTime;
     private UUID converstionStarter;
@@ -52,16 +53,16 @@ public class EntityMummyVillager extends EntityMummy {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataManager.register(CONVERTING, Boolean.valueOf(false));
-        this.dataManager.register(PROFESSION, Integer.valueOf(0));
+        this.dataManager.register(CONVERTING, Boolean.FALSE);
+        this.dataManager.register(PROFESSION, 0);
     }
 
     public void setProfession(int profession) {
-        this.dataManager.set(PROFESSION, Integer.valueOf(profession));
+        this.dataManager.set(PROFESSION, profession);
     }
 
     public int getProfession() {
-        return Math.max(((Integer)this.dataManager.get(PROFESSION)).intValue(), 0);
+        return Math.max(this.dataManager.get(PROFESSION), 0);
     }
 
     public static void registerFixesMummyVillager(DataFixer fixer) {
@@ -72,7 +73,7 @@ public class EntityMummyVillager extends EntityMummy {
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
         compound.setInteger("Profession", this.getProfession());
-        compound.setString("ProfessionName", this.getForgeProfession().getRegistryName().toString());
+        compound.setString("ProfessionName", Objects.requireNonNull(this.getForgeProfession().getRegistryName()).toString());
         compound.setInteger("ConversionTime", this.isConverting() ? this.conversionTime : -1);
 
         if (this.converstionStarter != null) {
@@ -152,7 +153,7 @@ public class EntityMummyVillager extends EntityMummy {
 
     public boolean isConverting()
     {
-        return ((Boolean)this.getDataManager().get(CONVERTING)).booleanValue();
+        return this.getDataManager().get(CONVERTING).booleanValue();
     }
 
     protected void startConverting(@Nullable UUID conversionStarterIn, int conversionTimeIn)
@@ -186,7 +187,7 @@ public class EntityMummyVillager extends EntityMummy {
         EntityVillager entityvillager = new EntityVillager(this.world);
         entityvillager.copyLocationAndAnglesFrom(this);
         entityvillager.setProfession(this.getForgeProfession());
-        entityvillager.finalizeMobSpawn(this.world.getDifficultyForLocation(new BlockPos(entityvillager)), (IEntityLivingData)null, false);
+        entityvillager.finalizeMobSpawn(this.world.getDifficultyForLocation(new BlockPos(entityvillager)), null, false);
         entityvillager.setLookingForHome();
         this.world.removeEntity(this);
         entityvillager.setNoAI(this.isAIDisabled());
@@ -199,7 +200,7 @@ public class EntityMummyVillager extends EntityMummy {
 
         this.world.spawnEntity(entityvillager);
         entityvillager.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 200, 0));
-        this.world.playEvent((EntityPlayer)null, 1027, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
+        this.world.playEvent(null, 1027, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
     }
 
     protected int getConversionProgress()

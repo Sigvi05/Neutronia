@@ -36,9 +36,7 @@ import java.util.Objects;
  *TODO:Optimize Mob, Add Custom Sounds, Add Animations
  */
 
-public class EntityScorp extends EntitySpider
-{
-    private ResourceLocation loot_table = LootTableHandler.SCORP;
+public class EntityScorp extends EntitySpider {
 
     public static final DataParameter<Boolean> TAIL_OUT = EntityDataManager.createKey(EntityScorp.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityScorp.class, DataSerializers.BYTE);
@@ -49,10 +47,8 @@ public class EntityScorp extends EntitySpider
     }
 
     protected ResourceLocation getLootTable() {
-        return LootTableHandler.SCORP;
+        return LootTableHandler.SCORPION;
     }
-
-    public void setLoot_table(ResourceLocation loot_table) { this.loot_table = loot_table; }
 
     @Override
     protected void initEntityAI()
@@ -154,11 +150,6 @@ public class EntityScorp extends EntitySpider
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
-    }
-
-    public void setLootTable(ResourceLocation loot_table)
-    {
-        this.loot_table = loot_table;
     }
 
     @Override
