@@ -16,6 +16,12 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityRedPhantom.class, RenderRedPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderPhantom.class, RenderEnderPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityShadowPhantom.class, RenderShadowPhantom::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityAtmosCrow.class, RenderCrow::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityAtmosAngler.class, RenderAtmosAngler::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityAtmosReefManta.class, RenderAtmosReefManta::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntitySeaTurtle.class, RenderSeaTurtle::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityWhale.class, RenderWhale::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityHoveringInferno.class, RenderHoveringInferno::new);
     }
 
 }

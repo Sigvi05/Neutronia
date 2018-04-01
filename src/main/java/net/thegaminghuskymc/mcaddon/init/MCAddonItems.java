@@ -1,6 +1,9 @@
 package net.thegaminghuskymc.mcaddon.init;
 
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +22,7 @@ public class MCAddonItems
     public static final Item.ToolMaterial CHOE = EnumHelper.addToolMaterial("choe", 3, 325, 7.0F, 4.0F, 12);
     public static final Item.ToolMaterial CSHOVEL = EnumHelper.addToolMaterial("cshovel", 3, 325, 7.0F, 4.0F, 12);
     public static final Item.ToolMaterial CSWORD = EnumHelper.addToolMaterial("csword", 3, 325, 7.0F, 8.0F, 12);
+    public static final ItemArmor.ArmorMaterial TEST = EnumHelper.addArmorMaterial("test", "test", 100, new int[] {10, 10, 10, 10}, 10, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 3F);
 
     public static final Item ANCIENT_SWORD;
     public static final Item BANDAGE;
@@ -32,6 +36,11 @@ public class MCAddonItems
     public static final Item HOE_CHITIN;
     public static final Item SHOVEL_CHITIN;
     public static final Item SWORD_CHITIN;
+
+    public static final ArmorTM healmet;
+    public static final ArmorTM chestplate;
+    public static final ArmorTM leggings;
+    public static final ArmorTM boots;
 
     static {
         ANCIENT_SWORD = new ItemAncientSword();
@@ -47,6 +56,10 @@ public class MCAddonItems
         HOE_CHITIN = new BaseHoe("hoe_chitin", CHOE);
         SHOVEL_CHITIN = new BaseShovel("shovel_chitin", CSHOVEL);
         SWORD_CHITIN = new BaseSword("sword_chitin", CSWORD);
+        healmet = new ArmorTM("test_helmet", TEST, 0, EntityEquipmentSlot.HEAD);
+        chestplate = new ArmorTM("test_chestplate", TEST, 0, EntityEquipmentSlot.CHEST);
+        leggings = new ArmorTM("test_leggings", TEST, 0, EntityEquipmentSlot.LEGS);
+        boots = new ArmorTM("test_boots", TEST, 0, EntityEquipmentSlot.FEET);
     }
 
     @SubscribeEvent

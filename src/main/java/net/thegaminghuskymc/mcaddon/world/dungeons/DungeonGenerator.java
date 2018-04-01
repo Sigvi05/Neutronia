@@ -32,10 +32,10 @@ public class DungeonGenerator implements IWorldGenerator {
     private static final RoomStructure room10 = new RoomStructure("room_10");
 
     private static final HallwayStructure hallway_s = new HallwayStructure("hallway_straight");
-    private static final HallwayStructure hallway_cl = new HallwayStructure("hallway_straight");
-    private static final HallwayStructure hallway_cr = new HallwayStructure("hallway_straight");
-    private static final HallwayStructure hallway_u = new HallwayStructure("hallway_straight");
-    private static final HallwayStructure hallway_d = new HallwayStructure("hallway_straight");
+    private static final HallwayStructure hallway_cl = new HallwayStructure("hallway_corner_left");
+//    private static final HallwayStructure hallway_cr = new HallwayStructure("hallway_corner_right");
+    private static final HallwayStructure hallway_u = new HallwayStructure("hallway_up");
+    private static final HallwayStructure hallway_d = new HallwayStructure("hallway_down");
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
@@ -54,7 +54,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -65,13 +65,14 @@ public class DungeonGenerator implements IWorldGenerator {
                     } else if(i == 2) {
                         generateStructure(room2, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
 
+
                         for(int j = 0; j > random.nextInt(5); j++) {
                             if(j == 1) {
                                 generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -88,7 +89,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -105,7 +106,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -122,7 +123,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -139,7 +140,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -156,7 +157,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -173,7 +174,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -190,7 +191,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {
@@ -207,7 +208,7 @@ public class DungeonGenerator implements IWorldGenerator {
                             } else if(j == 2) {
                                 generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 3) {
-                                generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
+                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 4) {
                                 generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
                             } else if(j == 5) {

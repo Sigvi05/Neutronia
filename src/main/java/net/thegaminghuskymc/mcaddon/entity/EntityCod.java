@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class EntityCod extends EntityMob {
+public class EntityCod extends EntityWaterMob {
 
     public float squidPitch;
     public float prevSquidPitch;
@@ -54,13 +54,9 @@ public class EntityCod extends EntityMob {
 
     public EntityCod(World worldIn) {
         super(worldIn);
-        this.setSize(0.8F, 0.8F);
+        this.setSize(0.5F, 0.3F);
         this.rand.setSeed((long) (1 + this.getEntityId()));
         this.rotationVelocity = 1.0F / (this.rand.nextFloat() + 1.0F) * 0.2F;
-    }
-
-    public static void registerFixesSquid(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityCod.class);
     }
 
     protected void initEntityAI() {
@@ -73,7 +69,7 @@ public class EntityCod extends EntityMob {
     }
 
     public float getEyeHeight() {
-        return this.height * 0.5F;
+        return this.height;
     }
 
     protected SoundEvent getAmbientSound() {

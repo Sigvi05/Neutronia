@@ -37,12 +37,16 @@ public class MCAddonEntities {
             createBuilder("shadow_phantom").entity(EntityShadowPhantom.class).tracker(80, 3, true).egg(0x101010, 0x101010).build(),
             createBuilder("hovering_inferno").entity(EntityHoveringInferno.class).tracker(80, 3, true).egg(0x864500, 0xd36d00).build(),
             createBuilder("ravenous_killer_squid").entity(EntityMonsterOfTheOceanDepths.class).tracker(80, 3, true).egg(0x03002e, 0x060081).build(),
-            createBuilder("turtle").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xFFFFFF, 0x008d8d).build(),
+            createBuilder("turtle").entity(EntitySeaTurtle.class).tracker(80, 3, true).egg(0xFFFFFF, 0x13232B).build(),
             createBuilder("drowned").entity(EntityDrowned.class).tracker(80, 3, true).egg(0x86e2ca, 0x617d51).build(),
             createBuilder("scuba_divers").entity(EntityScubaDivers.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
             createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
             createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
-            createBuilder("cod").entity(EntityCod.class).tracker(30, 3, true).egg(0xb89e70, 0x786749).build()
+            createBuilder("cod").entity(EntityCod.class).tracker(30, 3, true).egg(0xb89e70, 0x786749).build(),
+            createBuilder("crow").entity(EntityAtmosCrow.class).tracker(30, 3, true).egg(0x2C2A2F, 0x353339).build(),
+            createBuilder("angler").entity(EntityAtmosAngler.class).tracker(30, 3, true).egg(0x636E36, 0x234A33).build(),
+            createBuilder("reef_manta").entity(EntityAtmosReefManta.class).tracker(30, 3, true).egg(0x0E0F21, 0xC5C5C5).build(),
+            createBuilder("whale").entity(EntityWhale.class).tracker(30, 3, true).egg(0x603D8A, 0x261839).build()
         };
         event.getRegistry().registerAll(entries);
         RenderHandler.registerEntityRenders();
