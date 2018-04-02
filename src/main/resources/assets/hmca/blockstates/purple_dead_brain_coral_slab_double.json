@@ -1,10 +1,7 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v1.",
+  "_comment": "Generated using Husky's JSON Generator v2.",
   "variants": {
-    "normal": {
-      "model": "hmca:purple_dead_brain_coral"
-    },
-    "all": {
+    "prop=blarg": {
       "model": "hmca:purple_dead_brain_coral"
     }
   }

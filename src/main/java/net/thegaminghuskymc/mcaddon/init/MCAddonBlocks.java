@@ -6,13 +6,14 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.thegaminghuskymc.huskylib2.blocks.BlockModSlab;
-import net.thegaminghuskymc.huskylib2.blocks.BlockModStairs;
 import net.thegaminghuskymc.mcaddon.Main;
 import net.thegaminghuskymc.mcaddon.blocks.base.BlockModFence;
 import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherBase;
 import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherSlabBase;
-import net.thegaminghuskymc.mcaddon.blocks.nether.BlockNetherStairBase;
-import net.thegaminghuskymc.mcaddon.blocks.overworld.*;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockCoral;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockCoralPlant;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockOverworldBase;
+import net.thegaminghuskymc.mcaddon.blocks.overworld.BlockOverworldSlabBase;
 import net.thegaminghuskymc.mcaddon.properties.EnumAquamarineVariants;
 import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
 import net.thegaminghuskymc.mcaddon.properties.EnumNetherBlocks;
@@ -65,11 +66,11 @@ public class MCAddonBlocks {
     public static Block[] aquamarineSlabsDouble = new Block[6];
     public static Block[] aquamarineSlabsDoubleVertical = new Block[6];
 
-    public static Block[] newStoneVariants = new Block[26];
-    public static Block[] newStoneVariantStairs = new Block[26];
-    public static Block[] newStoneVariantSlabs = new Block[26];
-    public static Block[] newStoneVariantSlabsVertical = new Block[26];
-    public static Block[] newStoneVariantSlabsDouble = new Block[26];
+    public static Block[] newStoneVariants = new Block[25];
+    public static Block[] newStoneVariantStairs = new Block[25];
+    public static Block[] newStoneVariantSlabs = new Block[25];
+    public static Block[] newStoneVariantSlabsVertical = new Block[25];
+    public static Block[] newStoneVariantSlabsDouble = new Block[25];
 
     public static Block[] netherBlocks = new Block[6];
     public static Block[] netherBlocksStairs = new Block[6];
@@ -86,15 +87,15 @@ public class MCAddonBlocks {
             normal_coral[coralColor.getMetadata()] = new BlockCoral(coralColor, "coral");
             dead_normal_coral[coralColor.getMetadata()] = new BlockCoral(coralColor, "dead_coral");
             coral_fan[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, "coral_fan");
-            dead_coral_fan[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, "dead_coral_fan");
+            /*dead_coral_fan[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, "dead_coral_fan");
             pipe_coral[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "pipe_coral");
             dead_pipe_coral[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_coral_plant");
             sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "sea_fan");
-            dead_sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_sea_fan");
+            dead_sea_fan[coralColor.getMetadata()] = new BlockDoubleCoralPlant(coralColor, "dead_sea_fan");*/
 
             brainCoralFence[coralColor.getMetadata()] = new BlockModFence(Material.CORAL, MOD_ID, coralColor.getName() + "_brain_coral_fence").setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
 
-            brainCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_brain_coral_stairs", brain_coral[coralColor.getMetadata()].getDefaultState());
+            /*brainCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_brain_coral_stairs", brain_coral[coralColor.getMetadata()].getDefaultState());
             deadBrainCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_dead_brain_coral_stairs", dead_brain_coral[coralColor.getMetadata()].getDefaultState());
             coralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_coral_stairs", normal_coral[coralColor.getMetadata()].getDefaultState());
             deadCoralStair[coralColor.getMetadata()] = new BlockOverworldStairBase(coralColor.getName() + "_dead_coral_stairs", dead_normal_coral[coralColor.getMetadata()].getDefaultState());
@@ -102,7 +103,7 @@ public class MCAddonBlocks {
             BlockModStairs.initStairs(brain_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModStairs) brainCoralStair[coralColor.getMetadata()]);
             BlockModStairs.initStairs(dead_brain_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModStairs) deadBrainCoralStair[coralColor.getMetadata()]);
             BlockModStairs.initStairs(normal_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModStairs) coralStair[coralColor.getMetadata()]);
-            BlockModStairs.initStairs(dead_normal_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModStairs) deadCoralStair[coralColor.getMetadata()]);
+            BlockModStairs.initStairs(dead_normal_coral[coralColor.getMetadata()], coralColor.getMetadata(), (BlockModStairs) deadCoralStair[coralColor.getMetadata()]);*/
 
             brainCoralSlab[coralColor.getMetadata()] = new BlockOverworldSlabBase(coralColor.getName() + "_brain_coral_slab", false);
             deadBrainCoralSlab[coralColor.getMetadata()] = new BlockOverworldSlabBase(coralColor.getName() + "_dead_brain_coral_slab", false);
@@ -123,10 +124,10 @@ public class MCAddonBlocks {
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
             naturalAquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName() + "_natural_aquamarine");
             aquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName() + "_aquamarine");
-            naturalAquamarineStairs[aquamarineVariants.ordinal()] = new BlockOverworldStairBase(aquamarineVariants.getName() + "_natural_aquamarine_stairs", naturalAquamarine[aquamarineVariants.ordinal()].getDefaultState());
+            /*naturalAquamarineStairs[aquamarineVariants.ordinal()] = new BlockOverworldStairBase(aquamarineVariants.getName() + "_natural_aquamarine_stairs", naturalAquamarine[aquamarineVariants.ordinal()].getDefaultState());
             BlockModStairs.initStairs(naturalAquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModStairs) naturalAquamarineStairs[aquamarineVariants.ordinal()]);
             aquamarineStairs[aquamarineVariants.ordinal()] = new BlockOverworldStairBase(aquamarineVariants.getName() + "_aquamarine_stairs", aquamarine[aquamarineVariants.ordinal()].getDefaultState());
-            BlockModStairs.initStairs(aquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModStairs) aquamarineStairs[aquamarineVariants.ordinal()]);
+            BlockModStairs.initStairs(aquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModStairs) aquamarineStairs[aquamarineVariants.ordinal()]);*/
             naturalAquamarineSlabs[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_natural_aquamarine_slab", false);
             naturalAquamarineSlabsDouble[aquamarineVariants.ordinal()] = new BlockOverworldSlabBase(aquamarineVariants.getName() + "_natural_aquamarine_slab", true);
             BlockModSlab.initSlab(naturalAquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModSlab) naturalAquamarineSlabs[aquamarineVariants.ordinal()], (BlockModSlab) naturalAquamarineSlabsDouble[aquamarineVariants.ordinal()]);
@@ -142,8 +143,8 @@ public class MCAddonBlocks {
 
         for(EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
             netherBlocks[netherBlockTypes.getMetadata()] = new BlockNetherBase(Material.ROCK, netherBlockTypes.getName());
-            netherBlocksStairs[netherBlockTypes.getMetadata()] = new BlockNetherStairBase(netherBlockTypes.getName() + "_stairs", netherBlocks[netherBlockTypes.getMetadata()].getDefaultState());
-            BlockModStairs.initStairs(netherBlocks[netherBlockTypes.getMetadata()], netherBlockTypes.getMetadata(), (BlockModStairs) netherBlocksStairs[netherBlockTypes.getMetadata()]);
+            /*netherBlocksStairs[netherBlockTypes.getMetadata()] = new BlockNetherStairBase(netherBlockTypes.getName() + "_stairs", netherBlocks[netherBlockTypes.getMetadata()].getDefaultState());
+            BlockModStairs.initStairs(netherBlocks[netherBlockTypes.getMetadata()], netherBlockTypes.getMetadata(), (BlockModStairs) netherBlocksStairs[netherBlockTypes.getMetadata()]);*/
             netherBlocksSlabs[netherBlockTypes.getMetadata()] = new BlockNetherSlabBase(netherBlockTypes.getName() + "_slab", false);
             netherBlocksSlabsVertical[netherBlockTypes.getMetadata()] = new BlockNetherSlabBase(netherBlockTypes.getName() + "_slab_vertical", false);
             netherBlocksSlabsDouble[netherBlockTypes.getMetadata()] = new BlockNetherSlabBase(netherBlockTypes.getName() + "_slab", true);
@@ -152,8 +153,8 @@ public class MCAddonBlocks {
 
         for(EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
             newStoneVariants[newStoneVariant.getMetadata()] = new BlockOverworldBase(Material.ROCK, newStoneVariant.getName());
-            newStoneVariantStairs[newStoneVariant.getMetadata()] = new BlockOverworldStairBase(newStoneVariant.getName() + "_stairs", newStoneVariants[newStoneVariant.getMetadata()].getDefaultState());
-            BlockModStairs.initStairs(newStoneVariants[newStoneVariant.getMetadata()], newStoneVariant.getMetadata(), (BlockModStairs) newStoneVariantStairs[newStoneVariant.getMetadata()]);
+            /*newStoneVariantStairs[newStoneVariant.getMetadata()] = new BlockOverworldStairBase(newStoneVariant.getName() + "_stairs", newStoneVariants[newStoneVariant.getMetadata()].getDefaultState());
+            BlockModStairs.initStairs(newStoneVariants[newStoneVariant.getMetadata()], newStoneVariant.getMetadata(), (BlockModStairs) newStoneVariantStairs[newStoneVariant.getMetadata()]);*/
             newStoneVariantSlabs[newStoneVariant.getMetadata()] = new BlockOverworldSlabBase(newStoneVariant.getName() + "_slab", false);
             newStoneVariantSlabsDouble[newStoneVariant.getMetadata()] = new BlockOverworldSlabBase(newStoneVariant.getName() + "_slab", true);
             BlockModSlab.initSlab(newStoneVariants[newStoneVariant.getMetadata()], newStoneVariant.getMetadata(), (BlockModSlab) newStoneVariantSlabs[newStoneVariant.getMetadata()], (BlockModSlab) newStoneVariantSlabsDouble[newStoneVariant.getMetadata()]);

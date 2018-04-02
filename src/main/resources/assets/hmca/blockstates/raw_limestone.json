@@ -1,8 +1,11 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v1.",
+  "_comment": "Generated using Husky's JSON Generator v2.",
   "forge_marker": 1,
   "defaults": {
-    "model": "hmca:raw_limestone",
+    "model": "cube_all",
+    "textures": {
+      "all": "hmca:blocks/raw_limestone"
+    },
     "transform": "forge:default-block"
   },
   "variants": {

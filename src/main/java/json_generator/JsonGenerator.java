@@ -24,15 +24,20 @@ public class JsonGenerator {
     public static void main(String[] args) {
 
         for (EnumCoralColor type : EnumCoralColor.values()) {
-
+//            genSlabBlock("hmca", type.getName() + "_brain_coral_slab", type.getName() + "_brain_coral", type.getName() + "_brain_coral");
+            genSlabBlock("hmca", type.getName() + "_dead_brain_coral_slab", type.getName() + "_brain_coral_dead", type.getName() + "_dead_brain_coral");
+//            genSlabBlock("hmca", type.getName() + "_coral_slab", type.getName() + "_coral", type.getName() + "_coral");
+//            genSlabBlock("hmca", type.getName() + "_dead_coral_slab", type.getName() + "_dead_coral", type.getName() + "_dead_coral");
         }
 
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
-
+//            genSlabBlock("hmca", aquamarineVariants.getName() + "_natural_aquamarine_slab", aquamarineVariants.getName() + "_natural_aquamarine", aquamarineVariants.getName() + "_natural_aquamarine");
+//            genSlabBlock("hmca", aquamarineVariants.getName() + "_aquamarine_slab", aquamarineVariants.getName() + "_aquamarine", aquamarineVariants.getName() + "_aquamarine");
         }
 
         for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
-            genSlabBlock("hmca", newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
+//            genSlabBlock("hmca", newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
+//            genBlock("hmca", newStoneVariants.getName(), newStoneVariants.getName());
         }
 
     }
@@ -51,13 +56,22 @@ public class JsonGenerator {
         root.addProperty("forge_marker", 1);
 
         JsonObject defaults = new JsonObject();
-        defaults.addProperty("model", modId + ":" + blockName);
-        defaults.addProperty("transform", "forge:default-animation.animations.blocks");
+        defaults.addProperty("model", "cube_all");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("all", modId + ":blocks/" + textureName);
+        defaults.add("textures", textures);
+
+        defaults.addProperty("transform", "forge:default-block");
         root.add("defaults", defaults);
 
         JsonObject variants = new JsonObject();
-        variants.add("normal", new JsonObject());
-        variants.add("inventory", new JsonObject());
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        variants.add("normal", empty);
+        variants.add("inventory", empty);
         root.add("variants", variants);
 
         String json = gson.toJson(root);
@@ -68,24 +82,24 @@ public class JsonGenerator {
             System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
 
-        genBlockModel(modId, blockName, textureName);
-        genBlockItemModel(modId, blockName);
+//        genBlockModel(modId, blockName, textureName);
+        genBlockItemModel(modId, blockName, textureName);
     }
 
     public static void genBlockModel(String modId, String blockName, String textureName) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "animation.animations.blocks");
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "block");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
-        root.addProperty("parent", "animation.animations.blocks/cube_all");
+        root.addProperty("parent", "block/cube_all");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", modId + ":animations.blocks/" + textureName);
+        textures.addProperty("all", modId + ":blocks/" + textureName);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -98,7 +112,7 @@ public class JsonGenerator {
 
     }
 
-    public static void genBlockItemModel(String modId, String blockName) {
+    public static void genBlockItemModel(String modId, String blockName, String textureName) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "items");
@@ -108,7 +122,11 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
-        root.addProperty("parent", modId + ":" + blockName);
+        root.addProperty("parent", "block/cube_all");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("all", modId + ":blocks/" + textureName);
+        root.add("textures", textures);
 
         String json = gson.toJson(root);
 
@@ -136,7 +154,7 @@ public class JsonGenerator {
         root.addProperty("forge_marker", 1);
 
         JsonObject defaults = new JsonObject();
-        defaults.addProperty("transform", "forge:default-animation.animations.blocks");
+        defaults.addProperty("transform", "forge:default-block");
         defaults.addProperty("model", modId + ":" + blockName);
         root.add("defaults", defaults);
 
@@ -175,17 +193,17 @@ public class JsonGenerator {
     public static void genCoralFanModel(String modId, String blockName, String textureName) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "animation.animations.blocks");
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "block");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
-        root.addProperty("parent", "hmca:animation.animations.blocks/coral_fan");
+        root.addProperty("parent", "hmca:block/coral_fan");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("fan", modId + ":animations.blocks/" + textureName);
+        textures.addProperty("fan", modId + ":blocks/" + textureName);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -211,7 +229,7 @@ public class JsonGenerator {
         root.addProperty("parent", "item/generated");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("layer0", modId + ":animations.blocks/" + textureName);
+        textures.addProperty("layer0", modId + ":blocks/" + textureName);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -239,7 +257,7 @@ public class JsonGenerator {
 
         JsonObject defaults = new JsonObject();
         defaults.addProperty("model", modId + ":" + blockName);
-        defaults.addProperty("transform", "forge:default-animation.animations.blocks");
+        defaults.addProperty("transform", "forge:default-block");
         root.add("defaults", defaults);
 
         JsonObject variants = new JsonObject();
@@ -276,7 +294,7 @@ public class JsonGenerator {
 
     public static void genBlockOrientedModel(String modId, String blockName, String topTextureName, String frontTextureName, String sidesTextureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "animation.animations.blocks").toFile();
+        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "block").toFile();
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
@@ -289,12 +307,12 @@ public class JsonGenerator {
 
             jw.beginObject();
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value("animation.animations.blocks/orientable");
+            jw.name("parent").value("block/orientable");
             jw.name("textures");
             jw.beginObject();
-            jw.name("top").value(modId + ":animations.blocks/" + topTextureName);
-            jw.name("front").value(modId + ":animations.blocks/" + frontTextureName);
-            jw.name("side").value(modId + ":animations.blocks/" + sidesTextureName);
+            jw.name("top").value(modId + ":blocks/" + topTextureName);
+            jw.name("front").value(modId + ":blocks/" + frontTextureName);
+            jw.name("side").value(modId + ":blocks/" + sidesTextureName);
             jw.endObject();
             jw.endObject();
 
@@ -322,7 +340,7 @@ public class JsonGenerator {
             jw.beginObject();
 
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value(modId + ":animation.animations.blocks/" + blockName);
+            jw.name("parent").value(modId + ":block/" + blockName);
 
             jw.endObject();
 
@@ -378,7 +396,7 @@ public class JsonGenerator {
 
     public static void genBlockPressurePlateModel(String modId, String blockName, String textureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "animation.animations.blocks").toFile();
+        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "block").toFile();
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
@@ -391,10 +409,10 @@ public class JsonGenerator {
 
             jw.beginObject();
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value("animation.animations.blocks/pressure_plate_up");
+            jw.name("parent").value("block/pressure_plate_up");
             jw.name("textures");
             jw.beginObject();
-            jw.name("texture").value(modId + ":animations.blocks/" + textureName);
+            jw.name("texture").value(modId + ":blocks/" + textureName);
             jw.endObject();
             jw.endObject();
 
@@ -405,10 +423,10 @@ public class JsonGenerator {
 
             jw2.beginObject();
             jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw2.name("parent").value("animation.animations.blocks/pressure_plate_down");
+            jw2.name("parent").value("block/pressure_plate_down");
             jw2.name("textures");
             jw2.beginObject();
-            jw2.name("texture").value(modId + ":animations.blocks/" + textureName);
+            jw2.name("texture").value(modId + ":blocks/" + textureName);
             jw2.endObject();
             jw2.endObject();
 
@@ -436,7 +454,7 @@ public class JsonGenerator {
             jw.beginObject();
 
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value(modId + ":animation.animations.blocks/" + blockName + "_up");
+            jw.name("parent").value(modId + ":block/" + blockName + "_up");
 
             jw.endObject();
 
@@ -491,12 +509,7 @@ public class JsonGenerator {
             jw2.name("variants");
             jw2.beginObject();
 
-            jw2.name("normal");
-            jw2.beginObject();
-            jw2.name("model").value(modId + ":" + blockMockName);
-            jw2.endObject();
-
-            jw2.name("all");
+            jw2.name("prop=blarg");
             jw2.beginObject();
             jw2.name("model").value(modId + ":" + blockMockName);
             jw2.endObject();
@@ -517,7 +530,7 @@ public class JsonGenerator {
 
     public static void genBlockSlabModel(String modId, String blockName, String textureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "animation.animations.blocks").toFile();
+        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "block").toFile();
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
@@ -530,12 +543,12 @@ public class JsonGenerator {
 
             jw.beginObject();
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value("hmca:animation.animations.blocks/slab");
+            jw.name("parent").value("hmca:block/slab");
             jw.name("textures");
             jw.beginObject();
-            jw.name("top").value(modId + ":animations.blocks/" + textureName);
-            jw.name("side").value(modId + ":animations.blocks/" + textureName);
-            jw.name("bottom").value(modId + ":animations.blocks/" + textureName);
+            jw.name("top").value(modId + ":blocks/" + textureName);
+            jw.name("side").value(modId + ":blocks/" + textureName);
+            jw.name("bottom").value(modId + ":blocks/" + textureName);
             jw.endObject();
             jw.endObject();
 
@@ -546,12 +559,12 @@ public class JsonGenerator {
 
             jw2.beginObject();
             jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw2.name("parent").value("hmca:animation.animations.blocks/slab_top");
+            jw2.name("parent").value("hmca:block/slab_top");
             jw2.name("textures");
             jw2.beginObject();
-            jw2.name("top").value(modId + ":animations.blocks/" + textureName);
-            jw2.name("side").value(modId + ":animations.blocks/" + textureName);
-            jw2.name("bottom").value(modId + ":animations.blocks/" + textureName);
+            jw2.name("top").value(modId + ":blocks/" + textureName);
+            jw2.name("side").value(modId + ":blocks/" + textureName);
+            jw2.name("bottom").value(modId + ":blocks/" + textureName);
             jw2.endObject();
             jw2.endObject();
 
@@ -579,7 +592,7 @@ public class JsonGenerator {
             jw.beginObject();
 
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value(modId + ":animation.animations.blocks/" + "half_" + blockName);
+            jw.name("parent").value(modId + ":block/" + "half_" + blockName);
 
             jw.endObject();
 
@@ -678,7 +691,7 @@ public class JsonGenerator {
 
     public static void genBlockFenceModel(String modId, String blockName, String textureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "animation.animations.blocks").toFile();
+        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "block").toFile();
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
@@ -691,10 +704,10 @@ public class JsonGenerator {
 
             jw.beginObject();
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value("animation.animations.blocks/fence_post");
+            jw.name("parent").value("block/fence_post");
             jw.name("textures");
             jw.beginObject();
-            jw.name("texture").value(modId + ":animations.blocks/" + textureName);
+            jw.name("texture").value(modId + ":blocks/" + textureName);
             jw.endObject();
             jw.endObject();
 
@@ -705,10 +718,10 @@ public class JsonGenerator {
 
             jw2.beginObject();
             jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw2.name("parent").value("animation.animations.blocks/fence_side");
+            jw2.name("parent").value("block/fence_side");
             jw2.name("textures");
             jw2.beginObject();
-            jw2.name("texture").value(modId + ":animations.blocks/" + textureName);
+            jw2.name("texture").value(modId + ":blocks/" + textureName);
             jw2.endObject();
             jw2.endObject();
 
@@ -719,10 +732,10 @@ public class JsonGenerator {
 
             jw3.beginObject();
             jw3.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw3.name("parent").value("animation.animations.blocks/fence_inventory");
+            jw3.name("parent").value("block/fence_inventory");
             jw3.name("textures");
             jw3.beginObject();
-            jw3.name("texture").value(modId + ":animations.blocks/" + textureName);
+            jw3.name("texture").value(modId + ":blocks/" + textureName);
             jw3.endObject();
             jw3.endObject();
 
@@ -750,7 +763,7 @@ public class JsonGenerator {
             jw.beginObject();
 
             jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value(modId + ":animation.animations.blocks/" + blockName + "_inventory");
+            jw.name("parent").value(modId + ":block/" + blockName + "_inventory");
 
             jw.endObject();
 

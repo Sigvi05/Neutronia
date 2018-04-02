@@ -1,7 +1,6 @@
 package net.thegaminghuskymc.mcaddon.entity;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,11 +18,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -63,10 +60,6 @@ public class EntityMummyVillager extends EntityMummy {
 
     public int getProfession() {
         return Math.max(this.dataManager.get(PROFESSION), 0);
-    }
-
-    public static void registerFixesMummyVillager(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityMummyVillager.class);
     }
 
     @Override
@@ -153,14 +146,14 @@ public class EntityMummyVillager extends EntityMummy {
 
     public boolean isConverting()
     {
-        return this.getDataManager().get(CONVERTING).booleanValue();
+        return this.getDataManager().get(CONVERTING);
     }
 
     protected void startConverting(@Nullable UUID conversionStarterIn, int conversionTimeIn)
     {
         this.converstionStarter = conversionStarterIn;
         this.conversionTime = conversionTimeIn;
-        this.getDataManager().set(CONVERTING, Boolean.valueOf(true));
+        this.getDataManager().set(CONVERTING, Boolean.TRUE);
         this.removePotionEffect(MobEffects.WEAKNESS);
         this.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, conversionTimeIn, Math.min(this.world.getDifficulty().getDifficultyId() - 1, 0)));
         this.world.setEntityState(this, (byte)16);

@@ -1,8 +1,9 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "th2:block/cube_top_half_overlay_all",
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "parent": "hmca:block/slab_top",
   "textures": {
-    "overlay": "hmca:blocks/runes/yellow_brain_coral",
-    "all": "hmca:blocks/rune_stone"
+    "top": "hmca:blocks/yellow_coral",
+    "side": "hmca:blocks/yellow_coral",
+    "bottom": "hmca:blocks/yellow_coral"
   }
 }

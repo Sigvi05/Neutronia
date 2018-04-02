@@ -5,8 +5,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
@@ -29,7 +27,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thegaminghuskymc.mcaddon.entity.ai.EntityAIMummyAttack;
@@ -39,7 +36,7 @@ import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
-public class EntityMummy extends EntityMob {
+public class EntityMummy extends EntityUndeadBase {
 
     private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.createKey(EntityMummy.class, DataSerializers.VARINT);
     public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityMummy.class, DataSerializers.BOOLEAN);
@@ -57,44 +54,39 @@ public class EntityMummy extends EntityMob {
 
     @Override
     protected void initEntityAI() {
-        this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIMummyAttack(this, 1.0D, false));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(6, new EntityAIMoveThroughVillage(this, 1.0D, false));
-        this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 7.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
         this.applyEntityAI();
     }
 
     protected void applyEntityAI() {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget<>(this, EntityVillager.class, true));
     }
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1.5D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(1.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
     }
 
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.getDataManager().register(VILLAGER_TYPE, Integer.valueOf(0));
-        this.getDataManager().register(ARMS_RAISED, Boolean.valueOf(false));
+        this.getDataManager().register(VILLAGER_TYPE, 0);
+        this.getDataManager().register(ARMS_RAISED, Boolean.FALSE);
     }
 
     public void setArmsRaised(boolean armsRaised) {
-        this.getDataManager().set(ARMS_RAISED, Boolean.valueOf(armsRaised));
+        this.getDataManager().set(ARMS_RAISED, armsRaised);
     }
 
     @SideOnly(Side.CLIENT)
     public boolean isArmsRaised() {
-        return this.getDataManager().get(ARMS_RAISED).booleanValue();
+        return this.getDataManager().get(ARMS_RAISED);
     }
 
     public boolean isBreakDoorsTaskSet() {
@@ -151,17 +143,17 @@ public class EntityMummy extends EntityMob {
      */
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_BAT_AMBIENT;
+        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.BLOCK_ANVIL_USE;
+        return SoundEvents.ENTITY_ZOMBIE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_DONKEY_DEATH;
+        return SoundEvents.ENTITY_ZOMBIE_DEATH;
     }
 
     protected SoundEvent getStepSound()
@@ -274,7 +266,7 @@ public class EntityMummy extends EntityMob {
 
             if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
                 Calendar calendar = this.world.getCurrentDate();
-                if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31 && this.rand.nextFloat() < 0.25F) {
+                if (calendar.get(Calendar.MONTH) + 1 == 10 && calendar.get(Calendar.DATE) == 31 && this.rand.nextFloat() < 0.25F) {
                     this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(this.rand.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN));
                     this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
                 }

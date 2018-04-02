@@ -6,30 +6,35 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.thegaminghuskymc.mcaddon.init.BiomeInit;
 import net.thegaminghuskymc.mcaddon.world.dungeons.generator.HallwayStructure;
 import net.thegaminghuskymc.mcaddon.world.dungeons.generator.RoomStructure;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class DungeonGenerator implements IWorldGenerator {
 
-    private static final RoomStructure room1 = new RoomStructure("room_1");
-    private static final RoomStructure room2 = new RoomStructure("room_2");
-    private static final RoomStructure room3 = new RoomStructure("room_3");
-    private static final RoomStructure room4 = new RoomStructure("room_4");
-    private static final RoomStructure room5 = new RoomStructure("room_5");
-    private static final RoomStructure room6 = new RoomStructure("room_6");
-    private static final RoomStructure room7 = new RoomStructure("room_7");
-    private static final RoomStructure room8 = new RoomStructure("room_8");
-    private static final RoomStructure room9 = new RoomStructure("room_9");
-    private static final RoomStructure room10 = new RoomStructure("room_10");
+    private static List<RoomStructure> structures = new ArrayList<>();
+
+    private static final RoomStructure room1 = new RoomStructure("room_0");
+    private static final RoomStructure room2 = new RoomStructure("room_1");
+    private static final RoomStructure room3 = new RoomStructure("room_2");
+    private static final RoomStructure room4 = new RoomStructure("room_3");
+    private static final RoomStructure room5 = new RoomStructure("room_4");
+    private static final RoomStructure room6 = new RoomStructure("room_5");
+    private static final RoomStructure room7 = new RoomStructure("room_6");
+    private static final RoomStructure room8 = new RoomStructure("room_7");
+    private static final RoomStructure room9 = new RoomStructure("room_8");
+    private static final RoomStructure room10 = new RoomStructure("room_9");
 
     private static final HallwayStructure hallway_s = new HallwayStructure("hallway_straight");
     private static final HallwayStructure hallway_cl = new HallwayStructure("hallway_corner_left");
@@ -39,194 +44,21 @@ public class DungeonGenerator implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-
         for(int i = 0; i > random.nextInt(10); i++) {
+            structures.add(new RoomStructure(String.format("rooms/room_%d", i)));
             switch(world.provider.getDimension()) {
                 case 1:
                     break;
                 case 0:
-                    if(i == 1) {
-                        generateStructure(room1, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 2) {
-                        generateStructure(room2, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 3) {
-                        generateStructure(room3, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 4) {
-                        generateStructure(room4, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 5) {
-                        generateStructure(room5, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 6) {
-                        generateStructure(room6, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 7) {
-                        generateStructure(room7, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 8) {
-                        generateStructure(room8, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 9) {
-                        generateStructure(room9, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    } else if(i == 10) {
-                        generateStructure(room10, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-
-                        for(int j = 0; j > random.nextInt(5); j++) {
-                            if(j == 1) {
-                                generateStructure(hallway_s, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 2) {
-                                generateStructure(hallway_cl, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 3) {
-                                //generateStructure(hallway_cr, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 4) {
-                                generateStructure(hallway_u, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            } else if(j == 5) {
-                                generateStructure(hallway_d, world, random, chunkX, chunkZ, 10, Blocks.STONE, Biomes.DESERT.getBiomeClass());
-                            }
-                        }
-
-                    }
+                    generateStructure(structures.get(random.nextInt(10)), world, random, chunkX, chunkZ, 1, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS, BiomeInit.BLACK_DESERT, BiomeInit.RED_DESERT);
                     break;
                 case -1:
             }
-
         }
-
     }
 
-    private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Class<?>... classes) {
-        ArrayList<Class<?>> classesList = new ArrayList<>(Arrays.asList(classes));
+    private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Biome... classes) {
+        ArrayList<Biome> classesList = new ArrayList<>(Arrays.asList(classes));
 
         int x = (chunkX * 16) + random.nextInt(15);
         int z = (chunkZ * 16) + random.nextInt(15);

@@ -1,6 +1,7 @@
 package net.thegaminghuskymc.mcaddon.world.gen;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -15,7 +16,6 @@ import net.thegaminghuskymc.mcaddon.world.gen.generators.WorldGenStructure;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Random;
 
 public class WorldGenCustomStructures extends WorldGenBase {
@@ -38,41 +38,22 @@ public class WorldGenCustomStructures extends WorldGenBase {
 
 	@Override
 	public void generateStruct(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGen, IChunkProvider chunkProv) {
-		switch(world.provider.getDimension())
-		{
-			case 2:
-
-				break;
-
+		switch(world.provider.getDimension()) {
 			case 1:
 				break;
-
 			case 0:
-
-//			generateStructure(VOLCANO, world, random, chunkX, chunkZ, 20, Block.getBlockFromName("hmca:raw_basalt"), BiomeBasaltOverworld.class);
-//            generateStructure(LIVING_CORAL_REEF, world, random, chunkX, chunkZ, 100, Blocks.GRAVEL, BiomeOcean.class);
-//            generateStructure(DEAD_CORAL_REEF, world, random, chunkX, chunkZ, 200, Blocks.GRAVEL, BiomeOcean.class);
-
-//            generateStructure(DESERT_HOUSE_1, world, random, chunkX, chunkZ, 20, Blocks.SAND, BiomeDesert.class);
-//            generateStructure(DESERT_HOUSE_2, world, random, chunkX, chunkZ, 20, Blocks.SAND, BiomeDesert.class);
-//            generateStructure(JUNGLE_VILLAGER_TOTEM, world, random, chunkX, chunkZ, 30, Blocks.GRASS, BiomeJungle.class);
-
-                generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Objects.requireNonNull(Biome.getBiome(24)).getBiomeClass());
-                generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Objects.requireNonNull(Biome.getBiome(24)).getBiomeClass());
-                generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Objects.requireNonNull(Biome.getBiome(24)).getBiomeClass());
-                generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Objects.requireNonNull(Biome.getBiome(24)).getBiomeClass());
-                generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 50, Blocks.GRAVEL, Objects.requireNonNull(Biome.getBiome(24)).getBiomeClass());
-                    
-
+//                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 20);
+//                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 20);
+//                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 20);
+//                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, 20);
+                generateCoral(CORAL_RED, world, random, chunkX, chunkZ, 20);
 				break;
-
 			case -1:
-
+                break;
 		}
 	}
 
-	private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Class<?>... classes)
-	{
+	private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Class<?>... classes) {
 		ArrayList<Class<?>> classesList = new ArrayList<>(Arrays.asList(classes));
 		
 		int x = (chunkX * 16) + random.nextInt(15);
@@ -93,6 +74,29 @@ public class WorldGenCustomStructures extends WorldGenBase {
 			}
 		}
 	}
+
+    private void generateCoral(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance) {
+
+        int x = (chunkX * 16) + random.nextInt(15);
+        int z = (chunkZ * 16) + random.nextInt(15);
+        int y = calculateGenerationHeight(world, x, z, Blocks.GRAVEL);
+        BlockPos pos = new BlockPos(x,y,z);
+
+        Biome biome = world.provider.getBiomeForCoords(pos);
+
+        if(world.getWorldType() != WorldType.FLAT)
+        {
+            if(biome == Biomes.DEEP_OCEAN || biome == Biomes.OCEAN || biome == Biomes.FROZEN_OCEAN)
+            {
+                if(random.nextInt(chance) == 0)
+                {
+                    if(y + 19 < world.getSeaLevel()) {
+                        generator.generate(world, random, pos);
+                    }
+                }
+            }
+        }
+    }
 
 	private static int calculateGenerationHeight(World world, int x, int z, Block topBlock)
 	{

@@ -1,0 +1,8 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "variants": {
+    "prop=blarg": {
+      "model": "hmca:small_bricks_natural_aquamarine"
+    }
+  }
+}

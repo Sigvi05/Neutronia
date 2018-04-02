@@ -1,10 +1,7 @@
 {
   "_comment": "Generated using Husky's JSON Generator v2.",
   "variants": {
-    "normal": {
-      "model": "hmca:limestone_bricks"
-    },
-    "all": {
+    "prop=blarg": {
       "model": "hmca:limestone_bricks"
     }
   }

@@ -1,6 +1,5 @@
 package net.thegaminghuskymc.mcaddon.properties;
 
-import net.minecraft.block.material.MapColor;
 import net.minecraft.util.IStringSerializable;
 
 public enum EnumNewStoneVariants implements IStringSerializable {
@@ -26,11 +25,10 @@ public enum EnumNewStoneVariants implements IStringSerializable {
     LIMESTONE_SMOOTH(18, "smooth_limestone"),
     LIMESTONE_CHISELED(19, "limestone_chiseled"),
     LIMESTONE_BRICKS(20, "limestone_bricks"),
-    LIMESTONE_COBBLE(21, "limestone_cobble"),
-    METEORITE(22, "raw_meteorite"),
-    METEORITE_BRICKS(23, "meteorite_bricks"),
-    METEORITE_SMOOTH(24, "smooth_meteorite"),
-    FROSTY_STONE(25, "frosty_stone");
+    METEORITE(21, "raw_meteorite"),
+    METEORITE_BRICKS(22, "meteorite_bricks"),
+    METEORITE_SMOOTH(23, "smooth_meteorite"),
+    FROSTY_STONE(24, "frosty_stone");
 
     private static final EnumNewStoneVariants[] META_LOOKUP = new EnumNewStoneVariants[values().length];
 

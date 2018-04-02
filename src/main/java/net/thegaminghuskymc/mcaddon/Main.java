@@ -54,8 +54,6 @@ import net.thegaminghuskymc.mcaddon.util.Reference;
 import net.thegaminghuskymc.mcaddon.world.biome.NetherBiomeManager;
 import net.thegaminghuskymc.mcaddon.world.dungeons.DungeonGenerator;
 import net.thegaminghuskymc.mcaddon.world.gen.WorldGenCustomStructures;
-import net.thegaminghuskymc.mcaddon.world.gen.WorldGenTest;
-import net.thegaminghuskymc.mcaddon.world.gen.generators.WorldGenDungeons;
 import net.thegaminghuskymc.mcaddon.world.utils.ClayGenerator;
 import net.thegaminghuskymc.mcaddon.world.utils.FormationCaveGenerator;
 import org.apache.logging.log4j.LogManager;
@@ -134,10 +132,10 @@ public class Main {
 
         LOGGER.info("Initialization started.");
 
-        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(10), 0);
-        GameRegistry.registerWorldGenerator(new WorldGenTest(3), 0);
-        GameRegistry.registerWorldGenerator(new DungeonGenerator(), 1);
-        GameRegistry.registerWorldGenerator(new WorldGenDungeons(), 1);
+        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(3), 0);
+//        GameRegistry.registerWorldGenerator(new WorldGenTest(10), 0);
+        GameRegistry.registerWorldGenerator(new DungeonGenerator(), 0);
+//        GameRegistry.registerWorldGenerator(new WorldGenDungeons(), 1);
         Biome.SpawnListEntry blazeEntry = new Biome.SpawnListEntry(EntityBlaze.class, 5, 1, 2);
         BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER).forEach(biome -> biome.getSpawnableList(EnumCreatureType.MONSTER).add(blazeEntry));
         BiomeInit.registerBiomes();
