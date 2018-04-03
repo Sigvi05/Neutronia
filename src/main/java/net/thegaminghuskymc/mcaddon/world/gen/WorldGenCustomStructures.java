@@ -11,14 +11,14 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
-import net.thegaminghuskymc.mcaddon.world.WorldGenBase;
+import net.minecraftforge.fml.common.IWorldGenerator;
 import net.thegaminghuskymc.mcaddon.world.gen.generators.WorldGenStructure;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class WorldGenCustomStructures extends WorldGenBase {
+public class WorldGenCustomStructures implements IWorldGenerator {
 	public static final WorldGenStructure LIVING_CORAL_REEF = new WorldGenStructure("living_coral_reef");
 	public static final WorldGenStructure DEAD_CORAL_REEF = new WorldGenStructure("dead_coral_reef");
 	public static final WorldGenStructure VOLCANO = new WorldGenStructure("volcano");
@@ -32,20 +32,20 @@ public class WorldGenCustomStructures extends WorldGenBase {
     public static final WorldGenStructure CORAL_BLUE = new WorldGenStructure("coral_blue");
     public static final WorldGenStructure CORAL_RED = new WorldGenStructure("coral_red");
 
-	public WorldGenCustomStructures(float chance) {
-		super(chance);
+	public WorldGenCustomStructures() {
+		super();
 	}
 
 	@Override
-	public void generateStruct(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGen, IChunkProvider chunkProv) {
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		switch(world.provider.getDimension()) {
 			case 1:
 				break;
 			case 0:
-//                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 20);
-//                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 20);
-//                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 20);
-//                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, 20);
+                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 20);
+                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 20);
+                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 20);
+                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, 20);
                 generateCoral(CORAL_RED, world, random, chunkX, chunkZ, 20);
 				break;
 			case -1:

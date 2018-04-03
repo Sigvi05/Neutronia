@@ -2,8 +2,12 @@ package net.thegaminghuskymc.mcaddon.entity;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIBreakDoor;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,21 +39,26 @@ import net.thegaminghuskymc.mcaddon.util.handlers.LootTableHandler;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;
+import java.util.UUID;
 
 public class EntityMummy extends EntityUndeadBase {
 
+    private static final UUID BABY_SPEED_BOOST_ID = UUID.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
+    private static final AttributeModifier BABY_SPEED_BOOST = new AttributeModifier(BABY_SPEED_BOOST_ID, "Mummy Baby Speed Boost", 0.5D, 1);
+    private static final DataParameter<Boolean> IS_CHILD = EntityDataManager.createKey(EntityMummy.class, DataSerializers.BOOLEAN);
+
     private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.createKey(EntityMummy.class, DataSerializers.VARINT);
     public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityMummy.class, DataSerializers.BOOLEAN);
-
     private final EntityAIBreakDoor breakDoor = new EntityAIBreakDoor(this);
     private boolean isBreakDoorsTaskSet;
 
-    private float mummyWidth = 0.6F;
-    private float mummyHeight = 1.95F;
+    private double mummyBabyChance = 0.05;
+    private float mummyWidth = -1.0F;
+    private float mummyHeight;
 
     public EntityMummy(World worldIn) {
         super(worldIn);
-        this.setSize(mummyWidth, mummyHeight);
+        this.setSize(0.6F, 1.95F);
     }
 
     @Override
@@ -78,6 +87,7 @@ public class EntityMummy extends EntityUndeadBase {
         super.entityInit();
         this.getDataManager().register(VILLAGER_TYPE, 0);
         this.getDataManager().register(ARMS_RAISED, Boolean.FALSE);
+        this.getDataManager().register(IS_CHILD, Boolean.valueOf(false));
     }
 
     public void setArmsRaised(boolean armsRaised) {
@@ -105,13 +115,33 @@ public class EntityMummy extends EntityUndeadBase {
         }
     }
 
+    public boolean isChild() {
+        return this.getDataManager().get(IS_CHILD);
+    }
+
     @Override
     protected int getExperiencePoints(EntityPlayer player) {
+        if (this.isChild())
+            this.experienceValue = (int)((float)this.experienceValue * 2.5F);
         return super.getExperiencePoints(player);
+    }
+
+    public void setChild(boolean child) {
+        this.getDataManager().set(IS_CHILD, child);
+        if (this.world != null && !this.world.isRemote) {
+            IAttributeInstance attributeInstance = this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
+            attributeInstance.removeModifier(BABY_SPEED_BOOST);
+
+            if (child)
+                attributeInstance.applyModifier(BABY_SPEED_BOOST);
+        }
+        this.setChildSize(child);
     }
 
     @Override
     public void notifyDataManagerChange(DataParameter<?> key) {
+        if (IS_CHILD.equals(key))
+            this.setChildSize(this.isChild());
         super.notifyDataManagerChange(key);
     }
 
@@ -194,19 +224,23 @@ public class EntityMummy extends EntityUndeadBase {
         }
     }
 
-    public static void registerFixesmummy(DataFixer fixer) {
+    public static void registerFixesMummy(DataFixer fixer) {
         EntityLiving.registerFixesMob(fixer, EntityMummy.class);
     }
 
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
+        if (this.isChild())
+            compound.setBoolean("IsBaby", true);
         compound.setBoolean("CanBreakDoors", this.isBreakDoorsTaskSet());
     }
 
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
+        if (compound.getBoolean("IsBaby"))
+            this.setChild(true);
         this.setBreakDoorAItask(compound.getBoolean("CanBreakDoors"));
     }
 
@@ -238,7 +272,10 @@ public class EntityMummy extends EntityUndeadBase {
 
     @Override
     public float getEyeHeight() {
-        return 1.74F;
+        float f = 1.74F;
+        if (this.isChild())
+            f = (float)((double)f - 0.81D);
+        return f;
     }
 
     @Override
@@ -260,10 +297,6 @@ public class EntityMummy extends EntityUndeadBase {
             livingdata = super.onInitialSpawn(difficulty, livingdata);
             float f = difficulty.getClampedAdditionalDifficulty();
             this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
-            this.setBreakDoorAItask(this.rand.nextFloat() < f * 0.1F);
-            this.setEquipmentBasedOnDifficulty(difficulty);
-            this.setEnchantmentBasedOnDifficulty(difficulty);
-
             if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
                 Calendar calendar = this.world.getCurrentDate();
                 if (calendar.get(Calendar.MONTH) + 1 == 10 && calendar.get(Calendar.DATE) == 31 && this.rand.nextFloat() < 0.25F) {
@@ -271,6 +304,22 @@ public class EntityMummy extends EntityUndeadBase {
                     this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
                 }
             }
+            if (livingdata == null)
+            {
+                livingdata = new EntityMummy.GroupData(this.world.rand.nextFloat() < mummyBabyChance);
+            }
+
+            if (livingdata instanceof EntityMummy.GroupData)
+            {
+                EntityMummy.GroupData entitymummy$groupdata = (EntityMummy.GroupData)livingdata;
+                if (entitymummy$groupdata.isChild)
+                {
+                    this.setChild(true);
+                }
+            }
+            this.setBreakDoorAItask(this.rand.nextFloat() < f * 0.1F);
+            this.setEquipmentBasedOnDifficulty(difficulty);
+            this.setEnchantmentBasedOnDifficulty(difficulty);
 
             this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Spawn Bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
             double d0 = this.rand.nextDouble() * 1.5D * (double) f;
@@ -286,8 +335,26 @@ public class EntityMummy extends EntityUndeadBase {
         return livingdata;
     }
 
+    public void setChildSize(boolean isChild) {
+        this.multiplySize(isChild ? 0.5F : 1.0F);
+    }
+
+    @Override
+    protected final void setSize(float width, float height) {
+        boolean flag = this.mummyWidth > 0.0F && this.mummyHeight > 0.0F;
+        this.mummyWidth = width;
+        this.mummyHeight = height;
+
+        if (!flag)
+            this.multiplySize(1.0f);
+    }
+
+    protected final void multiplySize(float size) {
+        super.setSize(this.mummyWidth * size, this.mummyHeight * size);
+    }
+
     public double getYOffset() {
-        return -0.45D;
+        return this.isChild() ? 0.0D : -0.45D;
     }
 
     @Override
@@ -309,6 +376,16 @@ public class EntityMummy extends EntityUndeadBase {
 
     protected ItemStack getSkullDrop() {
         return new ItemStack(Items.SKULL, 1, 2);
+    }
+
+    class GroupData implements IEntityLivingData
+    {
+        public boolean isChild;
+
+        private GroupData(boolean isChild)
+        {
+            this.isChild = isChild;
+        }
     }
 
 }
