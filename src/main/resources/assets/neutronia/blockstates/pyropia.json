@@ -1,0 +1,16 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:pyropia",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

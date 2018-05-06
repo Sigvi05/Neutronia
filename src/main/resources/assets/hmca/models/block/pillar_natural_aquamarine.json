@@ -1,7 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "hmca:block/pillar_natural_aquamarine",
-  "textures": {
-    "normal": "hmca:blocks/pillar_natural_aquamarine"
-  }
-}

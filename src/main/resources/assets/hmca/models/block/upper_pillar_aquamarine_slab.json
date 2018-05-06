@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v2.",
-  "parent": "hmca:block/slab_top",
-  "textures": {
-    "top": "hmca:blocks/pillar_aquamarine",
-    "side": "hmca:blocks/pillar_aquamarine",
-    "bottom": "hmca:blocks/pillar_aquamarine"
-  }
-}

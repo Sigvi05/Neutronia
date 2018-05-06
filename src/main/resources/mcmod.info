@@ -1,12 +1,17 @@
 [
-{
-  "modid": "hmca",
-  "name": "Husky's Minecraft Additions",
-  "description": "This is a mod which is made for extending biomes and blocks and items and mobs for The Overworld, The Nether and The End. It adds a lot of interesting features so it's just to go and explore the world",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "authorList": ["TheGamingHuskyMC", "Blommm", "Polar"],
-  "credits": "Thanks to Nox, Goopy25 and AbsolemJackdaw for their awesome art",
-  "logoFile": "/assets/hmca/textures/logo"
-}
+  {
+    "modid": "neutronia",
+    "name": "Neutronia",
+    "description": "This mod aims for extending biomes, blocks, items and entities for The Overworld, new biomes and more for The Nether and also new structures and interesting things for The End. So go and create a new world and explore!",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": [
+      "TheGamingHuskyMC",
+      "Blommm",
+      "Polar"
+    ],
+    "credits": "Thanks to Nox, Goopy25, AbsolemJackdaw, SnakeBlock and King of Creepers for their awesome art",
+    "logoFile": "/assets/neutronia/textures/logo.png",
+    "url": "https://github.com/HextCraft/Husky-s-Minecraft-Additions"
+  }
 ]

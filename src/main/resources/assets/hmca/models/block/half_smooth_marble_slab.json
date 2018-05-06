@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v2.",
-  "parent": "hmca:block/slab",
-  "textures": {
-    "top": "hmca:blocks/smooth_marble",
-    "side": "hmca:blocks/smooth_marble",
-    "bottom": "hmca:blocks/smooth_marble"
-  }
-}

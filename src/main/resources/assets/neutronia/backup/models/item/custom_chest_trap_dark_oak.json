@@ -1,0 +1,8 @@
+{
+  "parent": "neutronia:block/custom_chest",
+  "textures": {
+    "texture": "neutronia:blocks/chests/dark_oak",
+    "particle": "neutronia:blocks/chests/dark_oak",
+    "overlay": "neutronia:blocks/chests/trap"
+  }
+}

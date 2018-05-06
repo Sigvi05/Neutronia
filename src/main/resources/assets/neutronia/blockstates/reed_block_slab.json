@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:half_slab",
+    "textures": {
+      "bottom": "neutronia:blocks/reed_block_top",
+      "top": "neutronia:blocks/reed_block_top",
+      "side": "neutronia:blocks/reed_block_side"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "half=top": [
+      {
+        "x": 180,
+        "uvlock": true
+      }
+    ],
+    "half=bottom": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

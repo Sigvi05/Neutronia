@@ -1,0 +1,11 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "variants": {
+    "half=bottom": {
+      "model": "neutronia:half_pink_dead_brain_coral_slab"
+    },
+    "half=top": {
+      "model": "neutronia:upper_pink_dead_brain_coral_slab"
+    }
+  }
+}

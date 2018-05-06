@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:cube_overlay_all",
+    "textures": {
+      "overlay": "neutronia:blocks/floor_tile_patterns/pattern_2",
+      "all": "neutronia:blocks/floor_tile_base"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:half_slab",
+    "textures": {
+      "bottom": "neutronia:blocks/magma_bricks",
+      "top": "neutronia:blocks/magma_bricks",
+      "side": "neutronia:blocks/magma_bricks"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "half=top": [
+      {
+        "x": 180,
+        "uvlock": true
+      }
+    ],
+    "half=bottom": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

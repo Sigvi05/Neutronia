@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "minecraft:blocks/glass_black",
+    "side": "minecraft:blocks/glass_black",
+    "top": "minecraft:blocks/glass_black"
+  }
+}

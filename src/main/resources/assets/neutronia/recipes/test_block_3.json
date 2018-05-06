@@ -1,0 +1,24 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XXX",
+    "YYY",
+    "ZZZ"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:sandstone"
+    },
+    "Y": {
+      "item": "minecraft:tallgrass"
+    },
+    "Z": {
+      "item": "minecraft:wool"
+    }
+  },
+  "result": {
+    "item": "neutronia:test_block_3",
+    "count": 5
+  }
+}

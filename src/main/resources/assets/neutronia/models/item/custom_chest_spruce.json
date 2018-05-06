@@ -1,0 +1,7 @@
+{
+  "parent": "neutronia:block/custom_chest",
+  "textures": {
+    "texture": "neutronia:blocks/chests/spruce",
+    "particle": "neutronia:blocks/chests/spruce"
+  }
+}

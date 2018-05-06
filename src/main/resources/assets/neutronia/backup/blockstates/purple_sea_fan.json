@@ -1,0 +1,20 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "variants": {
+    "facing=north": {
+      "model": "neutronia:purple_sea_fan"
+    },
+    "facing=south": {
+      "model": "neutronia:purple_sea_fan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "neutronia:purple_sea_fan",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "neutronia:purple_sea_fan",
+      "y": 90
+    }
+  }
+}

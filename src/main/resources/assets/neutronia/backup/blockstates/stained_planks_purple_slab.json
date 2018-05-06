@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:half_slab",
+    "textures": {
+      "bottom": "neutronia:blocks/stained_planks_purple",
+      "top": "neutronia:blocks/stained_planks_purple",
+      "side": "neutronia:blocks/stained_planks_purple"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "half=top": [
+      {
+        "x": 180,
+        "uvlock": true
+      }
+    ],
+    "half=bottom": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

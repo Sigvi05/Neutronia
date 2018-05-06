@@ -1,0 +1,36 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_bottom_top",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "variant=soul_sandstone": [
+      {
+        "textures": {
+          "bottom": "neutronia:blocks/soul_sandstone_bottom",
+          "top": "neutronia:blocks/soul_sandstone_top",
+          "side": "neutronia:blocks/soul_sandstone_side"
+        }
+      }
+    ],
+    "variant=chiseled_soul_sandstone": [
+      {
+        "textures": {
+          "bottom": "neutronia:blocks/soul_sandstone_top",
+          "top": "neutronia:blocks/soul_sandstone_top",
+          "side": "neutronia:blocks/soul_sandstone_carved"
+        }
+      }
+    ],
+    "variant=smooth_soul_sandstone": [
+      {
+        "textures": {
+          "bottom": "neutronia:blocks/soul_sandstone_top",
+          "top": "neutronia:blocks/soul_sandstone_top",
+          "side": "neutronia:blocks/soul_sandstone_smooth"
+        }
+      }
+    ]
+  }
+}

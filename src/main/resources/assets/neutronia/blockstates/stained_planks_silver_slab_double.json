@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/stained_planks_silver"
+        }
+      }
+    ],
+    "prop=blarg": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/stained_planks_silver"
+        }
+      }
+    ]
+  }
+}

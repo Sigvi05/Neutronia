@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": {
+      "model": "neutronia:hardened_clay_tiles"
+    },
+    "prop=blarg": {
+      "model": "neutronia:hardened_clay_tiles"
+    }
+  }
+}

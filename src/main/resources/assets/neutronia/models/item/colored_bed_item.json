@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "neutronia:items/bed_uncolored",
+    "layer1": "neutronia:items/bed_colored"
+  }
+}

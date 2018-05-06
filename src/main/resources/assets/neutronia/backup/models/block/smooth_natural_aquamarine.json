@@ -1,0 +1,7 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v1.",
+  "parent": "neutronia:block/smooth_natural_aquamarine",
+  "textures": {
+    "normal": "neutronia:blocks/smooth_natural_aquamarine"
+  }
+}

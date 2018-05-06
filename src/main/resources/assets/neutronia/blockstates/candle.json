@@ -1,0 +1,121 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:candle",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "variant=candle_black": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_black"
+        }
+      }
+    ],
+    "variant=candle_blue": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_blue"
+        }
+      }
+    ],
+    "variant=candle_brown": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_brown"
+        }
+      }
+    ],
+    "variant=candle_cyan": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_cyan"
+        }
+      }
+    ],
+    "variant=candle_gray": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_gray"
+        }
+      }
+    ],
+    "variant=candle_green": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_green"
+        }
+      }
+    ],
+    "variant=candle_light_blue": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_light_blue"
+        }
+      }
+    ],
+    "variant=candle_lime": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_lime"
+        }
+      }
+    ],
+    "variant=candle_magenta": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_magenta"
+        }
+      }
+    ],
+    "variant=candle_orange": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_orange"
+        }
+      }
+    ],
+    "variant=candle_pink": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_pink"
+        }
+      }
+    ],
+    "variant=candle_purple": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_purple"
+        }
+      }
+    ],
+    "variant=candle_red": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_red"
+        }
+      }
+    ],
+    "variant=candle_silver": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_silver"
+        }
+      }
+    ],
+    "variant=candle_white": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_white"
+        }
+      }
+    ],
+    "variant=candle_yellow": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/candle_yellow"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "minecraft:blocks/wool_colored_blue",
+    "side": "minecraft:blocks/wool_colored_blue",
+    "top": "minecraft:blocks/wool_colored_blue"
+  }
+}

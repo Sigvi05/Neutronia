@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "parent": "neutronia:block/slab",
+  "textures": {
+    "top": "neutronia:blocks/yellow_coral",
+    "side": "neutronia:blocks/yellow_coral",
+    "bottom": "neutronia:blocks/yellow_coral"
+  }
+}

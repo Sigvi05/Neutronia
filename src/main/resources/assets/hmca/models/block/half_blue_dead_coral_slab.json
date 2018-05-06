@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v2.",
-  "parent": "hmca:block/slab",
-  "textures": {
-    "top": "hmca:blocks/blue_dead_coral",
-    "side": "hmca:blocks/blue_dead_coral",
-    "bottom": "hmca:blocks/blue_dead_coral"
-  }
-}

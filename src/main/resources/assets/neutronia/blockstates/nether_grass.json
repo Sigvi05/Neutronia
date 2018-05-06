@@ -1,0 +1,19 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cross",
+    "textures": {
+      "cross": "neutronia:blocks/nether_grass"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

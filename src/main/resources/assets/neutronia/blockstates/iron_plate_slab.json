@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:half_slab",
+    "textures": {
+      "bottom": "neutronia:blocks/iron_plate",
+      "top": "neutronia:blocks/iron_plate",
+      "side": "neutronia:blocks/iron_plate"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "half=top": [
+      {
+        "x": 180,
+        "uvlock": true
+      }
+    ],
+    "half=bottom": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

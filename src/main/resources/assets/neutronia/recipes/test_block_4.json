@@ -1,0 +1,24 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "XXX",
+    "YYY",
+    "ZZZ"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:red_flower"
+    },
+    "Y": {
+      "item": "minecraft:iron_block"
+    },
+    "Z": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "neutronia:test_block_4",
+    "count": 5
+  }
+}

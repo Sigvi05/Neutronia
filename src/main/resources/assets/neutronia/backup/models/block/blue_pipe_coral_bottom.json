@@ -1,0 +1,6 @@
+{
+  "parent": "block/tinted_cross",
+  "textures": {
+    "cross": "neutronia:blocks/blue_pipe_coral_lower"
+  }
+}

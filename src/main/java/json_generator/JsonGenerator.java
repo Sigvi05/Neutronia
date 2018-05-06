@@ -5,15 +5,15 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
-import net.thegaminghuskymc.mcaddon.properties.EnumAquamarineVariants;
-import net.thegaminghuskymc.mcaddon.properties.EnumCoralColor;
-import net.thegaminghuskymc.mcaddon.properties.EnumNewStoneVariants;
+import net.hdt.neutronia.properties.*;
+import net.minecraft.block.BlockPlanks;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.CharEncoding;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,28 +21,90 @@ import java.nio.file.StandardOpenOption;
 
 public class JsonGenerator {
 
+    private static String modid = "neutronia";
+
     public static void main(String[] args) {
 
-        for (EnumCoralColor type : EnumCoralColor.values()) {
-//            genSlabBlock("hmca", type.getName() + "_brain_coral_slab", type.getName() + "_brain_coral", type.getName() + "_brain_coral");
-            genSlabBlock("hmca", type.getName() + "_dead_brain_coral_slab", type.getName() + "_brain_coral_dead", type.getName() + "_dead_brain_coral");
-//            genSlabBlock("hmca", type.getName() + "_coral_slab", type.getName() + "_coral", type.getName() + "_coral");
-//            genSlabBlock("hmca", type.getName() + "_dead_coral_slab", type.getName() + "_dead_coral", type.getName() + "_dead_coral");
+        /*for(EnumCoralColor color : EnumCoralColor.values()) {
+            genBlock(modid, color.getName() + "_brain_coral", color.getName() + "_brain_coral");
+            genBlock(modid, color.getName() + "_brain_coral_dead", color.getName() + "_brain_coral_dead");
+            genBlock(modid, color.getName() + "_coral", color.getName() + "_coral");
+            genBlock(modid, color.getName() + "_dead_coral", color.getName() + "_dead_coral");
+            genCoralFan(modid, color.getName() + "_coral_fan", color.getName() + "_coral_fan");
+        }
+
+        for(EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
+            genBlock(modid, naturalAquamarineVariants.getName(), naturalAquamarineVariants.getName());
         }
 
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
-//            genSlabBlock("hmca", aquamarineVariants.getName() + "_natural_aquamarine_slab", aquamarineVariants.getName() + "_natural_aquamarine", aquamarineVariants.getName() + "_natural_aquamarine");
-//            genSlabBlock("hmca", aquamarineVariants.getName() + "_aquamarine_slab", aquamarineVariants.getName() + "_aquamarine", aquamarineVariants.getName() + "_aquamarine");
+            genBlock(modid, aquamarineVariants.getName(), aquamarineVariants.getName());
         }
 
-        for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
-//            genSlabBlock("hmca", newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
-//            genBlock("hmca", newStoneVariants.getName(), newStoneVariants.getName());
+        for(EnumCoralTypes coralTypes : EnumCoralTypes.values()) {
+            genPlant(modid, coralTypes.getName(), coralTypes.getName());
         }
+
+        for(EnumNetherBlocks netherBlocks : EnumNetherBlocks.values()) {
+            genBlock(modid, netherBlocks.getName(), netherBlocks.getName());
+        }*/
+
+        /*for(EnumDyeColor dyeColor : EnumDyeColor.values()) {
+            genLangFile(modid, "frosted_" + dyeColor.getName() + "_terracotta", "frosted_" + dyeColor.getName() + "_terracotta", "colored_blocks");
+            genLangFile(modid, "frosted_" + dyeColor.getName() + "_terracotta_slab", "frosted_" + dyeColor.getName() + "_terracotta_slab", "colored_blocks");
+            genLangFile(modid, "frosted_" + dyeColor.getName() + "_terracotta_slab_double", "frosted_" + dyeColor.getName() + "_terracotta_slab_double", "colored_blocks");
+            genLangFile(modid, "frosted_" + dyeColor.getName() + "_terracotta_stairs", "frosted_" + dyeColor.getName() + "_terracotta_stairs", "colored_blocks");
+            genLangFile(modid, dyeColor.getName() + "_colored_vase", dyeColor.getName() + "_colored_vase", "colored_blocks");
+        }*/
+
+        for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
+            genLangFile(modid, aquamarineVariants.getName(), aquamarineVariants.getName(), "aquamarine");
+        }
+
+        for (EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
+            genLangFile(modid, naturalAquamarineVariants.getName(), naturalAquamarineVariants.getName(), "natural_aquamarine");
+        }
+
+        for (EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
+            genLangFile(modid, netherBlockTypes.getName(), netherBlockTypes.getName(), "nether_blocks");
+            genLangFile(modid, netherBlockTypes.getName(), netherBlockTypes.getName(), "nether_blocks");
+            genLangFile(modid, netherBlockTypes.getName(), netherBlockTypes.getName(), "nether_blocks");
+            genLangFile(modid, netherBlockTypes.getName(), netherBlockTypes.getName(), "nether_blocks");
+        }
+        for (EnumSoulStoneTypes soulStoneTypes : EnumSoulStoneTypes.values()) {
+            genLangFile(modid, soulStoneTypes.getName(), soulStoneTypes.getName(), "nether_blocks");
+            genLangFile(modid, soulStoneTypes.getName(), soulStoneTypes.getName(), "nether_blocks");
+            genLangFile(modid, soulStoneTypes.getName(), soulStoneTypes.getName(), "nether_blocks");
+            genLangFile(modid, soulStoneTypes.getName(), soulStoneTypes.getName(), "nether_blocks");
+        }
+        for (EnumGlowingNetherBlocks enumGlowingNetherBlocks : EnumGlowingNetherBlocks.values()) {
+            genLangFile(modid, enumGlowingNetherBlocks.getName(), enumGlowingNetherBlocks.getName(), "nether_blocks");
+            genLangFile(modid, enumGlowingNetherBlocks.getName() + "_slab", enumGlowingNetherBlocks.getName(), "nether_blocks");
+            genLangFile(modid, enumGlowingNetherBlocks.getName() + "_slab_double", enumGlowingNetherBlocks.getName(), "nether_blocks");
+            genLangFile(modid, enumGlowingNetherBlocks.getName() + "_stairs", enumGlowingNetherBlocks.getName(), "nether_blocks");
+        }
+        for (EnumNetherPlantTypes netherPlantTypes : EnumNetherPlantTypes.values()) {
+            genLangFile(modid, netherPlantTypes.getName(), netherPlantTypes.getName(), "nether_blocks");
+        }
+        for (EnumTallNetherPlantTypes netherPlantTypes : EnumTallNetherPlantTypes.values()) {
+            genLangFile(modid, netherPlantTypes.getName(), netherPlantTypes.getName(), "nether_blocks");
+        }
+
+        for (BlockPlanks.EnumType woodVariants : BlockPlanks.EnumType.values()) {
+        }
+
+        /*for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
+            genLangFile(modid, newStoneVariants.getName(), newStoneVariants.getName(), "stones");
+            genLangFile(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName() + "_slab", "stones");
+            genLangFile(modid, newStoneVariants.getName() + "_slab_double", newStoneVariants.getName() + "_slab_double", "stones");
+            genLangFile(modid, newStoneVariants.getName() + "_stairs", newStoneVariants.getName() + "_stairs", "stones");
+        }*/
+
+        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a test file", "This is the credits things", " ", " ");
 
     }
 
-    private static void genBlock(String modId, String blockName, String textureName) {
+    public static void genBlock(String modId, String blockName, String textureName) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -52,7 +114,7 @@ public class JsonGenerator {
         }
 
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("forge_marker", 1);
 
         JsonObject defaults = new JsonObject();
@@ -95,7 +157,7 @@ public class JsonGenerator {
         }
 
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("parent", "block/cube_all");
 
         JsonObject textures = new JsonObject();
@@ -115,13 +177,13 @@ public class JsonGenerator {
     public static void genBlockItemModel(String modId, String blockName, String textureName) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "items");
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "item");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
 
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("parent", "block/cube_all");
 
         JsonObject textures = new JsonObject();
@@ -140,7 +202,7 @@ public class JsonGenerator {
 
     //SS
 
-    private static void genCoralFan(String modId, String blockName, int meta, String textureName) {
+    private static void genCoralFan(String modId, String blockName, String textureName) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -150,7 +212,7 @@ public class JsonGenerator {
         }
 
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("forge_marker", 1);
 
         JsonObject defaults = new JsonObject();
@@ -182,7 +244,7 @@ public class JsonGenerator {
 
         try {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-            System.out.print(String.format("Created file with meta %d and with the name %s" + "\n", meta, blockName));
+            System.out.print(String.format("Created file with the name %s" + "\n", blockName));
         } catch (IOException e) {
             System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
@@ -199,8 +261,8 @@ public class JsonGenerator {
         }
 
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
-        root.addProperty("parent", "hmca:block/coral_fan");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "neutronia:block/coral_fan");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("fan", modId + ":blocks/" + textureName);
@@ -225,7 +287,98 @@ public class JsonGenerator {
         }
 
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "item/generated");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("layer0", modId + ":blocks/" + textureName);
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+        }
+
+    }
+
+    public static void genPlant(String modId, String blockName, String textureName) {
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject defaults = new JsonObject();
+        defaults.addProperty("model", modId + ":" + blockName);
+        defaults.addProperty("transform", "forge:default-block");
+        root.add("defaults", defaults);
+
+        JsonObject variants = new JsonObject();
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        variants.add("normal", empty);
+        variants.add("inventory", empty);
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+        }
+
+        genPlantBlockModel(modId, blockName, textureName);
+        genPlantItemModel(modId, blockName, textureName);
+    }
+
+    public static void genPlantBlockModel(String modId, String blockName, String textureName) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "block");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "block/cross");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("cross", modId + ":blocks/" + textureName);
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+        }
+
+    }
+
+    public static void genPlantItemModel(String modId, String blockName, String textureName) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "item");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("parent", "item/generated");
 
         JsonObject textures = new JsonObject();
@@ -252,7 +405,7 @@ public class JsonGenerator {
         }
 
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("forge_marker", 1);
 
         JsonObject defaults = new JsonObject();
@@ -278,7 +431,11 @@ public class JsonGenerator {
         facing.add("west", west);
 
         variants.add("facing", facing);
-        variants.add("inventory", new JsonObject());
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        variants.add("inventory", empty);
         root.add("variants", variants);
 
         String json = gson.toJson(root);
@@ -290,6 +447,7 @@ public class JsonGenerator {
         }
 
         genBlockOrientedModel(modId, blockName, topTextureName, frontTextureName, sidesTextureName);
+        genBlockOrientedItemModel(modId, blockName);
     }
 
     public static void genBlockOrientedModel(String modId, String blockName, String topTextureName, String frontTextureName, String sidesTextureName) {
@@ -306,7 +464,7 @@ public class JsonGenerator {
             JsonWriter jw = gson.newJsonWriter(writer);
 
             jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("parent").value("block/orientable");
             jw.name("textures");
             jw.beginObject();
@@ -339,7 +497,7 @@ public class JsonGenerator {
 
             jw.beginObject();
 
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("parent").value(modId + ":block/" + blockName);
 
             jw.endObject();
@@ -348,6 +506,80 @@ public class JsonGenerator {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    public static void genStair(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject defaults = new JsonObject();
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("bottom", modId + ":blocks/" + bottomTexture);
+        textures.addProperty("side", modId + ":blocks/" + sideTexture);
+        textures.addProperty("top", modId + ":blocks/" + topTexture);
+
+        defaults.add("textures", textures);
+        defaults.addProperty("transform", "forge:default-block");
+        root.add("defaults", defaults);
+
+        JsonObject variants = new JsonObject();
+
+        variants.add(String.format("facing=%s,half=%s,shape=%s", "north", "top", "straight"), new JsonObject());
+        variants.add(String.format("facing=%s,half=%s,shape=%s", "south", "top", "straight"), new JsonObject());
+        variants.add(String.format("facing=%s,half=%s,shape=%s", "east", "top", "straight"), new JsonObject());
+        variants.add(String.format("facing=%s,half=%s,shape=%s", "west", "top", "straight"), new JsonObject());
+
+        variants.add("inventory", empty);
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+        }
+        genStairItemModel(modId, blockName, topTexture, sideTexture, bottomTexture);
+    }
+
+    public static void genStairItemModel(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "item");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "block/stairs");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("bottom", modId + ":blocks/" + bottomTexture);
+        textures.addProperty("side", modId + ":blocks/" + sideTexture);
+        textures.addProperty("top", modId + ":blocks/" + topTexture);
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
 
     }
@@ -366,7 +598,7 @@ public class JsonGenerator {
             JsonWriter jw = gson.newJsonWriter(writer);
 
             jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("variants");
             jw.beginObject();
 
@@ -408,7 +640,7 @@ public class JsonGenerator {
             JsonWriter jw = gson.newJsonWriter(writer);
 
             jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("parent").value("block/pressure_plate_up");
             jw.name("textures");
             jw.beginObject();
@@ -422,7 +654,7 @@ public class JsonGenerator {
             JsonWriter jw2 = gson.newJsonWriter(writer2);
 
             jw2.beginObject();
-            jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw2.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw2.name("parent").value("block/pressure_plate_down");
             jw2.name("textures");
             jw2.beginObject();
@@ -453,7 +685,7 @@ public class JsonGenerator {
 
             jw.beginObject();
 
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("parent").value(modId + ":block/" + blockName + "_up");
 
             jw.endObject();
@@ -469,139 +701,128 @@ public class JsonGenerator {
 
     public static void genSlabBlock(String modId, String blockName, String textureName, String blockMockName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "blockstates").toFile();
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
         }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject variants = new JsonObject();
+
+        JsonObject half = new JsonObject();
+
+        JsonObject upper = new JsonObject();
+        upper.addProperty("model", modId + ":upper_" + blockName);
+        half.add("top", upper);
+
+        JsonObject lower = new JsonObject();
+        lower.addProperty("model", modId + ":half_" + blockName);
+        half.add("bottom", lower);
+
+        variants.add("half", half);
+
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        JsonObject root2 = new JsonObject();
+        root2.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root2.addProperty("forge_marker", 1);
+
+        JsonObject variants2 = new JsonObject();
+
+        JsonObject prop = new JsonObject();
+
+        JsonObject blarg = new JsonObject();
+        blarg.addProperty("model", modId + ":upper_" + blockName);
+
+        prop.add("blarg", blarg);
+
+        variants2.add("prop", prop);
+
+        root2.add("variants", variants2);
+
+        String json2 = gson.toJson(root2);
 
         try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + ".json"), "UTF-8");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw = gson.newJsonWriter(writer);
-
-            jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("variants");
-            jw.beginObject();
-
-            jw.name("half=bottom");
-            jw.beginObject();
-            jw.name("model").value(modId + ":half_" + blockName);
-            jw.endObject();
-
-            jw.name("half=top");
-            jw.beginObject();
-            jw.name("model").value(modId + ":upper_" + blockName);
-            jw.endObject();
-
-            jw.endObject();
-            jw.endObject();
-
-            writer.close();
-
-            Writer writer2 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + "_double" + ".json"), "UTF-8");
-            Gson gson2 = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw2 = gson2.newJsonWriter(writer2);
-
-            jw2.beginObject();
-            jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw2.name("variants");
-            jw2.beginObject();
-
-            jw2.name("prop=blarg");
-            jw2.beginObject();
-            jw2.name("model").value(modId + ":" + blockMockName);
-            jw2.endObject();
-
-            jw2.endObject();
-            jw2.endObject();
-
-            writer2.close();
-
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(blockName + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
 
-        genBlockSlabModel(modId, blockName, textureName);
+        genBlockSlabModel(modId, blockName, textureName, textureName, textureName);
         genBlockSlabItemModel(modId, blockName);
 
     }
 
-    public static void genBlockSlabModel(String modId, String blockName, String textureName) {
+    public static void genBlockSlabModel(String modId, String blockName, String bottomTexture, String sideTexture, String topTexture) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "block").toFile();
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "block");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
         }
 
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "neutronia:block/slab");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("bottom", modId + ":blocks/" + bottomTexture);
+        textures.addProperty("side", modId + ":blocks/" + sideTexture);
+        textures.addProperty("top", modId + ":blocks/" + topTexture);
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
+        JsonObject root2 = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "neutronia:block/slab_top");
+
+        JsonObject textures2 = new JsonObject();
+        textures2.addProperty("bottom", modId + ":blocks/" + bottomTexture);
+        textures2.addProperty("side", modId + ":blocks/" + sideTexture);
+        textures2.addProperty("top", modId + ":blocks/" + topTexture);
+        root2.add("textures", textures2);
+
+        String json2 = gson.toJson(root2);
+
         try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + "half_" + blockName + ".json"), "UTF-8");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw = gson.newJsonWriter(writer);
-
-            jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value("hmca:block/slab");
-            jw.name("textures");
-            jw.beginObject();
-            jw.name("top").value(modId + ":blocks/" + textureName);
-            jw.name("side").value(modId + ":blocks/" + textureName);
-            jw.name("bottom").value(modId + ":blocks/" + textureName);
-            jw.endObject();
-            jw.endObject();
-
-            writer.close();
-
-            Writer writer2 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + "upper_" + blockName + ".json"), "UTF-8");
-            JsonWriter jw2 = gson.newJsonWriter(writer2);
-
-            jw2.beginObject();
-            jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw2.name("parent").value("hmca:block/slab_top");
-            jw2.name("textures");
-            jw2.beginObject();
-            jw2.name("top").value(modId + ":blocks/" + textureName);
-            jw2.name("side").value(modId + ":blocks/" + textureName);
-            jw2.name("bottom").value(modId + ":blocks/" + textureName);
-            jw2.endObject();
-            jw2.endObject();
-
-            writer2.close();
-
+            FileUtils.writeStringToFile(base.resolve("half_" + blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve("upper_" + blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
 
     }
 
     public static void genBlockSlabItemModel(String modId, String blockName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "item").toFile();
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "item");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
         }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", modId + ":block/" + "half_" + blockName);
+
+        String json = gson.toJson(root);
 
         try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + ".json"), "UTF-8");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw = gson.newJsonWriter(writer);
-
-            jw.beginObject();
-
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("parent").value(modId + ":block/" + "half_" + blockName);
-
-            jw.endObject();
-
-            writer.close();
-
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
-
 
     }
 
@@ -619,7 +840,7 @@ public class JsonGenerator {
             JsonWriter jw = gson.newJsonWriter(writer);
 
             jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("multipart");
             jw.beginArray();
             jw.beginObject();
@@ -703,7 +924,7 @@ public class JsonGenerator {
             JsonWriter jw = gson.newJsonWriter(writer);
 
             jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("parent").value("block/fence_post");
             jw.name("textures");
             jw.beginObject();
@@ -717,7 +938,7 @@ public class JsonGenerator {
             JsonWriter jw2 = gson.newJsonWriter(writer2);
 
             jw2.beginObject();
-            jw2.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw2.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw2.name("parent").value("block/fence_side");
             jw2.name("textures");
             jw2.beginObject();
@@ -731,7 +952,7 @@ public class JsonGenerator {
             JsonWriter jw3 = gson.newJsonWriter(writer3);
 
             jw3.beginObject();
-            jw3.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw3.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw3.name("parent").value("block/fence_inventory");
             jw3.name("textures");
             jw3.beginObject();
@@ -762,7 +983,7 @@ public class JsonGenerator {
 
             jw.beginObject();
 
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
+            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
             jw.name("parent").value(modId + ":block/" + blockName + "_inventory");
 
             jw.endObject();
@@ -775,113 +996,136 @@ public class JsonGenerator {
 
     }
 
-    public static void genModInfo(String modId, String modName, String version, String gameVersion, String author, String url, String description, String credits) {
-
-        File fileDir = Paths.get("src", "main", "resources").toFile();
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
-        }
-
-        try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\mcmod.info"), "UTF-8");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw = gson.newJsonWriter(writer);
-
-            jw.beginArray();
-            jw.beginObject();
-
-            jw.name("_comment").value("Generated using Husky's JSON Generator v2.");
-            jw.name("modid").value(modId);
-            jw.name("name").value(modName);
-            jw.name("description").value(description);
-            jw.name("version").value(version);
-            jw.name("credits").value(credits);
-            jw.name("mcversion").value(gameVersion);
-            jw.name("url").value(url);
-            jw.name("authorList");
-            jw.beginArray();
-            jw.value(author);
-            jw.endArray();
-            jw.name("parent").value("");
-            jw.name("screenshots");
-            jw.beginArray();
-            jw.endArray();
-
-            jw.endObject();
-            jw.endArray();
-
-            writer.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void genShapedRecipe(String modId, String name, boolean isShaped, String row1, String row2, String row3, String[] keys, String[] values, String result, int resultCount) {
+    public static void genModInfo(String modId, String modName, String version, String gameVersion, String[] authors, String[] screenshots, String url, String description, String credits, String parentMod, String logoFile) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+        Path base = Paths.get("src", "main", "resources");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonArray root = new JsonArray();
+
+        JsonObject rootObject = new JsonObject();
+        rootObject.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        if (!modId.equalsIgnoreCase(" ") || modId != null)
+            rootObject.addProperty("mod_id", modId);
+        if (!modName.equalsIgnoreCase(" ") || modName != null)
+            rootObject.addProperty("name", modName);
+        if (!description.equalsIgnoreCase(" ") || description != null)
+            rootObject.addProperty("description", description);
+        if (!version.equalsIgnoreCase(" ") || version != null)
+            rootObject.addProperty("version", version);
+        if (!credits.equalsIgnoreCase(" ") || credits != null)
+            rootObject.addProperty("credits", credits);
+        if (!gameVersion.equalsIgnoreCase(" ") || gameVersion != null)
+            rootObject.addProperty("mcversion", gameVersion);
+        if (!url.equalsIgnoreCase(" ") || url != null)
+            rootObject.addProperty("url", url);
+
+        JsonArray authorList = new JsonArray();
+        for (int i = 0; i <= authors.length - 1; i++) {
+            authorList.add(authors[i]);
+        }
+        rootObject.add("authorList", authorList);
+        if (!parentMod.equalsIgnoreCase(" ") || parentMod != null)
+            rootObject.addProperty("parent", parentMod);
+        if (!logoFile.equalsIgnoreCase(" ") || logoFile != null)
+            rootObject.addProperty("logoFile", logoFile);
+
+        JsonArray screenshotList = new JsonArray();
+        for (int i = 0; i <= screenshots.length - 1; i++) {
+            screenshotList.add(screenshots[i]);
+        }
+        rootObject.add("screenshots", screenshotList);
+        root.add(rootObject);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve("test.info").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print("Error creating file mcmod file" + "\n");
+        }
+    }
+
+    public static void genRecipe(String modId, String name, boolean isShaped, String row1, String row2, String row3, String[] keys, String[] values, int[] data, String result, String craftingGroup, int resultCount) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Path base = Paths.get("src", "main", "resources", "assets", modId, "recipes");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
-
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
-
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         if (isShaped) {
-            root.addProperty("type", "crafting_shaped");
-        } else {
-            root.addProperty("type", "crafting_shapeless");
-        }
-
-        JsonArray pattern = new JsonArray();
-        pattern.add(row1);
-        pattern.add(row2);
-        pattern.add(row3);
-        root.add("pattern", pattern);
-
-        JsonObject key = new JsonObject();
-        for (int i = 0; i <= keys.length - 1; i++) {
-            if (!values[i].equalsIgnoreCase("")) {
-                JsonObject item = new JsonObject();
-                item.addProperty("item", values[i]);
-                key.add(keys[i], item);
+            root.addProperty("type", "forge:ore_shaped");
+            if (!craftingGroup.equalsIgnoreCase("")) root.addProperty("group", craftingGroup);
+            JsonArray pattern = new JsonArray();
+            if (!row1.equalsIgnoreCase(" ")) pattern.add(row1);
+            if (!row2.equalsIgnoreCase(" ")) pattern.add(row2);
+            if (!row3.equalsIgnoreCase(" ")) pattern.add(row3);
+            root.add("pattern", pattern);
+            JsonObject key = new JsonObject();
+            for (int i = 0; i <= keys.length - 1; i++) {
+                if (!values[i].equalsIgnoreCase("")) {
+                    JsonObject item = new JsonObject();
+                    item.addProperty("item", values[i]);
+                    key.add(keys[i], item);
+                    if (data != null)
+                        if (data[i] != 0) item.addProperty("data", data[i]);
+                }
             }
-        }
-        root.add("key", key);
-
-        if (resultCount > 1) root.addProperty("count", resultCount);
-
-        String json = gson.toJson(root);
-
-        try {
-            FileUtils.writeStringToFile(base.resolve(name + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-        } catch (IOException e) {
-            System.out.print(String.format("Error creating recipe file %s.json" + "\n", name));
+            root.add("key", key);
+            JsonObject resultName = new JsonObject();
+            resultName.addProperty("item", result);
+            if (resultCount > 1) resultName.addProperty("count", resultCount);
+            root.add("result", resultName);
+            String json = gson.toJson(root);
+            try {
+                FileUtils.writeStringToFile(base.resolve(name + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            } catch (IOException e) {
+                System.out.print(String.format("Error creating recipe file %s.json" + "\n", name));
+            }
+        } else {
+            root.addProperty("type", "forge:ore_shapeless");
+            if (!craftingGroup.equalsIgnoreCase("")) root.addProperty("group", craftingGroup);
+            JsonArray ingredients = new JsonArray();
+            for (int i2 = 0; i2 <= values.length - 1; i2++) {
+                if (!values[i2].equalsIgnoreCase("")) {
+                    JsonObject item = new JsonObject();
+                    item.addProperty("item", values[i2]);
+                    ingredients.add(item);
+                    if (data != null) item.addProperty("data", data[i2]);
+                }
+            }
+            root.add("ingredients", ingredients);
+            JsonObject resultName = new JsonObject();
+            resultName.addProperty("item", result);
+            if (resultCount > 1) resultName.addProperty("count", resultCount);
+            root.add("result", resultName);
+            String json = gson.toJson(root);
+            try {
+                FileUtils.writeStringToFile(base.resolve(name + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            } catch (IOException e) {
+                System.out.print(String.format("Error creating recipe file %s.json" + "\n", name));
+            }
         }
     }
 
     public static void genItemModel(String modId, String itemName, String textureName) {
-
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
         Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "item");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
-
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("parent", "item/generated");
-
         JsonObject textures = new JsonObject();
         textures.addProperty("layer0", modId + ":items/" + textureName);
         root.add("textures", textures);
-
         String json = gson.toJson(root);
-
         try {
             FileUtils.writeStringToFile(base.resolve(itemName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
@@ -890,24 +1134,18 @@ public class JsonGenerator {
     }
 
     public static void genToolModel(String modId, String itemName, String textureName, String path) {
-
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
         Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "item");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
-
         JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v2.");
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
         root.addProperty("parent", "item/handheld");
-
         JsonObject textures = new JsonObject();
         textures.addProperty("layer0", modId + ":items/" + textureName);
         root.add("textures", textures);
-
         String json = gson.toJson(root);
-
         try {
             FileUtils.writeStringToFile(base.resolve(itemName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
@@ -917,18 +1155,125 @@ public class JsonGenerator {
 
     private static void genLangFile(String modid, String block_name, String unlocalized_name, String lang_file_name) {
         Path base = Paths.get("src", "main", "resources", "assets", modid, "lang");
-        if( !base.toFile().exists() ) {
+        if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
-
-        try( BufferedWriter w = Files.newBufferedWriter( base.resolve( String.format("%s.lang", lang_file_name) ), StandardOpenOption.CREATE, StandardOpenOption.APPEND) ) {
+        try (BufferedWriter w = Files.newBufferedWriter(base.resolve(String.format("%s.lang", lang_file_name)), StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
             String name = unlocalized_name.replace("_", " ");
             unlocalized_name = WordUtils.capitalizeFully(name);
             w.write("tile." + block_name + ".name=" + unlocalized_name + "\n");
-        } catch(IOException ignored) {
+        } catch (IOException ignored) {
             System.out.print(String.format("Error creating file %s.json" + "\n", lang_file_name));
         }
+    }
 
+    public static void genAdvancementRootJson(String modId, String advancement_name, String item_name, String title, String desc, String background_texture_name, boolean show_toast, boolean announce_to_chat, boolean hidden) {
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "advancements");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+
+        JsonObject display = new JsonObject();
+
+        JsonObject icon = new JsonObject();
+        icon.addProperty("item", modId + ":" + item_name);
+        display.add("icon", icon);
+
+        JsonObject titleObject = new JsonObject();
+        titleObject.addProperty("translate", modId + ".advancements." + title);
+        display.add("title", titleObject);
+
+        JsonObject descObject = new JsonObject();
+        descObject.addProperty("translate", modId + ".advancements." + desc + ".desc");
+        display.add("description", descObject);
+
+        display.addProperty("background", modId + ":textures/advancements/" + background_texture_name + ".png");
+        display.addProperty("show_toast", show_toast);
+        display.addProperty("announce_to_chat", announce_to_chat);
+        display.addProperty("hidden", hidden);
+
+        JsonObject criteria = new JsonObject();
+
+        root.add("display", display);
+        root.add("criteria", criteria);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve("root.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", advancement_name));
+        }
+
+    }
+
+    public static void genAdvancementJson(String modId, String advancement_name, String item_name, String title, String desc, String background_texture_name, boolean show_toast, boolean announce_to_chat, boolean hidden) {
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "advancements");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+
+        JsonObject display = new JsonObject();
+
+        JsonObject icon = new JsonObject();
+        icon.addProperty("item", modId + ":" + item_name);
+        display.add("icon", icon);
+
+        JsonObject titleObject = new JsonObject();
+        titleObject.addProperty("translate", modId + ".advancements." + title);
+        display.add("title", titleObject);
+
+        JsonObject descObject = new JsonObject();
+        descObject.addProperty("translate", modId + ".advancements." + desc + ".desc");
+        display.add("description", descObject);
+
+        display.addProperty("background", modId + ":textures/advancements/" + background_texture_name + ".png");
+        display.addProperty("show_toast", show_toast);
+        display.addProperty("announce_to_chat", announce_to_chat);
+        display.addProperty("hidden", hidden);
+
+        JsonObject criteria = new JsonObject();
+
+        root.add("display", display);
+        root.addProperty("parent", modId + ":" + "root");
+        root.add("criteria", criteria);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve("root.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", advancement_name));
+        }
+
+    }
+
+    private static void stringToFile(String text, String fileName) {
+        try {
+            FileWriter writer = new FileWriter(fileName + ".txt", true);
+            writer.write(text + "\r\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeToFile(String text, String targetFilePath) throws IOException {
+        Path targetPath = Paths.get(targetFilePath);
+        byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
+        Files.write(targetPath, bytes, StandardOpenOption.CREATE);
     }
 
 }
