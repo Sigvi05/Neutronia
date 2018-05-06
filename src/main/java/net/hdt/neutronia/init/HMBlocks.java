@@ -38,7 +38,7 @@ public class HMBlocks {
     public static final Block glowingGrass;
     public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
     public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
-    public static final BlockWorkbench craftingTable;
+    //    public static final BlockWorkbench craftingTable;
     //Wood Blocks
     public static BlockCustomChest customChest, prismarineChest;
     public static BlockCustomChest prismarineChestTrap, customChestTrap;
@@ -348,7 +348,7 @@ public class HMBlocks {
         marbleCauldron = new BlockModCauldron("marble_cauldron", Main.OVERWORLD_EXPANSION_TAB);
         ironCauldron = new BlockModCauldron("iron_cauldron", Main.OVERWORLD_EXPANSION_TAB);
         glassCauldron = new BlockModCauldron("glass_cauldron", Main.OVERWORLD_EXPANSION_TAB);
-        craftingTable = new BlockWorkbench();
+//        craftingTable = new BlockWorkbench();
     }
 
     @SubscribeEvent

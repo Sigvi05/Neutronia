@@ -3,7 +3,6 @@ package net.hdt.neutronia;
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
 import net.hdt.neutronia.init.HMBlocks;
-import net.hdt.neutronia.modules.building.NeutroniaBuilding;
 import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,7 +21,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.thegaminghuskymc.huskylib2.module.ModuleLoader;
 import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static net.hdt.neutronia.util.Reference.*;
+
+//import net.hdt.neutronia.modules.building.NeutroniaBuilding;
 
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES)
 public class Main {
@@ -76,7 +76,7 @@ public class Main {
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-        ModuleLoader.registerModule(NeutroniaBuilding.class);
+//        ModuleLoader.registerModule(NeutroniaBuilding.class);
         MinecraftForge.EVENT_BUS.register(HMBlocks.class);
 
         List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());

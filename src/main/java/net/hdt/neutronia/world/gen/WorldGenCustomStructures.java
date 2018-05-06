@@ -55,11 +55,11 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             case 1:
                 break;
             case 0:
-//                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 5);
-//                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 8);
-//                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 2);
-//                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, 10);
-//                generateCoral(CORAL_RED, world, random, chunkX, chunkZ, 7);
+                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 5);
+                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 8);
+                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 2);
+                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, 10);
+                generateCoral(CORAL_RED, world, random, chunkX, chunkZ, 7);
 
 //                generateCoral(CRUST1, world, random, chunkX, chunkZ, 5);
 //                generateCoral(CRUST2, world, random, chunkX, chunkZ, 8);
@@ -67,8 +67,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 //                generateCoral(CRUST4, world, random, chunkX, chunkZ, 10);
 //                generateCoral(CRUST5, world, random, chunkX, chunkZ, 7);
 
-//                generateStructure(SPHINX_FRONT, world, random, chunkX, chunkZ, 10, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
-//                generateStructure(SPHINX_BACK, world, random, chunkX, chunkZ, 10, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
+                generateStructure(SPHINX_FRONT, world, random, chunkX, chunkZ, 10, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
+                generateStructure(SPHINX_BACK, world, random, chunkX, chunkZ, 10, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
 
                 generateStructure(ruins, world, random, chunkX, chunkZ, 10, Blocks.GRASS);
 
