@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "neutronia:blocks/frosted_orange_terracotta",
+    "side": "neutronia:blocks/frosted_orange_terracotta",
+    "top": "neutronia:blocks/frosted_orange_terracotta"
+  }
+}

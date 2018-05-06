@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "parent": "neutronia:block/slab",
+  "textures": {
+    "bottom": "neutronia:blocks/frosted_orange_terracotta",
+    "side": "neutronia:blocks/frosted_orange_terracotta",
+    "top": "neutronia:blocks/frosted_orange_terracotta"
+  }
+}

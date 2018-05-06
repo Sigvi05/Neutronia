@@ -1,0 +1,18 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "type": "forge:ore_shapeless",
+  "group": "colored_vases",
+  "ingredients": [
+    {
+      "item": "minecraft:flower_pot",
+      "data": 0
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 14
+    }
+  ],
+  "result": {
+    "item": "neutronia:orange_colored_vase"
+  }
+}

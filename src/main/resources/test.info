@@ -1,0 +1,20 @@
+[
+  {
+    "_comment": "Generated using Husky's JSON Generator v3.",
+    "mod_id": "neutronia",
+    "name": "Neutronia",
+    "description": "This is a test file",
+    "version": "0.0.1",
+    "credits": "This is the credits things",
+    "mcversion": "1.12.2",
+    "url": " ",
+    "authorList": [
+      "TheGamingHuskyMC"
+    ],
+    "parent": " ",
+    "logoFile": " ",
+    "screenshots": [
+      ""
+    ]
+  }
+]
