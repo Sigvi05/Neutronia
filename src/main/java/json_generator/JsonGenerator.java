@@ -5,8 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
-import net.hdt.neutronia.properties.*;
-import net.minecraft.block.BlockPlanks;
+import net.hdt.neutronia.properties.EnumNewStoneVariants;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.util.EnumFacing;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.CharEncoding;
 import org.apache.commons.lang3.StringEscapeUtils;
@@ -18,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Objects;
 
 public class JsonGenerator {
 
@@ -57,7 +59,7 @@ public class JsonGenerator {
             genLangFile(modid, dyeColor.getName() + "_colored_vase", dyeColor.getName() + "_colored_vase", "colored_blocks");
         }*/
 
-        for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
+        /*for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
             genLangFile(modid, aquamarineVariants.getName(), aquamarineVariants.getName(), "aquamarine");
         }
 
@@ -91,16 +93,18 @@ public class JsonGenerator {
         }
 
         for (BlockPlanks.EnumType woodVariants : BlockPlanks.EnumType.values()) {
-        }
-
-        /*for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
-            genLangFile(modid, newStoneVariants.getName(), newStoneVariants.getName(), "stones");
-            genLangFile(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName() + "_slab", "stones");
-            genLangFile(modid, newStoneVariants.getName() + "_slab_double", newStoneVariants.getName() + "_slab_double", "stones");
-            genLangFile(modid, newStoneVariants.getName() + "_stairs", newStoneVariants.getName() + "_stairs", "stones");
         }*/
 
-        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a test file", "This is the credits things", " ", " ");
+        for (EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
+//            genLangFile(modid, newStoneVariants.getName(), newStoneVariants.getName(), "stones");
+//            genLangFile(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName() + "_slab", "stones");
+//            genLangFile(modid, newStoneVariants.getName() + "_slab_double", newStoneVariants.getName() + "_slab_double", "stones");
+//            genLangFile(modid, newStoneVariants.getName() + "_stairs", newStoneVariants.getName() + "_stairs", "stones");
+            genBlock(modid, newStoneVariants.getName(), newStoneVariants.getName());
+            genStair(modid, newStoneVariants.getName() + "_stair", newStoneVariants.getName(), newStoneVariants.getName(), newStoneVariants.getName());
+        }
+
+//        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a test file", "This is the credits things", " ", " ");
 
     }
 
@@ -538,10 +542,52 @@ public class JsonGenerator {
 
         JsonObject variants = new JsonObject();
 
-        variants.add(String.format("facing=%s,half=%s,shape=%s", "north", "top", "straight"), new JsonObject());
-        variants.add(String.format("facing=%s,half=%s,shape=%s", "south", "top", "straight"), new JsonObject());
-        variants.add(String.format("facing=%s,half=%s,shape=%s", "east", "top", "straight"), new JsonObject());
-        variants.add(String.format("facing=%s,half=%s,shape=%s", "west", "top", "straight"), new JsonObject());
+        JsonObject straight = new JsonObject();
+        straight.addProperty("model", "minecraft:stairs");
+        straight.addProperty("y", 270);
+        straight.addProperty("uvlock", true);
+
+        JsonObject innerLeft = new JsonObject();
+        innerLeft.addProperty("model", "minecraft:inner_stairs");
+        innerLeft.addProperty("y", 270);
+        innerLeft.addProperty("uvlock", true);
+
+        JsonObject innerRight = new JsonObject();
+        innerRight.addProperty("model", "minecraft:inner_stairs");
+        innerRight.addProperty("y", 270);
+        innerRight.addProperty("uvlock", true);
+
+        JsonObject outerLeft = new JsonObject();
+        innerLeft.addProperty("model", "minecraft:outer_stairs");
+        innerLeft.addProperty("y", 270);
+        innerLeft.addProperty("uvlock", true);
+
+        JsonObject outerRight = new JsonObject();
+        innerRight.addProperty("model", "minecraft:outer_stairs");
+        innerRight.addProperty("y", 270);
+        innerRight.addProperty("uvlock", true);
+
+        for (EnumFacing facing : EnumFacing.values()) {
+            for (BlockStairs.EnumHalf enumHalf : BlockStairs.EnumHalf.values()) {
+                for (BlockStairs.EnumShape enumShape : BlockStairs.EnumShape.values()) {
+                    if (Objects.equals(enumShape.getName(), "straight")) {
+                        variants.add(String.format("facing=%s,half=%s,shape=%s", facing.getName(), enumHalf.getName(), enumShape.getName()), straight);
+                    }
+                    if (Objects.equals(enumShape.getName(), "inner_left")) {
+                        variants.add(String.format("facing=%s,half=%s,shape=%s", facing.getName(), enumHalf.getName(), enumShape.getName()), innerLeft);
+                    }
+                    if (Objects.equals(enumShape.getName(), "inner_right")) {
+                        variants.add(String.format("facing=%s,half=%s,shape=%s", facing.getName(), enumHalf.getName(), enumShape.getName()), innerRight);
+                    }
+                    if (Objects.equals(enumShape.getName(), "outer_left")) {
+                        variants.add(String.format("facing=%s,half=%s,shape=%s", facing.getName(), enumHalf.getName(), enumShape.getName()), outerLeft);
+                    }
+                    if (Objects.equals(enumShape.getName(), "outer_right")) {
+                        variants.add(String.format("facing=%s,half=%s,shape=%s", facing.getName(), enumHalf.getName(), enumShape.getName()), outerRight);
+                    }
+                }
+            }
+        }
 
         variants.add("inventory", empty);
         root.add("variants", variants);
