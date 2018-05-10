@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.init.HMBlocks;
+import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.items.ItemChestBlock;
 import net.hdt.neutronia.properties.ChestType;
 import net.hdt.neutronia.tileentity.TileCustomChest;
@@ -194,7 +194,7 @@ public class BlockCustomChest extends BlockChest implements IModBlock {
 
     @Override
     public boolean canProvidePower(IBlockState state) {
-        return chestType == HMBlocks.CUSTOM_TYPE_QUARK_TRAP;
+        return chestType == NBlocks.CUSTOM_TYPE_QUARK_TRAP;
     }
 
     @Override

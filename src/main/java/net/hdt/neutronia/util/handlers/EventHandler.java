@@ -1,6 +1,6 @@
 package net.hdt.neutronia.util.handlers;
 
-import net.hdt.neutronia.init.HMItems;
+import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -92,7 +92,7 @@ public class EventHandler {
                 }
             }
 
-            event.getDrops().add(new EntityItem(event.getEntity().world, deathPoint.getX(), deathPoint.getY(), deathPoint.getZ(), new ItemStack(HMItems.witherBone, rand.nextInt(3), 0)));
+            event.getDrops().add(new EntityItem(event.getEntity().world, deathPoint.getX(), deathPoint.getY(), deathPoint.getZ(), new ItemStack(NItems.witherBone, rand.nextInt(3), 0)));
         }
     }
 }

@@ -2,7 +2,7 @@ package net.hdt.neutronia;
 
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
-import net.hdt.neutronia.init.HMBlocks;
+import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,13 +25,10 @@ import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import static net.hdt.neutronia.util.Reference.*;
-
-//import net.hdt.neutronia.modules.building.NeutroniaBuilding;
 
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES)
 public class Main {
@@ -40,7 +37,7 @@ public class Main {
     public static CreativeTabs OVERWORLD_EXPANSION_TAB = new CreativeTabs("overworld_expansion") {
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(Item.getItemFromBlock(HMBlocks.brain_coral[0]));
+            return new ItemStack(Item.getItemFromBlock(NBlocks.brain_coral[0]));
         }
     };
     public static CreativeTabs NETHER_EXPANSION_TAB = new CreativeTabs("nether_expansion") {
@@ -67,17 +64,16 @@ public class Main {
             return new ItemStack(Items.MAP);
         }
     };
+
     @Mod.Instance
     public static Main instance;
     public static SimpleNetworkWrapper network;
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
-    public static File configDirectory;
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-//        ModuleLoader.registerModule(NeutroniaBuilding.class);
-        MinecraftForge.EVENT_BUS.register(HMBlocks.class);
+        MinecraftForge.EVENT_BUS.register(NBlocks.class);
 
         List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
         for (ResourceLocation res : recipeList) {

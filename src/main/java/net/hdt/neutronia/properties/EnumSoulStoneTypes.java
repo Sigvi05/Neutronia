@@ -4,10 +4,10 @@ import net.minecraft.util.IStringSerializable;
 
 public enum EnumSoulStoneTypes implements IStringSerializable {
 
-    HAUNTED_SANDSTONE(0, "soulstone_normal"),
-    CHISELED_HAUNTED_SANDSTONE(1, "chiseled_soulstone"),
-    SMOOTH_HAUNTED_SANDSTONE(2, "smooth_soulstone"),
-    HAUNTED_SANDSTONE_BRICKS(3, "soulstone_bricks");
+    NORMAL_SOULSTONE(0, "normal_soulstone"),
+    CHISELED_SOULSTONE(1, "chiseled_soulstone"),
+    SMOOTH_SOULSTONE(2, "smooth_soulstone"),
+    SOULSTONE_BRICKS(3, "soulstone_bricks");
 
     private static final EnumSoulStoneTypes[] META_LOOKUP = new EnumSoulStoneTypes[values().length];
 

@@ -1,7 +1,7 @@
 package net.hdt.neutronia.items;
 
 import net.hdt.neutronia.blocks.overworld.BlockCustomChest;
-import net.hdt.neutronia.init.HMBlocks;
+import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.properties.ChestType;
 import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.minecraft.block.Block;
@@ -40,15 +40,15 @@ public class ItemWoodenChestBlock extends ItemModBlock implements IExtraVariantH
     @SideOnly(Side.CLIENT)
     public ItemMeshDefinition getCustomMeshDefinition() {
         return stack -> {
-            ChestType type = HMBlocks.customChest.getCustomType(stack);
-            return getBlock() == HMBlocks.customChestTrap ? type.trapModel : type.normalModel;
+            ChestType type = NBlocks.customChest.getCustomType(stack);
+            return getBlock() == NBlocks.customChestTrap ? type.trapModel : type.normalModel;
         };
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        ChestType type = HMBlocks.customChest.getCustomType(stack);
-        String name = type.name + (getBlock() == HMBlocks.customChestTrap ? "_trap" : "");
+        ChestType type = NBlocks.customChest.getCustomType(stack);
+        String name = type.name + (getBlock() == NBlocks.customChestTrap ? "_trap" : "");
         return "tile.custom_chest_" + name;
     }
 

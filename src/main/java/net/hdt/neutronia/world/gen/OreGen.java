@@ -1,6 +1,6 @@
 package net.hdt.neutronia.world.gen;
 
-import net.hdt.neutronia.init.HMBlocks;
+import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -23,13 +23,13 @@ public class OreGen implements IWorldGenerator {
     private WorldGenerator volcanicRock;
 
     public OreGen() {
-        marble = new WorldGenMinable(HMBlocks.newStoneVariants[13].getDefaultState(), 18);
-        basalt = new WorldGenMinable(HMBlocks.newStoneVariants[6].getDefaultState(), 30);
-        limestone = new WorldGenMinable(HMBlocks.newStoneVariants[20].getDefaultState(), 18);
-        meteorite = new WorldGenMinable(HMBlocks.newStoneVariants[27].getDefaultState(), 18);
-        fieryStone = new WorldGenMinable(HMBlocks.netherBlocks[0].getDefaultState(), 6);
-        volcanicGlowRock = new WorldGenMinable(HMBlocks.netherBlocks[1].getDefaultState(), 12);
-        volcanicRock = new WorldGenMinable(HMBlocks.netherBlocks[1].getDefaultState(), 12);
+        marble = new WorldGenMinable(NBlocks.newStoneVariants[13].getDefaultState(), 18);
+        basalt = new WorldGenMinable(NBlocks.newStoneVariants[6].getDefaultState(), 30);
+        limestone = new WorldGenMinable(NBlocks.newStoneVariants[20].getDefaultState(), 18);
+        meteorite = new WorldGenMinable(NBlocks.newStoneVariants[27].getDefaultState(), 18);
+        fieryStone = new WorldGenMinable(NBlocks.netherBlocks[0].getDefaultState(), 6);
+        volcanicGlowRock = new WorldGenMinable(NBlocks.netherBlocks[1].getDefaultState(), 12);
+        volcanicRock = new WorldGenMinable(NBlocks.netherBlocks[1].getDefaultState(), 12);
     }
 
     private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z,

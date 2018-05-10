@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity;
 
-import net.hdt.neutronia.init.HMItems;
+import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
@@ -150,7 +150,7 @@ public class EntityDrowned extends EntityMob {
             int i = this.rand.nextInt(3);
 
             if (i == 0)
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HMItems.trident));
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.trident));
             else
                 this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemStack.EMPTY);
         }
@@ -173,7 +173,7 @@ public class EntityDrowned extends EntityMob {
 
     @Override
     protected boolean canEquipItem(ItemStack stack) {
-        return stack.getItem() == HMItems.trident;
+        return stack.getItem() == NItems.trident;
     }
 
     @Override

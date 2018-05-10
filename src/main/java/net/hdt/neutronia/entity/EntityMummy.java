@@ -1,7 +1,7 @@
 package net.hdt.neutronia.entity;
 
 import net.hdt.neutronia.entity.ai.EntityAIMummyAttack;
-import net.hdt.neutronia.init.HMItems;
+import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
@@ -220,7 +220,7 @@ public class EntityMummy extends EntityUndeadBase {
             int i = this.rand.nextInt(3);
 
             if (i == 0)
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(HMItems.ancientSword));
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.ancientSword));
             else
                 this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
         }
@@ -278,7 +278,7 @@ public class EntityMummy extends EntityUndeadBase {
 
     @Override
     protected boolean canEquipItem(ItemStack stack) {
-        return stack.getItem() == HMItems.ancientSword;
+        return stack.getItem() == NItems.ancientSword;
     }
 
     @Override

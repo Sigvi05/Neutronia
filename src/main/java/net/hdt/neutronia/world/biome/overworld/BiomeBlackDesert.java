@@ -1,6 +1,6 @@
 package net.hdt.neutronia.world.biome.overworld;
 
-import net.hdt.neutronia.init.HMBlocks;
+import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
@@ -40,8 +40,8 @@ public class BiomeBlackDesert extends Biome {
             this.topBlock = Blocks.GRAVEL.getDefaultState();
             this.fillerBlock = Blocks.GRAVEL.getDefaultState();
         } else {
-            this.topBlock = HMBlocks.coloredSand[EnumDyeColor.BLACK.getMetadata()].getDefaultState();
-            this.fillerBlock = HMBlocks.coloredSand[EnumDyeColor.BLACK.getMetadata()].getDefaultState();
+            this.topBlock = NBlocks.coloredSand[EnumDyeColor.BLACK.getMetadata()].getDefaultState();
+            this.fillerBlock = NBlocks.coloredSand[EnumDyeColor.BLACK.getMetadata()].getDefaultState();
         }
 
         this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);

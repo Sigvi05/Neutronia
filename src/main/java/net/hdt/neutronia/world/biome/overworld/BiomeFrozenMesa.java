@@ -1,6 +1,6 @@
 package net.hdt.neutronia.world.biome.overworld;
 
-import net.hdt.neutronia.init.HMBlocks;
+import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.EnumDyeColor;
@@ -18,14 +18,14 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class BiomeFrozenMesa extends Biome {
-    protected static final IBlockState STONE = HMBlocks.frostedStones[0].getDefaultState();
-    protected static final IBlockState COARSE_DIRT = HMBlocks.frostedDirts[1].getDefaultState();
-    protected static final IBlockState GRASS = HMBlocks.frostedDirts[7].getDefaultState();
-    protected static final IBlockState HARDENED_CLAY = HMBlocks.frostedStones[5].getDefaultState();
-    protected static final IBlockState ORANGE_STAINED_HARDENED_CLAY = HMBlocks.frostedClay[EnumDyeColor.ORANGE.getMetadata()].getDefaultState();
-    protected static final IBlockState RED_SAND = HMBlocks.frostedDirts[9].getDefaultState();
+    protected static final IBlockState STONE = NBlocks.frostedStones[0].getDefaultState();
+    protected static final IBlockState COARSE_DIRT = NBlocks.frostedDirts[1].getDefaultState();
+    protected static final IBlockState GRASS = NBlocks.frostedDirts[7].getDefaultState();
+    protected static final IBlockState HARDENED_CLAY = NBlocks.frostedStones[5].getDefaultState();
+    protected static final IBlockState ORANGE_STAINED_HARDENED_CLAY = NBlocks.frostedClay[EnumDyeColor.ORANGE.getMetadata()].getDefaultState();
+    protected static final IBlockState RED_SAND = NBlocks.frostedDirts[9].getDefaultState();
     private static Random rnd = new Random();
-    protected static final IBlockState STAINED_HARDENED_CLAY = HMBlocks.frostedClay[rnd.nextInt(16)].getDefaultState();
+    protected static final IBlockState STAINED_HARDENED_CLAY = NBlocks.frostedClay[rnd.nextInt(16)].getDefaultState();
     private final boolean brycePillars;
     private final boolean hasForest;
     private IBlockState[] clayBands;
@@ -207,7 +207,7 @@ public class BiomeFrozenMesa extends Biome {
             int k = random.nextInt(64);
 
             for (int l = 0; k + l < 64 && l < j; ++l) {
-                this.clayBands[k + l] = HMBlocks.frostedClay[EnumDyeColor.YELLOW.getMetadata()].getDefaultState();
+                this.clayBands[k + l] = NBlocks.frostedClay[EnumDyeColor.YELLOW.getMetadata()].getDefaultState();
             }
         }
 
@@ -218,7 +218,7 @@ public class BiomeFrozenMesa extends Biome {
             int l3 = random.nextInt(64);
 
             for (int i1 = 0; l3 + i1 < 64 && i1 < i3; ++i1) {
-                this.clayBands[l3 + i1] = HMBlocks.frostedClay[EnumDyeColor.BROWN.getMetadata()].getDefaultState();
+                this.clayBands[l3 + i1] = NBlocks.frostedClay[EnumDyeColor.BROWN.getMetadata()].getDefaultState();
             }
         }
 
@@ -229,7 +229,7 @@ public class BiomeFrozenMesa extends Biome {
             int k4 = random.nextInt(64);
 
             for (int j1 = 0; k4 + j1 < 64 && j1 < i4; ++j1) {
-                this.clayBands[k4 + j1] = HMBlocks.frostedClay[EnumDyeColor.RED.getMetadata()].getDefaultState();
+                this.clayBands[k4 + j1] = NBlocks.frostedClay[EnumDyeColor.RED.getMetadata()].getDefaultState();
             }
         }
 
@@ -241,14 +241,14 @@ public class BiomeFrozenMesa extends Biome {
             j4 += random.nextInt(16) + 4;
 
             for (int k1 = 0; j4 + k1 < 64 && k1 < 1; ++k1) {
-                this.clayBands[j4 + k1] = HMBlocks.frostedClay[EnumDyeColor.WHITE.getMetadata()].getDefaultState();
+                this.clayBands[j4 + k1] = NBlocks.frostedClay[EnumDyeColor.WHITE.getMetadata()].getDefaultState();
 
                 if (j4 + k1 > 1 && random.nextBoolean()) {
-                    this.clayBands[j4 + k1 - 1] = HMBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
+                    this.clayBands[j4 + k1 - 1] = NBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
                 }
 
                 if (j4 + k1 < 63 && random.nextBoolean()) {
-                    this.clayBands[j4 + k1 + 1] = HMBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
+                    this.clayBands[j4 + k1 + 1] = NBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
                 }
             }
         }

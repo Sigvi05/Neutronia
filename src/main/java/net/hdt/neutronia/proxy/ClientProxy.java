@@ -2,6 +2,7 @@ package net.hdt.neutronia.proxy;
 
 import net.hdt.neutronia.client.rendering.RenderTileCustomChest;
 import net.hdt.neutronia.client.rendering.ResourceProxy;
+import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.hdt.neutronia.util.LibObfuscation;
 import net.hdt.neutronia.util.handlers.EntityEventHandler;
@@ -37,10 +38,10 @@ public class ClientProxy extends CommonProxy {
         /*ModelCustomArmor custom_armor = new ModelCustomArmor(1F);
         ModelCustomArmor custom_legs = new ModelCustomArmor(0.5F);
 
-        armorModels.put(HMItems.healmet, custom_armor);
-        armorModels.put(HMItems.chestplate, custom_armor);
-        armorModels.put(HMItems.leggings, custom_legs);
-        armorModels.put(HMItems.boots, custom_armor);*/
+        armorModels.put(NItems.healmet, custom_armor);
+        armorModels.put(NItems.chestplate, custom_armor);
+        armorModels.put(NItems.leggings, custom_legs);
+        armorModels.put(NItems.boots, custom_armor);*/
 
     }
 
@@ -52,31 +53,21 @@ public class ClientProxy extends CommonProxy {
         overrideBlock("stone_granite", true);
         overrideBlock("stone_andesite", true);
         overrideBlock("stone_diorite", true);
+        ModuleHandler.INSTANCE.handlePreInitClient(event);
+        ModuleHandler.INSTANCE.handlePostPreInitClient(event);
     }
 
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
-
-        /*ItemColors itemColors = Minecraft.getMinecraft().getItemColors();
-        IItemColor floorTile = (stack, tintIndex) -> tintIndex < 2 && stack.hasTagCompound() ? Objects.requireNonNull(stack.getTagCompound()).getInteger("color" + tintIndex) : 0xFFFFFF;
-        itemColors.registerItemColorHandler(floorTile, HMBlocks.floorTile);
-
-        BlockColors blockColors = Minecraft.getMinecraft().getBlockColors();
-        IBlockColor floorTileBlock = (state, worldIn, pos, tintIndex) -> {
-            TileEntity te = worldIn.getTileEntity(pos);
-            if (te instanceof TileEntityFloorTile) {
-                return ((TileEntityFloorTile) te).getColor(tintIndex);
-            }
-            return 0xFFFFFF;
-        };
-        blockColors.registerBlockColorHandler(floorTileBlock, HMBlocks.floorTile);*/
         ClientRegistry.bindTileEntitySpecialRenderer(TileCustomChest.class, new RenderTileCustomChest());
+        ModuleHandler.INSTANCE.handleInitClient(event);
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
+        ModuleHandler.INSTANCE.handlePostInitClient(event);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.client.rendering;
 
-import net.hdt.neutronia.init.HMBlocks;
+import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.model.ModelLargeChest;
@@ -111,10 +111,10 @@ public class RenderTileCustomChest extends TileEntitySpecialRenderer<TileCustomC
             model.chestLid.rotateAngleX = -(lidAngle * ((float) Math.PI / 2F));
             model.renderAll();
 
-            if (te.getChestType() == HMBlocks.CUSTOM_TYPE_QUARK_TRAP) {
+            if (te.getChestType() == NBlocks.CUSTOM_TYPE_QUARK_TRAP) {
                 if (model == simpleChest)
-                    bindTexture(HMBlocks.TRAP_RESOURCE);
-                else bindTexture(HMBlocks.TRAP_DOUBLE_RESOURCE);
+                    bindTexture(NBlocks.TRAP_RESOURCE);
+                else bindTexture(NBlocks.TRAP_DOUBLE_RESOURCE);
 
                 float scale = 1.002F;
                 GlStateManager.pushMatrix();

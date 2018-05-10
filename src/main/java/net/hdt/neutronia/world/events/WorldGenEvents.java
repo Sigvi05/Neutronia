@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import static net.hdt.neutronia.util.Reference.MOD_ID;
+
 public class WorldGenEvents {
 
     @SubscribeEvent
@@ -90,7 +92,7 @@ public class WorldGenEvents {
         int dungeonType = rand.nextInt(10);
 
         MinecraftServer server = world.getMinecraftServer();
-        Template template = world.getStructureTemplateManager().getTemplate(server, new ResourceLocation("quark", "dungeon_" + dungeonType));
+        Template template = world.getStructureTemplateManager().getTemplate(server, new ResourceLocation(MOD_ID, "dungeon_" + dungeonType));
         PlacementSettings settings = new PlacementSettings();
         settings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 

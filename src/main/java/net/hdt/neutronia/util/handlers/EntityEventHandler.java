@@ -1,10 +1,8 @@
 package net.hdt.neutronia.util.handlers;
 
-import net.hdt.neutronia.entity.EntityMummy;
 import net.hdt.neutronia.entity.EntityMummyVillager;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.passive.EntityVillager;
@@ -32,9 +30,6 @@ public class EntityEventHandler {
             World world = event.getEntity().world;
             BlockPos pos = event.getEntity().getPosition();
             if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT && !world.isRemote) {
-                if (event.getEntity() instanceof EntitySpider || event.getEntity() instanceof EntityMummy)
-                    return;
-
                 EntityMummyVillager mummy = new EntityMummyVillager(world);
                 if (mummy.isAIDisabled())
                     mummy.setNoAI(false);

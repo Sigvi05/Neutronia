@@ -9,7 +9,8 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:planks"
+      "item": "minecraft:planks",
+      "data": 0
     },
     "B": {
       "item": "minecraft:book"

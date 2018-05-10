@@ -6,13 +6,21 @@ import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Locale;
 
 public class BlockColoredWaterBlockBase extends BlockMod {
 
@@ -27,6 +35,14 @@ public class BlockColoredWaterBlockBase extends BlockMod {
     @SideOnly(Side.CLIENT)
     public static EnumCoralColor getColorFromItem(Item itemIn) {
         return getColorFromBlock(Block.getBlockFromItem(itemIn));
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        for (int oreId : OreDictionary.getOreIDs(stack)) {
+            String oreNameLowercase = OreDictionary.getOreName(oreId).toLowerCase(Locale.ENGLISH);
+            tooltip.add(oreNameLowercase);
+        }
     }
 
     @SideOnly(Side.CLIENT)

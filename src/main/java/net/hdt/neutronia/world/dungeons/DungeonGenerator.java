@@ -99,7 +99,7 @@ public class DungeonGenerator implements IWorldGenerator {
                 case 1:
                     break;
                 case 0:
-//                    generateStructure(structures.get(random.nextInt(10)), world, random, chunkX, chunkZ, 1, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS, HMBiomes.BLACK_DESERT, HMBiomes.RED_DESERT);
+//                    generateStructure(structures.get(random.nextInt(10)), world, random, chunkX, chunkZ, 1, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS, NBiomes.BLACK_DESERT, NBiomes.RED_DESERT);
                     break;
                 case -1:
             }

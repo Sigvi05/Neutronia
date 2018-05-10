@@ -1,6 +1,6 @@
 package net.hdt.neutronia.modules.building.features;
 
-import net.hdt.neutronia.blocks.overworld.BlockStainedPlanksSlab;
+import net.hdt.neutronia.modules.building.blocks.slab.BlockStainedPlanksSlab;
 import net.hdt.neutronia.modules.building.blocks.BlockStainedPlanks;
 import net.hdt.neutronia.modules.building.blocks.stairs.BlockStainedPlanksStairs;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

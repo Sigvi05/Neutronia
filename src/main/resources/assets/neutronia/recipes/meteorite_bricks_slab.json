@@ -9,7 +9,8 @@
   ],
   "key": {
     "X": {
-      "item": "neutronia:meteorite_bricks"
+      "item": "neutronia:meteorite_bricks",
+      "data": 0
     }
   },
   "result": {
