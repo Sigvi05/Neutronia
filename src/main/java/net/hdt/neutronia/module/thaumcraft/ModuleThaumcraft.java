@@ -4,6 +4,7 @@ import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.module.IModule;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -22,7 +23,7 @@ public class ModuleThaumcraft implements IModule {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return Loader.isModLoaded("thaumcraft");
     }
 
     @Override

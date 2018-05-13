@@ -20,6 +20,7 @@ import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Locale;
 
 public class BlockColoredWaterBlockBase extends BlockMod {
 
@@ -39,7 +40,7 @@ public class BlockColoredWaterBlockBase extends BlockMod {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         for (int oreId : OreDictionary.getOreIDs(stack)) {
-            String oreNameLowercase = OreDictionary.getOreName(oreId);
+            String oreNameLowercase = OreDictionary.getOreName(oreId).toLowerCase(Locale.ENGLISH);
             tooltip.add(oreNameLowercase);
         }
     }
