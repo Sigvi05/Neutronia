@@ -60,7 +60,7 @@ public class BlockOverworldSlabBase extends BlockModSlab {
 
     @Override
     public Comparable<?> getTypeForItem(ItemStack stack) {
-        return null;
+        return (Comparable<Object>) o -> 0;
     }
 
 }
