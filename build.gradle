@@ -27,24 +27,22 @@ minecraft {
 }
 
 repositories {
-    maven { // The repo from which to get waila
-        name "Mobius Repo"
-        url "http://tehnut.info/maven"
-    }
-    maven {
-        name = "JEI Maven"
-        url = "http://dvs1.progwml6.com/files/maven"
-    }
-    maven { url "https://maven.mcmoddev.com/" }
+    maven { url = "http://chickenbones.net/maven" }
+    maven { url = "http://dvs1.progwml6.com/files/maven" }
+    maven { url = "http://tehnut.info/maven" }
+    maven { url = "http://maven.tterrag.com" }
     maven { url = "http://maven.covers1624.net" }
-    mavenCentral()
+    maven { url = "http://repo.elytradev.com" }
 }
 
 dependencies {
     compile "de.kitsunealex.silverfish:Silverfish:${mc_version}-${silverfish_version}:deobf"
     compile "codechicken:CodeChickenLib:${mc_version}-${ccl_version}:deobf"
-    runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
+    compile "mezz.jei:jei_${mc_version}:${jei_version}:api"
+    compile "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
+    compile "com.elytradev:mirage:${mirage_version}"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+    runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
 }
 
 processResources {

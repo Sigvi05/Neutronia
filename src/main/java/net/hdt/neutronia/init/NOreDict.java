@@ -1,28 +1,25 @@
 package net.hdt.neutronia.init;
 
 import net.hdt.neutronia.properties.EnumCoralColor;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import org.apache.commons.lang3.StringUtils;
 
 public class NOreDict {
 
     public static void register() {
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
-            registerToOreDict(String.format("%sBrainCoral", coralColor.getName()), NBlocks.brain_coral[coralColor.getMetadata()]);
-            registerToOreDict(String.format("dead%sBrainCoral", coralColor.getNameNormalcase()), NBlocks.dead_brain_coral[coralColor.getMetadata()]);
-            registerToOreDict(String.format("%sCoral", coralColor.getName()), NBlocks.normal_coral[coralColor.getMetadata()]);
-            registerToOreDict(String.format("dead%sCoral", coralColor.getNameNormalcase()), NBlocks.dead_normal_coral[coralColor.getMetadata()]);
-            registerToOreDict(String.format("%sCoralFan", coralColor.getName()), NBlocks.coral_fan[coralColor.getMetadata()]);
-            registerToOreDict(String.format("dead%sCoralFan", coralColor.getNameNormalcase()), NBlocks.dead_coral_fan[coralColor.getMetadata()]);
+            String color = StringUtils.capitalize(coralColor.getName());
+            registerToOreDict(String.format("%sBrainCoral", coralColor.getName()), new ItemStack(NBlocks.brain_coral[coralColor.getMetadata()], 1));
+            registerToOreDict(String.format("dead%sBrainCoral", color), new ItemStack(NBlocks.dead_brain_coral[coralColor.getMetadata()], 1));
+            registerToOreDict(String.format("%sCoral", coralColor.getName()), new ItemStack(NBlocks.normal_coral[coralColor.getMetadata()], 1));
+            registerToOreDict(String.format("dead%sCoral", color), new ItemStack(NBlocks.dead_normal_coral[coralColor.getMetadata()], 1));
+            registerToOreDict(String.format("%sCoralFan", coralColor.getName()), new ItemStack(NBlocks.coral_fan[coralColor.getMetadata()], 1));
+            registerToOreDict(String.format("dead%sCoralFan", color), new ItemStack(NBlocks.dead_coral_fan[coralColor.getMetadata()], 1));
         }
     }
 
-    public static void registerToOreDict(String name, Item item) {
-        OreDictionary.registerOre(name, item);
-    }
-
-    public static void registerToOreDict(String name, Block block) {
+    public static void registerToOreDict(String name, ItemStack block) {
         OreDictionary.registerOre(name, block);
     }
 
