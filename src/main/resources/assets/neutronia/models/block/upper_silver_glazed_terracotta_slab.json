@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "minecraft:blocks/silver_glazed_terracotta",
+    "side": "minecraft:blocks/silver_glazed_terracotta",
+    "top": "minecraft:blocks/silver_glazed_terracotta"
+  }
+}

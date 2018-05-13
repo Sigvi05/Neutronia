@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "minecraft:blocks/hardened_clay_stained_silver",
+    "side": "minecraft:blocks/hardened_clay_stained_silver",
+    "top": "minecraft:blocks/hardened_clay_stained_silver"
+  }
+}
