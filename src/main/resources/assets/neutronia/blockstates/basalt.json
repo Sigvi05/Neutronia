@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "variant=stone_basalt": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/stone_basalt"
+        }
+      }
+    ],
+    "variant=stone_basalt_smooth": [
+      {
+        "textures": {
+          "all": "neutronia:blocks/stone_basalt_smooth"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "type": "forge:ore_shaped",
+  "group": "wooden_trapdoors",
+  "pattern": [
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:planks",
+      "data": 5
+    }
+  },
+  "result": {
+    "item": "neutronia:dark_oak_trapdoor",
+    "count": 6
+  }
+}

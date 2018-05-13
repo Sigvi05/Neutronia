@@ -1,0 +1,22 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "type": "forge:ore_shaped",
+  "group": "bookshelves",
+  "pattern": [
+    "WWW",
+    "BBB",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:planks",
+      "data": 1
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "neutronia:spruce_bookshelf"
+  }
+}
