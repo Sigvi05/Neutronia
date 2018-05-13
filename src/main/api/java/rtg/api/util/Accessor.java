@@ -23,9 +23,7 @@ public class Accessor<ObjectType, FieldType> {
 
         try {
             return (FieldType) (field(object).get(object));
-        } catch (IllegalArgumentException ex) {
-            throw new RuntimeException(ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalArgumentException | IllegalAccessException ex) {
             throw new RuntimeException(ex);
         }
     }
@@ -34,11 +32,7 @@ public class Accessor<ObjectType, FieldType> {
 
         Class classObject = example.getClass();
         if (field == null) {
-            try {
-                setField(classObject);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
+            setField(classObject);
         }
         return field;
     }
@@ -48,10 +42,10 @@ public class Accessor<ObjectType, FieldType> {
         Field[] fields;
         do {
             fields = classObject.getDeclaredFields();
-            for (int i = 0; i < fields.length; i++) {
+            for (Field field1 : fields) {
                 for (String fieldName : fieldNames) {
-                    if (fields[i].getName().contains(fieldName)) {
-                        field = fields[i];
+                    if (field1.getName().contains(fieldName)) {
+                        field = field1;
                         field.setAccessible(true);
                         return;
                     }
@@ -67,9 +61,7 @@ public class Accessor<ObjectType, FieldType> {
 
         try {
             field(object).set(object, fieldValue);
-        } catch (IllegalArgumentException ex) {
-            throw new RuntimeException(ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalArgumentException | IllegalAccessException ex) {
             throw new RuntimeException(ex);
         }
     }

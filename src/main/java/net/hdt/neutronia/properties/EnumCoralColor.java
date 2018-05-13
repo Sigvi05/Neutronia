@@ -6,11 +6,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public enum EnumCoralColor implements IStringSerializable {
 
-    YELLOW(0, "yellow", "Yellow", 16701501),
-    PINK(1, "pink", "Pink", 15961002),
-    PURPLE(2, "purple", "Purple", 8991416),
-    BLUE(3, "blue", "Blue", 3949738),
-    RED(4, "red", "Red", 11546150);
+    YELLOW(0, "yellow", 16701501),
+    PINK(1, "pink", 15961002),
+    PURPLE(2, "purple", 8991416),
+    BLUE(3, "blue", 3949738),
+    RED(4, "red", 11546150);
 
     private static final EnumCoralColor[] META_LOOKUP = new EnumCoralColor[values().length];
 
@@ -21,14 +21,13 @@ public enum EnumCoralColor implements IStringSerializable {
     }
 
     private final int meta;
-    private final String name, nameNormalcase;
+    private final String name;
     private final int colorValue;
     private final float[] colorComponentValues;
 
-    EnumCoralColor(int metaIn, String nameIn, String nameNormalcase, int colorValueIn) {
+    EnumCoralColor(int metaIn, String nameIn, int colorValueIn) {
         this.meta = metaIn;
         this.name = nameIn;
-        this.nameNormalcase = nameNormalcase;
         this.colorValue = colorValueIn;
         int i = (colorValueIn & 16711680) >> 16;
         int j = (colorValueIn & 65280) >> 8;
@@ -68,10 +67,6 @@ public enum EnumCoralColor implements IStringSerializable {
 
     public String getName() {
         return this.name;
-    }
-
-    public String getNameNormalcase() {
-        return nameNormalcase;
     }
 
 }
