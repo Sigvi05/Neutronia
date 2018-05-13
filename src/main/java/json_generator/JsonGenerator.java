@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
 import net.hdt.neutronia.properties.EnumNewStoneVariants;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.CharEncoding;
@@ -100,12 +101,20 @@ public class JsonGenerator {
 //            genLangFile(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName() + "_slab", "stones");
 //            genLangFile(modid, newStoneVariants.getName() + "_slab_double", newStoneVariants.getName() + "_slab_double", "stones");
 //            genLangFile(modid, newStoneVariants.getName() + "_stairs", newStoneVariants.getName() + "_stairs", "stones");
-            genBlock(modid, newStoneVariants.getName(), newStoneVariants.getName());
-            genStair(modid, newStoneVariants.getName() + "_stair", newStoneVariants.getName(), newStoneVariants.getName(), newStoneVariants.getName());
+//            genBlock(modid, newStoneVariants.getName(), newStoneVariants.getName());
+//            genStair(modid, newStoneVariants.getName() + "_stair", newStoneVariants.getName(), newStoneVariants.getName(), newStoneVariants.getName());
         }
 
 //        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a test file", "This is the credits things", " ", " ");
 
+
+        for(EnumDyeColor color : EnumDyeColor.values()) {
+//            genOrientedBlock(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar_top", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()));
+//            genOrientedBlock(modid, String.format("%s_terracotta_pillar", color.getName()), String.format("%s_terracotta_pillar_top", color.getName()), String.format("%s_terracotta_pillar", color.getName()), String.format("%s_terracotta_pillar", color.getName()));
+
+            genSlabBlock("minecraft", String.format("%s_glazed_terracotta_slab", color.getName()), String.format("%s_glazed_terracotta", color.getName()), String.format("%s_glazed_terracotta", color.getName()));
+            genSlabBlock("minecraft", String.format("%s_terracotta_slab", color.getName()), String.format("hardened_clay_stained_%s", color.getName()), String.format("hardened_clay_stained_%s", color.getName()));
+        }
     }
 
     public static void genBlock(String modId, String blockName, String textureName) {
@@ -456,32 +465,29 @@ public class JsonGenerator {
 
     public static void genBlockOrientedModel(String modId, String blockName, String topTextureName, String frontTextureName, String sidesTextureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "block").toFile();
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "block");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
         }
 
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "block/orientable");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("top", modId + ":blocks/" + topTextureName);
+        textures.addProperty("front", modId + ":blocks/" + frontTextureName);
+        textures.addProperty("side", modId + ":blocks/" + sidesTextureName);
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
         try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + ".json"), "UTF-8");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw = gson.newJsonWriter(writer);
-
-            jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v3.");
-            jw.name("parent").value("block/orientable");
-            jw.name("textures");
-            jw.beginObject();
-            jw.name("top").value(modId + ":blocks/" + topTextureName);
-            jw.name("front").value(modId + ":blocks/" + frontTextureName);
-            jw.name("side").value(modId + ":blocks/" + sidesTextureName);
-            jw.endObject();
-            jw.endObject();
-
-            writer.close();
-
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
 
     }

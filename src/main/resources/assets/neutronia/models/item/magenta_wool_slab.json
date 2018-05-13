@@ -1,4 +1,4 @@
 {
   "_comment": "Generated using Husky's JSON Generator v2.",
-  "parent": "minecraft:block/half_magenta_wool_slab"
+  "parent": "neutronia:block/half_magenta_wool_slab"
 }
