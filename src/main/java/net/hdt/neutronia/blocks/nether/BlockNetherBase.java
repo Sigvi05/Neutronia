@@ -3,7 +3,7 @@ package net.hdt.neutronia.blocks.nether;
 import net.hdt.neutronia.Main;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
-import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 
 public class BlockNetherBase extends BlockMod {
 

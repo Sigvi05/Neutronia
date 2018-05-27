@@ -5,7 +5,10 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
+import net.hdt.neutronia.properties.EnumAquamarineVariants;
+import net.hdt.neutronia.properties.EnumCoralColor;
 import net.hdt.neutronia.properties.EnumNewStoneVariants;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
@@ -38,13 +41,14 @@ public class JsonGenerator {
 
         for(EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
             genBlock(modid, naturalAquamarineVariants.getName(), naturalAquamarineVariants.getName());
-        }
+        }*/
 
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
-            genBlock(modid, aquamarineVariants.getName(), aquamarineVariants.getName());
+//            genBlock(modid, aquamarineVariants.getName(), aquamarineVariants.getName());
+//            genSlabBlock(modid, aquamarineVariants.getName() + "_slab", aquamarineVariants.getName(), aquamarineVariants.getName());
         }
 
-        for(EnumCoralTypes coralTypes : EnumCoralTypes.values()) {
+        /*for(EnumCoralTypes coralTypes : EnumCoralTypes.values()) {
             genPlant(modid, coralTypes.getName(), coralTypes.getName());
         }
 
@@ -96,6 +100,13 @@ public class JsonGenerator {
         for (BlockPlanks.EnumType woodVariants : BlockPlanks.EnumType.values()) {
         }*/
 
+//        genRecipe(modid, "obsidian_axe", true, "OO ", "OS ", " S ", new String[]{ "O", "S" }, new String[]{ "minecraft:obsidian", "minecraft:stick" }, new int[]{ 0, 0 }, "neutronia:obsidian_axe", "Neutronia", 1);
+//        genRecipe(modid, "obsidian_shovel", true, " O ", " S ", " S ", new String[]{ "O", "S" }, new String[]{ "minecraft:obsidian", "minecraft:stick" }, new int[]{ 0, 0 }, "neutronia:obsidian_shovel", "Neutronia", 1);
+//        genRecipe(modid, "obsidian_pickaxe", true, "OOO", " S ", " S ", new String[]{ "O", "S" }, new String[]{ "minecraft:obsidian", "minecraft:stick" }, new int[]{ 0, 0 }, "neutronia:obsidian_pickaxe", "Neutronia", 1);
+//        genRecipe(modid, "obsidian_sword", true, " O ", " O ", " S ", new String[]{ "O", "S" }, new String[]{ "minecraft:obsidian", "minecraft:stick" }, new int[]{ 0, 0 }, "neutronia:obsidian_sword", "Neutronia", 1);
+
+//        genSlabBlock(modid, "smooth_basalt_slab", "basalt_smooth", "basalt_smooth", "basalt_smooth", "smooth_basalt");
+
         for (EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
 //            genLangFile(modid, newStoneVariants.getName(), newStoneVariants.getName(), "stones");
 //            genLangFile(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName() + "_slab", "stones");
@@ -103,18 +114,30 @@ public class JsonGenerator {
 //            genLangFile(modid, newStoneVariants.getName() + "_stairs", newStoneVariants.getName() + "_stairs", "stones");
 //            genBlock(modid, newStoneVariants.getName(), newStoneVariants.getName());
 //            genStair(modid, newStoneVariants.getName() + "_stair", newStoneVariants.getName(), newStoneVariants.getName(), newStoneVariants.getName());
+//            genSlabBlock(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
         }
 
 //        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a test file", "This is the credits things", " ", " ");
-
 
         for(EnumDyeColor color : EnumDyeColor.values()) {
 //            genOrientedBlock(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar_top", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()));
 //            genOrientedBlock(modid, String.format("%s_terracotta_pillar", color.getName()), String.format("%s_terracotta_pillar_top", color.getName()), String.format("%s_terracotta_pillar", color.getName()), String.format("%s_terracotta_pillar", color.getName()));
 
-            genSlabBlock("minecraft", String.format("%s_glazed_terracotta_slab", color.getName()), String.format("%s_glazed_terracotta", color.getName()), String.format("%s_glazed_terracotta", color.getName()));
-            genSlabBlock("minecraft", String.format("%s_terracotta_slab", color.getName()), String.format("hardened_clay_stained_%s", color.getName()), String.format("hardened_clay_stained_%s", color.getName()));
+//            genSlabBlock(modid, String.format("%s_glazed_terracotta_slab", color.getName()), String.format("%s_glazed_terracotta", color.getName()), String.format("%s_glazed_terracotta", color.getName()));
+//            genSlabBlock(modid, String.format("%s_terracotta_slab", color.getName()), String.format("hardened_clay_stained_%s", color.getName()), String.format("hardened_clay_stained_%s", color.getName()));
+//            genLangFile(modid, String.format("frosted_%s_terracotta", color.getName()), String.format("frosted_%s_terracotta", color.getName()), "frozen_colored_blocks");
+//            genLangFile(modid, String.format("frosted_%s_terracotta_slab", color.getName()), String.format("frosted_%s_terracotta_slab", color.getName()), "frozen_colored_blocks");
+//            genLangFile(modid, String.format("%s_terracotta_slab", color.getName()), String.format("%s_terracotta_slab", color.getName()), "colored_blocks");
         }
+
+        for(EnumCoralColor coralColor : EnumCoralColor.values()) {
+            genCoralFan(modid, String.format("%s_dead_coral_fan", coralColor.getName()), String.format("coral_fan_%s_dead", coralColor.getName()));
+        }
+
+        for(BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
+//            genOrientedBlock(modid, String.format("stripped_%s_log", enumType.getName()), String.format("stripped_%s_log_top", enumType.getName()), String.format("stripped_%s_log", enumType.getName()), String.format("stripped_%s_log", enumType.getName()));
+        }
+
     }
 
     public static void genBlock(String modId, String blockName, String textureName) {
@@ -520,6 +543,8 @@ public class JsonGenerator {
 
     }
 
+
+
     public static void genStair(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -635,6 +660,96 @@ public class JsonGenerator {
         }
 
     }
+
+
+
+    public static void genTest(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject defaults = new JsonObject();
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("bottom", modId + ":blocks/" + bottomTexture);
+        textures.addProperty("side", modId + ":blocks/" + sideTexture);
+        textures.addProperty("top", modId + ":blocks/" + topTexture);
+
+        defaults.add("textures", textures);
+        defaults.addProperty("transform", "forge:default-block");
+        root.add("defaults", defaults);
+
+        JsonObject variants = new JsonObject();
+
+        JsonObject facing = new JsonObject();
+        facing.add("north", new JsonObject());
+
+        JsonObject south = new JsonObject();
+        south.addProperty("y", "90");
+        facing.add("south", south);
+
+        JsonObject east = new JsonObject();
+        east.addProperty("y", "180");
+        facing.add("east", east);
+
+        JsonObject west = new JsonObject();
+        west.addProperty("y", "270");
+        facing.add("west", west);
+
+        variants.add("facing", facing);
+
+        variants.add("inventory", empty);
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+        }
+        genStairItemModel(modId, blockName, topTexture, sideTexture, bottomTexture);
+    }
+
+    public static void genTestItemModel(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "item");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("parent", "block/stairs");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("bottom", modId + ":blocks/" + bottomTexture);
+        textures.addProperty("side", modId + ":blocks/" + sideTexture);
+        textures.addProperty("top", modId + ":blocks/" + topTexture);
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+        }
+
+    }
+
+
 
     public static void genPressurePlateBlock(String modId, String blockName, String textureName) {
 
@@ -813,6 +928,68 @@ public class JsonGenerator {
 
     }
 
+    public static void genSlabBlock(String modId, String blockName, String bottomTexture, String sideTexture, String topTexture, String blockMockName) {
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject variants = new JsonObject();
+
+        JsonObject half = new JsonObject();
+
+        JsonObject upper = new JsonObject();
+        upper.addProperty("model", modId + ":upper_" + blockName);
+        half.add("top", upper);
+
+        JsonObject lower = new JsonObject();
+        lower.addProperty("model", modId + ":half_" + blockName);
+        half.add("bottom", lower);
+
+        variants.add("half", half);
+
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        JsonObject root2 = new JsonObject();
+        root2.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
+        root2.addProperty("forge_marker", 1);
+
+        JsonObject variants2 = new JsonObject();
+
+        JsonObject prop = new JsonObject();
+
+        JsonObject blarg = new JsonObject();
+        blarg.addProperty("model", modId + ":upper_" + blockName);
+
+        prop.add("blarg", blarg);
+
+        variants2.add("prop", prop);
+
+        root2.add("variants", variants2);
+
+        String json2 = gson.toJson(root2);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(blockName + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+        }
+
+        genBlockSlabModel(modId, blockName, bottomTexture, sideTexture, topTexture);
+        genBlockSlabItemModel(modId, blockName);
+
+    }
+
     public static void genBlockSlabModel(String modId, String blockName, String bottomTexture, String sideTexture, String topTexture) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -827,9 +1004,9 @@ public class JsonGenerator {
         root.addProperty("parent", "neutronia:block/slab");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", modId + ":blocks/" + bottomTexture);
-        textures.addProperty("side", modId + ":blocks/" + sideTexture);
-        textures.addProperty("top", modId + ":blocks/" + topTexture);
+        textures.addProperty("bottom", "minecraft:blocks/" + bottomTexture);
+        textures.addProperty("side", "minecraft:blocks/" + sideTexture);
+        textures.addProperty("top", "minecraft:blocks/" + topTexture);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -839,9 +1016,9 @@ public class JsonGenerator {
         root.addProperty("parent", "neutronia:block/slab_top");
 
         JsonObject textures2 = new JsonObject();
-        textures2.addProperty("bottom", modId + ":blocks/" + bottomTexture);
-        textures2.addProperty("side", modId + ":blocks/" + sideTexture);
-        textures2.addProperty("top", modId + ":blocks/" + topTexture);
+        textures2.addProperty("bottom", "minecraft:blocks/" + bottomTexture);
+        textures2.addProperty("side", "minecraft:blocks/" + sideTexture);
+        textures2.addProperty("top", "minecraft:blocks/" + topTexture);
         root2.add("textures", textures2);
 
         String json2 = gson.toJson(root2);

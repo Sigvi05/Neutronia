@@ -4,7 +4,7 @@
   "variants": {
     "prop": {
       "blarg": {
-        "model": "minecraft:upper_silver_glazed_terracotta_slab"
+        "model": "neutronia:upper_silver_glazed_terracotta_slab"
       }
     }
   }

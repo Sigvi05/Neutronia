@@ -4,8 +4,8 @@ import net.minecraft.util.IStringSerializable;
 
 public enum EnumNetherBlocks implements IStringSerializable {
 
-    ASH(0, "ash"),
-    NETHER_DIRT(1, "nether_dirt");
+    ASH(0, "ash")/*,
+    NETHER_DIRT(1, "nether_dirt")*/;
 
     private static final EnumNetherBlocks[] META_LOOKUP = new EnumNetherBlocks[values().length];
 

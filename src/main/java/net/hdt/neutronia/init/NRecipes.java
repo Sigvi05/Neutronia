@@ -1,6 +1,7 @@
 package net.hdt.neutronia.init;
 
 import de.kitsunealex.silverfish.recipe.RecipeHandler;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
@@ -14,9 +15,8 @@ public class NRecipes {
         RECIPE_HANDLER.setGroup(NAME);
 
         RECIPE_HANDLER.addRecipe(new ItemStack(NBlocks.soulStone[0], 4), "XX ", "XX ", "   ", 'X', Blocks.SOUL_SAND);
-        RECIPE_HANDLER.addRecipe(new ItemStack(NBlocks.soulStone[1], 4), "X ", "X ", "  ", 'X', NBlocks.soulStoneSlabs[0]);
-        RECIPE_HANDLER.addRecipe(new ItemStack(NBlocks.soulStone[2], 4), "XX ", "XX ", "   ", 'X', NBlocks.soulStone[0]);
-        RECIPE_HANDLER.addRecipe(new ItemStack(NBlocks.soulStone[3], 4), "XX ", "XX ", "   ", 'X', NBlocks.soulStone[1]);
+        RECIPE_HANDLER.addRecipe(new ItemStack(NBlocks.soulStone[1], 4), "X ", "X ", "  ", 'X', Block.getBlockFromName("neutronia:normal_soulstone_slab"));
+        RECIPE_HANDLER.addRecipe(new ItemStack(NBlocks.soulStone[2], 4), "XX ", "XX ", "   ", 'X', Block.getBlockFromName("neutronia:normal_soulstone"));
 
         RECIPE_HANDLER.registerRecipes();
 

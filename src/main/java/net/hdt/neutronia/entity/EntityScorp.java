@@ -88,7 +88,6 @@ public class EntityScorp extends EntitySpider {
      */
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
-        compound.setInteger("variant", this.getHorseVariant());
     }
 
     /**
@@ -96,7 +95,6 @@ public class EntityScorp extends EntitySpider {
      */
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
-        this.setHorseVariant(compound.getInteger("variant"));
     }
 
     public void onUpdate() {
@@ -137,7 +135,6 @@ public class EntityScorp extends EntitySpider {
         super.entityInit();
         this.dataManager.register(TAIL_OUT, false);
         this.dataManager.register(CLIMBING, (byte) 0);
-        this.dataManager.register(VARIANTS, 0);
     }
 
     @SideOnly(Side.CLIENT)
@@ -208,36 +205,6 @@ public class EntityScorp extends EntitySpider {
     @Override
     public boolean getCanSpawnHere() {
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.getBiome(new BlockPos(this)) == Biomes.DESERT || world.getBiome(new BlockPos(this)) == Biomes.DESERT_HILLS;
-    }
-
-    public int getHorseVariant() {
-        return this.dataManager.get(VARIANTS);
-    }
-
-    public void setHorseVariant(int variant) {
-        this.dataManager.set(VARIANTS, variant);
-        this.resetTexturePrefix();
-    }
-
-    private void resetTexturePrefix() {
-        this.texturePrefix = null;
-    }
-
-    @SideOnly(Side.CLIENT)
-    private void setHorseTexturePaths() {
-        int i = this.getHorseVariant();
-        int j = (i & 255) % 7;
-        this.horseTexturesArray[0] = HORSE_TEXTURES[j];
-        this.texturePrefix = "scorpion/" + HORSE_TEXTURES_ABBR[j];
-    }
-
-    @SideOnly(Side.CLIENT)
-    public String getHorseTexture() {
-        if (this.texturePrefix == null) {
-            this.setHorseTexturePaths();
-        }
-
-        return this.texturePrefix;
     }
 
 }

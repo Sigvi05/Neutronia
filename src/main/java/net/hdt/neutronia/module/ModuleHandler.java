@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.huskylib2.utils.ReflectionUtils;
+import net.hdt.huskylib2.utils.ReflectionUtils;
 
 import java.util.Map;
 

@@ -1,0 +1,25 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "wet": {
+      "true": {
+        "textures": {
+          "all": "neutronia:blocks/nether_sponge_filled"
+        }
+      },
+      "false": {
+        "textures": {
+          "all": "neutronia:blocks/nether_sponge"
+        }
+      }
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}

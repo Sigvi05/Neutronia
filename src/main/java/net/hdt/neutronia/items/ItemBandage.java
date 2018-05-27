@@ -8,7 +8,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import net.thegaminghuskymc.huskylib2.items.ItemMod;
+import net.hdt.huskylib2.items.ItemMod;
 
 public class ItemBandage extends ItemMod {
 

@@ -10,9 +10,9 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.huskylib2.interf.IModBlock;
-import net.thegaminghuskymc.huskylib2.items.blocks.ItemModBlock;
-import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 
 public class BlockModTrapdoor extends BlockTrapDoor implements IModBlock {
 

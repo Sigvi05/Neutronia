@@ -11,7 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 
 import java.util.Random;
 

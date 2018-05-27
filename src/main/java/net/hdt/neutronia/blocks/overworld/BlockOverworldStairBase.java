@@ -1,15 +1,15 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
+import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.state.IBlockState;
-import net.thegaminghuskymc.huskylib2.blocks.BlockModStairs;
+import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockOverworldStairBase extends BlockModStairs {
 
-    public BlockOverworldStairBase(String name, IBlockState state) {
+    public BlockOverworldStairBase(String name, IBlockState state, CreativeTabs tab) {
         super(name, state);
-        setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(tab);
     }
 
     @Override

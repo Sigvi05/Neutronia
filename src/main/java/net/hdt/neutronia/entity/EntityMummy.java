@@ -66,6 +66,7 @@ public class EntityMummy extends EntityUndeadBase {
 
     @Override
     protected void initEntityAI() {
+        super.initEntityAI();
         this.tasks.addTask(2, new EntityAIMummyAttack(this, 1.0D, false));
         this.tasks.addTask(6, new EntityAIMoveThroughVillage(this, 1.0D, false));
         this.applyEntityAI();

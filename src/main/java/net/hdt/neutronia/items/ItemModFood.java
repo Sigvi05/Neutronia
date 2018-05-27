@@ -7,8 +7,8 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.thegaminghuskymc.huskylib2.interf.IVariantHolder;
-import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.interf.IVariantHolder;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,6 @@
 package net.hdt.neutronia;
 
+import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
 import net.hdt.neutronia.init.NBlocks;
@@ -7,7 +8,6 @@ import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -21,7 +21,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,36 +33,21 @@ import static net.hdt.neutronia.util.Reference.*;
 public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
-    public static CreativeTabs OVERWORLD_EXPANSION_TAB = new CreativeTabs("overworld_expansion") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(Item.getItemFromBlock(NBlocks.brain_coral[0]));
-        }
-    };
-    public static CreativeTabs NETHER_EXPANSION_TAB = new CreativeTabs("nether_expansion") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(Item.getItemFromBlock(Blocks.NETHER_BRICK));
-        }
-    };
-    public static CreativeTabs END_EXPANSION_TAB = new CreativeTabs("end_expansion") {
+    public static CreativeTab OVERWORLD_EXPANSION_TAB = new CreativeTab("Overworld Expansion");
+    public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Nether Expansion");
+    public static CreativeTabs END_EXPANSION_TAB = new CreativeTabs("End Expansion") {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Item.getItemFromBlock(Blocks.END_BRICKS));
         }
     };
-    public static CreativeTabs FOOD_EXPANSION_TAB = new CreativeTabs("food_expansion") {
+    /*public static CreativeTab FOOD_EXPANSION_TAB = new CreativeTab("Food Expansion") {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Items.COOKED_BEEF);
         }
-    };
-    public static CreativeTabs ITEM_EXPANSION_TAB = new CreativeTabs("item_expansion") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(Items.MAP);
-        }
-    };
+    };*/
+    public static CreativeTab ITEM_EXPANSION_TAB = new CreativeTab("Item Expansion");
 
     @Mod.Instance
     public static Main instance;

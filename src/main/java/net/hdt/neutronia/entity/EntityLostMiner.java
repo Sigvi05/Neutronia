@@ -50,6 +50,7 @@ public class EntityLostMiner extends EntityUndeadBase {
 
     @Override
     protected void initEntityAI() {
+        super.initEntityAI();
         this.applyEntityAI();
     }
 

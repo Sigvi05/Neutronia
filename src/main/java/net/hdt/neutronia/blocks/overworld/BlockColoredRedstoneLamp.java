@@ -10,7 +10,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.thegaminghuskymc.huskylib2.interf.IBlockColorProvider;
+import net.hdt.huskylib2.interf.IBlockColorProvider;
 import org.apache.commons.lang3.text.WordUtils;
 
 import javax.annotation.Nullable;

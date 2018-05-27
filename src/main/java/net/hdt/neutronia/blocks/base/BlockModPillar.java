@@ -10,8 +10,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
-import net.thegaminghuskymc.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.interf.IModBlock;
 
 public class BlockModPillar extends BlockMod implements IModBlock {
 

@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 
 import javax.annotation.Nullable;
 import java.util.List;

@@ -26,7 +26,7 @@ public class ItemAnimaniaFood extends ItemModFood {
     private String name;
 
     public ItemAnimaniaFood(int amount, float saturation, boolean isWolfFood, String name, PotionEffect... potionEffects) {
-        super(MOD_ID, name, Main.FOOD_EXPANSION_TAB, amount, saturation, isWolfFood);
+        super(MOD_ID, name, Main.ITEM_EXPANSION_TAB, amount, saturation, isWolfFood);
         this.effects = potionEffects;
         this.name = name;
         this.setAlwaysEdible();

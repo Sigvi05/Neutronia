@@ -7,7 +7,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
@@ -29,7 +28,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
-public class EntityDrowned extends EntityMob {
+public class EntityDrowned extends EntityUndeadBase {
 
     private float mummyWidth = 0.6F;
     private float mummyHeight = 1.95F;
@@ -45,6 +44,7 @@ public class EntityDrowned extends EntityMob {
 
     @Override
     protected void initEntityAI() {
+        super.initEntityAI();
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 7.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));

@@ -4,9 +4,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.EnumDyeColor;
-import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
-import net.thegaminghuskymc.huskylib2.interf.IBlockColorProvider;
-import net.thegaminghuskymc.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.interf.IBlockColorProvider;
+import net.hdt.huskylib2.interf.IModBlock;
 
 public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IModBlock {
 

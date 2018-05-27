@@ -22,11 +22,11 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.huskylib2.interf.IBlockColorProvider;
-import net.thegaminghuskymc.huskylib2.interf.IModBlock;
-import net.thegaminghuskymc.huskylib2.interf.IRecipeGrouped;
-import net.thegaminghuskymc.huskylib2.items.blocks.ItemModBlock;
-import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.interf.IBlockColorProvider;
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.interf.IRecipeGrouped;
+import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 
 import java.util.Random;
 
@@ -36,7 +36,7 @@ public class BlockColoredVase extends BlockFlowerPot implements IModBlock, IBloc
     private final String bareName;
 
     public BlockColoredVase(EnumDyeColor color) {
-        String name = color.getName() + "_colored_vase";
+        String name = String.format("%s_colored_vase", color.getName());
         variants = new String[]{name};
         bareName = name;
 
@@ -44,12 +44,11 @@ public class BlockColoredVase extends BlockFlowerPot implements IModBlock, IBloc
         setSoundType(SoundType.STONE);
         setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
 
-        setUnlocalizedName(name);
+        register(name);
     }
 
-    @Override
-    public Block setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Block register(String name) {
+        setUnlocalizedName(name);
         setRegistryName(getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(getPrefix(), name)));

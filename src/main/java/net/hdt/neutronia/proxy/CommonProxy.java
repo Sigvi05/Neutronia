@@ -5,7 +5,6 @@ import net.hdt.neutronia.init.NRecipes;
 import net.hdt.neutronia.module.ModModules;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.tileentity.TileCustomChest;
-import net.hdt.neutronia.tileentity.TileEntityCraftingTable;
 import net.hdt.neutronia.tileentity.TileEntityFloorTile;
 import net.hdt.neutronia.tileentity.TileEntityNeonLight;
 import net.hdt.neutronia.world.events.WorldGenEvents;
@@ -33,7 +32,7 @@ public class CommonProxy {
         MinecraftForge.TERRAIN_GEN_BUS.register(WorldGenEvents.class);
         GameRegistry.registerTileEntity(TileCustomChest.class, "neutronia:custom_chest");
         GameRegistry.registerTileEntity(TileEntityFloorTile.class, "neutronia:floor_tile");
-        GameRegistry.registerTileEntity(TileEntityCraftingTable.class, "minecraft:workbench");
+//        GameRegistry.registerTileEntity(TileEntityPotteryClayMachine.class, "neutronia:pottery_clay_machine");
         GameRegistry.registerTileEntity(TileEntityNeonLight.class, "neutronia:neon_lights");
         ModuleHandler.INSTANCE.handleInit(event);
     }

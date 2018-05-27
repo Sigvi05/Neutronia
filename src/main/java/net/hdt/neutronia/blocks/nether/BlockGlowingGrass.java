@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.nether;
 
 import net.hdt.neutronia.util.Reference;
-import net.thegaminghuskymc.huskylib2.blocks.BlockLightSource;
+import net.hdt.huskylib2.blocks.BlockLightSource;
 
 public class BlockGlowingGrass extends BlockLightSource {
 

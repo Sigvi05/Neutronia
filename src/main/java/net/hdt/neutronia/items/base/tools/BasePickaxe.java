@@ -1,7 +1,7 @@
 package net.hdt.neutronia.items.base.tools;
 
 import net.hdt.neutronia.util.Reference;
-import net.thegaminghuskymc.huskylib2.items.ItemModPickaxe;
+import net.hdt.huskylib2.items.ItemModPickaxe;
 
 public class BasePickaxe extends ItemModPickaxe {
 

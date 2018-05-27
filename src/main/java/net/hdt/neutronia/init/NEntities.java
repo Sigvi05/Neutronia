@@ -5,11 +5,6 @@ import net.hdt.neutronia.util.handlers.RenderHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.boss.EntityDragon;
-import net.minecraft.entity.boss.EntityWither;
-import net.minecraft.entity.monster.EntityIronGolem;
-import net.minecraft.entity.monster.EntitySnowman;
-import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -30,27 +25,18 @@ public class NEntities {
         final EntityEntry[] entries = {
                 createBuilder("mummy").entity(EntityMummy.class).tracker(80, 3, true).egg(0xC9CE92, 0x444444).build(),
                 createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
-                createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
+//                createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
                 createBuilder("phantom").entity(EntityPhantom.class).tracker(80, 3, true).egg(0x2d3f56, 0x958c79).build(),
                 createBuilder("red_phantom").entity(EntityRedPhantom.class).tracker(80, 3, true).egg(0x4A2929, 0x799591).build(),
                 createBuilder("ender_phantom").entity(EntityEnderPhantom.class).tracker(80, 3, true).egg(0x352D56, 0x8C9579).build(),
                 createBuilder("shadow_phantom").entity(EntityShadowPhantom.class).tracker(80, 3, true).egg(0x101010, 0x101010).build(),
                 createBuilder("hovering_inferno").entity(EntityHoveringInferno.class).tracker(80, 3, true).egg(0x864500, 0xd36d00).build(),
-                createBuilder("ravenous_killer_squid").entity(EntityMonsterOfTheOceanDepths.class).tracker(80, 3, true).egg(0x03002e, 0x060081).build(),
-                createBuilder("turtle").entity(EntitySeaTurtle.class).tracker(80, 3, true).egg(0xFFFFFF, 0x13232B).build(),
+//                createBuilder("ravenous_killer_squid").entity(EntityMonsterOfTheOceanDepths.class).tracker(80, 3, true).egg(0x03002e, 0x060081).build(),
+//                createBuilder("turtle").entity(EntitySeaTurtle.class).tracker(80, 3, true).egg(0xFFFFFF, 0x13232B).build(),
                 createBuilder("drowned").entity(EntityDrowned.class).tracker(80, 3, true).egg(0x86e2ca, 0x617d51).build(),
                 createBuilder("scuba_divers").entity(EntityScubaDivers.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
                 createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
-                createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
-                createBuilder("cod").entity(EntityCod.class).tracker(30, 3, true).egg(0xb89e70, 0x786749).build(),
-                createBuilder("salmon").entity(EntitySalmon.class).tracker(30, 3, true).egg(0xb89e70, 0x786749).build(),
-                createBuilder("tropical_fish").entity(EntityTropicalFish.class).tracker(30, 3, true).egg(0xb89e70, 0x786749).build(),
-                createBuilder("whale").entity(EntityWhale.class).tracker(30, 3, true).egg(0x603D8A, 0x261839).build(),
-                createBuilder("iron_golem").entity(EntityIronGolem.class).tracker(80, 3, true).egg(0xFFFFFF, 0xFF00FF).build(),
-                createBuilder("snow_golem").entity(EntitySnowman.class).tracker(80, 3, true).egg(0xFFFFFF, 0xFF00FF).build(),
-                createBuilder("wither").entity(EntityWither.class).tracker(80, 3, true).egg(0xFFFFFF, 0xFF00FF).build(),
-                createBuilder("wither_skeleton").entity(EntityWitherSkeleton.class).tracker(80, 3, true).egg(0xFFFFFF, 0xFF00FF).build(),
-                createBuilder("ender_dragon").entity(EntityDragon.class).tracker(80, 3, true).egg(0xFFFFFF, 0xFF00FF).build(),
+//                createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
                 createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build()
         };
@@ -70,12 +56,12 @@ public class NEntities {
 
     private static void addSpawns() {
         EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
-        EntityRegistry.addSpawn(EntityScorp.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
+//        EntityRegistry.addSpawn(EntityScorp.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
         EntityRegistry.addSpawn(EntityDrowned.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
         EntityRegistry.addSpawn(EntityHoveringInferno.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.NETHER));
-        EntityRegistry.addSpawn(EntityGreatHunger.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
-        EntityRegistry.addSpawn(EntitySeaTurtle.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.BEACH));
-        EntityRegistry.addSpawn(EntityMonsterOfTheOceanDepths.class, 10, 1, 3, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
+//        EntityRegistry.addSpawn(EntityGreatHunger.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
+//        EntityRegistry.addSpawn(EntitySeaTurtle.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.BEACH));
+//        EntityRegistry.addSpawn(EntityMonsterOfTheOceanDepths.class, 10, 1, 3, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
     }
 
     private static <E extends Entity> EntityEntryBuilder<E> createBuilder(final String name) {

@@ -6,8 +6,8 @@ public enum EnumSoulStoneTypes implements IStringSerializable {
 
     NORMAL_SOULSTONE(0, "normal_soulstone"),
     CHISELED_SOULSTONE(1, "chiseled_soulstone"),
-    SMOOTH_SOULSTONE(2, "smooth_soulstone"),
-    SOULSTONE_BRICKS(3, "soulstone_bricks");
+    SMOOTH_SOULSTONE(2, "smooth_soulstone")/*,
+    SOULSTONE_BRICKS(3, "soulstone_bricks")*/;
 
     private static final EnumSoulStoneTypes[] META_LOOKUP = new EnumSoulStoneTypes[values().length];
 

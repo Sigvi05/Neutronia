@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.huskylib2.blocks.BlockModSlab;
+import net.hdt.huskylib2.blocks.BlockModSlab;
 
 import java.util.Random;
 

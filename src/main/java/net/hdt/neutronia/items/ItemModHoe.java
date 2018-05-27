@@ -6,9 +6,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.thegaminghuskymc.huskylib2.interf.IVariantHolder;
-import net.thegaminghuskymc.huskylib2.items.ItemMod;
-import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.interf.IVariantHolder;
+import net.hdt.huskylib2.items.ItemMod;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 
 public class ItemModHoe extends ItemHoe implements IVariantHolder {
 
@@ -62,7 +62,7 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder {
             name = bareName;
         else name = variants[dmg];
 
-        return "item." + getPrefix() + name;
+        return "item." + name;
     }
 
     @Override

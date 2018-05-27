@@ -5,7 +5,7 @@ import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.item.ItemStack;
-import net.thegaminghuskymc.huskylib2.blocks.BlockModSlab;
+import net.hdt.huskylib2.blocks.BlockModSlab;
 
 public class BlockNetherSlabBase extends BlockModSlab {
 

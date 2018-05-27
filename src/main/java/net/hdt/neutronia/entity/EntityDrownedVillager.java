@@ -36,7 +36,7 @@ import java.util.UUID;
 /**
  * TODO: Fix Texture and Model
  */
-public class EntityDrownedVillager extends EntityMummy {
+public class EntityDrownedVillager extends EntityDrowned {
 
     private static final DataParameter<Boolean> CONVERTING = EntityDataManager.createKey(EntityDrownedVillager.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Integer> PROFESSION = EntityDataManager.createKey(EntityDrownedVillager.class, DataSerializers.VARINT);
@@ -50,23 +50,23 @@ public class EntityDrownedVillager extends EntityMummy {
         super(worldIn);
     }
 
-    public static void registerFixesMummyVillager(DataFixer fixer) {
+    public static void registerFixesDrownedVillager(DataFixer fixer) {
         EntityLiving.registerFixesMob(fixer, EntityDrownedVillager.class);
     }
 
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataManager.register(CONVERTING, Boolean.valueOf(false));
-        this.dataManager.register(PROFESSION, Integer.valueOf(0));
+        this.dataManager.register(CONVERTING, Boolean.FALSE);
+        this.dataManager.register(PROFESSION, 0);
     }
 
     public int getProfession() {
-        return Math.max(this.dataManager.get(PROFESSION).intValue(), 0);
+        return Math.max(this.dataManager.get(PROFESSION), 0);
     }
 
     public void setProfession(int profession) {
-        this.dataManager.set(PROFESSION, Integer.valueOf(profession));
+        this.dataManager.set(PROFESSION, profession);
     }
 
     @Override

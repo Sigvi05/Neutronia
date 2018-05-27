@@ -1,9 +1,7 @@
 package net.hdt.neutronia.proxy;
 
-import net.hdt.neutronia.client.rendering.RenderTileCustomChest;
 import net.hdt.neutronia.client.rendering.ResourceProxy;
 import net.hdt.neutronia.module.ModuleHandler;
-import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.hdt.neutronia.util.LibObfuscation;
 import net.hdt.neutronia.util.handlers.EntityEventHandler;
 import net.minecraft.client.Minecraft;
@@ -11,7 +9,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -60,7 +57,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
-        ClientRegistry.bindTileEntitySpecialRenderer(TileCustomChest.class, new RenderTileCustomChest());
         ModuleHandler.INSTANCE.handleInitClient(event);
     }
 

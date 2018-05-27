@@ -1,9 +1,9 @@
 package net.hdt.neutronia.entity;
 
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.world.World;
 
-public class EntityPhantom extends EntityLiving {
+public class EntityPhantom extends EntityUndeadBase {
 
     public EntityPhantom(World worldIn) {
         super(worldIn);
@@ -12,7 +12,7 @@ public class EntityPhantom extends EntityLiving {
     }
 
     protected void entityInit() {
-        super.entityInit();
+        this.tasks.addTask(1, new EntityAILookIdle(this));
     }
 
 }

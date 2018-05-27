@@ -16,10 +16,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
-import net.thegaminghuskymc.huskylib2.interf.IModBlock;
-import net.thegaminghuskymc.huskylib2.recipie.RecipeHandler;
-import net.thegaminghuskymc.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 
 import javax.annotation.Nullable;
 
@@ -42,7 +42,7 @@ public class BlockModWall extends BlockMod implements IModBlock {
         setHardness(state.getBlockHardness(null, new BlockPos(0, 0, 0)));
         setResistance(state.getBlock().getExplosionResistance(null) * 5F / 3F);
         setSoundType(state.getBlock().getSoundType());
-        setDefaultState(blockState.getBaseState().withProperty(UP, Boolean.FALSE).withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.valueOf(false)));
+        setDefaultState(blockState.getBaseState().withProperty(UP, Boolean.FALSE).withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
         setCreativeTab(CreativeTabs.DECORATIONS);
     }
 

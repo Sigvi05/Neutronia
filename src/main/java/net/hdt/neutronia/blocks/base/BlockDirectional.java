@@ -2,7 +2,7 @@ package net.hdt.neutronia.blocks.base;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
-import net.thegaminghuskymc.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 

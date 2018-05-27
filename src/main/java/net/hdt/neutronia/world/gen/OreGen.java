@@ -23,13 +23,13 @@ public class OreGen implements IWorldGenerator {
     private WorldGenerator volcanicRock;
 
     public OreGen() {
-        marble = new WorldGenMinable(NBlocks.newStoneVariants[13].getDefaultState(), 18);
+        marble = new WorldGenMinable(NBlocks.newStoneVariants[11].getDefaultState(), 18);
         basalt = new WorldGenMinable(NBlocks.newStoneVariants[6].getDefaultState(), 30);
-        limestone = new WorldGenMinable(NBlocks.newStoneVariants[20].getDefaultState(), 18);
-        meteorite = new WorldGenMinable(NBlocks.newStoneVariants[27].getDefaultState(), 18);
-        fieryStone = new WorldGenMinable(NBlocks.netherBlocks[0].getDefaultState(), 6);
-        volcanicGlowRock = new WorldGenMinable(NBlocks.netherBlocks[1].getDefaultState(), 12);
-        volcanicRock = new WorldGenMinable(NBlocks.netherBlocks[1].getDefaultState(), 12);
+        limestone = new WorldGenMinable(NBlocks.newStoneVariants[14].getDefaultState(), 18);
+        meteorite = new WorldGenMinable(NBlocks.newStoneVariants[17].getDefaultState(), 18);
+        fieryStone = new WorldGenMinable(NBlocks.glowingNetherBlocks[0].getDefaultState(), 6);
+        volcanicGlowRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[1].getDefaultState(), 12);
+        volcanicRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[2].getDefaultState(), 12);
     }
 
     private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z,

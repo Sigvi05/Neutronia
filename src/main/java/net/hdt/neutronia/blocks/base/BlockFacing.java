@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.thegaminghuskymc.huskylib2.blocks.BlockModContainer;
+import net.hdt.huskylib2.blocks.BlockModContainer;
 
 import javax.annotation.Nullable;
 
