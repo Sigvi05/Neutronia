@@ -24,7 +24,7 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
 
     private final boolean isBurning;
     private static boolean keepInventory;
-    private static int meta;
+    private int meta;
 
     public BlockPotteryClayMachine(int meta, String name, boolean isBurning) {
         super(Material.WOOD, MOD_ID, name);
@@ -37,7 +37,7 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(NBlocks.potterySpinner[meta]);
+        return Item.getItemFromBlock(NBlocks.potterySpinner[this.meta]);
     }
 
     /**
@@ -102,7 +102,7 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
         }
     }*/
 
-    public static void setState(boolean active, World worldIn, BlockPos pos)
+    public void setState(boolean active, World worldIn, BlockPos pos)
     {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         TileEntity tileentity = worldIn.getTileEntity(pos);
@@ -194,12 +194,12 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
-        return new ItemStack(NBlocks.potterySpinner[0]);
+        return new ItemStack(NBlocks.potterySpinner[this.meta]);
     }
 
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        return new ItemStack(NBlocks.potterySpinner[0]);
+        return new ItemStack(NBlocks.potterySpinner[this.meta]);
     }
 
     /**

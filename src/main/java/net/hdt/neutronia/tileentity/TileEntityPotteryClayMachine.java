@@ -1,6 +1,5 @@
 package net.hdt.neutronia.tileentity;
 
-import net.hdt.neutronia.blocks.overworld.BlockPotteryClayMachine;
 import net.hdt.neutronia.client.container.ContainerPotteryClayMachine;
 import net.hdt.neutronia.crafting.PotteryRecipes;
 import net.minecraft.block.Block;
@@ -255,7 +254,7 @@ public class TileEntityPotteryClayMachine extends TileEntityLockable implements 
             if (flag != this.isActive())
             {
                 flag1 = true;
-                BlockPotteryClayMachine.setState(this.isActive(), this.world, this.pos);
+//                BlockPotteryClayMachine.setState(this.isActive(), this.world, this.pos);
             }
         }
 
