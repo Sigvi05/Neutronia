@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "neutronia:blocks/small_aquamarine_bricks",
+    "side": "neutronia:blocks/small_aquamarine_bricks",
+    "top": "neutronia:blocks/small_aquamarine_bricks"
+  }
+}

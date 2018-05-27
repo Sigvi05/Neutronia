@@ -41,7 +41,7 @@
                 "0": "neutronia:blocks/marble_anvil_damage_1",
                 "body": "neutronia:blocks/marble_anvil_damage",
                 "top": "neutronia:blocks/marble_anvil_damage"
-            },
+            }
         },
         "damage=1,facing=west": {
             "model": "neutronia:anvil_detailed",
@@ -76,7 +76,7 @@
                 "0": "neutronia:blocks/marble_anvil_damage_2",
                 "body": "neutronia:blocks/marble_anvil_damage_2",
                 "top": "neutronia:blocks/marble_anvil_damage_2"
-            },
+            }
         },
         "damage=2,facing=west": {
             "model": "neutronia:anvil_detailed",

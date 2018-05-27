@@ -1,0 +1,29 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:pottery_machine_clay_off",
+    "textures": {
+      "0": "neutronia:blocks/oak_pottery_machine_clay",
+      "planks": "minecraft:blocks/planks_oak"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "facing": {
+      "north": {},
+      "south": {
+        "y": 90
+      },
+      "east": {
+        "y": 180
+      },
+      "west": {
+        "y": 270
+      }
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}
