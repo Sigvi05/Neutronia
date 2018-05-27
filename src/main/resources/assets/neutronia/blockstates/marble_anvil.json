@@ -39,16 +39,16 @@
             "model": "neutronia:anvil_detailed",
             "textures": {
                 "0": "neutronia:blocks/marble_anvil_damage_1",
-                "body": "neutronia:blocks/marble_anvil_damage",
-                "top": "neutronia:blocks/marble_anvil_damage"
+                "body": "neutronia:blocks/marble_anvil_damage_1",
+                "top": "neutronia:blocks/marble_anvil_damage_1"
             }
         },
         "damage=1,facing=west": {
             "model": "neutronia:anvil_detailed",
             "textures": {
                 "0": "neutronia:blocks/marble_anvil_damage_1",
-                "body": "neutronia:blocks/marble_anvil_damage",
-                "top": "neutronia:blocks/marble_anvil_damage"
+                "body": "neutronia:blocks/marble_anvil_damage_1",
+                "top": "neutronia:blocks/marble_anvil_damage_1"
             },
             "y": 90
         },
@@ -56,8 +56,8 @@
             "model": "neutronia:anvil_detailed",
             "textures": {
                 "0": "neutronia:blocks/marble_anvil_damage_1",
-                "body": "neutronia:blocks/marble_anvil_damage",
-                "top": "neutronia:blocks/marble_anvil_damage"
+                "body": "neutronia:blocks/marble_anvil_damage_1",
+                "top": "neutronia:blocks/marble_anvil_damage_1"
             },
             "y": 180
         },
@@ -65,8 +65,8 @@
             "model": "neutronia:anvil_detailed",
             "textures": {
                 "0": "neutronia:blocks/marble_anvil_damage_1",
-                "body": "neutronia:blocks/marble_anvil_damage",
-                "top": "neutronia:blocks/marble_anvil_damage"
+                "body": "neutronia:blocks/marble_anvil_damage_1",
+                "top": "neutronia:blocks/marble_anvil_damage_1"
             },
             "y": 270
         },
