@@ -1,3 +1,0 @@
-CLASS qf net/minecraft/command/CommandLocate
-	FIELD a COMMANDS_LOCATE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

@@ -1,6 +1,0 @@
-CLASS day net/minecraft/client/render/entity/EntityRendererMinecart
-	FIELD f SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laso;)Lok;
-		ARG 0 model

@@ -1,9 +1,0 @@
-CLASS bzc
-	FIELD a width I
-	FIELD b height I
-	FIELD c depth I
-	FIELD d hPos I
-	METHOD a serializeStructureData (Lgv;)V
-		ARG 0 tag
-	METHOD a deserializeStructureData (Lgv;Lbzt;)V
-		ARG 0 tag

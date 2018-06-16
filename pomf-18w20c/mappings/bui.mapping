@@ -1,9 +1,0 @@
-CLASS bui
-	CLASS bui$a StructureMonument
-		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)V
-			ARG 1 rand
-			ARG 2 region
-		METHOD a serializeCustomData (Lgv;)V
-			ARG 0 tag
-		METHOD b deserializeCustomData (Lgv;)V
-			ARG 0 tag

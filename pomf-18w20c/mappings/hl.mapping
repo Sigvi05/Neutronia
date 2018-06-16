@@ -1,7 +1,0 @@
-CLASS hl
-	FIELD a ARGUMENT_NBT_TRAILING Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b ARGUMENT_NBT_EXPECTED_KEY Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD c ARGUMENT_NBT_EXPECTED_VALUE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD d ARGUMENT_NBT_LIST_MIXED Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD e ARGUMENT_NBT_ARRAY_MIXED Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD f ARGUMENT_NBT_ARRAY_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

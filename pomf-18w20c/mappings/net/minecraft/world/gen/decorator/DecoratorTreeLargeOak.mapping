@@ -1,4 +1,0 @@
-CLASS brj net/minecraft/world/gen/decorator/DecoratorTreeLargeOak
-	CLASS brj$a
-		METHOD <init> (Leg;I)V
-			ARG 0 pos

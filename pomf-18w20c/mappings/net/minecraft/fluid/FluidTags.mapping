@@ -1,6 +1,0 @@
-CLASS wd net/minecraft/fluid/FluidTags
-	CLASS wd$a
-		METHOD a contains (Lcbc;)Z
-		METHOD a contains (Ljava/lang/Object;)Z
-	FIELD a WATER Lwg;
-	FIELD b LAVA Lwg;

@@ -1,3 +1,0 @@
-CLASS azv net/minecraft/enchantment/EnchantmentMending
-	METHOD b getHighestLevel ()I
-	METHOD c isLootOnly ()Z

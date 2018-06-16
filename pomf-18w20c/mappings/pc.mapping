@@ -1,5 +1,0 @@
-CLASS pc
-	METHOD a addPlayer (Lsm;)V
-		ARG 0 player
-	METHOD b removePlayer (Lsm;)V
-		ARG 0 player

@@ -1,6 +1,0 @@
-CLASS ck net/minecraft/command/argument/ArgumentRegistryEntry
-	FIELD a ARGUMENT_ID_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD b ADVANCEMENT_ADVANCEMENTNOTFOUND Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c RECIPE_NOTFOUND Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD d ENTITY_NOTFOUND Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD e FOO Ljava/util/Collection;

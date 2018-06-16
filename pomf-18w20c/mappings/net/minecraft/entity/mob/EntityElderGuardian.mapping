@@ -1,7 +1,0 @@
-CLASS aqc net/minecraft/entity/mob/EntityElderGuardian
-	METHOD E getSoundAmbient ()Lvp;
-	METHOD H getLootTableId ()Lok;
-	METHOD K mobTick ()V
-	METHOD ca initAttributes ()V
-	METHOD ct getSoundDeath ()Lvp;
-	METHOD d getSoundHurt (Lahi;)Lvp;

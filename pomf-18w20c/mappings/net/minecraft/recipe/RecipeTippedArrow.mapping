@@ -1,3 +1,0 @@
-CLASS azb net/minecraft/recipe/RecipeTippedArrow
-	METHOD a matches (Lagm;Lbbd;)Z
-		ARG 1 world

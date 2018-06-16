@@ -1,3 +1,0 @@
-CLASS bbf net/minecraft/util/MinecraftException
-	METHOD <init> (Ljava/lang/String;)V
-		ARG 0 message

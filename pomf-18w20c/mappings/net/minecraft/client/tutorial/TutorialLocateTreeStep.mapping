@@ -1,8 +1,0 @@
-CLASS dil net/minecraft/client/tutorial/TutorialLocateTreeStep
-	FIELD b TUTORIAL_FIND_TREE_TITLE Lid;
-	FIELD c TUTORIAL_FIND_TREE_DESCRIPTION Lid;
-	METHOD a update ()V
-	METHOD a onItemPickup (Lawm;)V
-		ARG 0 stack
-	METHOD a hasPreviouslyPunchedTree (Lcur;)Z
-	METHOD b onStop ()V

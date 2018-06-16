@@ -1,4 +1,0 @@
-CLASS bpi net/minecraft/world/gen/ChunkGenerator
-	FIELD a world Lbbe;
-	FIELD b seed J
-	METHOD a decorate (Lsp;Lbqy$a;)V

@@ -1,4 +1,0 @@
-CLASS ts net/minecraft/resource/ResourcePack
-	METHOD a getName ()Ljava/lang/String;
-	METHOD a open (Ltt;Lok;)Ljava/io/InputStream;
-	METHOD b canHandle (Ltt;Lok;)Z

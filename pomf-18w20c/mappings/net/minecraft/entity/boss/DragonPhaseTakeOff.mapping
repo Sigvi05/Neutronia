@@ -1,2 +1,0 @@
-CLASS aoz net/minecraft/entity/boss/DragonPhaseTakeOff
-	METHOD i getType ()Lapa;

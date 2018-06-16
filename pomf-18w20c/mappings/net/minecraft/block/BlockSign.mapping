@@ -1,5 +1,0 @@
-CLASS bkx net/minecraft/block/BlockSign
-	FIELD c ROTATION Lboz;
-	METHOD a getDefaultState (Laur;)Lbob;
-	METHOD a withMirror (Lbob;Lbiy;)Lbob;
-	METHOD a withRotation (Lbob;Lbkb;)Lbob;

@@ -1,3 +1,0 @@
-CLASS wh
-	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
-	FIELD c _JSON I

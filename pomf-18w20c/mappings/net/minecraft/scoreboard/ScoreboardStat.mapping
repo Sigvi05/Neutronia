@@ -1,6 +1,0 @@
-CLASS vw net/minecraft/scoreboard/ScoreboardStat
-	METHOD a getRegistry ()Lvy;
-	METHOD a format (I)Ljava/lang/String;
-	METHOD a colonToDot (Lok;)Ljava/lang/String;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

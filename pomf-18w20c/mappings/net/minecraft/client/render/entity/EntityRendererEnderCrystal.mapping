@@ -1,6 +1,0 @@
-CLASS czw net/minecraft/client/render/entity/EntityRendererEnderCrystal
-	FIELD a SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laoj;)Lok;
-		ARG 0 model

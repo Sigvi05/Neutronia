@@ -1,7 +1,0 @@
-CLASS box net/minecraft/block/property/BlockPropertyFacing
-	METHOD <init> (Ljava/lang/String;Ljava/util/Collection;)V
-		ARG 0 name
-		ARG 1 validValues
-	METHOD a create (Ljava/lang/String;Ljava/util/Collection;)Lbox;
-		ARG 0 name
-		ARG 1 validValues

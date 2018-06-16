@@ -1,5 +1,0 @@
-CLASS bqn net/minecraft/world/DimensionOverworld
-	METHOD b getFogColor (FF)Lcgi;
-	METHOD m setupBiomeProvider ()V
-	METHOD o hasClouds ()Z
-	METHOD q getWorldType ()Lbql;

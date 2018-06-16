@@ -1,5 +1,0 @@
-CLASS bjr net/minecraft/block/BlockRail
-	FIELD t SHAPE Lboy;
-	METHOD a withMirror (Lbob;Lbiy;)Lbob;
-	METHOD a withRotation (Lbob;Lbkb;)Lbob;
-	METHOD c getShapeProperty ()Lbpa;

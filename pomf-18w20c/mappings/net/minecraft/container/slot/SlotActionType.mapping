@@ -1,8 +1,0 @@
-CLASS ath net/minecraft/container/slot/SlotActionType
-	FIELD a PICKUP Lath;
-	FIELD b QUICK_MOVE Lath;
-	FIELD c SWAP Lath;
-	FIELD d CLONE Lath;
-	FIELD e THROW Lath;
-	FIELD f QUICK_CRAFT Lath;
-	FIELD g PICKUP_ALL Lath;

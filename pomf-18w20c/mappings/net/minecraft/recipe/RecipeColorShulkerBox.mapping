@@ -1,3 +1,0 @@
-CLASS ayz net/minecraft/recipe/RecipeColorShulkerBox
-	METHOD a matches (Lagm;Lbbd;)Z
-		ARG 1 world

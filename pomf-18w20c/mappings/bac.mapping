@@ -1,4 +1,0 @@
-CLASS bac
-	METHOD a isEqual (Lazl;)Z
-		ARG 0 other
-	METHOD b getHighestLevel ()I

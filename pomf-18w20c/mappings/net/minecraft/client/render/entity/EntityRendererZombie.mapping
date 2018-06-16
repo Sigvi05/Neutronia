@@ -1,9 +1,0 @@
-CLASS dcp net/minecraft/client/render/entity/EntityRendererZombie
-	CLASS dcp$1
-		METHOD ao_ init ()V
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laij;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lard;)Lok;
-		ARG 0 model

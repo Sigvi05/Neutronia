@@ -1,5 +1,0 @@
-CLASS brk net/minecraft/world/gen/decorator/DecoratorTreeBirch
-	FIELD c increasedHeight Z
-	METHOD <init> (ZZ)V
-		ARG 0 doBlockUpdates
-		ARG 1 increasedHeight

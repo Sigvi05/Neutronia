@@ -1,7 +1,0 @@
-CLASS ddk net/minecraft/client/render/entity/EntityRendererPigSaddle
-	FIELD a SKIN Lok;
-	METHOD a shouldMergeTextures ()Z
-	METHOD a render (Laii;FFFFFFF)V
-		ARG 0 entity
-	METHOD a render (Lang;FFFFFFF)V
-		ARG 0 entity

@@ -1,9 +1,0 @@
-CLASS bqm net/minecraft/world/DimensionNether
-	CLASS bqm$1
-		METHOD f getCenterX ()D
-		METHOD g getCenterZ ()D
-	METHOD b getFogColor (FF)Lcgi;
-	METHOD j createWorldBorderHandler ()Lbpe;
-	METHOD m setupBiomeProvider ()V
-	METHOD o hasClouds ()Z
-	METHOD q getWorldType ()Lbql;

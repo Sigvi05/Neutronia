@@ -1,6 +1,0 @@
-CLASS dhq
-	METHOD b getServer ()Ldhr;
-	METHOD b savePlayerData (Lsm;)V
-		ARG 0 entityPlayerServer
-	METHOD c getServer ()Lnet/minecraft/server/MinecraftServer;
-	METHOD t getUserData ()Lgv;

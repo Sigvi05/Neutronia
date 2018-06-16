@@ -1,9 +1,0 @@
-CLASS qu net/minecraft/command/CommandScoreboard
-	FIELD a COMMANDS_SCOREBOARD_OBJECTIVES_ADD_DUPLICATE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b COMMANDS_SCOREBOARD_OBJECTIVES_ADD_LONGDISPLAYNAME Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c COMMANDS_SCOREBOARD_OBJECTIVES_DISPLAY_ALREADYEMPTY Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD d COMMANDS_SCOREBOARD_OBJECTIVES_DISPLAY_ALREADYSET Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD e COMMANDS_SCOREBOARD_PLAYERS_ENABLE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD f COMMANDS_SCOREBOARD_PLAYERS_ENABLE_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD g COMMANDS_SCOREBOARD_PLAYERS_GET_NULL Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

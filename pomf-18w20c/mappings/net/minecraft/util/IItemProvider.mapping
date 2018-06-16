@@ -1,2 +1,0 @@
-CLASS bbc net/minecraft/util/IItemProvider
-	METHOD h getItem ()Lawi;

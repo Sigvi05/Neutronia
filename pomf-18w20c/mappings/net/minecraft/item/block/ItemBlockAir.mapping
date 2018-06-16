@@ -1,6 +1,0 @@
-CLASS auh net/minecraft/item/block/ItemBlockAir
-	FIELD a block Lbfs;
-	METHOD a getTranslationKey ()Ljava/lang/String;
-	METHOD a addInformation (Lawm;Lbbd;Ljava/util/List;Laxu;)V
-		ARG 0 stack
-		ARG 2 tooltip

@@ -1,3 +1,0 @@
-CLASS dhm
-	METHOD a onResourceReload (Lum;)V
-		ARG 0 container

@@ -1,2 +1,0 @@
-CLASS aov net/minecraft/entity/boss/DragonPhaseSittingAttacking
-	METHOD i getType ()Lapa;

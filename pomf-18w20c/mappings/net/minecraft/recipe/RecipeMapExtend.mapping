@@ -1,4 +1,0 @@
-CLASS ayq net/minecraft/recipe/RecipeMapExtend
-	METHOD a matches (Lagm;Lbbd;)Z
-		ARG 1 world
-	METHOD c isIgnoredInRecipeBook ()Z

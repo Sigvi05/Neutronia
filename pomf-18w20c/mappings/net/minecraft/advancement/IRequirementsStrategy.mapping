@@ -1,3 +1,0 @@
-CLASS w net/minecraft/advancement/IRequirementsStrategy
-	METHOD createRequirements (Ljava/util/Collection;)[[Ljava/lang/String;
-		ARG 0 collection

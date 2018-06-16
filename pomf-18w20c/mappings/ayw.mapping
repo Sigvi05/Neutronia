@@ -1,6 +1,0 @@
-CLASS ayw
-	METHOD a matches (Lagm;Lbbd;)Z
-		ARG 1 world
-	METHOD b getIdentifier ()Lok;
-	METHOD d getOutput ()Lawm;
-	METHOD e getPreviewInputs ()Lev;

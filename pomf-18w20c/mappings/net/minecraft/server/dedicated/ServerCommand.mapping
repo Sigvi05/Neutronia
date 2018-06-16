@@ -1,6 +1,0 @@
-CLASS op net/minecraft/server/dedicated/ServerCommand
-	FIELD a command Ljava/lang/String;
-	FIELD b commandSender Lbs;
-	METHOD <init> (Ljava/lang/String;Lbs;)V
-		ARG 0 command
-		ARG 1 commandSender

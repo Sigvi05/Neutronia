@@ -1,6 +1,0 @@
-CLASS bcb net/minecraft/world/gen/BiomeSource
-	FIELD b CHECKERBOARD Lbcb;
-	FIELD c FIXED Lbcb;
-	FIELD d VANILLA_LAYERED Lbcb;
-	FIELD e THE_END Lbcb;
-	METHOD b getIdentifier ()Lok;

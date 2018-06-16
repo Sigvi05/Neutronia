@@ -1,2 +1,0 @@
-CLASS brd net/minecraft/world/gen/ChunkGeneratorOverworld
-	FIELD f LOGGER Lorg/apache/logging/log4j/Logger;

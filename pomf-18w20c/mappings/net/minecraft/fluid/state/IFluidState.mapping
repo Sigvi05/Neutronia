@@ -1,4 +1,0 @@
-CLASS cbd net/minecraft/fluid/state/IFluidState
-	METHOD c getFluid ()Lcbc;
-	METHOD e isEmpty ()Z
-	METHOD k getRenderLayer ()Lbas;

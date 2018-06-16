@@ -1,2 +1,0 @@
-CLASS pb net/minecraft/util/ITickable
-	METHOD Y_ update ()V

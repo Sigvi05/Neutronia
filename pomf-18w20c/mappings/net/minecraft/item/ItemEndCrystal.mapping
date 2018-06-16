@@ -1,3 +1,0 @@
-CLASS avs net/minecraft/item/ItemEndCrystal
-	METHOD b hasEnchantmentGlow (Lawm;)Z
-		ARG 0 stack

@@ -1,8 +1,0 @@
-CLASS dcj net/minecraft/client/render/entity/EntityMobRendererVindicator
-	CLASS dcj$1
-		METHOD a render (Laii;FFFFFFF)V
-			ARG 0 entity
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laqn;)Lok;
-		ARG 0 model

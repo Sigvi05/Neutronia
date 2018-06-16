@@ -1,9 +1,0 @@
-CLASS clf
-	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
-	FIELD g logo Lok;
-	METHOD a draw (IIF)V
-		ARG 0 mouseX
-		ARG 1 mouseY
-		ARG 2 delta
-	METHOD c init ()V
-	METHOD n onClosed ()V

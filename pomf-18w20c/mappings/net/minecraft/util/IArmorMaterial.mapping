@@ -1,5 +1,0 @@
-CLASS auj net/minecraft/util/IArmorMaterial
-	METHOD a (Laie;)I
-		ARG 0 slot
-	METHOD b (Laie;)I
-		ARG 0 slot

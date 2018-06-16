@@ -1,3 +1,0 @@
-CLASS dh
-	FIELD a ARGUMENT_ITEM_TAG_DISALLOWED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b ARGUMENT_ITEM_ID_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

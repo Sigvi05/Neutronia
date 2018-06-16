@@ -1,2 +1,0 @@
-CLASS ym
-	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;

@@ -1,2 +1,0 @@
-CLASS aoq net/minecraft/entity/boss/DragonPhaseHoldingPattern
-	METHOD i getType ()Lapa;

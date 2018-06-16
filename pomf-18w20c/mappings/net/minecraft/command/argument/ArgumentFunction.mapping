@@ -1,4 +1,0 @@
-CLASS de net/minecraft/command/argument/ArgumentFunction
-	FIELD a FOO Ljava/util/Collection;
-	FIELD b ARGUMENTS_FUNCTION_TAG_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c ARGUMENTS_FUNCTION_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

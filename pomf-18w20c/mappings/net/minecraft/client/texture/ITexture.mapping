@@ -1,8 +1,0 @@
-CLASS dfa net/minecraft/client/texture/ITexture
-	METHOD a popFilter ()V
-	METHOD a load (Lum;)V
-		ARG 0 resourceContainer
-	METHOD b getGlId ()I
-	METHOD b pushFilter (ZZ)V
-		ARG 0 bilinear
-		ARG 1 mipmap

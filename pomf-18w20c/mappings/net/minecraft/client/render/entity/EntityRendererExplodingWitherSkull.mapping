@@ -1,7 +1,0 @@
-CLASS dcn net/minecraft/client/render/entity/EntityRendererExplodingWitherSkull
-	FIELD a INVINCIBLE_SKIN Lok;
-	FIELD f SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lasm;)Lok;
-		ARG 0 model

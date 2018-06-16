@@ -1,8 +1,0 @@
-CLASS daj net/minecraft/client/render/entity/EntityRendererGiant
-	CLASS daj$1
-		METHOD ao_ init ()V
-	FIELD a SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laqi;)Lok;
-		ARG 0 model

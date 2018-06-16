@@ -1,9 +1,0 @@
-CLASS dbc net/minecraft/client/render/entity/EntityRendererOcelot
-	FIELD a TAMED_BLACK_SKIN Lok;
-	FIELD j WILD_SKIN Lok;
-	FIELD k TAMED_RED_SKIN Lok;
-	FIELD l TAMED_SIAMEASE_SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lane;)Lok;
-		ARG 0 model

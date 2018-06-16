@@ -1,5 +1,0 @@
-CLASS acq net/minecraft/util/datafix/optics/ReForgetC
-	CLASS acq$a
-		METHOD a left (Labf;)Labf;
-		METHOD c right (Labf;)Labf;
-	METHOD a impl ()Lwp;

@@ -1,3 +1,0 @@
-CLASS ake net/minecraft/entity/ai/AiGoalWatchClosest2
-	METHOD <init> (Laij;Ljava/lang/Class;FF)V
-		ARG 0 entity

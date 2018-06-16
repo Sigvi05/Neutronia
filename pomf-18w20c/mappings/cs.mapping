@@ -1,8 +1,0 @@
-CLASS cs
-	FIELD a ARGUMENT_BLOCK_TAG_DISALLOWED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b ARGUMENT_BLOCK_ID_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c ARGUMENT_BLOCK_PROPERTY_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD d ARGUMENT_BLOCK_PROPERTY_DUPLICATE Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD e ARGUMENT_BLOCK_PROPERTY_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD f ARGUMENT_BLOCK_PROPERTY_NOVALUE Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD g ARGUMENT_BLOCK_PROPERTY_UNCLOSED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

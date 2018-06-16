@@ -1,7 +1,0 @@
-CLASS cnz
-	CLASS cnz$1
-		METHOD confirmResult handle (ZI)V
-			ARG 0 result
-			ARG 1 callbackId
-	FIELD f RESOURCEPACK_INCOMPATIBLE Lid;
-	FIELD g RESOURCEPACK_INCOMPATIBLE_CONFIRM_TITLE Lid;

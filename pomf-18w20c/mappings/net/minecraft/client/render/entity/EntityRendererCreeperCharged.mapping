@@ -1,7 +1,0 @@
-CLASS dcv net/minecraft/client/render/entity/EntityRendererCreeperCharged
-	FIELD a SKIN Lok;
-	METHOD a shouldMergeTextures ()Z
-	METHOD a render (Laii;FFFFFFF)V
-		ARG 0 entity
-	METHOD a render (Laqa;FFFFFFF)V
-		ARG 0 entity

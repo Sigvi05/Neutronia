@@ -1,2 +1,0 @@
-CLASS aou net/minecraft/entity/boss/IDragonPhase
-	METHOD i getType ()Lapa;

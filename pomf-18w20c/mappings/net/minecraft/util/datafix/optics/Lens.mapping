@@ -1,7 +1,0 @@
-CLASS acg net/minecraft/util/datafix/optics/Lens
-	CLASS acg$b Instance
-		METHOD a left (Labf;)Labf;
-	METHOD a unbox (Labf;)Lacg;
-	METHOD a view (Ljava/lang/Object;)Ljava/lang/Object;
-	METHOD a update (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	METHOD a view (Lwz;)Ljava/lang/Object;

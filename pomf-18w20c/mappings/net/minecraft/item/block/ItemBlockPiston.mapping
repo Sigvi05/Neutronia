@@ -1,2 +1,0 @@
-CLASS axo net/minecraft/item/block/ItemBlockPiston
-	METHOD a getTranslationKey ()Ljava/lang/String;

@@ -1,5 +1,0 @@
-CLASS bfk net/minecraft/block/BlockBanner
-	FIELD a ROTATION Lboz;
-	METHOD a getDefaultState (Laur;)Lbob;
-	METHOD a withMirror (Lbob;Lbiy;)Lbob;
-	METHOD a withRotation (Lbob;Lbkb;)Lbob;

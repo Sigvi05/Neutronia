@@ -1,4 +1,0 @@
-CLASS cwp net/minecraft/client/render/model/json/ModelTransformation
-	FIELD a ORIGIN Lcwp;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

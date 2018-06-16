@@ -1,7 +1,0 @@
-CLASS hh net/minecraft/tag/TagPrimitive
-	METHOD d getLong ()J
-	METHOD e getInt ()I
-	METHOD f getShort ()S
-	METHOD g getByte ()B
-	METHOD h getDouble ()D
-	METHOD i getFloat ()F

@@ -1,3 +1,0 @@
-CLASS alx
-	METHOD a canStart ()Z
-	METHOD b shouldContinue ()Z

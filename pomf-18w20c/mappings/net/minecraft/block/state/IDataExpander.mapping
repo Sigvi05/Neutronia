@@ -1,3 +1,0 @@
-CLASS bpx net/minecraft/block/state/IDataExpander
-	METHOD onResize expandDataAndGetStateId (ILjava/lang/Object;)I
-		ARG 0 expandedBitSize

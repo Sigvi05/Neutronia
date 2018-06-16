@@ -1,4 +1,0 @@
-CLASS ciq net/minecraft/client/chat/IChatMessageListener
-	METHOD a onMessageReceived (Lib;Lid;)V
-		ARG 0 type
-		ARG 1 message

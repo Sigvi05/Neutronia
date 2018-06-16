@@ -1,5 +1,0 @@
-CLASS cze net/minecraft/client/render/entity/EntityRendererAreaEffectCloud
-	METHOD a getTexture (Lahx;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model

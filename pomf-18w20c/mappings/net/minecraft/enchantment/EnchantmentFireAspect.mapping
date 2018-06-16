@@ -1,5 +1,0 @@
-CLASS azq net/minecraft/enchantment/EnchantmentFireAspect
-	METHOD <init> (Lazl$a;[Laie;)V
-		ARG 0 weight
-		ARG 1 slotTypes
-	METHOD b getHighestLevel ()I

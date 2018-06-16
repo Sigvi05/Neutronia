@@ -1,6 +1,0 @@
-CLASS cva net/minecraft/client/render/chunk/ChunkVertexBuffer
-	FIELD a renderLayerVertexBuffers [Lcuy;
-	METHOD a getVertexBuffer (I)Lcuy;
-		ARG 0 blockRenderLayer
-	METHOD a getVertexBuffer (Lbas;)Lcuy;
-		ARG 0 blockRenderLayer

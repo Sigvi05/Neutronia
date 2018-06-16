@@ -1,8 +1,0 @@
-CLASS afy
-	CLASS afy$2
-		METHOD a wander (Labg;Lxq;)Lxq;
-	CLASS afy$a
-		CLASS afy$a$1
-			METHOD a wander (Labg;Lxq;)Lxq;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

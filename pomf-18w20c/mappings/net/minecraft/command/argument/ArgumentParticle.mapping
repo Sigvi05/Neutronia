@@ -1,3 +1,0 @@
-CLASS ci net/minecraft/command/argument/ArgumentParticle
-	FIELD a PARTICLE_NOTFOUND Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD b FOO Ljava/util/Collection;

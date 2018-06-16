@@ -1,7 +1,0 @@
-CLASS pt net/minecraft/command/CommandEnchant
-	FIELD a COMMANDS_ENCHANT_FAILED_ENTITY Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD b COMMANDS_ENCHANT_FAILED_ITEMLESS Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c COMMANDS_ENCHANT_FAILED_INCOMPATIBLE Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD d COMMANDS_ENCHANT_FAILED_LEVEL Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD e COMMANDS_ENCHANT_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

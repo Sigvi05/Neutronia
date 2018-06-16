@@ -1,3 +1,0 @@
-CLASS aaq
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

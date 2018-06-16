@@ -1,7 +1,0 @@
-CLASS bhv net/minecraft/block/BlockFrostedIce
-	FIELD a AGE Lboz;
-	METHOD a getItem (Lbar;Leg;Lbob;)Lawm;
-	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
-		ARG 1 world
-		ARG 2 pos
-		ARG 3 random

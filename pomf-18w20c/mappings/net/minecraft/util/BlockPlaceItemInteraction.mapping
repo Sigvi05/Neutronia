@@ -1,2 +1,0 @@
-CLASS aur net/minecraft/util/BlockPlaceItemInteraction
-	METHOD a getPosition ()Leg;

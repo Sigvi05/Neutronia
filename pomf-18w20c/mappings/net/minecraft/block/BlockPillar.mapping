@@ -1,4 +1,0 @@
-CLASS bka net/minecraft/block/BlockPillar
-	FIELD a AXIS Lboy;
-	METHOD a getDefaultState (Laur;)Lbob;
-	METHOD a withRotation (Lbob;Lbkb;)Lbob;

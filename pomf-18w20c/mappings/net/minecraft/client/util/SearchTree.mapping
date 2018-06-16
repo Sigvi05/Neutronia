@@ -1,3 +1,0 @@
-CLASS dhl net/minecraft/client/util/SearchTree
-	METHOD a search (Ljava/lang/String;)Ljava/util/List;
-		ARG 0 text

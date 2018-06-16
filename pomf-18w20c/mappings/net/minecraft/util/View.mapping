@@ -1,3 +1,0 @@
-CLASS xz net/minecraft/util/View
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

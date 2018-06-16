@@ -1,6 +1,0 @@
-CLASS czy net/minecraft/client/render/entity/EntityRendererEnderman
-	FIELD a SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laqd;)Lok;
-		ARG 0 model

@@ -1,4 +1,0 @@
-CLASS cie net/minecraft/client/VirtualScreen
-	FIELD a mc Lchv;
-	METHOD <init> (Lchv;)V
-		ARG 0 mc

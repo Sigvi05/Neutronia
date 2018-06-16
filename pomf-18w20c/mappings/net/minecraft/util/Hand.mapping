@@ -1,3 +1,0 @@
-CLASS ags net/minecraft/util/Hand
-	FIELD a MAIN_HAND Lags;
-	FIELD b OFF_HAND Lags;

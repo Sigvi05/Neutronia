@@ -1,3 +1,0 @@
-CLASS abx
-	CLASS abx$a
-		METHOD a dimip (Labf;)Labf;

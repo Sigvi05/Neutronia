@@ -1,3 +1,0 @@
-CLASS co net/minecraft/command/argument/ArgumentTeam
-	FIELD a FOO Ljava/util/Collection;
-	FIELD b TEAM_NOTFOUND Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

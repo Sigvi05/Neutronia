@@ -1,7 +1,0 @@
-CLASS dgq net/minecraft/client/render/model/BakedModelMultipart
-	METHOD a useAmbientOcclusion ()Z
-	METHOD b hasDepthInGui ()Z
-	METHOD c isBuiltin ()Z
-	METHOD d getSprite ()Ldey;
-	METHOD e getTransformationList ()Lcwq;
-	METHOD f getItemPropertyOverrides ()Lcwo;

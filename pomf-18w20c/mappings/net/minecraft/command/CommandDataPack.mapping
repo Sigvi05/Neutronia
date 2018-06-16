@@ -1,5 +1,0 @@
-CLASS pm net/minecraft/command/CommandDataPack
-	FIELD a COMMANDS_DATAPACK_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD b COMMANDS_DATAPACK_ENABLE_FAILED Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c COMMANDS_DATAPACK_DISABLE_FAILED Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

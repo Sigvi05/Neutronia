@@ -1,3 +1,0 @@
-CLASS cu net/minecraft/command/argument/ArgumentBlockPos
-	FIELD a ARGUMENT_POS_UNLOADED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b ARGUMENT_POS_OUTOFWORLD Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

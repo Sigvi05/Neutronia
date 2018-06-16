@@ -1,3 +1,0 @@
-CLASS baf net/minecraft/enchantment/EnchantmentVanishingCurse
-	METHOD b getHighestLevel ()I
-	METHOD c isLootOnly ()Z

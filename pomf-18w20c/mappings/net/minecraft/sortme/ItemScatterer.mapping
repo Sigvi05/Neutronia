@@ -1,6 +1,0 @@
-CLASS agp net/minecraft/sortme/ItemScatterer
-	FIELD a RANDOM Ljava/util/Random;
-	METHOD a spawn (Lbbd;DDDLagm;)V
-	METHOD a spawn (Lbbd;DDDLawm;)V
-	METHOD a spawn (Lbbd;Lahz;Lagm;)V
-	METHOD a spawn (Lbbd;Leg;Lagm;)V

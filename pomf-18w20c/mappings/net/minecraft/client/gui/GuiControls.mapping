@@ -1,9 +1,0 @@
-CLASS cme net/minecraft/client/gui/GuiControls
-	FIELD a title Ljava/lang/String;
-	FIELD h OPTIONS [Lchy$a;
-	FIELD u controlsResetall Lciw;
-	METHOD a draw (IIF)V
-		ARG 0 mouseX
-		ARG 1 mouseY
-		ARG 2 delta
-	METHOD c init ()V

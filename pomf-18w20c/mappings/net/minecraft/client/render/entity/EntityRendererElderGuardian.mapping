@@ -1,6 +1,0 @@
-CLASS czv net/minecraft/client/render/entity/EntityRendererElderGuardian
-	FIELD a SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laqj;)Lok;
-		ARG 0 model

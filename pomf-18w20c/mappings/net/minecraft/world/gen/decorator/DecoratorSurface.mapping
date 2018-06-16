@@ -1,3 +1,0 @@
-CLASS bri net/minecraft/world/gen/decorator/DecoratorSurface
-	METHOD a checkBlock (Lbfs;)Z
-		ARG 0 block

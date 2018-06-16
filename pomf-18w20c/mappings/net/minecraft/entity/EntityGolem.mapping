@@ -1,6 +1,0 @@
-CLASS amw net/minecraft/entity/EntityGolem
-	METHOD E getSoundAmbient ()Lvp;
-	METHOD c handleFallDamage (FF)V
-		ARG 0 fallDistance
-	METHOD ct getSoundDeath ()Lvp;
-	METHOD d getSoundHurt (Lahi;)Lvp;

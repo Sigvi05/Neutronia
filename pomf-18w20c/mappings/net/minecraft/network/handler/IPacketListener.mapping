@@ -1,3 +1,0 @@
-CLASS hx net/minecraft/network/handler/IPacketListener
-	METHOD a onConnectionLost (Lid;)V
-		ARG 0 reason

@@ -1,3 +1,0 @@
-CLASS ace net/minecraft/util/datafix/optics/Inj2
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

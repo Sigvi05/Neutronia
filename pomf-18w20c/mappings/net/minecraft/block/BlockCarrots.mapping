@@ -1,3 +1,0 @@
-CLASS bge net/minecraft/block/BlockCarrots
-	METHOD e getItemSeed ()Lbbc;
-	METHOD f getItemMature ()Lbbc;

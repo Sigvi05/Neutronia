@@ -1,2 +1,0 @@
-CLASS csm
-	METHOD m getTeamNames ()Ljava/util/Collection;

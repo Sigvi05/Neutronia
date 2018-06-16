@@ -1,2 +1,0 @@
-CLASS axg net/minecraft/item/ItemShovel
-	METHOD a activate (Laxx;)Lagu;

@@ -1,5 +1,0 @@
-CLASS dbz net/minecraft/client/render/entity/EntityRendererTrident
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lasl;)Lok;
-		ARG 0 model

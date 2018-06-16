@@ -1,8 +1,0 @@
-CLASS bgq
-	METHOD a getDefaultState (Laur;)Lbob;
-	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
-	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
-		ARG 1 world
-		ARG 2 pos
-		ARG 3 random
-	METHOD j canSilkHarvest ()Z

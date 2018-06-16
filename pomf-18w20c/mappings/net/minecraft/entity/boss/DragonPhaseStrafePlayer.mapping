@@ -1,3 +1,0 @@
-CLASS aoy net/minecraft/entity/boss/DragonPhaseStrafePlayer
-	FIELD b LOGGER Lorg/apache/logging/log4j/Logger;
-	METHOD i getType ()Lapa;

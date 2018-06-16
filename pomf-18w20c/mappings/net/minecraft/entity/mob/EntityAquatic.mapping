@@ -1,5 +1,0 @@
-CLASS ans net/minecraft/entity/mob/EntityAquatic
-	METHOD X updateLogic ()V
-	METHOD a canBeLeashedBy (Larn;)Z
-		ARG 0 player
-	METHOD cB getEntityAttribute ()Lain;

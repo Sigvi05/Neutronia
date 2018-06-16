@@ -1,5 +1,0 @@
-CLASS nv net/minecraft/network/handler/INetworkQueryHandlerServer
-	METHOD a onQueryPing (Lnw;)V
-		ARG 0 packet
-	METHOD a onQueryRequest (Lnx;)V
-		ARG 0 packet

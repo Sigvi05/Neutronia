@@ -1,9 +1,0 @@
-CLASS cxc net/minecraft/client/render/block/state/StateModelMapperBase
-	FIELD a stateMap Ljava/util/Map;
-	METHOD a getStateMap (Lbfs;)Ljava/util/Map;
-		ARG 0 block
-	METHOD a getValueString (Lbpa;Ljava/lang/Comparable;)Ljava/lang/String;
-		ARG 0 property
-		ARG 1 value
-	METHOD a getVariantName (Ljava/util/Map;)Ljava/lang/String;
-		ARG 0 propertyMap

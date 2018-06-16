@@ -1,4 +1,0 @@
-CLASS dep
-	FIELD f LOGGER Lorg/apache/logging/log4j/Logger;
-	METHOD a load (Lum;)V
-		ARG 0 resourceContainer

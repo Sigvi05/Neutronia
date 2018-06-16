@@ -1,4 +1,0 @@
-CLASS cgn net/minecraft/util/math/DoubleScale
-	FIELD a max I
-	METHOD getDouble getDouble (I)D
-	METHOD size size ()I

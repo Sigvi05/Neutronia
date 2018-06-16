@@ -1,3 +1,0 @@
-CLASS fv net/minecraft/generator/GeneratorBlockList
-	METHOD a generate ()V
-	METHOD b getName ()Ljava/lang/String;

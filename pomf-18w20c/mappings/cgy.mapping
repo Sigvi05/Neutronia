@@ -1,3 +1,0 @@
-CLASS cgy
-	METHOD a getMinMaybe (Lem$a;)I
-	METHOD b getMaxMaybe (Lem$a;)I

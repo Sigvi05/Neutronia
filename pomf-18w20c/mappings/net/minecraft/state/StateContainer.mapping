@@ -1,2 +1,0 @@
-CLASS bod net/minecraft/state/StateContainer
-	CLASS bod$a Builder

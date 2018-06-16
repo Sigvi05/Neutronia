@@ -1,8 +1,0 @@
-CLASS abw net/minecraft/util/datafix/optics/Affine
-	CLASS abw$a Instance
-		METHOD a left (Labf;)Labf;
-		METHOD a dimap (Ljava/util/function/Function;Ljava/util/function/Function;)Lxq;
-		METHOD c right (Labf;)Labf;
-	METHOD a unbpx (Labf;)Labw;
-	METHOD a match (Ljava/lang/Object;)Lwp;
-	METHOD a build (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

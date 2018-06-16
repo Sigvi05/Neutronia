@@ -1,2 +1,0 @@
-CLASS bbe net/minecraft/world/IWorld
-	METHOD s_ getProperties ()Lcef;

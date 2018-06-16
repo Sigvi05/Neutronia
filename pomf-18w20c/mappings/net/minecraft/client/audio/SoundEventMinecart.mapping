@@ -1,7 +1,0 @@
-CLASS dhb net/minecraft/client/audio/SoundEventMinecart
-	FIELD n player Larn;
-	FIELD o minecart Laso;
-	METHOD <init> (Larn;Laso;)V
-		ARG 0 player
-		ARG 1 minecart
-	METHOD Y_ update ()V

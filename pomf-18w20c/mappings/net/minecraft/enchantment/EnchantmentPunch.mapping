@@ -1,2 +1,0 @@
-CLASS azg net/minecraft/enchantment/EnchantmentPunch
-	METHOD b getHighestLevel ()I

@@ -1,3 +1,0 @@
-CLASS cc net/minecraft/command/argument/ArgumentPotionEffect
-	FIELD a EFFECT_EFFECTNOTFOUND Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD b EXAMPLES Ljava/util/Collection;

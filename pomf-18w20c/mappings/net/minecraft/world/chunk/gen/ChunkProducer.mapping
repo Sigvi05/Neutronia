@@ -1,3 +1,0 @@
-CLASS sx net/minecraft/world/chunk/gen/ChunkProducer
-	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
-	METHOD a produce (Lbpm;Lbbd;Lbph;Ljava/util/Map;II)Lbpg;

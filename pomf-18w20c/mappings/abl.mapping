@@ -1,4 +1,0 @@
-CLASS abl
-	CLASS abl$a
-		FIELD a INSTANCE Labl$a;
-		METHOD a map (Ljava/util/function/Function;Labe;)Labe;

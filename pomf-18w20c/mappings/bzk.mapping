@@ -1,9 +1,0 @@
-CLASS bzk
-	FIELD e witch Z
-	METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
-		ARG 1 rand
-		ARG 2 region
-	METHOD a serializeStructureData (Lgv;)V
-		ARG 0 tag
-	METHOD a deserializeStructureData (Lgv;Lbzt;)V
-		ARG 0 tag

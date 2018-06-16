@@ -1,4 +1,0 @@
-CLASS cgl
-	METHOD a createFrom (Lcgq;Lcgq;Lcgr;Lcgr;Lcgr;Lcgm;)Lcgl;
-	METHOD a getMinMaybe (Lem$a;)I
-	METHOD b getMaxMaybe (Lem$a;)I

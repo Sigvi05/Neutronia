@@ -1,5 +1,0 @@
-CLASS pr net/minecraft/command/CommandEffect
-	FIELD a COMMANDS_EFFECT_GIVE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b COMMANDS_EFFECT_CLEAR_EVERYTHING_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD c COMMANDS_EFFECT_CLEAR_SPECIFIC_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

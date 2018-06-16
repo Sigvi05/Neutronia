@@ -1,9 +1,0 @@
-CLASS md
-	METHOD a readPacket (Lhu;)V
-		ARG 0 buf
-	METHOD a applyPacket (Lhx;)V
-		ARG 0 handler
-	METHOD a applyPacket (Lly;)V
-		ARG 0 handler
-	METHOD b writePacket (Lhu;)V
-		ARG 0 buf

@@ -1,4 +1,0 @@
-CLASS bjy net/minecraft/block/BlockRenderType
-	FIELD a INVISIBLE Lbjy;
-	FIELD b ENTITYBLOCK_ANIMATED Lbjy;
-	FIELD c MODEL Lbjy;

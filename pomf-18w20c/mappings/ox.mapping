@@ -1,9 +1,0 @@
-CLASS ox
-	FIELD b _MCFUNCTION I
-	FIELD c LOGGER Lorg/apache/logging/log4j/Logger;
-	FIELD d TICK Lok;
-	FIELD e LOAD Lok;
-	FIELD j function Lwh;
-	METHOD Y_ update ()V
-	METHOD a onResourceReload (Lum;)V
-		ARG 0 container

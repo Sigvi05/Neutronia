@@ -1,3 +1,0 @@
-CLASS vx net/minecraft/util/DisplayFormatter
-	FIELD DECIMAL_FORMAT BASIC_DECIMAL Ljava/text/DecimalFormat;
-	FIELD DEFAULT US_INTEGER Lvx;

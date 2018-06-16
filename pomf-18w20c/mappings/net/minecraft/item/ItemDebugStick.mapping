@@ -1,3 +1,0 @@
-CLASS avh net/minecraft/item/ItemDebugStick
-	METHOD b hasEnchantmentGlow (Lawm;)Z
-		ARG 0 stack

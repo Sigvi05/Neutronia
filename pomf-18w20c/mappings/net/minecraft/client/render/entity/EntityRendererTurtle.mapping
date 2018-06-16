@@ -1,5 +1,0 @@
-CLASS dce net/minecraft/client/render/entity/EntityRendererTurtle
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lanq;)Lok;
-		ARG 0 model

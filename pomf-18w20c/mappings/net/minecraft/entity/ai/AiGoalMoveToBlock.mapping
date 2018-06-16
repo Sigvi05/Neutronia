@@ -1,6 +1,0 @@
-CLASS akp net/minecraft/entity/ai/AiGoalMoveToBlock
-	FIELD f owner Laiq;
-	METHOD a canStart ()Z
-	METHOD b shouldContinue ()Z
-	METHOD c start ()V
-	METHOD e tick ()V

@@ -1,3 +1,0 @@
-CLASS cyz net/minecraft/client/render/debug/RenderDebugStructure
-	METHOD a render (FJ)V
-		ARG 0 tickDelta

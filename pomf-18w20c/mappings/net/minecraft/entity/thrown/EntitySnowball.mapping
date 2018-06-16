@@ -1,3 +1,0 @@
-CLASS ase net/minecraft/entity/thrown/EntitySnowball
-	METHOD a onCollision (Lcgf;)V
-		ARG 0 hitResult

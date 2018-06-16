@@ -1,5 +1,0 @@
-CLASS cnp
-	METHOD a format (Ljava/util/List;)V
-	METHOD charTyped onKeyPressed (CI)Z
-		ARG 0 keyChar
-		ARG 1 keyCode

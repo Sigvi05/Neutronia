@@ -1,5 +1,0 @@
-CLASS tq
-	METHOD a openByPath (Ljava/lang/String;)Ljava/io/InputStream;
-		ARG 0 path
-	METHOD c canHandleByPath (Ljava/lang/String;)Z
-		ARG 0 path

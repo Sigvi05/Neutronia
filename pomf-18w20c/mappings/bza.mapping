@@ -1,4 +1,0 @@
-CLASS bza
-	CLASS bza$b
-		FIELD a WARM Lbza$b;
-		FIELD b COLD Lbza$b;

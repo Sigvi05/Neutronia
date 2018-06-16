@@ -1,8 +1,0 @@
-CLASS qw net/minecraft/command/CommandSetBlock
-	CLASS qw$b
-		FIELD a REPLACE Lqw$b;
-		FIELD b OUTLINE Lqw$b;
-		FIELD c HOLLOW Lqw$b;
-		FIELD d DESTROY Lqw$b;
-	FIELD a COMMANDS_SETBLOCK_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

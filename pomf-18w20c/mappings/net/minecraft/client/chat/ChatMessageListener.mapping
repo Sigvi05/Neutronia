@@ -1,7 +1,0 @@
-CLASS cit net/minecraft/client/chat/ChatMessageListener
-	FIELD a game Lchv;
-	METHOD <init> (Lchv;)V
-		ARG 0 game
-	METHOD a onMessageReceived (Lib;Lid;)V
-		ARG 0 type
-		ARG 1 message

@@ -1,7 +1,0 @@
-CLASS dcl net/minecraft/client/render/entity/EntityRendererWither
-	FIELD a INVINCIBLE_SKIN Lok;
-	FIELD j SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lape;)Lok;
-		ARG 0 model

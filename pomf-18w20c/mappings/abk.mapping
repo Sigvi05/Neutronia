@@ -1,2 +1,0 @@
-CLASS abk
-	METHOD a map (Ljava/util/function/Function;Labe;)Labe;

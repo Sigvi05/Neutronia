@@ -1,2 +1,0 @@
-CLASS bw net/minecraft/command/argument/ArgumentChatComponent
-	FIELD a ARGUMENT_COMPONENT_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

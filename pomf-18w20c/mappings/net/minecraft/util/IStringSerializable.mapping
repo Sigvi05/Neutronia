@@ -1,2 +1,0 @@
-CLASS xd net/minecraft/util/IStringSerializable
-	METHOD m asString ()Ljava/lang/String;

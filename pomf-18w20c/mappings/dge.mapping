@@ -1,6 +1,0 @@
-CLASS dge
-	METHOD a getKey ()Ljava/lang/String;
-	METHOD a deserialise (Lcom/google/gson/JsonObject;)Ljava/lang/Object;
-		ARG 0 jsonIn
-	METHOD b deserialise (Lcom/google/gson/JsonObject;)Ldgd;
-		ARG 0 jsonIn

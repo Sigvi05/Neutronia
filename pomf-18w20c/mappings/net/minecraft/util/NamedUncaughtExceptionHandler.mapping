@@ -1,7 +1,0 @@
-CLASS f net/minecraft/util/NamedUncaughtExceptionHandler
-	FIELD a logger Lorg/apache/logging/log4j/Logger;
-	METHOD <init> (Lorg/apache/logging/log4j/Logger;)V
-		ARG 0 logger
-	METHOD uncaughtException (Ljava/lang/Thread;Ljava/lang/Throwable;)V
-		ARG 0 thread
-		ARG 1 throwable

@@ -1,2 +1,0 @@
-CLASS bu
-	METHOD m getTeamNames ()Ljava/util/Collection;

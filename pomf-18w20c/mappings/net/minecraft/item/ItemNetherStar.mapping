@@ -1,3 +1,0 @@
-CLASS axi net/minecraft/item/ItemNetherStar
-	METHOD b hasEnchantmentGlow (Lawm;)Z
-		ARG 0 stack

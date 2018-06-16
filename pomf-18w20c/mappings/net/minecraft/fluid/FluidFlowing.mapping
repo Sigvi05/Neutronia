@@ -1,3 +1,0 @@
-CLASS cbb net/minecraft/fluid/FluidFlowing
-	FIELD a FALLING Lbow;
-	FIELD b LEVEL Lboz;

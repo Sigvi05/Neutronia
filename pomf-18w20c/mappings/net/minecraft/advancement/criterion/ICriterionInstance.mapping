@@ -1,2 +1,0 @@
-CLASS t net/minecraft/advancement/criterion/ICriterionInstance
-	METHOD a getId ()Lok;

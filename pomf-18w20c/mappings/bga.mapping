@@ -1,7 +1,0 @@
-CLASS bga
-	METHOD X_ getRenderLayer ()Lbas;
-	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
-		ARG 0 blockView
-		ARG 2 pos
-		ARG 3 face
-	METHOD a isFullBlock (Lbob;)Z

@@ -1,8 +1,0 @@
-CLASS bqq net/minecraft/world/DimensionEnd
-	FIELD g dragonFight Lbqp;
-	METHOD b getFogColor (FF)Lcgi;
-	METHOD k serialize ()V
-	METHOD m setupBiomeProvider ()V
-	METHOD o hasClouds ()Z
-	METHOD q getWorldType ()Lbql;
-	METHOD r getDragonManager ()Lbqp;

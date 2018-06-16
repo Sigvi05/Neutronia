@@ -1,3 +1,0 @@
-CLASS ayv net/minecraft/recipe/RecipeRepairItem
-	METHOD a matches (Lagm;Lbbd;)Z
-		ARG 1 world

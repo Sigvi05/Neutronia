@@ -1,4 +1,0 @@
-CLASS ach
-	METHOD a wander (Labg;Lxq;)Lxq;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

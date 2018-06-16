@@ -1,6 +1,0 @@
-CLASS ud
-	FIELD a TOO_OLD Lud;
-	FIELD b TOO_NEW Lud;
-	FIELD c COMPATIBLE Lud;
-	FIELD d resourcepackIncompatible Lid;
-	FIELD e resourcepackIncompatibleConfirm Lid;

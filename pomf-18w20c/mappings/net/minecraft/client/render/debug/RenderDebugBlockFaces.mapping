@@ -1,4 +1,0 @@
-CLASS cyy net/minecraft/client/render/debug/RenderDebugBlockFaces
-	FIELD a game Lchv;
-	METHOD a render (FJ)V
-		ARG 0 tickDelta

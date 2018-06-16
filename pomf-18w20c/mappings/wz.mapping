@@ -1,5 +1,0 @@
-CLASS wz
-	CLASS wz$a
-		METHOD a map (Ljava/util/function/Function;Labe;)Labe;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

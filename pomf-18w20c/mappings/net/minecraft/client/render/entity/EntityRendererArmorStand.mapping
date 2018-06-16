@@ -1,8 +1,0 @@
-CLASS czf net/minecraft/client/render/entity/EntityRendererArmorStand
-	CLASS czf$1
-		METHOD ao_ init ()V
-	FIELD a TEX Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lapg;)Lok;
-		ARG 0 model

@@ -1,5 +1,0 @@
-CLASS ce net/minecraft/command/argument/ArgumentNbtPath
-	FIELD a FOO Ljava/util/Collection;
-	FIELD b ARGUMENTS_NBTPATH_CHILD_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c ARGUMENTS_NBTPATH_ELEMENT_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD d ARGUMENTS_NBTPATH_NODE_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

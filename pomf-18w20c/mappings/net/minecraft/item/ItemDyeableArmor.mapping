@@ -1,3 +1,0 @@
-CLASS avm net/minecraft/item/ItemDyeableArmor
-	METHOD f getDyedColor (Lawm;)I
-	METHOD f_ hasColor (Lawm;)Z

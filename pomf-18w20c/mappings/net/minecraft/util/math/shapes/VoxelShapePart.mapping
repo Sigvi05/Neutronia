@@ -1,6 +1,0 @@
-CLASS cgq net/minecraft/util/math/shapes/VoxelShapePart
-	CLASS cgq$1
-		METHOD a getMinMaybe (Lem$a;)I
-		METHOD b getMaxMaybe (Lem$a;)I
-	METHOD a getMinMaybe (Lem$a;)I
-	METHOD b getMaxMaybe (Lem$a;)I

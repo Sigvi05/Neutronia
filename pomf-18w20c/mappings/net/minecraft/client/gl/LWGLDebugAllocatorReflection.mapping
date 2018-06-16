@@ -1,3 +1,0 @@
-CLASS chn net/minecraft/client/gl/LWGLDebugAllocatorReflection
-	FIELD a untrackHandle Ljava/lang/invoke/MethodHandle;
-	METHOD a untrack (J)V

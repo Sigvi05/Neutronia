@@ -1,4 +1,0 @@
-CLASS aig net/minecraft/entity/mob/EntityFlying
-	METHOD c handleFallDamage (FF)V
-		ARG 0 fallDistance
-	METHOD y_ canClimb ()Z

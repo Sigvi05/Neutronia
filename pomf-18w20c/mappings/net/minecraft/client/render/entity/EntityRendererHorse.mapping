@@ -1,6 +1,0 @@
-CLASS dal net/minecraft/client/render/entity/EntityRendererHorse
-	FIELD a SKIN Ljava/util/Map;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lanv;)Lok;
-		ARG 0 model

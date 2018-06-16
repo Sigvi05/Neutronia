@@ -1,2 +1,0 @@
-CLASS aop net/minecraft/entity/boss/DragonPhaseDying
-	METHOD i getType ()Lapa;

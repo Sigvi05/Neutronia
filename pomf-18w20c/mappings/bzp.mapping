@@ -1,6 +1,0 @@
-CLASS bzp
-	CLASS bzp$i
-		METHOD a serializeCustomData (Lgv;)V
-			ARG 0 tag
-		METHOD a deserializeCustomData (Lgv;Lbzt;)V
-			ARG 0 tag

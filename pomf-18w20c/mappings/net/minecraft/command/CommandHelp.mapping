@@ -1,3 +1,0 @@
-CLASS qb net/minecraft/command/CommandHelp
-	FIELD a COMMANDS_HELP_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

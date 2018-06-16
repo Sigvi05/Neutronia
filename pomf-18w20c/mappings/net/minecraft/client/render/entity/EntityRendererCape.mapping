@@ -1,9 +1,0 @@
-CLASS dct net/minecraft/client/render/entity/EntityRendererCape
-	FIELD a renderer Ldea;
-	METHOD <init> (Ldea;)V
-		ARG 0 renderer
-	METHOD a shouldMergeTextures ()Z
-	METHOD a render (Laii;FFFFFFF)V
-		ARG 0 entity
-	METHOD a render (Lcuo;FFFFFFF)V
-		ARG 0 entity

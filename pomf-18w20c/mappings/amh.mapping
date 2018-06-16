@@ -1,6 +1,0 @@
-CLASS amh
-	METHOD a createPathNodeNavigator ()Lcdm;
-	METHOD a isValidPosition (Leg;)Z
-		ARG 0 pos
-	METHOD b isAtValidPosition ()Z
-	METHOD d tick ()V

@@ -1,4 +1,0 @@
-CLASS xq
-	CLASS xq$a
-		FIELD a INSTANCE Lxq$a;
-		METHOD d right (Labf;)Labf;

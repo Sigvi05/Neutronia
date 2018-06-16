@@ -1,9 +1,0 @@
-CLASS wp
-	CLASS wp$a
-		METHOD a map (Ljava/util/function/Function;Labe;)Labe;
-	CLASS wp$b
-		METHOD equals (Ljava/lang/Object;)Z
-			ARG 0 object
-	CLASS wp$d
-		METHOD equals (Ljava/lang/Object;)Z
-			ARG 0 object

@@ -1,8 +1,0 @@
-CLASS chq
-	CLASS chq$a
-		METHOD equals (Ljava/lang/Object;)Z
-			ARG 0 object
-	CLASS chq$b
-		FIELD a KEYSYM Lchq$b;
-		FIELD b SCANCODE Lchq$b;
-		FIELD c MOUSE Lchq$b;

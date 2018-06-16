@@ -1,9 +1,0 @@
-CLASS dn
-	FIELD a ARGUMENT_ENTITY_OPTIONS_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD b ARGUMENT_ENTITY_OPTIONS_INAPPLICABLE Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD c ARGUMENT_ENTITY_OPTIONS_DISTANCE_NEGATIVE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD d ARGUMENT_ENTITY_OPTIONS_LEVEL_NEGATIVE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD e ARGUMENT_ENTITY_OPTIONS_LIMIT_TOOSMALL Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD f ARGUMENT_ENTITY_OPTIONS_SORT_IRREVERSIBLE Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD g ARGUMENT_ENTITY_OPTIONS_MODE_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	FIELD h ARGUMENT_ENTITY_OPTIONS_TYPE_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

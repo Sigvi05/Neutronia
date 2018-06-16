@@ -1,2 +1,0 @@
-CLASS bla net/minecraft/block/BlockStone
-	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;

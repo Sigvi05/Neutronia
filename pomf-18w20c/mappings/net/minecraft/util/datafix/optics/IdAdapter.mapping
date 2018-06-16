@@ -1,3 +1,0 @@
-CLASS acc net/minecraft/util/datafix/optics/IdAdapter
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

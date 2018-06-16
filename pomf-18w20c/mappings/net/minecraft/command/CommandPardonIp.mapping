@@ -1,3 +1,0 @@
-CLASS qj net/minecraft/command/CommandPardonIp
-	FIELD a COMMANDS_PARDONIP_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

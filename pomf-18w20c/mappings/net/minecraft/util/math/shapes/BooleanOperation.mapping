@@ -1,8 +1,0 @@
-CLASS cgm net/minecraft/util/math/shapes/BooleanOperation
-	FIELD AND AND Lcgm;
-	FIELD FALSE FALSE Lcgm;
-	FIELD NOT_SAME NOT_SAME Lcgm;
-	FIELD ONLY_FIRST ONLY_FIRST Lcgm;
-	FIELD ONLY_SECOND ONLY_SECOND Lcgm;
-	FIELD OR OR Lcgm;
-	METHOD apply apply (ZZ)Z

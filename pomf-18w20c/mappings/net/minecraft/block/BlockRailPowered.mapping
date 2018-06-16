@@ -1,7 +1,0 @@
-CLASS bjo net/minecraft/block/BlockRailPowered
-	FIELD t SHAPE Lboy;
-	FIELD u POWERED Lbow;
-	METHOD a getDefaultState (Laur;)Lbob;
-	METHOD a withMirror (Lbob;Lbiy;)Lbob;
-	METHOD a withRotation (Lbob;Lbkb;)Lbob;
-	METHOD c getShapeProperty ()Lbpa;

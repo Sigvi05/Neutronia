@@ -1,8 +1,0 @@
-CLASS dco net/minecraft/client/render/entity/EntityRendererWolf
-	FIELD a WILD_SKIN Lok;
-	FIELD j TAMED_SKIN Lok;
-	FIELD k ANGRY_SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lant;)Lok;
-		ARG 0 model

@@ -1,5 +1,0 @@
-CLASS cmm
-	FIELD u advmodeModeSequence Lciw;
-	FIELD v advmodeModeUnconditional Lciw;
-	FIELD w advmodeModeRedstonetriggered Lciw;
-	METHOD c init ()V

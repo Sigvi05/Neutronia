@@ -1,8 +1,0 @@
-CLASS bkv net/minecraft/block/BlockStainedGlassPane
-	METHOD X_ getRenderLayer ()Lbas;
-	METHOD a onBlockRemoved (Lbob;Lbbd;Leg;Lbob;)V
-		ARG 1 world
-		ARG 2 pos
-	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
-		ARG 1 world
-		ARG 2 pos

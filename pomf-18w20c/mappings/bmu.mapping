@@ -1,5 +1,0 @@
-CLASS bmu
-	METHOD G getWorld ()Lbbd;
-	METHOD H getHopperX ()D
-	METHOD I getHopperY ()D
-	METHOD J getHopperZ ()D

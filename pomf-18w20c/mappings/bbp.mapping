@@ -1,6 +1,0 @@
-CLASS bbp
-	METHOD a getEntitiesWithinAABB (Lahz;Lcge;)Ljava/util/List;
-	METHOD a_ getBlockState (Leg;)Lbob;
-	METHOD b getFluidState (Leg;)Lcbd;
-	METHOD f getBlockEntity (Leg;)Lbmh;
-		ARG 0 pos

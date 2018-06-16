@@ -1,5 +1,0 @@
-CLASS axr
-	METHOD a canRepair (Lawm;Lawm;)Z
-		ARG 0 item
-		ARG 1 repairItem
-	METHOD c getEnchantability ()I

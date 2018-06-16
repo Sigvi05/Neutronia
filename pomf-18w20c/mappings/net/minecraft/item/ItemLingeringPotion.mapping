@@ -1,8 +1,0 @@
-CLASS awq net/minecraft/item/ItemLingeringPotion
-	METHOD a addInformation (Lawm;Lbbd;Ljava/util/List;Laxu;)V
-		ARG 0 stack
-		ARG 2 tooltip
-	METHOD a onRightClick (Lbbd;Larn;Lags;)Lagv;
-		ARG 0 world
-		ARG 1 player
-		ARG 2 hand

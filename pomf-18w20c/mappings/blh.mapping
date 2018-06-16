@@ -1,4 +1,0 @@
-CLASS blh
-	METHOD a getItem (Lbar;Leg;Lbob;)Lawm;
-	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
-	METHOD t getFluidState (Lbob;)Lcbd;

@@ -1,7 +1,0 @@
-CLASS dak net/minecraft/client/render/entity/EntityRendererGuardian
-	FIELD a SKIN Lok;
-	FIELD j EXPLOSION_BEAM_TEX Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laqj;)Lok;
-		ARG 0 model

@@ -1,9 +1,0 @@
-CLASS bks net/minecraft/block/BlockSponge
-	METHOD a update (Lbob;Lbbd;Leg;Lbfs;Leg;)V
-		ARG 1 world
-		ARG 2 pos
-		ARG 3 block
-		ARG 4 updatePos
-	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
-		ARG 1 world
-		ARG 2 pos

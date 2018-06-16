@@ -1,6 +1,0 @@
-CLASS bzh net/minecraft/world/WorldFeatureState
-	FIELD a features Lgv;
-	METHOD a deserialize (Lgv;)V
-		ARG 0 tag
-	METHOD b serialize (Lgv;)Lgv;
-		ARG 0 tag

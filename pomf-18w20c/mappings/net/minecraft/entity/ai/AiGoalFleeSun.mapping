@@ -1,8 +1,0 @@
-CLASS ajt net/minecraft/entity/ai/AiGoalFleeSun
-	FIELD a owner Laiq;
-	FIELD f world Lbbd;
-	METHOD <init> (Laiq;D)V
-		ARG 0 owner
-	METHOD a canStart ()Z
-	METHOD b shouldContinue ()Z
-	METHOD c start ()V

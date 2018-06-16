@@ -1,5 +1,0 @@
-CLASS wa net/minecraft/stat/StatManager
-	METHOD b increase (Larn;Lvw;I)V
-		ARG 0 player
-		ARG 1 stat
-		ARG 2 amount

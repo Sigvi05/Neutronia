@@ -1,3 +1,0 @@
-CLASS bhz net/minecraft/block/BlockTerracotta
-	METHOD a getDefaultState (Laur;)Lbob;
-	METHOD i getPistonBehavior (Lbob;)Lcbj;

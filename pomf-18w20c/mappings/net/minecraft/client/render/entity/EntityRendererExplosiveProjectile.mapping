@@ -1,5 +1,0 @@
-CLASS dag net/minecraft/client/render/entity/EntityRendererExplosiveProjectile
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lars;)Lok;
-		ARG 0 model

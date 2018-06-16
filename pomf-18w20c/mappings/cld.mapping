@@ -1,3 +1,0 @@
-CLASS cld
-	METHOD ag_ close ()V
-	METHOD c init ()V

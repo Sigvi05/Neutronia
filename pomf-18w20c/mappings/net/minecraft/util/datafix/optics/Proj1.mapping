@@ -1,7 +1,0 @@
-CLASS acn net/minecraft/util/datafix/optics/Proj1
-	METHOD a view (Ljava/lang/Object;)Ljava/lang/Object;
-	METHOD a update (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	METHOD a update (Ljava/lang/Object;Lwz;)Lwz;
-	METHOD a view (Lwz;)Ljava/lang/Object;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

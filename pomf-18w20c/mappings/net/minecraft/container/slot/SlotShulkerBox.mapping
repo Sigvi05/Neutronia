@@ -1,3 +1,0 @@
-CLASS aud net/minecraft/container/slot/SlotShulkerBox
-	METHOD a canInsert (Lawm;)Z
-		ARG 0 stack

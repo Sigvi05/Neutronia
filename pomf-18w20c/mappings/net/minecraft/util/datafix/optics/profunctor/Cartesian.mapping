@@ -1,3 +1,0 @@
-CLASS acz net/minecraft/util/datafix/optics/profunctor/Cartesian
-	CLASS acz$a Mu
-	METHOD a left (Labf;)Labf;

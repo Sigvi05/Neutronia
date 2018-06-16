@@ -1,3 +1,0 @@
-CLASS cor net/minecraft/client/gui/hud/spectator/ISpectatorMenu
-	METHOD a getElements ()Ljava/util/List;
-	METHOD b getMessage ()Lid;

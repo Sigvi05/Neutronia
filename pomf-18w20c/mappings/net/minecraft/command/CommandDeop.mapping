@@ -1,3 +1,0 @@
-CLASS pn net/minecraft/command/CommandDeop
-	FIELD a COMMANDS_DEOP_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

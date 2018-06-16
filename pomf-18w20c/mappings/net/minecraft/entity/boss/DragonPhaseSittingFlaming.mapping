@@ -1,2 +1,0 @@
-CLASS aow net/minecraft/entity/boss/DragonPhaseSittingFlaming
-	METHOD i getType ()Lapa;

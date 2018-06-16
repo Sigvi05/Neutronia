@@ -1,3 +1,0 @@
-CLASS blx net/minecraft/block/BlockPressurePlateWeighted
-	FIELD t POWER Lboz;
-	FIELD u maxWeight I

@@ -1,3 +1,0 @@
-CLASS ayy net/minecraft/recipe/RecipeShieldDecoration
-	METHOD a matches (Lagm;Lbbd;)Z
-		ARG 1 world

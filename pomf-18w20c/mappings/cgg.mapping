@@ -1,4 +1,0 @@
-CLASS cgg
-	FIELD a NEVER Lcgg;
-	FIELD b SOURCE_ONLY Lcgg;
-	FIELD c ALWAYS Lcgg;

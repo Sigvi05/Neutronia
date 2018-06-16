@@ -1,7 +1,0 @@
-CLASS czu net/minecraft/client/render/entity/EntityRendererDrowned
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Laij;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lard;)Lok;
-		ARG 0 model

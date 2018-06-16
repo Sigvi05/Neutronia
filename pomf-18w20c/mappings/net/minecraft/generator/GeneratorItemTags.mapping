@@ -1,3 +1,0 @@
-CLASS gm net/minecraft/generator/GeneratorItemTags
-	FIELD d LOGGER Lorg/apache/logging/log4j/Logger;
-	METHOD b getName ()Ljava/lang/String;

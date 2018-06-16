@@ -1,7 +1,0 @@
-CLASS axq net/minecraft/util/IToolMaterial
-	METHOD a getDurability ()I
-	METHOD b getEfficency ()F
-	METHOD c getWeaponDamage ()F
-	METHOD d getMiningSpeed ()I
-	METHOD e getEnchantability ()I
-	METHOD f getRepairItemPredicate ()Layo;

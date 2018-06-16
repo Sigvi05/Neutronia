@@ -1,7 +1,0 @@
-CLASS bji
-	FIELD a NORTH Lbow;
-	FIELD b EAST Lbow;
-	FIELD c SOUTH Lbow;
-	FIELD t WEST Lbow;
-	FIELD u UP Lbow;
-	FIELD v DOWN Lbow;

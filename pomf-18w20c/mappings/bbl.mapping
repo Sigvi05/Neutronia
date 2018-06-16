@@ -1,3 +1,0 @@
-CLASS bbl
-	METHOD a spawnEntity (Lahz;)Z
-		ARG 0 entity

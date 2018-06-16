@@ -1,4 +1,0 @@
-CLASS biy
-	FIELD a NONE Lbiy;
-	FIELD b LEFT_RIGHT Lbiy;
-	FIELD c FRONT_BACK Lbiy;

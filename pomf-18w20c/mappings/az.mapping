@@ -1,4 +1,0 @@
-CLASS az
-	FIELD b ARGUMENT_RANGE_EMPTY Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD c ARGUMENT_RANGE_INTS Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD d ARGUMENT_RANGE_SWAPPED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

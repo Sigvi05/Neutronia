@@ -1,2 +1,0 @@
-CLASS bgo net/minecraft/block/BlockConcretePowder
-	METHOD a getDefaultState (Laur;)Lbob;

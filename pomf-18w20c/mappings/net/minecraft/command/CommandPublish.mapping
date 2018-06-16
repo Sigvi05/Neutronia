@@ -1,4 +1,0 @@
-CLASS qm net/minecraft/command/CommandPublish
-	FIELD a COMMANDS_PUBLISH_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b COMMANDS_PUBLISH_ALREADYPUBLISHED Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

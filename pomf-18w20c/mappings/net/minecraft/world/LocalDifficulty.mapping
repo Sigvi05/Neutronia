@@ -1,4 +1,0 @@
-CLASS agr net/minecraft/world/LocalDifficulty
-	METHOD <init> (Lagq;JJF)V
-		ARG 0 difficulty
-		ARG 1 timeOfDay

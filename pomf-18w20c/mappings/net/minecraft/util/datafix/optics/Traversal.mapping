@@ -1,8 +1,0 @@
-CLASS acu net/minecraft/util/datafix/optics/Traversal
-	CLASS acu$a Instance
-		CLASS acu$a$1
-			METHOD a wander (Labg;Lxq;)Lxq;
-		CLASS acu$a$2
-			METHOD a wander (Labg;Lxq;)Lxq;
-		METHOD a wander (Lacv;Labf;)Labf;
-	METHOD a unbox (Labf;)Lacu;

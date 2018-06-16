@@ -1,6 +1,0 @@
-CLASS bii net/minecraft/block/BlockMushroomStem
-	METHOD a getDefaultState (Laur;)Lbob;
-	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
-	METHOD a withMirror (Lbob;Lbiy;)Lbob;
-	METHOD a withRotation (Lbob;Lbkb;)Lbob;
-	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I

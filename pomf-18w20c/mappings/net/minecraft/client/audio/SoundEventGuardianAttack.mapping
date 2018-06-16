@@ -1,5 +1,0 @@
-CLASS dgz net/minecraft/client/audio/SoundEventGuardianAttack
-	FIELD n guardian Laqj;
-	METHOD <init> (Laqj;)V
-		ARG 0 guardian
-	METHOD Y_ update ()V

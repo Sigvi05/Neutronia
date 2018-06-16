@@ -1,6 +1,0 @@
-CLASS dbi net/minecraft/client/render/entity/EntityRendererPolarBear
-	FIELD a SKIN Lok;
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lanh;)Lok;
-		ARG 0 model

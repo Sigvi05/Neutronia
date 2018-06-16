@@ -1,4 +1,0 @@
-CLASS wv net/minecraft/util/CachingSupplier
-	FIELD a sourceSupplier Ljava/util/function/Supplier;
-	FIELD b cachedValue Ljava/lang/Object;
-	METHOD a get ()Ljava/lang/Object;

@@ -1,7 +1,0 @@
-CLASS bbt net/minecraft/world/ScheduledBlockTick
-	FIELD a pos Leg;
-	FIELD d id_counter J
-	FIELD f id J
-	METHOD a getBlock ()Ljava/lang/Object;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

@@ -1,9 +1,0 @@
-CLASS ahj net/minecraft/entity/damage/DamageSourceEntity
-	FIELD w source Lahz;
-	METHOD <init> (Ljava/lang/String;Lahz;)V
-		ARG 0 name
-		ARG 1 source
-	METHOD c getDeathMessage (Laii;)Lid;
-		ARG 0 entity
-	METHOD k getAttacker ()Lahz;
-	METHOD s isScaledWithDifficulty ()Z

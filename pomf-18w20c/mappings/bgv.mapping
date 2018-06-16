@@ -1,3 +1,0 @@
-CLASS bgv
-	FIELD u WATERLOGGED Lbow;
-	METHOD t getFluidState (Lbob;)Lcbd;

@@ -1,3 +1,0 @@
-CLASS ch net/minecraft/command/argument/ArgumentOperation
-	FIELD b ARGUMENTS_OPERATION_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD c CANNOTDIVIDEBYZERO Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

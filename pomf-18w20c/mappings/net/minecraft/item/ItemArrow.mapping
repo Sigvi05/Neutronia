@@ -1,5 +1,0 @@
-CLASS aum net/minecraft/item/ItemArrow
-	METHOD a createEntityArrow (Lbbd;Lawm;Laii;)Larr;
-		ARG 0 world
-		ARG 1 stack
-		ARG 2 owner

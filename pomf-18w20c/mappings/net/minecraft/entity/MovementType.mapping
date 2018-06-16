@@ -1,6 +1,0 @@
-CLASS aio net/minecraft/entity/MovementType
-	FIELD a SELF Laio;
-	FIELD b PLAYER Laio;
-	FIELD c PISTON Laio;
-	FIELD d SHULKER_BOX Laio;
-	FIELD e SHULKER Laio;

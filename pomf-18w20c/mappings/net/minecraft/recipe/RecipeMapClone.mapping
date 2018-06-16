@@ -1,3 +1,0 @@
-CLASS ayp net/minecraft/recipe/RecipeMapClone
-	METHOD a matches (Lagm;Lbbd;)Z
-		ARG 1 world

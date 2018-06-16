@@ -1,3 +1,0 @@
-CLASS cvo net/minecraft/client/render/chunk/ListChunkLayerRenderer
-	METHOD a renderLayer (Lbas;)V
-		ARG 0 layer

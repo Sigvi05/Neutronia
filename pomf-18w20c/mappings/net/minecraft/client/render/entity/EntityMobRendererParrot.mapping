@@ -1,5 +1,0 @@
-CLASS dbe net/minecraft/client/render/entity/EntityMobRendererParrot
-	METHOD a getTexture (Lahz;)Lok;
-		ARG 0 model
-	METHOD a getTexture (Lanf;)Lok;
-		ARG 0 model

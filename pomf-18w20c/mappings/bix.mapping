@@ -1,4 +1,0 @@
-CLASS bix
-	METHOD a getDropAmount (Lbob;ILbbd;Leg;Ljava/util/Random;)I
-	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
-	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I

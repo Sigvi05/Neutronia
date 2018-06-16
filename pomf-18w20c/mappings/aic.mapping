@@ -1,4 +1,0 @@
-CLASS aic
-	CLASS aic$a CanPickup
-		FIELD a itemstack Lawm;
-		METHOD a apply (Lahz;)Z

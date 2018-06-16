@@ -1,5 +1,0 @@
-CLASS tv net/minecraft/resource/pack/VanillaResourcePack
-	FIELD c LOGGER Lorg/apache/logging/log4j/Logger;
-	METHOD a getName ()Ljava/lang/String;
-	METHOD a open (Ltt;Lok;)Ljava/io/InputStream;
-	METHOD b canHandle (Ltt;Lok;)Z

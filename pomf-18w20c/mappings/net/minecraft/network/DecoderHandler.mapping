@@ -1,6 +1,0 @@
-CLASS hv net/minecraft/network/DecoderHandler
-	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
-	FIELD b MARKER Lorg/apache/logging/log4j/Marker;
-	FIELD c side Lir;
-	METHOD <init> (Lir;)V
-		ARG 0 side

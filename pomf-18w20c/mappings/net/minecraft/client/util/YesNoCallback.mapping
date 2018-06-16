@@ -1,4 +1,0 @@
-CLASS ckr net/minecraft/client/util/YesNoCallback
-	METHOD confirmResult handle (ZI)V
-		ARG 0 result
-		ARG 1 callbackId

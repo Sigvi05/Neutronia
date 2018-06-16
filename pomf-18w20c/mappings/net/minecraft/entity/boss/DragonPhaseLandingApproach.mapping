@@ -1,2 +1,0 @@
-CLASS aos net/minecraft/entity/boss/DragonPhaseLandingApproach
-	METHOD i getType ()Lapa;

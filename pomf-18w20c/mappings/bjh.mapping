@@ -1,2 +1,0 @@
-CLASS bjh
-	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I

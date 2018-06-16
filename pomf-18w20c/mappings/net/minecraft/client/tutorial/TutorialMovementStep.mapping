@@ -1,7 +1,0 @@
-CLASS dim net/minecraft/client/tutorial/TutorialMovementStep
-	FIELD a TUTORIAL_MOVE_TITLE Lid;
-	FIELD b TUTORIAL_MOVE_DESCRIPTION Lid;
-	FIELD c TUTORIAL_LOOK_TITLE Lid;
-	FIELD d TUTORIAL_LOOK_DESCRIPTION Lid;
-	METHOD a update ()V
-	METHOD b onStop ()V

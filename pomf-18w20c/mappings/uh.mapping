@@ -1,7 +1,0 @@
-CLASS uh
-	CLASS uh$a
-		FIELD a TOP Luh$a;
-		FIELD b BOTTOM Luh$a;
-	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

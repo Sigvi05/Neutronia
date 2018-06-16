@@ -1,8 +1,0 @@
-CLASS bhn
-	CLASS bhn$a
-		FIELD a FLOOR Lbhn$a;
-		FIELD b WALL Lbhn$a;
-		FIELD c CEILING Lbhn$a;
-		METHOD m asString ()Ljava/lang/String;
-	FIELD H FACE Lboy;
-	METHOD a getDefaultState (Laur;)Lbob;

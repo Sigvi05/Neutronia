@@ -1,6 +1,0 @@
-CLASS azo net/minecraft/enchantment/EnchantmentInfo
-	FIELD b enchantment Lazl;
-	FIELD c level I
-	METHOD <init> (Lazl;I)V
-		ARG 0 enchantment
-		ARG 1 level

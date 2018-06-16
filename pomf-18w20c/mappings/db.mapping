@@ -1,5 +1,0 @@
-CLASS db
-	FIELD a ARGUMENT_POS_MISSING_DOUBLE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b ARGUMENT_POS_MISSING_INT Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 0 object

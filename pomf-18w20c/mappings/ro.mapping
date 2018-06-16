@@ -1,2 +1,0 @@
-CLASS ro
-	FIELD b COMMANDS_DATA_BLOCK_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

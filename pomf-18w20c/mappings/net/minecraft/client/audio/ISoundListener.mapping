@@ -1,4 +1,0 @@
-CLASS dic net/minecraft/client/audio/ISoundListener
-	METHOD a onSoundPlayed (Ldhg;Ldig;)V
-		ARG 0 sound
-		ARG 1 accessor

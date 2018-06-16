@@ -1,7 +1,0 @@
-CLASS bwc
-	CLASS bwc$a StructureVillage
-		FIELD e valid Z
-		METHOD a serializeCustomData (Lgv;)V
-			ARG 0 tag
-		METHOD b deserializeCustomData (Lgv;)V
-			ARG 0 tag

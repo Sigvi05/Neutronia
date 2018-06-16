@@ -1,4 +1,0 @@
-CLASS qn net/minecraft/command/CommandRecipe
-	FIELD a COMMANDS_RECIPE_GIVE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	FIELD b COMMANDS_RECIPE_TAKE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
-	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V
