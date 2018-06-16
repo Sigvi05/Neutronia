@@ -1,0 +1,17 @@
+CLASS bam net/minecraft/village/VillagerRecipeList
+	METHOD <init> (Lgv;)V
+		ARG 0 tag
+	METHOD a deserialize ()Lgv;
+	METHOD a itemsAreEqual (Lawm;Lawm;)Z
+		ARG 0 firstItem
+		ARG 1 secondItem
+	METHOD a getValidRecipe (Lawm;Lawm;I)Lbal;
+		ARG 0 firstBuyItem
+		ARG 1 secondBuyItem
+		ARG 2 recipeIndex
+	METHOD a serialize (Lgv;)V
+		ARG 0 tag
+	METHOD a writeToBuf (Lhu;)V
+		ARG 0 byteBuf
+	METHOD b readFromBuf (Lhu;)Lbam;
+		ARG 0 byteBuf

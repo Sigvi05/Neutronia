@@ -1,0 +1,3 @@
+CLASS fn net/minecraft/generator/GameFileGenerator
+	METHOD a generate ()V
+	METHOD b getName ()Ljava/lang/String;

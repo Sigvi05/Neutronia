@@ -1,0 +1,23 @@
+CLASS lu net/minecraft/network/packet/client/CPacketEntityAttributes
+	CLASS lu$a Entry
+		FIELD b id Ljava/lang/String;
+		FIELD c baseValue D
+		FIELD d modifiers Ljava/util/Collection;
+		METHOD a getId ()Ljava/lang/String;
+		METHOD b getBaseValue ()D
+		METHOD c getModifiers ()Ljava/util/Collection;
+	FIELD a id I
+	FIELD b entries Ljava/util/List;
+	METHOD <init> (ILjava/util/Collection;)V
+		ARG 0 id
+		ARG 1 instances
+	METHOD a getEntityId ()I
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getEntries ()Ljava/util/List;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

@@ -1,0 +1,16 @@
+CLASS ai net/minecraft/util/DistancePredicate
+	FIELD a ANY Lai;
+	FIELD b x Laz;
+	FIELD c y Laz;
+	FIELD d z Laz;
+	FIELD e horizontal Laz;
+	FIELD f absolute Laz;
+	METHOD <init> (Laz;Laz;Laz;Laz;Laz;)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+		ARG 3 horizontal
+		ARG 4 absolute
+	METHOD a matches (DDDDDD)Z
+	METHOD a deserialize (Lcom/google/gson/JsonElement;)Lai;
+		ARG 0 el

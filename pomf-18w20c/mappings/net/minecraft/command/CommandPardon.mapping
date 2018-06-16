@@ -1,0 +1,3 @@
+CLASS qi net/minecraft/command/CommandPardon
+	FIELD a COMMANDS_PARDON_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

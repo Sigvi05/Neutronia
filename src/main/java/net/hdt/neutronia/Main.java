@@ -29,7 +29,7 @@ import java.util.List;
 
 import static net.hdt.neutronia.util.Reference.*;
 
-@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES)
+@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, useMetadata = true)
 public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);

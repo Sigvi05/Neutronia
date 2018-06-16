@@ -1,0 +1,3 @@
+CLASS ir net/minecraft/network/NetworkSide
+	FIELD a SERVERBOUND Lir;
+	FIELD b CLIENTBOUND Lir;

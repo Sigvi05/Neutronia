@@ -1,0 +1,9 @@
+CLASS vi net/minecraft/server/dedicated/ConsoleCommandSender
+	FIELD a buffer Ljava/lang/StringBuffer;
+	FIELD b server Lnet/minecraft/server/MinecraftServer;
+	METHOD <init> (Lnet/minecraft/server/MinecraftServer;)V
+		ARG 0 server
+	METHOD a appendCommandFeedback (Lid;)V
+		ARG 0 feedback
+	METHOD d clearCommandFeedback ()V
+	METHOD e toString ()Ljava/lang/String;

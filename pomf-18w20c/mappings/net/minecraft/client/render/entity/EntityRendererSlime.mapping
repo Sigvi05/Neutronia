@@ -1,0 +1,6 @@
+CLASS dbr net/minecraft/client/render/entity/EntityRendererSlime
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Laqv;)Lok;
+		ARG 0 model

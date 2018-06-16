@@ -1,0 +1,3 @@
+CLASS aul net/minecraft/item/ItemArmorStand
+	METHOD a setRotations (Lapg;Ljava/util/Random;)V
+	METHOD a activate (Laxx;)Lagu;

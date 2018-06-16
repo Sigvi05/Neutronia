@@ -1,0 +1,2 @@
+CLASS csc net/minecraft/client/render/model/ModelBox
+	FIELD h vertexPositions [Lcrp;

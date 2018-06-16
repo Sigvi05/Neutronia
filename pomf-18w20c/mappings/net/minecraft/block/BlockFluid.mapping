@@ -1,0 +1,25 @@
+CLASS bit net/minecraft/block/BlockFluid
+	FIELD a LEVEL Lboz;
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a modifyAcceleration (Lbbh;Leg;Lahz;Lcgi;)Lcgi;
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a isNotSolid (Lbob;Lbar;Leg;)Z
+		ARG 2 pos
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD a update (Lbob;Lbbd;Leg;Lbfs;Leg;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 block
+		ARG 4 updatePos
+	METHOD a randomTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD c getRenderType (Lbob;)Lbjy;
+	METHOD t getFluidState (Lbob;)Lcbd;

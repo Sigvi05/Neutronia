@@ -1,0 +1,6 @@
+CLASS cb net/minecraft/command/argument/ArgumentMessage
+	CLASS cb$b PagedEntry
+	FIELD a FOO Ljava/util/Collection;
+	METHOD a create ()Lcb;
+	METHOD a create (Lcom/mojang/brigadier/context/CommandContext;Ljava/lang/String;)Lid;
+		ARG 0 context

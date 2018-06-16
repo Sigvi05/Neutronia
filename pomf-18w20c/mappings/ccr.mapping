@@ -1,0 +1,3 @@
+CLASS ccr
+	FIELD a NORMAL Lccr;
+	FIELD b FUZZY Lccr;

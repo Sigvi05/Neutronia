@@ -1,0 +1,12 @@
+diff -r -U 3 minecraft\net\minecraft\client\gui\recipebook\GuiRecipeBook.java minecraft_patched\net\minecraft\client\gui\recipebook\GuiRecipeBook.java
+--- minecraft\net\minecraft\client\gui\recipebook\GuiRecipeBook.java
++++ minecraft_patched\net\minecraft\client\gui\recipebook\GuiRecipeBook.java
+@@ -345,7 +345,7 @@
+             this.func_195603_h();
+             return true;
+          } else {
+-            return super.charTyped(p_charTyped_1_, p_charTyped_2_);
++            return IGuiEventListener.super.charTyped(p_charTyped_1_, p_charTyped_2_);
+          }
+       } else {
+          return false;

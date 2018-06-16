@@ -1,0 +1,39 @@
+CLASS bje net/minecraft/block/BlockNote
+	CLASS bje$a
+		FIELD a HARP Lbje$a;
+		FIELD b BASEDRUM Lbje$a;
+		FIELD c SNARE Lbje$a;
+		FIELD d HAT Lbje$a;
+		FIELD e BASS Lbje$a;
+		FIELD f FLUTE Lbje$a;
+		FIELD g BELL Lbje$a;
+		FIELD h GUITAR Lbje$a;
+		FIELD i CHIME Lbje$a;
+		FIELD j XYLOPHONE Lbje$a;
+		METHOD m asString ()Ljava/lang/String;
+	FIELD a INSTRUMENT Lboy;
+	FIELD b POWERED Lbow;
+	FIELD c NOTE Lboz;
+	METHOD a getDefaultState (Laur;)Lbob;
+	METHOD a onBlockAction (Lbob;Lbbd;Leg;II)Z
+		ARG 1 world
+		ARG 2 pos
+	METHOD a onBlockBreakStart (Lbob;Lbbd;Leg;Larn;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+	METHOD a onActivated (Lbob;Lbbd;Leg;Larn;Lags;Lem;FFF)Z
+		ARG 0 state
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+		ARG 4 hand
+		ARG 5 facing
+		ARG 6 hitX
+		ARG 7 hitY
+		ARG 8 hitZ
+	METHOD a update (Lbob;Lbbd;Leg;Lbfs;Leg;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 block
+		ARG 4 updatePos

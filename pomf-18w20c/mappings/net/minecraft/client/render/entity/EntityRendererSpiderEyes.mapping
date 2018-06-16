@@ -1,0 +1,7 @@
+CLASS ddp net/minecraft/client/render/entity/EntityRendererSpiderEyes
+	FIELD a SKIN Lok;
+	METHOD a shouldMergeTextures ()Z
+	METHOD a render (Laii;FFFFFFF)V
+		ARG 0 entity
+	METHOD a render (Laqx;FFFFFFF)V
+		ARG 0 entity

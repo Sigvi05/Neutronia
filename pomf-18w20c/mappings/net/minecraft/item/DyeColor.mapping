@@ -1,0 +1,18 @@
+CLASS avk net/minecraft/item/DyeColor
+	FIELD a WHITE Lavk;
+	FIELD b ORANGE Lavk;
+	FIELD c MAGENTA Lavk;
+	FIELD d LIGHT_BLUE Lavk;
+	FIELD e YELLOW Lavk;
+	FIELD f LIME Lavk;
+	FIELD g PINK Lavk;
+	FIELD h GRAY Lavk;
+	FIELD i LIGHT_GRAY Lavk;
+	FIELD j CYAN Lavk;
+	FIELD k PURPLE Lavk;
+	FIELD l BLUE Lavk;
+	FIELD m BROWN Lavk;
+	FIELD n GREEN Lavk;
+	FIELD o RED Lavk;
+	FIELD p BLACK Lavk;
+	METHOD m asString ()Ljava/lang/String;

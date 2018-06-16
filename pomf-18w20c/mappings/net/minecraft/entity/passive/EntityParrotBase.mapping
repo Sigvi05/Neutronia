@@ -1,0 +1,2 @@
+CLASS anm net/minecraft/entity/passive/EntityParrotBase
+	METHOD R_ update ()V

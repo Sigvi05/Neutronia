@@ -1,0 +1,2 @@
+CLASS bha net/minecraft/block/BlockFacing
+	FIELD a FACING Lbox;

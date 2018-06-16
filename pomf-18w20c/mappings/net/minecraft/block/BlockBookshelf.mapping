@@ -1,0 +1,3 @@
+CLASS bfw net/minecraft/block/BlockBookshelf
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I

@@ -1,0 +1,25 @@
+CLASS apn net/minecraft/entity/projectile/EntityFishHook
+	CLASS apn$a
+		FIELD a FLYING Lapn$a;
+		FIELD b HOOKED_IN_ENTITY Lapn$a;
+		FIELD c BOBBING Lapn$a;
+	FIELD a hookedEntity Lahz;
+	FIELD b HOOK_ENTITY_ID Lnz;
+	FIELD e owner Larn;
+	METHOD R_ update ()V
+	METHOD W invalidate ()V
+	METHOD a shouldRender (D)Z
+		ARG 0 distanceSq
+	METHOD a setPositionAndRotations (DDDFFIZ)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+		ARG 3 yaw
+		ARG 4 pitch
+	METHOD a deserializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD a onTrackedDataSet (Lnz;)V
+		ARG 0 data
+	METHOD b serializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD w_ initDataTracker ()V

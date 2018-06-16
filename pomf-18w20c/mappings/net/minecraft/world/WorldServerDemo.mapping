@@ -1,0 +1,3 @@
+CLASS sd net/minecraft/world/WorldServerDemo
+	FIELD F SEED J
+	FIELD a LEVEL_INFO Lbbi;

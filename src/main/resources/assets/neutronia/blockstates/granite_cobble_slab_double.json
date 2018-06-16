@@ -4,7 +4,10 @@
   "variants": {
     "prop": {
       "blarg": {
-        "model": "neutronia:upper_granite_cobble_slab"
+        "model": "cube_all",
+        "textures": {
+          "all": "neutronia:blocks/granite_cobble"
+        }
       }
     }
   }

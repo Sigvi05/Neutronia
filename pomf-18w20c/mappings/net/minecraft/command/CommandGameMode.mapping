@@ -1,0 +1,2 @@
+CLASS py net/minecraft/command/CommandGameMode
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

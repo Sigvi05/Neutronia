@@ -1,0 +1,5 @@
+CLASS aoa net/minecraft/entity/passive/EntityMule
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD H getLootTableId ()Lok;
+	METHOD ct getSoundDeath ()Lvp;
+	METHOD d getSoundHurt (Lahi;)Lvp;

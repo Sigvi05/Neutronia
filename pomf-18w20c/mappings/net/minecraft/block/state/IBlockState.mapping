@@ -1,0 +1,49 @@
+CLASS bob net/minecraft/block/state/IBlockState
+	METHOD a canEntitySpawn (Lahz;)Z
+		ARG 0 entity
+	METHOD a (Larn;Lbar;Leg;)F
+		ARG 0 player
+		ARG 1 view
+		ARG 2 pos
+	METHOD a (Lbar;Leg;)Z
+		ARG 0 blockView
+		ARG 1 pos
+	METHOD a getWeakRedstonePower (Lbar;Leg;Lem;)I
+	METHOD a getComparatorOutput (Lbbd;Leg;)I
+		ARG 0 world
+		ARG 1 pos
+	METHOD a onBlockAction (Lbbd;Leg;II)Z
+	METHOD a onEntityCollision (Lbbd;Leg;Lahz;)V
+		ARG 0 world
+	METHOD a update (Lbbd;Leg;Lbfs;Leg;)V
+	METHOD a onBlockAdded (Lbbd;Leg;Lbob;)V
+	METHOD a updateTick (Lbbd;Leg;Ljava/util/Random;)V
+	METHOD a withMirror (Lbiy;)Lbob;
+	METHOD a withRotation (Lbkb;)Lbob;
+	METHOD a hasTag (Lwg;)Z
+	METHOD b (Lbar;Leg;)I
+		ARG 0 blockView
+		ARG 1 pos
+	METHOD b getStrongRedstonePower (Lbar;Leg;Lem;)I
+		ARG 0 view
+		ARG 1 pos
+		ARG 2 facing
+	METHOD b onBlockRemoved (Lbbd;Leg;Lbob;)V
+	METHOD b randomTick (Lbbd;Leg;Ljava/util/Random;)V
+	METHOD c getBlock ()Lbfs;
+	METHOD d getMaterial ()Lcbh;
+	METHOD d getMapColor (Lbar;Leg;)Lcbi;
+	METHOD e getLightValue ()I
+	METHOD e getHardness (Lbar;Leg;)F
+		ARG 0 view
+		ARG 1 pos
+	METHOD g isFullBlock ()Z
+	METHOD i getRenderType ()Lbjy;
+	METHOD j getAmbientOcclusionLightValue ()F
+	METHOD k isNormalCube ()Z
+	METHOD k getOffset (Lbar;Leg;)Lcgi;
+	METHOD l isNotSolid (Lbar;Leg;)Z
+	METHOD m canProvidePower ()Z
+	METHOD o getPistonBehavior ()Lcbj;
+	METHOD s getFluidState ()Lcbd;
+	METHOD t doesTickRandomly ()Z

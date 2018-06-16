@@ -1,0 +1,19 @@
+CLASS aro net/minecraft/client/render/entity/PlayerModelPart
+	FIELD a CAPE Laro;
+	FIELD b JACKET Laro;
+	FIELD c LEFT_SLEEVE Laro;
+	FIELD d RIGHT_SLEEVE Laro;
+	FIELD e LEFT_PANTS_LEG Laro;
+	FIELD f RIGHT_PANTS_LEG Laro;
+	FIELD g HAT Laro;
+	FIELD h id I
+	FIELD i bitFlag I
+	FIELD j name Ljava/lang/String;
+	FIELD k localizedName Lid;
+	METHOD <init> (Ljava/lang/String;IILjava/lang/String;)V
+		ARG 0 id
+		ARG 1 name
+	METHOD a getBitFlag ()I
+	METHOD b getId ()I
+	METHOD c getName ()Ljava/lang/String;
+	METHOD d getLocalizedName ()Lid;

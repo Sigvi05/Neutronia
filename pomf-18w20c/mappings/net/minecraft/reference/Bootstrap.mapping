@@ -1,0 +1,134 @@
+CLASS on net/minecraft/reference/Bootstrap
+	CLASS on$1
+		METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+			ARG 0 world
+			ARG 1 pos
+			ARG 2 stack
+	CLASS on$2
+		METHOD a playSound (Leh;)V
+			ARG 0 block
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$3
+		METHOD a playSound (Leh;)V
+			ARG 0 block
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$4
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$5
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$6
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$7
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$8
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$9
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$a DispenseBehaviorBoat
+		FIELD b itemBehavior Lej;
+		FIELD c boatType Lasq$b;
+		METHOD <init> (Lasq$b;)V
+			ARG 0 boatType
+		METHOD a playSound (Leh;)V
+			ARG 0 block
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$b DispenserShulkerBoxInteraction
+		METHOD a getPosition ()Leg;
+		METHOD f getPlayerFacing ()Lem;
+		METHOD g isSneaking ()Z
+		METHOD h getPlayerYaw ()F
+	CLASS on$c DispenserBehaviorOptional
+		METHOD a playSound (Leh;)V
+			ARG 0 block
+	CLASS on$d DispenserBehaviorShulkerBox
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$10
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$11
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	CLASS on$12
+		METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+			ARG 0 world
+			ARG 1 pos
+			ARG 2 stack
+	CLASS on$14
+		METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+			ARG 0 world
+			ARG 1 pos
+			ARG 2 stack
+	CLASS on$15
+		METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+			ARG 0 world
+			ARG 1 pos
+			ARG 2 stack
+	CLASS on$16
+		METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+			ARG 0 world
+			ARG 1 pos
+			ARG 2 stack
+	CLASS on$17
+		METHOD a getProjectileForce ()F
+		METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+			ARG 0 world
+			ARG 1 pos
+			ARG 2 stack
+		METHOD b getProjectileVariation ()F
+	CLASS on$18
+		CLASS on$18$1
+			METHOD a getProjectileForce ()F
+			METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+				ARG 0 world
+				ARG 1 pos
+				ARG 2 stack
+			METHOD b getProjectileVariation ()F
+		METHOD a dispense (Leh;Lawm;)Lawm;
+			ARG 0 location
+			ARG 1 stack
+	CLASS on$19
+		CLASS on$19$1
+			METHOD a getProjectileForce ()F
+			METHOD a createProjectile (Lbbd;Lew;Lawm;)Lasa;
+				ARG 0 world
+				ARG 1 pos
+				ARG 2 stack
+			METHOD b getProjectileVariation ()F
+		METHOD a dispense (Leh;Lawm;)Lawm;
+			ARG 0 location
+			ARG 1 stack
+	CLASS on$20
+		METHOD b doDispense (Leh;Lawm;)Lawm;
+			ARG 0 block
+			ARG 1 stack
+	FIELD a OUTPUT Ljava/io/PrintStream;
+	FIELD b initialized Z
+	FIELD c LOGGER Lorg/apache/logging/log4j/Logger;
+	METHOD a isInitialized ()Z
+	METHOD a printStdout (Ljava/lang/String;)V
+		ARG 0 message
+	METHOD b registerDefaultDispenserBehaviors ()V
+	METHOD c initialize ()V
+	METHOD d redirectOutputStreams ()V

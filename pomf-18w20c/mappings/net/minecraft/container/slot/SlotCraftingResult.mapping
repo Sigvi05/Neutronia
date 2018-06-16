@@ -1,0 +1,22 @@
+CLASS aub net/minecraft/container/slot/SlotCraftingResult
+	FIELD a craftingInv Latj;
+	FIELD b player Larn;
+	METHOD <init> (Larn;Latj;Lagm;III)V
+		ARG 0 player
+		ARG 1 craftingInv
+		ARG 2 inventory
+		ARG 3 invSlot
+		ARG 4 x
+		ARG 5 y
+	METHOD a takeStack (I)Lawm;
+		ARG 0 amount
+	METHOD a onTakeItem (Larn;Lawm;)Lawm;
+		ARG 0 player
+		ARG 1 stack
+	METHOD a canInsert (Lawm;)Z
+		ARG 0 stack
+	METHOD a onCrafted (Lawm;I)V
+		ARG 0 stack
+		ARG 1 amount
+	METHOD c onCrafted (Lawm;)V
+		ARG 0 stack

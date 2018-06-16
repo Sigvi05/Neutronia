@@ -1,0 +1,12 @@
+CLASS dv net/minecraft/command/argument/ArgumentDeserializer
+	FIELD a deserializer Ljava/util/function/Supplier;
+	METHOD <init> (Ljava/util/function/Supplier;)V
+		ARG 0 deserializer
+	METHOD a serialize (Lcom/mojang/brigadier/arguments/ArgumentType;Lcom/google/gson/JsonObject;)V
+		ARG 0 argument
+		ARG 1 root
+	METHOD a serialize (Lcom/mojang/brigadier/arguments/ArgumentType;Lhu;)V
+		ARG 0 argument
+		ARG 1 buffer
+	METHOD b deserialize (Lhu;)Lcom/mojang/brigadier/arguments/ArgumentType;
+		ARG 0 buffer

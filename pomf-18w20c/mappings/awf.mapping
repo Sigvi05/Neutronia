@@ -1,0 +1,7 @@
+CLASS awf
+	METHOD a onConsumed (Lawm;Lbbd;Larn;)V
+		ARG 0 stack
+		ARG 1 world
+		ARG 2 player
+	METHOD e getRarity (Lawm;)Lawy;
+		ARG 0 stack

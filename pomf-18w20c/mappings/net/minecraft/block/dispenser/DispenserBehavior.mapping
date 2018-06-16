@@ -1,0 +1,9 @@
+CLASS eo net/minecraft/block/dispenser/DispenserBehavior
+	CLASS eo$1
+		METHOD a dispense (Leh;Lawm;)Lawm;
+			ARG 0 location
+			ARG 1 stack
+	FIELD a DEFAULT Leo;
+	METHOD a dispense (Leh;Lawm;)Lawm;
+		ARG 0 location
+		ARG 1 stack

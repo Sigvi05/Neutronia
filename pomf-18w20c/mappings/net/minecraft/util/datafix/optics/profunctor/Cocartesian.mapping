@@ -1,0 +1,4 @@
+CLASS adb net/minecraft/util/datafix/optics/profunctor/Cocartesian
+	CLASS adb$a Mu
+	METHOD b unbox (Labe;)Ladb;
+	METHOD c right (Labf;)Labf;

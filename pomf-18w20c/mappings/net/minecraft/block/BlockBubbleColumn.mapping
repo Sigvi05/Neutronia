@@ -1,0 +1,28 @@
+CLASS bfy net/minecraft/block/BlockBubbleColumn
+	FIELD a DRAG Lbow;
+	METHOD X_ getRenderLayer ()Lbas;
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a isNotSolid (Lbob;Lbar;Leg;)Z
+		ARG 2 pos
+	METHOD a onEntityCollision (Lbob;Lbbd;Leg;Lahz;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 entity
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I
+	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD c getRenderType (Lbob;)Lbjy;
+	METHOD c randomDisplayTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 rand
+	METHOD t getFluidState (Lbob;)Lcbd;

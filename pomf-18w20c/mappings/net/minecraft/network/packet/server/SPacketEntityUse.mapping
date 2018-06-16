@@ -1,0 +1,31 @@
+CLASS mj net/minecraft/network/packet/server/SPacketEntityUse
+	CLASS mj$a Type
+		FIELD a INTERACT Lmj$a;
+		FIELD b ATTACK Lmj$a;
+		FIELD c INTERACT_AT Lmj$a;
+	FIELD a targetId I
+	FIELD b type Lmj$a;
+	FIELD c pos Lcgi;
+	FIELD d hand Lags;
+	METHOD <init> (Lahz;)V
+		ARG 0 target
+	METHOD <init> (Lahz;Lags;)V
+		ARG 0 target
+		ARG 1 hand
+	METHOD <init> (Lahz;Lags;Lcgi;)V
+		ARG 0 target
+		ARG 1 hand
+		ARG 2 pos
+	METHOD a getType ()Lmj$a;
+	METHOD a getTarget (Lbbd;)Lahz;
+		ARG 0 world
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lly;)V
+		ARG 0 handler
+	METHOD b getHand ()Lags;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getPos ()Lcgi;

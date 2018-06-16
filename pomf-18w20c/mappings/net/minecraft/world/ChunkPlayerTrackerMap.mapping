@@ -1,0 +1,39 @@
+CLASS ss net/minecraft/world/ChunkPlayerTrackerMap
+	FIELD c world Lsk;
+	FIELD d players Ljava/util/List;
+	FIELD e chunkManagerMap Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;
+	FIELD f dirtyTrackers Ljava/util/Set;
+	FIELD j chunkDistance I
+	METHOD <init> (Lsk;)V
+		ARG 0 world
+	METHOD a getWorld ()Lsk;
+	METHOD a setChunkDistance (I)V
+		ARG 0 chunkDistance
+	METHOD a contains (II)Z
+		ARG 0 chunkX
+		ARG 1 chunkZ
+	METHOD a markBlockDirty (Leg;)V
+		ARG 0 pos
+	METHOD a registerPlayer (Lsm;)V
+		ARG 0 player
+	METHOD a isObservingChunk (Lsm;II)Z
+		ARG 0 player
+		ARG 1 chunkX
+		ARG 2 chunkZ
+	METHOD a markTrackerDirty (Lsr;)V
+		ARG 0 chunkManager
+	METHOD b get (II)Lsr;
+		ARG 0 chunkX
+		ARG 1 chunkZ
+	METHOD b unregisterPlayer (Lsm;)V
+		ARG 0 player
+	METHOD b remove (Lsr;)V
+		ARG 0 object
+	METHOD c update ()V
+	METHOD c getOrCreate (II)Lsr;
+		ARG 0 chunkX
+		ARG 1 chunkZ
+	METHOD d chunkPosAsLong (II)J
+		ARG 0 chunkX
+		ARG 1 chunkZ
+	METHOD e markMapDirty ()V

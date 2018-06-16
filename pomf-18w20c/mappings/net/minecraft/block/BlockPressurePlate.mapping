@@ -1,0 +1,6 @@
+CLASS bjp net/minecraft/block/BlockPressurePlate
+	CLASS bjp$a Type
+		FIELD a EVERYTHING Lbjp$a;
+		FIELD b MOBS Lbjp$a;
+	FIELD t POWERED Lbow;
+	FIELD u type Lbjp$a;

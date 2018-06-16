@@ -1,0 +1,13 @@
+CLASS atx net/minecraft/inventory/InventoryEnderChest
+	FIELD a currentBlockEntity Lbms;
+	METHOD a canPlayerUseInv (Larn;)Z
+		ARG 0 player
+	METHOD a setCurrentBlockEntity (Lbms;)V
+		ARG 0 value
+	METHOD a readTags (Lhb;)V
+		ARG 0 tags
+	METHOD b onInvOpen (Larn;)V
+		ARG 0 player
+	METHOD c onInvClose (Larn;)V
+		ARG 0 player
+	METHOD i getTags ()Lhb;

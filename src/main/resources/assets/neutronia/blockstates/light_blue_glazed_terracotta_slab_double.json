@@ -4,7 +4,10 @@
   "variants": {
     "prop": {
       "blarg": {
-        "model": "neutronia:upper_light_blue_glazed_terracotta_slab"
+        "model": "cube_all",
+        "textures": {
+          "all": "minecraft:blocks/light_blue_glazed_terracotta"
+        }
       }
     }
   }

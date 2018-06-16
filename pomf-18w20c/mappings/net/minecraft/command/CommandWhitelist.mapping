@@ -1,0 +1,6 @@
+CLASS rm net/minecraft/command/CommandWhitelist
+	FIELD a COMMANDS_WHITELIST_ALREADYON Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD b COMMANDS_WHITELIST_ALREADYOFF Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD c COMMANDS_WHITELIST_ADD_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD d COMMANDS_WHITELIST_REMOVE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

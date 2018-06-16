@@ -1,0 +1,12 @@
+CLASS blf net/minecraft/block/BlockDoubleTallFlower
+	METHOD a isFertilizable (Lbar;Leg;Lbob;Z)Z
+		ARG 1 pos
+		ARG 3 remote
+	METHOD a canGrow (Lbbd;Ljava/util/Random;Leg;Lbob;)Z
+		ARG 0 world
+		ARG 1 rand
+		ARG 2 pos
+	METHOD b grow (Lbbd;Ljava/util/Random;Leg;Lbob;)V
+		ARG 0 world
+		ARG 1 rand
+		ARG 2 pos

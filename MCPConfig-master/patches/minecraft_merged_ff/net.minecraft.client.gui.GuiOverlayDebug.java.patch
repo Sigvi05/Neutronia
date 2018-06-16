@@ -1,0 +1,12 @@
+diff -r -U 3 minecraft\net\minecraft\client\gui\GuiOverlayDebug.java minecraft_patched\net\minecraft\client\gui\GuiOverlayDebug.java
+--- minecraft\net\minecraft\client\gui\GuiOverlayDebug.java
++++ minecraft_patched\net\minecraft\client\gui\GuiOverlayDebug.java
+@@ -163,7 +163,7 @@
+             IProperty<T> iproperty;
+             String s;
+             for(UnmodifiableIterator unmodifiableiterator = iblockstate.func_177228_b().entrySet().iterator(); unmodifiableiterator.hasNext(); list.add(iproperty.func_177701_a() + ": " + s)) {
+-               Entry<IProperty<?>, Comparable<?>> entry = (Entry)unmodifiableiterator.next();
++               Entry<IProperty<T>, T> entry = (Entry)unmodifiableiterator.next();
+                iproperty = entry.getKey();
+                T t = entry.getValue();
+                s = iproperty.func_177702_a(t);

@@ -1,0 +1,5 @@
+CLASS coo
+	METHOD a renderIcon (FI)V
+	METHOD a selectElement (Lcoq;)V
+		ARG 0 menu
+	METHOD am_ enabled ()Z

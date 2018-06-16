@@ -1,0 +1,40 @@
+CLASS bal net/minecraft/village/VillagerRecipe
+	FIELD a buyItem Lawm;
+	FIELD b secondBuyItem Lawm;
+	FIELD c sellItem Lawm;
+	FIELD d uses I
+	FIELD e maxUses I
+	FIELD f rewardExp Z
+	METHOD <init> (Lawm;Lawi;)V
+		ARG 0 buyItem
+		ARG 1 sellItem
+	METHOD <init> (Lawm;Lawm;)V
+		ARG 0 buyItem
+		ARG 1 sellItem
+	METHOD <init> (Lawm;Lawm;Lawm;)V
+		ARG 0 buyItem
+		ARG 1 secondBuyItem
+		ARG 2 sellItem
+	METHOD <init> (Lawm;Lawm;Lawm;II)V
+		ARG 0 buyItem
+		ARG 1 secondBuyItem
+		ARG 2 sellItem
+		ARG 3 uses
+		ARG 4 maxUses
+	METHOD <init> (Lgv;)V
+		ARG 0 tag
+	METHOD a getBuyItem ()Lawm;
+	METHOD a increasedMaxUses (I)V
+		ARG 0 uses
+	METHOD a serialize (Lgv;)V
+		ARG 0 tag
+	METHOD b getSecondBuyItem ()Lawm;
+	METHOD c hasSecondBuyItem ()Z
+	METHOD d getSellItem ()Lawm;
+	METHOD e getUses ()I
+	METHOD f getMaxUses ()I
+	METHOD g use ()V
+	METHOD h isDisabled ()Z
+	METHOD i clearUses ()V
+	METHOD j getRewardExp ()Z
+	METHOD k deserialize ()Lgv;

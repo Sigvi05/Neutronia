@@ -1,0 +1,23 @@
+CLASS clq net/minecraft/client/gui/menu/GuiSettingsAudio
+	CLASS clq$a
+		METHOD a drawBackground (Lchv;II)V
+			ARG 0 game
+			ARG 1 mouseX
+			ARG 2 mouseY
+		METHOD a onPressed (Ldid;)V
+			ARG 0 soundLoader
+		METHOD a getTextureId (Z)I
+			ARG 0 pressed
+	FIELD a title Ljava/lang/String;
+	FIELD f parent Lclm;
+	FIELD g settings Lchy;
+	FIELD h optionsOff Ljava/lang/String;
+	METHOD <init> (Lclm;Lchy;)V
+		ARG 0 parent
+		ARG 1 settings
+	METHOD a draw (IIF)V
+		ARG 0 mouseX
+		ARG 1 mouseY
+		ARG 2 delta
+	METHOD ag_ close ()V
+	METHOD c init ()V

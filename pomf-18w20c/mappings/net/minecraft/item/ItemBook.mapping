@@ -1,0 +1,4 @@
+CLASS auu net/minecraft/item/ItemBook
+	METHOD a isTool (Lawm;)Z
+		ARG 0 stack
+	METHOD c getEnchantability ()I

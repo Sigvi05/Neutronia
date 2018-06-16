@@ -1,0 +1,3 @@
+CLASS cgp
+	METHOD getDouble getDouble (I)D
+	METHOD size size ()I

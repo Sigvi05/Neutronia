@@ -1,0 +1,5 @@
+CLASS aqy net/minecraft/entity/mob/EntityStray
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD H getLootTableId ()Lok;
+	METHOD ct getSoundDeath ()Lvp;
+	METHOD d getSoundHurt (Lahi;)Lvp;

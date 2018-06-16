@@ -1,0 +1,28 @@
+CLASS bkf net/minecraft/block/BlockSeaPickle
+	FIELD a PICKLES Lboz;
+	FIELD b WATERLOGGED Lbow;
+	METHOD a getDefaultState (Laur;)Lbob;
+	METHOD a isFertilizable (Lbar;Leg;Lbob;Z)Z
+		ARG 1 pos
+		ARG 3 remote
+	METHOD a canGrow (Lbbd;Ljava/util/Random;Leg;Lbob;)Z
+		ARG 0 world
+		ARG 1 rand
+		ARG 2 pos
+	METHOD a onActivated (Lbob;Lbbd;Leg;Larn;Lags;Lem;FFF)Z
+		ARG 0 state
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+		ARG 4 hand
+		ARG 5 facing
+		ARG 6 hitX
+		ARG 7 hitY
+		ARG 8 hitZ
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I
+	METHOD b grow (Lbbd;Ljava/util/Random;Leg;Lbob;)V
+		ARG 0 world
+		ARG 1 rand
+		ARG 2 pos
+	METHOD l getLightValue (Lbob;)I
+	METHOD t getFluidState (Lbob;)Lcbd;

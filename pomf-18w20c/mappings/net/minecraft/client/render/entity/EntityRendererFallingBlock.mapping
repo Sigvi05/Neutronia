@@ -1,0 +1,5 @@
+CLASS daf net/minecraft/client/render/entity/EntityRendererFallingBlock
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Laps;)Lok;
+		ARG 0 model

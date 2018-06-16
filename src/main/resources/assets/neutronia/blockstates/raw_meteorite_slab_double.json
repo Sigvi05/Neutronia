@@ -4,7 +4,10 @@
   "variants": {
     "prop": {
       "blarg": {
-        "model": "neutronia:upper_raw_meteorite_slab"
+        "model": "cube_all",
+        "textures": {
+          "all": "neutronia:blocks/raw_meteorite"
+        }
       }
     }
   }

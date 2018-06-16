@@ -1,0 +1,17 @@
+CLASS coq net/minecraft/client/gui/hud/spectator/SpectatorMenu
+	CLASS coq$1
+		METHOD a renderIcon (FI)V
+		METHOD a selectElement (Lcoq;)V
+			ARG 0 menu
+		METHOD am_ enabled ()Z
+	CLASS coq$a
+		METHOD a renderIcon (FI)V
+		METHOD a selectElement (Lcoq;)V
+			ARG 0 menu
+		METHOD am_ enabled ()Z
+	CLASS coq$b
+		METHOD a renderIcon (FI)V
+		METHOD a selectElement (Lcoq;)V
+			ARG 0 menu
+		METHOD am_ enabled ()Z
+	METHOD a selectElement (Lcor;)V

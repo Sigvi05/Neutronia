@@ -1,0 +1,25 @@
+CLASS chi net/minecraft/scoreboard/ScoreboardCritereon
+	CLASS chi$a DisplayType
+		FIELD a INTEGER Lchi$a;
+		FIELD b HEARTS Lchi$a;
+	FIELD a NAME_TO_ITEM Ljava/util/Map;
+	FIELD b DUMMY Lchi;
+	FIELD c TRIGGER Lchi;
+	FIELD d DEATH_COUNT Lchi;
+	FIELD e PLAYER_KILL_COUNT Lchi;
+	FIELD f TOTAL_KILL_COUNT Lchi;
+	FIELD g HEALTH Lchi;
+	FIELD h FOOD Lchi;
+	FIELD i AIR Lchi;
+	FIELD j ARMOR Lchi;
+	FIELD k XP Lchi;
+	FIELD l LEVEL Lchi;
+	FIELD m TEAMKILL_COLOURS [Lchi;
+	FIELD n KILLEDBYTEAM_COLOURS [Lchi;
+	FIELD o name Ljava/lang/String;
+	FIELD p readOnly Z
+	FIELD q displayAs Lchi$a;
+	METHOD a getItem (Lvy;Lok;)Lchi;
+	METHOD c getName ()Ljava/lang/String;
+	METHOD d isReadOnly ()Z
+	METHOD e getDisplayType ()Lchi$a;

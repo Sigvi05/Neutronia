@@ -1,0 +1,4 @@
+CLASS bih net/minecraft/block/BlockFacingHorizontal
+	FIELD I FACING Lbox;
+	METHOD a withMirror (Lbob;Lbiy;)Lbob;
+	METHOD a withRotation (Lbob;Lbkb;)Lbob;

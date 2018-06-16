@@ -1,0 +1,42 @@
+CLASS bgm net/minecraft/block/BlockCommand
+	FIELD a FACING Lbox;
+	FIELD b CONDITIONAL Lbow;
+	FIELD c LOGGER Lorg/apache/logging/log4j/Logger;
+	METHOD a getDefaultState (Laur;)Lbob;
+	METHOD a createBlockEntity (Lbar;)Lbmh;
+		ARG 0 world
+	METHOD a onPlaced (Lbbd;Leg;Lbob;Laii;Lawm;)V
+		ARG 0 world
+		ARG 1 pos
+		ARG 3 placer
+		ARG 4 stack
+	METHOD a getComparatorOutput (Lbob;Lbbd;Leg;)I
+		ARG 1 world
+		ARG 2 pos
+	METHOD a onActivated (Lbob;Lbbd;Leg;Larn;Lags;Lem;FFF)Z
+		ARG 0 state
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+		ARG 4 hand
+		ARG 5 facing
+		ARG 6 hitX
+		ARG 7 hitY
+		ARG 8 hitZ
+	METHOD a update (Lbob;Lbbd;Leg;Lbfs;Leg;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 block
+		ARG 4 updatePos
+	METHOD a randomTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD a withMirror (Lbob;Lbiy;)Lbob;
+	METHOD a withRotation (Lbob;Lbkb;)Lbob;
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD c getRenderType (Lbob;)Lbjy;

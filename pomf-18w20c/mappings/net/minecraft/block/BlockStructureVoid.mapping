@@ -1,0 +1,14 @@
+CLASS bld net/minecraft/block/BlockStructureVoid
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a dropItems (Lbob;Lbbd;Leg;FI)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 dropChance
+		ARG 4 fortune
+	METHOD c getRenderType (Lbob;)Lbjy;
+	METHOD g getAmbientOcclusionLightValue (Lbob;)F
+	METHOD i getPistonBehavior (Lbob;)Lcbj;

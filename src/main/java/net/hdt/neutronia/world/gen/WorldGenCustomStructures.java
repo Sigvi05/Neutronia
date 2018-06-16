@@ -4,6 +4,7 @@ import net.hdt.neutronia.world.gen.generators.WorldGenStructure;
 import net.hdt.neutronia.world.gen.structure.WorldGenCivilizationRuins;
 import net.hdt.neutronia.world.utils.WorldGenUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockGrass;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -34,6 +35,12 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public static final WorldGenStructure CORAL_BLUE = new WorldGenStructure("coral_blue");
     public static final WorldGenStructure CORAL_RED = new WorldGenStructure("coral_red");
 
+    public static final WorldGenStructure SNOW_SMALL_1 = new WorldGenStructure("ttb/structure_snow_small1");
+    public static final WorldGenStructure SNOW_SMALL_2 = new WorldGenStructure("ttb/structure_snow_small2");
+    public static final WorldGenStructure SNOW_SMALL_3 = new WorldGenStructure("ttb/structure_snow_small3");
+    public static final WorldGenStructure SNOW_SPIKES = new WorldGenStructure("ttb/structure_snow_spikes");
+    public static final WorldGenStructure SNOW_TOWER = new WorldGenStructure("ttb/structure_snow_tower");
+
     public static final WorldGenStructure CRUST1 = new WorldGenStructure("ocean_structures/corals/crust1");
     public static final WorldGenStructure CRUST2 = new WorldGenStructure("ocean_structures/corals/crust2");
     public static final WorldGenStructure CRUST3 = new WorldGenStructure("ocean_structures/corals/crust3");
@@ -55,6 +62,11 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             case 1:
                 break;
             case 0:
+                generateStructure(SNOW_SMALL_1, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_SMALL_2, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_SMALL_3, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_SPIKES, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_TOWER, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
 //                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 5);
 //                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 8);
 //                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 2);

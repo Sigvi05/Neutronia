@@ -1,0 +1,9 @@
+CLASS bmm net/minecraft/block/entity/BlockEntityComparator
+	FIELD a outputSignal I
+	METHOD a setOutputSignal (I)V
+		ARG 0 outputSignal
+	METHOD a serialize (Lgv;)Lgv;
+		ARG 0 tag
+	METHOD b deserialize (Lgv;)V
+		ARG 0 tag
+	METHOD c getOutputSignal ()I

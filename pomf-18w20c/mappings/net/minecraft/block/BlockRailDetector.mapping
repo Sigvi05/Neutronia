@@ -1,0 +1,33 @@
+CLASS bgy net/minecraft/block/BlockRailDetector
+	FIELD t SHAPE Lboy;
+	FIELD u POWERED Lbow;
+	METHOD a getWeakRedstonePower (Lbob;Lbar;Leg;Lem;)I
+		ARG 1 view
+		ARG 2 pos
+		ARG 3 facingFrom
+	METHOD a getComparatorOutput (Lbob;Lbbd;Leg;)I
+		ARG 1 world
+		ARG 2 pos
+	METHOD a onEntityCollision (Lbob;Lbbd;Leg;Lahz;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 entity
+	METHOD a randomTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD a withMirror (Lbob;Lbiy;)Lbob;
+	METHOD a withRotation (Lbob;Lbkb;)Lbob;
+	METHOD b getStrongRedstonePower (Lbob;Lbar;Leg;Lem;)I
+		ARG 1 view
+		ARG 2 pos
+		ARG 3 facingFrom
+	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD c getShapeProperty ()Lbpa;
+	METHOD h canProvidePower (Lbob;)Z

@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -22,6 +23,8 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.PathNavigateGround;
+import net.minecraft.pathfinding.PathNavigateSwimmer;
+import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -35,11 +38,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
-public class EntityAnchored extends EntityUndeadBase {
+public class EntityAnchored extends EntityMob {
 
     public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityAnchored.class, DataSerializers.BOOLEAN);
     private final EntityAIBreakDoor breakDoor = new EntityAIBreakDoor(this);
     private boolean isBreakDoorsTaskSet;
+    protected final PathNavigateSwimmer field_204716_a;
+    protected final PathNavigateGround field_204717_b;
 
     private float mummyWidth = -1.0F;
     private float mummyHeight;
@@ -47,6 +52,9 @@ public class EntityAnchored extends EntityUndeadBase {
     public EntityAnchored(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.95F);
+        this.setPathPriority(PathNodeType.WATER, 0.0F);
+        this.field_204716_a = new PathNavigateSwimmer(this, worldIn);
+        this.field_204717_b = new PathNavigateGround(this, worldIn);
     }
 
     @Override

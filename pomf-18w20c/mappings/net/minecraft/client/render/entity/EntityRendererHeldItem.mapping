@@ -1,0 +1,7 @@
+CLASS ddg net/minecraft/client/render/entity/EntityRendererHeldItem
+	FIELD b renderer Ldav;
+	METHOD <init> (Ldav;)V
+		ARG 0 renderer
+	METHOD a shouldMergeTextures ()Z
+	METHOD a render (Laii;FFFFFFF)V
+		ARG 0 entity

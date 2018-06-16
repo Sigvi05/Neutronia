@@ -1,0 +1,3 @@
+CLASS den
+	METHOD a load (Lum;)V
+		ARG 0 resourceContainer

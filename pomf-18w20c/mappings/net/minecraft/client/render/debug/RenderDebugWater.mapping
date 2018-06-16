@@ -1,0 +1,3 @@
+CLASS cza net/minecraft/client/render/debug/RenderDebugWater
+	METHOD a render (FJ)V
+		ARG 0 tickDelta

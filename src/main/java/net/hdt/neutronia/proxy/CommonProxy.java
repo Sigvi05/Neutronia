@@ -1,5 +1,6 @@
 package net.hdt.neutronia.proxy;
 
+import net.hdt.neutronia.blocks.overworld.BlockKelp;
 import net.hdt.neutronia.init.NBiomes;
 import net.hdt.neutronia.init.NRecipes;
 import net.hdt.neutronia.module.ModModules;
@@ -8,6 +9,7 @@ import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.hdt.neutronia.tileentity.TileEntityFloorTile;
 import net.hdt.neutronia.tileentity.TileEntityNeonLight;
 import net.hdt.neutronia.world.events.WorldGenEvents;
+import net.hdt.neutronia.world.gen.BasaltGenerator;
 import net.hdt.neutronia.world.gen.OreGen;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,11 +31,13 @@ public class CommonProxy {
         NRecipes.register();
         GameRegistry.registerWorldGenerator(new OreGen(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
+        GameRegistry.registerWorldGenerator(new BasaltGenerator(33, 80, 10, 1), 0);
         MinecraftForge.TERRAIN_GEN_BUS.register(WorldGenEvents.class);
         GameRegistry.registerTileEntity(TileCustomChest.class, "neutronia:custom_chest");
         GameRegistry.registerTileEntity(TileEntityFloorTile.class, "neutronia:floor_tile");
 //        GameRegistry.registerTileEntity(TileEntityPotteryClayMachine.class, "neutronia:pottery_clay_machine");
         GameRegistry.registerTileEntity(TileEntityNeonLight.class, "neutronia:neon_lights");
+        GameRegistry.registerTileEntity(BlockKelp.TileKelp.class, "neutronia:kelp");
         ModuleHandler.INSTANCE.handleInit(event);
     }
 

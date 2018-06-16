@@ -1,0 +1,3 @@
+CLASS ago net/minecraft/inventory/IInventoryListener
+	METHOD a onInvChange (Lagm;)V
+		ARG 0 inventory

@@ -1,0 +1,13 @@
+CLASS dad net/minecraft/client/render/entity/EntityRendererEvokerIllager
+	CLASS dad$1
+		METHOD a render (Laii;FFFFFFF)V
+			ARG 0 entity
+	FIELD a EVOKER_TEXTURE Lok;
+	METHOD <init> (Ldaa;)V
+		ARG 0 entityRenderManager
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Laqn;)Lok;
+		ARG 0 model
+	METHOD a scale (Laqn;F)V
+		ARG 0 entity

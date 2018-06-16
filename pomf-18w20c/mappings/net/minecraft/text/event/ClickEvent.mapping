@@ -1,0 +1,19 @@
+CLASS ic net/minecraft/text/event/ClickEvent
+	CLASS ic$a Action
+		FIELD a OPEN_URL Lic$a;
+		FIELD b OPEN_FILE Lic$a;
+		FIELD c RUN_COMMAND Lic$a;
+		FIELD d SUGGEST_COMMAND Lic$a;
+		FIELD e CHANGE_PAGE Lic$a;
+		FIELD h name Ljava/lang/String;
+		METHOD a get (Ljava/lang/String;)Lic$a;
+		METHOD b getName ()Ljava/lang/String;
+	FIELD a action Lic$a;
+	FIELD b value Ljava/lang/String;
+	METHOD <init> (Lic$a;Ljava/lang/String;)V
+		ARG 0 action
+		ARG 1 value
+	METHOD a getAction ()Lic$a;
+	METHOD b getValue ()Ljava/lang/String;
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 0 object

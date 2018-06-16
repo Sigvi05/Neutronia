@@ -1,0 +1,12 @@
+CLASS sp net/minecraft/world/chunk/ChunkCache
+	FIELD a chunks [Lbpg;
+	METHOD <init> ([Lbpg;IIIILbbd;)V
+		ARG 0 chunks
+	METHOD a spawnEntity (Lahz;)Z
+		ARG 0 entity
+	METHOD a getEntitiesWithinAABB (Lahz;Lcge;)Ljava/util/List;
+	METHOD a_ getBlockState (Leg;)Lbob;
+	METHOD b getFluidState (Leg;)Lcbd;
+	METHOD f getBlockEntity (Leg;)Lbmh;
+		ARG 0 pos
+	METHOD s_ getProperties ()Lcef;

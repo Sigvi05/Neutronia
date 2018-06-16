@@ -1,0 +1,28 @@
+CLASS cmz net/minecraft/client/gui/container/GuiVillager
+	CLASS cmz$a
+		METHOD a draw (IIF)V
+			ARG 1 mouseY
+			ARG 2 delta
+	FIELD B villagerName Lid;
+	FIELD v LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD w BG_TEX Lok;
+	FIELD x villager Lbak;
+	FIELD y buttonPageNext Lcmz$a;
+	FIELD z buttonPagePrevious Lcmz$a;
+	METHOD <init> (Larm;Lbak;Lbbd;)V
+		ARG 0 playerInv
+		ARG 1 villager
+		ARG 2 world
+	METHOD a drawBackground (FII)V
+		ARG 0 delta
+		ARG 1 mouseX
+		ARG 2 mouseY
+	METHOD a draw (IIF)V
+		ARG 0 mouseX
+		ARG 1 mouseY
+		ARG 2 delta
+	METHOD c init ()V
+	METHOD c drawForeground (II)V
+		ARG 0 mouseX
+		ARG 1 mouseY
+	METHOD f update ()V

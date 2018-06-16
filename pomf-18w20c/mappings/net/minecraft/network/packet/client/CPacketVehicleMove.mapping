@@ -1,0 +1,21 @@
+CLASS kh net/minecraft/network/packet/client/CPacketVehicleMove
+	FIELD a x D
+	FIELD b y D
+	FIELD c z D
+	FIELD d yaw F
+	FIELD e pitch F
+	METHOD <init> (Lahz;)V
+		ARG 0 entity
+	METHOD a getX ()D
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getY ()D
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getZ ()D
+	METHOD d getYaw ()F
+	METHOD e getPitch ()F

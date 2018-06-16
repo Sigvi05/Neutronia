@@ -1,0 +1,22 @@
+CLASS ht net/minecraft/network/NetworkState
+	FIELD a HANDSHAKE Lht;
+	FIELD b GAME Lht;
+	FIELD c QUERY Lht;
+	FIELD d LOGIN Lht;
+	FIELD e STATES [Lht;
+	FIELD f HANDLER_STATE_MAP Ljava/util/Map;
+	FIELD g id I
+	FIELD h packetHandlerMap Ljava/util/Map;
+	METHOD <init> (Ljava/lang/String;II)V
+		ARG 0 id
+	METHOD a getId ()I
+	METHOD a byId (I)Lht;
+		ARG 0 id
+	METHOD a getPacketHandlerState (Liq;)Lht;
+		ARG 0 handler
+	METHOD a getPacketHandler (Lir;I)Liq;
+		ARG 0 side
+		ARG 1 id
+	METHOD a getPacketId (Lir;Liq;)Ljava/lang/Integer;
+		ARG 0 side
+		ARG 1 handler

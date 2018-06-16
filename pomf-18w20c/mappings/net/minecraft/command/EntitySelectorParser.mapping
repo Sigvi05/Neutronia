@@ -1,0 +1,6 @@
+CLASS dm net/minecraft/command/EntitySelectorParser
+	FIELD a ARGUMENT_ENTITY_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD b ARGUMENT_ENTITY_SELECTOR_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD c ARGUMENT_ENTITY_SELECTOR_MISSING Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD d ARGUMENT_ENTITY_OPTIONS_UNTERMINATED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD e ARGUMENT_ENTITY_OPTIONS_VALUELESS Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

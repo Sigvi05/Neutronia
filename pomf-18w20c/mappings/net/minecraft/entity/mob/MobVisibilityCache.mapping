@@ -1,0 +1,9 @@
+CLASS amj net/minecraft/entity/mob/MobVisibilityCache
+	FIELD a owner Laij;
+	FIELD b visibleEntities Ljava/util/List;
+	FIELD c invisibleEntities Ljava/util/List;
+	METHOD <init> (Laij;)V
+		ARG 0 owner
+	METHOD a clear ()V
+	METHOD a canSee (Lahz;)Z
+		ARG 0 entity

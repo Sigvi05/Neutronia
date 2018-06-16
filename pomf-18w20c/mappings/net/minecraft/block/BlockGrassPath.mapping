@@ -1,0 +1,8 @@
+CLASS bic net/minecraft/block/BlockGrassPath
+	METHOD a getDefaultState (Laur;)Lbob;
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;

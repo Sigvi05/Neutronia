@@ -1,0 +1,23 @@
+CLASS pj net/minecraft/command/CommandBossbar
+	FIELD b COMMANDS_BOSSBAR_CREATE_FAILED Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD c COMMANDS_BOSSBAR_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD d COMMANDS_BOSSBAR_SET_PLAYERS_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD e COMMANDS_BOSSBAR_SET_NAME_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD f COMMANDS_BOSSBAR_SET_COLOR_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD g COMMANDS_BOSSBAR_SET_STYLE_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD h COMMANDS_BOSSBAR_SET_VALUE_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD i COMMANDS_BOSSBAR_SET_MAX_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD j COMMANDS_BOSSBAR_SET_VISIBILITY_UNCHANGED_HIDDEN Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD k COMMANDS_BOSSBAR_SET_VISIBILITY_UNCHANGED_VISIBLE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a (Lbs;Lpc;)I
+		ARG 0 sender
+	METHOD a (Lbs;Lpc;Z)I
+		ARG 0 sender
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V
+		ARG 0 dispatcher
+	METHOD b (Lbs;Lpc;)I
+		ARG 0 sender
+	METHOD c (Lbs;Lpc;)I
+		ARG 0 sender
+	METHOD d (Lbs;Lpc;)I
+		ARG 0 sender

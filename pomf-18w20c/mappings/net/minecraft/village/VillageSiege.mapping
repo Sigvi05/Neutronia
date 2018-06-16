@@ -1,0 +1,2 @@
+CLASS amp net/minecraft/village/VillageSiege
+	FIELD a world Lbbd;

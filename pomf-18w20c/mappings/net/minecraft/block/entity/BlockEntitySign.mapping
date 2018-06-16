@@ -1,0 +1,9 @@
+CLASS bnc net/minecraft/block/entity/BlockEntitySign
+	METHOD Z_ getUpdatePacket ()Ljd;
+	METHOD a serialize (Lgv;)Lgv;
+		ARG 0 tag
+	METHOD a appendCommandFeedback (Lid;)V
+		ARG 0 feedback
+	METHOD aa_ serializeInitialChunkData ()Lgv;
+	METHOD b deserialize (Lgv;)V
+		ARG 0 tag

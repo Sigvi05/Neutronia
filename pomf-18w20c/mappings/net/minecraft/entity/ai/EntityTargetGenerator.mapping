@@ -1,0 +1,28 @@
+CLASS aml net/minecraft/entity/ai/EntityTargetGenerator
+	METHOD a (Laiq;II)Lcgi;
+		ARG 0 entity
+		ARG 1 horizontalRange
+		ARG 2 verticalRange
+	METHOD a (Laiq;IILcgi;ZD)Lcgi;
+		ARG 0 entity
+		ARG 1 horizontalRange
+		ARG 2 verticalRange
+		ARG 4 ignoreSurface
+	METHOD a getSurface (Leg;Laiq;)Leg;
+		ARG 0 pos
+		ARG 1 entity
+	METHOD b (Laiq;II)Lcgi;
+		ARG 0 entity
+		ARG 1 horizontalRange
+		ARG 2 verticalRange
+	METHOD b (Laiq;IILcgi;)Lcgi;
+		ARG 0 entity
+		ARG 1 horizontalRange
+		ARG 2 verticalRange
+	METHOD b isWater (Leg;Laiq;)Z
+		ARG 0 pos
+		ARG 1 entity
+	METHOD c (Laiq;IILcgi;)Lcgi;
+		ARG 0 entity
+		ARG 1 horizontalRange
+		ARG 2 verticalRange

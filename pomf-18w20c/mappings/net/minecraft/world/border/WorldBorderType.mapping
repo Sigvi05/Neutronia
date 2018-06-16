@@ -1,0 +1,8 @@
+CLASS bpd net/minecraft/world/border/WorldBorderType
+	FIELD a GROWING Lbpd;
+	FIELD b SHRINKING Lbpd;
+	FIELD c STATIONARY Lbpd;
+	FIELD d color I
+	METHOD <init> (Ljava/lang/String;II)V
+		ARG 0 color
+	METHOD a getColor ()I

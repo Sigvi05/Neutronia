@@ -1,0 +1,9 @@
+CLASS ckb
+	CLASS ckb$a
+		FIELD a TUTORIAL_HINT Lckb$a;
+		FIELD b NARRATOR_TOGGLE Lckb$a;
+		FIELD c WORLD_BACKUP Lckb$a;
+	METHOD a getType ()Lckb$a;
+	METHOD a draw (Lckd;J)Lckc$a;
+		ARG 0 toastGui
+	METHOD b getType ()Ljava/lang/Object;

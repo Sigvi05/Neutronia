@@ -1,0 +1,2 @@
+CLASS bdt net/minecraft/world/biome/BiomeDeepFrozenocean
+	METHOD a getTemperatureAtPos (Leg;)F

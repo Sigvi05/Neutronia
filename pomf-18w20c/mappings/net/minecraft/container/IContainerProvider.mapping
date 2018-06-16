@@ -1,0 +1,5 @@
+CLASS agt net/minecraft/container/IContainerProvider
+	METHOD a createContainer (Larm;Larn;)Latc;
+		ARG 0 playerInv
+		ARG 1 player
+	METHOD l getContainerId ()Ljava/lang/String;

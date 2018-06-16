@@ -1,0 +1,24 @@
+CLASS dia net/minecraft/client/audio/MusicTracker
+	CLASS dia$a MusicType
+		FIELD a MENU Ldia$a;
+		FIELD b GAME Ldia$a;
+		FIELD c CREATIVE Ldia$a;
+		FIELD d CREDITS Ldia$a;
+		FIELD e NETHER Ldia$a;
+		FIELD f END_BOSS Ldia$a;
+		FIELD g END Ldia$a;
+		FIELD h sound Lvp;
+		FIELD i minDelay I
+		FIELD j maxDelay I
+		METHOD a getSound ()Lvp;
+		METHOD b getMinDelay ()I
+		METHOD c getMaxDelay ()I
+	FIELD a rand Ljava/util/Random;
+	FIELD b game Lchv;
+	FIELD c current Ldhg;
+	FIELD d timeUntilNextSong I
+	METHOD <init> (Lchv;)V
+		ARG 0 minecraft
+	METHOD Y_ update ()V
+	METHOD a play (Ldia$a;)V
+		ARG 0 type

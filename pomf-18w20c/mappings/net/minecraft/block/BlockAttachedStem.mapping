@@ -1,0 +1,5 @@
+CLASS bfj net/minecraft/block/BlockAttachedStem
+	METHOD a getItem (Lbar;Leg;Lbob;)Lawm;
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD a withMirror (Lbob;Lbiy;)Lbob;
+	METHOD a withRotation (Lbob;Lbkb;)Lbob;

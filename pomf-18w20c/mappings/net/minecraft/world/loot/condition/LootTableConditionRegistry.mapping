@@ -1,0 +1,12 @@
+CLASS cfp net/minecraft/world/loot/condition/LootTableConditionRegistry
+	FIELD a PROVIDERS_BY_ID Ljava/util/Map;
+	FIELD b PROVIDERS_BY_CLASS Ljava/util/Map;
+	METHOD a registerProvider (Lcfo$a;)V
+	METHOD a getProvider (Lcfo;)Lcfo$a;
+		ARG 0 condition
+	METHOD a getProvider (Lok;)Lcfo$a;
+		ARG 0 id
+	METHOD a matches ([Lcfo;Ljava/util/Random;Lcev;)Z
+		ARG 0 conditions
+		ARG 1 rand
+		ARG 2 context

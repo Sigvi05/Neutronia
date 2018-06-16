@@ -1,0 +1,5 @@
+CLASS wg net/minecraft/tag/Tag
+	FIELD a key Lok;
+	FIELD b values Ljava/util/Set;
+	METHOD a contains (Ljava/lang/Object;)Z
+		ARG 0 value

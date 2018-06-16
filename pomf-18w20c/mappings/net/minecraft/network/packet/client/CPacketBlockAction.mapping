@@ -1,0 +1,22 @@
+CLASS je net/minecraft/network/packet/client/CPacketBlockAction
+	FIELD a pos Leg;
+	FIELD b arg1 I
+	FIELD c arg2 I
+	FIELD d block Lbfs;
+	METHOD <init> (Leg;Lbfs;II)V
+		ARG 0 pos
+		ARG 1 block
+		ARG 2 arg1
+		ARG 3 arg2
+	METHOD a getPos ()Leg;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getArgumentFirst ()I
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getArgumentSecond ()I
+	METHOD d getBlock ()Lbfs;

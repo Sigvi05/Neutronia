@@ -1,0 +1,4 @@
+CLASS aqi net/minecraft/entity/mob/EntityGiant
+	METHOD H getLootTableId ()Lok;
+	METHOD bI getEyeHeight ()F
+	METHOD ca initAttributes ()V

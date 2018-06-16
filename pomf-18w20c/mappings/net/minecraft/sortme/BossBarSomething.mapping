@@ -1,0 +1,31 @@
+CLASS si net/minecraft/sortme/BossBarSomething
+	FIELD h playersInRange Ljava/util/Set;
+	FIELD i immutablePlayersInRange Ljava/util/Set;
+	FIELD j visible Z
+	METHOD <init> (Lid;Lagk$a;Lagk$b;)V
+		ARG 0 name
+		ARG 1 color
+		ARG 2 division
+	METHOD a setHealth (F)V
+		ARG 0 health
+	METHOD a setColor (Lagk$a;)V
+		ARG 0 color
+	METHOD a setDivision (Lagk$b;)V
+		ARG 0 division
+	METHOD a setName (Lid;)V
+		ARG 0 name
+	METHOD a sendUpdate (Ljg$a;)V
+		ARG 0 type
+	METHOD a addPlayer (Lsm;)V
+		ARG 0 player
+	METHOD a setDarkenSky (Z)Lagk;
+		ARG 0 darkenSky
+	METHOD b removePlayer (Lsm;)V
+		ARG 0 player
+	METHOD b setDragonMusic (Z)Lagk;
+		ARG 0 dragonMusic
+	METHOD c setThickenFog (Z)Lagk;
+		ARG 0 thickenFog
+	METHOD d setVisible (Z)V
+		ARG 0 visible
+	METHOD h getPlayersInRangeRange ()Ljava/util/Collection;

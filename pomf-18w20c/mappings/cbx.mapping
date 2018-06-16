@@ -1,0 +1,7 @@
+CLASS cbx
+	CLASS cbx$a
+		FIELD a INSTANCE Lcbx$a;
+	CLASS cbx$b
+		FIELD a INSTANCE Lcbx$b;
+	CLASS cbx$c
+		FIELD a INSTANCE Lcbx$c;

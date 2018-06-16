@@ -1,0 +1,25 @@
+CLASS bpy net/minecraft/block/state/BlockStateDataExpander
+	FIELD a packedData Lwk;
+	FIELD h blockStateData Lbpw;
+	FIELD i sizeBits I
+	METHOD a getSizeBytes ()I
+	METHOD a getBlockState (III)Ljava/lang/Object;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD a setBlockState (IIILjava/lang/Object;)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD a readData (Lhu;)V
+		ARG 0 buffer
+	METHOD b setSizeBits (I)V
+		ARG 0 value
+	METHOD b getIndex (III)I
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD b writeData (Lhu;)V
+		ARG 0 buffer
+	METHOD onResize expandDataAndGetStateId (ILjava/lang/Object;)I
+		ARG 0 expandedBitSize

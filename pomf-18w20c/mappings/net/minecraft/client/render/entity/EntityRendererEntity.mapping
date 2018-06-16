@@ -1,0 +1,3 @@
+CLASS czq net/minecraft/client/render/entity/EntityRendererEntity
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model

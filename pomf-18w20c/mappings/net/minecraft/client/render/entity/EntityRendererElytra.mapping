@@ -1,0 +1,5 @@
+CLASS dda net/minecraft/client/render/entity/EntityRendererElytra
+	FIELD b SKIN Lok;
+	METHOD a shouldMergeTextures ()Z
+	METHOD a render (Laii;FFFFFFF)V
+		ARG 0 entity

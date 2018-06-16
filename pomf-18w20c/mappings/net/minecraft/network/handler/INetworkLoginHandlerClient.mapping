@@ -1,0 +1,9 @@
+CLASS nh net/minecraft/network/handler/INetworkLoginHandlerClient
+	METHOD a onLoginSuccess (Lni;)V
+		ARG 0 packet
+	METHOD a onLoginEncryptionRequest (Lnj;)V
+		ARG 0 packet
+	METHOD a onLoginCompression (Lnk;)V
+		ARG 0 packet
+	METHOD a onLoginDisconnect (Lnl;)V
+		ARG 0 packet

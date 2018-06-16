@@ -1,0 +1,84 @@
+CLASS bzo net/minecraft/world/gen/structure/StructurePiecesVillage
+	CLASS bzo$a
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+	CLASS bzo$b
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+		METHOD a serializeStructureData (Lgv;)V
+			ARG 0 tag
+		METHOD a deserializeStructureData (Lgv;Lbzt;)V
+			ARG 0 tag
+	CLASS bzo$c
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+		METHOD a serializeStructureData (Lgv;)V
+			ARG 0 tag
+		METHOD a deserializeStructureData (Lgv;Lbzt;)V
+			ARG 0 tag
+	CLASS bzo$d
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+	CLASS bzo$f
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+	CLASS bzo$g
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+		METHOD a serializeStructureData (Lgv;)V
+			ARG 0 tag
+		METHOD a deserializeStructureData (Lgv;Lbzt;)V
+			ARG 0 tag
+	CLASS bzo$h
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+		METHOD a serializeStructureData (Lgv;)V
+			ARG 0 tag
+		METHOD a deserializeStructureData (Lgv;Lbzt;)V
+			ARG 0 tag
+	CLASS bzo$i
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+	CLASS bzo$j
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+		METHOD a serializeStructureData (Lgv;)V
+			ARG 0 tag
+		METHOD a deserializeStructureData (Lgv;Lbzt;)V
+			ARG 0 tag
+	CLASS bzo$l
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+		METHOD a serializeStructureData (Lgv;)V
+			ARG 0 tag
+		METHOD a deserializeStructureData (Lgv;Lbzt;)V
+			ARG 0 tag
+	CLASS bzo$m
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+	CLASS bzo$n
+		FIELD a OAK Lbzo$n;
+		FIELD b SANDSTONE Lbzo$n;
+		FIELD c ACACIA Lbzo$n;
+		FIELD d SPRUCE Lbzo$n;
+	CLASS bzo$o
+		METHOD a serializeStructureData (Lgv;)V
+			ARG 0 tag
+		METHOD a deserializeStructureData (Lgv;Lbzt;)V
+			ARG 0 tag
+	CLASS bzo$q
+		METHOD a generate (Lbbe;Ljava/util/Random;Lbyn;Lbat;)Z
+			ARG 1 rand
+			ARG 2 region
+	METHOD a registerPieces ()V

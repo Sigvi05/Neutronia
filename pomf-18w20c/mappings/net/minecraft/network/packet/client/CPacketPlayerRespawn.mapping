@@ -1,0 +1,21 @@
+CLASS ku net/minecraft/network/packet/client/CPacketPlayerRespawn
+	FIELD a worldId I
+	FIELD b difficulty Lagq;
+	FIELD c gameMode Lbba;
+	FIELD d generatorType Lbbk;
+	METHOD <init> (ILagq;Lbbk;Lbba;)V
+		ARG 0 worldId
+		ARG 1 difficulty
+		ARG 2 generatorType
+		ARG 3 gameMode
+	METHOD a getWorldId ()I
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getDifficulty ()Lagq;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getGameMode ()Lbba;

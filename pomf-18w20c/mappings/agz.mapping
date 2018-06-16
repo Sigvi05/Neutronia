@@ -1,0 +1,5 @@
+CLASS agz
+	METHOD N_ getNameAsComponent ()Lid;
+	METHOD O_ hasCustomName ()Z
+	METHOD P getDisplayName ()Lid;
+	METHOD e getTextComponent ()Lid;

@@ -10,12 +10,15 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
@@ -23,7 +26,7 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
 public class BlockCoralPlantBase extends BlockModBush {
 
     public BlockCoralPlantBase(String name) {
-        super(Material.WATER, name, Reference.MOD_ID);
+        super(Material.PLANTS, name, Reference.MOD_ID);
         this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 15));
     }
@@ -58,37 +61,82 @@ public class BlockCoralPlantBase extends BlockModBush {
         return Item.getItemFromBlock(this);
     }
 
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-        Block block = worldIn.getBlockState(new BlockPos(pos.add(0, -1, 0))).getBlock();
-        return (block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.SPONGE || block == Blocks.STONE || block == Blocks.CLAY || block == Blocks.GRAVEL || block == Blocks.GRASS) && worldIn.getBlockState(new BlockPos(pos.add(0, 2, 0))).getBlock() != Blocks.AIR;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType() {
+        return Block.EnumOffsetType.XZ;
     }
 
-    public boolean canBlockStay(IBlockAccess worldIn, BlockPos pos, IBlockState state) {
-        Block block = worldIn.getBlockState(new BlockPos(pos.add(0, -1, 0))).getBlock();
-        return (block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.SPONGE || block == Blocks.STONE || block == Blocks.CLAY || block == Blocks.GRAVEL || block == Blocks.GRASS) && worldIn.getBlockState(new BlockPos(pos.add(0, 2, 0))).getBlock() != Blocks.AIR;
+    @Nullable
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos) {
+        return NULL_AABB;
     }
 
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        Block ground = worldIn.getBlockState(pos.add(0, -1, 0)).getBlock();
-        return ground == Blocks.SAND || ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.GRAVEL && worldIn.getBlockState(pos.add(0, 2, 0)).getBlock() != Blocks.AIR;
+    /**
+     * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
+     */
+    public boolean canBlockStay(World world, BlockPos pos) {
+        return (world.getBlockState(pos).getMaterial().isLiquid() &&
+                world.getBlockState(pos.up()).getMaterial().isLiquid()) &&
+                canThisPlantGrowOnThisBlock(world.getBlockState(pos.down()).getBlock());
     }
 
-    public boolean isReplaceable(IBlockAccess access, BlockPos pos) {
-        return access.getBlockState(pos).getBlock() == Blocks.WATER && canBlockStay(access, pos, getDefaultState()) && access.getBlockState(pos.add(0, 1, 0)).getBlock() != Blocks.AIR;
+    @Override
+    public boolean canPlaceBlockAt(World world, BlockPos pos) {
+        return super.canPlaceBlockAt(world, pos) && world.getBlockState(pos).getBlock() != this &&
+                canThisPlantGrowOnThisBlock(world.getBlockState(pos.down()).getBlock()) &&
+                world.getBlockState(pos).getMaterial() == Material.WATER &&
+                world.getBlockState(pos.up()).getMaterial() == Material.WATER;
     }
 
-    protected boolean canSustainBush(IBlockState state) {
-        Block ground = state.getBlock();
-        return ground == Blocks.SAND || ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.GRAVEL;
+    public boolean canThisPlantGrowOnThisBlock(Block b) {
+        return b == Blocks.GRASS || b == Blocks.DIRT || b == Blocks.SAND;
     }
 
-    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-        checkAndDropBlock(worldIn, pos, state);
-        super.onBlockAdded(worldIn, pos, state);
+    @Override
+    public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
+        return net.minecraftforge.common.EnumPlantType.Water;
     }
 
-    public boolean isReplaceable(World worldIn, BlockPos pos) {
-        return false;
+    @Override
+    public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
+        return this.getDefaultState();
+    }
+
+    @Override
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+        checkFlowerChange(world, pos, state);
+        //System.out.println("Block update");
+		/*if(!world.isRemote && world.getLoadedEntityList().size() < 200) {
+			if(rand.nextInt(12) == 0) {
+				EntityPiranha fish = new EntityPiranha(world);
+				fish.setPosition(pos.getX(), pos.getY(), pos.getZ());
+				world.spawnEntity(fish);
+				fish.markAsLeader();
+				int amt = rand.nextInt(12);
+				for(int i =0 ; i < amt; i++) {
+					EntityPiranha fishe = new EntityPiranha(fish);
+					fishe.setPosition(pos.getX(), pos.getY(), pos.getZ());
+					world.spawnEntity(fishe);
+				}
+			}
+		}*/
+    }
+
+    protected void checkFlowerChange(World world, BlockPos pos, IBlockState state) {
+        if (!canBlockStay(world, pos)) {
+            dropBlockAsItem(world, pos, state, 0);
+            world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+        }
+    }
+
+    /**
+     * Pop off coral block if sand underneath disappears
+     */
+    @Override
+    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+        this.checkFlowerChange(world, pos, state);
     }
 
 }

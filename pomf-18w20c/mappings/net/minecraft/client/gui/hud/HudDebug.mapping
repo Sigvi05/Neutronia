@@ -1,0 +1,9 @@
+CLASS ciz net/minecraft/client/gui/hud/HudDebug
+	FIELD a game Lchv;
+	FIELD f fontRenderer Lcim;
+	METHOD <init> (Lchv;)V
+		ARG 0 game
+	METHOD b drawLeftInfoText ()V
+	METHOD d getLeftInfoText ()Ljava/util/List;
+	METHOD e getRightInfoText ()Ljava/util/List;
+	METHOD f drawDebugGraph ()V

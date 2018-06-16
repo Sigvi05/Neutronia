@@ -1,0 +1,17 @@
+CLASS cuj net/minecraft/client/particle/ParticleEmitter
+	FIELD J entity Lahz;
+	FIELD M type Lfh;
+	METHOD <init> (Lbbd;Lahz;Lfh;)V
+		ARG 0 world
+		ARG 1 entity
+		ARG 2 type
+	METHOD <init> (Lbbd;Lahz;Lfh;I)V
+		ARG 0 world
+		ARG 1 entity
+		ARG 2 type
+	METHOD a update ()V
+	METHOD a buildGeometry (Lcuy;Lahz;FFFFFF)V
+		ARG 0 vertexBuffer
+		ARG 1 entity
+		ARG 2 deltaTicks
+	METHOD b getParticleGroup ()I

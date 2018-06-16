@@ -1,0 +1,166 @@
+CLASS csl net/minecraft/client/network/handler/NetworkGameHandlerClient
+	CLASS csl$1
+		CLASS csl$1$1
+			METHOD confirmResult handle (ZI)V
+				ARG 0 result
+				ARG 1 callbackId
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b connection Lhs;
+	FIELD e game Lchv;
+	FIELD f world Lcso;
+	FIELD i advancementHandler Lcsi;
+	FIELD l rand Ljava/util/Random;
+	METHOD a getClientConnection ()Lhs;
+	METHOD a onConnectionLost (Lid;)V
+		ARG 0 reason
+	METHOD a sendPacket (Liq;)V
+		ARG 0 packet
+	METHOD a onEntitySpawn (Liu;)V
+		ARG 0 packet
+	METHOD a onExperienceOrbSpawn (Liv;)V
+		ARG 0 packet
+	METHOD a onEntitySpawnGlobal (Liw;)V
+		ARG 0 packet
+	METHOD a onMobSpawn (Lix;)V
+		ARG 0 packet
+	METHOD a onPaintingSpawn (Liy;)V
+		ARG 0 packet
+	METHOD a onPlayerSpawn (Liz;)V
+		ARG 0 packet
+	METHOD a onEntityAnimation (Lja;)V
+		ARG 0 packet
+	METHOD a onStatistics (Ljb;)V
+		ARG 0 packet
+	METHOD a onBlockDestroyProgress (Ljc;)V
+		ARG 0 packet
+	METHOD a onBlockEntityUpdate (Ljd;)V
+		ARG 0 packet
+	METHOD a onBlockAction (Lje;)V
+		ARG 0 packet
+	METHOD a onBlockUpdate (Ljf;)V
+		ARG 0 packet
+	METHOD a onBossBar (Ljg;)V
+		ARG 0 packet
+	METHOD a onDifficulty (Ljh;)V
+		ARG 0 packet
+	METHOD a onChatMessage (Lji;)V
+		ARG 0 packet
+	METHOD a onChunkDeltaUpdate (Ljj;)V
+		ARG 0 packet
+	METHOD a onGuiActionConfirm (Ljm;)V
+		ARG 0 packet
+	METHOD a onGuiClose (Ljn;)V
+		ARG 0 packet
+	METHOD a onGuiOpen (Ljo;)V
+		ARG 0 packet
+	METHOD a onInventory (Ljp;)V
+		ARG 0 packet
+	METHOD a onGuiUpdate (Ljq;)V
+		ARG 0 packet
+	METHOD a onGuiSlotUpdate (Ljr;)V
+		ARG 0 packet
+	METHOD a onCooldownUpdate (Ljs;)V
+		ARG 0 packet
+	METHOD a onCustomPayload (Ljt;)V
+		ARG 0 packet
+	METHOD a onSoundPlayName (Lju;)V
+		ARG 0 packet
+	METHOD a onDisconnect (Ljv;)V
+		ARG 0 packet
+	METHOD a onEntityStatus (Ljw;)V
+		ARG 0 packet
+	METHOD a onExplosion (Ljx;)V
+		ARG 0 packet
+	METHOD a onChunkUnload (Ljy;)V
+		ARG 0 packet
+	METHOD a onGameStateChange (Ljz;)V
+		ARG 0 packet
+	METHOD a onKeepAlive (Lka;)V
+		ARG 0 packet
+	METHOD a onChunkData (Lkb;)V
+		ARG 0 packet
+	METHOD a onWorldEvent (Lkc;)V
+		ARG 0 packet
+	METHOD a onParticle (Lkd;)V
+		ARG 0 packet
+	METHOD a onGameJoin (Lke;)V
+		ARG 0 packet
+	METHOD a onMapUpdate (Lkf;)V
+		ARG 0 packet
+	METHOD a onEntityUpdate (Lkg;)V
+		ARG 0 packet
+	METHOD a onVehicleMove (Lkh;)V
+		ARG 0 packet
+	METHOD a onSignEditorOpen (Lki;)V
+		ARG 0 packet
+	METHOD a onPlayerAbilities (Lkk;)V
+		ARG 0 packet
+	METHOD a onEventCombat (Lkl;)V
+		ARG 0 packet
+	METHOD a onPlayerList (Lkm;)V
+		ARG 0 packet
+	METHOD a onPlayerPositionLook (Lko;)V
+		ARG 0 packet
+	METHOD a onPlayerUseBed (Lkp;)V
+		ARG 0 packet
+	METHOD a onUnlockRecipes (Lkq;)V
+	METHOD a onEntitiesDestroy (Lkr;)V
+		ARG 0 packet
+	METHOD a onEntityEffectRemove (Lks;)V
+		ARG 0 packet
+	METHOD a onResourcePackSend (Lkt;)V
+		ARG 0 packet
+	METHOD a onPlayerRespawn (Lku;)V
+		ARG 0 packet
+	METHOD a onEntitySetHeadYaw (Lkv;)V
+		ARG 0 packet
+	METHOD a onWorldBorder (Lkx;)V
+		ARG 0 packet
+	METHOD a onSetCameraEntity (Lky;)V
+		ARG 0 packet
+	METHOD a onHeldItemChange (Lkz;)V
+		ARG 0 packet
+	METHOD a onScoreboardDisplay (Lla;)V
+		ARG 0 packet
+	METHOD a onEntityTrackerUpdate (Llb;)V
+		ARG 0 packet
+	METHOD a onEntityAttach (Llc;)V
+		ARG 0 packet
+	METHOD a onVelocityUpdate (Lld;)V
+		ARG 0 packet
+	METHOD a onEquipmentUpdate (Lle;)V
+		ARG 0 packet
+	METHOD a onExperienceBarUpdate (Llf;)V
+		ARG 0 packet
+	METHOD a onHealthUpdate (Llg;)V
+		ARG 0 packet
+	METHOD a onScoreboardObjectiveUpdate (Llh;)V
+		ARG 0 packet
+	METHOD a onEntityPassengersSet (Lli;)V
+		ARG 0 packet
+	METHOD a onTeam (Llj;)V
+		ARG 0 packet
+	METHOD a onPlayerSpawnPosition (Lll;)V
+		ARG 0 packet
+	METHOD a onWorldTimeUpdate (Llm;)V
+		ARG 0 packet
+	METHOD a onTitle (Lln;)V
+		ARG 0 packet
+	METHOD a onSoundPlayId (Llo;)V
+		ARG 0 packet
+	METHOD a onPlayerListHeader (Llq;)V
+		ARG 0 packet
+	METHOD a onItemPickupAnimation (Llr;)V
+		ARG 0 packet
+	METHOD a onEntityTeleport (Lls;)V
+		ARG 0 packet
+	METHOD a onAdvancements (Llt;)V
+	METHOD a onEntityAttributes (Llu;)V
+		ARG 0 packet
+	METHOD a onEntityPotionEffect (Llv;)V
+		ARG 0 packet
+	METHOD a onSyncTags (Llx;)V
+	METHOD b validateResourcePackUrl (Ljava/lang/String;)Z
+		ARG 0 url
+	METHOD g getAdvancementHandler ()Lcsi;
+	METHOD k getResourcePackDownloadCallback ()Lcom/google/common/util/concurrent/FutureCallback;

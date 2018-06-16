@@ -1,0 +1,18 @@
+CLASS bap net/minecraft/sortme/MobSpawnerLogic
+	FIELD a spawnDelay I
+	FIELD b spawnPotentials Ljava/util/List;
+	FIELD c spawnEntry Lbbr;
+	FIELD f minSpawnDelay I
+	FIELD g maxSpawnDelay I
+	FIELD h spawnCount I
+	FIELD j maxNearbyEntities I
+	FIELD k requiredPlayerRange I
+	FIELD l spawnRange I
+	METHOD a getWorld ()Lbbd;
+	METHOD a setSpawnEntry (Lbbr;)V
+		ARG 0 value
+	METHOD a deserialize (Lgv;)V
+	METHOD b getPos ()Leg;
+	METHOD b serialize (Lgv;)Lgv;
+	METHOD c update ()V
+	METHOD g getEntityId ()Lok;

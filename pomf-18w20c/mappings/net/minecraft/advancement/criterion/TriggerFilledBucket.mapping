@@ -1,0 +1,17 @@
+CLASS ap net/minecraft/advancement/criterion/TriggerFilledBucket
+	FIELD a FILLED_BUCKET Lok;
+	METHOD a getId ()Lok;
+	METHOD a deserializeConditions (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;)Lt;
+		ARG 0 obj
+		ARG 1 context
+	METHOD a removePlayer (Lou;)V
+		ARG 0 manager
+	METHOD a addCondition (Lou;Ls$a;)V
+		ARG 0 manager
+		ARG 1 condition
+	METHOD b deserializeConditions (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;)Lap$b;
+		ARG 0 obj
+		ARG 1 context
+	METHOD b removeCondition (Lou;Ls$a;)V
+		ARG 0 manager
+		ARG 1 condition

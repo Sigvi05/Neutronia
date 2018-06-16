@@ -1,0 +1,7 @@
+CLASS cif net/minecraft/client/MainWindow
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD f window J
+	METHOD <init> (Lchv;Lcie;Lcoz$a;Ljava/lang/String;)V
+		ARG 0 mc
+	METHOD i getWindow ()J
+	METHOD t setWindowIcon ()V

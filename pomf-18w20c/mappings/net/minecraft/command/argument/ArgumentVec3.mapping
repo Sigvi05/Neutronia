@@ -1,0 +1,3 @@
+CLASS da net/minecraft/command/argument/ArgumentVec3
+	FIELD a ARGUMENT_POS_INCOMPLETE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD b ARGUMENT_POS_MIXED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

@@ -1,0 +1,29 @@
+CLASS ayo net/minecraft/util/ItemStackPredicate
+	CLASS ayo$1
+		METHOD a matchesItem (Lawm;)Z
+	CLASS ayo$a SingleStack
+		FIELD a sourceStack Lawm;
+		METHOD a getStackCollection ()Ljava/util/Collection;
+		METHOD b getAsJSON ()Lcom/google/gson/JsonObject;
+	CLASS ayo$b TagSource
+		FIELD a sourceTag Lwg;
+		METHOD a getStackCollection ()Ljava/util/Collection;
+		METHOD b getAsJSON ()Lcom/google/gson/JsonObject;
+	CLASS ayo$c SerializableSource
+		METHOD a getStackCollection ()Ljava/util/Collection;
+		METHOD b getAsJSON ()Lcom/google/gson/JsonObject;
+	FIELD c explodedStacks [Lawm;
+	FIELD d explodedIds Lit/unimi/dsi/fastutil/ints/IntList;
+	METHOD a getExplodedStacks ()[Lawm;
+	METHOD a matchesItem (Lawm;)Z
+	METHOD a deserializeList (Lcom/google/gson/JsonElement;)Layo;
+	METHOD a deserializeEntry (Lcom/google/gson/JsonObject;)Layo$c;
+	METHOD a writeExplodedStacks (Lhu;)V
+	METHOD a from (Lwg;)Layo;
+	METHOD a from ([Lawm;)Layo;
+	METHOD a from ([Lbbc;)Layo;
+	METHOD b getExplodedIds ()Lit/unimi/dsi/fastutil/ints/IntList;
+	METHOD b readFrom (Lhu;)Layo;
+	METHOD c getAsJSON ()Lcom/google/gson/JsonElement;
+	METHOD d isEmpty ()Z
+	METHOD e explode ()V

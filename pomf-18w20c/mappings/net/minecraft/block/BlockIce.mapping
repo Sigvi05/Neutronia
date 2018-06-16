@@ -1,0 +1,14 @@
+CLASS bij net/minecraft/block/BlockIce
+	METHOD X_ getRenderLayer ()Lbas;
+	METHOD a afterBreak (Lbbd;Larn;Leg;Lbob;Lbmh;Lawm;)V
+		ARG 0 world
+		ARG 1 player
+		ARG 2 pos
+		ARG 4 blockEntity
+		ARG 5 stack
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD i getPistonBehavior (Lbob;)Lcbj;

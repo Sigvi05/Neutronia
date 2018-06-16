@@ -1,0 +1,7 @@
+CLASS axw net/minecraft/util/UseAction
+	FIELD a NONE Laxw;
+	FIELD b EAT Laxw;
+	FIELD c DRINK Laxw;
+	FIELD d BLOCK Laxw;
+	FIELD e BOW Laxw;
+	FIELD f SPEAR Laxw;

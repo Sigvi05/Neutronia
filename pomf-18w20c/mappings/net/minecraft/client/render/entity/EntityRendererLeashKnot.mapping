@@ -1,0 +1,6 @@
+CLASS dat net/minecraft/client/render/entity/EntityRendererLeashKnot
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapj;)Lok;
+		ARG 0 model

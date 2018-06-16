@@ -1,0 +1,6 @@
+CLASS czi net/minecraft/client/render/entity/EntityRendererBlaze
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapy;)Lok;
+		ARG 0 model

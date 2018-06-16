@@ -1,0 +1,25 @@
+CLASS kl net/minecraft/network/packet/client/CPacketEventCombat
+	CLASS kl$a Type
+		FIELD a ENTER_COMBAT Lkl$a;
+		FIELD b END_COMBAT Lkl$a;
+		FIELD c ENTITY_DIED Lkl$a;
+	FIELD a type Lkl$a;
+	FIELD b entityId I
+	FIELD c attackerEntityId I
+	FIELD d timeSinceLastAttack I
+	FIELD e deathMessage Lid;
+	METHOD <init> (Lahh;Lkl$a;)V
+		ARG 0 damageTracker
+		ARG 1 combatType
+	METHOD <init> (Lahh;Lkl$a;Z)V
+		ARG 0 damageTracker
+		ARG 1 combatType
+		ARG 2 includeDeathMessage
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

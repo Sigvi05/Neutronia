@@ -1,0 +1,5 @@
+CLASS ays
+	FIELD b _JSON I
+	FIELD c LOGGER Lorg/apache/logging/log4j/Logger;
+	METHOD a onResourceReload (Lum;)V
+		ARG 0 container

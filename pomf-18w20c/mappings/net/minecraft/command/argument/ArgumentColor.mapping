@@ -1,0 +1,3 @@
+CLASS bv net/minecraft/command/argument/ArgumentColor
+	FIELD a ARGUMENT_COLOR_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD b RED Ljava/util/Collection;

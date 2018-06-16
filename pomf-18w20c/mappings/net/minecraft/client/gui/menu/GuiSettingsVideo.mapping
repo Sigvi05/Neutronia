@@ -1,0 +1,14 @@
+CLASS cls net/minecraft/client/gui/menu/GuiSettingsVideo
+	FIELD a title Ljava/lang/String;
+	FIELD f parent Lclm;
+	FIELD g settings Lchy;
+	FIELD i MENU_OPTIONS [Lchy$a;
+	METHOD <init> (Lclm;Lchy;)V
+		ARG 0 parent
+		ARG 1 settings
+	METHOD a draw (IIF)V
+		ARG 0 mouseX
+		ARG 1 mouseY
+		ARG 2 delta
+	METHOD ag_ close ()V
+	METHOD c init ()V

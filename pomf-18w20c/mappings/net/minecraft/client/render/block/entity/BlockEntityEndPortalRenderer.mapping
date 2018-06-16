@@ -1,0 +1,13 @@
+CLASS cxw net/minecraft/client/render/block/entity/BlockEntityEndPortalRenderer
+	METHOD a render (Lbmh;DDDFI)V
+		ARG 0 blockEntity
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 partial
+	METHOD a render (Lbng;DDDFI)V
+		ARG 0 blockEntity
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 partial

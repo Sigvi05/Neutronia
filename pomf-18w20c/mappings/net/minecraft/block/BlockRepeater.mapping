@@ -1,0 +1,18 @@
+CLASS bjz net/minecraft/block/BlockRepeater
+	FIELD a LOCKED Lbow;
+	FIELD t DELAY Lboz;
+	METHOD a getDefaultState (Laur;)Lbob;
+	METHOD a onActivated (Lbob;Lbbd;Leg;Larn;Lags;Lem;FFF)Z
+		ARG 0 state
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+		ARG 4 hand
+		ARG 5 facing
+		ARG 6 hitX
+		ARG 7 hitY
+		ARG 8 hitZ
+	METHOD c randomDisplayTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 rand

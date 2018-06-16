@@ -1,0 +1,3 @@
+CLASS un net/minecraft/resource/IResourceReloadListener
+	METHOD a onResourceReload (Lum;)V
+		ARG 0 container

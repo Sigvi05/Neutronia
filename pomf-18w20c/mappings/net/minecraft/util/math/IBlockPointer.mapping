@@ -1,0 +1,7 @@
+CLASS eh net/minecraft/util/math/IBlockPointer
+	METHOD a getX ()D
+	METHOD b getY ()D
+	METHOD c getZ ()D
+	METHOD d getBlockPos ()Leg;
+	METHOD e getBlockState ()Lbob;
+	METHOD g getBlockEntity ()Lbmh;

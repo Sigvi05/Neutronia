@@ -1,0 +1,16 @@
+CLASS uo net/minecraft/resource/ResourceManager
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD c listeners Ljava/util/List;
+	FIELD d providedAssets Ljava/util/Set;
+	METHOD a getProvidedAssets ()Ljava/util/Set;
+	METHOD a reload (Ljava/util/List;)V
+		ARG 0 packs
+	METHOD a getResource (Lok;)Lul;
+		ARG 0 id
+	METHOD a registerListener (Lun;)V
+		ARG 0 listener
+	METHOD b getAllResources (Lok;)Ljava/util/List;
+		ARG 0 id
+	METHOD b invokeListener (Lun;)Ljava/lang/String;
+		ARG 0 listener
+	METHOD d invokeListeners ()V

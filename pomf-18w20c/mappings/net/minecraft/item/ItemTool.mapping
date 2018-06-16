@@ -1,0 +1,16 @@
+CLASS avi net/minecraft/item/ItemTool
+	FIELD a EFFECTIVE_BLOCKS Ljava/util/Set;
+	FIELD b efficiency F
+	FIELD c weaponDamage F
+	FIELD d swingSpeed F
+	METHOD a getAttributeModifiers (Laie;)Lcom/google/common/collect/Multimap;
+		ARG 0 effectiveSlot
+	METHOD a onEntityDamaged (Lawm;Laii;Laii;)Z
+		ARG 0 stack
+		ARG 1 target
+		ARG 2 user
+	METHOD a onBlockBroken (Lawm;Lbbd;Lbob;Leg;Laii;)Z
+		ARG 0 stack
+		ARG 1 world
+		ARG 3 pos
+		ARG 4 user

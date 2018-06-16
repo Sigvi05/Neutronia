@@ -1,0 +1,3 @@
+CLASS cy net/minecraft/command/argument/ArgumentSwizzle
+	FIELD a XYZ Ljava/util/Collection;
+	FIELD b ARGUMENTS_SWIZZLE_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

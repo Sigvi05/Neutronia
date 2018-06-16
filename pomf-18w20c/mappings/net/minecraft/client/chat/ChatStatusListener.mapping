@@ -1,0 +1,5 @@
+CLASS cis net/minecraft/client/chat/ChatStatusListener
+	FIELD a game Lchv;
+	METHOD a onMessageReceived (Lib;Lid;)V
+		ARG 0 type
+		ARG 1 message

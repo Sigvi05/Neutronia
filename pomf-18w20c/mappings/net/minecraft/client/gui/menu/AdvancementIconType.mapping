@@ -1,0 +1,5 @@
+CLASS cma net/minecraft/client/gui/menu/AdvancementIconType
+	FIELD a OBTAINED Lcma;
+	FIELD b UNOBTAINED Lcma;
+	FIELD c textureIndex I
+	METHOD a getTextureIndex ()I

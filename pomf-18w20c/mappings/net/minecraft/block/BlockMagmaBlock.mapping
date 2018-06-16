@@ -1,0 +1,18 @@
+CLASS biw net/minecraft/block/BlockMagmaBlock
+	METHOD a onSteppedOn (Lbbd;Leg;Lahz;)V
+		ARG 0 world
+		ARG 1 pos
+		ARG 2 entity
+	METHOD a canEntitySpawn (Lbob;Lahz;)Z
+	METHOD a update (Lbob;Lbbd;Leg;Lbfs;Leg;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 block
+		ARG 4 updatePos
+	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random

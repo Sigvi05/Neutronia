@@ -1,0 +1,25 @@
+CLASS acj net/minecraft/util/datafix/optics/Optics
+	CLASS acj$1
+		METHOD a wander (Labg;Lxq;)Lxq;
+	CLASS acj$5
+		METHOD a view (Ljava/lang/Object;)Ljava/lang/Object;
+		METHOD a update (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	CLASS acj$7
+		METHOD a match (Ljava/lang/Object;)Lwp;
+		METHOD a build (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	CLASS acj$11
+		METHOD a impl ()Lwp;
+	METHOD a id ()Labv;
+	METHOD a getFunc (Labf;)Lxq;
+	METHOD a reForgetC (Ljava/lang/String;Lwp;)Lacq;
+	METHOD a lens (Ljava/util/function/Function;Ljava/util/function/BiFunction;)Lacg;
+	METHOD b proj1 ()Lacn;
+	METHOD b toLens (Laci;)Lacg;
+	METHOD b forget (Ljava/util/function/Function;)Labx;
+	METHOD c proj2 ()Laco;
+	METHOD c forgetOpt (Ljava/util/function/Function;)Labz;
+	METHOD d inj1 ()Lacd;
+	METHOD d toAffine (Laci;)Labw;
+	METHOD e inj2 ()Lace;
+	METHOD f toTraversal (Laci;)Lacu;
+	METHOD f func (Ljava/util/function/Function;)Lxq;

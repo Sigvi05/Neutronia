@@ -1,0 +1,18 @@
+CLASS aik net/minecraft/entity/EntityType
+	FIELD a MONSTER Laik;
+	FIELD b CREATURE Laik;
+	FIELD c AMBIENT Laik;
+	FIELD d WATER_CREATURE Laik;
+	FIELD e entityClass Ljava/lang/Class;
+	FIELD f spawnCap I
+	FIELD g peaceful Z
+	FIELD h animal Z
+	METHOD <init> (Ljava/lang/String;ILjava/lang/Class;IZZ)V
+		ARG 0 entityClass
+		ARG 1 spawnCap
+		ARG 2 preferredMaterial
+		ARG 3 peaceful
+	METHOD a getEntityClass ()Ljava/lang/Class;
+	METHOD b getSpawnCap ()I
+	METHOD c isPeaceful ()Z
+	METHOD d isAnimal ()Z

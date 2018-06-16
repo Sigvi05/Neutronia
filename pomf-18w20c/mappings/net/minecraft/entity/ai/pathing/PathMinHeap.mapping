@@ -1,0 +1,15 @@
+CLASS cdg net/minecraft/entity/ai/pathing/PathMinHeap
+	FIELD a pathNodes [Lcdj;
+	FIELD b count I
+	METHOD a clear ()V
+	METHOD a shiftUp (I)V
+		ARG 0 index
+	METHOD a push (Lcdj;)Lcdj;
+		ARG 0 value
+	METHOD a setNodeWeight (Lcdj;F)V
+		ARG 0 node
+		ARG 1 weight
+	METHOD b shiftDown (I)V
+		ARG 0 index
+	METHOD c pop ()Lcdj;
+	METHOD e isEmpty ()Z

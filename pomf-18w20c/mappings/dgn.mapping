@@ -1,0 +1,4 @@
+CLASS dgn
+	FIELD L MISSING Ldgp;
+	FIELD M GENERATIONMARKER Ljava/util/Set;
+	FIELD N LOGGER Lorg/apache/logging/log4j/Logger;

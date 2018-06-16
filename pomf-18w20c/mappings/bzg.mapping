@@ -1,0 +1,6 @@
+CLASS bzg
+	FIELD a indexes Lit/unimi/dsi/fastutil/longs/LongArrayList;
+	METHOD a deserialize (Lgv;)V
+		ARG 0 tag
+	METHOD b serialize (Lgv;)Lgv;
+		ARG 0 tag

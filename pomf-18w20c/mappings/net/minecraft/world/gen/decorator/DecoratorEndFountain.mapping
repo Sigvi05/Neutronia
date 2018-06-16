@@ -1,0 +1,3 @@
+CLASS bsu net/minecraft/world/gen/decorator/DecoratorEndFountain
+	FIELD a ORIGIN Leg;
+	FIELD b portal Z

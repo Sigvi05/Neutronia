@@ -1,0 +1,13 @@
+CLASS daq net/minecraft/client/render/entity/EntityRendererItemFrame
+	FIELD a MAP_BACKGROUND_TEX Lok;
+	FIELD f game Lchv;
+	FIELD g MODEL_NORMAL Ldgp;
+	FIELD h MODEL_MAP Ldgp;
+	FIELD i itemRenderer Ldar;
+	METHOD <init> (Ldaa;Ldar;)V
+		ARG 0 renderManager
+		ARG 1 itemRenderer
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapi;)Lok;
+		ARG 0 model

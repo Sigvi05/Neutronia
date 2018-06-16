@@ -1,0 +1,6 @@
+CLASS cbj net/minecraft/block/piston/PistonBehavior
+	FIELD a NORMAL Lcbj;
+	FIELD b DESTROY Lcbj;
+	FIELD c BLOCK Lcbj;
+	FIELD d IGNORE Lcbj;
+	FIELD e PUSH_ONLY Lcbj;

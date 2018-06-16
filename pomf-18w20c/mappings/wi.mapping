@@ -1,0 +1,6 @@
+CLASS wi
+	FIELD a block Lwf;
+	FIELD b item Lwf;
+	FIELD c fluid Lwf;
+	METHOD a onResourceReload (Lum;)V
+		ARG 0 container

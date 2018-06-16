@@ -1,0 +1,25 @@
+CLASS bli net/minecraft/block/BlockTNT
+	METHOD a canDropFromExplosion (Lbax;)Z
+		ARG 0 explosion
+	METHOD a onEntityCollision (Lbob;Lbbd;Leg;Lahz;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 entity
+	METHOD a onActivated (Lbob;Lbbd;Leg;Larn;Lags;Lem;FFF)Z
+		ARG 0 state
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+		ARG 4 hand
+		ARG 5 facing
+		ARG 6 hitX
+		ARG 7 hitY
+		ARG 8 hitZ
+	METHOD a update (Lbob;Lbbd;Leg;Lbfs;Leg;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 block
+		ARG 4 updatePos
+	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos

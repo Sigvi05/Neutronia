@@ -1,0 +1,14 @@
+CLASS ajq net/minecraft/entity/ai/animal/AiGoalAnimalMate
+	FIELD a owner Lamx;
+	FIELD b world Lbbd;
+	FIELD c mate Lamx;
+	FIELD e timer I
+	FIELD f chance D
+	METHOD <init> (Lamx;D)V
+		ARG 0 owner
+		ARG 1 chance
+	METHOD a canStart ()Z
+	METHOD b shouldContinue ()Z
+	METHOD d stop ()V
+	METHOD e tick ()V
+	METHOD i findMate ()Lamx;

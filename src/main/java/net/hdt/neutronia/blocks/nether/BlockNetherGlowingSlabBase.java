@@ -11,9 +11,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -86,4 +85,110 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab {
     public Comparable<?> getTypeForItem(ItemStack stack) {
         return null;
     }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
+    {
+        if (this.isDouble())
+        {
+            return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
+        }
+        else if (side != EnumFacing.UP && side != EnumFacing.DOWN && !super.shouldSideBeRendered(blockState, blockAccess, pos, side))
+        {
+            return false;
+        }
+
+        return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean originalShouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
+    {
+        AxisAlignedBB axisalignedbb = blockState.getBoundingBox(blockAccess, pos);
+
+        switch (side)
+        {
+            case DOWN:
+
+                if (axisalignedbb.minY > 0.0D)
+                {
+                    return true;
+                }
+
+                break;
+            case UP:
+
+                if (axisalignedbb.maxY < 1.0D)
+                {
+                    return true;
+                }
+
+                break;
+            case NORTH:
+
+                if (axisalignedbb.minZ > 0.0D)
+                {
+                    return true;
+                }
+
+                break;
+            case SOUTH:
+
+                if (axisalignedbb.maxZ < 1.0D)
+                {
+                    return true;
+                }
+
+                break;
+            case WEST:
+
+                if (axisalignedbb.minX > 0.0D)
+                {
+                    return true;
+                }
+
+                break;
+            case EAST:
+
+                if (axisalignedbb.maxX < 1.0D)
+                {
+                    return true;
+                }
+        }
+
+        IBlockState sideBlockState = blockAccess.getBlockState(pos.offset(side));
+
+        Material material = sideBlockState.getMaterial();
+
+        // Glass and other transparent materials force this side to be transparent.
+        if (!material.isOpaque() && material != Material.AIR)
+        {
+            return false;
+        }
+
+        return !sideBlockState.doesSideBlockRendering(blockAccess, pos.offset(side), side.getOpposite());
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer()
+    {
+        return BlockRenderLayer.CUTOUT;
+    }
+
+    /**
+     * Used to determine ambient occlusion and culling when rebuilding chunks for render
+     */
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return false;
+    }
+
 }

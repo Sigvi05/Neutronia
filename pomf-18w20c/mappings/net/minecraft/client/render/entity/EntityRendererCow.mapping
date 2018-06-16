@@ -1,0 +1,6 @@
+CLASS czo net/minecraft/client/render/entity/EntityRendererCow
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lana;)Lok;
+		ARG 0 model

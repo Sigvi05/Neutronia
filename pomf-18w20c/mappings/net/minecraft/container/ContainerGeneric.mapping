@@ -1,0 +1,15 @@
+CLASS atg net/minecraft/container/ContainerGeneric
+	FIELD a inventory Lagm;
+	FIELD f rows I
+	METHOD <init> (Lagm;Lagm;Larn;)V
+		ARG 0 playerInv
+		ARG 1 inventory
+		ARG 2 player
+	METHOD a canUse (Larn;)Z
+		ARG 0 player
+	METHOD b close (Larn;)V
+		ARG 0 player
+	METHOD b getStack (Larn;I)Lawm;
+		ARG 0 player
+		ARG 1 slot
+	METHOD d getInventory ()Lagm;

@@ -1,0 +1,2 @@
+CLASS bue net/minecraft/world/gen/structure/StructureGeneratorNetherFortress
+	CLASS bue$a StructureNetherFortress

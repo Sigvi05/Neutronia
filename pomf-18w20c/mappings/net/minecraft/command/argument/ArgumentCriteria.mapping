@@ -1,0 +1,3 @@
+CLASS cg net/minecraft/command/argument/ArgumentCriteria
+	FIELD a ARGUMENT_CRITERIA_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD b FOO Ljava/util/Collection;

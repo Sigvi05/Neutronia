@@ -1,0 +1,101 @@
+CLASS bbx net/minecraft/world/biome/Biome
+	CLASS bbx$a Builder
+		FIELD a surfaceBuilder Lbzy;
+		FIELD b precipitation Lbbx$e;
+		FIELD c category Lbbx$b;
+		FIELD d depth Ljava/lang/Float;
+		FIELD e scale Ljava/lang/Float;
+		FIELD f temperature Ljava/lang/Float;
+		FIELD g downfall Ljava/lang/Float;
+		FIELD h waterColor Ljava/lang/Integer;
+		FIELD i waterFogColor Ljava/lang/Integer;
+		FIELD j parent Ljava/lang/String;
+		METHOD a withDepth (F)Lbbx$a;
+		METHOD a withWaterColor (I)Lbbx$a;
+		METHOD a withCategory (Lbbx$b;)Lbbx$a;
+		METHOD a withPrecipitation (Lbbx$e;)Lbbx$a;
+		METHOD a withSurface (Lbzy;)Lbbx$a;
+		METHOD a withParent (Ljava/lang/String;)Lbbx$a;
+		METHOD b withScale (F)Lbbx$a;
+		METHOD b withWaterFogColor (I)Lbbx$a;
+		METHOD c withTemperature (F)Lbbx$a;
+		METHOD d withDownfall (F)Lbbx$a;
+	CLASS bbx$b Category
+		FIELD a NONE Lbbx$b;
+		FIELD b TAIGA Lbbx$b;
+		FIELD c EXTREME_HILLS Lbbx$b;
+		FIELD d JUNGLE Lbbx$b;
+		FIELD e MESA Lbbx$b;
+		FIELD f PLAINS Lbbx$b;
+		FIELD g SAVANNA Lbbx$b;
+		FIELD h ICY Lbbx$b;
+		FIELD i THEEND Lbbx$b;
+		FIELD j BEACH Lbbx$b;
+		FIELD k FOREST Lbbx$b;
+		FIELD l OCEAN Lbbx$b;
+		FIELD m DESERT Lbbx$b;
+		FIELD n RIVER Lbbx$b;
+		FIELD o SWAMP Lbbx$b;
+		FIELD p MUSHROOM Lbbx$b;
+		FIELD q NETHER Lbbx$b;
+	CLASS bbx$c TemperatureGroup
+		FIELD a OCEAN Lbbx$c;
+		FIELD b COLD Lbbx$c;
+		FIELD c MEDIUM Lbbx$c;
+		FIELD d WARM Lbbx$c;
+	CLASS bbx$d SpawnListEntry
+		FIELD c minGroupSize I
+		FIELD d maxGroupSize I
+		METHOD <init> (Laid;III)V
+			ARG 1 weight
+			ARG 2 minGroupSize
+			ARG 3 maxGroupSize
+	CLASS bbx$e Precipitation
+		FIELD a NONE Lbbx$e;
+		FIELD b RAIN Lbbx$e;
+		FIELD c SNOW Lbbx$e;
+	FIELD U AIR Lbob;
+	FIELD V DIRT Lbob;
+	FIELD W GRASS Lbob;
+	FIELD X PODZOL Lbob;
+	FIELD Y GRAVEL Lbob;
+	FIELD Z STONE Lbob;
+	FIELD aL REGISTRY Leu;
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD aM biome Ljava/lang/String;
+	FIELD aN depth F
+	FIELD aO scale F
+	FIELD aP temperature F
+	FIELD aQ downfall F
+	FIELD aR waterColor I
+	FIELD aS waterFogColor I
+	FIELD aT parent Ljava/lang/String;
+	FIELD aU surface Lbzy;
+	FIELD aV category Lbbx$b;
+	FIELD aW precipitation Lbbx$e;
+	FIELD aa COARSE_DIRT Lbob;
+	FIELD ab SAND Lbob;
+	FIELD ac RED_SAND Lbob;
+	FIELD ad WHITE_TERRACOTTA Lbob;
+	FIELD ae MYCELIUM Lbob;
+	FIELD af NETHERRACK Lbob;
+	FIELD ag END_STONE Lbob;
+	FIELD ah EMPTY_SURFACE Lcak;
+	METHOD <init> (Lbbx$a;)V
+		ARG 0 builder
+	METHOD a register (ILjava/lang/String;Lbbx;)V
+	METHOD a getTemperatureAtPos (Leg;)F
+	METHOD b hasParent ()Z
+	METHOD c getPrecipitation ()Lbbx$e;
+	METHOD g getTemperatureGroup ()Lbbx$c;
+	METHOD h getDepth ()F
+	METHOD i getDownfall ()F
+	METHOD j getTranslatedName ()Lid;
+	METHOD k getScale ()F
+	METHOD l getTemperature ()F
+	METHOD m getWaterColor ()I
+	METHOD n getWaterFogColor ()I
+	METHOD o getCategory ()Lbbx$b;
+	METHOD p getSurface ()Lbzy;
+	METHOD r getParent ()Ljava/lang/String;
+	METHOD s registerBiomes ()V

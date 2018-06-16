@@ -1,0 +1,3 @@
+CLASS rd net/minecraft/command/CommandSummon
+	FIELD a COMMANDS_SUMMON_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

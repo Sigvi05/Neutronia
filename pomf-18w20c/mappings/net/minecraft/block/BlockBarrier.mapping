@@ -1,0 +1,8 @@
+CLASS bfl net/minecraft/block/BlockBarrier
+	METHOD a dropItems (Lbob;Lbbd;Leg;FI)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 dropChance
+		ARG 4 fortune
+	METHOD c getRenderType (Lbob;)Lbjy;
+	METHOD g getAmbientOcclusionLightValue (Lbob;)F

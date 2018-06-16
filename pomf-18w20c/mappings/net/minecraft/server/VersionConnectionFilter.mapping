@@ -1,0 +1,10 @@
+CLASS tk net/minecraft/server/VersionConnectionFilter
+	FIELD a server Lnet/minecraft/server/MinecraftServer;
+	FIELD b connection Lhs;
+	METHOD <init> (Lnet/minecraft/server/MinecraftServer;Lhs;)V
+		ARG 0 server
+		ARG 1 connection
+	METHOD a onConnectionLost (Lid;)V
+		ARG 0 reason
+	METHOD a handlePacket (Lne;)V
+		ARG 0 handshake

@@ -1,0 +1,2 @@
+CLASS cd net/minecraft/command/argument/ArgumentNbt
+	FIELD a ARGUMENT_NBT_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

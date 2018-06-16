@@ -1,0 +1,4 @@
+CLASS cjt net/minecraft/client/gui/IGuiEventListener
+	METHOD charTyped onKeyPressed (CI)Z
+		ARG 0 keyChar
+		ARG 1 keyCode

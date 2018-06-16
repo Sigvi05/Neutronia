@@ -1,0 +1,13 @@
+CLASS ma net/minecraft/network/packet/server/SPacketChatMessage
+	FIELD a message Ljava/lang/String;
+	METHOD <init> (Ljava/lang/String;)V
+		ARG 0 message
+	METHOD a getMessage ()Ljava/lang/String;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lly;)V
+		ARG 0 handler
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

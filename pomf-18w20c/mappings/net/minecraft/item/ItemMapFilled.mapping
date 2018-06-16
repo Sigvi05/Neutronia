@@ -1,0 +1,18 @@
+CLASS awr net/minecraft/item/ItemMapFilled
+	METHOD a onUpdate (Lawm;Lbbd;Lahz;IZ)V
+		ARG 0 stack
+		ARG 1 world
+		ARG 2 entity
+		ARG 3 invSlot
+		ARG 4 held
+	METHOD a createMapPacket (Lawm;Lbbd;Larn;)Liq;
+		ARG 0 stack
+		ARG 1 world
+		ARG 2 player
+	METHOD a addInformation (Lawm;Lbbd;Ljava/util/List;Laxu;)V
+		ARG 0 stack
+		ARG 2 tooltip
+	METHOD b onCrafted (Lawm;Lbbd;Larn;)V
+		ARG 0 stack
+		ARG 1 world
+		ARG 2 player

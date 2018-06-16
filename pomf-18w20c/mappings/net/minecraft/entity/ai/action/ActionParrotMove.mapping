@@ -1,0 +1,4 @@
+CLASS ajg net/minecraft/entity/ai/action/ActionParrotMove
+	METHOD <init> (Laij;)V
+		ARG 0 owner
+	METHOD a tick ()V

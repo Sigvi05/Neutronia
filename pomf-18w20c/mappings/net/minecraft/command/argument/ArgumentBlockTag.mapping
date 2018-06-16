@@ -1,0 +1,3 @@
+CLASS cq net/minecraft/command/argument/ArgumentBlockTag
+	FIELD a STONE Ljava/util/Collection;
+	FIELD b ARGUMENTS_BLOCK_TAG_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

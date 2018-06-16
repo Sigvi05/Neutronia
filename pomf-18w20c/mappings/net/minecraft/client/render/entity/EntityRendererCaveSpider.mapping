@@ -1,0 +1,8 @@
+CLASS czk net/minecraft/client/render/entity/EntityRendererCaveSpider
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Laqx;)Lok;
+		ARG 0 model

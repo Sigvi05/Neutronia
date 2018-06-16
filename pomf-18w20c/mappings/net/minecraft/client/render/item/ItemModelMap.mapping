@@ -1,0 +1,10 @@
+CLASS cvk net/minecraft/client/render/item/ItemModelMap
+	FIELD c blockModelManager Ldgo;
+	METHOD <init> (Ldgo;)V
+		ARG 0 blockModelManager
+	METHOD a getBlockModelManager ()Ldgo;
+	METHOD a getSprite (Lbbc;)Ldey;
+		ARG 0 item
+	METHOD b reloadModels ()V
+	METHOD b getModel (Lawm;)Ldgk;
+		ARG 0 stack

@@ -1,0 +1,12 @@
+CLASS ble net/minecraft/block/BlockSugarCane
+	FIELD a AGE Lboz;
+	METHOD X_ getRenderLayer ()Lbas;
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random

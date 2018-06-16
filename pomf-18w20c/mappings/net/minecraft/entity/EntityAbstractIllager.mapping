@@ -1,0 +1,8 @@
+CLASS apw net/minecraft/entity/EntityAbstractIllager
+	CLASS apw$a
+		FIELD a CROSSED Lapw$a;
+		FIELD b ATTACKING Lapw$a;
+		FIELD c SPELLCASTING Lapw$a;
+		FIELD d BOW_AND_ARROW Lapw$a;
+	METHOD cB getEntityAttribute ()Lain;
+	METHOD w_ initDataTracker ()V

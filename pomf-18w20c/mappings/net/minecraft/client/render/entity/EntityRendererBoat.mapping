@@ -1,0 +1,5 @@
+CLASS czj net/minecraft/client/render/entity/EntityRendererBoat
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lasq;)Lok;
+		ARG 0 model

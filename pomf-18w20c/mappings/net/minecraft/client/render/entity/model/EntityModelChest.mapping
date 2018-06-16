@@ -1,0 +1,4 @@
+CLASS cpn net/minecraft/client/render/entity/model/EntityModelChest
+	FIELD a lid Lcse;
+	FIELD b base Lcse;
+	FIELD c hatch Lcse;

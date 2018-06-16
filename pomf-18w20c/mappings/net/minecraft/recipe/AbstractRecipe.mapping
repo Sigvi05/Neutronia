@@ -1,0 +1,7 @@
+CLASS ayk net/minecraft/recipe/AbstractRecipe
+	FIELD a identifier Lok;
+	METHOD <init> (Lok;)V
+		ARG 0 identifier
+	METHOD b getIdentifier ()Lok;
+	METHOD c isIgnoredInRecipeBook ()Z
+	METHOD d getOutput ()Lawm;

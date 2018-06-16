@@ -1,0 +1,2 @@
+CLASS vu
+	FIELD g LOGGER Lorg/apache/logging/log4j/Logger;

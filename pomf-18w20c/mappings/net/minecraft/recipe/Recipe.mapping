@@ -1,0 +1,7 @@
+CLASS ayr net/minecraft/recipe/Recipe
+	METHOD a matches (Lagm;Lbbd;)Z
+		ARG 1 world
+	METHOD b getIdentifier ()Lok;
+	METHOD c isIgnoredInRecipeBook ()Z
+	METHOD d getOutput ()Lawm;
+	METHOD e getPreviewInputs ()Lev;

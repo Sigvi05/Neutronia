@@ -1,0 +1,6 @@
+CLASS aus net/minecraft/item/ItemBoat
+	FIELD a type Lasq$b;
+	METHOD a onRightClick (Lbbd;Larn;Lags;)Lagv;
+		ARG 0 world
+		ARG 1 player
+		ARG 2 hand

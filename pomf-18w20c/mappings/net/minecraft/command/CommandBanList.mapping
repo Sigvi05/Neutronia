@@ -1,0 +1,2 @@
+CLASS ph net/minecraft/command/CommandBanList
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

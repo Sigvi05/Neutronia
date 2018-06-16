@@ -1,10 +1,13 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v2.",
+  "_comment": "Generated using Husky's JSON Generator v3.",
   "forge_marker": 1,
   "variants": {
     "prop": {
       "blarg": {
-        "model": "neutronia:upper_frosted_orange_terracotta_slab"
+        "model": "cube_all",
+        "textures": {
+          "all": "neutronia:blocks/frosted_orange_terracotta"
+        }
       }
     }
   }

@@ -1,0 +1,25 @@
+CLASS bmd net/minecraft/block/entity/BlockEntityBanner
+	FIELD a customName Lid;
+	FIELD f patterns Lhb;
+	FIELD h patternList Ljava/util/List;
+	FIELD i patternColorList Ljava/util/List;
+	FIELD j bannerMissing Ljava/lang/String;
+	METHOD N_ getNameAsComponent ()Lid;
+	METHOD O_ hasCustomName ()Z
+	METHOD Z_ getUpdatePacket ()Ljd;
+	METHOD a getPatternCount (Lawm;)I
+		ARG 0 stack
+	METHOD a deserialize (Lawm;Lavk;)V
+		ARG 0 stack
+	METHOD a serialize (Lgv;)Lgv;
+		ARG 0 tag
+	METHOD aa_ serializeInitialChunkData ()Lgv;
+	METHOD b loadFromItemStack (Lawm;)V
+		ARG 0 stack
+	METHOD b deserialize (Lgv;)V
+		ARG 0 tag
+	METHOD e getTextComponent ()Lid;
+	METHOD f getPatternList ()Ljava/util/List;
+	METHOD h getPatternColorList ()Ljava/util/List;
+	METHOD j getItemStack ()Lawm;
+	METHOD l initPatternLists ()V

@@ -1,0 +1,17 @@
+CLASS km net/minecraft/network/packet/client/CPacketPlayerList
+	CLASS km$a Type
+		FIELD a ADD_PLAYER Lkm$a;
+		FIELD b UPDATE_GAME_MODE Lkm$a;
+		FIELD c UPDATE_LATENCY Lkm$a;
+		FIELD d UPDATE_DISPLAY_NAME Lkm$a;
+		FIELD e REMOVE_PLAYER Lkm$a;
+	FIELD a type Lkm$a;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getType ()Lkm$a;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

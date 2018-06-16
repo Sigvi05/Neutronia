@@ -1,0 +1,3 @@
+CLASS bid net/minecraft/block/BlockGravel
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD w getColor (Lbob;)I

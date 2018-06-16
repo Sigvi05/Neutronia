@@ -1,0 +1,7 @@
+CLASS aih net/minecraft/sortme/OptionMainHand
+	FIELD a LEFT Laih;
+	FIELD b RIGHT Laih;
+	FIELD c name Lid;
+	METHOD <init> (Ljava/lang/String;ILid;)V
+		ARG 0 name
+	METHOD a getOpposite ()Laih;

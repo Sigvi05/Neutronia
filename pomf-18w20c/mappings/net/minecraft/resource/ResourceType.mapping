@@ -1,0 +1,3 @@
+CLASS tt net/minecraft/resource/ResourceType
+	FIELD a CLIENT_RESOURCES Ltt;
+	FIELD b SERVER_DATA Ltt;

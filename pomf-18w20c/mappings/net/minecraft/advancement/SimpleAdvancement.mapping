@@ -1,0 +1,50 @@
+CLASS l net/minecraft/advancement/SimpleAdvancement
+	CLASS l$a Builder
+		FIELD a identifier Lok;
+		FIELD b parent Ll;
+		FIELD c display Lu;
+		FIELD d rewards Lo;
+		FIELD e criteria Ljava/util/Map;
+		FIELD f packedCriteria [[Ljava/lang/String;
+		FIELD g requirementStrategy Lw;
+		METHOD a Create ()Ll$a;
+		METHOD a setDisplayInfo (Lbbc;Lid;Lid;Lok;Lv;ZZZ)Ll$a;
+		METHOD a addCritereon (Ljava/lang/String;Lq;)Ll$a;
+		METHOD a addCriterion (Ljava/lang/String;Lt;)Ll$a;
+		METHOD a buildAndConsume (Ljava/util/function/Consumer;Ljava/lang/String;)Ll;
+		METHOD a setParent (Ljava/util/function/Function;)Z
+			ARG 0 parentSupplier
+		METHOD a setParent (Ll;)Ll$a;
+		METHOD a addReward (Lo$a;)Ll$a;
+		METHOD a addReward (Lo;)Ll$a;
+		METHOD a setIdentifier (Lok;)Ll$a;
+		METHOD a setDisplay (Lu;)Ll$a;
+		METHOD a setRequirementStrategy (Lw;)Ll$a;
+		METHOD b serialise ()Lcom/google/gson/JsonObject;
+		METHOD b build (Lok;)Ll;
+	FIELD a parent Ll;
+	FIELD b display Lu;
+	FIELD c rewards Lo;
+	FIELD d id Lok;
+	FIELD e criteria Ljava/util/Map;
+	FIELD f requirements [[Ljava/lang/String;
+	FIELD g children Ljava/util/Set;
+	METHOD <init> (Lok;Ll;Lu;Lo;Ljava/util/Map;[[Ljava/lang/String;)V
+		ARG 0 id
+		ARG 1 parent
+		ARG 2 display
+		ARG 3 rewards
+		ARG 4 criteria
+		ARG 5 requirements
+	METHOD a createTask ()Ll$a;
+	METHOD a addChild (Ll;)V
+		ARG 0 child
+	METHOD b getParent ()Ll;
+	METHOD c getDisplay ()Lu;
+	METHOD d getRewards ()Lo;
+	METHOD e getChildren ()Ljava/lang/Iterable;
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 0 other
+	METHOD f getCriteria ()Ljava/util/Map;
+	METHOD h getId ()Lok;
+	METHOD i getRequirements ()[[Ljava/lang/String;

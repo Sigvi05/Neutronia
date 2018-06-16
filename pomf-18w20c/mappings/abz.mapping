@@ -1,0 +1,3 @@
+CLASS abz
+	CLASS abz$a
+		METHOD d right (Labf;)Labf;

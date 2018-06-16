@@ -1,0 +1,11 @@
+CLASS bku net/minecraft/block/BlockStainedGlass
+	METHOD X_ getRenderLayer ()Lbas;
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a onBlockRemoved (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I
+	METHOD b onBlockAdded (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD j canSilkHarvest ()Z

@@ -1,0 +1,3 @@
+CLASS ahl
+	METHOD c getDeathMessage (Laii;)Lid;
+		ARG 0 entity

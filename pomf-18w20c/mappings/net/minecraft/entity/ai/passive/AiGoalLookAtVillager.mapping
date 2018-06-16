@@ -1,0 +1,11 @@
+CLASS aku net/minecraft/entity/ai/passive/AiGoalLookAtVillager
+	FIELD a owner Lanr;
+	FIELD b target Lari;
+	FIELD c lookTimer I
+	METHOD <init> (Lanr;)V
+		ARG 0 owner
+	METHOD a canStart ()Z
+	METHOD b shouldContinue ()Z
+	METHOD c start ()V
+	METHOD d stop ()V
+	METHOD e tick ()V

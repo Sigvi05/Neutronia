@@ -1,0 +1,14 @@
+CLASS cfj net/minecraft/world/loot/function/LootTableFunctionSetTag
+	CLASS cfj$a DeSerializer
+		METHOD a serialize (Lcom/google/gson/JsonObject;Lcfc;Lcom/google/gson/JsonSerializationContext;)V
+		METHOD a serialize (Lcom/google/gson/JsonObject;Lcfj;Lcom/google/gson/JsonSerializationContext;)V
+		METHOD a deserialize (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;[Lcfo;)Lcfj;
+		METHOD b deserialize (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;[Lcfo;)Lcfc;
+	FIELD a tag Lgv;
+	METHOD <init> ([Lcfo;Lgv;)V
+		ARG 0 conditions
+		ARG 1 tag
+	METHOD a apply (Lawm;Ljava/util/Random;Lcev;)Lawm;
+		ARG 0 stack
+		ARG 1 rand
+		ARG 2 context

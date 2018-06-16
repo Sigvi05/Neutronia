@@ -1,0 +1,35 @@
+CLASS jo net/minecraft/network/packet/client/CPacketGuiOpen
+	FIELD a id I
+	FIELD b type Ljava/lang/String;
+	FIELD c title Lid;
+	FIELD d slotCount I
+	FIELD e entityHorseId I
+	METHOD <init> (ILjava/lang/String;Lid;)V
+		ARG 0 id
+		ARG 1 type
+		ARG 2 title
+	METHOD <init> (ILjava/lang/String;Lid;I)V
+		ARG 0 id
+		ARG 1 type
+		ARG 2 title
+		ARG 3 slotCount
+	METHOD <init> (ILjava/lang/String;Lid;II)V
+		ARG 0 id
+		ARG 1 type
+		ARG 2 title
+		ARG 3 slotCount
+		ARG 4 iAmAHorseId
+	METHOD a getId ()I
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getType ()Ljava/lang/String;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getTitle ()Lid;
+	METHOD d getSlotCount ()I
+	METHOD e getHorseId ()I
+	METHOD f hasSlots ()Z

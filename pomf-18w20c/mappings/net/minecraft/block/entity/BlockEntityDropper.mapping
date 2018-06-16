@@ -1,0 +1,3 @@
+CLASS bmq net/minecraft/block/entity/BlockEntityDropper
+	METHOD N_ getNameAsComponent ()Lid;
+	METHOD l getContainerId ()Ljava/lang/String;

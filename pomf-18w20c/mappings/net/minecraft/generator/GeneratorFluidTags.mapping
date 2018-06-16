@@ -1,0 +1,2 @@
+CLASS gl net/minecraft/generator/GeneratorFluidTags
+	METHOD b getName ()Ljava/lang/String;

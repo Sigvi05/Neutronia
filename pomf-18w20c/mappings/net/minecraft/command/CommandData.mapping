@@ -1,0 +1,5 @@
+CLASS rq net/minecraft/command/CommandData
+	FIELD b COMMANDS_DATA_MERGE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD c COMMANDS_DATA_GET_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD d COMMANDS_DATA_GET_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

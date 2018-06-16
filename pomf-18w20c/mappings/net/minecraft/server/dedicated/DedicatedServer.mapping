@@ -1,0 +1,71 @@
+CLASS rv net/minecraft/server/dedicated/DedicatedServer
+	FIELD h LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD i SHA1_PATTERN Ljava/util/regex/Pattern;
+	FIELD j commandQueue Ljava/util/List;
+	FIELD k queryHandler Lvl;
+	FIELD l commandSender Lvi;
+	FIELD m rconServer Lvn;
+	FIELD n properties Lpa;
+	FIELD o eulaReader Los;
+	FIELD p generateStructures Z
+	FIELD q gameMode Lbba;
+	FIELD r guiPresent Z
+	METHOD <init> (Ljava/io/File;Lxm;Lcom/mojang/authlib/yggdrasil/YggdrasilAuthenticationService;Lcom/mojang/authlib/minecraft/MinecraftSessionService;Lcom/mojang/authlib/GameProfileRepository;Lus;)V
+		ARG 1 migrationHandler
+		ARG 2 authService
+	METHOD M isMonsterSpawningEnabled ()Z
+	METHOD R isSnooperEnabled ()Z
+	METHOD X isUsingNativeTransport ()Z
+	METHOD a addSnooperInfo (Lahc;)V
+		ARG 0 snooper
+	METHOD a setDefaultGameMode (Lbba;)V
+		ARG 0 gameMode
+	METHOD a getInt (Ljava/lang/String;I)I
+		ARG 0 key
+		ARG 1 defaultValue
+	METHOD a queueCommand (Ljava/lang/String;Lbs;)V
+		ARG 0 command
+		ARG 1 commandSender
+	METHOD a setProperty (Ljava/lang/String;Ljava/lang/Object;)V
+		ARG 0 key
+		ARG 1 value
+	METHOD a getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+		ARG 0 key
+		ARG 1 defaultValue
+	METHOD a getBoolean (Ljava/lang/String;Z)Z
+		ARG 0 key
+		ARG 1 defaultValue
+	METHOD aV getResourcePackSHA1 ()Ljava/lang/String;
+	METHOD aW executeServerCommands ()V
+	METHOD aX getConfigurationManager ()Lru;
+	METHOD aY startGui ()V
+	METHOD aZ upgradePlayerFiles ()Z
+	METHOD a_ executeCommand (Ljava/lang/String;)Ljava/lang/String;
+		ARG 0 command
+	METHOD aa areCommandBlocksEnabled ()Z
+	METHOD ae getConfigurationManager ()Luw;
+	METHOD ai hasGui ()Z
+	METHOD an getSpawnProtectionRadius ()I
+	METHOD ax getMaxWorldBorderRadius ()I
+	METHOD az getNetworkCompressionThreshold ()I
+	METHOD b addServerInfoToCrashReport (Lb;)Lb;
+		ARG 0 report
+	METHOD ba getMaximumTickTime ()J
+	METHOD bc sleepFiveSeconds ()V
+	METHOD c_ saveProperties ()V
+	METHOD d setupServer ()Z
+	METHOD d setPlayerIdleTimeout (I)V
+		ARG 0 value
+	METHOD d_ getPropertiesFilename ()Ljava/lang/String;
+	METHOD e getHostname ()Ljava/lang/String;
+	METHOD e_ getMotd ()Ljava/lang/String;
+	METHOD f getPort ()I
+	METHOD g shouldGenerateStructures ()Z
+	METHOD h getDefaultGameMode ()Lbba;
+	METHOD i getDefaultDifficulty ()Lagq;
+	METHOD j isHardcore ()Z
+	METHOD k getOpPermissionLevel ()I
+	METHOD l shouldBroadcastRconToOps ()Z
+	METHOD u exit ()V
+	METHOD w doLevelTick ()V
+	METHOD x isNetherAllowed ()Z

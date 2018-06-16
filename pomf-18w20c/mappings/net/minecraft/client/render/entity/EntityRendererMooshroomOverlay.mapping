@@ -1,0 +1,6 @@
+CLASS ddi net/minecraft/client/render/entity/EntityRendererMooshroomOverlay
+	METHOD a shouldMergeTextures ()Z
+	METHOD a render (Laii;FFFFFFF)V
+		ARG 0 entity
+	METHOD a render (Land;FFFFFFF)V
+		ARG 0 entity

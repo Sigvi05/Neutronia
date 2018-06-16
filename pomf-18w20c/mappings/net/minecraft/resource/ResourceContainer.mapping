@@ -1,0 +1,25 @@
+CLASS uj net/minecraft/resource/ResourceContainer
+	CLASS uj$a DebugInputStream
+		FIELD a stream Ljava/io/InputStream;
+		FIELD b warningMessage Ljava/lang/String;
+		FIELD c isClosed Z
+	FIELD a packs Ljava/util/List;
+	FIELD b LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD c metadataDeserializer Ltt;
+	METHOD <init> (Ltt;)V
+		ARG 0 metadataDeserializer
+	METHOD a getProvidedAssets ()Ljava/util/Set;
+	METHOD a getResource (Lok;)Lul;
+		ARG 0 id
+	METHOD a open (Lok;Lts;)Ljava/io/InputStream;
+		ARG 0 id
+		ARG 1 pack
+	METHOD a add (Lts;)V
+		ARG 0 pack
+	METHOD b getLogger ()Lorg/apache/logging/log4j/Logger;
+	METHOD b getAllResources (Lok;)Ljava/util/List;
+		ARG 0 id
+	METHOD c getMetadataLocation (Lok;)Lok;
+		ARG 0 id
+	METHOD d validateLocation (Lok;)V
+		ARG 0 id

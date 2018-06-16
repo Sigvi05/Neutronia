@@ -1,0 +1,9 @@
+CLASS bbr net/minecraft/sortme/MobSpawnerEntry
+	FIELD b entityTag Lgv;
+	METHOD <init> (ILgv;)V
+		ARG 0 weight
+		ARG 1 entityTag
+	METHOD <init> (Lgv;)V
+		ARG 0 tag
+	METHOD a serialize ()Lgv;
+	METHOD b getEntityTag ()Lgv;

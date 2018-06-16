@@ -1,0 +1,6 @@
+CLASS dha net/minecraft/client/audio/SoundEventMinecartRiding
+	FIELD n minecart Laso;
+	FIELD o distance F
+	METHOD <init> (Laso;)V
+		ARG 0 minecart
+	METHOD Y_ update ()V

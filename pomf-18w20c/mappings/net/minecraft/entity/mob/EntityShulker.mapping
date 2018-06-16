@@ -1,0 +1,71 @@
+CLASS aqs net/minecraft/entity/mob/EntityShulker
+	CLASS aqs$a
+		METHOD a canStart ()Z
+		METHOD c start ()V
+		METHOD d stop ()V
+		METHOD e tick ()V
+	CLASS aqs$c
+		METHOD a canStart ()Z
+		METHOD a getFollowBounds (D)Lcge;
+			ARG 0 range
+		METHOD a canNavigateToEntity (Laii;)Z
+			ARG 0 entity
+	CLASS aqs$d
+		METHOD a canStart ()Z
+		METHOD a getFollowBounds (D)Lcge;
+			ARG 0 range
+	CLASS aqs$e
+		METHOD a canStart ()Z
+		METHOD b shouldContinue ()Z
+		METHOD c start ()V
+		METHOD d stop ()V
+		METHOD e tick ()V
+	FIELD a ATTACHED_FACE Lnz;
+	FIELD bB COVEREDARMORBONUS Laiw;
+	FIELD b ATTACHED_BLOCK Lnz;
+	FIELD c PEEK_AMOUNT Lnz;
+	METHOD B playSoundAmbient ()V
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD H getLootTableId ()Lok;
+	METHOD R_ update ()V
+	METHOD a setPositionAndRotations (DDDFFIZ)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+		ARG 3 yaw
+		ARG 4 pitch
+	METHOD a setPeekAmount (I)V
+		ARG 0 value
+	METHOD a (Lagr;Lail;Lawm;)Lail;
+		ARG 0 difficulty
+	METHOD a damage (Lahi;F)Z
+		ARG 0 source
+		ARG 1 damage
+	METHOD a move (Laio;DDD)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD a deserializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD a onTrackedDataSet (Lnz;)V
+		ARG 0 data
+	METHOD b setPosition (DDD)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD b serializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD bI getEyeHeight ()F
+	METHOD bX getSoundCategory ()Lvr;
+	METHOD ca initAttributes ()V
+	METHOD ct getSoundDeath ()Lvp;
+	METHOD d getSoundHurt (Lahi;)Lvp;
+	METHOD dC getAttachedFace ()Lem;
+	METHOD dD getAttachedBlock ()Leg;
+	METHOD dE getPeekAmount ()I
+	METHOD g setAttachedBlock (Leg;)V
+		ARG 0 value
+	METHOD i pushAwayFrom (Lahz;)V
+		ARG 0 other
+	METHOD k updateMovement ()V
+	METHOD w_ initDataTracker ()V

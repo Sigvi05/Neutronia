@@ -1,0 +1,5 @@
+CLASS dcc net/minecraft/client/render/entity/EntityRendererTNTPrimed
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapu;)Lok;
+		ARG 0 model

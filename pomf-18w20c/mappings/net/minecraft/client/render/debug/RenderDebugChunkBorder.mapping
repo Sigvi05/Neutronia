@@ -1,0 +1,6 @@
+CLASS cyr net/minecraft/client/render/debug/RenderDebugChunkBorder
+	FIELD a game Lchv;
+	METHOD <init> (Lchv;)V
+		ARG 0 game
+	METHOD a render (FJ)V
+		ARG 0 tickDelta

@@ -1,0 +1,6 @@
+CLASS bpk net/minecraft/world/gen/ChunkGeneratorType
+	FIELD b SURFACE Lbpk;
+	FIELD c CAVES Lbpk;
+	FIELD d FLOATING_ISLANDS Lbpk;
+	FIELD e DEBUG Lbpk;
+	FIELD f FLAT Lbpk;

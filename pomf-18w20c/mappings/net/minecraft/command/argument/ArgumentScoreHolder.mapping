@@ -1,0 +1,20 @@
+CLASS cl net/minecraft/command/argument/ArgumentScoreHolder
+	CLASS cl$c Serializer
+		METHOD a serialize (Lcl;Lcom/google/gson/JsonObject;)V
+			ARG 0 argument
+			ARG 1 root
+		METHOD a serialize (Lcl;Lhu;)V
+			ARG 0 argument
+			ARG 1 buffer
+		METHOD a serialize (Lcom/mojang/brigadier/arguments/ArgumentType;Lcom/google/gson/JsonObject;)V
+			ARG 0 argument
+			ARG 1 root
+		METHOD a serialize (Lcom/mojang/brigadier/arguments/ArgumentType;Lhu;)V
+			ARG 0 argument
+			ARG 1 buffer
+		METHOD a deserialize (Lhu;)Lcl;
+			ARG 0 buffer
+		METHOD b deserialize (Lhu;)Lcom/mojang/brigadier/arguments/ArgumentType;
+			ARG 0 buffer
+	FIELD b PLAYER Ljava/util/Collection;
+	FIELD c ARGUMENT_SCOREHOLDER_EMPTY Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

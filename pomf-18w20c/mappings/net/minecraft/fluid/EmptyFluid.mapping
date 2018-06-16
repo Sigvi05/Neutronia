@@ -1,0 +1,3 @@
+CLASS cba net/minecraft/fluid/EmptyFluid
+	METHOD a getRenderLayer ()Lbas;
+	METHOD c isEmpty ()Z

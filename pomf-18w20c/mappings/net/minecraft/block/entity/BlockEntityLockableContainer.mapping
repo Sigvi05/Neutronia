@@ -1,0 +1,10 @@
+CLASS bmy net/minecraft/block/entity/BlockEntityLockableContainer
+	FIELD a lock Lagx;
+	METHOD V_ hasContainerLock ()Z
+	METHOD a setContainerLock (Lagx;)V
+		ARG 0 lock
+	METHOD a serialize (Lgv;)Lgv;
+		ARG 0 tag
+	METHOD b deserialize (Lgv;)V
+		ARG 0 tag
+	METHOD j getContainerLock ()Lagx;

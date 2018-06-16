@@ -1,0 +1,29 @@
+CLASS aql net/minecraft/entity/EntityIllagerIllusion
+	CLASS aql$a
+		METHOD a canStart ()Z
+		METHOD c start ()V
+		METHOD g getSpellTicks ()I
+		METHOD i startTimeDelay ()I
+		METHOD j castSpell ()V
+		METHOD k getSoundPrepare ()Lvp;
+	CLASS aql$b
+		METHOD a canStart ()Z
+		METHOD g getSpellTicks ()I
+		METHOD i startTimeDelay ()I
+		METHOD j castSpell ()V
+		METHOD k getSoundPrepare ()Lvp;
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD H getLootTableId ()Lok;
+	METHOD a (Lagr;Lail;Lawm;)Lail;
+		ARG 0 difficulty
+	METHOD a attackDistant (Laii;F)V
+		ARG 0 target
+	METHOD ca initAttributes ()V
+	METHOD ct getSoundDeath ()Lvp;
+	METHOD d getSoundHurt (Lahi;)Lvp;
+	METHOD k updateMovement ()V
+	METHOD r isTeammate (Lahz;)Z
+		ARG 0 entity
+	METHOD s setArmsRaised (Z)V
+		ARG 0 value
+	METHOD w_ initDataTracker ()V

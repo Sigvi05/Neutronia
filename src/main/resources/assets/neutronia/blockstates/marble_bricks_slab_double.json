@@ -4,7 +4,10 @@
   "variants": {
     "prop": {
       "blarg": {
-        "model": "neutronia:upper_marble_bricks_slab"
+        "model": "cube_all",
+        "textures": {
+          "all": "neutronia:blocks/marble_bricks"
+        }
       }
     }
   }

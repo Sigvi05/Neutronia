@@ -1,0 +1,20 @@
+CLASS axf net/minecraft/item/ItemShield
+	CLASS axf$1
+		METHOD a getProperty (Lawm;Lbbd;Laii;)F
+			ARG 0 stack
+			ARG 1 world
+			ARG 2 user
+	METHOD a canRepair (Lawm;Lawm;)Z
+		ARG 0 item
+		ARG 1 repairItem
+	METHOD a addInformation (Lawm;Lbbd;Ljava/util/List;Laxu;)V
+		ARG 0 stack
+		ARG 2 tooltip
+	METHOD a onRightClick (Lbbd;Larn;Lags;)Lagv;
+		ARG 0 world
+		ARG 1 player
+		ARG 2 hand
+	METHOD c getMaxUseTime (Lawm;)I
+		ARG 0 stack
+	METHOD d getUseAction (Lawm;)Laxw;
+		ARG 0 stack

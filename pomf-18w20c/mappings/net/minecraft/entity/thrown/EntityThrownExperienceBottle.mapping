@@ -1,0 +1,4 @@
+CLASS asj net/minecraft/entity/thrown/EntityThrownExperienceBottle
+	METHOD a onCollision (Lcgf;)V
+		ARG 0 hitResult
+	METHOD f getGravity ()F

@@ -1,0 +1,5 @@
+CLASS agy net/minecraft/container/ILockableContainer
+	METHOD V_ hasContainerLock ()Z
+	METHOD a setContainerLock (Lagx;)V
+		ARG 0 lock
+	METHOD j getContainerLock ()Lagx;

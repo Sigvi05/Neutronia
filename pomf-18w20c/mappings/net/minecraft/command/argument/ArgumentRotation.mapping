@@ -1,0 +1,2 @@
+CLASS cx net/minecraft/command/argument/ArgumentRotation
+	FIELD a ARGUMENT_ROTATION_INCOMPLETE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

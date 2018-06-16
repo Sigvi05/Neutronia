@@ -1,0 +1,23 @@
+CLASS ctv net/minecraft/client/particle/ParticleManager
+	FIELD a world Lbbd;
+	FIELD b PARTICLE_TEX Lok;
+	FIELD c particleQueues [[Ljava/util/ArrayDeque;
+	FIELD e textureManager Ldez;
+	FIELD f rand Ljava/util/Random;
+	FIELD g factoryMap Ljava/util/Map;
+	FIELD h newParticles Ljava/util/Queue;
+	METHOD <init> (Lbbd;Ldez;)V
+		ARG 0 world
+		ARG 1 textureManager
+	METHOD a updateParticles ()V
+	METHOD a setWorld (Lbbd;)V
+		ARG 0 world
+	METHOD a addParticle (Lctu;)V
+		ARG 0 particle
+	METHOD a updateParticleQueue (Ljava/util/Queue;)V
+		ARG 0 particleQueue
+	METHOD b getParticleCountAsString ()Ljava/lang/String;
+	METHOD b buildGeometry (Lahz;F)V
+	METHOD b updateParticle (Lctu;)V
+		ARG 0 particle
+	METHOD c registerDefaultFactories ()V

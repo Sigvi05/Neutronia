@@ -1,0 +1,53 @@
+CLASS bfq net/minecraft/block/BlockBed
+	CLASS bfq$a Part
+		FIELD a HEAD Lbfq$a;
+		FIELD b FOOT Lbfq$a;
+		FIELD c name Ljava/lang/String;
+		METHOD m asString ()Ljava/lang/String;
+	FIELD a PART Lboy;
+	FIELD b OCCUPIED Lbow;
+	METHOD X_ getRenderLayer ()Lbas;
+	METHOD a getDefaultState (Laur;)Lbob;
+	METHOD a createBlockEntity (Lbar;)Lbmh;
+		ARG 0 world
+	METHOD a onEntityLand (Lbar;Lahz;)V
+		ARG 1 entity
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a afterBreak (Lbbd;Larn;Leg;Lbob;Lbmh;Lawm;)V
+		ARG 0 world
+		ARG 1 player
+		ARG 2 pos
+		ARG 4 blockEntity
+		ARG 5 stack
+	METHOD a onLandedUpon (Lbbd;Leg;Lahz;F)V
+		ARG 0 world
+		ARG 1 pos
+		ARG 2 entity
+		ARG 3 fallDistance
+	METHOD a onPlaced (Lbbd;Leg;Lbob;Laii;Lawm;)V
+		ARG 0 world
+		ARG 1 pos
+		ARG 3 placer
+		ARG 4 stack
+	METHOD a onBreak (Lbbd;Leg;Lbob;Larn;)V
+		ARG 0 world
+		ARG 1 pos
+		ARG 3 player
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD a onActivated (Lbob;Lbbd;Leg;Larn;Lags;Lem;FFF)Z
+		ARG 0 state
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+		ARG 4 hand
+		ARG 5 facing
+		ARG 6 hitX
+		ARG 7 hitY
+		ARG 8 hitZ
+	METHOD c getRenderType (Lbob;)Lbjy;
+	METHOD d getMapColor (Lbob;Lbar;Leg;)Lcbi;
+	METHOD i getPistonBehavior (Lbob;)Lcbj;

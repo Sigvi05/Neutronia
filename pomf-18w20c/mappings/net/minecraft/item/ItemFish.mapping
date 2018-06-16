@@ -1,0 +1,20 @@
+CLASS awa net/minecraft/item/ItemFish
+	CLASS awa$a FishType
+		FIELD a COD Lawa$a;
+		FIELD b SALMON Lawa$a;
+		FIELD c CLOWNFISH Lawa$a;
+		FIELD d PUFFERFISH Lawa$a;
+		FIELD j cookable Z
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;IFIF)V
+			ARG 0 id
+			ARG 1 name
+		METHOD a getTypeFromStack (Lawm;)Lawa$a;
+		METHOD f isCookable ()Z
+	METHOD a onConsumed (Lawm;Lbbd;Larn;)V
+		ARG 0 stack
+		ARG 1 world
+		ARG 2 player
+	METHOD f getHungerRestored (Lawm;)I
+		ARG 0 stack
+	METHOD g getSaturatationRestored (Lawm;)F
+		ARG 0 stack

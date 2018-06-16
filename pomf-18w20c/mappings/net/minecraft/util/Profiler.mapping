@@ -1,0 +1,6 @@
+CLASS xa net/minecraft/util/Profiler
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	METHOD a beginSection (Ljava/lang/String;)V
+	METHOD c begin (Ljava/lang/String;)V
+		ARG 0 name
+	METHOD e endSection ()V

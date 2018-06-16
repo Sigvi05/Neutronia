@@ -1,0 +1,20 @@
+CLASS ckd net/minecraft/client/gui/ingame/GuiToast
+	CLASS ckd$a ToastInstance
+		FIELD b toast Lckc;
+		FIELD c animationTime J
+		FIELD d visibleTime J
+		FIELD e visibility Lckc$a;
+		METHOD a getToast ()Lckc;
+		METHOD a render (II)Z
+		METHOD a getVisibility (J)F
+			ARG 0 time
+	FIELD a mc Lchv;
+	FIELD f visible [Lckd$a;
+	FIELD g queue Ljava/util/Deque;
+	METHOD <init> (Lchv;)V
+		ARG 0 mc
+	METHOD a add (Lckc;)V
+		ARG 0 toast
+	METHOD a getToast (Ljava/lang/Class;Ljava/lang/Object;)Lckc;
+	METHOD b clear ()V
+	METHOD c getMinecraftInstance ()Lchv;

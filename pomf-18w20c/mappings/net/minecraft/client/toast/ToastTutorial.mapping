@@ -1,0 +1,11 @@
+CLASS cke net/minecraft/client/toast/ToastTutorial
+	CLASS cke$a Icons
+		FIELD a MOVEMENT_KEYS Lcke$a;
+		FIELD b MOUSE Lcke$a;
+		FIELD c TREE Lcke$a;
+		FIELD d RECIPE_BOOK Lcke$a;
+		FIELD e WOODEN_PLANKS Lcke$a;
+	METHOD a hide ()V
+	METHOD a setProgress (F)V
+	METHOD a draw (Lckd;J)Lckc$a;
+		ARG 0 toastGui

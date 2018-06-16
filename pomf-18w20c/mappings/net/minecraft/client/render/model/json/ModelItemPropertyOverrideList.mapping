@@ -1,0 +1,9 @@
+CLASS cwo net/minecraft/client/render/model/json/ModelItemPropertyOverrideList
+	FIELD a ORIGIN Lcwo;
+	FIELD b overrides Ljava/util/List;
+	METHOD <init> (Ljava/util/List;)V
+		ARG 0 list
+	METHOD a getModelId (Lawm;Lbbd;Laii;)Lok;
+		ARG 0 stack
+		ARG 1 world
+		ARG 2 entity

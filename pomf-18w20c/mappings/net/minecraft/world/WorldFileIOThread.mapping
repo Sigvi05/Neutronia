@@ -1,0 +1,11 @@
+CLASS cga net/minecraft/world/WorldFileIOThread
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b INSTANCE Lcga;
+	FIELD c tasks Ljava/util/List;
+	FIELD d tasksAdded J
+	FIELD e tasksCompleted J
+	FIELD f accelerated Z
+	METHOD a getInstance ()Lcga;
+	METHOD a addTask (Lcgb;)V
+	METHOD b completeTasks ()V
+	METHOD c runTasks ()V

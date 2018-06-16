@@ -1,0 +1,4 @@
+CLASS csi net/minecraft/client/sortme/AdvancementHandler
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	METHOD a setGui (Lcsi$a;)V
+	METHOD a onAdvancements (Llt;)V

@@ -1,0 +1,30 @@
+CLASS bgu net/minecraft/block/BlockCrop
+	FIELD b AGE Lboz;
+	METHOD a getItem (Lbar;Leg;Lbob;)Lawm;
+	METHOD a isFertilizable (Lbar;Leg;Lbob;Z)Z
+		ARG 1 pos
+		ARG 3 remote
+	METHOD a canGrow (Lbbd;Ljava/util/Random;Leg;Lbob;)Z
+		ARG 0 world
+		ARG 1 rand
+		ARG 2 pos
+	METHOD a dropItems (Lbob;Lbbd;Leg;FI)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 dropChance
+		ARG 4 fortune
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD b grow (Lbbd;Ljava/util/Random;Leg;Lbob;)V
+		ARG 0 world
+		ARG 1 rand
+		ARG 2 pos
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD c getAgeProperty ()Lboz;
+	METHOD c deserializeCropAge (I)Lbob;
+		ARG 0 age
+	METHOD d getAgeMaximum ()I
+	METHOD e getItemSeed ()Lbbc;
+	METHOD f getItemMature ()Lbbc;

@@ -1,0 +1,16 @@
+CLASS mx net/minecraft/network/packet/server/SPacketInventoryUpdateCreative
+	FIELD a slot I
+	FIELD b stack Lawm;
+	METHOD <init> (ILawm;)V
+		ARG 0 slot
+		ARG 1 stack
+	METHOD a getSlot ()I
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lly;)V
+		ARG 0 handler
+	METHOD b getStack ()Lawm;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

@@ -1,0 +1,13 @@
+CLASS nc net/minecraft/network/packet/server/SPacketPlayerSwingHand
+	FIELD a hand Lags;
+	METHOD <init> (Lags;)V
+		ARG 0 hand
+	METHOD a getHand ()Lags;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lly;)V
+		ARG 0 handler
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

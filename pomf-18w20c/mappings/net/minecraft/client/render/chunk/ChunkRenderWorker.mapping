@@ -1,0 +1,15 @@
+CLASS cyb net/minecraft/client/render/chunk/ChunkRenderWorker
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b batcher Lcya;
+	FIELD d running Z
+	METHOD <init> (Lcya;)V
+		ARG 0 batcher
+	METHOD <init> (Lcya;Lcva;)V
+		ARG 0 batcher
+		ARG 1 vertexBuffer
+	METHOD a stop ()V
+	METHOD a runTask (Lcxz;)V
+		ARG 0 chunkRenderDataTask
+	METHOD a loadChunk (Leg;Lbbd;)Z
+		ARG 0 pos
+		ARG 1 world

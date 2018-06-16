@@ -1,0 +1,5 @@
+CLASS dew net/minecraft/client/texture/TextureStitcherCannotFitException
+	FIELD a holder Ldev$a;
+	METHOD <init> (Ldev$a;Ljava/lang/String;)V
+		ARG 0 holder
+		ARG 1 message

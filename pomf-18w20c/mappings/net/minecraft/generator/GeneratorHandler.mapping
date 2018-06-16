@@ -1,0 +1,6 @@
+CLASS fm net/minecraft/generator/GeneratorHandler
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD d generators Ljava/util/List;
+	METHOD a addGenerator (Lfn;)V
+		ARG 0 value
+	METHOD c generate ()V

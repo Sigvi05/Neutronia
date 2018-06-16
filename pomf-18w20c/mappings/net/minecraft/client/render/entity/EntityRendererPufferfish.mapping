@@ -1,0 +1,5 @@
+CLASS dbj net/minecraft/client/render/entity/EntityRendererPufferfish
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lani;)Lok;
+		ARG 0 model

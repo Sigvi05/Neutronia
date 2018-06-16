@@ -1,0 +1,30 @@
+CLASS bao net/minecraft/sortme/CommandBlockExecutor
+	FIELD a DATE_FORMAT Ljava/text/SimpleDateFormat;
+	FIELD b lastExecution J
+	FIELD c updateLastExecution Z
+	FIELD d successCount I
+	FIELD e trackOutput Z
+	FIELD f lastOutput Lid;
+	FIELD g command Ljava/lang/String;
+	METHOD a setSuccessCount (I)V
+		ARG 0 successCount
+	METHOD a interact (Larn;)Z
+		ARG 0 player
+	METHOD a execute (Lbbd;)Z
+		ARG 0 world
+	METHOD a serialize (Lgv;)Lgv;
+		ARG 0 tag
+	METHOD a appendCommandFeedback (Lid;)V
+		ARG 0 feedback
+	METHOD a setCommand (Ljava/lang/String;)V
+		ARG 0 command
+	METHOD a shouldTrackOutput (Z)V
+		ARG 0 trackOutput
+	METHOD b deserialize (Lgv;)V
+		ARG 0 tag
+	METHOD c setLastOutput (Lid;)V
+		ARG 0 lastOutput
+	METHOD i getSuccessCount ()I
+	METHOD j getLastOutput ()Lid;
+	METHOD k getCommand ()Ljava/lang/String;
+	METHOD m isTrackingOutput ()Z

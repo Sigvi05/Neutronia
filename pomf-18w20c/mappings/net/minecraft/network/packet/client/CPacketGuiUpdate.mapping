@@ -1,0 +1,19 @@
+CLASS jq net/minecraft/network/packet/client/CPacketGuiUpdate
+	FIELD a id I
+	FIELD b propertyId I
+	FIELD c value I
+	METHOD <init> (III)V
+		ARG 0 window
+		ARG 1 propertyId
+		ARG 2 value
+	METHOD a getId ()I
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getPropertyId ()I
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getValue ()I

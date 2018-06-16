@@ -1,0 +1,5 @@
+CLASS bkb net/minecraft/util/Rotation
+	FIELD a NONE Lbkb;
+	FIELD b CLOCKWISE_90 Lbkb;
+	FIELD c CLOCKWISE_180 Lbkb;
+	FIELD d COUNTERCLOCKWISE_90 Lbkb;

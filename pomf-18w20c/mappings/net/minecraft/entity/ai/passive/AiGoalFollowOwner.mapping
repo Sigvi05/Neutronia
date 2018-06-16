@@ -1,0 +1,19 @@
+CLASS ajz net/minecraft/entity/ai/passive/AiGoalFollowOwner
+	FIELD b caller Lait;
+	FIELD c owner Laii;
+	FIELD d speed D
+	FIELD e navigation Lame;
+	FIELD f teleportCooldown I
+	FIELD g minStopDistance F
+	FIELD h minStartDistance F
+	FIELD i previousWaterWeight F
+	METHOD <init> (Lait;DFF)V
+		ARG 0 caller
+		ARG 1 speed
+		ARG 2 minStartDistance
+		ARG 3 minStopDistance
+	METHOD a canStart ()Z
+	METHOD b shouldContinue ()Z
+	METHOD c start ()V
+	METHOD d stop ()V
+	METHOD e tick ()V

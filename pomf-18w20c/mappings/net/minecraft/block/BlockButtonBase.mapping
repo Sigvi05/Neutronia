@@ -1,0 +1,41 @@
+CLASS bgb net/minecraft/block/BlockButtonBase
+	FIELD a POWERED Lbow;
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a getWeakRedstonePower (Lbob;Lbar;Leg;Lem;)I
+		ARG 1 view
+		ARG 2 pos
+		ARG 3 facingFrom
+	METHOD a onEntityCollision (Lbob;Lbbd;Leg;Lahz;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 entity
+	METHOD a onActivated (Lbob;Lbbd;Leg;Larn;Lags;Lem;FFF)Z
+		ARG 0 state
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 player
+		ARG 4 hand
+		ARG 5 facing
+		ARG 6 hitX
+		ARG 7 hitY
+		ARG 8 hitZ
+	METHOD a onBlockRemoved (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD a randomTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD b getStrongRedstonePower (Lbob;Lbar;Leg;Lem;)I
+		ARG 1 view
+		ARG 2 pos
+		ARG 3 facingFrom
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD h canProvidePower (Lbob;)Z

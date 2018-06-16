@@ -1,0 +1,3 @@
+CLASS qt net/minecraft/command/CommandAnnounce
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V
+		ARG 0 dispatcher

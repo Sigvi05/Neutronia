@@ -1,0 +1,39 @@
+CLASS ln net/minecraft/network/packet/client/CPacketTitle
+	CLASS ln$a Action
+		FIELD a TITLE Lln$a;
+		FIELD b SUBTITLE Lln$a;
+		FIELD c ACTIONBAR Lln$a;
+		FIELD d TIMES Lln$a;
+		FIELD e CLEAR Lln$a;
+		FIELD f RESET Lln$a;
+	FIELD a action Lln$a;
+	FIELD b text Lid;
+	FIELD c ticksFadeIn I
+	FIELD d ticksDisplay I
+	FIELD e ticksFadeOut I
+	METHOD <init> (III)V
+		ARG 0 ticksFadeIn
+		ARG 1 ticksDisplay
+		ARG 2 ticksFadeOut
+	METHOD <init> (Lln$a;Lid;)V
+		ARG 0 action
+		ARG 1 text
+	METHOD <init> (Lln$a;Lid;III)V
+		ARG 0 action
+		ARG 1 text
+		ARG 2 ticksFadeIn
+		ARG 3 ticksDisplay
+		ARG 4 ticksFadeOut
+	METHOD a getAction ()Lln$a;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getText ()Lid;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getTicksFadeIn ()I
+	METHOD d getTicksDisplay ()I
+	METHOD e getTicksFadeOut ()I

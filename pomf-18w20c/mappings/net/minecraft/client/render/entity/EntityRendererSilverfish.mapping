@@ -1,0 +1,6 @@
+CLASS dbp net/minecraft/client/render/entity/EntityRendererSilverfish
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD b getTexture (Laqt;)Lok;
+		ARG 0 model

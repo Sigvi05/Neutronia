@@ -1,0 +1,8 @@
+CLASS aqk net/minecraft/entity/mob/EntityHusk
+	METHOD B attackEntity (Lahz;)Z
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD H getLootTableId ()Lok;
+	METHOD ct getSoundDeath ()Lvp;
+	METHOD d getSoundHurt (Lahi;)Lvp;
+	METHOD dE getSoundStep ()Lvp;
+	METHOD dF getSkull ()Lawm;

@@ -1,0 +1,6 @@
+CLASS awz net/minecraft/item/ItemMusicDisc
+	METHOD a addInformation (Lawm;Lbbd;Ljava/util/List;Laxu;)V
+		ARG 0 stack
+		ARG 2 tooltip
+	METHOD e getRarity (Lawm;)Lawy;
+		ARG 0 stack

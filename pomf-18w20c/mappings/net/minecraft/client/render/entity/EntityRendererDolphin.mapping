@@ -1,0 +1,5 @@
+CLASS czs net/minecraft/client/render/entity/EntityRendererDolphin
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lanb;)Lok;
+		ARG 0 model

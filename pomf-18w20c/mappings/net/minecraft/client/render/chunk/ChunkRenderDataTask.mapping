@@ -1,0 +1,31 @@
+CLASS cxz net/minecraft/client/render/chunk/ChunkRenderDataTask
+	CLASS cxz$a Stage
+		FIELD a PENDING Lcxz$a;
+		FIELD b COMPILING Lcxz$a;
+		FIELD c UPLOADING Lcxz$a;
+		FIELD d DONE Lcxz$a;
+	CLASS cxz$b MODE
+		FIELD a REBUILD_CHUNK Lcxz$b;
+		FIELD b RESORT_TRANSPARENCY Lcxz$b;
+	FIELD a chunkRenderer Lcyf;
+	FIELD b lock Ljava/util/concurrent/locks/ReentrantLock;
+	FIELD c runnables Ljava/util/List;
+	FIELD d mode Lcxz$b;
+	FIELD e distanceToPlayerSquared D
+	FIELD g chunkRenderData Lcyc;
+	FIELD h stage Lcxz$a;
+	METHOD <init> (Lcyf;Lcxz$b;D)V
+		ARG 0 chunkRenderer
+		ARG 1 mode
+		ARG 2 distanceToPlayerSquared
+	METHOD a getStage ()Lcxz$a;
+	METHOD a setStage (Lcxz$a;)V
+		ARG 0 value
+	METHOD a compareTask (Lcxz;)I
+		ARG 0 other
+	METHOD a setChunkRenderData (Lcyc;)V
+		ARG 0 chunkRenderData
+	METHOD b getChunkRenderer ()Lcyf;
+	METHOD c getChunkRenderData ()Lcyc;
+	METHOD f getLock ()Ljava/util/concurrent/locks/ReentrantLock;
+	METHOD g getMode ()Lcxz$b;

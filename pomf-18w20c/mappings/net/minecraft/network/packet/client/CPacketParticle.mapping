@@ -1,0 +1,25 @@
+CLASS kd net/minecraft/network/packet/client/CPacketParticle
+	FIELD a x F
+	FIELD b y F
+	FIELD c z F
+	FIELD d offsetX F
+	FIELD e offsetY F
+	FIELD f offsetZ F
+	FIELD h particleCount I
+	FIELD i longDistance Z
+	METHOD a isLongDistance ()Z
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getX ()D
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getY ()D
+	METHOD d getZ ()D
+	METHOD e getOffsetX ()F
+	METHOD f getOffsetY ()F
+	METHOD g getOffsetZ ()F
+	METHOD i getParticleCount ()I

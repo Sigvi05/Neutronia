@@ -1,0 +1,14 @@
+CLASS na net/minecraft/network/packet/server/SPacketSpectate
+	FIELD a targetUuid Ljava/util/UUID;
+	METHOD <init> (Ljava/util/UUID;)V
+		ARG 0 targetUuid
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lly;)V
+		ARG 0 handler
+	METHOD a getTarget (Lsk;)Lahz;
+		ARG 0 world
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

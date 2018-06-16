@@ -1,0 +1,2 @@
+CLASS ov net/minecraft/util/thread/ThreadNotMainException
+	FIELD a INSTANCE Lov;

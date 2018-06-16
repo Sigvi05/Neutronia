@@ -1,0 +1,12 @@
+CLASS asw net/minecraft/entity/vehicle/EntityMobSpawnerMinecart
+	CLASS asw$1
+		METHOD a getWorld ()Lbbd;
+		METHOD b getPos ()Leg;
+	FIELD a logic Lbap;
+	METHOD A getDefaultContainedBlock ()Lbob;
+	METHOD R_ update ()V
+	METHOD a deserializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD b serializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD v getMinecartType ()Laso$a;

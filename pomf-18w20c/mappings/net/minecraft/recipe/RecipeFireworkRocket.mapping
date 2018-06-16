@@ -1,0 +1,4 @@
+CLASS ayl net/minecraft/recipe/RecipeFireworkRocket
+	METHOD a matches (Lagm;Lbbd;)Z
+		ARG 1 world
+	METHOD d getOutput ()Lawm;

@@ -1,0 +1,5 @@
+CLASS biv net/minecraft/block/BlockLog
+	METHOD a onBlockRemoved (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD d getMapColor (Lbob;Lbar;Leg;)Lcbi;

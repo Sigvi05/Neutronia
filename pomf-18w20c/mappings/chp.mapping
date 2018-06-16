@@ -1,0 +1,3 @@
+CLASS chp
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b hotbarNbt Ljava/io/File;

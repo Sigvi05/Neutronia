@@ -1,0 +1,8 @@
+CLASS oa net/minecraft/entity/tracker/TrackedDataHandler
+	METHOD a create (I)Lnz;
+		ARG 0 id
+	METHOD a read (Lhu;)Ljava/lang/Object;
+		ARG 0 buf
+	METHOD a write (Lhu;Ljava/lang/Object;)V
+		ARG 0 buf
+		ARG 1 data

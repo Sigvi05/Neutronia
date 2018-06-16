@@ -1,5 +1,5 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v2.",
+  "_comment": "Generated using Husky's JSON Generator v3.",
   "parent": "neutronia:block/slab",
   "textures": {
     "bottom": "neutronia:blocks/frosted_gray_terracotta",

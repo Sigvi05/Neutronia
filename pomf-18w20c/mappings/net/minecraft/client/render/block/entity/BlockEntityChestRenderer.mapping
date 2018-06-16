@@ -1,0 +1,14 @@
+CLASS cxn net/minecraft/client/render/block/entity/BlockEntityChestRenderer
+	FIELD a TRAPPED_DOUBLE_TEX Lok;
+	FIELD d CHRISTMAS_DOUBLE_TEX Lok;
+	FIELD e NORMAL_DOUBLE_TEX Lok;
+	FIELD f TRAPPED_TEX Lok;
+	FIELD g CHRISTMAS_TEX Lok;
+	FIELD h NORMAL_TEX Lok;
+	FIELD l isChristmas Z
+	METHOD a render (Lbmh;DDDFI)V
+		ARG 0 blockEntity
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 partial

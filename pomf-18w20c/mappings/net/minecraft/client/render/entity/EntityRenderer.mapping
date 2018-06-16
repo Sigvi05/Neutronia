@@ -1,0 +1,18 @@
+CLASS dab net/minecraft/client/render/entity/EntityRenderer
+	FIELD a SHADOW_TEX Lok;
+	FIELD b renderManager Ldaa;
+	METHOD <init> (Ldaa;)V
+		ARG 0 renderManager
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a renderEntityOnFire (Lahz;DDDF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD a renderEntityLabel (Lahz;Ljava/lang/String;DDDI)V
+		ARG 0 entity
+		ARG 1 text
+	METHOD a bindTexture (Lok;)V
+		ARG 0 identifier
+	METHOD d getFontRenderer ()Lcim;
+	METHOD e getRenderManager ()Ldaa;

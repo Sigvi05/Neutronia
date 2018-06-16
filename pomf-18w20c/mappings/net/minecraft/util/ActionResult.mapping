@@ -1,0 +1,4 @@
+CLASS agu net/minecraft/util/ActionResult
+	FIELD a SUCCESS Lagu;
+	FIELD b PASS Lagu;
+	FIELD c FAIL Lagu;

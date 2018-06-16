@@ -1,0 +1,17 @@
+CLASS atv net/minecraft/container/ContainerVillager
+	FIELD a villager Lbak;
+	FIELD f villagerInventory Latu;
+	FIELD g world Lbbd;
+	METHOD <init> (Larm;Lbak;Lbbd;)V
+		ARG 0 playerInv
+		ARG 1 villager
+		ARG 2 world
+	METHOD a onContentChanged (Lagm;)V
+		ARG 0 inventory
+	METHOD a canUse (Larn;)Z
+		ARG 0 player
+	METHOD b close (Larn;)V
+		ARG 0 player
+	METHOD b getStack (Larn;I)Lawm;
+		ARG 0 player
+		ARG 1 slot

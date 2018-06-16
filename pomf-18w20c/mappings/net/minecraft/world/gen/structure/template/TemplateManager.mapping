@@ -1,0 +1,14 @@
+CLASS bzt net/minecraft/world/gen/structure/template/TemplateManager
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b templates Ljava/util/Map;
+	FIELD c fixer Lxm;
+	FIELD d server Lnet/minecraft/server/MinecraftServer;
+	METHOD <init> (Lnet/minecraft/server/MinecraftServer;Ljava/io/File;Lxm;)V
+		ARG 0 server
+		ARG 2 fixer
+	METHOD a onResourceReload (Lum;)V
+		ARG 0 container
+	METHOD b load (Lok;)Lbzw;
+		ARG 0 identifier
+	METHOD c save (Lok;)Z
+	METHOD d remove (Lok;)V

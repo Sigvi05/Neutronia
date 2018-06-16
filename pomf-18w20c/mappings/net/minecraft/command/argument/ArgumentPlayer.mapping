@@ -1,0 +1,4 @@
+CLASS bz net/minecraft/command/argument/ArgumentPlayer
+	FIELD a ARGUMENT_PLAYER_UNKNOWN Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD b PLAYER Ljava/util/Collection;
+	METHOD a create ()Lbz;

@@ -1,0 +1,5 @@
+CLASS blv
+	METHOD a onEntityCollision (Lbob;Lbbd;Leg;Lahz;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 entity

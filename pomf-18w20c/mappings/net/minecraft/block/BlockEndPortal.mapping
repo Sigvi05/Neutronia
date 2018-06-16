@@ -1,0 +1,18 @@
+CLASS bhi net/minecraft/block/BlockEndPortal
+	METHOD a createBlockEntity (Lbar;)Lbmh;
+		ARG 0 world
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a getItem (Lbar;Leg;Lbob;)Lawm;
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a onEntityCollision (Lbob;Lbbd;Leg;Lahz;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 entity
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I
+	METHOD c randomDisplayTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 rand

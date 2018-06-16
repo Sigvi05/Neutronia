@@ -1,0 +1,9 @@
+CLASS pl net/minecraft/command/CommandClone
+	CLASS pl$b
+		FIELD a FORCE Lpl$b;
+		FIELD b MOVE Lpl$b;
+		FIELD c NORMAL Lpl$b;
+	FIELD b COMMANDS_CLONE_OVERLAP Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD c COMMANDS_CLONE_TOOBIG Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD d COMMANDS_CLONE_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

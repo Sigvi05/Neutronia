@@ -1,0 +1,6 @@
+CLASS cwm net/minecraft/client/render/model/json/bqb
+	CLASS cwm$b
+		FIELD a UP Lcwm$b;
+		FIELD b DOWN Lcwm$b;
+		FIELD c LEFT Lcwm$b;
+		FIELD d RIGHT Lcwm$b;

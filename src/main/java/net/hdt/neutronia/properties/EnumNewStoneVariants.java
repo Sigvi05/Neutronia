@@ -22,15 +22,15 @@ public enum EnumNewStoneVariants implements IStringSerializable {
     LIMESTONE_SMOOTH(15, "smooth_limestone"),
     LIMESTONE_CHISELED(16, "chiseled_limestone"),
     LIMESTONE_BRICKS(17, "limestone_bricks"),
-    LIMESTONE_COBBLE(18, "limestone_cobble"),
-    MARBLE(19, "raw_marble"),
-    MARBLE_SMOOTH(20, "smooth_marble"),
-    MARBLE_CHISELED(21, "chiseled_marble"),
-    MARBLE_BRICKS(22, "marble_bricks"),
-    MARBLE_COBBLE(23, "marble_cobble"),
-    METEORITE(24, "raw_meteorite"),
-    METEORITE_BRICKS(25, "meteorite_bricks"),
-    METEORITE_SMOOTH(26, "smooth_meteorite");
+//    LIMESTONE_COBBLE(18, "limestone_cobble"),
+    MARBLE(18, "raw_marble"),
+    MARBLE_SMOOTH(19, "smooth_marble"),
+    MARBLE_CHISELED(20, "chiseled_marble"),
+    MARBLE_BRICKS(21, "marble_bricks"),
+    MARBLE_COBBLE(22, "marble_cobble"),
+    METEORITE(23, "raw_meteorite"),
+    METEORITE_BRICKS(24, "meteorite_bricks"),
+    METEORITE_SMOOTH(25, "smooth_meteorite");
 
     private static final EnumNewStoneVariants[] META_LOOKUP = new EnumNewStoneVariants[values().length];
 

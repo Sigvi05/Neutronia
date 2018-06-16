@@ -1,0 +1,3 @@
+CLASS dgw net/minecraft/client/audio/SoundEventMoving
+	FIELD m done Z
+	METHOD m isDone ()Z

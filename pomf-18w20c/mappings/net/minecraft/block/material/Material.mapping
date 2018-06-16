@@ -1,0 +1,54 @@
+CLASS cbh net/minecraft/block/material/Material
+	CLASS cbh$a Builder
+		FIELD a pistonBehavior Lcbj;
+		FIELD b solid Z
+		METHOD c setNotSolid ()Lcbh$a;
+		METHOD g setPistonBreak ()Lcbh$a;
+		METHOD h setPistonBlock ()Lcbh$a;
+		METHOD i build ()Lcbh;
+	FIELD A GLASS Lcbh;
+	FIELD B ICE Lcbh;
+	FIELD C CACTUS Lcbh;
+	FIELD D STONE Lcbh;
+	FIELD E IRON Lcbh;
+	FIELD F SNOW_BLOCK Lcbh;
+	FIELD G ANVIL Lcbh;
+	FIELD H BARRIER Lcbh;
+	FIELD I PISTON Lcbh;
+	FIELD K FULL_BLOCK_CROP Lcbh;
+	FIELD L DRAGON_EGG Lcbh;
+	FIELD M CAKE Lcbh;
+	FIELD N color Lcbi;
+	FIELD O pistonBehavior Lcbj;
+	FIELD P solid Z
+	FIELD a AIR Lcbh;
+	FIELD b VOID Lcbh;
+	FIELD c PORTAL Lcbh;
+	FIELD d CARPET Lcbh;
+	FIELD e FLOWER Lcbh;
+	FIELD f SEA_PLANT Lcbh;
+	FIELD g PLANT Lcbh;
+	FIELD h SEA_GRASS Lcbh;
+	FIELD i WATER Lcbh;
+	FIELD j BUBBLE Lcbh;
+	FIELD k LAVA Lcbh;
+	FIELD l SNOW_LAYER Lcbh;
+	FIELD m FIRE Lcbh;
+	FIELD n RAIL Lcbh;
+	FIELD o WEB Lcbh;
+	FIELD p REDSTONE_LAMP Lcbh;
+	FIELD q CLAY Lcbh;
+	FIELD r GROUND Lcbh;
+	FIELD s GRASS Lcbh;
+	FIELD t PACKED_ICE Lcbh;
+	FIELD u SAND Lcbh;
+	FIELD v SPONGE Lcbh;
+	FIELD w WOOD Lcbh;
+	FIELD x WOOLEN Lcbh;
+	FIELD y TNT Lcbh;
+	FIELD z LEAVES Lcbh;
+	METHOD <init> (Lcbi;ZZZZZZZLcbj;)V
+		ARG 0 color
+	METHOD c isSolid ()Z
+	METHOD h getPistonBehavior ()Lcbj;
+	METHOD i getMapColor ()Lcbi;

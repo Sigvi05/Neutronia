@@ -1,0 +1,19 @@
+CLASS jj net/minecraft/network/packet/client/CPacketChunkDeltaUpdate
+	CLASS jj$a ChunkDeltaRecord
+		FIELD b pos S
+		METHOD a getBlockPos ()Leg;
+		METHOD b getPosShort ()S
+		METHOD c getState ()Lbob;
+	FIELD a chunkPos Lbat;
+	FIELD b records [Ljj$a;
+	METHOD <init> (I[SLbpr;)V
+		ARG 2 chunk
+	METHOD a getRecords ()[Ljj$a;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

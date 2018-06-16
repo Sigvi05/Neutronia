@@ -1,0 +1,34 @@
+CLASS wu net/minecraft/util/IntHashMap
+	CLASS wu$a Element
+		FIELD a key I
+		METHOD a getKey ()I
+		METHOD b getValue ()Ljava/lang/Object;
+		METHOD equals (Ljava/lang/Object;)Z
+			ARG 0 object
+	FIELD a elements [Lwu$a;
+	FIELD b count I
+	FIELD c capacity I
+	FIELD d capacityFactor F
+	METHOD a get (I)Ljava/lang/Object;
+		ARG 0 key
+	METHOD a getMinElementIndex (II)I
+		ARG 0 hash
+		ARG 1 length
+	METHOD a addInternal (IILjava/lang/Object;I)V
+		ARG 0 hash
+		ARG 1 key
+		ARG 2 value
+		ARG 3 index
+	METHOD b containsKey (I)Z
+		ARG 0 key
+	METHOD c clear ()V
+	METHOD c getElement (I)Lwu$a;
+		ARG 0 key
+	METHOD d remove (I)Ljava/lang/Object;
+		ARG 0 key
+	METHOD e removeInternal (I)Lwu$a;
+		ARG 0 key
+	METHOD g getHash (I)I
+		ARG 0 key
+	METHOD h ensureCapacity (I)V
+		ARG 0 size

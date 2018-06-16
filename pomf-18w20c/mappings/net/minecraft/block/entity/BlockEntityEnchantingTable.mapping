@@ -1,0 +1,16 @@
+CLASS bmr net/minecraft/block/entity/BlockEntityEnchantingTable
+	FIELD a ticks I
+	FIELD n RANDOM Ljava/util/Random;
+	FIELD o customName Lid;
+	METHOD N_ getNameAsComponent ()Lid;
+	METHOD O_ hasCustomName ()Z
+	METHOD Y_ update ()V
+	METHOD a createContainer (Larm;Larn;)Latc;
+		ARG 0 playerInv
+		ARG 1 player
+	METHOD a serialize (Lgv;)Lgv;
+		ARG 0 tag
+	METHOD b deserialize (Lgv;)V
+		ARG 0 tag
+	METHOD e getTextComponent ()Lid;
+	METHOD l getContainerId ()Ljava/lang/String;

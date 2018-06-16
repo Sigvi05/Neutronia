@@ -1,0 +1,13 @@
+CLASS cdx net/minecraft/item/map/MapState
+	FIELD a xCenter I
+	FIELD b zCenter I
+	FIELD c dimension B
+	FIELD d showIcons Z
+	FIELD e unlimitedTracking Z
+	FIELD f scale B
+	FIELD g colorArray [B
+	FIELD i icons Ljava/util/Map;
+	METHOD a deserialize (Lgv;)V
+		ARG 0 tag
+	METHOD b serialize (Lgv;)Lgv;
+		ARG 0 tag

@@ -1,0 +1,67 @@
+CLASS aso net/minecraft/entity/vehicle/EntityMinecartBase
+	CLASS aso$a
+		FIELD a RIDEABLE Laso$a;
+		FIELD b CHEST Laso$a;
+		FIELD c FURNACE Laso$a;
+		FIELD d TNT Laso$a;
+		FIELD e SPAWNER Laso$a;
+		FIELD f HOPPER Laso$a;
+		FIELD g COMMAND_BLOCK Laso$a;
+	FIELD d CUSTOM_BLOCK_ID Lnz;
+	FIELD e CUSTOM_BLOCK_OFFSET Lnz;
+	FIELD f CUSTOM_BLOCK_PRESENT Lnz;
+	METHOD <init> (Laid;Lbbd;DDD)V
+		ARG 1 world
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+	METHOD A getDefaultContainedBlock ()Lbob;
+	METHOD B getBlockOffset ()I
+	METHOD C getDefaultBlockOffset ()I
+	METHOD D hasCustomBlock ()Z
+	METHOD R_ update ()V
+	METHOD a setPositionAndRotations (DDDFFIZ)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+		ARG 3 yaw
+		ARG 4 pitch
+	METHOD a onActivatorRail (IIIZ)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+		ARG 3 powered
+	METHOD a dropItems (Lahi;)V
+		ARG 0 source
+	METHOD a damage (Lahi;F)Z
+		ARG 0 source
+		ARG 1 damage
+	METHOD a create (Lbbd;DDDLaso$a;)Laso;
+		ARG 0 world
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 type
+	METHOD a deserializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD a setCustomBlockPresent (Z)V
+		ARG 0 value
+	METHOD aD doesCollide ()Z
+	METHOD aL getMountedHeightOffset ()D
+	METHOD b setPosition (DDD)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD b serializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD h setVelocityClient (DDD)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD i pushAwayFrom (Lahz;)V
+		ARG 0 other
+	METHOD l setCustomBlockOffset (I)V
+		ARG 0 value
+	METHOD v getMinecartType ()Laso$a;
+	METHOD w_ initDataTracker ()V
+	METHOD x getContainedBlock ()Lbob;

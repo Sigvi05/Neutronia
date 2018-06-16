@@ -1,0 +1,3 @@
+CLASS bzw net/minecraft/world/gen/structure/template/Template
+	CLASS bzw$b BlockInfo
+	FIELD d author Ljava/lang/String;

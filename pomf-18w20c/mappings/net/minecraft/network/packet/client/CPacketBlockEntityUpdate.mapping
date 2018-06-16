@@ -1,0 +1,19 @@
+CLASS jd net/minecraft/network/packet/client/CPacketBlockEntityUpdate
+	FIELD a pos Leg;
+	FIELD b actionId I
+	FIELD c tag Lgv;
+	METHOD <init> (Leg;ILgv;)V
+		ARG 0 pos
+		ARG 1 action
+		ARG 2 tag
+	METHOD a getPos ()Leg;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getActionId ()I
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getTagCompound ()Lgv;

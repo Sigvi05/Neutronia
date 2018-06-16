@@ -1,0 +1,6 @@
+CLASS axc net/minecraft/item/ItemSeeds
+	FIELD a crop Lbob;
+	METHOD <init> (Lbfs;Lawi$a;)V
+		ARG 0 crop
+		ARG 1 soil
+	METHOD a activate (Laxx;)Lagu;

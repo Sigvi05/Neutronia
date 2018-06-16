@@ -1,0 +1,6 @@
+CLASS auz net/minecraft/item/ItemFluidBucket
+	FIELD a fluidType Lcbc;
+	METHOD a onRightClick (Lbbd;Larn;Lags;)Lagv;
+		ARG 0 world
+		ARG 1 player
+		ARG 2 hand

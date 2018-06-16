@@ -1,0 +1,28 @@
+CLASS alw net/minecraft/entity/ai/mob/AiGoalTrackAttackableTarget
+	CLASS alw$a ClosestComparator
+		FIELD a entity Lahz;
+		METHOD <init> (Lahz;)V
+			ARG 0 entity
+	FIELD a targetType Ljava/lang/Class;
+	FIELD b entitySorter Lalw$a;
+	FIELD d target Laii;
+	FIELD i followChance I
+	METHOD <init> (Laiq;Ljava/lang/Class;IZZLjava/util/function/Predicate;)V
+		ARG 0 entity
+		ARG 1 targetType
+		ARG 2 followChance
+		ARG 3 checkVisibility
+		ARG 4 checkCanNavigate
+	METHOD <init> (Laiq;Ljava/lang/Class;Z)V
+		ARG 0 entity
+		ARG 1 targetType
+		ARG 2 checkVisibility
+	METHOD <init> (Laiq;Ljava/lang/Class;ZZ)V
+		ARG 0 entity
+		ARG 1 targetType
+		ARG 2 checkVisibility
+		ARG 3 checkCanNavigate
+	METHOD a canStart ()Z
+	METHOD a getFollowBounds (D)Lcge;
+		ARG 0 range
+	METHOD c start ()V

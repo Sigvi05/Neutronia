@@ -1,0 +1,19 @@
+CLASS lg net/minecraft/network/packet/client/CPacketHealthUpdate
+	FIELD a health F
+	FIELD b food I
+	FIELD c saturation F
+	METHOD <init> (FIF)V
+		ARG 0 health
+		ARG 1 food
+		ARG 2 saturation
+	METHOD a getHealth ()F
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getFood ()I
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getSaturation ()F

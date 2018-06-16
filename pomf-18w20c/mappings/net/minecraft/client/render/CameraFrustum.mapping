@@ -1,0 +1,14 @@
+CLASS cyo net/minecraft/client/render/CameraFrustum
+	FIELD a frustumVertices [[F
+	METHOD a dot ([FDDD)D
+		ARG 0 vertex
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD b isVisible (DDDDDD)Z
+		ARG 0 minX
+		ARG 1 minY
+		ARG 2 minZ
+		ARG 3 maxX
+		ARG 4 maxY
+		ARG 5 maxZ

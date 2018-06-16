@@ -1,0 +1,5 @@
+CLASS bab
+	METHOD a getAdditionalDamge (ILain;)F
+		ARG 0 level
+		ARG 1 entityType
+	METHOD b getHighestLevel ()I

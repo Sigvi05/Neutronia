@@ -1,0 +1,47 @@
+CLASS anj net/minecraft/entity/passive/EntityRabbit
+	CLASS anj$a
+		METHOD a getAttackRangeSquared (Laii;)D
+			ARG 0 target
+	CLASS anj$b
+		METHOD a canStart ()Z
+	CLASS anj$d
+		METHOD b tick ()V
+	CLASS anj$e
+		METHOD a tick ()V
+	CLASS anj$f
+		METHOD e tick ()V
+	CLASS anj$g
+		METHOD a canStart ()Z
+		METHOD b shouldContinue ()Z
+		METHOD e tick ()V
+	FIELD bA KILLER_BUNNY Lok;
+	FIELD bG moreCarrotTicks I
+	FIELD bz RABBIT_TYPE Lnz;
+	METHOD B attackEntity (Lahz;)Z
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD H getLootTableId ()Lok;
+	METHOD K mobTick ()V
+	METHOD a (Lagr;Lail;Lawm;)Lail;
+		ARG 0 difficulty
+	METHOD a damage (Lahi;F)Z
+		ARG 0 source
+		ARG 1 damage
+	METHOD a createChild (Lahw;)Lahw;
+		ARG 0 other
+	METHOD a deserializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD ax attemptSprintingParticles ()V
+	METHOD b createChild (Lahw;)Lanj;
+		ARG 0 other
+	METHOD b serializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD bX getSoundCategory ()Lvr;
+	METHOD ca initAttributes ()V
+	METHOD ct getSoundDeath ()Lvp;
+	METHOD d getSoundHurt (Lahi;)Lvp;
+	METHOD dE getRabbitType ()I
+	METHOD k updateMovement ()V
+	METHOD o doJump (Z)V
+	METHOD p setRabbitType (I)V
+		ARG 0 value
+	METHOD w_ initDataTracker ()V

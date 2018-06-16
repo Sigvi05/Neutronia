@@ -1,0 +1,26 @@
+CLASS apk net/minecraft/entity/decoration/PaintingType
+	FIELD A DONKEY_KONG Lapk;
+	FIELD a KEBAB Lek;
+	FIELD c AZTEC Lapk;
+	FIELD d ALBAN Lapk;
+	FIELD f BOMB Lapk;
+	FIELD g PLANT Lapk;
+	FIELD h WASTELAND Lapk;
+	FIELD i POOL Lapk;
+	FIELD j COURBET Lapk;
+	FIELD k SEA Lapk;
+	FIELD l SUNSET Lapk;
+	FIELD m CREEBET Lapk;
+	FIELD n WANDERER Lapk;
+	FIELD o GRAHAM Lapk;
+	FIELD p MATCH Lapk;
+	FIELD q BUST Lapk;
+	FIELD r STAGE Lapk;
+	FIELD s VOID Lapk;
+	FIELD t SKULL_AND_ROSES Lapk;
+	FIELD u WITHER Lapk;
+	FIELD v FIGHTERS Lapk;
+	FIELD w POINTER Lapk;
+	FIELD x PIGSCENE Lapk;
+	FIELD y BURNING_SKULL Lapk;
+	FIELD z SKELETON Lapk;

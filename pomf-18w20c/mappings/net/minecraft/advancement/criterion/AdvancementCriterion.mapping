@@ -1,0 +1,21 @@
+CLASS q net/minecraft/advancement/criterion/AdvancementCriterion
+	FIELD a conditions Lt;
+	METHOD <init> (Lt;)V
+		ARG 0 conditions
+	METHOD a getConditions ()Lt;
+	METHOD a deserialize (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;)Lq;
+		ARG 0 obj
+		ARG 1 context
+	METHOD a serialize (Lhu;)V
+		ARG 0 buf
+	METHOD a serialize (Ljava/util/Map;Lhu;)V
+		ARG 0 criteria
+		ARG 1 buf
+	METHOD b serialise ()Lcom/google/gson/JsonElement;
+	METHOD b deserialize (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;)Ljava/util/Map;
+		ARG 0 obj
+		ARG 1 context
+	METHOD b createNew (Lhu;)Lq;
+		ARG 0 buf
+	METHOD c deserialize (Lhu;)Ljava/util/Map;
+		ARG 0 buf

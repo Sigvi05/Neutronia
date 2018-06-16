@@ -1,0 +1,9 @@
+CLASS axu net/minecraft/client/util/ITooltipFlag
+	CLASS axu$a TooltipFlag
+		FIELD a NORMAL Laxu$a;
+		FIELD b ADVANCED Laxu$a;
+		FIELD c advanced Z
+		METHOD <init> (Ljava/lang/String;IZ)V
+			ARG 2 advanced
+		METHOD a isAdvanced ()Z
+	METHOD a isAdvanced ()Z

@@ -4,7 +4,10 @@
   "variants": {
     "prop": {
       "blarg": {
-        "model": "neutronia:upper_chiseled_aquamarine_slab"
+        "model": "cube_all",
+        "textures": {
+          "all": "neutronia:blocks/chiseled_aquamarine"
+        }
       }
     }
   }

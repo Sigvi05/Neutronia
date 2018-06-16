@@ -1,0 +1,18 @@
+CLASS mv net/minecraft/network/packet/server/SPacketSeeAdvancement
+	CLASS mv$a Action
+		FIELD a OPENED_TAB Lmv$a;
+		FIELD b CLOSED_SCREEN Lmv$a;
+	FIELD a action Lmv$a;
+	FIELD b advancementId Lok;
+	METHOD <init> (Lmv$a;Lok;)V
+		ARG 1 advancementId
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lly;)V
+		ARG 0 handler
+	METHOD b getAction ()Lmv$a;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c getAdvancementId ()Lok;

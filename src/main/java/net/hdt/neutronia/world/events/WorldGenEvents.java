@@ -54,13 +54,10 @@ public class WorldGenEvents {
         }
     }
 
-    public boolean couldDungeonGenerate(World worldIn, Random rand, BlockPos position) {
-        int i = 3;
+    private boolean couldDungeonGenerate(World worldIn, Random rand, BlockPos position) {
         int j = rand.nextInt(2) + 2;
         int k = -j - 1;
         int l = j + 1;
-        int i1 = -1;
-        int j1 = 4;
         int k1 = rand.nextInt(2) + 2;
         int l1 = -k1 - 1;
         int i2 = k1 + 1;
@@ -88,7 +85,7 @@ public class WorldGenEvents {
         return j2 >= 1 && j2 <= 5;
     }
 
-    public void placeDungeonAt(WorldServer world, Random rand, BlockPos position) {
+    private void placeDungeonAt(WorldServer world, Random rand, BlockPos position) {
         int dungeonType = rand.nextInt(10);
 
         MinecraftServer server = world.getMinecraftServer();
@@ -109,7 +106,7 @@ public class WorldGenEvents {
         template.addBlocksToWorld(world, position, settings);
 
         int spawners = 0;
-        List<BlockPos> chests = new ArrayList();
+        List<BlockPos> chests = new ArrayList<>();
         Map<BlockPos, String> dataBlocks = template.getDataBlocks(position, settings);
 
         for (Map.Entry<BlockPos, String> entry : dataBlocks.entrySet()) {

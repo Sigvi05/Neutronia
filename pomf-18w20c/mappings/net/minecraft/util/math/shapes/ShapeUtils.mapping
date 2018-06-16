@@ -1,0 +1,4 @@
+CLASS cgw net/minecraft/util/math/shapes/ShapeUtils
+	CLASS cgw$a LineConsumer
+	METHOD a fromBoundingBox (DDDDDD)Lcgz;
+	METHOD a fromBoundingBox (Lcge;)Lcgz;

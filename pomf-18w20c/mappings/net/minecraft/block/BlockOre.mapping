@@ -1,0 +1,10 @@
+CLASS bjg net/minecraft/block/BlockOre
+	METHOD a getItem (Lbar;Leg;Lbob;)Lawm;
+	METHOD a getDropAmount (Lbob;ILbbd;Leg;Ljava/util/Random;)I
+	METHOD a dropItems (Lbob;Lbbd;Leg;FI)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 dropChance
+		ARG 4 fortune
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I

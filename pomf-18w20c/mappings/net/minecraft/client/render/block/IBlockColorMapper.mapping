@@ -1,0 +1,4 @@
+CLASS cig net/minecraft/client/render/block/IBlockColorMapper
+	METHOD a getColor (Lbob;Lbbh;Leg;I)I
+		ARG 2 pos
+		ARG 3 tintIndex

@@ -1,0 +1,34 @@
+CLASS cyt net/minecraft/client/render/debug/RenderDebug
+	CLASS cyt$a IRenderDebug
+		METHOD a render (FJ)V
+			ARG 0 tickDelta
+	FIELD a pathRenderer Lcyx;
+	FIELD b waterRenderer Lcyt$a;
+	FIELD c chunkBorderRenderer Lcyt$a;
+	FIELD d heightMapRenderer Lcyt$a;
+	FIELD e boundingBoxRenderer Lcyt$a;
+	FIELD f neighborUpdateRenderer Lcyt$a;
+	FIELD g cavesRenderer Lcyq;
+	FIELD h structureRenderer Lcyz;
+	FIELD i skylightRenderer Lcyt$a;
+	FIELD j worldGenAttemptRenderer Lcyt$a;
+	FIELD k blockFaceRenderer Lcyt$a;
+	FIELD l showChunkBorder Z
+	FIELD m showPathfinding Z
+	FIELD n showWater Z
+	FIELD o showHeightmap Z
+	FIELD p showBoundingBoxes Z
+	FIELD q showNeighborUpdates Z
+	FIELD r showCaves Z
+	FIELD s showStructures Z
+	FIELD t showSkylight Z
+	FIELD u showWorldGenAttempts Z
+	FIELD v showBlockFaces Z
+	METHOD <init> (Lchv;)V
+		ARG 0 game
+	METHOD a isEnabled ()Z
+	METHOD a renderDebuggers (FJ)V
+		ARG 0 tickDelta
+	METHOD a (Ljava/lang/String;DDDFI)V
+		ARG 4 tickDelta
+	METHOD b toggleShowChunkBorder ()Z

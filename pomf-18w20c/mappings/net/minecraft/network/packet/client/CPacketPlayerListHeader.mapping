@@ -1,0 +1,13 @@
+CLASS lq net/minecraft/network/packet/client/CPacketPlayerListHeader
+	FIELD a header Lid;
+	FIELD b footer Lid;
+	METHOD a getHeader ()Lid;
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getFooter ()Lid;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

@@ -1,0 +1,3 @@
+CLASS ql net/minecraft/command/CommandPlaySound
+	FIELD a COMMANDS_PLAYSOUND_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

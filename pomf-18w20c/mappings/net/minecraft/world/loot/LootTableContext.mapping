@@ -1,0 +1,45 @@
+CLASS cev net/minecraft/world/loot/LootTableContext
+	CLASS cev$a Builder
+		FIELD a world Lsk;
+		FIELD b luck F
+		FIELD c lootedEntity Lahz;
+		FIELD d player Larn;
+		FIELD e damageSource Lahi;
+		METHOD a build ()Lcev;
+		METHOD a setLuck (F)Lcev$a;
+		METHOD a setDamageSource (Lahi;)Lcev$a;
+		METHOD a setLootedEntity (Lahz;)Lcev$a;
+		METHOD a setPlayer (Larn;)Lcev$a;
+	CLASS cev$b Target
+		CLASS cev$b$a DeSerializer
+			METHOD a deserialize (Lcom/google/gson/stream/JsonReader;)Lcev$b;
+			METHOD a serialize (Lcom/google/gson/stream/JsonWriter;Lcev$b;)V
+		FIELD a THIS Lcev$b;
+		FIELD b KILLER Lcev$b;
+		FIELD c KILLER_PLAYER Lcev$b;
+		FIELD d type Ljava/lang/String;
+		METHOD a fromString (Ljava/lang/String;)Lcev$b;
+	FIELD a luck F
+	FIELD c lootTableHandler Lcex;
+	FIELD d lootedEntity Lahz;
+	FIELD e player Larn;
+	FIELD f source Lahi;
+	FIELD h lootTables Ljava/util/Set;
+	METHOD <init> (FLsk;Lcex;Lahz;Larn;Lahi;Leg;)V
+		ARG 0 luck
+		ARG 1 world
+		ARG 2 tableHandler
+		ARG 3 lootedEntity
+		ARG 4 player
+		ARG 5 source
+	METHOD a getLootedEntity ()Lahz;
+	METHOD a addLootTable (Lceu;)Z
+		ARG 0 lootTable
+	METHOD a getTargetEntity (Lcev$b;)Lahz;
+		ARG 0 target
+	METHOD b getKillerPlayer ()Lahz;
+	METHOD b removeLootTable (Lceu;)V
+		ARG 0 lootTable
+	METHOD c getKiller ()Lahz;
+	METHOD f getLootTableHandler ()Lcex;
+	METHOD g getLuck ()F

@@ -1,0 +1,8 @@
+CLASS dbw net/minecraft/client/render/entity/EntityRendererStray
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Laij;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapx;)Lok;
+		ARG 0 model

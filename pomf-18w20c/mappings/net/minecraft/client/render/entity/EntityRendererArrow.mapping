@@ -1,0 +1,7 @@
+CLASS dca net/minecraft/client/render/entity/EntityRendererArrow
+	FIELD a SKIN Lok;
+	FIELD f TIPPED_SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lart;)Lok;
+		ARG 0 model

@@ -1,0 +1,10 @@
+CLASS col net/minecraft/client/gui/menu/GuiWorldSelection
+	FIELD v LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD w guiLevelSelect Lcoj;
+	METHOD <init> (Lcoj;Lchv;IIIII)V
+		ARG 0 guiLevelSelect
+		ARG 1 mc
+	METHOD a isSelected (I)Z
+		ARG 0 index
+	METHOD e getEntryWidth ()I
+	METHOD f getScrollbarPosition ()I

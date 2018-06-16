@@ -1,0 +1,2 @@
+CLASS rr
+	FIELD b COMMANDS_DATA_ENTITY_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;

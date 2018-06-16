@@ -1,0 +1,14 @@
+CLASS ky net/minecraft/network/packet/client/CPacketSetCameraEntity
+	FIELD a id I
+	METHOD <init> (Lahz;)V
+		ARG 0 entity
+	METHOD a getEntity (Lbbd;)Lahz;
+		ARG 0 world
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

@@ -1,0 +1,5 @@
+CLASS bhx net/minecraft/block/BlockGlass
+	METHOD X_ getRenderLayer ()Lbas;
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a getDropAmount (Lbob;Ljava/util/Random;)I
+	METHOD j canSilkHarvest ()Z

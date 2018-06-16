@@ -1,0 +1,27 @@
+CLASS bkr net/minecraft/sound/BlockSoundGroup
+	FIELD a WOOD Lbkr;
+	FIELD b GRAVEL Lbkr;
+	FIELD c GRASS Lbkr;
+	FIELD d STONE Lbkr;
+	FIELD e METAL Lbkr;
+	FIELD f GLASS Lbkr;
+	FIELD g CLOTH Lbkr;
+	FIELD h SAND Lbkr;
+	FIELD i SNOW Lbkr;
+	FIELD j LADDER Lbkr;
+	FIELD k ANVIL Lbkr;
+	FIELD l SLIME Lbkr;
+	FIELD m volume F
+	FIELD n pitch F
+	FIELD o breakSound Lvp;
+	FIELD p stepSound Lvp;
+	FIELD q placeSound Lvp;
+	FIELD r hitSound Lvp;
+	FIELD s fallSound Lvp;
+	METHOD a getVolume ()F
+	METHOD b getPitch ()F
+	METHOD c getBreakSound ()Lvp;
+	METHOD d getStepSound ()Lvp;
+	METHOD e getPlaceSound ()Lvp;
+	METHOD f getHitSound ()Lvp;
+	METHOD g getFallSound ()Lvp;

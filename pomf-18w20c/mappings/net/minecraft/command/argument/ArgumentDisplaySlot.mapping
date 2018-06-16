@@ -1,0 +1,3 @@
+CLASS cm net/minecraft/command/argument/ArgumentDisplaySlot
+	FIELD a ARGUMENT_SCOREBOARDDISPLAYSLOT_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD b SIDEBAR Ljava/util/Collection;

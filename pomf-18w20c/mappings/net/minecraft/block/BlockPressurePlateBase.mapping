@@ -1,0 +1,34 @@
+CLASS bfn net/minecraft/block/BlockPressurePlateBase
+	METHOD a canEntitiesSpawnInside ()Z
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a isNotSolid (Lbob;Lbar;Leg;)Z
+		ARG 2 pos
+	METHOD a getWeakRedstonePower (Lbob;Lbar;Leg;Lem;)I
+		ARG 1 view
+		ARG 2 pos
+		ARG 3 facingFrom
+	METHOD a onEntityCollision (Lbob;Lbbd;Leg;Lahz;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 entity
+	METHOD a onBlockRemoved (Lbob;Lbbd;Leg;Lbob;)V
+		ARG 1 world
+		ARG 2 pos
+	METHOD a randomTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD b getStrongRedstonePower (Lbob;Lbar;Leg;Lem;)I
+		ARG 1 view
+		ARG 2 pos
+		ARG 3 facingFrom
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random
+	METHOD h canProvidePower (Lbob;)Z
+	METHOD i getPistonBehavior (Lbob;)Lcbj;

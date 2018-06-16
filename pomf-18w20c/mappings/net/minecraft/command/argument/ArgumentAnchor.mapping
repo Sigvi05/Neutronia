@@ -1,0 +1,6 @@
+CLASS bx net/minecraft/command/argument/ArgumentAnchor
+	CLASS bx$a
+		FIELD a FEET Lbx$a;
+		FIELD b EYES Lbx$a;
+	FIELD a EYES Ljava/util/Collection;
+	FIELD b ARGUMENT_ANCHOR_INVALID Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

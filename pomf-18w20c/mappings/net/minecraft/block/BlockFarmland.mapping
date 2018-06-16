@@ -1,0 +1,18 @@
+CLASS bhp net/minecraft/block/BlockFarmland
+	FIELD a MOISTURE Lboz;
+	METHOD a getDefaultState (Laur;)Lbob;
+	METHOD a getBlockFaceShape (Lbar;Lbob;Leg;Lem;)Lboa;
+		ARG 0 blockView
+		ARG 2 pos
+		ARG 3 face
+	METHOD a onLandedUpon (Lbbd;Leg;Lahz;F)V
+		ARG 0 world
+		ARG 1 pos
+		ARG 2 entity
+		ARG 3 fallDistance
+	METHOD a isFullBlock (Lbob;)Z
+	METHOD a getDroppedItem (Lbob;Lbbd;Leg;I)Lbbc;
+	METHOD b updateTick (Lbob;Lbbd;Leg;Ljava/util/Random;)V
+		ARG 1 world
+		ARG 2 pos
+		ARG 3 random

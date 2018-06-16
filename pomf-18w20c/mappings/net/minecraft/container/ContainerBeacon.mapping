@@ -1,0 +1,23 @@
+CLASS ate net/minecraft/container/ContainerBeacon
+	CLASS ate$a SlotPayment
+		METHOD a getMaxStackAmount ()I
+		METHOD a canInsert (Lawm;)Z
+			ARG 0 stack
+	FIELD a inventory Lagm;
+	FIELD f slotPayment Late$a;
+	METHOD <init> (Lagm;Lagm;)V
+		ARG 0 playerInv
+		ARG 1 inventory
+	METHOD a canUse (Larn;)Z
+		ARG 0 player
+	METHOD a addListener (Lati;)V
+		ARG 0 listener
+	METHOD b setProperty (II)V
+		ARG 0 pos
+		ARG 1 value
+	METHOD b close (Larn;)V
+		ARG 0 player
+	METHOD b getStack (Larn;I)Lawm;
+		ARG 0 player
+		ARG 1 slot
+	METHOD d getInventory ()Lagm;

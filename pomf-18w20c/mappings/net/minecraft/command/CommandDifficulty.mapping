@@ -1,0 +1,3 @@
+CLASS pq net/minecraft/command/CommandDifficulty
+	FIELD a COMMANDS_DIFFICULTY_FAILURE Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

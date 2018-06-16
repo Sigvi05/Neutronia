@@ -1,0 +1,116 @@
+CLASS aij net/minecraft/entity/mob/EntityMob
+	CLASS aij$a
+		FIELD a ON_GROUND Laij$a;
+		FIELD b IN_WATER Laij$a;
+	FIELD a MOB_FLAGS Lnz;
+	FIELD bA handItems Lev;
+	FIELD bB armorItems Lev;
+	FIELD bC pickUpLoot Z
+	FIELD bD persistent Z
+	FIELD bE pathNodeTypeWeights Ljava/util/Map;
+	FIELD bF lootTable Lok;
+	FIELD bG lootTableSeed J
+	FIELD bH leashed Z
+	FIELD bI holdingEntity Lahz;
+	FIELD bJ leashTag Lgv;
+	FIELD b_ experiencePoints I
+	FIELD bv goalSelector Lakc;
+	FIELD bw targetSelector Lakc;
+	FIELD bx handDropChances [F
+	FIELD by armorDropChances [F
+	FIELD bz visibilityCache Lamj;
+	FIELD c target Laii;
+	FIELD g actionMove Lajj;
+	FIELD h actionJump Lajh;
+	METHOD B playSoundAmbient ()V
+	METHOD B attackEntity (Lahz;)Z
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD G getLootItem ()Lawi;
+	METHOD H getLootTableId ()Lok;
+	METHOD J checkDespawn ()V
+	METHOD K mobTick ()V
+	METHOD R_ update ()V
+	METHOD X updateLogic ()V
+	METHOD a initEquipment (Lagr;)V
+		ARG 0 difficulty
+	METHOD a (Lagr;Lail;Lawm;)Lail;
+		ARG 0 difficulty
+	METHOD a startRiding (Lahz;Z)Z
+		ARG 0 entity
+		ARG 1 ignoreRequirements
+	METHOD a setEquipmentDropChance (Laie;F)V
+		ARG 0 slot
+		ARG 1 value
+	METHOD a setEquippedStack (Laie;Lawm;)V
+		ARG 0 slot
+		ARG 1 stack
+	METHOD a canBeLeashedBy (Larn;)Z
+		ARG 0 player
+	METHOD a interactMob (Larn;Lags;)Z
+		ARG 0 player
+		ARG 1 playerHand
+	METHOD a getPathNodeTypeWeight (Lcdh;)F
+		ARG 0 type
+	METHOD a setPathNodeTypeWeight (Lcdh;F)V
+		ARG 0 type
+		ARG 1 weight
+	METHOD a deserializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD a dropEquipment (ZI)V
+		ARG 0 recentlyHitByPlayer
+		ARG 1 looting
+	METHOD a dropLoot (ZILahi;)V
+		ARG 0 recentlyHitByPlayer
+		ARG 1 looting
+		ARG 2 damageSource
+	METHOD a detachLeash (ZZ)V
+		ARG 0 sendPacket
+		ARG 1 dropLeadStack
+	METHOD aU getItemsHand ()Ljava/lang/Iterable;
+	METHOD aV getItemsArmor ()Ljava/lang/Iterable;
+	METHOD b attachLeash (Lahz;Z)V
+		ARG 0 entity
+		ARG 1 sendPacket
+	METHOD b getEquippedStack (Laie;)Lawm;
+		ARG 0 slot
+	METHOD b interact (Larn;Lags;)Z
+		ARG 0 player
+		ARG 1 hand
+	METHOD b createNavigation (Lbbd;)Lame;
+		ARG 0 world
+	METHOD b serializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD b canTrack (Ljava/lang/Class;)Z
+	METHOD b dropDefaultLoot (ZI)V
+		ARG 0 recentlyHitByPlayer
+		ARG 1 looting
+	METHOD bq getSafeFallDistance ()I
+	METHOD cV getMainHand ()Laih;
+	METHOD ca initAttributes ()V
+	METHOD dk getLimitPerChunk ()I
+	METHOD dm setPersistent ()V
+	METHOD dn canPickUpLoot ()Z
+	METHOD do isPersistent ()Z
+	METHOD dq isLeashed ()Z
+	METHOD dr getHoldingEntity ()Lahz;
+	METHOD ds isAiDisabled ()Z
+	METHOD dt isLeftHanded ()Z
+	METHOD dv deserializeLeashTag ()V
+	METHOD e setTarget (Laii;)V
+		ARG 0 value
+	METHOD e getPreferredEquipmentSlot (Lawm;)Laie;
+		ARG 0 stack
+	METHOD k updateMovement ()V
+	METHOD p getActionLook ()Laji;
+	METHOD p setCanPickUpLoot (Z)V
+		ARG 0 value
+	METHOD q setAiDisabled (Z)V
+		ARG 0 value
+	METHOD r getActionMove ()Lajj;
+	METHOD r setLeftHanded (Z)V
+		ARG 0 value
+	METHOD s getActionJump ()Lajh;
+	METHOD t getNavigation ()Lame;
+	METHOD u getVisibilityCache ()Lamj;
+	METHOD v getTarget ()Laii;
+	METHOD w_ initDataTracker ()V

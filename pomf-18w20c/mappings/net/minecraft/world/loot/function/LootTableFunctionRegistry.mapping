@@ -1,0 +1,12 @@
+CLASS cfd net/minecraft/world/loot/function/LootTableFunctionRegistry
+	CLASS cfd$a DeSerializer
+		METHOD a serialize (Lcfc;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;
+		METHOD a deserialize (Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lcfc;
+	FIELD a IDENTIFIER_TO_SERIALIZER Ljava/util/Map;
+	FIELD b CLASS_TO_SERIALIZER Ljava/util/Map;
+	METHOD a registerFunction (Lcfc$a;)V
+		ARG 0 serializer
+	METHOD a getSerializer (Lcfc;)Lcfc$a;
+		ARG 0 functionClass
+	METHOD a getSerializer (Lok;)Lcfc$a;
+		ARG 0 id

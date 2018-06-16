@@ -1,0 +1,74 @@
+CLASS cur net/minecraft/client/player/EntityPlayerClient
+	FIELD cf stats Lwa;
+	FIELD cg recipeBook Lchm;
+	FIELD ci clientPermissionLevel I
+	FIELD ct serverBrand Ljava/lang/String;
+	FIELD d networkHandler Lcsl;
+	FIELD f game Lchv;
+	METHOD A getRecipeBook ()Lchm;
+	METHOD R_ update ()V
+	METHOD S_ stopRiding ()V
+	METHOD a setClientPermissionLevel (I)V
+		ARG 0 value
+	METHOD a openInventory (Lagm;)V
+		ARG 0 inv
+	METHOD a swingHand (Lags;)V
+		ARG 0 hand
+	METHOD a openContainer (Lagt;)V
+	METHOD a damage (Lahi;F)Z
+		ARG 0 source
+		ARG 1 damage
+	METHOD a copyEntityData (Lahz;)V
+		ARG 0 entity
+	METHOD a startRiding (Lahz;Z)Z
+		ARG 0 entity
+		ARG 1 ignoreRequirements
+	METHOD a move (Laio;DDD)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD a openHorseInventory (Lanv;Lagm;)V
+	METHOD a spawnEntityItem (Lapt;)Lawm;
+		ARG 0 entityItem
+	METHOD a openBookEditor (Lawm;Lags;)V
+	METHOD a openVillagerGui (Lbak;)V
+		ARG 0 villager
+	METHOD a openCommandBlockMinecart (Lbao;)V
+		ARG 0 commandBlock
+	METHOD a openCommandBlock (Lbml;)V
+	METHOD a openSignEditor (Lbnc;)V
+		ARG 0 sign
+	METHOD a openStructureBlock (Lbne;)V
+	METHOD a appendCommandFeedback (Lid;)V
+		ARG 0 feedback
+	METHOD a addChatMessage (Lid;Z)V
+		ARG 0 message
+	METHOD a onTrackedDataSet (Lnz;)V
+		ARG 0 data
+	METHOD a playSoundAtEntity (Lvp;FF)V
+		ARG 0 sound
+		ARG 1 volume
+		ARG 2 pitch
+	METHOD a dropSelectedItem (Z)Lapt;
+	METHOD bb isSneaking ()Z
+	METHOD c heal (F)V
+		ARG 0 amount
+	METHOD c setCurrentHand (Lags;)V
+	METHOD c removePotionEffect (Lahr;)Lahs;
+		ARG 0 effect
+	METHOD d damage (Lahi;F)V
+		ARG 0 damageSource
+		ARG 1 damage
+	METHOD f sendChatMessage (Ljava/lang/String;)V
+		ARG 0 message
+	METHOD f setSprinting (Z)V
+		ARG 0 value
+	METHOD g setServerBrand (Ljava/lang/String;)V
+	METHOD k updateMovement ()V
+	METHOD p closeGui ()V
+	METHOD s updateHealth (F)V
+		ARG 0 health
+	METHOD v openRidingInventory ()V
+	METHOD w getServerBrand ()Ljava/lang/String;
+	METHOD x getStats ()Lwa;
+	METHOD y getBlockPos ()Leg;

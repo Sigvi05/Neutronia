@@ -1,0 +1,40 @@
+CLASS boh net/minecraft/block/pattern/BlockPattern
+	CLASS boh$a BlockStateCacheLoader
+		FIELD b forceLoad Z
+		METHOD a load (Leg;)Lbog;
+	CLASS boh$b Result
+		FIELD a frontTopLeft Leg;
+		FIELD b forwards Lem;
+		FIELD c up Lem;
+		FIELD d cache Lcom/google/common/cache/LoadingCache;
+		FIELD e width I
+		FIELD f height I
+		FIELD g depth I
+		METHOD a getFrontTopLeft ()Leg;
+		METHOD a translate (III)Lbog;
+		METHOD b getForwards ()Lem;
+		METHOD c getUp ()Lem;
+		METHOD d getWidth ()I
+		METHOD e getHeight ()I
+	FIELD b depth I
+	FIELD c height I
+	FIELD d width I
+	METHOD a getDepth ()I
+	METHOD a searchAround (Lbbh;Leg;)Lboh$b;
+		ARG 1 placed
+	METHOD a makeCache (Lbbh;Z)Lcom/google/common/cache/LoadingCache;
+		ARG 1 forceLoad
+	METHOD a translate (Leg;Lem;Lem;III)Leg;
+		ARG 0 pos
+		ARG 1 forwards
+		ARG 2 up
+		ARG 3 offsetLeft
+		ARG 4 offsetDown
+		ARG 5 offsetForwards
+	METHOD a testTransform (Leg;Lem;Lem;Lcom/google/common/cache/LoadingCache;)Lboh$b;
+		ARG 0 frontTopLeft
+		ARG 1 forwards
+		ARG 2 up
+		ARG 3 cache
+	METHOD b getHeight ()I
+	METHOD c getWidth ()I

@@ -1,0 +1,7 @@
+CLASS ddf net/minecraft/client/render/entity/EntityRendererArmorBiped
+	METHOD a hideModel (Lcqb;)V
+		ARG 0 model
+	METHOD a handleModelAdjustments (Lcqb;Laie;)V
+		ARG 0 model
+		ARG 1 slot
+	METHOD ao_ init ()V

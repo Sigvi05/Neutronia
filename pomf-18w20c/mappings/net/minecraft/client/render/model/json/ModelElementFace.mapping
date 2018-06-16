@@ -1,0 +1,8 @@
+CLASS cwf net/minecraft/client/render/model/json/ModelElementFace
+	FIELD a cullFace Lem;
+	FIELD b tintIndex I
+	FIELD c texture Ljava/lang/String;
+	METHOD <init> (Lem;ILjava/lang/String;Lcwh;)V
+		ARG 0 cullFace
+		ARG 1 tintIndex
+		ARG 2 texture

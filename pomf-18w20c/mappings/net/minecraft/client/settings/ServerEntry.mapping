@@ -1,0 +1,32 @@
+CLASS csr net/minecraft/client/settings/ServerEntry
+	CLASS csr$a ResourcePackState
+		FIELD a ENABLED Lcsr$a;
+		FIELD b DISABLED Lcsr$a;
+		FIELD c PROMPT Lcsr$a;
+		FIELD d component Lid;
+		METHOD a getComponent ()Lid;
+	FIELD a name Ljava/lang/String;
+	FIELD b address Ljava/lang/String;
+	FIELD e ping J
+	FIELD f protocolVersion I
+	FIELD g version Ljava/lang/String;
+	FIELD i playerListSummary Ljava/lang/String;
+	FIELD j resourcePackState Lcsr$a;
+	FIELD k icon Ljava/lang/String;
+	FIELD l local Z
+	METHOD <init> (Ljava/lang/String;Ljava/lang/String;Z)V
+		ARG 0 name
+		ARG 1 address
+		ARG 2 local
+	METHOD a serialize ()Lgv;
+	METHOD a setResourcePackState (Lcsr$a;)V
+		ARG 0 state
+	METHOD a copyFrom (Lcsr;)V
+		ARG 0 entry
+	METHOD a deserialize (Lgv;)Lcsr;
+		ARG 0 tag
+	METHOD a setIcon (Ljava/lang/String;)V
+		ARG 0 icon
+	METHOD b getResourcePack ()Lcsr$a;
+	METHOD c getIcon ()Ljava/lang/String;
+	METHOD d isLocal ()Z

@@ -1,0 +1,4 @@
+CLASS gb net/minecraft/generator/GeneratorRecipes
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	METHOD a generate ()V
+	METHOD b getName ()Ljava/lang/String;

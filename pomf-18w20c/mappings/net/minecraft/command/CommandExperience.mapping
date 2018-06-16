@@ -1,0 +1,6 @@
+CLASS pv net/minecraft/command/CommandExperience
+	CLASS pv$a
+		FIELD a POINTS Lpv$a;
+		FIELD b LEVELS Lpv$a;
+	FIELD a COMMANDS_EXPERIENCE_SET_POINTS_INVALID Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

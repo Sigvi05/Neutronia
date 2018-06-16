@@ -1,0 +1,2 @@
+CLASS es net/minecraft/util/math/IWorldPosition
+	METHOD h getWorld ()Lbbd;

@@ -1,0 +1,35 @@
+CLASS chd net/minecraft/scoreboard/ScoreboardTeam
+	FIELD a scoreboard Lchf;
+	FIELD b name Ljava/lang/String;
+	FIELD c playerList Ljava/util/Set;
+	FIELD d displayName Ljava/lang/String;
+	FIELD g friendlyFire Z
+	FIELD h showFriendlyInvisibles Z
+	FIELD i nameTagVisibilityRule Lchh$b;
+	FIELD j deathMessageVisibilityRule Lchh$b;
+	FIELD k displayFormat La;
+	FIELD l collisionRule Lchh$a;
+	METHOD a setFriendlyFlagsBitwise (I)V
+		ARG 0 value
+	METHOD a setCollisionRule (Lchh$a;)V
+		ARG 0 value
+	METHOD a setNameTagVisibilityRule (Lchh$b;)V
+		ARG 0 value
+	METHOD a setDisplayName (Ljava/lang/String;)V
+		ARG 0 value
+	METHOD a setFriendlyFireAllowed (Z)V
+		ARG 0 value
+	METHOD b getName ()Ljava/lang/String;
+	METHOD b setDeathMessageVisibilityRule (Lchh$b;)V
+		ARG 0 value
+	METHOD b setShowFriendlyInvisibles (Z)V
+		ARG 0 value
+	METHOD c getDisplayName ()Ljava/lang/String;
+	METHOD g getPlayerList ()Ljava/util/Collection;
+	METHOD h isFriendlyFireAllowed ()Z
+	METHOD i shouldShowFriendlyInvisibles ()Z
+	METHOD j getNameTagVisibilityRule ()Lchh$b;
+	METHOD k getDeathMessageVisibilityRule ()Lchh$b;
+	METHOD l getCollisionRule ()Lchh$a;
+	METHOD m getFriendlyFlagsBitwise ()I
+	METHOD n getTeamColor ()La;

@@ -1,0 +1,21 @@
+diff -r -U 3 minecraft\net\minecraft\client\Minecraft.java minecraft_patched\net\minecraft\client\Minecraft.java
+--- minecraft\net\minecraft\client\Minecraft.java
++++ minecraft_patched\net\minecraft\client\Minecraft.java
+@@ -234,7 +234,7 @@
+    public GuiScreen field_71462_r;
+    public EntityRenderer field_71460_t;
+    public DebugRenderer field_184132_p;
+-   int field_71429_W;
++   public int field_71429_W;
+    @Nullable
+    private IntegratedServer field_71437_Z;
+    public GuiIngame field_71456_v;
+@@ -287,7 +287,7 @@
+    private long field_71419_L = func_71386_F();
+    private int field_71420_M;
+    private final Tutorial field_193035_aW;
+-   boolean field_195555_I;
++   public boolean field_195555_I;
+    private ResourceLocation field_195552_aP;
+    private DynamicTexture field_195553_aQ;
+    long field_71421_N = -1L;

@@ -1,0 +1,17 @@
+CLASS cxs net/minecraft/client/render/block/entity/BlockEntityShulkerBox
+	FIELD a model Lcrb;
+	METHOD <init> (Lcrb;)V
+		ARG 0 model
+	METHOD a render (Lbmh;DDDFI)V
+		ARG 0 blockEntity
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 partial
+	METHOD a render (Lbnb;DDDFI)V
+		ARG 0 blockEntity
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 partial
+		ARG 5 destroyStage

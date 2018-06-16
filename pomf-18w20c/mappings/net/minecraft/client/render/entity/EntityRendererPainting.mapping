@@ -1,0 +1,6 @@
+CLASS dbd net/minecraft/client/render/entity/EntityRendererPainting
+	FIELD a TEX Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapl;)Lok;
+		ARG 0 model

@@ -1,0 +1,5 @@
+CLASS uk net/minecraft/resource/IResourceManager
+	METHOD a reload (Ljava/util/List;)V
+		ARG 0 packs
+	METHOD a registerListener (Lun;)V
+		ARG 0 listener

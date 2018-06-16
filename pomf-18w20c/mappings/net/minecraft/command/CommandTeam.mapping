@@ -1,0 +1,14 @@
+CLASS rf net/minecraft/command/CommandTeam
+	FIELD a COMMANDS_TEAM_ADD_DUPLICATE Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD b COMMANDS_TEAM_ADD_LONGNAME Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD c COMMANDS_TEAM_ADD_LONGDISPLAYNAME Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD d COMMANDS_TEAM_EMPTY_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD e COMMANDS_TEAM_OPTION_COLOR_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD f COMMANDS_TEAM_OPTION_FRIENDLYFIRE_ALREADYENABLED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD g COMMANDS_TEAM_OPTION_FRIENDLYFIRE_ALREADYDISABLED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD h COMMANDS_TEAM_OPTION_SEEFRIENDLYINVISIBLES_ALREADYENABLED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD i COMMANDS_TEAM_OPTION_SEEFRIENDLYINVISIBLES_ALREADYDISABLED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD j COMMANDS_TEAM_OPTION_NAMETAGVISIBILITY_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD k COMMANDS_TEAM_OPTION_DEATHMESSAGEVISIBILITY_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	FIELD l COMMANDS_TEAM_OPTION_COLLISIONRULE_UNCHANGED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

@@ -1,0 +1,6 @@
+CLASS dbv net/minecraft/client/render/entity/EntityRendererSquid
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lano;)Lok;
+		ARG 0 model

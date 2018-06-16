@@ -1,0 +1,16 @@
+CLASS ckt net/minecraft/client/gui/menu/GuiServerConnecting
+	FIELD f LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD i parent Lclm;
+	METHOD <init> (Lclm;Lchv;Lcsr;)V
+		ARG 0 parent
+		ARG 1 game
+		ARG 2 server
+	METHOD <init> (Lclm;Lchv;Ljava/lang/String;I)V
+		ARG 0 parent
+		ARG 1 game
+	METHOD a draw (IIF)V
+		ARG 0 mouseX
+		ARG 1 mouseY
+		ARG 2 delta
+	METHOD c init ()V
+	METHOD f update ()V

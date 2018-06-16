@@ -1,0 +1,2 @@
+CLASS cbe
+	METHOD c getFluid ()Lcbc;

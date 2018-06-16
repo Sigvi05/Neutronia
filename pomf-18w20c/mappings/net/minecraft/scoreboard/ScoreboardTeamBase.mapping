@@ -1,0 +1,21 @@
+CLASS chh net/minecraft/scoreboard/ScoreboardTeamBase
+	CLASS chh$a
+		FIELD a ALWAYS Lchh$a;
+		FIELD b NEVER Lchh$a;
+		FIELD c PUSH_OTHER_TEAMS Lchh$a;
+		FIELD d PUSH_OWN_TEAM Lchh$a;
+	CLASS chh$b
+		FIELD a ALWAYS Lchh$b;
+		FIELD b NEVER Lchh$b;
+		FIELD c HIDE_FOR_OTHER_TEAMS Lchh$b;
+		FIELD d HIDE_FOR_OWN_TEAM Lchh$b;
+	METHOD a isEqual (Lchh;)Z
+		ARG 0 team
+	METHOD b getName ()Ljava/lang/String;
+	METHOD g getPlayerList ()Ljava/util/Collection;
+	METHOD h isFriendlyFireAllowed ()Z
+	METHOD i shouldShowFriendlyInvisibles ()Z
+	METHOD j getNameTagVisibilityRule ()Lchh$b;
+	METHOD k getDeathMessageVisibilityRule ()Lchh$b;
+	METHOD l getCollisionRule ()Lchh$a;
+	METHOD n getTeamColor ()La;

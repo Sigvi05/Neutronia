@@ -1,0 +1,16 @@
+CLASS cxx net/minecraft/client/render/block/entity/BlockEntityEndGatewayRenderer
+	FIELD a SKY_TEX Lok;
+	FIELD d PORTAL_TEX Lok;
+	FIELD e RANDOM Ljava/util/Random;
+	METHOD a render (Lbmh;DDDFI)V
+		ARG 0 blockEntity
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 partial
+	METHOD a render (Lbng;DDDFI)V
+		ARG 0 blockEntity
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 partial

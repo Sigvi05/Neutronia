@@ -1,0 +1,19 @@
+CLASS cej net/minecraft/world/level/storage/LevelSummary
+	FIELD a name Ljava/lang/String;
+	FIELD b displayName Ljava/lang/String;
+	FIELD c lastPlayed J
+	FIELD f gameMode Lbba;
+	FIELD i versionName Ljava/lang/String;
+	FIELD j versionId I
+	METHOD <init> (Lcef;Ljava/lang/String;Ljava/lang/String;JZ)V
+		ARG 0 properties
+		ARG 1 name
+		ARG 2 displayName
+		ARG 3 size
+		ARG 4 requiresConversion
+	METHOD a getName ()Ljava/lang/String;
+	METHOD a compareTo (Lcej;)I
+		ARG 0 other
+	METHOD b getDisplayName ()Ljava/lang/String;
+	METHOD e lastPlayed ()J
+	METHOD f getGameMode ()Lbba;

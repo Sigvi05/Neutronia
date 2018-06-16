@@ -1,0 +1,13 @@
+CLASS nw net/minecraft/network/packet/server/SPacketQueryPing
+	FIELD a startTime J
+	METHOD <init> (J)V
+		ARG 0 startTime
+	METHOD a getStartTime ()J
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lnv;)V
+		ARG 0 handler
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

@@ -1,0 +1,7 @@
+CLASS cjm net/minecraft/client/gui/hud/HudScoreboard
+	FIELD f game Lchv;
+	FIELD g hudInGame Lcin;
+	METHOD <init> (Lchv;Lcin;)V
+		ARG 0 game
+		ARG 1 hudInGame
+	METHOD a clear ()V

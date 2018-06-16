@@ -1,0 +1,17 @@
+CLASS bps net/minecraft/world/chunk/ChunkSection
+	FIELD a EMPTY Lbpw;
+	FIELD b level I
+	FIELD c blockCount I
+	FIELD d tickableBlockCount I
+	METHOD a isEmpty ()Z
+	METHOD a getBlockState (III)Lbob;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD a setBlockState (IIILbob;)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD b getFluidState (III)Lcbd;
+	METHOD e getlevel ()I
+	METHOD f calculateBlockCount ()V

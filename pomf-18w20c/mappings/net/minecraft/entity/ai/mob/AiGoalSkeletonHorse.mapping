@@ -1,0 +1,6 @@
+CLASS aoc net/minecraft/entity/ai/mob/AiGoalSkeletonHorse
+	FIELD a owner Laob;
+	METHOD <init> (Laob;)V
+		ARG 0 owner
+	METHOD a canStart ()Z
+	METHOD e tick ()V

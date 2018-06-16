@@ -1,0 +1,4 @@
+CLASS bzv
+	METHOD a process (Lbar;Leg;Lbzw$b;)Lbzw$b;
+		ARG 1 pos
+		ARG 2 blockInfo

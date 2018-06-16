@@ -39,6 +39,7 @@ public class NItems {
     public static final ItemArmor.ArmorMaterial banshee = EnumHelper.addArmorMaterial("banshee", MOD_ID + ":banshee", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 
     public static final Item ancientSword, bandage, /*witherBone, witherBonemeal, driedKelp, stinger, chitin, */nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
+    public static final Item rawSeaweed;
 
 //    public static final Item AXE_CHITIN, PICKAXE_CHITIN, HOE_CHITIN, SHOVEL_CHITIN, SWORD_CHITIN;
     public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE,  OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
@@ -80,6 +81,7 @@ public class NItems {
         heartOfTheNether = new ItemBase("heart_of_the_nether", Main.ITEM_EXPANSION_TAB);
         heartOfTheEnd = new ItemBase("heart_of_the_end", Main.ITEM_EXPANSION_TAB);
         scute = new ItemBase("scute", Main.ITEM_EXPANSION_TAB);
+        rawSeaweed = new ItemBase("raw_seaweed", Main.ITEM_EXPANSION_TAB);
 
         /*AXE_CHITIN = new BaseAxe("axe_chitin", CAXE);
         PICKAXE_CHITIN = new BasePickaxe("pickaxe_chitin", CPICK);
@@ -104,7 +106,7 @@ public class NItems {
 
         doveWings = new ItemWingBase("dove_wings");
         ravenWings = new ItemWingBase("raven_wings");
-        enderdragonWings = new ItemWingBase("enderdragon_wings");
+        enderdragonWings = new ItemWingBase("ender_dragon_wings");
         vexWings = new ItemWingBase("vex_wings");
 
         /*for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {

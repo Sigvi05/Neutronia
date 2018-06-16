@@ -1,0 +1,11 @@
+CLASS cfb
+	CLASS cfb$a
+		METHOD a serialize (Lcom/google/gson/JsonObject;Lcfb;Lcom/google/gson/JsonSerializationContext;)V
+		METHOD a serialize (Lcom/google/gson/JsonObject;Lcfc;Lcom/google/gson/JsonSerializationContext;)V
+		METHOD a deserialize (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;[Lcfo;)Lcfb;
+		METHOD b deserialize (Lcom/google/gson/JsonObject;Lcom/google/gson/JsonDeserializationContext;[Lcfo;)Lcfc;
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	METHOD a apply (Lawm;Ljava/util/Random;Lcev;)Lawm;
+		ARG 0 stack
+		ARG 1 rand
+		ARG 2 context

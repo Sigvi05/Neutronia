@@ -1,0 +1,9 @@
+CLASS ry net/minecraft/server/gui/ServerGui
+	FIELD a FONT Ljava/awt/Font;
+	FIELD b LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD c server Lrv;
+	METHOD <init> (Lrv;)V
+		ARG 0 server
+	METHOD a createWindow (Lrv;)V
+		ARG 0 server
+	METHOD c getPlayerListComponent ()Ljavax/swing/JComponent;

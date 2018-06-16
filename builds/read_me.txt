@@ -1,0 +1,1 @@
+The dev folder has the files for when you want to make addons for this mod and universal is the universal version of the mod

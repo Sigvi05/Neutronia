@@ -1,0 +1,7 @@
+CLASS asi net/minecraft/entity/thrown/EntityThrownEnderpearl
+	FIELD e owner Laii;
+	METHOD R_ update ()V
+	METHOD a onCollision (Lcgf;)V
+		ARG 0 hitResult
+	METHOD d changeWorld (I)Lahz;
+		ARG 0 worldId

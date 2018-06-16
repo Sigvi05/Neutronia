@@ -1,0 +1,9 @@
+CLASS ddv net/minecraft/client/render/entity/EntityRendererWitchHeldItem
+	FIELD a renderer Ldck;
+	METHOD <init> (Ldck;)V
+		ARG 0 renderer
+	METHOD a shouldMergeTextures ()Z
+	METHOD a render (Laii;FFFFFFF)V
+		ARG 0 entity
+	METHOD a render (Larb;FFFFFFF)V
+		ARG 0 entity

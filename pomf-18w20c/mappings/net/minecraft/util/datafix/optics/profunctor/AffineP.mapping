@@ -1,0 +1,3 @@
+CLASS acx net/minecraft/util/datafix/optics/profunctor/AffineP
+	CLASS acx$a Mu
+		FIELD b TYPE_TOKEN Lcom/google/common/reflect/TypeToken;

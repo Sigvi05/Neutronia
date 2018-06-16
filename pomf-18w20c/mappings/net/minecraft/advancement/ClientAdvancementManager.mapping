@@ -1,0 +1,11 @@
+CLASS m net/minecraft/advancement/ClientAdvancementManager
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b advancements Ljava/util/Map;
+	METHOD a load (Ljava/util/Map;)V
+	METHOD a removeAll (Ljava/util/Set;)V
+		ARG 0 ids
+	METHOD a remove (Ll;)V
+		ARG 0 advancement
+	METHOD a getById (Lok;)Ll;
+		ARG 0 id
+	METHOD c getAdvancements ()Ljava/util/Collection;

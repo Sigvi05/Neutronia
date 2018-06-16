@@ -1,9 +1,10 @@
 package net.hdt.neutronia.entity;
 
-import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.EntityFlying;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
-public class EntityPhantom extends EntityUndeadBase {
+public class EntityPhantom extends EntityFlying {
 
     public EntityPhantom(World worldIn) {
         super(worldIn);
@@ -12,7 +13,15 @@ public class EntityPhantom extends EntityUndeadBase {
     }
 
     protected void entityInit() {
-        this.tasks.addTask(1, new EntityAILookIdle(this));
+        super.entityInit();
+    }
+
+    protected float getSoundVolume() {
+        return 1.0F;
+    }
+
+    public boolean canAttackClass(Class<? extends EntityLivingBase> var1) {
+        return true;
     }
 
 }

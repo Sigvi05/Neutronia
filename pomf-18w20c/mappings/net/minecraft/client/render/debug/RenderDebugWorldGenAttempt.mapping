@@ -1,0 +1,3 @@
+CLASS czb net/minecraft/client/render/debug/RenderDebugWorldGenAttempt
+	METHOD a render (FJ)V
+		ARG 0 tickDelta

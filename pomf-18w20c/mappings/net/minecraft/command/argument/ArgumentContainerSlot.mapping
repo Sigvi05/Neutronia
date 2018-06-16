@@ -1,0 +1,3 @@
+CLASS cn net/minecraft/command/argument/ArgumentContainerSlot
+	FIELD a WEAPON Ljava/util/Collection;
+	FIELD b SLOT_UNKNOWN Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;

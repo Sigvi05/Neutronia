@@ -1,0 +1,10 @@
+CLASS dei net/minecraft/client/gl/GlProgramManager
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b INSTANCE Ldei;
+	METHOD a init ()V
+	METHOD a deleteProgram (Ldee;)V
+		ARG 0 program
+	METHOD b getInstance ()Ldei;
+	METHOD b linkProgram (Ldee;)V
+		ARG 0 program
+	METHOD c createProgram ()I

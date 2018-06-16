@@ -1,0 +1,19 @@
+CLASS jm net/minecraft/network/packet/client/CPacketGuiActionConfirm
+	FIELD a id I
+	FIELD b actionId S
+	FIELD c accepted Z
+	METHOD <init> (ISZ)V
+		ARG 0 id
+		ARG 1 actionId
+		ARG 2 accepted
+	METHOD a getId ()I
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getActionId ()S
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf
+	METHOD c wasAccepted ()Z

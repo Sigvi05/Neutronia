@@ -1,0 +1,16 @@
+CLASS ciw net/minecraft/client/gui/GuiButton
+	METHOD a onHover (II)V
+		ARG 0 mouseX
+		ARG 1 mouseY
+	METHOD a draw (IIF)V
+		ARG 1 mouseY
+		ARG 2 delta
+	METHOD a drawBackground (Lchv;II)V
+		ARG 0 game
+		ARG 1 mouseX
+		ARG 2 mouseY
+	METHOD a onPressed (Ldid;)V
+		ARG 0 soundLoader
+	METHOD a getTextureId (Z)I
+		ARG 0 pressed
+	METHOD b getWidth ()I

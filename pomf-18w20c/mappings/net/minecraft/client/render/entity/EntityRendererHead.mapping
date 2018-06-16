@@ -1,0 +1,7 @@
+CLASS dcw net/minecraft/client/render/entity/EntityRendererHead
+	FIELD a model Lcse;
+	METHOD <init> (Lcse;)V
+		ARG 0 model
+	METHOD a shouldMergeTextures ()Z
+	METHOD a render (Laii;FFFFFFF)V
+		ARG 0 entity

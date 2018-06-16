@@ -1,0 +1,28 @@
+CLASS aqp net/minecraft/entity/mob/EntityPigZombie
+	CLASS aqp$a
+		METHOD a canStart ()Z
+	FIELD b ATTACKINGSPEEDBOOST Laiw;
+	FIELD bz anger I
+	METHOD E getSoundAmbient ()Lvp;
+	METHOD H getLootTableId ()Lok;
+	METHOD K mobTick ()V
+	METHOD a initEquipment (Lagr;)V
+		ARG 0 difficulty
+	METHOD a damage (Lahi;F)Z
+		ARG 0 source
+		ARG 1 damage
+	METHOD a copyEntityData (Lahz;)V
+		ARG 0 entity
+	METHOD a setAttacker (Laii;)V
+		ARG 0 value
+	METHOD a interactMob (Larn;Lags;)Z
+		ARG 0 player
+		ARG 1 playerHand
+	METHOD a deserializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD b serializeCustomData (Lgv;)V
+		ARG 0 tag
+	METHOD ca initAttributes ()V
+	METHOD ct getSoundDeath ()Lvp;
+	METHOD d getSoundHurt (Lahi;)Lvp;
+	METHOD dF getSkull ()Lawm;

@@ -1,0 +1,6 @@
+CLASS dah net/minecraft/client/render/entity/EntityRendererFishHook
+	FIELD a TEX Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lapn;)Lok;
+		ARG 0 model

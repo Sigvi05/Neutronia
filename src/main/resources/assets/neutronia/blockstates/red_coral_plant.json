@@ -1,0 +1,23 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "neutronia:red_coral_plant"
+  },
+  "variants": {
+    "facing": {
+      "north": {},
+      "south": {
+        "y": "90"
+      },
+      "east": {
+        "y": "180"
+      },
+      "west": {
+        "y": "270"
+      }
+    },
+    "inventory": {}
+  }
+}

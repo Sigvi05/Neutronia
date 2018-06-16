@@ -1,0 +1,6 @@
+CLASS dbg net/minecraft/client/render/entity/EntityRendererPig
+	FIELD a SKIN Lok;
+	METHOD a getTexture (Lahz;)Lok;
+		ARG 0 model
+	METHOD a getTexture (Lang;)Lok;
+		ARG 0 model

@@ -1,0 +1,16 @@
+CLASS jp net/minecraft/network/packet/client/CPacketInventory
+	FIELD a guiId I
+	FIELD b slotStackList Ljava/util/List;
+	METHOD <init> (ILev;)V
+		ARG 0 guiId
+		ARG 1 slotStackList
+	METHOD a getGuiId ()I
+	METHOD a readPacket (Lhu;)V
+		ARG 0 buf
+	METHOD a applyPacket (Lhx;)V
+		ARG 0 handler
+	METHOD a applyPacket (Lit;)V
+		ARG 0 handler
+	METHOD b getSlotStacks ()Ljava/util/List;
+	METHOD b writePacket (Lhu;)V
+		ARG 0 buf

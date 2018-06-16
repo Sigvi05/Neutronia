@@ -1,0 +1,9 @@
+CLASS pw net/minecraft/command/CommandFill
+	CLASS pw$a
+		FIELD a REPLACE Lpw$a;
+		FIELD b OUTLINE Lpw$a;
+		FIELD c HOLLOW Lpw$a;
+		FIELD d DESTROY Lpw$a;
+	FIELD a COMMANDS_FILL_TOOBIG Lcom/mojang/brigadier/exceptions/ParameterizedCommandExceptionType;
+	FIELD c COMMANDS_FILL_FAILED Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType;
+	METHOD a register (Lcom/mojang/brigadier/CommandDispatcher;)V

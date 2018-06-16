@@ -1,6 +1,5 @@
 package net.hdt.neutronia.init;
 
-import net.hdt.huskylib2.blocks.BlockModSlab;
 import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.*;
@@ -28,11 +27,10 @@ public class NBlocks {
 
 //    public static final Block dried_kelp_block;
     public static final Block netherGlass, soulGlass, netherRod, netherSponge;
-    public static final BlockFloorTile floorTile;
 
     // misc blocks
 //    public static final Block glowingGrass;
-    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
+//    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
 
     // Sea Blocks
@@ -42,15 +40,21 @@ public class NBlocks {
     public static Block[] dead_normal_coral = new Block[5];
     public static Block[] coral_fan = new Block[5];
     public static Block[] dead_coral_fan = new Block[5];
+    public static Block[] coral_plant = new Block[5];
+    public static Block[] dead_coral_plant = new Block[5];
     public static Block[] pipe_coral = new Block[5];
     public static Block[] dead_pipe_coral = new Block[5];
     public static Block[] sea_fan = new Block[5];
     public static Block[] dead_sea_fan = new Block[5];
     public static Block[] naturalAquamarine = new Block[6];
     public static Block[] aquamarine = new Block[6];
+    public static Block kelp;
+    public static Block tropicsWater;
 
     //Stone Blocks
-    public static Block[] newStoneVariants = new Block[27];
+    public static Block[] newStoneVariants = new Block[26];
+    public static Block[] idkNewStones = new Block[16], idkNewStones2 = new Block[16], idkNewStones3 = new Block[3];
+
 
     //Wood Blocks
     public static Block[] strippedLogs = new Block[6];
@@ -95,7 +99,9 @@ public class NBlocks {
             normal_coral[coralColor.getMetadata()] = new BlockColoredWaterBlockBase(coralColor, "coral");
             dead_normal_coral[coralColor.getMetadata()] = new BlockColoredWaterBlockBase(coralColor, "dead_coral");
             coral_fan[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "coral_fan");
-            dead_coral_fan[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "dead_coral_fan");
+            /*dead_coral_fan[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "dead_coral_fan");
+            coral_plant[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "coral_plant");
+            dead_coral_plant[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "dead_coral_plant");*/
             /*pipe_coral[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "pipe_coral");
             dead_pipe_coral[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "dead_coral_plant");
             sea_fan[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "sea_fan");
@@ -132,7 +138,7 @@ public class NBlocks {
             aquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName());
             /*aquamarineStairs[aquamarineVariants.ordinal()] = new BlockOverworldStairBase(aquamarineVariants.getName() aquamarine[aquamarineVariants.ordinal()].getDefaultState());
             BlockModStairs.initStairs(aquamarine[aquamarineVariants.ordinal()], aquamarineVariants.ordinal(), (BlockModStairs) aquamarineStairs[aquamarineVariants.ordinal()]);*/
-            add(aquamarineVariants.getName(), aquamarine[aquamarineVariants.getID()], 0, true, false, Main.NETHER_EXPANSION_TAB);
+            add(aquamarineVariants.getName(), aquamarine[aquamarineVariants.getID()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
         }
         /*for (EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
             naturalAquamarine[naturalAquamarineVariants.getID()] = new BlockOverworldBase(Material.ROCK, naturalAquamarineVariants.getName());
@@ -143,6 +149,8 @@ public class NBlocks {
             BlockModSlab.initSlab(naturalAquamarine[naturalAquamarineVariants.getID()], naturalAquamarineVariants.getID(), (BlockModSlab) naturalAquamarineSlabs[naturalAquamarineVariants.getID()], (BlockModSlab) naturalAquamarineSlabsDouble[naturalAquamarineVariants.getID()]);
         }*/
 //        dried_kelp_block = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block");
+        kelp = new BlockKelp();
+//        tropicsWater = new BlockTropicsWater(NFluids.tropicsWater, Material.WATER);
 
         // Nether Blocks
         for (EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
@@ -171,14 +179,24 @@ public class NBlocks {
             newStoneVariants[newStoneVariant.getMetadata()] = new BlockOverworldBase(Material.ROCK, newStoneVariant.getName());
             add(newStoneVariant.getName(), newStoneVariants[newStoneVariant.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
         }
+        /*for (BlockExtraStones.EnumType stoneType : BlockExtraStones.EnumType.values()) {
+            idkNewStones[stoneType.getMetadata()] = new BlockOverworldBase(Material.ROCK, stoneType.getName());
+        }
+        for (BlockExtraStones2.EnumType stoneType : BlockExtraStones2.EnumType.values()) {
+            idkNewStones2[stoneType.getMetadata()] = new BlockOverworldBase(Material.ROCK, stoneType.getName());
+        }
+        for (BlockExtraStones3.EnumType stoneType : BlockExtraStones3.EnumType.values()) {
+            idkNewStones3[stoneType.getMetadata()] = new BlockOverworldBase(Material.ROCK, stoneType.getName());
+        }*/
 
         //Wood Blocks
         for(BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
-            strippedLogs[enumType.getMetadata()] = new BlockModPillar(String.format("stripped_%s_log", enumType.getName()), Material.WOOD);
-            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
-            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
-            barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark_block", enumType.getName()));
-            add(String.format("stripped_%s_log", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, Main.OVERWORLD_EXPANSION_TAB);
+//            strippedLogs[enumType.getMetadata()] = new BlockModPillar(String.format("stripped_%s_log", enumType.getName()), Material.WOOD);
+//            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+//            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
+//            barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark_block", enumType.getName()));
+//            add(String.format("stripped_%s_log", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, Main.OVERWORLD_EXPANSION_TAB);
+//            coffins[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, enumType.getName() + "_coffin");
         }
 
         // Frosted versions of vanilla stones & dirt
@@ -222,7 +240,7 @@ public class NBlocks {
             coloredLanterns[color.getMetadata()] = new BlockColoredLightSourceWithParticlesAlt(MOD_ID, "lanterns", color);
             coloredRedstoneLamp[color.getMetadata()] = new BlockColoredRedstoneLamp(color);*/
         }
-        floorTile = new BlockFloorTile();
+//        floorTile = new BlockFloorTile();
 
         add("stone", Blocks.STONE, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
         add("stone_granite", Blocks.STONE, 1, true, true, Main.OVERWORLD_EXPANSION_TAB);
@@ -240,13 +258,20 @@ public class NBlocks {
         add("prismarine_dark", Blocks.PRISMARINE, 2, true, true, Main.OVERWORLD_EXPANSION_TAB);
         add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true, true, Main.NETHER_EXPANSION_TAB);
 
+        addWall("sandstone", Blocks.SANDSTONE, 0);
+        addWall("chiseled_sandstone", Blocks.SANDSTONE, 1);
+        addWall("smooth_sandstone", Blocks.SANDSTONE, 2);
+        addWall("red_sandstone", Blocks.RED_SANDSTONE, 0);
+        addWall("chiseled_red_sandstone", Blocks.RED_SANDSTONE, 1);
+        addWall("smooth_red_sandstone", Blocks.RED_SANDSTONE, 2);
+
 //        glowingGrass = new BlockGlowingGrass();
 
-        stoneAnvil = new BlockModAnvil("stone_anvil", Main.OVERWORLD_EXPANSION_TAB);
-        carbonAnvil = new BlockModAnvil("carbon_anvil", Main.OVERWORLD_EXPANSION_TAB);
-        goldenAnvil = new BlockModAnvil("golden_anvil", Main.OVERWORLD_EXPANSION_TAB);
-        marbleAnvil = new BlockModAnvil("marble_anvil", Main.OVERWORLD_EXPANSION_TAB);
-        ironAnvil = new BlockModAnvil("iron_anvil", Main.OVERWORLD_EXPANSION_TAB);
+//        stoneAnvil = new BlockModAnvil("stone_anvil", Main.OVERWORLD_EXPANSION_TAB);
+//        carbonAnvil = new BlockModAnvil("carbon_anvil", Main.OVERWORLD_EXPANSION_TAB);
+//        goldenAnvil = new BlockModAnvil("golden_anvil", Main.OVERWORLD_EXPANSION_TAB);
+//        marbleAnvil = new BlockModAnvil("marble_anvil", Main.OVERWORLD_EXPANSION_TAB);
+//        ironAnvil = new BlockModAnvil("iron_anvil", Main.OVERWORLD_EXPANSION_TAB);
 //
 //        stoneCauldron = new BlockModCauldron("stone_cauldron", Main.OVERWORLD_EXPANSION_TAB);
 //        carbonCauldron = new BlockModCauldron("carbon_cauldron", Main.OVERWORLD_EXPANSION_TAB);

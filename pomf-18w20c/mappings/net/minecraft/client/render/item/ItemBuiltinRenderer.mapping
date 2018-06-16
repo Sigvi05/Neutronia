@@ -1,0 +1,5 @@
+CLASS cvc net/minecraft/client/render/item/ItemBuiltinRenderer
+	FIELD a INSTANCE Lcvc;
+	FIELD f renderChestEnder Lbms;
+	FIELD g renderBanner Lbmd;
+	FIELD i renderSkull Lbnd;
