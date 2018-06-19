@@ -45,7 +45,7 @@ public class JsonGenerator {
 
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
 //            genBlock(modid, aquamarineVariants.getName(), aquamarineVariants.getName());
-            genSlabBlock(modid, aquamarineVariants.getName() + "_slab", aquamarineVariants.getName(), aquamarineVariants.getName());
+//            genSlabBlock(modid, aquamarineVariants.getName() + "_slab", aquamarineVariants.getName(), aquamarineVariants.getName());
         }
 
         /*for(EnumCoralTypes coralTypes : EnumCoralTypes.values()) {
@@ -114,7 +114,7 @@ public class JsonGenerator {
 //            genLangFile(modid, newStoneVariants.getName() + "_stairs", newStoneVariants.getName() + "_stairs", "stones");
 //            genBlock(modid, newStoneVariants.getName(), newStoneVariants.getName());
 //            genStair(modid, newStoneVariants.getName() + "_stair", newStoneVariants.getName(), newStoneVariants.getName(), newStoneVariants.getName());
-            genSlabBlock(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
+//            genSlabBlock(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
         }
 
 //        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a test file", "This is the credits things", " ", " ");
@@ -123,7 +123,7 @@ public class JsonGenerator {
 //            genOrientedBlock(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar_top", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()));
 //            genOrientedBlock(modid, String.format("%s_terracotta_pillar", color.getName()), String.format("%s_terracotta_pillar_top", color.getName()), String.format("%s_terracotta_pillar", color.getName()), String.format("%s_terracotta_pillar", color.getName()));
 
-            genSlabBlock(modid, String.format("frosted_%s_terracotta_slab", color.getName()), String.format("frosted_%s_terracotta", color.getName()), String.format("frosted_%s_terracotta", color.getName()));
+//            genSlabBlock(modid, String.format("frosted_%s_terracotta_slab", color.getName()), String.format("frosted_%s_terracotta", color.getName()), String.format("frosted_%s_terracotta", color.getName()));
 //            genSlabBlock(modid, String.format("%s_glazed_terracotta_slab", color.getName()), String.format("%s_glazed_terracotta", color.getName()), String.format("%s_glazed_terracotta", color.getName()));
 //            genSlabBlock(modid, String.format("%s_terracotta_slab", color.getName()), String.format("hardened_clay_stained_%s", color.getName()), String.format("hardened_clay_stained_%s", color.getName()));
 //            genLangFile(modid, String.format("frosted_%s_terracotta", color.getName()), String.format("frosted_%s_terracotta", color.getName()), "frozen_colored_blocks");
@@ -140,6 +140,10 @@ public class JsonGenerator {
 
         for(BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
 //            genOrientedBlock(modid, String.format("stripped_%s_log", enumType.getName()), String.format("stripped_%s_log_top", enumType.getName()), String.format("stripped_%s_log", enumType.getName()), String.format("stripped_%s_log", enumType.getName()));
+//            genBlock(modid, String.format("stripped_%s_bark", enumType.getName()), String.format("stripped_%s_log", enumType.getName()));
+//            genBlock("minecraft", String.format("%s_bark", enumType.getName()), String.format("log_%s", enumType.getName()));
+//            genBlock(modid, String.format("%s_bark_chiseled", enumType.getName()), String.format("%s_bark_top", enumType.getName()));
+            genItemModel(modid, String.format("%s_bark_item", enumType.getName()), String.format("%s_bark", enumType.getName()));
         }
 
     }

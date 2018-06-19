@@ -1,25 +1,32 @@
 package net.hdt.neutronia.entity;
 
+import net.hdt.neutronia.init.NBiomes;
 import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.pathfinding.PathNavigateGround;
+import net.minecraft.pathfinding.PathNavigateSwimmer;
+import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
@@ -28,32 +35,28 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Calendar;
 
-public class EntityDrowned extends EntityUndeadBase {
+public class EntityDrowned extends EntityMob {
 
-    private float mummyWidth = 0.6F;
-    private float mummyHeight = 1.95F;
+    public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityAnchored.class, DataSerializers.BOOLEAN);
+    protected final PathNavigateSwimmer field_204716_a;
+    protected final PathNavigateGround field_204717_b;
 
     public EntityDrowned(World worldIn) {
         super(worldIn);
-        this.setSize(mummyWidth, mummyHeight);
-    }
-
-    public static void registerFixesDrowned(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityDrowned.class);
+        this.setSize(0.6F, 1.95F);
+        this.setPathPriority(PathNodeType.WATER, 0.0F);
+        this.field_204716_a = new PathNavigateSwimmer(this, worldIn);
+        this.field_204717_b = new PathNavigateGround(this, worldIn);
     }
 
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 7.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
         this.applyEntityAI();
     }
 
     protected void applyEntityAI() {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true));
     }
 
     @Override
@@ -67,26 +70,25 @@ public class EntityDrowned extends EntityUndeadBase {
     @Override
     protected void entityInit() {
         super.entityInit();
+        this.getDataManager().register(ARMS_RAISED, Boolean.FALSE);
     }
 
-    @Override
-    protected int getExperiencePoints(EntityPlayer player) {
-        return super.getExperiencePoints(player);
+    public boolean canBreatheUnderwater()
+    {
+        return true;
     }
 
-    @Override
-    public void notifyDataManagerChange(DataParameter<?> key) {
-        super.notifyDataManagerChange(key);
+    /**
+     * Checks that the entity is not colliding with any blocks / liquids
+     */
+    public boolean isNotColliding()
+    {
+        return this.world.checkNoEntityCollision(this.getEntityBoundingBox(), this);
     }
 
-    @Override
-    public void onLivingUpdate() {
-        super.onLivingUpdate();
-    }
-
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        return super.attackEntityFrom(source, amount);
+    public boolean isPushedByWater()
+    {
+        return false;
     }
 
     @Override
@@ -107,17 +109,17 @@ public class EntityDrowned extends EntityUndeadBase {
      */
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_BAT_AMBIENT;
+        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.BLOCK_ANVIL_USE;
+        return SoundEvents.ENTITY_ZOMBIE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_DONKEY_DEATH;
+        return SoundEvents.ENTITY_ZOMBIE_DEATH;
     }
 
     // TODO ^
@@ -157,16 +159,6 @@ public class EntityDrowned extends EntityUndeadBase {
     }
 
     @Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-    }
-
-    @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-    }
-
-    @Override
     public float getEyeHeight() {
         return 1.74F;
     }
@@ -178,7 +170,7 @@ public class EntityDrowned extends EntityUndeadBase {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.getBiome(new BlockPos(this)) == Biomes.DESERT || world.getBiome(new BlockPos(this)) == Biomes.DESERT_HILLS;
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.getBiome(new BlockPos(this)) == Biomes.OCEAN || world.getBiome(new BlockPos(this)) == Biomes.DEEP_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.COLD_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.LUKEWARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.WARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.DEEP_COLD_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.DEEP_LUKEWARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.DEEP_WARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.SUPER_DEEP_COLD_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.SUPER_DEEP_LUKEWARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.SUPER_DEEP_WARM_OCEAN;
     }
 
     @Nullable
@@ -205,10 +197,10 @@ public class EntityDrowned extends EntityUndeadBase {
             double d0 = this.rand.nextDouble() * 1.5D * (double) f;
 
             if (d0 > 1.0D)
-                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random drowned-spawn bonus", d0, 2));
+                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random Drowned-Spawn Bonus", d0, 2));
 
             if (this.rand.nextFloat() < f * 0.0F && this.world.getDifficulty() == EnumDifficulty.HARD) {
-                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader drowned bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
+                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader Drowned Bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
             }
         }
         return livingdata;

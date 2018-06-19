@@ -17,15 +17,15 @@ public class NBiomes {
     public static final Biome RED_DESERT = new BiomeRedDesert();
     public static final Biome BLACK_DESERT = new BiomeBlackDesert();
 
-    public static final Biome COLD_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Cold Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.1F).setBaseBiome("ocean"));
-    public static final Biome LUKEWARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Lukewarm Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.1F).setBaseBiome("ocean"));
-    public static final Biome WARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Warm Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.1F).setBaseBiome("ocean"));
-    public static final Biome DEEP_COLD_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Deep Cold Ocean")).setBaseHeight(-1.8F).setHeightVariation(0.1F).setBaseBiome("deep_ocean"));
-    public static final Biome DEEP_LUKEWARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Deep Lukewarm Ocean")).setBaseHeight(-1.8F).setHeightVariation(0.1F).setBaseBiome("deep_ocean"));
-    public static final Biome DEEP_WARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Deep Warm Ocean")).setBaseHeight(-1.8F).setHeightVariation(0.1F).setBaseBiome("deep_ocean"));
-    public static final Biome SUPER_DEEP_COLD_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Cold Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean"));
-    public static final Biome SUPER_DEEP_LUKEWARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Lukewarm Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean"));
-    public static final Biome SUPER_DEEP_WARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Warm Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean"));
+    public static final Biome COLD_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Cold Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.1F).setBaseBiome("ocean").setWaterColor(0x3d57d6));
+    public static final Biome LUKEWARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Lukewarm Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.1F).setBaseBiome("ocean").setWaterColor(0x45adf2));
+    public static final Biome WARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Warm Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.1F).setBaseBiome("ocean").setWaterColor(0x43d5ee));
+    public static final Biome DEEP_COLD_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Deep Cold Ocean")).setBaseHeight(-1.8F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x3d57d6));
+    public static final Biome DEEP_LUKEWARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Deep Lukewarm Ocean")).setBaseHeight(-1.8F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x45adf2));
+    public static final Biome DEEP_WARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Deep Warm Ocean")).setBaseHeight(-1.8F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x43d5ee));
+    public static final Biome SUPER_DEEP_COLD_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Cold Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x3d57d6));
+    public static final Biome SUPER_DEEP_LUKEWARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Lukewarm Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x45adf2));
+    public static final Biome SUPER_DEEP_WARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Warm Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x3d57d6));
 //    public static final Biome MESA = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa")).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
 //    public static final Biome MESA_ROCK = new BiomeFrozenMesa(false, true, (new Biome.BiomeProperties("Frozen Mesa Plateau F")).setBaseHeight(1.5F).setHeightVariation(0.025F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
 //    public static final Biome MESA_CLEAR_ROCK = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa Plateau")).setBaseHeight(1.5F).setHeightVariation(0.025F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
@@ -35,12 +35,20 @@ public class NBiomes {
 
     public static void registerBiomes() {
         initBiome(BASALT, "basalt", 3, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DEAD);
-        initBiome(RED_DESERT, "red_desert", 20, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY);
-        initBiome(BLACK_DESERT, "black_desert", 10, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY);
+        initBiome(RED_DESERT, "red_desert", 10, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY);
+        initBiome(BLACK_DESERT, "black_desert", 20, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SANDY);
 
-        initBiome(COLD_OCEAN, "cold_ocean", 20, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
-        initBiome(LUKEWARM_OCEAN, "lukewarm_ocean", 4, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
-        initBiome(WARM_OCEAN, "warm_ocean", 6, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+        initBiome(COLD_OCEAN, "cold_ocean", 15, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+        initBiome(LUKEWARM_OCEAN, "lukewarm_ocean", 10, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+        initBiome(WARM_OCEAN, "warm_ocean", 19, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+
+        initBiome(DEEP_COLD_OCEAN, "deep_cold_ocean", 20, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+        initBiome(DEEP_LUKEWARM_OCEAN, "deep_lukewarm_ocean", 4, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+        initBiome(DEEP_WARM_OCEAN, "deep_warm_ocean", 6, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+
+//        initBiome(SUPER_DEEP_COLD_OCEAN, "super_deep_cold_ocean", 20, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+//        initBiome(SUPER_DEEP_LUKEWARM_OCEAN, "super_deep_lukewarm_ocean", 4, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+//        initBiome(SUPER_DEEP_WARM_OCEAN, "super_deep_warm_ocean", 6, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
 
 //        initBiome(MESA, "frozen_mesa", 1, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
 //        initBiome(MESA_ROCK, "frozen_mesa_rock", 1, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);

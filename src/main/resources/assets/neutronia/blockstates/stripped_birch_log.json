@@ -1,7 +1,22 @@
 {
-    "variants": {
-        "axis=y":  { "model": "neutronia:stripped_birch_log" },
-        "axis=z":   { "model": "neutronia:stripped_birch_log", "x": 90 },
-        "axis=x":   { "model": "neutronia:stripped_birch_log", "x": 90, "y": 90 }
-    }
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:stripped_birch_log",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "axis": {
+      "x": {
+        "x": 90, "y": 90
+      },
+      "y": {},
+      "z": {
+        "x": 90
+      }
+    },
+    "inventory": [
+      {}
+    ]
+  }
 }

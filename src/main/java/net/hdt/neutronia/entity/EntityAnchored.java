@@ -1,5 +1,6 @@
 package net.hdt.neutronia.entity;
 
+import net.hdt.neutronia.init.NBiomes;
 import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
@@ -7,7 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -17,7 +17,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -41,13 +40,8 @@ import java.util.Calendar;
 public class EntityAnchored extends EntityMob {
 
     public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityAnchored.class, DataSerializers.BOOLEAN);
-    private final EntityAIBreakDoor breakDoor = new EntityAIBreakDoor(this);
-    private boolean isBreakDoorsTaskSet;
     protected final PathNavigateSwimmer field_204716_a;
     protected final PathNavigateGround field_204717_b;
-
-    private float mummyWidth = -1.0F;
-    private float mummyHeight;
 
     public EntityAnchored(World worldIn) {
         super(worldIn);
@@ -80,7 +74,7 @@ public class EntityAnchored extends EntityMob {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.getDataManager().register(ARMS_RAISED, Boolean.FALSE);
+        this.getDataManager().register(ARMS_RAISED, false);
     }
 
     @SideOnly(Side.CLIENT)
@@ -92,25 +86,22 @@ public class EntityAnchored extends EntityMob {
         this.getDataManager().set(ARMS_RAISED, armsRaised);
     }
 
-    public boolean isBreakDoorsTaskSet() {
-        return this.isBreakDoorsTaskSet;
+    public boolean canBreatheUnderwater()
+    {
+        return true;
     }
 
-    public void setBreakDoorAItask(boolean enabled) {
-        if (this.isBreakDoorsTaskSet != enabled) {
-            this.isBreakDoorsTaskSet = enabled;
-            ((PathNavigateGround) this.getNavigator()).setBreakDoors(enabled);
-
-            if (enabled)
-                this.tasks.addTask(1, this.breakDoor);
-            else
-                this.tasks.removeTask(this.breakDoor);
-        }
+    /**
+     * Checks that the entity is not colliding with any blocks / liquids
+     */
+    public boolean isNotColliding()
+    {
+        return this.world.checkNoEntityCollision(this.getEntityBoundingBox(), this);
     }
 
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        return super.attackEntityFrom(source, amount);
+    public boolean isPushedByWater()
+    {
+        return false;
     }
 
     @Override
@@ -174,18 +165,15 @@ public class EntityAnchored extends EntityMob {
             int i = this.rand.nextInt(3);
 
             if (i == 0)
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.ancientSword));
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.anchor));
             else
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemStack.EMPTY);
         }
     }
 
     @Override
     public float getEyeHeight() {
-        float f = 1.74F;
-        if (this.isChild())
-            f = (float) ((double) f - 0.81D);
-        return f;
+        return 1.74F;
     }
 
     @Override
@@ -195,7 +183,7 @@ public class EntityAnchored extends EntityMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.getBiome(new BlockPos(this)) == Biomes.DESERT || world.getBiome(new BlockPos(this)) == Biomes.DESERT_HILLS;
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && world.getBiome(new BlockPos(this)) == Biomes.OCEAN || world.getBiome(new BlockPos(this)) == Biomes.DEEP_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.COLD_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.LUKEWARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.WARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.DEEP_COLD_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.DEEP_LUKEWARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.DEEP_WARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.SUPER_DEEP_COLD_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.SUPER_DEEP_LUKEWARM_OCEAN || world.getBiome(new BlockPos(this)) == NBiomes.SUPER_DEEP_WARM_OCEAN;
     }
 
     @Nullable
@@ -214,7 +202,6 @@ public class EntityAnchored extends EntityMob {
                     this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
                 }
             }
-            this.setBreakDoorAItask(this.rand.nextFloat() < f * 0.1F);
             this.setEquipmentBasedOnDifficulty(difficulty);
             this.setEnchantmentBasedOnDifficulty(difficulty);
 
@@ -222,32 +209,17 @@ public class EntityAnchored extends EntityMob {
             double d0 = this.rand.nextDouble() * 1.5D * (double) f;
 
             if (d0 > 1.0D)
-                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random mummy-spawn bonus", d0, 2));
+                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random Anchored-Spawn Bonus", d0, 2));
 
             if (this.rand.nextFloat() < f * 0.0F && this.world.getDifficulty() == EnumDifficulty.HARD) {
-                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader mummy bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
-                this.setBreakDoorAItask(true);
+                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader Anchored Bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
             }
         }
         return livingdata;
     }
 
-    @Override
-    protected final void setSize(float width, float height) {
-        boolean flag = this.mummyWidth > 0.0F && this.mummyHeight > 0.0F;
-        this.mummyWidth = width;
-        this.mummyHeight = height;
-
-        if (!flag)
-            this.multiplySize(1.0f);
-    }
-
-    protected final void multiplySize(float size) {
-        super.setSize(this.mummyWidth * size, this.mummyHeight * size);
-    }
-
     public double getYOffset() {
-        return this.isChild() ? 0.0D : -0.45D;
+        return -0.45D;
     }
 
     @Override

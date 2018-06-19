@@ -7,7 +7,6 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -23,13 +22,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
-
 public class ItemDye extends ItemMod {
 
     public ItemDye(EnumDyeColor color) {
-        super(String.format("%s_dye", color.getName()), MOD_ID);
-        this.setCreativeTab(CreativeTabs.MATERIALS);
+        super(String.format("%s_dye", color.getName()), "rds");
+        this.setCreativeTab(RevampedColoringSystemMod.ITEMS);
     }
 
     public static boolean applyBonemeal(ItemStack stack, World worldIn, BlockPos target) {

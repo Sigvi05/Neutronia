@@ -1,7 +1,8 @@
 package net.hdt.neutronia.world.gen;
 
+import net.hdt.neutronia.world.gen.features.TFGenGroveRuins;
+import net.hdt.neutronia.world.gen.features.chagarothlair;
 import net.hdt.neutronia.world.gen.generators.WorldGenStructure;
-import net.hdt.neutronia.world.gen.structure.WorldGenCivilizationRuins;
 import net.hdt.neutronia.world.utils.WorldGenUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
@@ -50,7 +51,11 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public static final WorldGenStructure SPHINX_FRONT = new WorldGenStructure("large_sphinx_front");
     public static final WorldGenStructure SPHINX_BACK = new WorldGenStructure("large_sphinx_ass");
 
-    public static final WorldGenerator ruins = new WorldGenCivilizationRuins();
+    public static final WorldGenStructure TEST = new WorldGenStructure("dungeon_0");
+
+    public static final TFGenGroveRuins ruins = new TFGenGroveRuins();
+
+    public static final chagarothlair idk = new chagarothlair();
 
     public WorldGenCustomStructures() {
         super();
@@ -62,21 +67,25 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             case 1:
                 break;
             case 0:
-                generateStructure(SNOW_SMALL_1, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
-                generateStructure(SNOW_SMALL_2, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
-                generateStructure(SNOW_SMALL_3, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
-                generateStructure(SNOW_SPIKES, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
-                generateStructure(SNOW_TOWER, world, random, chunkX, chunkZ, 1, Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
-//                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 5);
-//                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 8);
-//                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 2);
-//                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, 10);
-//                generateCoral(CORAL_RED, world, random, chunkX, chunkZ, 7);
+                generateStructure(SNOW_SMALL_1, world, random, chunkX, chunkZ, random.nextInt(10), Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_SMALL_2, world, random, chunkX, chunkZ, random.nextInt(10), Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_SMALL_3, world, random, chunkX, chunkZ, random.nextInt(10), Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_SPIKES, world, random, chunkX, chunkZ, random.nextInt(10), Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+                generateStructure(SNOW_TOWER, world, random, chunkX, chunkZ, random.nextInt(10), Blocks.GRASS.getDefaultState().withProperty(BlockGrass.SNOWY, true).getBlock(), Biomes.ICE_PLAINS, Biomes.ICE_MOUNTAINS);
+//                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, random.nextInt(50));
+//                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, random.nextInt(50));
+//                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, random.nextInt(50));
+//                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, random.nextInt(50));
+//                generateCoral(CORAL_RED, world, random, chunkX, chunkZ, random.nextInt(50));
 
-//                generateStructure(SPHINX_FRONT, world, random, chunkX, chunkZ, 10, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
-//                generateStructure(SPHINX_BACK, world, random, chunkX, chunkZ, 10, Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
+//                generateStructure(SPHINX_FRONT, world, random, chunkX, chunkZ, random.nextInt(20), Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
+//                generateStructure(SPHINX_BACK, world, random, chunkX, chunkZ, random.nextInt(20), Blocks.SAND, Biomes.DESERT, Biomes.DESERT_HILLS);
 
-//                generateStructure(ruins, world, random, chunkX, chunkZ, 10, Blocks.GRASS);
+                generateStructure(TEST, world, random, chunkX, chunkZ, 2, Blocks.GRASS, Biomes.PLAINS, Biomes.JUNGLE, Biomes.FOREST, Biomes.HELL, Biomes.MESA_ROCK);
+
+                generateStructure(ruins, world, random, chunkX, chunkZ, random.nextInt(5), Blocks.GRASS, Biomes.DEFAULT);
+
+                generateStructure(idk, world, random, chunkX, chunkZ, 100, Blocks.GRASS, Biomes.PLAINS, Biomes.JUNGLE, Biomes.FOREST, Biomes.HELL, Biomes.MESA_ROCK);
 
                 break;
             case -1:
@@ -89,16 +98,20 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 
         int x = (chunkX * 16) + random.nextInt(15);
         int z = (chunkZ * 16) + random.nextInt(15);
-        int y = WorldGenUtils.calculateGenerationHeight(world, x, z, topBlock);
-        BlockPos pos = new BlockPos(x, y, z);
+        int y = calculateGenerationHeight(world, x, z, topBlock);
+        BlockPos pos = new BlockPos(x,y,z);
 
         Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
 
-        if (world.getWorldType() != WorldType.FLAT) {
-            if (classesList.contains(biome)) {
-                if (random.nextInt(chance) == 0) {
-                    generator.generate(world, random, pos);
-                }
+        if(world.getWorldType() != WorldType.FLAT)
+        {
+            if (!classesList.contains(biome)) {
+                return;
+            }
+            if(random.nextInt(chance) == 0)
+            {
+                generator.generate(world, random, pos);
+                System.out.print("This is a thing" + random.nextInt(chance));
             }
         }
     }
@@ -115,7 +128,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 
         if (world.getWorldType() != WorldType.FLAT) {
             if (classesList.contains(biome)) {
-                if (random.nextInt(chance) == 0) {
+                for (int rnd = 0; rnd < chance; rnd++) {
                     if (y + structureHeight < world.getHeight()) {
                         generator.generate(world, random, pos);
                     }
@@ -134,13 +147,27 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 
         if (world.getWorldType() != WorldType.FLAT) {
             if (biome == Biomes.DEEP_OCEAN || biome == Biomes.OCEAN || biome == Biomes.FROZEN_OCEAN) {
-                if (random.nextInt(chance) == 0) {
+                for (int rnd = 0; rnd < chance; rnd++) {
                     if (y + 19 < world.getSeaLevel()) {
                         generator.generate(world, random, pos);
                     }
                 }
             }
         }
+    }
+
+    private static int calculateGenerationHeight(World world, int x, int z, Block topBlock)
+    {
+        int y = world.getHeight();
+        boolean foundGround = false;
+
+        while(!foundGround && y-- >= 0)
+        {
+            Block block = world.getBlockState(new BlockPos(x,y,z)).getBlock();
+            foundGround = block == topBlock;
+        }
+
+        return y;
     }
 
 }

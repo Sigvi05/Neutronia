@@ -2,7 +2,6 @@ package net.hdt.neutronia.entity;
 
 import net.hdt.neutronia.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,7 +19,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
@@ -48,10 +46,6 @@ public class EntityDrownedVillager extends EntityDrowned {
 
     public EntityDrownedVillager(World worldIn) {
         super(worldIn);
-    }
-
-    public static void registerFixesDrownedVillager(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityDrownedVillager.class);
     }
 
     @Override

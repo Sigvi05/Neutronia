@@ -19,6 +19,12 @@ public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IM
         this.modid = modid;
     }
 
+    public BlockColoredAlt(Material material, String modid, String name, EnumDyeColor color) {
+        super(material, modid, color.getName() + "_" + name);
+        this.color = color;
+        this.modid = modid;
+    }
+
     /*private static TextFormatting getFromColor(EnumDyeColor color) {
         switch (color) {
             case ORANGE:

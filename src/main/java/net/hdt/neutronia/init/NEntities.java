@@ -38,7 +38,10 @@ public class NEntities {
 //                createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
 //                createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
                 createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
-                createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build()
+                createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("pharaoh_golem").entity(EntityPharaoGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("yeti_golem").entity(EntityYetiGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("steampunk_golem").entity(EntitySteampunkGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build()
         };
         event.getRegistry().registerAll(entries);
         RenderHandler.registerEntityRenders();

@@ -1,0 +1,19 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all",
+    "textures": {
+      "all": "neutronia:blocks/oak_bark_top"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

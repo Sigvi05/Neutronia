@@ -21,6 +21,9 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityHoveringInferno.class, RenderHoveringInferno::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityAnchored.class, RenderAnchored::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLostMiner.class, RenderLostMiner::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityYetiGolem.class, RenderYetiGolem::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntitySteampunkGolem.class, RenderSteampunkGolem::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityPharaoGolem.class, RenderPharaoGolem::new);
     }
 
 }

@@ -6,6 +6,7 @@ import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
 import net.hdt.neutronia.items.base.tools.BaseShovel;
 import net.hdt.neutronia.items.base.tools.BaseSword;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -55,6 +56,8 @@ public class NItems {
     public static final Item trident;
     public static final Item anchor;
 
+    public static final Item rawDragonMeat, cookedDragonMeat;
+
     private static Item[] barkItem = new Item[6];
 
     private static final Item doveWings, ravenWings, enderdragonWings, vexWings;
@@ -94,6 +97,9 @@ public class NItems {
         OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSDIDIAN);
         OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSDIDIAN);
 
+        rawDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_raw", Main.ITEM_EXPANSION_TAB, 10, 9.6F, true);
+        cookedDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_cooked", Main.ITEM_EXPANSION_TAB, 20, 20F, true);
+
         freddyClaw = new ItemBase("freddy_claw", Main.ITEM_EXPANSION_TAB);
 
         woodSpear = new ItemSpear("wood_spear", Item.ToolMaterial.WOOD).setCreativeTab(null);
@@ -109,9 +115,10 @@ public class NItems {
         enderdragonWings = new ItemWingBase("ender_dragon_wings");
         vexWings = new ItemWingBase("vex_wings");
 
-        /*for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
-            woodenShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
-        }*/
+        for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
+//            woodenShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
+            barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), Main.ITEM_EXPANSION_TAB);
+        }
 
         armorScarecrowHealmet = new ItemArmorTestBase("scarecrow_head", scarecrow, 1, EntityEquipmentSlot.HEAD);
         ((ItemArmorTestBase) armorScarecrowHealmet).setHasColor(true);
