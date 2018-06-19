@@ -17,9 +17,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class WorldGenCustomStructures implements IWorldGenerator {
 
@@ -94,7 +92,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     }
 
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Biome... classes) {
-        ArrayList<Biome> classesList = new ArrayList<>(Arrays.asList(classes));
+        Set<Biome> biomeSet = new HashSet<>(classes);
 
         int x = (chunkX * 16) + random.nextInt(15);
         int z = (chunkZ * 16) + random.nextInt(15);
@@ -105,7 +103,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
 
         if(world.getWorldType() != WorldType.FLAT)
         {
-            if (!classesList.contains(biome)) {
+            if (!biomeSet.contains(biome)) {
                 return;
             }
             if(random.nextInt(chance) == 0)
