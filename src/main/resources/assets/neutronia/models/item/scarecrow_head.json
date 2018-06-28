@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "neutronia:items/new_items_2/halloween_items/costumes/scarecrow/scarecrow_head_icon",
-        "layer1": "neutronia:items/new_items_2/halloween_items/costumes/scarecrow/scarecrow_head_icon_overlay"
-    }
-}

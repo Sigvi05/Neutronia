@@ -1,0 +1,169 @@
+{
+  "biome": "neutronia:magma_lands",
+  "weight": 6,
+  "enabled": true,
+  "genDefaultFeatures": true,
+  "blocks": {
+    "topBlock": {
+      "block": "neutronia:ash",
+      "properties": {
+        "type": "fiery"
+      }
+    },
+    "fillerBlock": {
+      "block": "minecraft:netherrack"
+    },
+    "wallBlock": {
+      "block": "minecraft:netherrack"
+    },
+    "ceilingBottomBlock": {
+      "block": "minecraft:netherrack"
+    },
+    "ceilingFillerBlock": {
+      "block": "minecraft:netherrack"
+    },
+    "oceanBlock": {
+      "block": "minecraft:lava"
+    }
+  },
+  "features": [
+    {
+      "feature": "neutronia:fluid",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "minecraft:flowing_lava"
+      },
+      "blockToTarget": {
+        "block": "neutronia:ash"
+      },
+      "hidden": false,
+      "genAttempts": 16,
+      "genProbability": 1.0,
+      "minHeight": 4,
+      "maxHeight": 124,
+      "randomizeGenAttempts": false,
+      "generate": true
+    },
+    {
+      "feature": "neutronia:scatter",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "minecraft:fire"
+      },
+      "blockToTarget": {
+        "block": "neutronia:ash"
+      },
+      "placement": "on_ground",
+      "genAttempts": 20,
+      "genProbability": 1.0,
+      "minHeight": 4,
+      "maxHeight": 124,
+      "randomizeGenAttempts": true,
+      "generate": true
+    },
+    {
+      "feature": "neutronia:cluster",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "minecraft:glowstone"
+      },
+      "blockToAttachTo": {
+        "block": "neutronia:ash",
+        "properties": {
+          "type": "fiery"
+        }
+      },
+      "direction": "down",
+      "genAttempts": 10,
+      "genProbability": 1.0,
+      "minHeight": 4,
+      "maxHeight": 124,
+      "randomizeGenAttempts": true,
+      "generate": true
+    },
+    {
+      "feature": "neutronia:cluster",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "minecraft:glowstone"
+      },
+      "blockToAttachTo": {
+        "block": "neutronia:ash"
+      },
+      "direction": "down",
+      "genAttempts": 10,
+      "genProbability": 1.0,
+      "minHeight": 1,
+      "maxHeight": 128,
+      "randomizeGenAttempts": false,
+      "generate": true
+    },
+    {
+      "feature": "neutronia:ore",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "neutronia:raw_basalt"
+      },
+      "blockToReplace": {
+        "block": "neutronia:ash"
+      },
+      "veinSize": 24,
+      "genAttempts": 14,
+      "genProbability": 1.0,
+      "minHeight": 10,
+      "maxHeight": 108,
+      "randomizeGenAttempts": false,
+      "generate": true
+    },
+    {
+      "feature": "neutronia:ore",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "minecraft:magma"
+      },
+      "blockToReplace": {
+        "block": "neutronia:ash"
+      },
+      "veinSize": 32,
+      "genAttempts": 8,
+      "genProbability": 1.0,
+      "minHeight": 28,
+      "maxHeight": 38,
+      "randomizeGenAttempts": false,
+      "generate": true
+    },
+    {
+      "feature": "neutronia:fluid",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "minecraft:flowing_lava"
+      },
+      "blockToTarget": {
+        "block": "neutronia:ash"
+      },
+      "hidden": true,
+      "genAttempts": 16,
+      "genProbability": 1.0,
+      "minHeight": 10,
+      "maxHeight": 118,
+      "randomizeGenAttempts": false,
+      "generate": true
+    },
+    {
+      "feature": "neutronia:pool",
+      "genStage": "populate",
+      "blockToSpawn": {
+        "block": "minecraft:lava"
+      },
+      "blockToSurround": {
+        "block": "neutronia:ash"
+      },
+      "genAttempts": 8,
+      "genProbability": 1.0,
+      "minHeight": 10,
+      "maxHeight": 108,
+      "randomizeGenAttempts": false,
+      "generate": true
+    }
+  ]
+}

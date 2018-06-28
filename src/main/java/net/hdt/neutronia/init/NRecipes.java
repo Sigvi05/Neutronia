@@ -1,15 +1,8 @@
 package net.hdt.neutronia.init;
 
-import de.kitsunealex.silverfish.recipe.RecipeHandler;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-
-import static net.hdt.neutronia.util.Reference.NAME;
-
 public class NRecipes {
 
-    private static RecipeHandler RECIPE_HANDLER = new RecipeHandler();
+    /*private static RecipeHandler RECIPE_HANDLER = new RecipeHandler();
 
     public static void register() {
         RECIPE_HANDLER.setGroup(NAME);
@@ -20,6 +13,6 @@ public class NRecipes {
 
         RECIPE_HANDLER.registerRecipes();
 
-    }
+    }*/
 
 }

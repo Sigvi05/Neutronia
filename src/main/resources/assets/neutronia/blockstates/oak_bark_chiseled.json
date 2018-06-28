@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/oak_bark_top"
+      "all": "neutronia:blocks/oak_chiseled"
     },
     "transform": "forge:default-block"
   },

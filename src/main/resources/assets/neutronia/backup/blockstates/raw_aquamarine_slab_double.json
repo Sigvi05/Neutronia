@@ -1,8 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v2.",
-  "variants": {
-    "prop=blarg": {
-      "model": "neutronia:raw_aquamarine"
-    }
-  }
-}

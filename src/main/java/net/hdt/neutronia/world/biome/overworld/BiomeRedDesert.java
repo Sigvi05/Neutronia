@@ -1,5 +1,6 @@
 package net.hdt.neutronia.world.biome.overworld;
 
+import net.hdt.neutronia.world.biome.overworld.decorator.BiomeDesertDecorator;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -10,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 
@@ -34,6 +36,11 @@ public class BiomeRedDesert extends Biome {
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombie.class, 19, 4, 4));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombieVillager.class, 1, 1, 1));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityHusk.class, 80, 4, 4));
+    }
+
+    @Override
+    public BiomeDecorator createBiomeDecorator() {
+        return new BiomeDesertDecorator(topBlock.getBlock(), fillerBlock.getBlock());
     }
 
     public void decorate(World worldIn, Random rand, BlockPos pos) {

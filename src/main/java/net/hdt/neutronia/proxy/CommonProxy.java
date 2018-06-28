@@ -2,7 +2,8 @@ package net.hdt.neutronia.proxy;
 
 import net.hdt.neutronia.blocks.overworld.BlockKelp;
 import net.hdt.neutronia.init.NBiomes;
-import net.hdt.neutronia.init.NRecipes;
+import net.hdt.neutronia.init.NDimension;
+import net.hdt.neutronia.init.moon.NMoonBiomes;
 import net.hdt.neutronia.module.ModModules;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.tileentity.TileCustomChest;
@@ -20,13 +21,17 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
         ModModules.registerModules();
+
+        NBiomes.registerBiomes();
+        NMoonBiomes.registerBiomes();
+        NDimension.registerDimensions();
+
         ModuleHandler.INSTANCE.handlePreInit(event);
         ModuleHandler.INSTANCE.handlePostPreInit(event);
     }
 
     public void init(FMLInitializationEvent event) {
-        NBiomes.registerBiomes();
-        NRecipes.register();
+//        NRecipes.register();
         GameRegistry.registerWorldGenerator(new OreGen(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
         GameRegistry.registerWorldGenerator(new BasaltGenerator(33, 80, 10, 1), 0);

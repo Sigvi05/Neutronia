@@ -36,6 +36,11 @@ public class BlockColoredWaterBlockBase extends BlockMod {
         return getColorFromBlock(Block.getBlockFromItem(itemIn));
     }
 
+    /*@Override
+    protected ItemBlock createItemBlock(ResourceLocation res) {
+        return new ItemBlockCoralColoredName(this, getRegistryName(), color);
+    }*/
+
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         for (int oreId : OreDictionary.getOreIDs(stack)) {

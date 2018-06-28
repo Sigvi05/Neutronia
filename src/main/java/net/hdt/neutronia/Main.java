@@ -1,11 +1,14 @@
 package net.hdt.neutronia;
 
 import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.neutronia.api.IModData;
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
+import net.hdt.neutronia.events.ILifeCycleHandler;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.util.handlers.WorldHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -17,6 +20,7 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
@@ -24,18 +28,19 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import static net.hdt.neutronia.util.Reference.*;
 
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, useMetadata = true)
-public class Main {
+public class Main implements IModData {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
     public static CreativeTab OVERWORLD_EXPANSION_TAB = new CreativeTab("Overworld Expansion");
     public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Nether Expansion");
-    public static CreativeTabs END_EXPANSION_TAB = new CreativeTabs("End Expansion") {
+    public static CreativeTabs END_EXPANSION_TAB = new CreativeTabs("end_expansion") {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Item.getItemFromBlock(Blocks.END_BRICKS));
@@ -54,6 +59,11 @@ public class Main {
     public static SimpleNetworkWrapper network;
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
+
+    private static List<ILifeCycleHandler> handlers = new ArrayList<ILifeCycleHandler>(){{
+        add(new WorldHandler());
+    }};
+    public static final File CONFIG_DIRECTORY = Loader.instance().getConfigDir();
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
@@ -93,17 +103,42 @@ public class Main {
                 }
             }
         }
+//        NetherBiomeManager.preInit();
+        handlers.forEach(handler -> handler.preInit(event));
         proxy.preInit(event);
     }
 
     @Mod.EventHandler
     public static void init(FMLInitializationEvent event) {
+//        NNetherBiomes.init();
+        handlers.forEach(handler -> handler.init(event));
         proxy.init(event);
     }
 
     @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent event) {
+//        NNetherBiomes.postInit();
+        handlers.forEach(handler -> handler.postInit(event));
         proxy.postInit(event);
+    }
+
+    /*@Mod.EventHandler
+    public void onFMLServerStarting(FMLServerStartingEvent event)
+    {
+        NetherBiomeManager.setupDefaultBiomes();
+        NetherBiomeManager.setupCompatibleBiomes(event.getServer());
+        NetherBiomeManager.setupCustomBiomes();
+    }
+
+    @Mod.EventHandler
+    public void onFMLServerStopping(FMLServerStoppingEvent event)
+    {
+        NetherBiomeManager.clearBiomes();
+    }*/
+
+    @Mod.EventHandler
+    public void loadComplete(FMLLoadCompleteEvent event){
+        handlers.forEach(handler -> handler.loadComplete(event));
     }
 
     @Mod.EventHandler
@@ -112,9 +147,14 @@ public class Main {
         event.registerServerCommand(new TPDimensionCommand());
     }
 
-    @Mod.EventHandler
-    public void onFMLServerStopping(FMLServerStoppingEvent event) {
+    @Override
+    public String getModId() {
+        return MOD_ID;
+    }
 
+    @Override
+    public CreativeTabs getCreativeTab() {
+        return Main.NETHER_EXPANSION_TAB;
     }
 
 }

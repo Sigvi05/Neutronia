@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:phantom_membrane",
+          "name": "neutronia:phantom_membrane",
           "weight": 1,
           "functions": [
             {

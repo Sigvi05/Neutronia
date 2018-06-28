@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v2.",
-  "parent": "block/orientable",
-  "textures": {
-    "top": "hmca:blocks/burnt_bone_block_top",
-    "front": "hmca:blocks/burnt_bone_block_side",
-    "side": "hmca:blocks/burnt_bone_block_side"
-  }
-}

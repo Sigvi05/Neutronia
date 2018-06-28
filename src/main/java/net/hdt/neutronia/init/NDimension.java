@@ -1,18 +1,21 @@
 package net.hdt.neutronia.init;
 
+import net.hdt.neutronia.world.dimensions.test.TestWorldProvider;
+import net.hdt.neutronia.world.dimensions.test_dimension.WorldProviderTest;
 import net.minecraft.world.DimensionType;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.WorldProviderSurface;
+import net.minecraftforge.common.DimensionManager;
 
 public class NDimension {
 
-    public static void registerDimensions() {
-        createDimension("test", "_test", 2, WorldProviderSurface.class, false);
-    }
+    public static final DimensionType TEST = DimensionType.register("Test", "_test", 2, WorldProviderTest.class, false);
+    public static final DimensionType MOON = DimensionType.register("Moon", "_moon", 3, TestWorldProvider.class, false);
+    public static final DimensionType TEST3 = DimensionType.register("Test 3", "_test3", 4, WorldProviderTest.class, false);
 
-    public static void createDimension(String name, String suffix, int ID, Class<? extends WorldProvider> provider, boolean keepLoaded) {
-        DimensionType type = DimensionType.register(name, suffix, ID, provider, keepLoaded);
-        type.createDimension();
+    public static void registerDimensions()
+    {
+        DimensionManager.registerDimension(2, TEST);
+        DimensionManager.registerDimension(3, MOON);
+        DimensionManager.registerDimension(4, TEST3);
     }
 
 }

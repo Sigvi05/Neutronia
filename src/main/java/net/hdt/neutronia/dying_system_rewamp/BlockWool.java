@@ -6,7 +6,7 @@ import net.minecraft.block.material.Material;
 public class BlockWool extends BlockMod {
 
     public BlockWool(EnumDyeColor color) {
-        super(Material.CLOTH, "rds", String.format(color.getName(), "_wool"));
+        super(Material.CLOTH, "rds", String.format("%s_wool", color.getName()));
         setCreativeTab(RevampedColoringSystemMod.BLOCKS);
     }
 

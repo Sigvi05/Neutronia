@@ -1,19 +1,17 @@
 package net.hdt.neutronia.world.biome.overworld;
 
 import net.hdt.neutronia.init.NBlocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.hdt.neutronia.world.biome.overworld.decorator.BiomeDesertDecorator;
 import net.minecraft.world.biome.Biome;
-
-import java.util.Random;
+import net.minecraft.world.biome.BiomeDecorator;
 
 public class BiomeBasaltOverworld extends Biome {
 
     public BiomeBasaltOverworld() {
         super(new BiomeProperties("Basalt").setBaseHeight(1.0F).setHeightVariation(0.3F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
 
-        topBlock = NBlocks.newStoneVariants[6].getDefaultState();
-        fillerBlock = NBlocks.newStoneVariants[6].getDefaultState();
+        topBlock = NBlocks.newStoneVariants[3].getDefaultState();
+        fillerBlock = NBlocks.newStoneVariants[7].getDefaultState();
 
         this.spawnableCaveCreatureList.clear();
         this.spawnableCreatureList.clear();
@@ -21,8 +19,9 @@ public class BiomeBasaltOverworld extends Biome {
         this.spawnableWaterCreatureList.clear();
     }
 
-    public void decorate(World worldIn, Random rand, BlockPos pos) {
-
+    @Override
+    public BiomeDecorator createBiomeDecorator() {
+        return new BiomeDesertDecorator(topBlock.getBlock(), fillerBlock.getBlock());
     }
 
 }

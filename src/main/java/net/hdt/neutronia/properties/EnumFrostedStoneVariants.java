@@ -4,12 +4,12 @@ import net.minecraft.util.IStringSerializable;
 
 public enum EnumFrostedStoneVariants implements IStringSerializable {
 
-    STONE(0, "frosted_stone"),
-    COBBLESTONE(1, "frosted_cobblestone"),
-    GRANITE(2, "frosted_granite"),
-    DIORITE(3, "frosted_diorite"),
-    ANDESITE(4, "frosted_andesite"),
-    HARDENED_CLAY(5, "hardened_frosted_clay");
+    STONE(0, "frozen_stone"),
+    COBBLESTONE(1, "frozen_cobblestone"),
+    GRANITE(2, "frozen_granite"),
+    DIORITE(3, "frozen_diorite"),
+    ANDESITE(4, "frozen_andesite"),
+    HARDENED_CLAY(5, "hardened_frozen_clay");
 
     private static final EnumFrostedStoneVariants[] META_LOOKUP = new EnumFrostedStoneVariants[values().length];
 
@@ -46,4 +46,5 @@ public enum EnumFrostedStoneVariants implements IStringSerializable {
     public String getName() {
         return this.name;
     }
+
 }

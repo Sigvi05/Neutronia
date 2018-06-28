@@ -72,15 +72,9 @@ public class BlockOverworldStairBase extends BlockModStairs {
     {
         BlockPos offSetPos = pos.offset(face);
         IBlockState offSetState = world.getBlockState(offSetPos);
-
         Material offSetMaterial = offSetState.getMaterial();
+        return !offSetMaterial.isOpaque();
 
-        if (!offSetMaterial.isOpaque())
-        {
-            return true;
-        }
-
-        return false;
     }
 
 }

@@ -1,7 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v3.",
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "minecraft:blocks/log_dark_oak"
-  }
-}

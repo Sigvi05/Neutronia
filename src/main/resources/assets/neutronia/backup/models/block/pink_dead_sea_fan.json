@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "block/orientable",
-  "textures": {
-    "top": "neutronia:blocks/pink_dead_sea_fan",
-    "front": "neutronia:blocks/pink_dead_sea_fan",
-    "side": "neutronia:blocks/pink_dead_sea_fan"
-  }
-}

@@ -4,16 +4,18 @@ import net.minecraft.util.IStringSerializable;
 
 public enum EnumFrostedDirtVariants implements IStringSerializable {
 
-    DIRT(0, "frosted_dirt"),
-    COARSE_DIRT(1, "frosted_coarse_dirt"),
+    DIRT(0, "frozen_dirt"),
+    COARSE_DIRT(1, "frozen_coarse_dirt"),
     DARK_DIRT(2, "dark_dirt"),
-    DARK_DIRT_FROSTED(3, "dark_frosted_dirt"),
+    DARK_DIRT_FROSTED(3, "dark_frozen_dirt"),
     DARK_COARSE_DIRT(4, "dark_coarse_dirt"),
-    DARK_COARSE_DIRT_FROSTED(5, "dark_frosted_coarse_dirt"),
-    GRAVEL(6, "frosted_gravel"),
-    GRASS(7, "frosted_grass"),
-    SAND(8, "frosted_sand"),
-    RED_SAND(9, "red_frosted_sand");
+    DARK_COARSE_DIRT_FROSTED(5, "dark_frozen_coarse_dirt"),
+    GRAVEL(6, "frozen_gravel"),
+    GRASS(7, "frozen_grass"),
+    PODZOL(8, "frozen_podzol"),
+    MYCELIUM(9, "frozen_mycelium"),
+    SAND(10, "frozen_sand"),
+    RED_SAND(11, "red_frozen_sand");
 
     private static final EnumFrostedDirtVariants[] META_LOOKUP = new EnumFrostedDirtVariants[values().length];
 

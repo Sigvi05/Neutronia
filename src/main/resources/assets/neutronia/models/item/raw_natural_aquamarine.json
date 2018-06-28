@@ -1,5 +1,5 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v2.",
+  "_comment": "Generated using Husky's JSON Generator v3.",
   "parent": "block/cube_all",
   "textures": {
     "all": "neutronia:blocks/raw_natural_aquamarine"

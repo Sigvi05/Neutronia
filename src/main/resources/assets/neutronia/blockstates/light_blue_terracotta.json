@@ -1,0 +1,14 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "forge_marker": 1,
+  "variants": {
+    "half": {
+      "top": {
+        "model": "neutronia:upper_light_blue_terracotta"
+      },
+      "bottom": {
+        "model": "neutronia:half_light_blue_terracotta"
+      }
+    }
+  }
+}
