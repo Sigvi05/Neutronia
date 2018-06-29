@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "minecraft:blocks/log_dark_oak"
+      "all": "minecraft:blocks/log_big_oak"
     },
     "transform": "forge:default-block"
   },

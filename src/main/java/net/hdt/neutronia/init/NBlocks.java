@@ -30,8 +30,8 @@ public class NBlocks {
     // Misc blocks
 //    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
-    public static final Block whiteBricks, redBricks, greenBricks;
-    public static final Block redClayBlock, greenClayBlock;
+//    public static final Block whiteBricks, redBricks, greenBricks;
+//    public static final Block redClayBlock, greenClayBlock;
 
     // Sea Blocks
     public static Block[] brain_coral = new Block[5];
@@ -51,7 +51,7 @@ public class NBlocks {
     public static Block kelp, driedKelpBlock;
 
     //Stone Blocks
-    public static Block[] newStoneVariants = new Block[26];
+    public static Block[] newStoneVariants = new Block[23];
 
     //Wood Blocks
     public static Block[] strippedLogs = new Block[6];
@@ -115,8 +115,8 @@ public class NBlocks {
         for (EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
             naturalAquamarine[naturalAquamarineVariants.getID()] = new BlockOverworldBase(Material.ROCK, naturalAquamarineVariants.getName());
         }
-        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block");
-        kelp = new BlockKelp();
+//        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block");
+//        kelp = new BlockKelp();
 
         // Nether Blocks
         for (EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
@@ -160,14 +160,14 @@ public class NBlocks {
         }
 
         // Frosted versions of vanilla stones & dirt
-        for (EnumFrostedStoneVariants frostedStoneVariants : EnumFrostedStoneVariants.values()) {
+        /*for (EnumFrostedStoneVariants frostedStoneVariants : EnumFrostedStoneVariants.values()) {
             frostedStones[frostedStoneVariants.getMetadata()] = new BlockOverworldBase(Material.ROCK, frostedStoneVariants.getName());
             add(frostedStoneVariants.getName(), frostedStones[frostedStoneVariants.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
         }
         for (EnumFrostedDirtVariants frostedDirtVariants : EnumFrostedDirtVariants.values()) {
             frostedDirts[frostedDirtVariants.getMetadata()] = new BlockOverworldBase(Material.ROCK, frostedDirtVariants.getName());
             add(frostedDirtVariants.getName(), frostedDirts[frostedDirtVariants.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
-        }
+        }*/
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             frostedClay[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("frozen_%s_terracotta", dyeColor.getName()));
             add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
@@ -175,7 +175,7 @@ public class NBlocks {
             terracottaPots[dyeColor.getMetadata()] = new BlockColoredFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
 //            glazedTerracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_glazed_terracotta_pillar", dyeColor.getName()), Material.ROCK);
 //            terracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_terracotta_pillar", dyeColor.getName()), Material.ROCK);
-            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, false, Main.OVERWORLD_EXPANSION_TAB);
+//            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, false, Main.OVERWORLD_EXPANSION_TAB);
 //            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName())), dyeColor.getMetadata(), true, false);
             coloredSand[dyeColor.getMetadata()] = new BlockColoredSand(dyeColor);
             coloredSandstone[dyeColor.getMetadata()] = new BlockColoredAlt(Material.SAND, MOD_ID, "sandstone", dyeColor);
@@ -188,11 +188,11 @@ public class NBlocks {
         }
 
         //Misc
-        whiteBricks = new BlockOverworldBase(Material.ROCK, "white_bricks");
-        redBricks = new BlockOverworldBase(Material.ROCK, "red_bricks");
-        greenBricks = new BlockOverworldBase(Material.ROCK, "green_bricks");
-        redClayBlock = new BlockOverworldBase(Material.CLAY, "red_clay_block");
-        greenClayBlock = new BlockOverworldBase(Material.CLAY, "green_clay_block");
+//        whiteBricks = new BlockOverworldBase(Material.ROCK, "white_bricks");
+//        redBricks = new BlockOverworldBase(Material.ROCK, "red_bricks");
+//        greenBricks = new BlockOverworldBase(Material.ROCK, "green_bricks");
+//        redClayBlock = new BlockOverworldBase(Material.CLAY, "red_clay_block");
+//        greenClayBlock = new BlockOverworldBase(Material.CLAY, "green_clay_block");
 
         add("stone", Blocks.STONE, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
         add("stone_granite", Blocks.STONE, 1, true, true, Main.OVERWORLD_EXPANSION_TAB);

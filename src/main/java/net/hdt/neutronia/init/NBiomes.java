@@ -2,7 +2,6 @@ package net.hdt.neutronia.init;
 
 import net.hdt.neutronia.world.biome.overworld.BiomeBasaltOverworld;
 import net.hdt.neutronia.world.biome.overworld.BiomeBlackDesert;
-import net.hdt.neutronia.world.biome.overworld.BiomeFrozenMesa;
 import net.hdt.neutronia.world.biome.overworld.BiomeRedDesert;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeOcean;
@@ -27,12 +26,12 @@ public class NBiomes {
     public static final Biome SUPER_DEEP_COLD_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Cold Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x3d57d6));
     public static final Biome SUPER_DEEP_LUKEWARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Lukewarm Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x45adf2));
     public static final Biome SUPER_DEEP_WARM_OCEAN = new BiomeOcean((new Biome.BiomeProperties("Super Deep Warm Ocean")).setBaseHeight(-2.7F).setHeightVariation(0.1F).setBaseBiome("deep_ocean").setWaterColor(0x3d57d6));
-    public static final Biome MESA = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa")).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
-    public static final Biome MESA_ROCK = new BiomeFrozenMesa(false, true, (new Biome.BiomeProperties("Frozen Mesa Plateau F")).setBaseHeight(1.5F).setHeightVariation(0.025F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
-    public static final Biome MESA_CLEAR_ROCK = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa Plateau")).setBaseHeight(1.5F).setHeightVariation(0.025F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
-    public static final Biome MUTATED_MESA = new BiomeFrozenMesa(false, true, (new Biome.BiomeProperties("Frozen Mesa (Bryce)")).setBaseBiome("frozen_mesa").setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
-    public static final Biome MUTATED_MESA_ROCK = new BiomeFrozenMesa(false, true, (new Biome.BiomeProperties("Frozen Mesa Plateau F M")).setBaseBiome("frozen_mesa_rock").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
-    public static final Biome MUTATED_MESA_CLEAR_ROCK = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa Plateau F M")).setBaseBiome("frozen_mesa_clear_rock").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
+//    public static final Biome MESA = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa")).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
+//    public static final Biome MESA_ROCK = new BiomeFrozenMesa(false, true, (new Biome.BiomeProperties("Frozen Mesa Plateau F")).setBaseHeight(1.5F).setHeightVariation(0.025F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
+//    public static final Biome MESA_CLEAR_ROCK = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa Plateau")).setBaseHeight(1.5F).setHeightVariation(0.025F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
+//    public static final Biome MUTATED_MESA = new BiomeFrozenMesa(false, true, (new Biome.BiomeProperties("Frozen Mesa (Bryce)")).setBaseBiome("frozen_mesa").setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
+//    public static final Biome MUTATED_MESA_ROCK = new BiomeFrozenMesa(false, true, (new Biome.BiomeProperties("Frozen Mesa Plateau F M")).setBaseBiome("frozen_mesa_rock").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
+//    public static final Biome MUTATED_MESA_CLEAR_ROCK = new BiomeFrozenMesa(false, false, (new Biome.BiomeProperties("Frozen Mesa Plateau F M")).setBaseBiome("frozen_mesa_clear_rock").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(0.0F).setRainfall(0.0F).setRainDisabled());
 
     public static void registerBiomes() {
         addBiome(BASALT, "basalt", 3, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DEAD);
@@ -51,12 +50,12 @@ public class NBiomes {
 //        addOceanBiome(SUPER_DEEP_LUKEWARM_OCEAN, "super_deep_lukewarm_ocean", 4, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
 //        addOceanBiome(SUPER_DEEP_WARM_OCEAN, "super_deep_warm_ocean", 6, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
 
-        addBiome(MESA, "frozen_mesa", 10, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
-        addBiome(MESA_ROCK, "frozen_mesa_rock", 10, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
-        addBiome(MESA_CLEAR_ROCK, "frozen_mesa_clear_rock", 10, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
-        addBiome(MUTATED_MESA, "frozen_mutated_mesa", 2, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
-        addBiome(MUTATED_MESA_ROCK, "frozen_mutated_mesa_rock", 5, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
-        addBiome(MUTATED_MESA_CLEAR_ROCK, "frozen_mutated_mesa_clear_rock", 3, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
+//        addBiome(MESA, "frozen_mesa", 10, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
+//        addBiome(MESA_ROCK, "frozen_mesa_rock", 10, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
+//        addBiome(MESA_CLEAR_ROCK, "frozen_mesa_clear_rock", 10, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
+//        addBiome(MUTATED_MESA, "frozen_mutated_mesa", 2, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
+//        addBiome(MUTATED_MESA_ROCK, "frozen_mutated_mesa_rock", 5, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
+//        addBiome(MUTATED_MESA_CLEAR_ROCK, "frozen_mutated_mesa_clear_rock", 3, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.SANDY);
     }
 
     private static void addBiome(Biome biome, String name, int weight, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {

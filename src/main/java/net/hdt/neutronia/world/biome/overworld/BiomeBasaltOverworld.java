@@ -10,8 +10,8 @@ public class BiomeBasaltOverworld extends Biome {
     public BiomeBasaltOverworld() {
         super(new BiomeProperties("Basalt").setBaseHeight(1.0F).setHeightVariation(0.3F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
 
-        topBlock = NBlocks.newStoneVariants[3].getDefaultState();
-        fillerBlock = NBlocks.newStoneVariants[7].getDefaultState();
+        topBlock = NBlocks.newStoneVariants[2].getDefaultState();
+        fillerBlock = NBlocks.newStoneVariants[6].getDefaultState();
 
         this.spawnableCaveCreatureList.clear();
         this.spawnableCreatureList.clear();

@@ -1,13 +1,22 @@
 package net.hdt.neutronia.proxy;
 
+import net.hdt.neutronia.blocks.base.BlockColoredAlt;
+import net.hdt.neutronia.blocks.overworld.BlockColoredCandles;
+import net.hdt.neutronia.blocks.overworld.BlockColoredLanterns;
+import net.hdt.neutronia.blocks.overworld.BlockColoredRedstoneLamp;
 import net.hdt.neutronia.client.rendering.ResourceProxy;
+import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.util.LibObfuscation;
 import net.hdt.neutronia.util.handlers.EntityEventHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -45,6 +54,30 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
+
+        ItemColors items = Minecraft.getMinecraft().getItemColors();
+        BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
+
+        IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredCandles[BlockColoredCandles.color.getMetadata()]);
+        blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLitCandles[BlockColoredCandles.color.getMetadata()]);
+        blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLanterns[BlockColoredLanterns.color.getMetadata()]);
+        blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLitLanterns[BlockColoredLanterns.color.getMetadata()]);
+        blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredRedstoneLamp[BlockColoredRedstoneLamp.color.getMetadata()]);
+        blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLitRedstoneLamp[BlockColoredRedstoneLamp.color.getMetadata()]);
+        items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex),
+                NBlocks.coloredCandles[BlockColoredCandles.color.getMetadata()]);
+        items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex),
+                NBlocks.coloredLitCandles[BlockColoredCandles.color.getMetadata()]);
+        items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex),
+                NBlocks.coloredLanterns[BlockColoredLanterns.color.getMetadata()]);
+        items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex),
+                NBlocks.coloredLitLanterns[BlockColoredLanterns.color.getMetadata()]);
+        items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex),
+                NBlocks.coloredRedstoneLamp[BlockColoredRedstoneLamp.color.getMetadata()]);
+        items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex),
+                NBlocks.coloredLitRedstoneLamp[BlockColoredRedstoneLamp.color.getMetadata()]);
+
         MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 
         overrideBlock("stone_granite", true);

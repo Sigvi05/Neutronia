@@ -2,6 +2,8 @@ package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
+import net.hdt.neutronia.colored_lighting.ColoredLights;
+import net.hdt.neutronia.colored_lighting.IColoredLightSource;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
@@ -11,36 +13,37 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockColoredRedstoneLamp extends BlockColoredAlt {
+public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColoredLightSource {
 
-    public final EnumDyeColor color;
+    public static EnumDyeColor color;
     private final boolean isOn;
 
     public BlockColoredRedstoneLamp(EnumDyeColor color, boolean isOn) {
         super(Material.REDSTONE_LIGHT, Reference.MOD_ID, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
-        this.color = color;
+        BlockColoredRedstoneLamp.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? Main.OVERWORLD_EXPANSION_TAB : null);
         this.setLightLevel(isOn ? 1.0F: 0.0F);
     }
 
-    /**
-     * Called after the block is set in the Chunk data, but before the Tile Entity is set
-     */
-    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (!worldIn.isRemote)
-        {
-            if (this.isOn && !worldIn.isBlockPowered(pos))
-            {
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+        this.updateState(worldIn, pos, state);
+    }
+
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        this.updateState(worldIn, pos, state);
+    }
+
+    public void updateState(World worldIn, BlockPos pos, IBlockState state) {
+        if(!worldIn.isRemote) {
+            if(this.isOn && !worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
-            }
-            else if (!this.isOn && worldIn.isBlockPowered(pos))
-            {
+            } else if(!this.isOn && worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
             }
         }
@@ -57,22 +60,11 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt {
         {
             if (this.isOn && !worldIn.isBlockPowered(pos))
             {
-                worldIn.scheduleUpdate(pos, NBlocks.coloredRedstoneLamp[color.getMetadata()], 4);
+                worldIn.scheduleUpdate(pos, this, 4);
             }
             else if (!this.isOn && worldIn.isBlockPowered(pos))
             {
                 worldIn.setBlockState(pos, NBlocks.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
-            }
-        }
-    }
-
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-    {
-        if (!worldIn.isRemote)
-        {
-            if (this.isOn && !worldIn.isBlockPowered(pos))
-            {
-                worldIn.setBlockState(pos, NBlocks.coloredRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
             }
         }
     }
@@ -93,6 +85,23 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt {
     protected ItemStack getSilkTouchDrop(IBlockState state)
     {
         return new ItemStack(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
+    }
+
+    @Override
+    public int getLightOpacity(IBlockState state, IBlockAccess world, BlockPos pos) {
+        if(isOn) {
+            ColoredLights.addLightSource(world, pos, state);
+            return super.getLightOpacity(state, world, pos);
+        } else
+            return super.getLightOpacity(state, world, pos);
+    }
+
+    @Override
+    public float[] getColoredLight(IBlockAccess world, BlockPos pos) {
+        if(isOn) {
+            return VANILLA_SPECTRUM_COLORS[color.getMetadata()];
+        } else
+            return null;
     }
 
 }

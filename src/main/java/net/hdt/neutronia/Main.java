@@ -2,6 +2,7 @@ package net.hdt.neutronia;
 
 import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.api.IModData;
+import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
 import net.hdt.neutronia.events.ILifeCycleHandler;
@@ -67,6 +68,7 @@ public class Main implements IModData {
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.register(ColoredLights.class);
         MinecraftForge.EVENT_BUS.register(NBlocks.class);
 
         List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
@@ -103,38 +105,21 @@ public class Main implements IModData {
                 }
             }
         }
-//        NetherBiomeManager.preInit();
         handlers.forEach(handler -> handler.preInit(event));
         proxy.preInit(event);
     }
 
     @Mod.EventHandler
     public static void init(FMLInitializationEvent event) {
-//        NNetherBiomes.init();
         handlers.forEach(handler -> handler.init(event));
         proxy.init(event);
     }
 
     @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent event) {
-//        NNetherBiomes.postInit();
         handlers.forEach(handler -> handler.postInit(event));
         proxy.postInit(event);
     }
-
-    /*@Mod.EventHandler
-    public void onFMLServerStarting(FMLServerStartingEvent event)
-    {
-        NetherBiomeManager.setupDefaultBiomes();
-        NetherBiomeManager.setupCompatibleBiomes(event.getServer());
-        NetherBiomeManager.setupCustomBiomes();
-    }
-
-    @Mod.EventHandler
-    public void onFMLServerStopping(FMLServerStoppingEvent event)
-    {
-        NetherBiomeManager.clearBiomes();
-    }*/
 
     @Mod.EventHandler
     public void loadComplete(FMLLoadCompleteEvent event){
