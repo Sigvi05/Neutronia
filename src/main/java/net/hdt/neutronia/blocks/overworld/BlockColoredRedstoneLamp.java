@@ -1,6 +1,5 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.init.NBlocks;
@@ -8,8 +7,6 @@ import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,21 +15,17 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IBlockColorProvider {
+public class BlockColoredRedstoneLamp extends BlockColoredAlt {
 
     public final EnumDyeColor color;
     private final boolean isOn;
 
     public BlockColoredRedstoneLamp(EnumDyeColor color, boolean isOn) {
-        super(Material.REDSTONE_LIGHT, Reference.MOD_ID, "colored_redstone_lamp", color);
+        super(Material.REDSTONE_LIGHT, Reference.MOD_ID, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
         this.color = color;
         this.isOn = isOn;
-        if(!isOn) {
-            setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
-        }
-        if (isOn) {
-            this.setLightLevel(1.0F);
-        }
+        setCreativeTab(!isOn ? Main.OVERWORLD_EXPANSION_TAB : null);
+        this.setLightLevel(isOn ? 1.0F: 0.0F);
     }
 
     /**
@@ -100,16 +93,6 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IBlockC
     protected ItemStack getSilkTouchDrop(IBlockState state)
     {
         return new ItemStack(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
-    }
-
-    @Override
-    public IBlockColor getBlockColor() {
-        return (state, worldIn, pos, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
-    }
-
-    @Override
-    public IItemColor getItemColor() {
-        return (stack, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
     }
 
 }

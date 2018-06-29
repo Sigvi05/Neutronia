@@ -1,14 +1,11 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,22 +17,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-public class BlockColoredLanterns extends BlockColoredAlt implements IBlockColorProvider {
+public class BlockColoredLanterns extends BlockColoredAlt {
 
     public final EnumDyeColor color;
     private final boolean isOn;
 
     public BlockColoredLanterns(EnumDyeColor color, boolean isOn) {
-        super(Reference.MOD_ID, "lantern", color);
+        super(Reference.MOD_ID, isOn ? "lit_lantern" : "lantern", color);
         this.color = color;
         this.isOn = isOn;
-        if(!isOn) {
-            setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
-        }
-        if (isOn) {
-            this.setLightLevel(1.0F);
-            this.setTickRandomly(true);
-        }
+        setCreativeTab(!isOn ? Main.OVERWORLD_EXPANSION_TAB : null);
+        this.setLightLevel(isOn ? 1.0F: 0.0F);
+        this.setTickRandomly(isOn);
     }
 
     /**
@@ -116,16 +109,6 @@ public class BlockColoredLanterns extends BlockColoredAlt implements IBlockColor
     protected ItemStack getSilkTouchDrop(IBlockState state)
     {
         return new ItemStack(NBlocks.coloredLanterns[color.getMetadata()]);
-    }
-
-    @Override
-    public IBlockColor getBlockColor() {
-        return (state, worldIn, pos, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
-    }
-
-    @Override
-    public IItemColor getItemColor() {
-        return (stack, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
     }
 
 }
