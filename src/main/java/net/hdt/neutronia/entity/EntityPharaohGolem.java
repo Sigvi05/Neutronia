@@ -21,10 +21,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.village.Village;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.relauncher.Side;
@@ -32,17 +30,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class EntityPharaoGolem extends EntityGolem {
+public class EntityPharaohGolem extends EntityGolem {
 
-    protected static final DataParameter<Byte> PLAYER_CREATED = EntityDataManager.<Byte>createKey(EntityPharaoGolem.class, DataSerializers.BYTE);
-    /** deincrements, and a distance-to-home check is done at 0 */
-    private int homeCheckTimer;
-    @Nullable
-    Village village;
+    private static final DataParameter<Byte> PLAYER_CREATED = EntityDataManager.createKey(EntitySteampunkGolem.class, DataSerializers.BYTE);
     private int attackTimer;
-    private int holdRoseTick;
 
-    public EntityPharaoGolem(World worldIn)
+    public EntityPharaohGolem(World worldIn)
     {
         super(worldIn);
         this.setSize(1.4F, 2.7F);
@@ -111,11 +104,6 @@ public class EntityPharaoGolem extends EntityGolem {
             --this.attackTimer;
         }
 
-        if (this.holdRoseTick > 0)
-        {
-            --this.holdRoseTick;
-        }
-
         if (this.motionX * this.motionX + this.motionZ * this.motionZ > 2.500000277905201E-7D && this.rand.nextInt(5) == 0)
         {
             int i = MathHelper.floor(this.posX);
@@ -143,11 +131,6 @@ public class EntityPharaoGolem extends EntityGolem {
         {
             return cls != EntityCreeper.class && super.canAttackClass(cls);
         }
-    }
-
-    public static void registerFixesIronGolem(DataFixer fixer)
-    {
-        EntityLiving.registerFixesMob(fixer, EntityPharaoGolem.class);
     }
 
     /**
@@ -195,43 +178,16 @@ public class EntityPharaoGolem extends EntityGolem {
             this.attackTimer = 10;
             this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
         }
-        else if (id == 11)
-        {
-            this.holdRoseTick = 400;
-        }
-        else if (id == 34)
-        {
-            this.holdRoseTick = 0;
-        }
         else
         {
             super.handleStatusUpdate(id);
         }
     }
 
-    public Village getVillage()
-    {
-        return this.village;
-    }
-
     @SideOnly(Side.CLIENT)
     public int getAttackTimer()
     {
         return this.attackTimer;
-    }
-
-    public void setHoldingRose(boolean p_70851_1_)
-    {
-        if (p_70851_1_)
-        {
-            this.holdRoseTick = 400;
-            this.world.setEntityState(this, (byte)11);
-        }
-        else
-        {
-            this.holdRoseTick = 0;
-            this.world.setEntityState(this, (byte)34);
-        }
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
@@ -255,11 +211,6 @@ public class EntityPharaoGolem extends EntityGolem {
         return LootTableList.ENTITIES_IRON_GOLEM;
     }
 
-    public int getHoldRoseTick()
-    {
-        return this.holdRoseTick;
-    }
-
     public boolean isPlayerCreated()
     {
         return (this.dataManager.get(PLAYER_CREATED) & 1) != 0;
@@ -277,19 +228,6 @@ public class EntityPharaoGolem extends EntityGolem {
         {
             this.dataManager.set(PLAYER_CREATED, (byte) (b0 & -2));
         }
-    }
-
-    /**
-     * Called when the mob's health reaches 0.
-     */
-    public void onDeath(DamageSource cause)
-    {
-        if (!this.isPlayerCreated() && this.attackingPlayer != null && this.village != null)
-        {
-            this.village.modifyPlayerReputation(this.attackingPlayer.getUniqueID(), -5);
-        }
-
-        super.onDeath(cause);
     }
 
 }

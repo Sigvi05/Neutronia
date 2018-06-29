@@ -1,12 +1,21 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.item.EnumDyeColor;
 import net.hdt.huskylib2.blocks.BlockMod;
 import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.interf.IModBlock;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import org.apache.commons.lang3.text.WordUtils;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IModBlock {
 
@@ -25,7 +34,7 @@ public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IM
         this.modid = modid;
     }
 
-    /*private static TextFormatting getFromColor(EnumDyeColor color) {
+    private static TextFormatting getFromColor(EnumDyeColor color) {
         switch (color) {
             case ORANGE:
                 return TextFormatting.GOLD;
@@ -76,7 +85,7 @@ public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IM
             colorName = WordUtils.capitalize(colorName);
             tooltip.add("Color: " + TextFormatting.BOLD.toString() + getFromColor(color).toString() + colorName);
         }
-    }*/
+    }
 
     @Override
     public IBlockColor getBlockColor() {

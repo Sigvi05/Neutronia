@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity.render;
 
-import net.hdt.neutronia.entity.EntityPharaoGolem;
+import net.hdt.neutronia.entity.EntityPharaohGolem;
 import net.hdt.neutronia.entity.render.model.ModelPharaoGolem;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 
-public class RenderPharaoGolem extends RenderLiving<EntityPharaoGolem> {
+public class RenderPharaoGolem extends RenderLiving<EntityPharaohGolem> {
 
     private static final ResourceLocation IRON_GOLEM_TEXTURES = new ResourceLocation(MOD_ID,"textures/entity/golems/pharao_golem.png");
 
@@ -21,13 +21,13 @@ public class RenderPharaoGolem extends RenderLiving<EntityPharaoGolem> {
     /**
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
-    protected ResourceLocation getEntityTexture(EntityPharaoGolem entity)
+    protected ResourceLocation getEntityTexture(EntityPharaohGolem entity)
     {
         return IRON_GOLEM_TEXTURES;
     }
 
 
-    protected void applyRotations(EntityPharaoGolem entityLiving, float p_77043_2_, float rotationYaw, float partialTicks)
+    protected void applyRotations(EntityPharaohGolem entityLiving, float p_77043_2_, float rotationYaw, float partialTicks)
     {
         super.applyRotations(entityLiving, p_77043_2_, rotationYaw, partialTicks);
 

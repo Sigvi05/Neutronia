@@ -13,7 +13,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityDrowned.class, RenderDrowned::new);
 //        RenderingRegistry.registerEntityRenderingHandler(EntityCod.class, RenderCod::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityPhantom.class, RenderPhantom::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityRedPhantom.class, RenderRedPhantom::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBloodPhantom.class, RenderRedPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderPhantom.class, RenderEnderPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityShadowPhantom.class, RenderShadowPhantom::new);
 //        RenderingRegistry.registerEntityRenderingHandler(EntitySeaTurtle.class, RenderSeaTurtle::new);
@@ -23,7 +23,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityLostMiner.class, RenderLostMiner::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityYetiGolem.class, RenderYetiGolem::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySteampunkGolem.class, RenderSteampunkGolem::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityPharaoGolem.class, RenderPharaoGolem::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityPharaohGolem.class, RenderPharaoGolem::new);
     }
 
 }

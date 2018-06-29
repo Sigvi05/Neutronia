@@ -106,18 +106,8 @@ public class ModelYetiGolem extends ModelBase
         }
         else
         {
-            int j = entityirongolem.getHoldRoseTick();
-
-            if (j > 0)
-            {
-                this.ironGolemRightArm.rotateAngleX = -0.8F + 0.025F * this.triangleWave((float)j, 70.0F);
-                this.ironGolemLeftArm.rotateAngleX = 0.0F;
-            }
-            else
-            {
-                this.ironGolemRightArm.rotateAngleX = (-0.2F + 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
-                this.ironGolemLeftArm.rotateAngleX = (-0.2F - 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
-            }
+            this.ironGolemRightArm.rotateAngleX = (-0.2F + 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
+            this.ironGolemLeftArm.rotateAngleX = (-0.2F - 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
         }
     }
 

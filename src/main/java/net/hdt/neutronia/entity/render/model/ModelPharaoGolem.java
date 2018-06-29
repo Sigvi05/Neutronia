@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity.render.model;
 
-import net.hdt.neutronia.entity.EntityPharaoGolem;
+import net.hdt.neutronia.entity.EntityPharaohGolem;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -96,7 +96,7 @@ public class ModelPharaoGolem extends ModelBase
      */
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime)
     {
-        EntityPharaoGolem entityirongolem = (EntityPharaoGolem)entitylivingbaseIn;
+        EntityPharaohGolem entityirongolem = (EntityPharaohGolem)entitylivingbaseIn;
         int i = entityirongolem.getAttackTimer();
 
         if (i > 0)
@@ -106,18 +106,8 @@ public class ModelPharaoGolem extends ModelBase
         }
         else
         {
-            int j = entityirongolem.getHoldRoseTick();
-
-            if (j > 0)
-            {
-                this.ironGolemRightArm.rotateAngleX = -0.8F + 0.025F * this.triangleWave((float)j, 70.0F);
-                this.ironGolemLeftArm.rotateAngleX = 0.0F;
-            }
-            else
-            {
-                this.ironGolemRightArm.rotateAngleX = (-0.2F + 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
-                this.ironGolemLeftArm.rotateAngleX = (-0.2F - 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
-            }
+            this.ironGolemRightArm.rotateAngleX = (-0.2F + 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
+            this.ironGolemLeftArm.rotateAngleX = (-0.2F - 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
         }
     }
 
