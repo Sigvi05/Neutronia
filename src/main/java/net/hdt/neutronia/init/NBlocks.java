@@ -86,6 +86,8 @@ public class NBlocks {
     public static Block[] coloredVases = new Block[16];
     public static Block[] terracottaPots = new Block[16];
 
+    public static final Block test;
+
     private static Block[] coffins = new Block[13];
     private static Block slumpedWitherSkeleton, slumpedSkeleton;
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
@@ -117,6 +119,8 @@ public class NBlocks {
         }
 //        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block");
 //        kelp = new BlockKelp();
+
+        test = new BlockRotatableDecoration("test_block");
 
         // Nether Blocks
         for (EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
@@ -171,20 +175,20 @@ public class NBlocks {
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             frostedClay[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("frozen_%s_terracotta", dyeColor.getName()));
             add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
-            coloredVases[dyeColor.getMetadata()] = new BlockColoredVase(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
-            terracottaPots[dyeColor.getMetadata()] = new BlockColoredFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
+//            coloredVases[dyeColor.getMetadata()] = new BlockColoredVase(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
+//            terracottaPots[dyeColor.getMetadata()] = new BlockColoredFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
 //            glazedTerracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_glazed_terracotta_pillar", dyeColor.getName()), Material.ROCK);
 //            terracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_terracotta_pillar", dyeColor.getName()), Material.ROCK);
-//            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, false, Main.OVERWORLD_EXPANSION_TAB);
-//            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName())), dyeColor.getMetadata(), true, false);
+            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true, Main.OVERWORLD_EXPANSION_TAB);
+            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName())), dyeColor.getMetadata(), true, true, Main.OVERWORLD_EXPANSION_TAB);
             coloredSand[dyeColor.getMetadata()] = new BlockColoredSand(dyeColor);
             coloredSandstone[dyeColor.getMetadata()] = new BlockColoredAlt(Material.SAND, MOD_ID, "sandstone", dyeColor);
-            coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
-            coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
-            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
-            coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
-            coloredRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, false);
-            coloredLitRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, true);
+//            coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
+//            coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
+//            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
+//            coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
+//            coloredRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, false);
+//            coloredLitRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, true);
         }
 
         //Misc
@@ -210,12 +214,12 @@ public class NBlocks {
         add("prismarine_dark", Blocks.PRISMARINE, 2, true, true, Main.OVERWORLD_EXPANSION_TAB);
         add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true, true, Main.NETHER_EXPANSION_TAB);
 
-        addWall("sandstone", Blocks.SANDSTONE, 0);
-        addWall("chiseled_sandstone", Blocks.SANDSTONE, 1);
-        addWall("smooth_sandstone", Blocks.SANDSTONE, 2);
-        addWall("red_sandstone", Blocks.RED_SANDSTONE, 0);
-        addWall("chiseled_red_sandstone", Blocks.RED_SANDSTONE, 1);
-        addWall("smooth_red_sandstone", Blocks.RED_SANDSTONE, 2);
+//        addWall("sandstone", Blocks.SANDSTONE, 0);
+//        addWall("chiseled_sandstone", Blocks.SANDSTONE, 1);
+//        addWall("smooth_sandstone", Blocks.SANDSTONE, 2);
+//        addWall("red_sandstone", Blocks.RED_SANDSTONE, 0);
+//        addWall("chiseled_red_sandstone", Blocks.RED_SANDSTONE, 1);
+//        addWall("smooth_red_sandstone", Blocks.RED_SANDSTONE, 2);
 
 //        stoneAnvil = new BlockModAnvil("stone_anvil", Main.OVERWORLD_EXPANSION_TAB);
 //        carbonAnvil = new BlockModAnvil("carbon_anvil", Main.OVERWORLD_EXPANSION_TAB);

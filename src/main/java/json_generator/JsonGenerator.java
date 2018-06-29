@@ -42,7 +42,7 @@ public class JsonGenerator {
         }*/
 
         for(EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
-            genBlock(modid, naturalAquamarineVariants.getName(), naturalAquamarineVariants.getName());
+//            genBlock(modid, naturalAquamarineVariants.getName(), naturalAquamarineVariants.getName());
         }
 
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
@@ -131,7 +131,14 @@ public class JsonGenerator {
 //            genLangFile(modid, String.format("frosted_%s_terracotta", color.getName()), String.format("frosted_%s_terracotta", color.getName()), "frozen_colored_blocks");
 //            genLangFile(modid, String.format("frosted_%s_terracotta_slab", color.getName()), String.format("frosted_%s_terracotta_slab", color.getName()), "frozen_colored_blocks");
 //            genLangFile(modid, String.format("%s_terracotta_slab", color.getName()), String.format("%s_terracotta_slab", color.getName()), "colored_blocks");
-            genLayeredSlab(modid, String.format("frozen_%s_terracotta_slab", color.getName()), new ResourceLocation(String.format("blocks/hardened_clay_stained_%s", color.getName())), new ResourceLocation(modid, "blocks/ice_packed"));
+//            genLayeredSlab(modid, String.format("frozen_%s_terracotta_slab", color.getName()), new ResourceLocation(String.format("blocks/hardened_clay_stained_%s", color.getName())), new ResourceLocation(modid, "blocks/ice_packed"));
+
+
+            genSlab(new ResourceLocation(modid, String.format("%s_terracotta_slab", color.getName())), new ResourceLocation(String.format("hardened_clay_stained_%s", color.getName())), new ResourceLocation(String.format("hardened_clay_stained_%s", color.getName())), new ResourceLocation(String.format("hardened_clay_stained_%s", color.getName())));
+            genStair("minecraft", String.format("%s_terracotta_stair", color.getName()), String.format("hardened_clay_stained_%s", color.getName()), String.format("hardened_clay_stained_%s", color.getName()), String.format("hardened_clay_stained_%s", color.getName()));
+
+            genSlab(new ResourceLocation(modid, String.format("%s_glazed_terracotta_slab", color.getName())), new ResourceLocation(String.format("glazed_terracotta_%s", color.getName())), new ResourceLocation(String.format("glazed_terracotta_%s", color.getName())), new ResourceLocation(String.format("glazed_terracotta_%s", color.getName())));
+            genStair("minecraft", String.format("%s_glazed_terracotta_stair", color.getName()), String.format("glazed_terracotta_%s", color.getName()), String.format("glazed_terracotta_%s", color.getName()), String.format("glazed_terracotta_%s", color.getName()));
         }
 
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
@@ -878,11 +885,11 @@ public class JsonGenerator {
 
     }
 
-    public static void genSlab(String modId, String blockName, String textureName, String blockMockName) {
+    public static void genSlab(ResourceLocation modIDAndName, ResourceLocation topTextureLocation, ResourceLocation sideTextureLocation, ResourceLocation bottomTextureLocation) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
+        Path base = Paths.get("src", "main", "resources", "assets", modIDAndName.getResourceDomain(), "blockstates");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
@@ -896,11 +903,11 @@ public class JsonGenerator {
         JsonObject half = new JsonObject();
 
         JsonObject upper = new JsonObject();
-        upper.addProperty("model", modId + ":upper_" + blockName);
+        upper.addProperty("model", modIDAndName.getResourceDomain() + ":upper_" + modIDAndName.getResourcePath());
         half.add("top", upper);
 
         JsonObject lower = new JsonObject();
-        lower.addProperty("model", modId + ":half_" + blockName);
+        lower.addProperty("model", modIDAndName.getResourceDomain() + ":half_" + modIDAndName.getResourcePath());
         half.add("bottom", lower);
 
         variants.add("half", half);
@@ -921,7 +928,7 @@ public class JsonGenerator {
         blarg.addProperty("model", "cube_all");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", modId + ":blocks/" + textureName);
+        textures.addProperty("all", sideTextureLocation.getResourceDomain() + ":blocks/" + sideTextureLocation.getResourcePath());
 
         blarg.add("textures", textures);
 
@@ -934,14 +941,14 @@ public class JsonGenerator {
         String json2 = gson.toJson(root2);
 
         try {
-            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-            FileUtils.writeStringToFile(base.resolve(blockName + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(modIDAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(modIDAndName.getResourcePath() + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getResourcePath()));
         }
 
-        genSlabBlockModel(modId, blockName, textureName, textureName, textureName);
-        genSlabItemModel(modId, blockName);
+        genSlabBlockModel(modIDAndName, topTextureLocation, sideTextureLocation, bottomTextureLocation);
+        genSlabItemModel(modIDAndName.getResourceDomain(), modIDAndName.getResourcePath());
 
     }
 
@@ -1002,16 +1009,16 @@ public class JsonGenerator {
             System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
 
-        genSlabBlockModel(modId, blockName, bottomTexture, sideTexture, topTexture);
-        genSlabItemModel(modId, blockName);
+//        genSlabBlockModel(modId, blockName, bottomTexture, sideTexture, topTexture);
+//        genSlabItemModel(modId, blockName);
 
     }
 
-    public static void genSlabBlockModel(String modId, String blockName, String bottomTexture, String sideTexture, String topTexture) {
+    public static void genSlabBlockModel(ResourceLocation modIDAndName, ResourceLocation topTextureLocation, ResourceLocation sideTextureLocation, ResourceLocation bottomTextureLocation) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "models", "block");
+        Path base = Paths.get("src", "main", "resources", "assets", modIDAndName.getResourceDomain(), "models", "block");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
@@ -1021,9 +1028,9 @@ public class JsonGenerator {
         root.addProperty("parent", "neutronia:block/slab");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", modId + ":blocks/" + bottomTexture);
-        textures.addProperty("side", modId + ":blocks/" + sideTexture);
-        textures.addProperty("top", modId + ":blocks/" + topTexture);
+        textures.addProperty("bottom", bottomTextureLocation.getResourceDomain() + ":blocks/" + bottomTextureLocation.getResourcePath());
+        textures.addProperty("side", sideTextureLocation.getResourceDomain() + ":blocks/" + sideTextureLocation.getResourcePath());
+        textures.addProperty("top", topTextureLocation.getResourceDomain() + ":blocks/" + topTextureLocation.getResourcePath());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -1033,18 +1040,18 @@ public class JsonGenerator {
         root2.addProperty("parent", "neutronia:block/slab_top");
 
         JsonObject textures2 = new JsonObject();
-        textures2.addProperty("bottom", modId + ":blocks/" + bottomTexture);
-        textures2.addProperty("side", modId + ":blocks/" + sideTexture);
-        textures2.addProperty("top", modId + ":blocks/" + topTexture);
+        textures2.addProperty("bottom", bottomTextureLocation.getResourceDomain() + ":blocks/" + bottomTextureLocation.getResourcePath());
+        textures2.addProperty("side", sideTextureLocation.getResourceDomain() + ":blocks/" + sideTextureLocation.getResourcePath());
+        textures2.addProperty("top", topTextureLocation.getResourceDomain() + ":blocks/" + topTextureLocation.getResourcePath());
         root2.add("textures", textures2);
 
         String json2 = gson.toJson(root2);
 
         try {
-            FileUtils.writeStringToFile(base.resolve("half_" + blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-            FileUtils.writeStringToFile(base.resolve("upper_" + blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve("half_" + modIDAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve("upper_" + modIDAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getResourcePath()));
         }
 
     }
@@ -1134,8 +1141,8 @@ public class JsonGenerator {
             System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
 
-        genSlabBlockModel(modId, blockName, textureName, textureName, textureName);
-        genSlabItemModel(modId, blockName);
+//        genSlabBlockModel(modId, blockName, textureName, textureName, textureName);
+//        genSlabItemModel(modId, blockName);
 
     }
 

@@ -1,7 +1,7 @@
 {
   "pools": [
     {
-      "name": "DefaultScorpDrop",
+      "name": "DefaultScorpionDrop",
       "rolls": 1,
       "conditions": [
         {
@@ -12,7 +12,7 @@
         {
           "type": "item",
           "weight": 80,
-          "name": "neutronia:chitin",
+          "name": "neutronia:bandage",
           "quality": 1,
           "functions": [
             {

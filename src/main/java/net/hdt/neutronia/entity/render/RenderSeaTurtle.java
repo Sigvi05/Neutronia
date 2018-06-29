@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderSeaTurtle extends RenderLiving<EntitySeaTurtle> {
 
-    public static final ResourceLocation SCORP_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/ocean_creatures/sea_turtle.png");
+    public static final ResourceLocation SCORP_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/sea/ocean_creatures/sea_turtle.png");
 
     public RenderSeaTurtle(RenderManager manager) {
         super(manager, new ModelSeaTurtle(), 0.5F);

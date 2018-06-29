@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerDiverSuit implements LayerRenderer<EntityAnchored> {
 
-    private static final ResourceLocation STRAY_CLOTHES_TEXTURES = new ResourceLocation("neutronia:textures/entity/diver/diver_suit.png");
+    private static final ResourceLocation STRAY_CLOTHES_TEXTURES = new ResourceLocation("neutronia:textures/entity/sea/diver/diver_suit.png");
     private final RenderLivingBase<?> renderer;
     private final ModelZombie layerModel = new ModelZombie(0.25F, false);
 

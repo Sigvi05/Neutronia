@@ -1,4 +1,9 @@
 {
   "_comment": "Generated using Husky's JSON Generator v3.",
-  "parent": "neutronia:block/half_brown_terracotta"
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "neutronia:blocks/hardened_clay_stained_brown",
+    "side": "neutronia:blocks/hardened_clay_stained_brown",
+    "top": "neutronia:blocks/hardened_clay_stained_brown"
+  }
 }

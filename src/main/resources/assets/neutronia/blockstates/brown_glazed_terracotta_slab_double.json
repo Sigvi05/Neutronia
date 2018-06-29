@@ -6,7 +6,7 @@
       "blarg": {
         "model": "cube_all",
         "textures": {
-          "all": "minecraft:blocks/brown_glazed_terracotta"
+          "all": "minecraft:blocks/glazed_terracotta_brown"
         }
       }
     }

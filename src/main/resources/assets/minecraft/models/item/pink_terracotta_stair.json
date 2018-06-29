@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "minecraft:blocks/hardened_clay_stained_pink",
+    "side": "minecraft:blocks/hardened_clay_stained_pink",
+    "top": "minecraft:blocks/hardened_clay_stained_pink"
+  }
+}

@@ -28,6 +28,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public static final WorldGenStructure CORAL_BLUE = new WorldGenStructure("coral_blue");
     public static final WorldGenStructure CORAL_RED = new WorldGenStructure("coral_red");
 
+    /**TODO: Add Mini Castle, More Village Stuff, Spider Nests, Endermite Nests, Guardian Ruins, Mesa Temple, Mesa Village, Desert Labyrinth, Actual Pyramids,
+    **/
     public WorldGenCustomStructures() {
         super();
     }

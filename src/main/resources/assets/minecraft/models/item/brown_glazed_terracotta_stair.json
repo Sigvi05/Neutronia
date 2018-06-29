@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "minecraft:blocks/glazed_terracotta_brown",
+    "side": "minecraft:blocks/glazed_terracotta_brown",
+    "top": "minecraft:blocks/glazed_terracotta_brown"
+  }
+}

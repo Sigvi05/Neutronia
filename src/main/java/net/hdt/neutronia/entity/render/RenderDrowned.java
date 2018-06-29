@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderDrowned extends RenderBiped<EntityDrowned> {
 
-    private static final ResourceLocation MUMMY_TEXTURE = new ResourceLocation("neutronia:textures/entity/drowned/drowned.png");
+    private static final ResourceLocation MUMMY_TEXTURE = new ResourceLocation("neutronia:textures/entity/sea/drowned/drowned.png");
 
     public RenderDrowned(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelZombie(), 0.5F);

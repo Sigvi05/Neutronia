@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderAnchored extends RenderBiped<EntityAnchored> {
 
-    private static final ResourceLocation MUMMY_TEXTURE = new ResourceLocation("neutronia:textures/entity/diver/diver.png");
+    private static final ResourceLocation MUMMY_TEXTURE = new ResourceLocation("neutronia:textures/entity/sea/diver/diver.png");
 
     public RenderAnchored(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelZombie(), 0.5F);

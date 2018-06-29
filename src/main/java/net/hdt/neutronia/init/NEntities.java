@@ -38,31 +38,44 @@ public class NEntities {
 //                createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
 //                createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
                 createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("forsaken_diver").entity(EntityForsakenDiver.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("pharaoh_golem").entity(EntityPharaohGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("yeti_golem").entity(EntityYetiGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+//                createBuilder("clay_golem").entity(EntityClayGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+//                createBuilder("diamond_golem").entity(EntityDiamondGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+//                createBuilder("gold_golem").entity(EntityGoldGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+//                createBuilder("wood_golem").entity(EntityWoodGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("steampunk_golem").entity(EntitySteampunkGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build()
         };
         event.getRegistry().registerAll(entries);
         RenderHandler.registerEntityRenders();
         addSpawns();
+
+        /*TODO: Add Great White Shark, Hammerhead Shark, Piranha, Angler Fish, Dragon Shark, Hare, Rabbit, Gecko, Desert Gecko,
+                 Clay Golem, Moss Golem, Manta ray, Octopus, Seablob */
     }
 
     @SubscribeEvent
     public static void registerNewVillagerProffesions(RegistryEvent.Register<VillagerRegistry.VillagerProfession> event) {
+
+        //TODO: Add Necromancer
+
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/miner").toString()));
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "scuba_diver").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/scuba_diver").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/scuba_diver").toString()));
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/explorer").toString()));
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/magician").toString()));
-        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "guard").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/guard").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/guard").toString()));
+        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "guardian").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/guardian").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/guard").toString()));
     }
 
     private static void addSpawns() {
         EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
-        EntityRegistry.addSpawn(EntityPharaohGolem.class, 9, 2, 8, EnumCreatureType.AMBIENT, getBiomes(BiomeDictionary.Type.SANDY));
+        EntityRegistry.addSpawn(EntityPharaohGolem.class, 2, 2, 4, EnumCreatureType.AMBIENT, getBiomes(BiomeDictionary.Type.SANDY));
 //        EntityRegistry.addSpawn(EntityScorp.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
-        EntityRegistry.addSpawn(EntityDrowned.class, 9, 2, 8, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
-        EntityRegistry.addSpawn(EntityAnchored.class, 9, 2, 8, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityDrowned.class, 14, 2, 4, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityAnchored.class, 5, 2, 4, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityForsakenDiver.class, 3, 2, 4, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
+
         EntityRegistry.addSpawn(EntityHoveringInferno.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.NETHER));
 //        EntityRegistry.addSpawn(EntityGreatHunger.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
 //        EntityRegistry.addSpawn(EntitySeaTurtle.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.BEACH));

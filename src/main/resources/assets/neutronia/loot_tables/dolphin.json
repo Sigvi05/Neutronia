@@ -1,38 +1,54 @@
 {
   "pools": [
     {
-      "rolls": 1,
+      "name": "DefaultDolphinDrop",
+      "rolls": 4,
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:cod",
           "weight": 1,
+          "name": "neutronia:trident",
+          "quality": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 0,
-                "max": 1
+                "min": 1,
+                "max": 10
               }
-            },
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 10,
+          "name": "neutronia:heart_of_the_sea",
+          "functions": [
             {
-              "function": "looting_enchant",
+              "function": "set_count",
               "count": {
-                "min": 0,
-                "max": 1
+                "min": 1,
+                "max": 2
               }
-            },
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 30,
+          "name": "minecraft:prismarine_shard",
+          "functions": [
             {
-              "function": "furnace_smelt",
-              "conditions": [
-                {
-                  "condition": "entity_properties",
-                  "entity": "this",
-                  "properties": {
-                    "on_fire": true
-                  }
-                }
-              ]
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
             }
           ]
         }
