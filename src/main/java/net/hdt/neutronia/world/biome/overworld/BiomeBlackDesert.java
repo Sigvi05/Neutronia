@@ -20,8 +20,8 @@ public class BiomeBlackDesert extends Biome {
 
     public BiomeBlackDesert() {
         super((new BiomeProperties("Black Desert")).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setWaterColor(0x1b1b1b).setRainDisabled());
-        topBlock = NBlocks.coloredSand[15].getDefaultState();
-        fillerBlock = NBlocks.newStoneVariants[3].getDefaultState();
+        topBlock = NBlocks.test.getDefaultState();
+        fillerBlock = NBlocks.newStoneVariants[2].getDefaultState();
         setMobSpawns();
     }
 

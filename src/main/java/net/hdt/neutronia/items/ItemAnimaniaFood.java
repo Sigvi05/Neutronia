@@ -1,7 +1,6 @@
 package net.hdt.neutronia.items;
 
 import net.hdt.neutronia.Main;
-import net.hdt.neutronia.config.AnimaniaConfig;
 import net.hdt.neutronia.util.idk.FoodValueHandler;
 import net.hdt.neutronia.util.idk.RomanNumberHelper;
 import net.hdt.neutronia.util.idk.TimeHelper;
@@ -70,7 +69,7 @@ public class ItemAnimaniaFood extends ItemModFood {
 
     @Override
     protected void onFoodEaten(ItemStack itemstack, World worldObj, EntityPlayer entityplayer) {
-        if (!worldObj.isRemote && AnimaniaConfig.gameRules.foodsGiveBonusEffects && this.effects != null)
+        if (!worldObj.isRemote && /*AnimaniaConfig.gameRules.foodsGiveBonusEffects && */this.effects != null)
             for (PotionEffect effect : this.effects.clone()) {
                 Potion pot = effect.getPotion();
                 int duration = effect.getDuration();
@@ -83,7 +82,7 @@ public class ItemAnimaniaFood extends ItemModFood {
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (AnimaniaConfig.gameRules.foodsGiveBonusEffects && this.effects != null)
+//        if (AnimaniaConfig.gameRules.foodsGiveBonusEffects && this.effects != null)
             for (PotionEffect effect : this.effects.clone()) {
                 Potion pot = effect.getPotion();
                 int duration = effect.getDuration();

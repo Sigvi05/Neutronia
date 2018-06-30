@@ -53,16 +53,12 @@ public class NEntities {
         addSpawns();
 
         /*TODO: Add Great White Shark, Hammerhead Shark, Piranha, Angler Fish, Dragon Shark, Hare, Rabbit, Gecko, Desert Gecko,
-                 Clay Golem, Moss Golem, Manta ray, Octopus, Seablob */
+                 Clay Golem, Moss Golem, Manta ray, Octopus, Seablob, Necromancer(illager type) */
     }
 
     @SubscribeEvent
     public static void registerNewVillagerProffesions(RegistryEvent.Register<VillagerRegistry.VillagerProfession> event) {
-
-        //TODO: Add Necromancer
-
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/miner").toString()));
-        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "scuba_diver").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/scuba_diver").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/scuba_diver").toString()));
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/explorer").toString()));
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/magician").toString()));
         event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "guardian").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/guardian").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/guard").toString()));

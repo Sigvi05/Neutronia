@@ -1,6 +1,5 @@
 package net.hdt.neutronia.util.idk;
 
-import net.hdt.neutronia.config.AnimaniaConfig;
 import net.hdt.neutronia.items.ItemAnimaniaFood;
 import net.minecraft.item.Item;
 
@@ -11,7 +10,7 @@ public class FoodValueHandler {
     private static Map<ItemAnimaniaFood, String> food_values = new HashMap<ItemAnimaniaFood, String>();
 
     public static void init() {
-        String[] overrides = AnimaniaConfig.foodValues.foodValueOverrides;
+        String[] overrides = new String[]{}/*= AnimaniaConfig.foodValues.foodValueOverrides*/;
         for (String s : overrides) {
             if (!s.isEmpty()) {
                 String name = s;

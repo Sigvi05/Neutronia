@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "neutronia:jungle_bark_item"
+    }
+  },
+  "result": {
+    "item": "neutronia:jungle_bark"
+  }
+}

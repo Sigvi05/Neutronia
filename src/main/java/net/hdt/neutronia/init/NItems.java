@@ -12,12 +12,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 
-@Mod.EventBusSubscriber(modid = MOD_ID)
 public class NItems {
 
     public static final Item.ToolMaterial CAXE = EnumHelper.addToolMaterial("caxe", 3, 350, 7.0F, 4.0F, 12);
@@ -52,8 +50,9 @@ public class NItems {
 
 //    public static final Item rawDragonMeat, cookedDragonMeat;
 
-    private static Item[] barkItem = new Item[6];
-    private static Item[] woodenShields = new Item[6];
+    public static Item[] barkItem = new Item[6];
+    public static Item[] logShields = new Item[6];
+    public static Item[] planksShields = new Item[6];
 
     public static Item[] jellybean = new Item[23];
 
@@ -96,7 +95,8 @@ public class NItems {
         anchor = new ItemSpear("anchor", Item.ToolMaterial.IRON).setCreativeTab(null);
 
         for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
-//            woodenShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
+//            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
+//            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
             barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), Main.ITEM_EXPANSION_TAB);
         }
 

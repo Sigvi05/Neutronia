@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "neutronia:dark_oak_bark_item"
+    }
+  },
+  "result": {
+    "item": "neutronia:dark_oak_bark"
+  }
+}

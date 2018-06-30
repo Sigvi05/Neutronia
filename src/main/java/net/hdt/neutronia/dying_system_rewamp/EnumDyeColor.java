@@ -1,28 +1,16 @@
 package net.hdt.neutronia.dying_system_rewamp;
 
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.text.TextFormatting;
 
 import java.awt.*;
 
 public enum EnumDyeColor implements IStringSerializable {
 
-    WHITE(0, 15, "white", "white", TextFormatting.WHITE, new Color(16383998)),
-    ORANGE(1, 14, "orange", "orange", TextFormatting.GOLD, new Color(16351261)),
-    MAGENTA(2, 13, "magenta", "magenta", TextFormatting.AQUA, new Color(13061821)),
-    LIGHT_BLUE(3, 12, "light_blue", "lightBlue", TextFormatting.BLUE, new Color(3847130)),
-    YELLOW(4, 11, "yellow", "yellow", TextFormatting.YELLOW, new Color(16701501)),
-    LIME(5, 10, "lime", "lime", TextFormatting.GREEN, new Color(8439583)),
-    PINK(6, 9, "pink", "pink", TextFormatting.LIGHT_PURPLE, new Color(15961002)),
-    GRAY(7, 8, "gray", "gray", TextFormatting.DARK_GRAY, new Color(4673362)),
-    SILVER(8, 7, "silver", "silver", TextFormatting.GRAY, new Color(10329495)),
-    CYAN(9, 6, "cyan", "cyan", TextFormatting.DARK_AQUA, new Color(11546150)),
-    PURPLE(10, 5, "purple", "purple", TextFormatting.DARK_PURPLE, new Color(8991416)),
-    BLUE(11, 4, "blue", "blue", TextFormatting.DARK_BLUE, new Color(3949738)),
-    BROWN(12, 3, "brown", "brown", TextFormatting.GOLD, new Color(8606770)),
-    GREEN(13, 2, "green", "green", TextFormatting.DARK_GREEN, new Color(6192150)),
-    RED(14, 1, "red", "red", TextFormatting.DARK_RED, new Color(11546150)),
-    BLACK(15, 0, "black", "black", TextFormatting.BLACK, new Color(1908001));
+    LIGHT_YELLOW(0, 4, "light_yellow", "lightYellow", TextFormatting.LIGHT_YELLOW, new Color(0xF4FF00)),
+    BEIGE(1, 3, "beige", "beige", TextFormatting.BEIGE, new Color(245,245,220)),
+    PEACH(2, 2, "peach", "peach", TextFormatting.PEACH, new Color(245,245,220)),
+    TAN(3, 1, "tan", "tan", TextFormatting.TAN, new Color(245,245,220)),
+    LUMINOUS(4, 0, "luminous", "luminous", TextFormatting.LUMINOUS, new Color(245,245,220));
 
     private static final EnumDyeColor[] META_LOOKUP = new EnumDyeColor[values().length];
     private static final EnumDyeColor[] DYE_DMG_LOOKUP = new EnumDyeColor[values().length];

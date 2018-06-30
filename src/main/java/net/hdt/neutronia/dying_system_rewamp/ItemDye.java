@@ -2,14 +2,10 @@ package net.hdt.neutronia.dying_system_rewamp;
 
 import net.hdt.huskylib2.items.ItemMod;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockOldLog;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -94,29 +90,6 @@ public class ItemDye extends ItemMod {
         if (!player.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
             return EnumActionResult.FAIL;
         } else {
-            EnumDyeColor enumdyecolor = EnumDyeColor.byDyeDamage(itemstack.getMetadata());
-
-            if (enumdyecolor == EnumDyeColor.WHITE) {
-                if (applyBonemeal(itemstack, worldIn, pos, player, hand)) {
-                    if (!worldIn.isRemote) worldIn.playEvent(2005, pos, 0);
-                    return EnumActionResult.SUCCESS;
-                }
-            } else if (enumdyecolor == EnumDyeColor.BROWN) {
-                IBlockState iblockstate = worldIn.getBlockState(pos);
-                Block block = iblockstate.getBlock();
-                if (block == Blocks.LOG && iblockstate.getValue(BlockOldLog.VARIANT) == BlockPlanks.EnumType.JUNGLE) {
-                    if (facing == EnumFacing.DOWN || facing == EnumFacing.UP) return EnumActionResult.FAIL;
-                    pos = pos.offset(facing);
-                    if (worldIn.isAirBlock(pos)) {
-                        IBlockState iblockstate1 = Blocks.COCOA.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
-                        worldIn.setBlockState(pos, iblockstate1, 10);
-                        if (!player.capabilities.isCreativeMode) itemstack.shrink(1);
-                        return EnumActionResult.SUCCESS;
-                    }
-                }
-                return EnumActionResult.FAIL;
-            }
-
             for(EnumDyeColor color : EnumDyeColor.values()) {
                 IBlockState iblockstate = worldIn.getBlockState(pos);
                 Block block = iblockstate.getBlock();
@@ -127,25 +100,6 @@ public class ItemDye extends ItemMod {
             }
 
             return EnumActionResult.PASS;
-        }
-    }
-
-    /**
-     * Returns true if the item can be used on the given entity, e.g. shears on sheep.
-     */
-    public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
-        if (target instanceof EntitySheep) {
-            EntitySheep entitysheep = (EntitySheep) target;
-            EnumDyeColor enumdyecolor = EnumDyeColor.byDyeDamage(stack.getMetadata());
-
-            if (!entitysheep.getSheared() && entitysheep.getFleeceColor() != enumdyecolor) {
-                entitysheep.setFleeceColor(enumdyecolor);
-                stack.shrink(1);
-            }
-
-            return true;
-        } else {
-            return false;
         }
     }
 

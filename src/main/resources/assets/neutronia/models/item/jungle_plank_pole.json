@@ -1,0 +1,8 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v3.",
+  "parent": "neutronia:block/stripped_pole",
+  "textures": {
+    "pole": "blocks/planks_jungle",
+    "pole_top": "blocks/planks_jungle"
+  }
+}

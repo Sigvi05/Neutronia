@@ -17,12 +17,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
-
-@Mod.EventBusSubscriber(modid = MOD_ID)
 public class NBlocks {
 
     public static final Block netherGlass, soulGlass, netherRod, netherSponge;
@@ -61,6 +57,12 @@ public class NBlocks {
     public static Block[] barkBlocks = new Block[6];
     public static Block[] chiseledBarkBlocks = new Block[6];
     public static Block[] unnamedChiseledBarkBlock = new Block[6];
+    public static Block[] logPoles = new Block[6];
+    public static Block[] strippedLogPoles = new Block[6];
+    public static Block[] plankPoles = new Block[6];
+    public static Block[] logDowels = new Block[6];
+    public static Block[] strippedLogDowels = new Block[6];
+    public static Block[] plankDowels = new Block[6];
 
     //Blocks for the nether
     public static Block[] netherBlocks = new Block[2];
@@ -77,12 +79,12 @@ public class NBlocks {
     // Some colored blocks
     public static Block[] coloredSand = new Block[16];
     public static Block[] coloredSandstone = new Block[16];
-    public static Block[] coloredCandles = new Block[16];
-    public static Block[] coloredLitCandles = new Block[16];
-    public static Block[] coloredLanterns = new Block[16];
-    public static Block[] coloredLitLanterns = new Block[16];
-    public static Block[] coloredRedstoneLamp = new Block[16];
-    public static Block[] coloredLitRedstoneLamp = new Block[16];
+    public static BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
+    public static BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
+    public static BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
+    public static BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
+    public static BlockColoredAlt[] coloredRedstoneLamp = new BlockColoredAlt[16];
+    public static BlockColoredAlt[] coloredLitRedstoneLamp = new BlockColoredAlt[16];
     public static Block[] coloredVases = new Block[16];
     public static Block[] terracottaPots = new Block[16];
 
@@ -120,7 +122,7 @@ public class NBlocks {
 //        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block");
 //        kelp = new BlockKelp();
 
-        test = new BlockRotatableDecoration("test_block");
+        test = new BlockFalling("black_sand");
 
         // Nether Blocks
         for (EnumNetherBlocks netherBlockTypes : EnumNetherBlocks.values()) {
@@ -141,7 +143,7 @@ public class NBlocks {
         }*/
         netherGlass = new BlockGlassBase("nether_glass").setCreativeTab(Main.NETHER_EXPANSION_TAB);
         soulGlass = new BlockGlassBase("soul_glass").setCreativeTab(Main.NETHER_EXPANSION_TAB);
-        netherRod = new BlockRodBase("nether_rod", Main.NETHER_EXPANSION_TAB);
+        netherRod = new BlockRodBase("nether_rod", Main.NETHER_EXPANSION_TAB, true);
         netherSponge = new BlockNetherSponge();
 
         // New Stone Blocks
@@ -161,6 +163,12 @@ public class NBlocks {
             unnamedChiseledBarkBlock[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("unnamed_%s_bark_chiseled", enumType.getName()));
 //            add(String.format("stripped_%s_log", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, Main.OVERWORLD_EXPANSION_TAB);
 //            coffins[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, enumType.getName() + "_coffin");
+//            logDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_dowel", enumType.getName()), Main.OVERWORLD_EXPANSION_TAB, false);
+//            strippedLogDowels[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_dowel", enumType.getName()), Main.OVERWORLD_EXPANSION_TAB, false);
+//            plankDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_dowel", enumType.getName()), Main.OVERWORLD_EXPANSION_TAB, false);
+            logPoles[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_pole", enumType.getName()), Main.OVERWORLD_EXPANSION_TAB, false);
+            strippedLogPoles[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_pole", enumType.getName()), Main.OVERWORLD_EXPANSION_TAB, false);
+            plankPoles[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_pole", enumType.getName()), Main.OVERWORLD_EXPANSION_TAB, false);
         }
 
         // Frosted versions of vanilla stones & dirt
@@ -180,9 +188,9 @@ public class NBlocks {
 //            glazedTerracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_glazed_terracotta_pillar", dyeColor.getName()), Material.ROCK);
 //            terracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_terracotta_pillar", dyeColor.getName()), Material.ROCK);
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true, Main.OVERWORLD_EXPANSION_TAB);
-            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName())), dyeColor.getMetadata(), true, true, Main.OVERWORLD_EXPANSION_TAB);
-            coloredSand[dyeColor.getMetadata()] = new BlockColoredSand(dyeColor);
-            coloredSandstone[dyeColor.getMetadata()] = new BlockColoredAlt(Material.SAND, MOD_ID, "sandstone", dyeColor);
+            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName())), dyeColor.getMetadata(), true, false, Main.OVERWORLD_EXPANSION_TAB);
+//            coloredSand[dyeColor.getMetadata()] = new BlockColoredSand(dyeColor);
+//            coloredSandstone[dyeColor.getMetadata()] = new BlockColoredAlt(Material.SAND, MOD_ID, "sandstone", dyeColor);
 //            coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
 //            coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
 //            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);

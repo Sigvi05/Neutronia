@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(name = "Revamped Dying System", modid = "rds", version = "0.0.1")
+//@Mod(name = "Revamped Dying System", modid = "rds", version = "0.0.1")
 public class RevampedColoringSystemMod {
 
     public static final Logger LOGGER = LogManager.getLogger("Revamped Dying System");
@@ -20,8 +20,8 @@ public class RevampedColoringSystemMod {
     @Mod.Instance
     public static RevampedColoringSystemMod instance;
 
-    public static final Block[] testWool = new Block[16];
-    public static final Item[] testDye = new Item[16];
+    public static final Block[] testWool = new Block[5];
+    public static final Item[] testDye = new Item[5];
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {

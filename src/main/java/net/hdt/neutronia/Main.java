@@ -7,6 +7,7 @@ import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
 import net.hdt.neutronia.events.ILifeCycleHandler;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
 import net.hdt.neutronia.util.handlers.WorldHandler;
@@ -70,6 +71,7 @@ public class Main implements IModData {
     public static void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(ColoredLights.class);
         MinecraftForge.EVENT_BUS.register(NBlocks.class);
+        MinecraftForge.EVENT_BUS.register(NItems.class);
 
         List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
         for (ResourceLocation res : recipeList) {

@@ -22,22 +22,26 @@ public class BlockRodBase extends BlockDirectional {
 
     private Material mapColor = Material.SAND;
 
-    public BlockRodBase(String name, CreativeTabs creativeTabs) {
+    public BlockRodBase(String name, CreativeTabs creativeTabs, boolean emitsLight) {
         super(Material.CIRCUITS, name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
         this.setCreativeTab(creativeTabs);
-        this.setHardness(0.3F);
-        this.setLightLevel(1.0F);
+        if(emitsLight) {
+            this.setHardness(0.3F);
+            this.setLightLevel(1.0F);
+        }
     }
 
     @SuppressWarnings("unused")
-    public BlockRodBase(Material color, String name, CreativeTabs creativeTabs) {
+    public BlockRodBase(Material color, String name, CreativeTabs creativeTabs, boolean emitsLight) {
         super(Material.CIRCUITS, name);
         mapColor = color;
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
         this.setCreativeTab(creativeTabs);
-        this.setHardness(0.3F);
-        this.setLightLevel(1.0F);
+        if(emitsLight) {
+            this.setHardness(0.3F);
+            this.setLightLevel(1.0F);
+        }
     }
 
     @Override

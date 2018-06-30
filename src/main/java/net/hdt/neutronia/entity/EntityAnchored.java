@@ -309,10 +309,6 @@ public class EntityAnchored extends EntityMob {
         return livingdata;
     }
 
-    public double getYOffset() {
-        return -0.45D;
-    }
-
     @Override
     public void onDeath(DamageSource cause) {
         super.onDeath(cause);
