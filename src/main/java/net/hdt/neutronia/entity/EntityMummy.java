@@ -29,7 +29,6 @@ import net.minecraft.pathfinding.PathNavigateGround;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
@@ -60,10 +59,6 @@ public class EntityMummy extends EntityUndeadBase {
         this.setSize(0.6F, 1.95F);
     }
 
-    public static void registerFixesMummy(DataFixer fixer) {
-        registerFixesMob(fixer, EntityMummy.class);
-    }
-
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
@@ -92,7 +87,7 @@ public class EntityMummy extends EntityUndeadBase {
         super.entityInit();
         this.getDataManager().register(VILLAGER_TYPE, 0);
         this.getDataManager().register(ARMS_RAISED, Boolean.FALSE);
-        this.getDataManager().register(IS_CHILD, Boolean.valueOf(false));
+        this.getDataManager().register(IS_CHILD, Boolean.FALSE);
     }
 
     @SideOnly(Side.CLIENT)

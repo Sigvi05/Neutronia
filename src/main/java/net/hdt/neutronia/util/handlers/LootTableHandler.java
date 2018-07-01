@@ -8,6 +8,8 @@ public class LootTableHandler {
 
     public static final ResourceLocation MUMMY = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "mummy"));
     public static final ResourceLocation MUMMY_VILLAGER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "mummy_villager"));
+    public static final ResourceLocation SCUBA_VILLAGER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "scuba_villager"));
+    public static final ResourceLocation DROWNED_SCUBA_VILLAGER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "drowned_scuba_villager"));
     public static final ResourceLocation SCORPION = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "scorpion"));
     public static final ResourceLocation DROWNED = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "drowned"));
     public static final ResourceLocation TURTLE = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "turtle"));

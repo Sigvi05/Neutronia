@@ -1,84 +1,94 @@
 package net.hdt.neutronia.entity.render.model;
 
-import net.hdt.neutronia.entity.EntityMummy;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 public class ModelMummyVillager extends ModelBiped {
 
+    public ModelRenderer RightArm;
+    public ModelRenderer LeftArm;
+    public ModelRenderer Cloth1;
+    public ModelRenderer Hat;
+    public ModelRenderer Head;
+    public ModelRenderer Nose;
+    public ModelRenderer Cloth4;
+    public ModelRenderer Body;
+    public ModelRenderer RightLeg;
+    public ModelRenderer LeftLeg;
+    public ModelRenderer Cloth2;
+    public ModelRenderer Cloth3;
+
     public ModelMummyVillager() {
-        this(0.0F, 0.0F, false);
+        this.textureWidth = 64;
+        this.textureHeight = 64;
+        this.Cloth2 = new ModelRenderer(this, 54, 38);
+        this.Cloth2.mirror = true;
+        this.Cloth2.setRotationPoint(-1.0F, 4.0F, 2.0F);
+        this.Cloth2.addBox(-1.0F, -6.0F, 0.0F, 2, 12, 3, 0.0F);
+        this.Head = new ModelRenderer(this, 0, 0);
+        this.Head.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.Head.addBox(-4.0F, -10.0F, -4.0F, 8, 10, 8, 0.0F);
+        this.Cloth4 = new ModelRenderer(this, 16, 38);
+        this.Cloth4.setRotationPoint(0.0F, 12.0F, 0.0F);
+        this.Cloth4.addBox(-4.0F, 0.0F, -3.0F, 8, 3, 6, 0.0F);
+        this.Nose = new ModelRenderer(this, 0, 0);
+        this.Nose.setRotationPoint(0.0F, -2.0F, -4.0F);
+        this.Nose.addBox(-1.0F, -1.0F, -2.0F, 2, 4, 2, 0.0F);
+        this.Cloth1 = new ModelRenderer(this, 24, 0);
+        this.Cloth1.setRotationPoint(0.0F, -6.0F, 4.25F);
+        this.Cloth1.addBox(-4.0F, -2.0F, 0.0F, 8, 8, 0, 0.0F);
+        this.setRotateAngle(Cloth1, 0.17453292519943295F, 0.0F, 0.0F);
+        this.RightLeg = new ModelRenderer(this, 0, 22);
+        this.RightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
+        this.RightLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F);
+        this.RightArm = new ModelRenderer(this, 44, 22);
+        this.RightArm.setRotationPoint(-5.0F, 2.0F, 0.0F);
+        this.RightArm.addBox(-3.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F);
+        this.setRotateAngle(RightArm, -1.3089969389957472F, 0.08726646259971647F, 0.0F);
+        this.Body = new ModelRenderer(this, 16, 20);
+        this.Body.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.Body.addBox(-4.0F, 0.0F, -3.0F, 8, 12, 6, 0.0F);
+        this.LeftArm = new ModelRenderer(this, 44, 22);
+        this.LeftArm.mirror = true;
+        this.LeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
+        this.LeftArm.addBox(-1.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F);
+        this.setRotateAngle(LeftArm, -1.3089969389957472F, -0.08726646259971647F, 0.0F);
+        this.LeftLeg = new ModelRenderer(this, 0, 22);
+        this.LeftLeg.mirror = true;
+        this.LeftLeg.setRotationPoint(2.0F, 12.0F, 0.0F);
+        this.LeftLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F);
+        this.Hat = new ModelRenderer(this, 32, 0);
+        this.Hat.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.Hat.addBox(-4.0F, -10.0F, -4.0F, 8, 10, 8, 0.25F);
+        this.Cloth3 = new ModelRenderer(this, 54, 38);
+        this.Cloth3.setRotationPoint(1.0F, 4.0F, 2.0F);
+        this.Cloth3.addBox(-1.0F, -6.0F, 0.0F, 2, 12, 3, 0.0F);
+        this.RightArm.addChild(this.Cloth2);
+        this.LeftArm.addChild(this.Cloth3);
     }
 
-    public ModelMummyVillager(float p_i1165_1_, float p_i1165_2_, boolean p_i1165_3_) {
-        super(p_i1165_1_, 0.0F, 64, p_i1165_3_ ? 32 : 64);
-
-        if (p_i1165_3_) {
-            this.bipedHead = new ModelRenderer(this, 0, 0);
-            this.bipedHead.addBox(-4.0F, -10.0F, -4.0F, 8, 8, 8, p_i1165_1_);
-            this.bipedHead.setRotationPoint(0.0F, 0.0F + p_i1165_2_, 0.0F);
-            this.bipedBody = new ModelRenderer(this, 16, 16);
-            this.bipedBody.setRotationPoint(0.0F, 0.0F + p_i1165_2_, 0.0F);
-            this.bipedBody.addBox(-4.0F, 0.0F, -2.0F, 8, 12, 4, p_i1165_1_ + 0.1F);
-            this.bipedRightLeg = new ModelRenderer(this, 0, 16);
-            this.bipedRightLeg.setRotationPoint(-2.0F, 12.0F + p_i1165_2_, 0.0F);
-            this.bipedRightLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, p_i1165_1_ + 0.1F);
-            this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
-            this.bipedLeftLeg.mirror = true;
-            this.bipedLeftLeg.setRotationPoint(2.0F, 12.0F + p_i1165_2_, 0.0F);
-            this.bipedLeftLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, p_i1165_1_ + 0.1F);
-        } else {
-            this.bipedHead = new ModelRenderer(this, 0, 0);
-            this.bipedHead.setRotationPoint(0.0F, p_i1165_2_, 0.0F);
-            this.bipedHead.setTextureOffset(0, 0).addBox(-4.0F, -10.0F, -4.0F, 8, 10, 8, p_i1165_1_);
-            this.bipedHead.setTextureOffset(24, 0).addBox(-1.0F, -3.0F, -6.0F, 2, 4, 2, p_i1165_1_);
-            this.bipedBody = new ModelRenderer(this, 16, 20);
-            this.bipedBody.setRotationPoint(0.0F, 0.0F + p_i1165_2_, 0.0F);
-            this.bipedBody.addBox(-4.0F, 0.0F, -3.0F, 8, 12, 6, p_i1165_1_);
-            this.bipedBody.setTextureOffset(0, 38).addBox(-4.0F, 0.0F, -3.0F, 8, 18, 6, p_i1165_1_ + 0.05F);
-            this.bipedRightArm = new ModelRenderer(this, 44, 38);
-            this.bipedRightArm.addBox(-3.0F, -2.0F, -2.0F, 4, 12, 4, p_i1165_1_);
-            this.bipedRightArm.setRotationPoint(-5.0F, 2.0F + p_i1165_2_, 0.0F);
-            this.bipedLeftArm = new ModelRenderer(this, 44, 38);
-            this.bipedLeftArm.mirror = true;
-            this.bipedLeftArm.addBox(-1.0F, -2.0F, -2.0F, 4, 12, 4, p_i1165_1_);
-            this.bipedLeftArm.setRotationPoint(5.0F, 2.0F + p_i1165_2_, 0.0F);
-            this.bipedRightLeg = new ModelRenderer(this, 0, 22);
-            this.bipedRightLeg.setRotationPoint(-2.0F, 12.0F + p_i1165_2_, 0.0F);
-            this.bipedRightLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, p_i1165_1_);
-            this.bipedLeftLeg = new ModelRenderer(this, 0, 22);
-            this.bipedLeftLeg.mirror = true;
-            this.bipedLeftLeg.setRotationPoint(2.0F, 12.0F + p_i1165_2_, 0.0F);
-            this.bipedLeftLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, p_i1165_1_);
-        }
+    @Override
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        this.Head.render(f5);
+        this.Cloth4.render(f5);
+        this.Nose.render(f5);
+        this.Cloth1.render(f5);
+        this.RightLeg.render(f5);
+        this.RightArm.render(f5);
+        this.Body.render(f5);
+        this.LeftArm.render(f5);
+        this.LeftLeg.render(f5);
+        this.Hat.render(f5);
     }
 
     /**
-     * Sets the model's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms
-     * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
-     * "far" arms and legs can swing at most.
+     * This is a helper function from Tabula to set the rotation of model parts
      */
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        EntityMummy entityMummy = (EntityMummy) entityIn;
-        float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-        float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
-        this.bipedRightArm.rotateAngleZ = 0.0F;
-        this.bipedLeftArm.rotateAngleZ = 0.0F;
-        this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
-        this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
-        float f2 = -(float) Math.PI / (entityMummy.isArmsRaised() ? 1.5F : 2.25F);
-        this.bipedRightArm.rotateAngleX = f2;
-        this.bipedLeftArm.rotateAngleX = f2;
-        this.bipedRightArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-        this.bipedLeftArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-        this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-        this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-        this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-        this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.rotateAngleX = x;
+        modelRenderer.rotateAngleY = y;
+        modelRenderer.rotateAngleZ = z;
     }
-
 
 }

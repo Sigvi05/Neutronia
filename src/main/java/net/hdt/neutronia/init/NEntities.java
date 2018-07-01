@@ -20,11 +20,22 @@ public class NEntities {
 
     private static int entityID = 0;
 
+    @GameRegistry.ObjectHolder(MOD_ID + ":necro")
+    public static VillagerRegistry.VillagerProfession necroProfession = null; // will be assigned by forge during init
+    @GameRegistry.ObjectHolder(MOD_ID + ":adventurer")
+    public static VillagerRegistry.VillagerProfession adventurerProfession = null; // will be assigned by forge during init
+    @GameRegistry.ObjectHolder(MOD_ID + ":miner")
+    public static VillagerRegistry.VillagerProfession minerProfession = null; // will be assigned by forge during init
+    @GameRegistry.ObjectHolder(MOD_ID + ":scuba_diver")
+    public static VillagerRegistry.VillagerProfession scubaDiverProfession = null; // will be assigned by forge during init
+    @GameRegistry.ObjectHolder(MOD_ID + ":drowned_scuba_diver")
+    public static VillagerRegistry.VillagerProfession drownedScubaDiverProfession = null; // will be assigned by forge during init
+
     @SubscribeEvent
     public static void RegisterEntitys(RegistryEvent.Register<EntityEntry> event) {
         final EntityEntry[] entries = {
                 createBuilder("mummy").entity(EntityMummy.class).tracker(80, 3, true).egg(0xC9CE92, 0x444444).build(),
-//                createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
+                createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
 //                createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
                 createBuilder("phantom").entity(EntityPhantom.class).tracker(80, 3, true).egg(0x2d3f56, 0x958c79).build(),
                 createBuilder("red_phantom").entity(EntityBloodPhantom.class).tracker(80, 3, true).egg(0x4A2929, 0x799591).build(),
@@ -34,7 +45,7 @@ public class NEntities {
 //                createBuilder("ravenous_killer_squid").entity(EntityMonsterOfTheOceanDepths.class).tracker(80, 3, true).egg(0x03002e, 0x060081).build(),
 //                createBuilder("turtle").entity(EntitySeaTurtle.class).tracker(80, 3, true).egg(0xFFFFFF, 0x13232B).build(),
                 createBuilder("drowned").entity(EntityDrowned.class).tracker(80, 3, true).egg(0x86e2ca, 0x617d51).build(),
-//                createBuilder("scuba_divers").entity(EntityScubaDivers.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
+//                createBuilder("scuba_divers").entity(EntityScubaDiver.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
 //                createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
 //                createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
                 createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
@@ -58,10 +69,12 @@ public class NEntities {
 
     @SubscribeEvent
     public static void registerNewVillagerProffesions(RegistryEvent.Register<VillagerRegistry.VillagerProfession> event) {
-        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/miner").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/miner").toString()));
-        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/explorer").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/explorer").toString()));
-        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/magician").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/magician").toString()));
-        event.getRegistry().register(new VillagerRegistry.VillagerProfession(new ResourceLocation(MOD_ID, "guardian").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/guardian").toString(), new ResourceLocation(MOD_ID, "textures/entities/villagers/zombie/guard").toString()));
+        event.getRegistry().registerAll(
+                new VillagerRegistry.VillagerProfession(MOD_ID + ":necro", MOD_ID + ":textures/entities/villagers/professions/necro", MOD_ID + ":textures/entities/villagers/professions/zombie/necro"),
+                new VillagerRegistry.VillagerProfession(MOD_ID + ":adventurer", MOD_ID + ":textures/entities/villagers/professions/adventurer", MOD_ID + ":textures/entities/villagers/professions/zombie/adventurer"),
+                new VillagerRegistry.VillagerProfession(MOD_ID + ":miner", MOD_ID + ":textures/entities/villagers/professions/miner", MOD_ID + ":textures/entities/villagers/professions/zombie/miner"),
+                new VillagerRegistry.VillagerProfession(MOD_ID + ":scuba_diver", MOD_ID + ":textures/entities/villagers/professions/scuba_diver", MOD_ID + ":textures/entities/villagers/professions/zombie/scuba_diver"),
+                new VillagerRegistry.VillagerProfession(MOD_ID + ":drowned_scuba_diver", MOD_ID + ":textures/entities/villagers/professions/drowned_scuba_diver", MOD_ID + ":textures/entities/villagers/professions/zombie/drowned_scuba_diver"));
     }
 
     private static void addSpawns() {

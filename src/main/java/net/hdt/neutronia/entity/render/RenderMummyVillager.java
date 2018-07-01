@@ -16,6 +16,7 @@ public class RenderMummyVillager extends RenderBiped<EntityMummyVillager> {
     private static final ResourceLocation ZOMBIE_VILLAGER_PRIEST_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/priest.png");
     private static final ResourceLocation ZOMBIE_VILLAGER_SMITH_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/smith.png");
     private static final ResourceLocation ZOMBIE_VILLAGER_BUTCHER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/butcher.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_GENERIC_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/generic.png");
 
     public RenderMummyVillager(RenderManager renderManagerIn) {
         super(renderManagerIn, new ModelMummyVillager(), 0.5F);
