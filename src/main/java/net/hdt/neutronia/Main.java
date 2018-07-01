@@ -22,7 +22,6 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
@@ -30,19 +29,18 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import static net.hdt.neutronia.util.Reference.*;
 
-@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, useMetadata = true)
+@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, updateJSON = UPDATE_JSON)
 public class Main implements IModData {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
-    public static CreativeTab OVERWORLD_EXPANSION_TAB = new CreativeTab("Overworld Expansion");
-    public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Nether Expansion");
-    public static CreativeTabs END_EXPANSION_TAB = new CreativeTabs("end_expansion") {
+    public static CreativeTab OVERWORLD_EXPANSION_TAB = new CreativeTab("Overworld Expansion", true);
+    public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Nether Expansion", true);
+    public static CreativeTab END_EXPANSION_TAB = new CreativeTab("End Expansion", false) {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Item.getItemFromBlock(Blocks.END_BRICKS));
@@ -54,7 +52,7 @@ public class Main implements IModData {
             return new ItemStack(Items.COOKED_BEEF);
         }
     };*/
-    public static CreativeTab ITEM_EXPANSION_TAB = new CreativeTab("Item Expansion");
+    public static CreativeTab ITEM_EXPANSION_TAB = new CreativeTab("Item Expansion", true);
 
     @Mod.Instance
     public static Main instance;
@@ -65,7 +63,6 @@ public class Main implements IModData {
     private static List<ILifeCycleHandler> handlers = new ArrayList<ILifeCycleHandler>(){{
         add(new WorldHandler());
     }};
-    public static final File CONFIG_DIRECTORY = Loader.instance().getConfigDir();
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {

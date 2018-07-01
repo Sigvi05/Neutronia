@@ -10,13 +10,14 @@ public class CreativeTab extends CreativeTabs {
 
     private String title = "";
 
-    private ItemStack icon = ItemStack.EMPTY;
-    private boolean displayRandom = true;
+    private ItemStack icon = getTabIconItem();
+    private boolean displayRandom;
     private int tempIndex = 0;
     private ItemStack tempDisplayStack = ItemStack.EMPTY;
 
-    public CreativeTab(String label) {
+    public CreativeTab(String label, boolean displayRandom) {
         super(label);
+        this.displayRandom = displayRandom;
     }
 
     @Override

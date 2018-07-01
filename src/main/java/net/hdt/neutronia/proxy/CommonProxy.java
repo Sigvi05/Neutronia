@@ -51,4 +51,8 @@ public class CommonProxy {
 
     }
 
+    public float getPartialTicks() {
+        return 0.0F;
+    }
+
 }

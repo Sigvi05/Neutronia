@@ -50,7 +50,7 @@ public class WorldGenUtils {
         boolean corner1 = isCornerValid(world, posAboveGround);
         boolean corner2 = isCornerValid(world, posAboveGround.add(xwidth, 0, zwidth));
 
-        // if Y > 20 and all corners pass the test, it's okay to spawn the structure
+        // if Y > 20 and all corners pass the moon, it's okay to spawn the structure
         return posAboveGround.getY() > 31 && corner1 && corner2;
     }
 

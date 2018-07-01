@@ -1,6 +1,5 @@
 package net.hdt.neutronia.events;
 
-import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -41,7 +40,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
-@Mod.EventBusSubscriber
+import static net.hdt.neutronia.util.Reference.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID)
 public class EventHandler {
 
     private List<String> allowedBlocks;
@@ -220,7 +221,7 @@ public class EventHandler {
         int dungeonType = rand.nextInt(10);
 
         MinecraftServer server = world.getMinecraftServer();
-        Template template = world.getStructureTemplateManager().getTemplate(server, new ResourceLocation(Reference.MOD_ID, "dungeon_" + dungeonType));
+        Template template = world.getStructureTemplateManager().getTemplate(server, new ResourceLocation(MOD_ID, "dungeon_" + dungeonType));
         PlacementSettings settings = new PlacementSettings();
         settings.setRotation(Rotation.values()[rand.nextInt(Rotation.values().length)]);
 
@@ -253,7 +254,7 @@ public class EventHandler {
                     if (Loader.isModLoaded("dungeontweaks")) {
                         try {
                             Constructor<? extends Event> constructor = (Constructor<? extends Event>) Class.forName("com.EvilNotch.dungeontweeks.main.Events.EventDungeon$Post").getConstructor(TileEntity.class, BlockPos.class, Random.class, ResourceLocation.class, World.class);
-                            Event event = constructor.newInstance(tile, tile.getPos(), world.rand, new ResourceLocation(Reference.MOD_ID, "dungeon"), world);
+                            Event event = constructor.newInstance(tile, tile.getPos(), world.rand, new ResourceLocation(MOD_ID, "dungeon"), world);
                             MinecraftForge.EVENT_BUS.post(event);
                         } catch (Throwable t) {
                             t.printStackTrace();

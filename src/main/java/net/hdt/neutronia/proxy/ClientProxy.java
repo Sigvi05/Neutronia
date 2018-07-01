@@ -1,26 +1,39 @@
 package net.hdt.neutronia.proxy;
 
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.gson.Gson;
+import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
+import net.hdt.neutronia.client.events.ClientEventHandler;
 import net.hdt.neutronia.client.rendering.ResourceProxy;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.util.LibObfuscation;
+import net.hdt.neutronia.util.WebUtils;
 import net.hdt.neutronia.util.handlers.EntityEventHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.util.Timer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ClientProxy extends CommonProxy {
 
     private static ResourceProxy resourceProxy;
+    public static final Minecraft minecraft = Minecraft.getMinecraft();
+    public static final int updateButtonID = "updateButtonID".hashCode();
+    public static final Set<String> patrons = new HashSet<>();
+    public static final Timer timer = ReflectionHelper.getPrivateValue(Minecraft.class, ClientProxy.minecraft, "timer", "field_71428_T", "aa");
 
     static {
         List<IResourcePack> packs = ReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), LibObfuscation.DEFAULT_RESOURCE_PACKS);
@@ -31,6 +44,18 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
+        ListenableFuture<String> patronFuture = WebUtils.readURLAsync("https://gist.githubusercontent.com/sindrefag/ab5f86cd67e735e6df1d503c162334f1/raw/e6d05aad4da42b81abd51849564d8bb129647d57/patrons.json");
+        patronFuture.addListener(() -> {
+            try {
+                String result = patronFuture.get();
+                if (result != null) {
+                    Collections.addAll(patrons, new Gson().fromJson(result, String[].class));
+                }
+            } catch (Exception e) {
+                Main.LOGGER.error("Failed to load Patron list", e);
+            }
+        }, Runnable::run);
+        MinecraftForge.EVENT_BUS.register(ClientEventHandler.INSTANCE);
         MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 
         overrideBlock("stone_granite", true);
@@ -88,6 +113,11 @@ public class ClientProxy extends CommonProxy {
     private void overrideBlock(String str, boolean flag) {
         if (flag)
             addResourceOverride("textures", "blocks", str, "png");
+    }
+
+    @Override
+    public float getPartialTicks() {
+        return ClientProxy.timer.renderPartialTicks;
     }
 
 }

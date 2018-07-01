@@ -119,7 +119,7 @@ public class JsonGenerator {
 //            genSlabBlock(modid, newStoneVariants.getName() + "_slab", newStoneVariants.getName(), newStoneVariants.getName());
         }
 
-//        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a test file", "This is the credits things", " ", " ");
+//        genModInfo(modid, "Neutronia", "0.0.1", "1.12.2", new String[]{"TheGamingHuskyMC"}, new String[]{""}, " ", "This is a moon file", "This is the credits things", " ", " ");
 
         for(EnumDyeColor color : EnumDyeColor.values()) {
 //            genOrientedBlock(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar_top", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()), String.format("%s_glazed_terracotta_pillar", color.getName()));
@@ -1489,7 +1489,7 @@ public class JsonGenerator {
         String json = gson.toJson(root);
 
         try {
-            FileUtils.writeStringToFile(base.resolve("test.info").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve("moon.info").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
             System.out.print("Error creating file mcmod file" + "\n");
         }
