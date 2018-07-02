@@ -317,7 +317,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v3.");
-        root.addProperty("parent", "neutronia:block/coral_fan");
+        root.addProperty("parent", "neutronia:block/coralFan");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("fan", modId + ":blocks/" + textureName);

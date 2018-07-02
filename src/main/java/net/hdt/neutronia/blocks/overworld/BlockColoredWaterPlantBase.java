@@ -98,7 +98,7 @@ public class BlockColoredWaterPlantBase extends BlockModBush {
 
     @Override
     public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side) {
-        if (this == NBlocks.coral_fan[getColor().getMetadata()] || this == NBlocks.dead_coral_fan[getColor().getMetadata()]) {
+        if (this == NBlocks.coralFan[getColor().getMetadata()] || this == NBlocks.deadCoralFan[getColor().getMetadata()]) {
             return side != EnumFacing.DOWN && side != EnumFacing.UP;
         } else {
             return true;

@@ -69,12 +69,12 @@ public class NEntities {
 
     @SubscribeEvent
     public static void registerNewVillagerProffesions(RegistryEvent.Register<VillagerRegistry.VillagerProfession> event) {
-        event.getRegistry().registerAll(
+        /*event.getRegistry().registerAll(
                 new VillagerRegistry.VillagerProfession(MOD_ID + ":necro", MOD_ID + ":textures/entities/villagers/professions/necro", MOD_ID + ":textures/entities/villagers/professions/zombie/necro"),
                 new VillagerRegistry.VillagerProfession(MOD_ID + ":adventurer", MOD_ID + ":textures/entities/villagers/professions/adventurer", MOD_ID + ":textures/entities/villagers/professions/zombie/adventurer"),
                 new VillagerRegistry.VillagerProfession(MOD_ID + ":miner", MOD_ID + ":textures/entities/villagers/professions/miner", MOD_ID + ":textures/entities/villagers/professions/zombie/miner"),
                 new VillagerRegistry.VillagerProfession(MOD_ID + ":scuba_diver", MOD_ID + ":textures/entities/villagers/professions/scuba_diver", MOD_ID + ":textures/entities/villagers/professions/zombie/scuba_diver"),
-                new VillagerRegistry.VillagerProfession(MOD_ID + ":drowned_scuba_diver", MOD_ID + ":textures/entities/villagers/professions/drowned_scuba_diver", MOD_ID + ":textures/entities/villagers/professions/zombie/drowned_scuba_diver"));
+                new VillagerRegistry.VillagerProfession(MOD_ID + ":drowned_scuba_diver", MOD_ID + ":textures/entities/villagers/professions/drowned_scuba_diver", MOD_ID + ":textures/entities/villagers/professions/zombie/drowned_scuba_diver"));*/
     }
 
     private static void addSpawns() {

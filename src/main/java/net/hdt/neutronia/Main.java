@@ -15,10 +15,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.item.crafting.*;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -74,8 +71,8 @@ public class Main implements IModData {
         for (ResourceLocation res : recipeList) {
             IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
             ItemStack out = recipe.getRecipeOutput();
-            if (recipe instanceof ShapedRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.TRAPDOOR))) {
-                ShapedRecipes shaped = (ShapedRecipes) recipe;
+            if (recipe instanceof ShapelessRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.WOODEN_PRESSURE_PLATE))) {
+                ShapelessRecipes shaped = (ShapelessRecipes) recipe;
                 NonNullList<Ingredient> ingredients = shaped.recipeItems;
                 for (int i = 0; i < ingredients.size(); i++) {
                     Ingredient ingr = ingredients.get(i);
@@ -83,24 +80,25 @@ public class Main implements IModData {
                         ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.PLANKS, 1, 0)));
                         out.setCount(6);
                     }
+                    if (ingr.apply(ProxyRegistry.newStack(Blocks.LOG))) {
+                        ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.LOG, 1, 0)));
+                        out.setCount(6);
+                    }
                 }
             }
-            if (recipe instanceof ShapedRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.CHEST) || out.getItem() == Item.getItemFromBlock(Blocks.TRAPPED_CHEST))) {
-                ShapedRecipes shaped = (ShapedRecipes) recipe;
+            if (recipe instanceof ShapelessRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.WOODEN_BUTTON))) {
+                ShapelessRecipes shaped = (ShapelessRecipes) recipe;
                 NonNullList<Ingredient> ingredients = shaped.recipeItems;
                 for (int i = 0; i < ingredients.size(); i++) {
                     Ingredient ingr = ingredients.get(i);
-                    if (ingr.apply(ProxyRegistry.newStack(Blocks.PLANKS)))
+                    if (ingr.apply(ProxyRegistry.newStack(Blocks.PLANKS))) {
                         ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.PLANKS, 1, 0)));
-                }
-            }
-            if (recipe instanceof ShapedRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.BOOKSHELF))) {
-                ShapedRecipes shaped = (ShapedRecipes) recipe;
-                NonNullList<Ingredient> ingredients = shaped.recipeItems;
-                for (int i = 0; i < ingredients.size(); i++) {
-                    Ingredient ingr = ingredients.get(i);
-                    if (ingr.apply(ProxyRegistry.newStack(Blocks.PLANKS)))
-                        ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.PLANKS, 1, 0)));
+                        out.setCount(6);
+                    }
+                    if (ingr.apply(ProxyRegistry.newStack(Blocks.LOG))) {
+                        ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.LOG, 1, 0)));
+                        out.setCount(6);
+                    }
                 }
             }
         }

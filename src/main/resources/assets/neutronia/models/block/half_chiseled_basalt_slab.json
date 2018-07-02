@@ -3,7 +3,7 @@
   "parent": "neutronia:block/slab",
   "textures": {
     "bottom": "neutronia:blocks/chiseled_basalt",
-    "side": "neutronia:blocks/chiseled_basalt",
+    "side": "neutronia:blocks/basalt_bricks",
     "top": "neutronia:blocks/chiseled_basalt"
   }
 }

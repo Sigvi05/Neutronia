@@ -4,7 +4,7 @@ import net.minecraft.util.IStringSerializable;
 
 public enum EnumCoralTypes implements IStringSerializable {
 
-    BRAIN_CORAL(0, "brain_coral"),
+    BRAIN_CORAL(0, "brainCoral"),
     ELEGANCE_CORAL(1, "elegance_coral"),
     FIRE_CORAL(2, "fire_coral"),
     SEA_GRASS(3, "sea_grass"),

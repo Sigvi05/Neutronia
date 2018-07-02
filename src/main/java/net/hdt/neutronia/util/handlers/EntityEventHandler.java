@@ -6,7 +6,7 @@ import net.hdt.neutronia.entity.render.model.ModelNecro;
 import net.hdt.neutronia.entity.render.model.ModelScubaVillager;
 import net.hdt.neutronia.init.NEntities;
 import net.hdt.neutronia.util.Reference;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelVillager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntitySquid;
@@ -34,6 +34,7 @@ public class EntityEventHandler {
     private static final ModelNecro necroModel = new ModelNecro();
     private static final ModelScubaVillager scubaVillagerModel = new ModelScubaVillager();
     private static final ModelDrownedScubaVillager drownedScubaVillagerModel = new ModelDrownedScubaVillager();
+    private static final ModelVillager defaultVillagerModel = new ModelVillager(0.0F);
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
@@ -68,13 +69,16 @@ public class EntityEventHandler {
 
     @SubscribeEvent
     public static void postRenderLivingEvent(RenderLivingEvent.Post<EntityVillager> event) {
-
-        EntityVillager villager = new EntityVillager(Minecraft.getMinecraft().world);
-
-        if(event.getEntity() instanceof EntityVillager) {
-            if(villager.getProfession() == villager.getProfessionForge().getCareer(6).hashCode()) {
-                event.getRenderer().getMainModel().setModelAttributes(new ModelScubaVillager());
-            }
+        Entity e = event.getEntity();
+        if(e instanceof EntityVillager) {
+            EntityVillager villager = (EntityVillager)e;
+            VillagerRegistry.VillagerProfession prof = villager.getProfessionForge();
+            if (prof == NEntities.necroProfession)
+                event.getRenderer().mainModel = defaultVillagerModel;
+            else if(prof == NEntities.scubaDiverProfession)
+                event.getRenderer().mainModel = defaultVillagerModel;
+            else if(prof == NEntities.drownedScubaDiverProfession)
+                event.getRenderer().mainModel = defaultVillagerModel;
         }
     }
 

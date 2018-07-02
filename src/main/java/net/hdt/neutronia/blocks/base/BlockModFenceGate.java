@@ -17,8 +17,8 @@ public class BlockModFenceGate extends BlockFenceGate implements IModBlock {
     private final String[] variants;
     private final String bareName;
 
-    public BlockModFenceGate(String name) {
-        super(BlockPlanks.EnumType.DARK_OAK);
+    public BlockModFenceGate(BlockPlanks.EnumType woodType, String name) {
+        super(woodType);
 
         setHardness(3.0F);
         setSoundType(SoundType.WOOD);

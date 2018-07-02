@@ -202,7 +202,7 @@ public class BlockKelp extends BlockOverworldBase {
 	}
 
 	public BlockKelp() {
-		super(Material.WATER, "kelp");
+		super(Material.WATER, "kelp", false);
 		this.setSoundType(SoundType.SAND);
 		this.setHardness(0.5f);
 		this.setHarvestLevel("shovel", 0);
