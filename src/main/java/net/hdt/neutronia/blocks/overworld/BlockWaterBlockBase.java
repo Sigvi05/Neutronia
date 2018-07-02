@@ -22,7 +22,7 @@ public class BlockWaterBlockBase extends BlockMod {
 
     public BlockWaterBlockBase(String name) {
         super(Material.CORAL, Reference.MOD_ID, name);
-        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.OCEAN_EXPANSION_TAB);
     }
 
     @Override

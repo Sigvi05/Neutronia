@@ -1,6 +1,7 @@
 package net.hdt.neutronia.world.biome.overworld;
 
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.properties.EnumNewStoneVariants;
 import net.hdt.neutronia.world.biome.overworld.decorator.BiomeDesertDecorator;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -21,7 +22,7 @@ public class BiomeBlackDesert extends Biome {
     public BiomeBlackDesert() {
         super((new BiomeProperties("Black Desert")).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setWaterColor(0x1b1b1b).setRainDisabled());
         topBlock = NBlocks.blackSand.getDefaultState();
-        fillerBlock = NBlocks.newStoneVariants[2].getDefaultState();
+        fillerBlock = NBlocks.newStoneVariants[EnumNewStoneVariants.BASALT_COBBLE.getMetadata()].getDefaultState();
         setMobSpawns();
     }
 

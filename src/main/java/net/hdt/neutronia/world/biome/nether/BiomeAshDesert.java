@@ -9,7 +9,7 @@ public class BiomeAshDesert extends BiomeLibEx {
 
     public BiomeAshDesert() {
         super(Main.instance, new BiomeProperties("Ash Desert").setTemperature(2.0F).setRainfall(0.0F).setRainDisabled(), "ash_desert");
-        topBlock = NBlocks.netherBlocks[0].getDefaultState();
+        topBlock = NBlocks.ash.getDefaultState();
         fillerBlock = Blocks.NETHERRACK.getDefaultState();
     }
 

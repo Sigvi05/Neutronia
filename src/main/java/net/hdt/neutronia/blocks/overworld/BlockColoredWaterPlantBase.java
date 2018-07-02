@@ -39,7 +39,7 @@ public class BlockColoredWaterPlantBase extends BlockModBush {
         this.color = coralColor;
         setTickRandomly(false);
         setSoundType(SoundType.PLANT);
-        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.OCEAN_EXPANSION_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 

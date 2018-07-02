@@ -20,7 +20,7 @@ public class ItemBandage extends ItemMod {
 
     public ItemBandage() {
         super("bandage", Reference.MOD_ID);
-        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.ITEM_EXPANSION_TAB);
     }
 
     @Override

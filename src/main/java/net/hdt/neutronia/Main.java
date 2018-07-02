@@ -15,7 +15,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.*;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,21 +38,23 @@ import static net.hdt.neutronia.util.Reference.*;
 public class Main implements IModData {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
-    public static CreativeTab OVERWORLD_EXPANSION_TAB = new CreativeTab("Overworld Expansion", true);
-    public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Nether Expansion", true);
-    public static CreativeTab END_EXPANSION_TAB = new CreativeTab("End Expansion", false) {
+    public static CreativeTab OVERWORLD_EXPANSION_TAB = new CreativeTab("Neutronia: Overworld", true);
+    public static CreativeTab OCEAN_EXPANSION_TAB = new CreativeTab("Neutronia: Ocean", true);
+    public static CreativeTab WOOD_EXPANSION_TAB = new CreativeTab("Neutronia: Wood", true);
+    public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Neutronia: Nether", true);
+    public static CreativeTab END_EXPANSION_TAB = new CreativeTab("Neutronia: End", false) {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Item.getItemFromBlock(Blocks.END_BRICKS));
         }
     };
-    /*public static CreativeTab FOOD_EXPANSION_TAB = new CreativeTab("Food Expansion") {
+    /*public static CreativeTab FOOD_EXPANSION_TAB = new CreativeTab("Neutronia: Food", false) {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Items.COOKED_BEEF);
         }
     };*/
-    public static CreativeTab ITEM_EXPANSION_TAB = new CreativeTab("Item Expansion", true);
+    public static CreativeTab ITEM_EXPANSION_TAB = new CreativeTab("Neutronia: Items", true);
 
     @Mod.Instance
     public static Main instance;
@@ -66,6 +71,9 @@ public class Main implements IModData {
         MinecraftForge.EVENT_BUS.register(ColoredLights.class);
         MinecraftForge.EVENT_BUS.register(NBlocks.class);
         MinecraftForge.EVENT_BUS.register(NItems.class);
+//        MinecraftForge.TERRAIN_GEN_BUS.register(RevampStoneGen.class);
+//        RevampStoneGen stoneGen = new RevampStoneGen();
+//        stoneGen.preInit(event);
 
         List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
         for (ResourceLocation res : recipeList) {

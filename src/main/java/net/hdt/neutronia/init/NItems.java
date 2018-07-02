@@ -7,6 +7,7 @@ import net.hdt.neutronia.items.base.tools.BasePickaxe;
 import net.hdt.neutronia.items.base.tools.BaseShovel;
 import net.hdt.neutronia.items.base.tools.BaseSword;
 import net.minecraft.block.BlockPlanks;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -57,34 +58,37 @@ public class NItems {
     public static Item[] jellybean = new Item[23];
 
     static {
+
+        CreativeTabs tab = Main.ITEM_EXPANSION_TAB;
+
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();
-//        witherBone = new ItemBase("wither_bone", Main.ITEM_EXPANSION_TAB);
-//        witherBonemeal = new ItemBase("wither_bonemeal", Main.ITEM_EXPANSION_TAB);
-//        driedKelp = new ItemFood("dried_kelp", Main.ITEM_EXPANSION_TAB, 1, false);
-//        stinger = new ItemBase("stinger", Main.ITEM_EXPANSION_TAB);
-//        chitin = new ItemBase("chitin", Main.ITEM_EXPANSION_TAB);
+//        witherBone = new ItemBase("wither_bone", tab);
+//        witherBonemeal = new ItemBase("wither_bonemeal", tab);
+//        driedKelp = new ItemFood("dried_kelp", tab, 1, false);
+//        stinger = new ItemBase("stinger", tab);
+//        chitin = new ItemBase("chitin", tab);
         phantomMembrane = new ItemPhantomMembrane();
-        nautilusShell = new ItemBase("nautilus_shell", Main.ITEM_EXPANSION_TAB);
-        heartOfTheSea = new ItemBase("heart_of_the_sea", Main.ITEM_EXPANSION_TAB);
-        heartOfTheNether = new ItemBase("heart_of_the_nether", Main.ITEM_EXPANSION_TAB);
-        heartOfTheEnd = new ItemBase("heart_of_the_end", Main.ITEM_EXPANSION_TAB);
-        scute = new ItemBase("scute", Main.ITEM_EXPANSION_TAB);
-//        rawSeaweed = new ItemBase("raw_seaweed", Main.ITEM_EXPANSION_TAB);
+        nautilusShell = new ItemBase("nautilus_shell", tab);
+        heartOfTheSea = new ItemBase("heart_of_the_sea", tab);
+        heartOfTheNether = new ItemBase("heart_of_the_nether", tab);
+        heartOfTheEnd = new ItemBase("heart_of_the_end", tab);
+        scute = new ItemBase("scute", tab);
+//        rawSeaweed = new ItemBase("raw_seaweed", tab);
 
-        /*AXE_CHITIN = new BaseAxe("axe_chitin", CAXE);
-        PICKAXE_CHITIN = new BasePickaxe("pickaxe_chitin", CPICK);
-        HOE_CHITIN = new BaseHoe("hoe_chitin", CHOE);
-        SHOVEL_CHITIN = new BaseShovel("shovel_chitin", CSHOVEL);
-        SWORD_CHITIN = new BaseSword("sword_chitin", CSWORD);*/
+        /*AXE_CHITIN = new BaseAxe("axe_chitin", CAXE).setCreativeTab(tab);
+        PICKAXE_CHITIN = new BasePickaxe("pickaxe_chitin", CPICK).setCreativeTab(tab);
+        HOE_CHITIN = new BaseHoe("hoe_chitin", CHOE).setCreativeTab(tab);
+        SHOVEL_CHITIN = new BaseShovel("shovel_chitin", CSHOVEL).setCreativeTab(tab);
+        SWORD_CHITIN = new BaseSword("sword_chitin", CSWORD).setCreativeTab(tab);*/
 
-        OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSDIDIAN);
-        OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSDIDIAN);
-        OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSDIDIAN);
-        OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSDIDIAN);
+        OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSDIDIAN).setCreativeTab(tab);
+        OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSDIDIAN).setCreativeTab(tab);
+        OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSDIDIAN).setCreativeTab(tab);
+        OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSDIDIAN).setCreativeTab(tab);
 
-//        rawDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_raw", Main.ITEM_EXPANSION_TAB, 10, 9.6F, true);
-//        cookedDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_cooked", Main.ITEM_EXPANSION_TAB, 20, 20F, true);
+//        rawDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_raw", tab, 10, 9.6F, true);
+//        cookedDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_cooked", tab, 20, 20F, true);
 
         woodSpear = new ItemSpear("wood_spear", Item.ToolMaterial.WOOD).setCreativeTab(null);
         stoneSpear = new ItemSpear("stone_spear", Item.ToolMaterial.STONE).setCreativeTab(null);
@@ -97,7 +101,7 @@ public class NItems {
         for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
 //            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
 //            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
-            barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), Main.ITEM_EXPANSION_TAB);
+            barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), tab);
         }
 
     }

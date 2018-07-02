@@ -27,7 +27,6 @@ minecraft {
     runDir = "run"
     mappings = "${mcp_mappings}"
     makeObfSourceJar = false
-    useDepAts = true
 }
 
 configurations {
@@ -62,8 +61,6 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
-
-    rename '(.+_at.cfg)', 'META-INF/$1'
 }
 
 jar {

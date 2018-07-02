@@ -28,7 +28,7 @@ public class BlockColoredWaterBlockBase extends BlockMod {
     public BlockColoredWaterBlockBase(EnumCoralColor colorIn, String name) {
         super(Material.CORAL, Reference.MOD_ID, colorIn + "_" + name);
         this.color = colorIn;
-        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(Main.OCEAN_EXPANSION_TAB);
     }
 
     @SideOnly(Side.CLIENT)

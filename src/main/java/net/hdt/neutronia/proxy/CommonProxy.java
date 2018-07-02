@@ -9,8 +9,6 @@ import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.hdt.neutronia.tileentity.TileEntityFloorTile;
 import net.hdt.neutronia.tileentity.TileEntityNeonLight;
-import net.hdt.neutronia.world.gen.BasaltGenerator;
-import net.hdt.neutronia.world.gen.OreGen;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -32,9 +30,9 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent event) {
 //        NRecipes.register();
-        GameRegistry.registerWorldGenerator(new OreGen(), 0);
+//        GameRegistry.registerWorldGenerator(new OreGen(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
-        GameRegistry.registerWorldGenerator(new BasaltGenerator(33, 80, 10, 1), 0);
+//        GameRegistry.registerWorldGenerator(new BasaltGenerator(33, 80, 10, 1), 0);
         GameRegistry.registerTileEntity(TileCustomChest.class, "neutronia:custom_chest");
         GameRegistry.registerTileEntity(TileEntityFloorTile.class, "neutronia:floor_tile");
 //        GameRegistry.registerTileEntity(TileEntityPotteryClayMachine.class, "neutronia:pottery_clay_machine");
