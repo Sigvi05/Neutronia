@@ -10,13 +10,13 @@ import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 public class RenderMummyVillager extends RenderBiped<EntityMummyVillager> {
 
-    private static final ResourceLocation ZOMBIE_VILLAGER_TEXTURES = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/villager.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_FARMER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/farmer.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_LIBRARIAN_LOC = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/librarian.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_PRIEST_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/priest.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_SMITH_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/smith.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_BUTCHER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/butcher.png");
-    private static final ResourceLocation ZOMBIE_VILLAGER_GENERIC_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/generic.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_TEXTURES = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_villager.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_FARMER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_farmer.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_LIBRARIAN_LOC = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_librarian.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_PRIEST_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_priest.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_SMITH_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_smith.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_BUTCHER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_butcher.png");
+    private static final ResourceLocation ZOMBIE_VILLAGER_GENERIC_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_generic.png");
 
     public RenderMummyVillager(RenderManager renderManagerIn) {
         super(renderManagerIn, new ModelMummyVillager(), 0.5F);

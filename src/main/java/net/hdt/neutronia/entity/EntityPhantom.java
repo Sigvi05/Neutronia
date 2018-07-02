@@ -12,10 +12,6 @@ public class EntityPhantom extends EntityFlying {
         setSize(0.5F, 0.5F);
     }
 
-    protected void entityInit() {
-        super.entityInit();
-    }
-
     protected float getSoundVolume() {
         return 1.0F;
     }

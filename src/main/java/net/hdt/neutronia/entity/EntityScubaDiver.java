@@ -1,6 +1,5 @@
 package net.hdt.neutronia.entity;
 
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -17,7 +16,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -48,10 +46,6 @@ public class EntityScubaDiver extends EntityMob {
         this.setPathPriority(PathNodeType.DAMAGE_FIRE, 0.0F);
         this.isImmuneToFire = true;
         this.experienceValue = 10;
-    }
-
-    public static void registerFixesBlaze(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityScubaDiver.class);
     }
 
     protected void initEntityAI() {

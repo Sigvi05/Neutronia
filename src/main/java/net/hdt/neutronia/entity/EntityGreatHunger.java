@@ -46,7 +46,7 @@ public class EntityGreatHunger extends EntityMob {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return LootTableHandler.DROWNED;
+        return LootTableHandler.GREAT_HUNGER;
     }
 
 }

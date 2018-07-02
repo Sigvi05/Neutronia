@@ -28,9 +28,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.Objects;
 
-public class EntityHoveringInferno extends EntityMob {
+public class EntityInferno extends EntityMob {
 
-    private static final DataParameter<Byte> ON_FIRE = EntityDataManager.createKey(EntityHoveringInferno.class, DataSerializers.BYTE);
+    private static final DataParameter<Byte> ON_FIRE = EntityDataManager.createKey(EntityInferno.class, DataSerializers.BYTE);
     /**
      * Random offset used in floating behaviour
      */
@@ -40,7 +40,7 @@ public class EntityHoveringInferno extends EntityMob {
      */
     private int heightOffsetUpdateTime;
 
-    public EntityHoveringInferno(World worldIn) {
+    public EntityInferno(World worldIn) {
         super(worldIn);
         this.setPathPriority(PathNodeType.WATER, -1.0F);
         this.setPathPriority(PathNodeType.LAVA, 8.0F);
@@ -51,11 +51,11 @@ public class EntityHoveringInferno extends EntityMob {
     }
 
     public static void registerFixesBlaze(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityHoveringInferno.class);
+        EntityLiving.registerFixesMob(fixer, EntityInferno.class);
     }
 
     protected void initEntityAI() {
-        this.tasks.addTask(4, new EntityHoveringInferno.AIFireballAttack(this));
+        this.tasks.addTask(4, new EntityInferno.AIFireballAttack(this));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWanderAvoidWater(this, 1.0D, 0.0F));
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -183,11 +183,11 @@ public class EntityHoveringInferno extends EntityMob {
     }
 
     static class AIFireballAttack extends EntityAIBase {
-        private final EntityHoveringInferno blaze;
+        private final EntityInferno blaze;
         private int attackStep;
         private int attackTime;
 
-        AIFireballAttack(EntityHoveringInferno blazeIn) {
+        AIFireballAttack(EntityInferno blazeIn) {
             this.blaze = blazeIn;
             this.setMutexBits(3);
         }

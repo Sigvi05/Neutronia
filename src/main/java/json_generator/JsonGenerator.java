@@ -48,6 +48,11 @@ public class JsonGenerator {
 //            genLangFile(MOD_ID, naturalAquamarineVariants.getName(), naturalAquamarineVariants.getName(), "natural_aquamarine");
         }
 
+        genSlab(new ResourceLocation(MOD_ID, "smooth_quartz_slab"), new ResourceLocation("quartz_block_bottom"), new ResourceLocation("quartz_block_bottom"), new ResourceLocation("quartz_block_bottom"));
+        genSlab(new ResourceLocation(MOD_ID, "smooth_sandstone_slab"), new ResourceLocation("sandstone_top"), new ResourceLocation("sandstone_top"), new ResourceLocation("sandstone_top"));
+        genSlab(new ResourceLocation(MOD_ID, "smooth_red_sandstone_slab"), new ResourceLocation("red_sandstone_top"), new ResourceLocation("red_sandstone_top"), new ResourceLocation("red_sandstone_top"));
+        genSlab(new ResourceLocation(MOD_ID, "quartz_bricks_slab"), new ResourceLocation(MOD_ID, "quartz_bricks"), new ResourceLocation(MOD_ID,"quartz_bricks"), new ResourceLocation(MOD_ID,"quartz_bricks"));
+
         for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
 //            genBlock(modid, aquamarineVariants.getName(), aquamarineVariants.getName());
 //            genSlabBlock(modid, aquamarineVariants.getName() + "_slab", aquamarineVariants.getName(), aquamarineVariants.getName());
@@ -163,14 +168,14 @@ public class JsonGenerator {
 //            genBlock(modid, String.format("unnamed_%s_bark_chiseled", enumType.getName()), String.format("%s_bark_top", enumType.getName()));
 //            genBlock(modid, String.format("%s_bark_chiseled", enumType.getName()), String.format("%s_chiseled", enumType.getName()));
 //            genItemModel(modid, String.format("%s_bark_item", enumType.getName()), String.format("%s_bark", enumType.getName()));
-            genLangFile(MOD_ID, String.format("%s_bark", enumType.getName()), String.format("%s_bark", enumType.getName()), "wood_blocks");
-            genLangFile(MOD_ID, String.format("%s_bark_chiseled", enumType.getName()), String.format("%s_bark_chiseled", enumType.getName()), "wood_blocks");
-            genLangFile(MOD_ID, String.format("unnamed_%s_bark_chiseled", enumType.getName()), String.format("unnamed_%s_bark_chiseled", enumType.getName()), "wood_blocks");
-            genLangFile(MOD_ID, String.format("%s_log_pole", enumType.getName()), String.format("%s_log_pole", enumType.getName()), "wood_blocks");
-            genLangFile(MOD_ID, String.format("stripped_%s_log", enumType.getName()), String.format("stripped_%s_log", enumType.getName()), "wood_blocks");
-            genLangFile(MOD_ID, String.format("stripped_%s_bark", enumType.getName()), String.format("stripped_%s_bark", enumType.getName()), "wood_blocks");
-            genLangFile(MOD_ID, String.format("stripped_%s_log_pole", enumType.getName()), String.format("stripped_%s_log_pole", enumType.getName()), "wood_blocks");
-            genLangFile(MOD_ID, String.format("%s_plank_pole", enumType.getName()), String.format("%s_plank_pole", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("%s_bark", enumType.getName()), String.format("%s_bark", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("%s_bark_chiseled", enumType.getName()), String.format("%s_bark_chiseled", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("unnamed_%s_bark_chiseled", enumType.getName()), String.format("unnamed_%s_bark_chiseled", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("%s_log_pole", enumType.getName()), String.format("%s_log_pole", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("stripped_%s_log", enumType.getName()), String.format("stripped_%s_log", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("stripped_%s_bark", enumType.getName()), String.format("stripped_%s_bark", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("stripped_%s_log_pole", enumType.getName()), String.format("stripped_%s_log_pole", enumType.getName()), "wood_blocks");
+//            genLangFile(MOD_ID, String.format("%s_plank_pole", enumType.getName()), String.format("%s_plank_pole", enumType.getName()), "wood_blocks");
         }
 
     }

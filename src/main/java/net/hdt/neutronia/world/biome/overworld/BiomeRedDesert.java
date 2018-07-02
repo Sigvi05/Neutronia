@@ -1,6 +1,7 @@
 package net.hdt.neutronia.world.biome.overworld;
 
 import net.hdt.neutronia.world.biome.overworld.decorator.BiomeDesertDecorator;
+import net.minecraft.block.BlockRedSandstone;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -23,7 +24,7 @@ public class BiomeRedDesert extends Biome {
         super((new Biome.BiomeProperties("Red Desert")).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled().setBaseBiome(Biomes.DESERT.getBiomeName()));
         this.spawnableCreatureList.clear();
         this.topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
-        this.fillerBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
+        this.fillerBlock = Blocks.RED_SANDSTONE.getDefaultState().withProperty(BlockRedSandstone.TYPE, BlockRedSandstone.EnumType.SMOOTH);
         this.decorator.treesPerChunk = -999;
         this.decorator.deadBushPerChunk = 2;
         this.decorator.reedsPerChunk = 50;

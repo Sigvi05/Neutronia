@@ -584,3 +584,20 @@ tile.birch_bark_slab.name=Birch Bark Slab
 tile.jungle_bark_slab.name=Jungle Bark Slab
 tile.acacia_bark_slab.name=Acacia Bark Slab
 tile.dark_oak_bark_slab.name=Dark Oak Bark Slab
+tile.stone_slab.name=Stone Slab
+tile.smooth_quartz.name=Smooth Quartz
+tile.smooth_red_sandstone.name=Smooth Red Sandstone
+tile.smooth_sandstone.name=Smooth Sandstone
+tile.quartz_bricks.name=Quartz Bricks
+tile.red_sandstone_bricks.name=Red Sandstone Bricks
+tile.sandstone_bricks.name=Sandstone Bricks
+
+tile.smooth_quartz_stairs.name=Smooth Quartz Stairs
+tile.smooth_red_sandstone_stairs.name=Smooth Red Sandstone Stairs
+tile.smooth_sandstone_stairs.name=Smooth Sandstone Stairs
+tile.quartz_bricks_stairs.name=Quartz Bricks Stairs
+
+tile.smooth_quartz_slab.name=Smooth Quartz Slab
+tile.smooth_red_sandstone_slab.name=Smooth Red Sandstone Slab
+tile.smooth_sandstone_slab.name=Smooth Sandstone Slab
+tile.quartz_bricks_slab.name=Quartz Bricks Slab

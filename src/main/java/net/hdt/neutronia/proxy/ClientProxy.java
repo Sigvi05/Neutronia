@@ -6,6 +6,7 @@ import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.client.events.ClientEventHandler;
 import net.hdt.neutronia.client.rendering.ResourceProxy;
+import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.util.LibObfuscation;
 import net.hdt.neutronia.util.WebUtils;
@@ -91,6 +92,8 @@ public class ClientProxy extends CommonProxy {
             items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
                     NBlocks.coloredLitRedstoneLamp[i]);
         }*/
+
+        MinecraftForge.EVENT_BUS.register(ColoredLights.class);
     }
 
     @Override

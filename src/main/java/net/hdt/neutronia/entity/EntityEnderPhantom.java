@@ -1,9 +1,9 @@
 package net.hdt.neutronia.entity;
 
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityFlying;
 import net.minecraft.world.World;
 
-public class EntityEnderPhantom extends EntityLiving {
+public class EntityEnderPhantom extends EntityFlying {
 
     public EntityEnderPhantom(World worldIn) {
         super(worldIn);

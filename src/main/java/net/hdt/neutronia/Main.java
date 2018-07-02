@@ -2,12 +2,9 @@ package net.hdt.neutronia;
 
 import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.api.IModData;
-import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
 import net.hdt.neutronia.events.ILifeCycleHandler;
-import net.hdt.neutronia.init.NBlocks;
-import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
 import net.hdt.neutronia.util.handlers.WorldHandler;
@@ -21,7 +18,6 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
@@ -68,9 +64,6 @@ public class Main implements IModData {
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(ColoredLights.class);
-        MinecraftForge.EVENT_BUS.register(NBlocks.class);
-        MinecraftForge.EVENT_BUS.register(NItems.class);
 //        MinecraftForge.TERRAIN_GEN_BUS.register(RevampStoneGen.class);
 //        RevampStoneGen stoneGen = new RevampStoneGen();
 //        stoneGen.preInit(event);

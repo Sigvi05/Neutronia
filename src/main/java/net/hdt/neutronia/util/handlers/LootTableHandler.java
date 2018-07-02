@@ -20,4 +20,5 @@ public class LootTableHandler {
     public static final ResourceLocation LOST_MINER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "lost_miner"));
     public static final ResourceLocation FORSAKEN_DIVER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "forsaken_diver"));
     public static final ResourceLocation ANCHORED = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "anchored"));
+    public static final ResourceLocation GREAT_HUNGER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "great_hunger"));
 }

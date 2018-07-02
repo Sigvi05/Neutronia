@@ -1,6 +1,8 @@
 package net.hdt.neutronia.init;
 
 import net.hdt.huskylib2.blocks.BlockModStairs;
+import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.*;
 import net.hdt.neutronia.blocks.nether.BlockNetherBase;
@@ -16,18 +18,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 public class NBlocks {
-
-    // Misc blocks
-//    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
-//    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
-//    public static final Block whiteBricks, redBricks, greenBricks;
-//    public static final Block redClayBlock, greenClayBlock;
 
     // Sea Blocks
     public static Block[] brainCoral = new Block[5];
@@ -57,6 +54,7 @@ public class NBlocks {
     public static Block[] logDowels = new Block[6], strippedLogDowels = new Block[6], plankDowels = new Block[6];
     public static Block[] barkButtons = new Block[6], plankButtons = new Block[6];
     public static Block[] barkPressurePlates = new Block[6], plankPressurePlates = new Block[6];
+    private static Block[] coffins = new Block[13];
 
     //Blocks for the nether
     public static Block[] glowingNetherBlocks = new Block[24];
@@ -82,12 +80,16 @@ public class NBlocks {
     public static Block[] coloredVases = new Block[16];
     public static Block[] terracottaPots = new Block[16];
 
+    // Misc
     public static final Block blackSand;
-
-    private static Block[] coffins = new Block[13];
     private static Block slumpedWitherSkeleton, slumpedSkeleton;
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
-//    public static final Block smoothQuartz, smoothSandstone, smoothStone, smoothRedSandstone;
+    public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+    public static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
+//    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
+//    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
+//    public static final Block whiteBricks, redBricks, greenBricks;
+//    public static final Block redClayBlock, greenClayBlock;
 
     static {
 
@@ -143,26 +145,38 @@ public class NBlocks {
             add(newStoneVariant.getName(), newStoneVariants[newStoneVariant.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
         }
         add("stone", Blocks.STONE, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
-        add("stone_granite", Blocks.STONE, 1, true, true, Main.OVERWORLD_EXPANSION_TAB);
-//        add("stone_diorite", Blocks.STONE, 3, true, true, Main.OVERWORLD_EXPANSION_TAB);
-        add("stone_andesite", Blocks.STONE, 5, true, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("stone_granite", Blocks.STONE, 1, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("stone_andesite", Blocks.STONE, 5, false, true, Main.OVERWORLD_EXPANSION_TAB);
         add("andesite_bricks", NBlocks.newStoneVariants[EnumNewStoneVariants.ANDESITE_BRICKS.getMetadata()], 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
         add("andesite_cobble", NBlocks.newStoneVariants[EnumNewStoneVariants.ANDESITE_COBBLE.getMetadata()], 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
-//        add("diorite_bricks", NBlocks.newStoneVariants[8], 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
-//        add("diorite_cobble", NBlocks.newStoneVariants[9], 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
         add("granite_bricks", NBlocks.newStoneVariants[EnumNewStoneVariants.GRANITE_BRICKS.getMetadata()], 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
         add("granite_cobble", NBlocks.newStoneVariants[EnumNewStoneVariants.GRANITE_COBBLE.getMetadata()], 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
-        add("end_bricks", Blocks.END_BRICKS, 0, true, true, Main.END_EXPANSION_TAB);
-        add("prismarine", Blocks.PRISMARINE, 0, true, true, Main.OVERWORLD_EXPANSION_TAB);
-        add("prismarine_bricks", Blocks.PRISMARINE, 1, true, true, Main.OVERWORLD_EXPANSION_TAB);
-        add("prismarine_dark", Blocks.PRISMARINE, 2, true, true, Main.OVERWORLD_EXPANSION_TAB);
-        add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true, true, Main.NETHER_EXPANSION_TAB);
+        add("end_bricks", Blocks.END_BRICKS, 0, false, true, Main.END_EXPANSION_TAB);
+        add("prismarine", Blocks.PRISMARINE, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("prismarine_bricks", Blocks.PRISMARINE, 1, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("prismarine_dark", Blocks.PRISMARINE, 2, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, false, true, Main.NETHER_EXPANSION_TAB);
+
+        add("stone", Blocks.STONE, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("stone_granite", Blocks.STONE, 1, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("stone_andesite", Blocks.STONE, 5, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("end_bricks", Blocks.END_BRICKS, 0, true, false, Main.END_EXPANSION_TAB);
+        add("prismarine", Blocks.PRISMARINE, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("prismarine_bricks", Blocks.PRISMARINE, 1, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("prismarine_dark", Blocks.PRISMARINE, 2, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true, false, Main.NETHER_EXPANSION_TAB);
 
         //Wood Blocks
         for(BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
 //            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(Main.WOOD_EXPANSION_TAB);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
             barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
+            add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
+            ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
+                RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 9),
+                        "WWW", "WWW", "WWW",
+                        'W', log);
+            RecipeHandler.addShapelessOreDictRecipe(log, ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1));
             chiseledBarkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark_chiseled", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
             unnamedChiseledBarkBlock[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("unnamed_%s_bark_chiseled", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
             logPoles[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_pole", enumType.getName()), Main.WOOD_EXPANSION_TAB, false);
@@ -193,13 +207,14 @@ public class NBlocks {
         // Frosted versions of vanilla stones & dirt
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             frostedClay[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("frozen_%s_terracotta", dyeColor.getName()), false);
-            add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
 //            coloredVases[dyeColor.getMetadata()] = new BlockColoredVase(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
 //            terracottaPots[dyeColor.getMetadata()] = new BlockColoredFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
 //            glazedTerracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_glazed_terracotta_pillar", dyeColor.getName()), Material.ROCK);
 //            terracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_terracotta_pillar", dyeColor.getName()), Material.ROCK);
-            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true, Main.OVERWORLD_EXPANSION_TAB);
+            add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()], 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, false, Main.OVERWORLD_EXPANSION_TAB);
             add(String.format("%s_glazed_terracotta", dyeColor.getName()), Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName())), dyeColor.getMetadata(), true, false, Main.OVERWORLD_EXPANSION_TAB);
+            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), false, true, Main.OVERWORLD_EXPANSION_TAB);
 //            coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
 //            coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
 //            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
@@ -209,6 +224,43 @@ public class NBlocks {
         }
 
         //Misc
+        smoothQuartz = new BlockOverworldBase(Material.ROCK, "smooth_quartz", false);
+        smoothRedSandstone = new BlockOverworldBase(Material.ROCK, "smooth_red_sandstone", false);
+        smoothSandstone = new BlockOverworldBase(Material.ROCK, "smooth_sandstone", false);
+
+        quartzBricks = new BlockOverworldBase(Material.ROCK, "quartz_bricks", false);
+        redSandstoneBricks = new BlockOverworldBase(Material.ROCK, "red_sandstone_bricks", false);
+        sandstoneBricks = new BlockOverworldBase(Material.ROCK, "sandstone_bricks", false);
+
+        add("smooth_quartz", smoothQuartz, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("smooth_red_sandstone", smoothRedSandstone, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("smooth_sandstone", smoothSandstone, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+
+        add("quartz_bricks", quartzBricks, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("red_sandstone_bricks", redSandstoneBricks, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+        add("sandstone_bricks", sandstoneBricks, 0, true, false, Main.OVERWORLD_EXPANSION_TAB);
+
+        add("smooth_quartz", smoothQuartz, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("smooth_red_sandstone", smoothRedSandstone, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("smooth_sandstone", smoothSandstone, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
+
+        add("quartz_bricks", quartzBricks, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("red_sandstone_bricks", redSandstoneBricks, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
+        add("sandstone_bricks", sandstoneBricks, 0, false, true, Main.OVERWORLD_EXPANSION_TAB);
+
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(smoothSandstone, 8),
+                "SSS", "S S", "SSS",
+                'S', ProxyRegistry.newStack(Blocks.SANDSTONE));
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(sandstoneBricks, 4),
+                "SS", "SS",
+                'S', ProxyRegistry.newStack(smoothSandstone, 1));
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(smoothRedSandstone, 8),
+                "SSS", "S S", "SSS",
+                'S', ProxyRegistry.newStack(Blocks.RED_SANDSTONE));
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(redSandstoneBricks, 4),
+                "SS", "SS",
+                'S', ProxyRegistry.newStack(smoothRedSandstone, 1));
+
 //        whiteBricks = new BlockOverworldBase(Material.ROCK, "white_bricks");
 //        redBricks = new BlockOverworldBase(Material.ROCK, "red_bricks");
 //        greenBricks = new BlockOverworldBase(Material.ROCK, "green_bricks");
