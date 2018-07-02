@@ -22,4 +22,5 @@ eclipse
 run
 .shelf/
 *.zip
+src/main/java/drzhark/*
 BON-2.4.0.14-all.jar
