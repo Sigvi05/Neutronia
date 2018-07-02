@@ -2,8 +2,20 @@
 layout: base
 ---
 
-<div class="intro-header"></div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div role="main" class="container">
-  <p>Test</p>
-</div>
+  {% include head.html %}
+
+  <body>
+
+    <div role="main" class="container main-content">
+      {{ content }}
+    </div>
+
+    {% include footer-minimal.html %}
+
+    {% include footer-scripts.html %}
+
+  </body>
+</html>
