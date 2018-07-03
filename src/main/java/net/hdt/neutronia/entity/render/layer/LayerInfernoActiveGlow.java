@@ -1,7 +1,7 @@
 package net.hdt.neutronia.entity.render.layer;
 
-import net.hdt.neutronia.entity.EntitySandDiverAquatic;
-import net.hdt.neutronia.entity.render.RenderSandDiverAquatic;
+import net.hdt.neutronia.entity.EntityInferno;
+import net.hdt.neutronia.entity.render.RenderInferno;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -11,19 +11,19 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class LayerSanddiverAquaticGlow implements LayerRenderer<EntitySandDiverAquatic> {
+public class LayerInfernoActiveGlow implements LayerRenderer<EntityInferno> {
 
-    private static final ResourceLocation GLOWING_TEXTURE = new ResourceLocation("neutronia:textures/entity/sanddiver_aquatic_glow.png");
-    private final RenderSandDiverAquatic renderer;
+    private static final ResourceLocation GLOWING_TEXTURE = new ResourceLocation("neutronia:textures/entity/inferno_active_glow.png");
+    private final RenderInferno renderer;
 
-    public LayerSanddiverAquaticGlow(RenderSandDiverAquatic renderer) {
+    public LayerInfernoActiveGlow(RenderInferno renderer) {
         this.renderer = renderer;
     }
 
-    public void doRenderLayer(EntitySandDiverAquatic entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+    public void doRenderLayer(EntityInferno entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         this.renderer.bindTexture(GLOWING_TEXTURE);
         GlStateManager.enableBlend();
-        GlStateManager.disableAlpha();
+//        GlStateManager.disableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
         GlStateManager.disableLighting();
         GlStateManager.depthMask(!entitylivingbaseIn.isInvisible());

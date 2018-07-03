@@ -28,6 +28,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityScubaVillager.class, RenderScubaVillager::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDrownedScubaVillager.class, RenderDrownedScubaVillager::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySandDiverAquatic.class, RenderSandDiverAquatic::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityAlbadon.class, RenderAlbadon::new);
     }
 
 }

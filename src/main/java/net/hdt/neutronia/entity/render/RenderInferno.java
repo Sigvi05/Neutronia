@@ -1,6 +1,7 @@
 package net.hdt.neutronia.entity.render;
 
 import net.hdt.neutronia.entity.EntityInferno;
+import net.hdt.neutronia.entity.render.layer.LayerInfernoActiveGlow;
 import net.hdt.neutronia.entity.render.model.ModelInferno;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -8,10 +9,11 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderInferno extends RenderLiving<EntityInferno> {
-    public static final ResourceLocation SCORP_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/inferno_passive.png");
+    public static final ResourceLocation SCORP_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/inferno_active.png");
 
     public RenderInferno(RenderManager manager) {
         super(manager, new ModelInferno(), 0.5F);
+        this.addLayer(new LayerInfernoActiveGlow(this));
     }
 
     @Override

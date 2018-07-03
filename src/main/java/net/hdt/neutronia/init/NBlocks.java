@@ -84,8 +84,8 @@ public class NBlocks {
     public static final Block blackSand;
     private static Block slumpedWitherSkeleton, slumpedSkeleton;
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
-    public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
-    public static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
+//    public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+//    public static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
 //    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
 //    public static final Block whiteBricks, redBricks, greenBricks;
@@ -171,7 +171,7 @@ public class NBlocks {
 //            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(Main.WOOD_EXPANSION_TAB);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
             barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
-            add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
+//            add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
             ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
                 RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 9),
                         "WWW", "WWW", "WWW",
@@ -224,7 +224,7 @@ public class NBlocks {
         }
 
         //Misc
-        smoothQuartz = new BlockOverworldBase(Material.ROCK, "smooth_quartz", false);
+        /*smoothQuartz = new BlockOverworldBase(Material.ROCK, "smooth_quartz", false);
         smoothRedSandstone = new BlockOverworldBase(Material.ROCK, "smooth_red_sandstone", false);
         smoothSandstone = new BlockOverworldBase(Material.ROCK, "smooth_sandstone", false);
 
@@ -259,7 +259,7 @@ public class NBlocks {
                 'S', ProxyRegistry.newStack(Blocks.RED_SANDSTONE));
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(redSandstoneBricks, 4),
                 "SS", "SS",
-                'S', ProxyRegistry.newStack(smoothRedSandstone, 1));
+                'S', ProxyRegistry.newStack(smoothRedSandstone, 1));*/
 
 //        whiteBricks = new BlockOverworldBase(Material.ROCK, "white_bricks");
 //        redBricks = new BlockOverworldBase(Material.ROCK, "red_bricks");
