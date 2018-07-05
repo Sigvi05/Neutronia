@@ -3,6 +3,7 @@ package net.hdt.neutronia.init;
 import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.hdt.huskylib2.recipie.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.*;
 import net.hdt.neutronia.blocks.nether.BlockNetherBase;
 import net.hdt.neutronia.blocks.nether.BlockNetherGlowingBase;
@@ -20,6 +21,8 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import java.util.ArrayList;
 
 import static net.hdt.neutronia.init.NCreativeTabs.*;
 import static net.hdt.neutronia.util.Reference.MOD_ID;
@@ -42,6 +45,9 @@ public class NBlocks {
     public static Block[] naturalAquamarine = new Block[13];
     public static Block[] aquamarine = new Block[6];
     public static Block kelp, driedKelpBlock;
+
+    public static ArrayList<Block> livingCorals=new ArrayList<>(EnumCoralColor.values().length);
+    public static ArrayList<Block> deadCorals=new ArrayList<>(EnumCoralColor.values().length);
 
     //Stone Blocks
     public static Block[] newStoneVariants = new Block[21];
@@ -106,6 +112,9 @@ public class NBlocks {
             deadPipeCoral[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "dead_pipe_coral");
             seaFan[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "sea_fan");
             deadSeaFan[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "dead_sea_fan");*/
+
+            livingCorals.add(new BlockCoral2(coralColor,"coral2", false));
+            deadCorals.add(new BlockCoral2(coralColor,"dead_coral2", true));
         }
         deadBrainCoral = new BlockWaterBlockBase("dead_brain_coral");
 
