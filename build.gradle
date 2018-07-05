@@ -59,7 +59,7 @@ dependencies {
     compile "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
-    compile 'org.spongepowered:mixin:0.7.8-SNAPSHOT'
+//    compile 'org.spongepowered:mixin:0.7.8-SNAPSHOT'
 }
 
 processResources {
