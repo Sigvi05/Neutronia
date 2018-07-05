@@ -171,25 +171,25 @@ public class NBlocks {
 //            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(Main.WOOD_EXPANSION_TAB);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
             barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
-//            add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
+            add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
             ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
-                RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 9),
-                        "WWW", "WWW", "WWW",
-                        'W', log);
-            RecipeHandler.addShapelessOreDictRecipe(log, ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 9), "WWW", "WWW", "WWW", 'W', log);
             chiseledBarkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark_chiseled", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
             unnamedChiseledBarkBlock[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("unnamed_%s_bark_chiseled", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
             logPoles[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_pole", enumType.getName()), Main.WOOD_EXPANSION_TAB, false);
             strippedLogs[enumType.getMetadata()] = new BlockModPillar(String.format("stripped_%s_log", enumType.getName()), Material.WOOD).setCreativeTab(Main.WOOD_EXPANSION_TAB);
             strippedBarkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("stripped_%s_bark", enumType.getName()), true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
             strippedLogPoles[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_pole", enumType.getName()), Main.WOOD_EXPANSION_TAB, false);
-//            add(String.format("stripped_%s_log", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
+            add(String.format("stripped_%s_log", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
+            add(String.format("stripped_%s_bark", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, Main.WOOD_EXPANSION_TAB);
 //            logDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_dowel", enumType.getName()), Main.WOOD_EXPANSION_TAB, false);
 //            strippedLogDowels[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_dowel", enumType.getName()), Main.WOOD_EXPANSION_TAB, false);
 //            plankDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_dowel", enumType.getName()), Main.WOOD_EXPANSION_TAB, false);
             plankPoles[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_pole", enumType.getName()), Main.WOOD_EXPANSION_TAB, false);
 //            coffins[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, enumType.getName() + "_coffin", true).setCreativeTab(Main.WOOD_EXPANSION_TAB);
 //            addWall(String.format("%s_plank", enumType.getName()), Blocks.PLANKS, enumType.getMetadata(), Main.WOOD_EXPANSION_TAB);
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedLogs[enumType.getMetadata()], 1), log, NItems.logStripper);
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedBarkBlocks[enumType.getMetadata()], 1), ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1), NItems.logStripper);
         }
 //        addWall("oak_bark", Blocks.LOG, 0, Main.WOOD_EXPANSION_TAB);
 //        addWall("spruce_bark", Blocks.LOG, 1, Main.WOOD_EXPANSION_TAB);

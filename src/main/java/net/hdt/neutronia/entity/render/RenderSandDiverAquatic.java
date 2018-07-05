@@ -18,6 +18,20 @@ public class RenderSandDiverAquatic extends RenderLiving<EntitySandDiverAquatic>
     }
 
     @Override
+    public void doRender(EntitySandDiverAquatic entity, double x, double y, double z, float entityYaw, float partialTicks) {
+//        /*GlStateManager.pushMatrix();
+//        GlStateManager.enableAlpha();
+//        GlStateManager.enableBlend();
+//        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.2F);
+//        super.doRender(entity, x, y, z, entityYaw, partialTicks);
+//        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.2F);
+//        GlStateManager.disableBlend();
+//        GlStateManager.disableAlpha();
+//        GlStateManager.popMatrix();*/
+        super.doRender(entity, x, y, z, entityYaw, partialTicks);
+    }
+
+    @Override
     protected ResourceLocation getEntityTexture(EntitySandDiverAquatic entity) {
         return SCORP_TEXTURE;
     }

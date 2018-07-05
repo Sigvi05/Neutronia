@@ -48,6 +48,8 @@ public class NItems {
 
     public static final Item trident;
     public static final Item anchor;
+    public static final Item chisel;
+    public static final Item logStripper;
 
 //    public static final Item rawDragonMeat, cookedDragonMeat;
 
@@ -74,6 +76,8 @@ public class NItems {
         heartOfTheNether = new ItemBase("heart_of_the_nether", tab);
         heartOfTheEnd = new ItemBase("heart_of_the_end", tab);
         scute = new ItemBase("scute", tab);
+        chisel = new ItemBase("chisel", tab);
+        logStripper = new ItemBase("log_stripper", tab);
 //        rawSeaweed = new ItemBase("raw_seaweed", tab);
 
         /*AXE_CHITIN = new BaseAxe("axe_chitin", CAXE).setCreativeTab(tab);
@@ -99,8 +103,8 @@ public class NItems {
         anchor = new ItemSpear("anchor", Item.ToolMaterial.IRON).setCreativeTab(null);
 
         for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
-//            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
-//            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
+            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
+            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
             barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), tab);
         }
 

@@ -1,5 +1,5 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v3.",
+  "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/orientable",
   "textures": {
     "top": "neutronia:blocks/green_glazed_terracotta_pillar_top",

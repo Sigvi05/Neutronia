@@ -140,8 +140,8 @@ public class EntityDrownedScubaVillager extends EntityScubaVillager {
         entityvillager.setNoAI(this.isAIDisabled());
 
         if (this.hasCustomName()) {
-            entityvillager.setCustomNameTag(this.getCustomNameTag());
-            entityvillager.setAlwaysRenderNameTag(this.getAlwaysRenderNameTag());
+//            entityvillager.setCustomNameTag(this.getCustomNameTag());
+//            entityvillager.setAlwaysRenderNameTag(this.getAlwaysRenderNameTag());
         }
 
         this.world.spawnEntity(entityvillager);

@@ -1,5 +1,5 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v3.",
+  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
     "transform": "forge:default-block",
@@ -9,13 +9,13 @@
     "facing": {
       "north": {},
       "south": {
-        "y": "90"
+        "y": 90
       },
       "east": {
-        "y": "180"
+        "y": 180
       },
       "west": {
-        "y": "270"
+        "y": 270
       }
     },
     "inventory": {}

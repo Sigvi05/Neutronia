@@ -23,7 +23,7 @@ public class LayerSanddiverAquaticGlow implements LayerRenderer<EntitySandDiverA
     public void doRenderLayer(EntitySandDiverAquatic entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         this.renderer.bindTexture(GLOWING_TEXTURE);
         GlStateManager.enableBlend();
-        GlStateManager.disableAlpha();
+//        GlStateManager.disableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
         GlStateManager.disableLighting();
         GlStateManager.depthMask(!entitylivingbaseIn.isInvisible());

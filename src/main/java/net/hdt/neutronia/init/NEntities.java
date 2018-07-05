@@ -5,6 +5,7 @@ import net.hdt.neutronia.util.handlers.RenderHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -32,7 +33,7 @@ public class NEntities {
     public static VillagerRegistry.VillagerProfession drownedScubaDiverProfession = null; // will be assigned by forge during init
 
     @SubscribeEvent
-    public static void RegisterEntitys(RegistryEvent.Register<EntityEntry> event) {
+    public static void entityRegistering(RegistryEvent.Register<EntityEntry> event) {
         final EntityEntry[] entries = {
                 createBuilder("mummy").entity(EntityMummy.class).tracker(80, 3, true).egg(0xC9CE92, 0x444444).build(),
                 createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
@@ -45,13 +46,11 @@ public class NEntities {
 //                createBuilder("ravenous_killer_squid").entity(EntityMonsterOfTheOceanDepths.class).tracker(80, 3, true).egg(0x03002e, 0x060081).build(),
 //                createBuilder("turtle").entity(EntitySeaTurtle.class).tracker(80, 3, true).egg(0xFFFFFF, 0x13232B).build(),
                 createBuilder("drowned").entity(EntityDrowned.class).tracker(80, 3, true).egg(0x86e2ca, 0x617d51).build(),
-                createBuilder("drowned_scuba_villager").entity(EntityDrownedScubaVillager.class).tracker(80, 3, true).egg(0x000000, 0xC3B99D).build(),
-                createBuilder("scuba_villager").entity(EntityScubaVillager.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
-//                createBuilder("sanddiver_aquatic").entity(EntitySandDiverAquatic.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
-//                createBuilder("albadon").entity(EntityAlbadon.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
-//                createBuilder("scuba_divers").entity(EntityScubaDiver.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
-//                createBuilder("drowned_villager").entity(EntityDrownedVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
-//                createBuilder("great_hunger").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
+                createBuilder("drowned_scuba_villager").entity(EntityDrownedScubaVillager.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
+                createBuilder("scuba_villager").entity(EntityScubaVillager.class).tracker(80, 3, true).egg(0x000000, 0xC3B99D).build(),
+                createBuilder("sanddiver_aquatic").entity(EntitySandDiverAquatic.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
+                createBuilder("albadon").entity(EntityAlbadon.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
+//                createBuilder("gulper").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
                 createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("forsaken_diver").entity(EntityForsakenDiver.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
@@ -82,15 +81,15 @@ public class NEntities {
     }
 
     private static void addSpawns() {
-        EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
-        EntityRegistry.addSpawn(EntityPharaohGolem.class, 2, 2, 4, EnumCreatureType.AMBIENT, getBiomes(BiomeDictionary.Type.SANDY));
+        EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT);
+        EntityRegistry.addSpawn(EntityPharaohGolem.class, 2, 2, 3, EnumCreatureType.AMBIENT, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT);
 //        EntityRegistry.addSpawn(EntityScorp.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
-        EntityRegistry.addSpawn(EntityDrowned.class, 14, 2, 4, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
-        EntityRegistry.addSpawn(EntityAnchored.class, 5, 2, 4, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
-        EntityRegistry.addSpawn(EntityForsakenDiver.class, 3, 2, 4, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityDrowned.class, 14, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityAnchored.class, 5, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityForsakenDiver.class, 3, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
 
         EntityRegistry.addSpawn(EntityInferno.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.NETHER));
-        EntityRegistry.addSpawn(EntityScubaVillager.class, 10, 1, 3, EnumCreatureType.AMBIENT, getBiomes(BiomeDictionary.Type.BEACH));
+        EntityRegistry.addSpawn(EntityScubaVillager.class, 10, 1, 3, EnumCreatureType.AMBIENT, Biomes.BEACH);
 //        EntityRegistry.addSpawn(EntityGreatHunger.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
 //        EntityRegistry.addSpawn(EntitySeaTurtle.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.BEACH));
 //        EntityRegistry.addSpawn(EntityMonsterOfTheOceanDepths.class, 10, 1, 3, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));

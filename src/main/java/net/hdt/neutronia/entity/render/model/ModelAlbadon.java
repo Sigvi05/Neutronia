@@ -20,8 +20,8 @@ public class ModelAlbadon extends ModelBase {
     ModelRenderer e8;
 
     public ModelAlbadon() {
-        this.textureWidth = 32;
-        this.textureHeight = 32;
+        this.textureWidth = 16;
+        this.textureHeight = 16;
 
         this.e0 = new ModelRenderer(this, 0, 0);
         this.e0.addBox(4F, 5F, -7F, 8, 5, 8, 1.0F);
@@ -47,7 +47,6 @@ public class ModelAlbadon extends ModelBase {
         this.e8.addBox(7.5F, 10.75F, 5F, 1, 6, 4, 1.0F);
         this.e8.setRotationPoint(8F, 13.75F, 7F);
         this.setRotateAngle(e8, 22.5F, 0.0F, 0.0F);
-
     }
 
     @Override
@@ -61,7 +60,6 @@ public class ModelAlbadon extends ModelBase {
         this.e6.render(f5);
         this.e7.render(f5);
         this.e8.render(f5);
-
     }
 
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -69,4 +67,5 @@ public class ModelAlbadon extends ModelBase {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
+
 }

@@ -1,7 +1,7 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v3.",
-  "parent": "neutronia:block/coral_fan",
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "parent": "neutronia:block/coralFan",
   "textures": {
-    "fan": "neutronia:blocks/coral_fan_blue"
+    "fan": "neutronia:blocks/blue_coral_fan"
   }
 }

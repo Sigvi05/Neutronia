@@ -1,5 +1,5 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v3.",
+  "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "neutronia:block/stripped_pole",
   "textures": {
     "pole": "neutronia:blocks/stripped_oak_log",

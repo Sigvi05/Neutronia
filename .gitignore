@@ -24,3 +24,17 @@ run
 *.zip
 src/main/java/drzhark/*
 BON-2.4.0.14-all.jar
+
+*.gz
+
+src/main/java/net/fabricmc/
+
+src/main/java/net/hdt/addon_loader/
+
+src/main/java/net/hdt/neutronia_test/
+
+src/main/resources/mixins\.addonloader\.json
+
+src/main/resources/mod\.json
+
+logs/

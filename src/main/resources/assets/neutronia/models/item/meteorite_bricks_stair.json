@@ -1,5 +1,5 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v3.",
+  "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/stairs",
   "textures": {
     "bottom": "neutronia:blocks/meteorite_bricks",
