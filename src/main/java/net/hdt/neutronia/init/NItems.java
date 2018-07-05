@@ -112,7 +112,7 @@ public class NItems {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        NBlocks.livingCorals.forEach(block -> Main.proxy.registerBlockItemModel(block));
+
     }
 
 }
