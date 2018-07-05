@@ -1,8 +1,8 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.overworld.BlockKelp;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 public class ItemRawKelp extends ItemBase {
 
     public ItemRawKelp() {
-        super("kelp", Main.ITEM_EXPANSION_TAB);
+        super("kelp", NCreativeTabs.ITEM_EXPANSION_TAB);
     }
 
     /**

@@ -1,10 +1,10 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.colored_lighting.IColoredLightSource;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -27,7 +27,7 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColore
         super(Material.REDSTONE_LIGHT, Reference.MOD_ID, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
         BlockColoredRedstoneLamp.color = color;
         this.isOn = isOn;
-        setCreativeTab(!isOn ? Main.OVERWORLD_EXPANSION_TAB : null);
+        setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
         this.setLightLevel(isOn ? 1.0F: 0.0F);
     }
 

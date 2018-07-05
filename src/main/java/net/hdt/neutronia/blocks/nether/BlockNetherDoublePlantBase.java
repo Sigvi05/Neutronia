@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockModBush;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -38,7 +38,7 @@ public class BlockNetherDoublePlantBase extends BlockModBush {
     public BlockNetherDoublePlantBase(String name) {
         super(Material.PLANTS, name, Reference.MOD_ID);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockNetherDoublePlantBase.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH));
-        setCreativeTab(Main.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

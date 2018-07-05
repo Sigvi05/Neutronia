@@ -1,7 +1,7 @@
 package net.hdt.neutronia.items;
 
 import net.hdt.huskylib2.items.ItemMod;
-import net.hdt.neutronia.Main;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.hdt.neutronia.util.WearableColourUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,7 +20,7 @@ public class ItemBandage extends ItemMod {
 
     public ItemBandage() {
         super("bandage", Reference.MOD_ID);
-        this.setCreativeTab(Main.ITEM_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
     }
 
     @Override

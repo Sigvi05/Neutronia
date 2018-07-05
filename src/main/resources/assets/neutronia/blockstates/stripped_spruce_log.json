@@ -2,25 +2,25 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "block/orientable",
+    "model": "block/cube_column",
     "textures": {
-      "top": "neutronia:blocks/stripped_spruce_log_top",
-      "front": "neutronia:blocks/stripped_spruce_log",
-      "side": "neutronia:blocks/stripped_spruce_log_top"
+      "end": "neutronia:blocks/stripped_spruce_log_top",
+      "side": "neutronia:blocks/stripped_spruce_log"
     },
     "transform": "forge:default-block"
   },
   "variants": {
-    "facing": {
-      "north": {},
-      "south": {
-        "y": "90"
+    "axis": {
+      "x": {
+        "x": 90,
+        "y": 90
       },
-      "east": {
-        "y": "180"
+      "y": {},
+      "z": {
+        "x": 90
       },
-      "west": {
-        "y": "270"
+      "none": {
+        "model": "neutronia:stripped_spruce_bark"
       }
     },
     "inventory": [

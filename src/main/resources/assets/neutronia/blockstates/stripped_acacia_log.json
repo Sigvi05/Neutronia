@@ -2,25 +2,36 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "block/orientable",
-    "textures": {
-      "top": "neutronia:blocks/stripped_acacia_log_top",
-      "front": "neutronia:blocks/stripped_acacia_log",
-      "side": "neutronia:blocks/stripped_acacia_log_top"
-    },
     "transform": "forge:default-block"
   },
   "variants": {
-    "facing": {
-      "north": {},
-      "south": {
-        "y": "90"
+    "axis": {
+      "x": {
+        "model": "block/cube_column",
+        "textures": {
+          "end": "neutronia:blocks/stripped_acacia_log_top",
+          "side": "neutronia:blocks/stripped_acacia_log"
+        },
+        "x": 90,
+        "y": 90
       },
-      "east": {
-        "y": "180"
+      "y": {
+        "model": "block/cube_column",
+        "textures": {
+          "end": "neutronia:blocks/stripped_acacia_log_top",
+          "side": "neutronia:blocks/stripped_acacia_log"
+        }
       },
-      "west": {
-        "y": "270"
+      "z": {
+        "model": "block/cube_column",
+        "textures": {
+          "end": "neutronia:blocks/stripped_acacia_log_top",
+          "side": "neutronia:blocks/stripped_acacia_log"
+        },
+        "x": 90
+      },
+      "none": {
+        "model": "neutronia:stripped_acacia_bark"
       }
     },
     "inventory": [

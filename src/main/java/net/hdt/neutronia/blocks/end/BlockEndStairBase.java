@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.end;
 
 import net.hdt.huskylib2.blocks.BlockModStairs;
-import net.hdt.neutronia.Main;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +17,7 @@ public class BlockEndStairBase extends BlockModStairs {
 
     public BlockEndStairBase(String name, IBlockState state) {
         super(name, state);
-        setCreativeTab(Main.END_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.END_EXPANSION_TAB);
     }
 
     @Override

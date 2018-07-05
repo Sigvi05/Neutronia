@@ -1,10 +1,10 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.colored_lighting.IColoredLightSource;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -29,7 +29,7 @@ public class BlockColoredLanterns extends BlockColoredAlt implements IColoredLig
         super(Reference.MOD_ID, isOn ? "lit_lantern" : "lantern", color);
         BlockColoredLanterns.color = color;
         this.isOn = isOn;
-        setCreativeTab(!isOn ? Main.OVERWORLD_EXPANSION_TAB : null);
+        setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
         this.setLightLevel(isOn ? 1.0F: 0.0F);
         this.setTickRandomly(isOn);
     }

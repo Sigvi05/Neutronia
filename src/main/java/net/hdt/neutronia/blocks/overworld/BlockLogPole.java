@@ -1,8 +1,8 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockRodBase;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
@@ -27,7 +27,7 @@ public class BlockLogPole extends BlockRodBase {
     private boolean stripped;
 
     public BlockLogPole(BlockPlanks.EnumType type, boolean stripped) {
-        super(stripped ? String.format("stripped_%s_log_pole", type.getName()) : String.format("%s_log_pole", type.getName()), Main.OVERWORLD_EXPANSION_TAB, false);
+        super(stripped ? String.format("stripped_%s_log_pole", type.getName()) : String.format("%s_log_pole", type.getName()), NCreativeTabs.OVERWORLD_EXPANSION_TAB, false);
         this.type = type;
         this.stripped = stripped;
     }

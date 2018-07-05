@@ -1,6 +1,6 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.neutronia.Main;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.idk.FoodValueHandler;
 import net.hdt.neutronia.util.idk.RomanNumberHelper;
 import net.hdt.neutronia.util.idk.TimeHelper;
@@ -25,7 +25,7 @@ public class ItemAnimaniaFood extends ItemModFood {
     private String name;
 
     public ItemAnimaniaFood(int amount, float saturation, boolean isWolfFood, String name, PotionEffect... potionEffects) {
-        super(MOD_ID, name, Main.ITEM_EXPANSION_TAB, amount, saturation, isWolfFood);
+        super(MOD_ID, name, NCreativeTabs.ITEM_EXPANSION_TAB, amount, saturation, isWolfFood);
         this.effects = potionEffects;
         this.name = name;
         this.setAlwaysEdible();

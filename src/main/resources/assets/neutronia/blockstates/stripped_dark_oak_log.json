@@ -2,29 +2,43 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "block/orientable",
+    "model": "block/cube_column",
     "textures": {
-      "top": "neutronia:blocks/stripped_dark_oak_log_top",
-      "front": "neutronia:blocks/stripped_dark_oak_log",
-      "side": "neutronia:blocks/stripped_dark_oak_log_top"
+      "end": "neutronia:blocks/stripped_dark_oak_log_top",
+      "side": "neutronia:blocks/stripped_dark_oak_log"
     },
     "transform": "forge:default-block"
   },
   "variants": {
-    "facing": {
-      "north": {},
-      "south": {
-        "y": "90"
+    "axis": {
+      "x": {
+        "model": "block/cube_column",
+        "textures": {
+          "end": "neutronia:blocks/stripped_dark_oak_log_top",
+          "side": "neutronia:blocks/stripped_dark_oak_log"
+        },
+        "x": 90,
+        "y": 90
       },
-      "east": {
-        "y": "180"
+      "y": {
+        "model": "block/cube_column",
+        "textures": {
+          "end": "neutronia:blocks/stripped_dark_oak_log_top",
+          "side": "neutronia:blocks/stripped_dark_oak_log"
+        }
       },
-      "west": {
-        "y": "270"
+      "z": {
+        "model": "block/cube_column",
+        "textures": {
+          "end": "neutronia:blocks/stripped_dark_oak_log_top",
+          "side": "neutronia:blocks/stripped_dark_oak_log"
+        },
+        "x": 90
+      },
+      "none": {
+        "model": "neutronia:stripped_dark_oak_bark"
       }
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{}]
   }
 }

@@ -1,9 +1,9 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.neutronia.Main;
+import net.hdt.neutronia.init.NCreativeTabs;
 
 public class AnimaniaItem extends ItemBase {
     public AnimaniaItem(String name) {
-        super(name, Main.ITEM_EXPANSION_TAB);
+        super(name, NCreativeTabs.ITEM_EXPANSION_TAB);
     }
 }

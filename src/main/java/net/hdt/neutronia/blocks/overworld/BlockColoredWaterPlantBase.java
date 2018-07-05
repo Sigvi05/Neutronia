@@ -1,8 +1,8 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.BlockHorizontal;
@@ -39,7 +39,7 @@ public class BlockColoredWaterPlantBase extends BlockModBush {
         this.color = coralColor;
         setTickRandomly(false);
         setSoundType(SoundType.PLANT);
-        this.setCreativeTab(Main.OCEAN_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 

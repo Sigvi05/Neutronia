@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockModBush;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -41,7 +41,7 @@ public class BlockDoubleWaterPlantBase extends BlockModBush {
     public BlockDoubleWaterPlantBase(String name) {
         super(Material.WATER, name, Reference.MOD_ID);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockDoubleWaterPlantBase.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
-        setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

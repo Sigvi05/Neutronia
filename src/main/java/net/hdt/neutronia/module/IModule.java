@@ -32,6 +32,4 @@ public interface IModule {
     @SideOnly(Side.CLIENT)
     void handlePostInitClient(FMLPostInitializationEvent event);
 
-
-
 }

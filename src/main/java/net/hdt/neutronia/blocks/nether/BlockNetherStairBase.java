@@ -1,10 +1,10 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.neutronia.Main;
+import net.hdt.huskylib2.blocks.BlockModStairs;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -17,7 +17,7 @@ public class BlockNetherStairBase extends BlockModStairs {
 
     public BlockNetherStairBase(String name, IBlockState state) {
         super(name, state);
-        setCreativeTab(Main.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
     }
 
     @Override

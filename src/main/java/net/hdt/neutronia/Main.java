@@ -5,6 +5,7 @@ import net.hdt.neutronia.api.IModData;
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
 import net.hdt.neutronia.events.ILifeCycleHandler;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
 import net.hdt.neutronia.util.handlers.WorldHandler;
@@ -34,23 +35,6 @@ import static net.hdt.neutronia.util.Reference.*;
 public class Main implements IModData {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
-    public static CreativeTab OVERWORLD_EXPANSION_TAB = new CreativeTab("Neutronia: Overworld", true);
-    public static CreativeTab OCEAN_EXPANSION_TAB = new CreativeTab("Neutronia: Ocean", true);
-    public static CreativeTab WOOD_EXPANSION_TAB = new CreativeTab("Neutronia: Wood", true);
-    public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Neutronia: Nether", true);
-    public static CreativeTab END_EXPANSION_TAB = new CreativeTab("Neutronia: End", false) {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(Item.getItemFromBlock(Blocks.END_BRICKS));
-        }
-    };
-    /*public static CreativeTab FOOD_EXPANSION_TAB = new CreativeTab("Neutronia: Food", false) {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(Items.COOKED_BEEF);
-        }
-    };*/
-    public static CreativeTab ITEM_EXPANSION_TAB = new CreativeTab("Neutronia: Items", true);
 
     @Mod.Instance
     public static Main instance;
@@ -137,7 +121,7 @@ public class Main implements IModData {
 
     @Override
     public CreativeTabs getCreativeTab() {
-        return Main.NETHER_EXPANSION_TAB;
+        return NCreativeTabs.NETHER_EXPANSION_TAB;
     }
 
 }

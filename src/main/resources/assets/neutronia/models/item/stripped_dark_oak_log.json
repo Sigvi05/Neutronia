@@ -1,9 +1,8 @@
 {
   "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/orientable",
+  "parent": "block/cube_column",
   "textures": {
-    "top": "neutronia:blocks/stripped_dark_oak_log_top",
-    "front": "neutronia:blocks/stripped_dark_oak_log",
-    "side": "neutronia:blocks/stripped_dark_oak_log_top"
+    "end": "neutronia:blocks/stripped_dark_oak_log_top",
+    "side": "neutronia:blocks/stripped_dark_oak_log"
   }
 }

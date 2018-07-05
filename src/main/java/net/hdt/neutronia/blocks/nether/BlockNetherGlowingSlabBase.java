@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.neutronia.Main;
+import net.hdt.huskylib2.blocks.BlockModSlab;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -19,7 +20,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.hdt.huskylib2.blocks.BlockModSlab;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab {
 
     public BlockNetherGlowingSlabBase(String name, boolean isDouble) {
         super(name + "_slab", Reference.MOD_ID, Material.ROCK, isDouble);
-        setCreativeTab(Main.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
         this.setLightLevel(0.2F);
         this.setTickRandomly(true);
     }

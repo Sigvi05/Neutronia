@@ -1,8 +1,8 @@
 package net.hdt.neutronia.init;
 
-import net.hdt.neutronia.world.dimensions.mars.MarsWorldProvider;
-import net.hdt.neutronia.world.dimensions.moon.MoonWorldProvider;
-import net.hdt.neutronia.world.dimensions.sun.SunWorldProvider;
+import net.hdt.neutronia.modules.mars.world.MarsWorldProvider;
+import net.hdt.neutronia.modules.moon.world.MoonWorldProvider;
+import net.hdt.neutronia.modules.sun.world.SunWorldProvider;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 
