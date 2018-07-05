@@ -1,12 +1,12 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.neutronia.Main;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class ItemTrident extends ItemBase {
 
     public ItemTrident(String name, CreativeTabs creativeTabs) {
-        super("trident", Main.OVERWORLD_EXPANSION_TAB);
+        super("trident", NCreativeTabs.OVERWORLD_EXPANSION_TAB);
     }
 
 }

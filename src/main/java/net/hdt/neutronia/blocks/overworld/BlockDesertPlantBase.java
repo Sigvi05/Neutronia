@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockModBush;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +12,7 @@ public class BlockDesertPlantBase extends BlockModBush {
 
     public BlockDesertPlantBase(String name) {
         super(Material.PLANTS, name, Reference.MOD_ID);
-        this.setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
     }
 
     public boolean isOpaqueCube(IBlockState state) {

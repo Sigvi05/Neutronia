@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.neutronia.Main;
+import net.hdt.huskylib2.blocks.BlockModStairs;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -17,7 +18,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.hdt.huskylib2.blocks.BlockModStairs;
 
 import java.util.Random;
 
@@ -25,7 +25,7 @@ public class BlockNetherGlowingStairBase extends BlockModStairs {
 
     public BlockNetherGlowingStairBase(String name, IBlockState state) {
         super(name + "_stair", state);
-        setCreativeTab(Main.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
         this.setLightLevel(0.2F);
         this.setTickRandomly(true);
     }

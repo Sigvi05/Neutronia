@@ -1,6 +1,11 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.Main;
+import net.hdt.huskylib2.interf.IBlockColorProvider;
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.interf.IRecipeGrouped;
+import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
@@ -22,11 +27,6 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.hdt.huskylib2.interf.IBlockColorProvider;
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.interf.IRecipeGrouped;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
 
 import java.util.Random;
 
@@ -42,7 +42,7 @@ public class BlockColoredVase extends BlockFlowerPot implements IModBlock, IBloc
 
         setHardness(0.0F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(Main.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
 
         register(name);
     }

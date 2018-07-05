@@ -1,6 +1,5 @@
 package net.hdt.neutronia.init;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.items.*;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
@@ -61,7 +60,7 @@ public class NItems {
 
     static {
 
-        CreativeTabs tab = Main.ITEM_EXPANSION_TAB;
+        CreativeTabs tab = NCreativeTabs.ITEM_EXPANSION_TAB;
 
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();

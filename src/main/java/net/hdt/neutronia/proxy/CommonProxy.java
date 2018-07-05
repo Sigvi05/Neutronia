@@ -5,7 +5,7 @@ import net.hdt.neutronia.init.NBiomes;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NDimension;
 import net.hdt.neutronia.init.NItems;
-import net.hdt.neutronia.init.moon.NMoonBiomes;
+import net.hdt.neutronia.modules.moon.init.NMoonBiomes;
 import net.hdt.neutronia.module.ModModules;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.tileentity.TileCustomChest;

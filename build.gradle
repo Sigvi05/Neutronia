@@ -35,18 +35,31 @@ configurations {
 }
 
 repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        name = 'mojang'
+        url = 'https://libraries.minecraft.net/'
+    }
     maven { url = "http://chickenbones.net/maven" }
     maven { url = "http://dvs1.progwml6.com/files/maven" }
     maven { url = "http://tehnut.info/maven" }
     maven { url = "http://maven.tterrag.com" }
     maven { url = "http://maven.covers1624.net" }
+    maven {
+        name = 'Sponge'
+        url = 'http://repo.spongepowered.org/maven'
+    }
 }
 
 dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "com.github.zafarkhaja:java-semver:0.9.0"
     compile "mezz.jei:jei_${mc_version}:${jei_version}:api"
     compile "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
+    compile 'org.spongepowered:mixin:0.7.8-SNAPSHOT'
 }
 
 processResources {

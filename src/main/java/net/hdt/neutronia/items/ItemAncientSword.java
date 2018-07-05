@@ -1,7 +1,7 @@
 package net.hdt.neutronia.items;
 
 import net.hdt.huskylib2.items.ItemModSword;
-import net.hdt.neutronia.Main;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.WearableColourUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -21,7 +21,7 @@ public class ItemAncientSword extends ItemModSword {
 
     public ItemAncientSword() {
         super("khopesh", MOD_ID, ancientToolMaterial);
-        setCreativeTab(Main.ITEM_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
     }
 
     @Override

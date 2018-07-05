@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.BlockModBush;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +12,7 @@ public class BlockNetherPlantBase extends BlockModBush {
 
     public BlockNetherPlantBase(String name) {
         super(Material.PLANTS, name, Reference.MOD_ID);
-        this.setCreativeTab(Main.NETHER_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
     }
 
     public boolean isOpaqueCube(IBlockState state) {

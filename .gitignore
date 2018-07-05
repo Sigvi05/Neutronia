@@ -38,3 +38,5 @@ src/main/resources/mixins\.addonloader\.json
 src/main/resources/mod\.json
 
 logs/
+
+src/main/resources/pack\.png

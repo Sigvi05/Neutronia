@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.neutronia.Main;
+import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -9,7 +10,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.hdt.huskylib2.blocks.BlockMod;
 
 import javax.annotation.Nullable;
 
@@ -19,7 +19,7 @@ public class BlockSoulStone extends BlockMod {
 
     public BlockSoulStone(String name) {
         super(Material.SAND, Reference.MOD_ID, name);
-        setCreativeTab(Main.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
     }
 
     @Nullable
