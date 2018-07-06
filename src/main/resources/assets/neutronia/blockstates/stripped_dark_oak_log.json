@@ -12,33 +12,19 @@
   "variants": {
     "axis": {
       "x": {
-        "model": "block/cube_column",
-        "textures": {
-          "end": "neutronia:blocks/stripped_dark_oak_log_top",
-          "side": "neutronia:blocks/stripped_dark_oak_log"
-        },
         "x": 90,
         "y": 90
       },
-      "y": {
-        "model": "block/cube_column",
-        "textures": {
-          "end": "neutronia:blocks/stripped_dark_oak_log_top",
-          "side": "neutronia:blocks/stripped_dark_oak_log"
-        }
-      },
+      "y": {},
       "z": {
-        "model": "block/cube_column",
-        "textures": {
-          "end": "neutronia:blocks/stripped_dark_oak_log_top",
-          "side": "neutronia:blocks/stripped_dark_oak_log"
-        },
         "x": 90
       },
       "none": {
         "model": "neutronia:stripped_dark_oak_bark"
       }
     },
-    "inventory": [{}]
+    "inventory": [
+      {}
+    ]
   }
 }

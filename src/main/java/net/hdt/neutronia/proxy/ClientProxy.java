@@ -18,16 +18,12 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ClientProxy extends CommonProxy {
 
     private static ResourceProxy resourceProxy;
     public static final Minecraft minecraft = Minecraft.getMinecraft();
-    public static final int updateButtonID = "updateButtonID".hashCode();
-    public static final Set<String> patrons = new HashSet<>();
     public static final Timer timer = ReflectionHelper.getPrivateValue(Minecraft.class, ClientProxy.minecraft, "timer", "field_71428_T", "aa");
 
     static {
