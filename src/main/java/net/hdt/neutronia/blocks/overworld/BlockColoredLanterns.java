@@ -22,12 +22,12 @@ import java.util.Random;
 
 public class BlockColoredLanterns extends BlockColoredAlt implements IColoredLightSource {
 
-    public static EnumDyeColor color = null;
+    public EnumDyeColor color = null;
     private final boolean isOn;
 
     public BlockColoredLanterns(EnumDyeColor color, boolean isOn) {
         super(Reference.MOD_ID, isOn ? "lit_lantern" : "lantern", color);
-        BlockColoredLanterns.color = color;
+        this.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
         this.setLightLevel(isOn ? 1.0F: 0.0F);

@@ -22,12 +22,12 @@ import java.util.Random;
 
 public class BlockColoredCandles extends BlockColoredAlt implements IColoredLightSource {
 
-    public static EnumDyeColor color;
+    public EnumDyeColor color;
     private final boolean isOn;
 
     public BlockColoredCandles(EnumDyeColor color, boolean isOn) {
         super(Reference.MOD_ID, isOn ? "lit_candle" : "candle", color);
-        BlockColoredCandles.color = color;
+        this.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
         this.setLightLevel(isOn ? 1.0F: 0.0F);

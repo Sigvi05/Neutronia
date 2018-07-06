@@ -1,24 +1,28 @@
 package net.hdt.neutronia.proxy;
 
+import java.util.List;
+
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.client.rendering.ResourceProxy;
 import net.hdt.neutronia.colored_lighting.ColoredLights;
+import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.util.LibObfuscation;
 import net.hdt.neutronia.util.handlers.EntityEventHandler;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.Timer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-
-import java.util.List;
 
 public class ClientProxy extends CommonProxy {
 
@@ -46,37 +50,37 @@ public class ClientProxy extends CommonProxy {
         ModuleHandler.INSTANCE.handlePreInitClient(event);
         ModuleHandler.INSTANCE.handlePostPreInitClient(event);
 
-        ItemColors items = Minecraft.getMinecraft().getItemColors();
-        BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
-
-        IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
-        /*for(int i = 0; i < EnumDyeColor.values().length; i++) {
-            blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredCandles[i]);
-            blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLitCandles[i]);
-            blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLanterns[i]);
-            blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLitLanterns[i]);
-            blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredRedstoneLamp[i]);
-            blocks.registerBlockColorHandler(handlerBlocks, NBlocks.coloredLitRedstoneLamp[i]);
-            items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex),
-                    NBlocks.coloredCandles[i]);
-            items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                    NBlocks.coloredLitCandles[i]);
-            items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                    NBlocks.coloredLanterns[i]);
-            items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                    NBlocks.coloredLitLanterns[i]);
-            items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                    NBlocks.coloredRedstoneLamp[i]);
-            items.registerItemColorHandler((stack, tintIndex) -> blocks.colorMultiplier(((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata()), null, null, tintIndex),
-                    NBlocks.coloredLitRedstoneLamp[i]);
-        }*/
-
         MinecraftForge.EVENT_BUS.register(ColoredLights.class);
     }
 
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
+        
+        ItemColors items = Minecraft.getMinecraft().getItemColors();
+        BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
+
+        IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        IItemColor handlerItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColor = new Block[][] {
+        	NBlocks.coloredCandles,
+        	NBlocks.coloredLitCandles,
+        	NBlocks.coloredLanterns,
+        	NBlocks.coloredLitLanterns,
+        	NBlocks.coloredRedstoneLamp,
+        	NBlocks.coloredLitRedstoneLamp,
+        };
+        Block[] coloredStuff = new Block[16*toColor.length];
+        
+        for(int i = 0; i < toColor.length; i++) {
+        	Block[] colored = toColor[i];
+	        for(int j = 0; j < 16; j++) {
+	        	coloredStuff[i*16+j] = colored[j];
+	        }
+        }
+        blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
+        items.registerItemColorHandler(handlerItems, coloredStuff);
+        
         ModuleHandler.INSTANCE.handleInitClient(event);
     }
 
