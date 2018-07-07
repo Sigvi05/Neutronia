@@ -18,43 +18,42 @@ import java.util.Random;
 public class BlockCoral2 extends BlockColoredWaterBlockBase {
 
     private boolean dead;
+
     public BlockCoral2(EnumCoralColor colorIn, String name, boolean isDead) {
         super(colorIn, name);
-        dead=isDead;
+        this.dead = isDead;
     }
 
     @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-        if(!dead && !canLive(worldIn,pos))
+        if(!this.dead && canLive(worldIn, pos))
+            worldIn.scheduleUpdate(pos,this,100);
+        if(this.dead && !canLive(worldIn, pos))
             worldIn.scheduleUpdate(pos,this,100);
     }
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-
-        if(!dead && !canLive(worldIn,pos))
+        if(!this.dead && canLive(worldIn, pos))
             worldIn.scheduleUpdate(pos,this,100);
-
+        if(this.dead && !canLive(worldIn, pos))
+            worldIn.scheduleUpdate(pos,this,100);
     }
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if(!dead && !canLive(worldIn,pos))
-        {
+        if(!this.dead && canLive(worldIn, pos))
             worldIn.setBlockState(pos,NBlocks.deadCorals.get(NBlocks.livingCorals.indexOf(this)).getDefaultState());
-        }
+        if(this.dead && !canLive(worldIn, pos))
+            worldIn.setBlockState(pos,NBlocks.livingCorals.get(NBlocks.deadCorals.indexOf(this)).getDefaultState());
     }
 
-    protected boolean canLive(World world,BlockPos itsPosition)
-    {
+    private boolean canLive(World world, BlockPos itsPosition) {
         for (EnumFacing facing : EnumFacing.values()) {
-            IBlockState sidestate=world.getBlockState(itsPosition.offset(facing));
-            if(sidestate.getBlock()== Blocks.WATER || sidestate.getBlock()==Blocks.FLOWING_WATER)
-            {
-                return true;
-            }
+            IBlockState sidestate = world.getBlockState(itsPosition.offset(facing));
+            if(sidestate.getBlock() == Blocks.WATER || sidestate.getBlock() == Blocks.FLOWING_WATER) return false;
         }
-        return false;
+        return true;
     }
 
 }
