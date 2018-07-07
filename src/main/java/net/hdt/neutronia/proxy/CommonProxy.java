@@ -12,6 +12,7 @@ import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.hdt.neutronia.tileentity.TileEntityFloorTile;
 import net.hdt.neutronia.tileentity.TileEntityNeonLight;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
+import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -57,5 +58,10 @@ public class CommonProxy {
     public float getPartialTicks() {
         return 0.0F;
     }
+
+    public void registerBlockItemModel(Block block){}
+
+    public void registerBlockItemModel(Block block,String modelName){}
+
 
 }
