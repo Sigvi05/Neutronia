@@ -1,5 +1,6 @@
 package net.hdt.neutronia.init;
 
+import net.hdt.neutronia.Main;
 import net.hdt.neutronia.items.*;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
