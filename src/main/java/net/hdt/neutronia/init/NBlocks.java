@@ -29,6 +29,11 @@ import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 public class NBlocks {
 
+    public static final Block netherGlass, soulGlass, netherRod, netherSponge, ash;
+    // Misc
+    public static final Block blackSand;
+    public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+    public static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
 //    public static Block[] brainCoral = new Block[5];
 //    public static Block[] deadBrainCoral = new Block[5];
@@ -46,13 +51,10 @@ public class NBlocks {
     public static Block[] aquamarine = new Block[6];
     public static Block seaPickle, turtleEgg;
     public static Block kelp, driedKelpBlock;
-
     public static ArrayList<Block> livingCorals = new ArrayList<>(EnumCoralColor.values().length);
     public static ArrayList<Block> deadCorals = new ArrayList<>(EnumCoralColor.values().length);
-
     //Stone Blocks
     public static Block[] newStoneVariants = new Block[21];
-
     //Wood Blocks
     public static Block[] strippedLogs = new Block[6], strippedBarkBlocks = new Block[6];
     public static Block[] potterySpinner = new Block[6], potterySpinnerActive = new Block[6];
@@ -61,20 +63,15 @@ public class NBlocks {
     public static Block[] logDowels = new Block[6], strippedLogDowels = new Block[6], plankDowels = new Block[6];
     public static Block[] barkButtons = new Block[6], plankButtons = new Block[6];
     public static Block[] barkPressurePlates = new Block[6], plankPressurePlates = new Block[6];
-    private static Block[] coffins = new Block[13];
-
     //Blocks for the nether
     public static Block[] glowingNetherBlocks = new Block[24];
     public static Block[] soulStone = new Block[4];
     public static Block[] netherPlants = new Block[3];
     public static Block[] tallNetherPlants = new Block[2];
-    public static final Block netherGlass, soulGlass, netherRod, netherSponge, ash;
-
     //Frosted versions of some blocks
     public static Block[] frostedStones = new Block[6];
     public static Block[] frostedDirts = new Block[12];
     public static Block[] frostedClay = new Block[16];
-
     // Some colored blocks
     public static Block[] coloredSand = new Block[16];
     public static Block[] coloredSandstone = new Block[16];
@@ -87,13 +84,9 @@ public class NBlocks {
     public static Block[] coloredVases = new Block[16];
     public static Block[] terracottaPots = new Block[16];
     public static Block[] centeredGlazedTerracottaBlocks = new Block[16];
-
-    // Misc
-    public static final Block blackSand;
+    private static Block[] coffins = new Block[13];
     private static Block slumpedWitherSkeleton, slumpedSkeleton;
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
-    public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
-    public static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
 //    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
 //    public static final Block whiteBricks, redBricks, greenBricks;
@@ -171,11 +164,15 @@ public class NBlocks {
         add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true, false, NETHER_EXPANSION_TAB);
 
         //Wood Blocks
-        for(BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
 //            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(WOOD_EXPANSION_TAB);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
             barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
             add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+            addWall(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, WOOD_EXPANSION_TAB);
+            addFenceAndFenceGate(enumType, String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+            addFenceAndFenceGate(enumType, String.format("stripped_%s_bark", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+            addFenceAndFenceGate(enumType, String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
             ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 9), "WWW", "WWW", "WWW", 'W', log);
             chiseledBarkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark_chiseled", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
@@ -184,8 +181,8 @@ public class NBlocks {
             strippedLogs[enumType.getMetadata()] = new BlockModPillar(String.format("stripped_%s_log", enumType.getName()), Material.WOOD).setCreativeTab(WOOD_EXPANSION_TAB);
             strippedBarkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("stripped_%s_bark", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
             strippedLogPoles[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_pole", enumType.getName()), WOOD_EXPANSION_TAB, false);
-            add(String.format("stripped_%s_log", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
-            add(String.format("stripped_%s_bark", enumType.getName()),strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+            add(String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+            add(String.format("stripped_%s_bark", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
 //            logDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_dowel", enumType.getName()), WOOD_EXPANSION_TAB, false);
 //            strippedLogDowels[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_dowel", enumType.getName()), WOOD_EXPANSION_TAB, false);
 //            plankDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_dowel", enumType.getName()), WOOD_EXPANSION_TAB, false);
@@ -244,7 +241,7 @@ public class NBlocks {
         sandstoneBricks = new BlockOverworldBase(Material.ROCK, "sandstone_bricks", false);
 
         add("smooth_quartz", smoothQuartz, 0, true, false, NCreativeTabs.OVERWORLD_EXPANSION_TAB);
-   add("smooth_red_sandstone", smoothRedSandstone, 0, true, false, OVERWORLD_EXPANSION_TAB);
+        add("smooth_red_sandstone", smoothRedSandstone, 0, true, false, OVERWORLD_EXPANSION_TAB);
         add("smooth_sandstone", smoothSandstone, 0, true, false, OVERWORLD_EXPANSION_TAB);
 
         add("quartz_bricks", quartzBricks, 0, true, false, OVERWORLD_EXPANSION_TAB);

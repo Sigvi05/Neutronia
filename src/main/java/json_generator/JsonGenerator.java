@@ -31,10 +31,11 @@ public class JsonGenerator {
     public static void main(String[] args) {
 
         for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
-            genSlab(new ResourceLocation(modid, String.format("%s_log_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())));
-            genSlab(new ResourceLocation(modid, String.format("%s_bark_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())));
+//            genSlab(new ResourceLocation(modid, String.format("%s_log_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())));
+//            genSlab(new ResourceLocation(modid, String.format("%s_bark_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())));
 //            genPillarBlock(new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genBlock(new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
+            genFenceBlock(new ResourceLocation(modid, String.format("stripped_%s_bark_fence", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())));
         }
 
         for(EnumDyeColor color : EnumDyeColor.values()) {
@@ -1157,16 +1158,11 @@ public class JsonGenerator {
 
     }
 
-    public static void genFenceBlock(String modId, String blockName, String textureName) {
+    public static void genFenceBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "blockstates").toFile();
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
-        }
+        /*try {
 
-        try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + ".json"), "UTF-8");
+            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getResourcePath() + ".json"), "UTF-8");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonWriter jw = gson.newJsonWriter(writer);
 
@@ -1177,7 +1173,7 @@ public class JsonGenerator {
             jw.beginObject();
             jw.name("apply");
             jw.beginObject();
-            jw.name("model").value(modId + ":" + blockName + "_post");
+            jw.name("model").value(modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_post");
             jw.endObject();
             jw.endObject();
             jw.beginObject();
@@ -1187,7 +1183,7 @@ public class JsonGenerator {
             jw.endObject();
             jw.name("apply");
             jw.beginObject();
-            jw.name("model").value(modId + ":" + blockName + "_side");
+            jw.name("model").value(modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
             jw.name("uvlock").value(true);
             jw.endObject();
             jw.endObject();
@@ -1198,7 +1194,7 @@ public class JsonGenerator {
             jw.endObject();
             jw.name("apply");
             jw.beginObject();
-            jw.name("model").value(modId + ":" + blockName + "_side");
+            jw.name("model").value(modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
             jw.name("y").value(90);
             jw.name("uvlock").value(true);
             jw.endObject();
@@ -1210,7 +1206,7 @@ public class JsonGenerator {
             jw.endObject();
             jw.name("apply");
             jw.beginObject();
-            jw.name("model").value(modId + ":" + blockName + "_side");
+            jw.name("model").value(modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
             jw.name("y").value(180);
             jw.name("uvlock").value(true);
             jw.endObject();
@@ -1222,7 +1218,7 @@ public class JsonGenerator {
             jw.endObject();
             jw.name("apply");
             jw.beginObject();
-            jw.name("model").value(modId + ":" + blockName + "_side");
+            jw.name("model").value(modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
             jw.name("y").value(270);
             jw.name("uvlock").value(true);
             jw.endObject();
@@ -1234,23 +1230,108 @@ public class JsonGenerator {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }*/
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
         }
 
-        genBlockFenceModel(modId, blockName, textureName);
-        genBlockFenceItemModel(modId, blockName);
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+
+        JsonArray multipart = new JsonArray();
+
+        JsonObject pole = new JsonObject();
+
+        JsonObject applyPost = new JsonObject();
+        applyPost.addProperty("model", modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_post");
+        pole.add("apply", applyPost);
+
+        multipart.add(pole);
+
+        JsonObject sideNorth = new JsonObject();
+
+        JsonObject whenNorth = new JsonObject();
+        whenNorth.addProperty("north", true);
+        sideNorth.add("when", whenNorth);
+
+        JsonObject applyNorth = new JsonObject();
+        applyNorth.addProperty("model", modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
+        applyNorth.addProperty("uvlock", true);
+        sideNorth.add("apply", applyNorth);
+
+        multipart.add(sideNorth);
+
+        JsonObject sideEast = new JsonObject();
+
+        JsonObject whenEast = new JsonObject();
+        whenEast.addProperty("north", true);
+        sideEast.add("when", whenEast);
+
+        JsonObject applyEast = new JsonObject();
+        applyEast.addProperty("model", modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
+        applyEast.addProperty("uvlock", true);
+        applyEast.addProperty("y", 90);
+        sideEast.add("apply", applyEast);
+
+        multipart.add(sideEast);
+
+        JsonObject sideSouth = new JsonObject();
+
+        JsonObject whenSouth = new JsonObject();
+        whenSouth.addProperty("north", true);
+        sideSouth.add("when", whenSouth);
+
+        JsonObject applySouth = new JsonObject();
+        applySouth.addProperty("model", modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
+        applySouth.addProperty("uvlock", true);
+        applySouth.addProperty("y", 180);
+        sideSouth.add("apply", applySouth);
+
+        multipart.add(sideSouth);
+
+        JsonObject sideWest = new JsonObject();
+
+        JsonObject whenWest = new JsonObject();
+        whenWest.addProperty("west", true);
+        sideWest.add("when", whenWest);
+
+        JsonObject applyWest = new JsonObject();
+        applyWest.addProperty("model", modIdAndName.getResourceDomain() + ":" + modIdAndName.getResourcePath() + "_side");
+        applyWest.addProperty("uvlock", true);
+        applyWest.addProperty("y", 270);
+        sideWest.add("apply", applyWest);
+
+        multipart.add(sideWest);
+
+        root.add("multipart", multipart);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getResourcePath()));
+        }
+
+        genBlockFenceModel(modIdAndName, textureName);
+        genBlockFenceItemModel(modIdAndName);
 
     }
 
-    public static void genBlockFenceModel(String modId, String blockName, String textureName) {
+    public static void genBlockFenceModel(ResourceLocation modIdAndName, ResourceLocation textureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "block").toFile();
+        File fileDir = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "models", "block").toFile();
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
 
         try {
 
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + "_post" + ".json"), "UTF-8");
+            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getResourcePath() + "_post" + ".json"), "UTF-8");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonWriter jw = gson.newJsonWriter(writer);
 
@@ -1259,13 +1340,13 @@ public class JsonGenerator {
             jw.name("parent").value("block/fence_post");
             jw.name("textures");
             jw.beginObject();
-            jw.name("texture").value(modId + ":blocks/" + textureName);
+            jw.name("texture").value(modIdAndName.getResourceDomain() + ":blocks/" + textureName);
             jw.endObject();
             jw.endObject();
 
             writer.close();
 
-            Writer writer2 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + "_side" + ".json"), "UTF-8");
+            Writer writer2 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getResourcePath() + "_side" + ".json"), "UTF-8");
             JsonWriter jw2 = gson.newJsonWriter(writer2);
 
             jw2.beginObject();
@@ -1273,13 +1354,13 @@ public class JsonGenerator {
             jw2.name("parent").value("block/fence_side");
             jw2.name("textures");
             jw2.beginObject();
-            jw2.name("texture").value(modId + ":blocks/" + textureName);
+            jw2.name("texture").value(textureName.getResourceDomain() + ":blocks/" + textureName.getResourcePath());
             jw2.endObject();
             jw2.endObject();
 
             writer2.close();
 
-            Writer writer3 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + "_inventory" + ".json"), "UTF-8");
+            Writer writer3 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getResourcePath() + "_inventory" + ".json"), "UTF-8");
             JsonWriter jw3 = gson.newJsonWriter(writer3);
 
             jw3.beginObject();
@@ -1287,7 +1368,7 @@ public class JsonGenerator {
             jw3.name("parent").value("block/fence_inventory");
             jw3.name("textures");
             jw3.beginObject();
-            jw3.name("texture").value(modId + ":blocks/" + textureName);
+            jw3.name("texture").value(textureName.getResourceDomain() + ":blocks/" + textureName.getResourceDomain());
             jw3.endObject();
             jw3.endObject();
 
@@ -1299,28 +1380,27 @@ public class JsonGenerator {
 
     }
 
-    public static void genBlockFenceItemModel(String modId, String blockName) {
+    public static void genBlockFenceItemModel(ResourceLocation modIdAndName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modId, "models", "item").toFile();
+        File fileDir = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "models", "item").toFile();
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
 
         try {
 
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + ".json"), "UTF-8");
+            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getResourcePath() + ".json"), "UTF-8");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonWriter jw = gson.newJsonWriter(writer);
 
             jw.beginObject();
 
             jw.name("_comment").value("Generated using Husky's JSON Generator v4.");
-            jw.name("parent").value(modId + ":block/" + blockName + "_inventory");
+            jw.name("parent").value(modIdAndName.getResourceDomain() + ":block/" + modIdAndName.getResourcePath() + "_inventory");
 
             jw.endObject();
 
             writer.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
