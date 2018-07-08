@@ -25,7 +25,7 @@ public class ItemBandage extends ItemMod {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        if (playerIn.getHealth() < playerIn.getMaxHealth() && worldIn.isRemote && playerIn.getHeldItem(handIn).getItem() == this) {
+        if (playerIn.getHealth() < playerIn.getMaxHealth() && !worldIn.isRemote && playerIn.getHeldItem(handIn).getItem() == this) {
             float f = playerIn.getHealth();
             playerIn.setHealth(f + 1.0F);
             playerIn.getHeldItem(handIn).shrink(1);

@@ -106,7 +106,7 @@ public final class ColoredLightSystem {
 		ListIterator<LightSource> iterator = lightSources.listIterator();
 		while(iterator.hasNext()) {
 			LightSource src = iterator.next();
-			if(src.equals(pos)) {
+			if(src.pos.equals(pos)) {
 				if(!src.isValid(world))
 					iterator.remove();
 				else return;

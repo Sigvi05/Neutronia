@@ -24,9 +24,6 @@ public class NMoonBiomes {
         System.out.println(String.format("Moon Biome: %s is now registered", name));
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
-        BiomeManager.addSpawnBiome(biome);
-        BiomeManager.addStrongholdBiome(biome);
-        BiomeManager.addVillageBiome(biome, true);
         System.out.println(String.format("Moon Biome: %s is now added to the spawn biome's", name));
         System.out.println(String.format("Moon Biome: %s has a %d chance to spawn", name, new BiomeEntry(biome, weight).itemWeight));
     }

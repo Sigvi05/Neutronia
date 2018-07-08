@@ -5,10 +5,10 @@ import net.hdt.neutronia.api.IModData;
 import net.hdt.neutronia.commands.TPBiomeCommand;
 import net.hdt.neutronia.commands.TPDimensionCommand;
 import net.hdt.neutronia.events.ILifeCycleHandler;
+import net.hdt.neutronia.events.handlers.BlockHandlers;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.proxy.CommonProxy;
 import net.hdt.neutronia.util.Reference;
-import net.hdt.neutronia.util.handlers.WorldHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -43,7 +43,7 @@ public class Main implements IModData {
     public static CommonProxy proxy;
 
     private static List<ILifeCycleHandler> handlers = new ArrayList<ILifeCycleHandler>(){{
-        add(new WorldHandler());
+        add(new BlockHandlers());
     }};
 
     @Mod.EventHandler

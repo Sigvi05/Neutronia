@@ -20,12 +20,12 @@ import java.util.Random;
 
 public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColoredLightSource {
 
-    public static EnumDyeColor color;
+    public EnumDyeColor color;
     private final boolean isOn;
 
     public BlockColoredRedstoneLamp(EnumDyeColor color, boolean isOn) {
         super(Material.REDSTONE_LIGHT, Reference.MOD_ID, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
-        BlockColoredRedstoneLamp.color = color;
+        this.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
         this.setLightLevel(isOn ? 1.0F: 0.0F);

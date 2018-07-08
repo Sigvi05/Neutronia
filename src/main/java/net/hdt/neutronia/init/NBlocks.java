@@ -23,6 +23,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static net.hdt.neutronia.init.NCreativeTabs.*;
 import static net.hdt.neutronia.util.Reference.MOD_ID;
@@ -223,14 +224,14 @@ public class NBlocks {
 //            terracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_terracotta_pillar", dyeColor.getName()), Material.ROCK);
             add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()], 0, true, false, OVERWORLD_EXPANSION_TAB);
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, false, OVERWORLD_EXPANSION_TAB);
-            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName())), dyeColor.getMetadata(), true, false, OVERWORLD_EXPANSION_TAB);
+            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), dyeColor.getMetadata(), true, false, OVERWORLD_EXPANSION_TAB);
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), false, true, OVERWORLD_EXPANSION_TAB);
-//            coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
-//            coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
-//            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
-//            coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
-//            coloredRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, false);
-//            coloredLitRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, true);
+            coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
+            coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
+            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
+            coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
+            coloredRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, false);
+            coloredLitRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, true);
             centeredGlazedTerracottaBlocks[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("centered_glazed_terracotta_%s", dyeColor.getName()), false);
         }
 
