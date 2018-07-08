@@ -32,7 +32,7 @@ public class JsonGenerator {
 
         for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
 //            genSlab(new ResourceLocation(modid, String.format("%s_log_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())));
-//            genSlab(new ResourceLocation(modid, String.format("%s_bark_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())));
+//            genSlab(new ResourceLocation(modid, String.format("%s_bark_slstrab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())));
 //            genPillarBlock(new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genBlock(new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
             genFenceBlock(new ResourceLocation(modid, String.format("stripped_%s_bark_fence", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())));
@@ -45,6 +45,8 @@ public class JsonGenerator {
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
 //            genBlock(new ResourceLocation(modid, String.format("%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));
 //            genBlock(new ResourceLocation(modid, String.format("dead_%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_dead_coral", coralColor.getName())));
+//            genBlock(new ResourceLocation(modid, String.format("decorative_%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));
+//            genBlock(new ResourceLocation(modid, String.format("decorative_dead_%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_dead_coral", coralColor.getName())));
 //            genCoralFan(new ResourceLocation(modid, String.format("%s_coral_fan", coralColor.getNewName())), new ResourceLocation(modid, String.format("coral_fan_%s", coralColor.getName())));
 //            genCoralFan(new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getNewName())), new ResourceLocation(modid, String.format("coral_fan_%s_dead", coralColor.getName())));
         }
@@ -1324,7 +1326,7 @@ public class JsonGenerator {
 
     public static void genBlockFenceModel(ResourceLocation modIdAndName, ResourceLocation textureName) {
 
-        File fileDir = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "models", "block").toFile();
+        /*File fileDir = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "models", "block").toFile();
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
@@ -1376,6 +1378,65 @@ public class JsonGenerator {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }*/
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "models", "block");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        {
+            JsonObject root = new JsonObject();
+            root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+            root.addProperty("parent", "block/fence_post");
+
+            JsonObject textures = new JsonObject();
+            textures.addProperty("texture", textureName.getResourceDomain() + ":blocks/" + textureName.getResourcePath());
+            root.add("textures", textures);
+
+            String json = gson.toJson(root);
+
+            try {
+                FileUtils.writeStringToFile(base.resolve(modIdAndName.getResourcePath() + "_post.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            } catch (IOException e) {
+                System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getResourcePath() + "_post"));
+            }
+        }
+        {
+            JsonObject root = new JsonObject();
+            root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+            root.addProperty("parent", "block/fence_side");
+
+            JsonObject textures = new JsonObject();
+            textures.addProperty("texture", textureName.getResourceDomain() + ":blocks/" + textureName.getResourcePath());
+            root.add("textures", textures);
+
+            String json = gson.toJson(root);
+
+            try {
+                FileUtils.writeStringToFile(base.resolve(modIdAndName.getResourcePath() + "_side.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            } catch (IOException e) {
+                System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getResourcePath() + "_side"));
+            }
+        }
+        {
+            JsonObject root = new JsonObject();
+            root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+            root.addProperty("parent", "block/fence_inventory");
+
+            JsonObject textures = new JsonObject();
+            textures.addProperty("texture", textureName.getResourceDomain() + ":blocks/" + textureName.getResourcePath());
+            root.add("textures", textures);
+
+            String json = gson.toJson(root);
+
+            try {
+                FileUtils.writeStringToFile(base.resolve(modIdAndName.getResourcePath() + "_inventory.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            } catch (IOException e) {
+                System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getResourcePath() + "_inventory"));
+            }
         }
 
     }

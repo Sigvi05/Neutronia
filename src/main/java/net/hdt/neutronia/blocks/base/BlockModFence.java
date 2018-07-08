@@ -37,7 +37,7 @@ public class BlockModFence extends BlockFence implements IModBlock {
         this.variants = variants;
         this.modid = modid;
 
-        setUnlocalizedName(name + "_fence");
+        setUnlocalizedName(name);
 
         setHardness(1.5F);
         setResistance(30F);

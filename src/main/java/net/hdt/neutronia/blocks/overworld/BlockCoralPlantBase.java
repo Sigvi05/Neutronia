@@ -132,7 +132,7 @@ public class BlockCoralPlantBase extends BlockModBush {
     }
 
     /**
-     * Pop off coral block if sand underneath disappears
+     * Pop off decorativeCoral block if sand underneath disappears
      */
     @Override
     public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {

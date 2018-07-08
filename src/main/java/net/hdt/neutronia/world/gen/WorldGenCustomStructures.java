@@ -37,12 +37,14 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()) {
+            case 5:
+                generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+//                generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+//                generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+//                generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+//                generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+                break;
             case 3:
-                generateCoral(CORAL_PINK, world, random, chunkX, chunkZ, 100);
-                generateCoral(CORAL_YELLOW, world, random, chunkX, chunkZ, 100);
-                generateCoral(CORAL_PURPLE, world, random, chunkX, chunkZ, 100);
-                generateCoral(CORAL_BLUE, world, random, chunkX, chunkZ, 100);
-                generateCoral(CORAL_RED, world, random, chunkX, chunkZ, 100);
                 break;
             case 1:
                 break;
@@ -77,7 +79,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             if(random.nextInt(chance) == 0)
             {
                 generator.generate(world, random, pos);
-                System.out.print(String.format("This structure has a %d percent of spawning" + "\n", random.nextInt(chance)));
+//                System.out.print(String.format("This structure has a %d percent of spawning" + "\n", random.nextInt(chance)));
             }
         }
     }
@@ -108,7 +110,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     private void generateCoral(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance) {
         int x = (chunkX * 16) + random.nextInt(16);
         int z = (chunkZ * 16) + random.nextInt(16);
-        int y = WorldGenUtils.calculateGenerationHeight(world, x, z, Blocks.END_STONE);
+        int y = WorldGenUtils.calculateGenerationHeight(world, x, z, Blocks.GRAVEL);
         BlockPos pos = new BlockPos(x, y, z);
 
         Biome biome = world.getBiome(pos);

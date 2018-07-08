@@ -3,7 +3,6 @@ package net.hdt.neutronia.init;
 import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.hdt.huskylib2.recipie.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.*;
 import net.hdt.neutronia.blocks.nether.BlockNetherBase;
 import net.hdt.neutronia.blocks.nether.BlockNetherGlowingBase;
@@ -36,10 +35,10 @@ public class NBlocks {
     public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
     public static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
-//    public static Block[] brainCoral = new Block[5];
-//    public static Block[] deadBrainCoral = new Block[5];
-    public static Block[] normalCoral = new Block[5];
-    public static Block[] deadNormalCoral = new Block[5];
+    public static Block[] coral = new Block[5];
+    public static Block[] deadCoral = new Block[5];
+    public static Block[] decorativeCoral = new Block[5];
+    public static Block[] decorativeDeadCoral = new Block[5];
     public static Block[] coralFan = new Block[5];
     public static Block[] deadCoralFan = new Block[5];
     public static Block[] coralPlant = new Block[5];
@@ -98,8 +97,10 @@ public class NBlocks {
         for (EnumCoralColor coralColor : EnumCoralColor.values()) {
 //            brainCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, "brain_coral", false, livingCorals, deadCorals);
 //            deadBrainCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, "dead_brain_coral", true, livingCorals, deadCorals);
-            normalCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, false, livingCorals, deadCorals);
-            deadNormalCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, true, livingCorals, deadCorals);
+            coral[coralColor.getMetadata()] = new BlockCoral(coralColor, false, livingCorals, deadCorals);
+            deadCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, true, livingCorals, deadCorals);
+            decorativeCoral[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_%s_coral", coralColor.getNewName()));
+            decorativeDeadCoral[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral", coralColor.getNewName()));
             coralFan[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, "_fan", false, livingCorals, deadCorals);
             deadCoralFan[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, "_fan", true, livingCorals, deadCorals);
             /*coralPlant[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "coral_plant");
@@ -172,8 +173,8 @@ public class NBlocks {
             add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
             addWall(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, WOOD_EXPANSION_TAB);
             addFenceAndFenceGate(enumType, String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
-            addFenceAndFenceGate(enumType, String.format("stripped_%s_bark", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
-            addFenceAndFenceGate(enumType, String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+//            addFenceAndFenceGate(enumType, String.format("stripped_%s_bark", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+//            addFenceAndFenceGate(enumType, String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
             ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 9), "WWW", "WWW", "WWW", 'W', log);
             chiseledBarkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark_chiseled", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
@@ -199,18 +200,18 @@ public class NBlocks {
         add("jungle_log", Blocks.LOG, 3, true, true, WOOD_EXPANSION_TAB);
         add("acacia_log", Blocks.LOG2, 0, true, true, WOOD_EXPANSION_TAB);
         add("dark_oak_log", Blocks.LOG2, 1, true, true, WOOD_EXPANSION_TAB);
-        addWall("oak_bark", Blocks.LOG, 0, WOOD_EXPANSION_TAB);
-        addWall("spruce_bark", Blocks.LOG, 1, WOOD_EXPANSION_TAB);
-        addWall("birch_bark", Blocks.LOG, 2, WOOD_EXPANSION_TAB);
-        addWall("jungle_bark", Blocks.LOG, 3, WOOD_EXPANSION_TAB);
-        addWall("acacia_bark", Blocks.LOG2, 0, WOOD_EXPANSION_TAB);
-        addWall("dark_oak_bark", Blocks.LOG2, 1, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.OAK, "oak_bark", Blocks.LOG, 0, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.SPRUCE, "spruce_bark", Blocks.LOG, 1, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.BIRCH, "birch_bark", Blocks.LOG, 2, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.JUNGLE, "jungle_bark", Blocks.LOG, 3, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.ACACIA, "acacia_bark", Blocks.LOG2, 0, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.DARK_OAK, "dark_oak_bark", Blocks.LOG2, 1, true, true, WOOD_EXPANSION_TAB);
+        addWall("oak_log", Blocks.LOG, 0, WOOD_EXPANSION_TAB);
+        addWall("spruce_log", Blocks.LOG, 1, WOOD_EXPANSION_TAB);
+        addWall("birch_log", Blocks.LOG, 2, WOOD_EXPANSION_TAB);
+        addWall("jungle_log", Blocks.LOG, 3, WOOD_EXPANSION_TAB);
+        addWall("acacia_log", Blocks.LOG2, 0, WOOD_EXPANSION_TAB);
+        addWall("dark_oak_log", Blocks.LOG2, 1, WOOD_EXPANSION_TAB);
+        addFenceAndFenceGate(BlockPlanks.EnumType.OAK, "oak_log", Blocks.LOG, 0, true, true, WOOD_EXPANSION_TAB);
+        addFenceAndFenceGate(BlockPlanks.EnumType.SPRUCE, "spruce_log", Blocks.LOG, 1, true, true, WOOD_EXPANSION_TAB);
+        addFenceAndFenceGate(BlockPlanks.EnumType.BIRCH, "birch_log", Blocks.LOG, 2, true, true, WOOD_EXPANSION_TAB);
+        addFenceAndFenceGate(BlockPlanks.EnumType.JUNGLE, "jungle_log", Blocks.LOG, 3, true, true, WOOD_EXPANSION_TAB);
+        addFenceAndFenceGate(BlockPlanks.EnumType.ACACIA, "acacia_log", Blocks.LOG2, 0, true, true, WOOD_EXPANSION_TAB);
+        addFenceAndFenceGate(BlockPlanks.EnumType.DARK_OAK, "dark_oak_log", Blocks.LOG2, 1, true, true, WOOD_EXPANSION_TAB);
 
         // Frosted versions of vanilla stones & dirt
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
