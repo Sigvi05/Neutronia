@@ -35,12 +35,20 @@ public class JsonGenerator {
 //            genSlab(new ResourceLocation(modid, String.format("%s_bark_slstrab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())));
 //            genPillarBlock(new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genBlock(new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
-            genFenceBlock(new ResourceLocation(modid, String.format("stripped_%s_bark_fence", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())));
+//            genFenceBlock(new ResourceLocation(modid, String.format("stripped_%s_bark_fence", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())));
         }
 
         for(EnumDyeColor color : EnumDyeColor.values()) {
 //            genBlock(new ResourceLocation(modid, String.format("centered_glazed_terracotta_%s", color.getName())), new ResourceLocation(modid, String.format("centered_glazed_terracotta/centered_glazed_terracotta_%s", color.getName())));
+//            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_redstone_lamp", color.getName())), new ResourceLocation(modid, "cube_all_colored"), new ResourceLocation(modid, "coloured_redstone_lamp_off"));
+//            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_lit_redstone_lamp", color.getName())), new ResourceLocation(modid, "cube_all_colored"), new ResourceLocation(modid, "coloured_redstone_lamp_on"));
+//            genCustomBlock(new ResourceLocation(modid, String.format("%s_lantern", color.getName())), new ResourceLocation(modid, "lantern"));
+//            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_lantern", color.getName())), new ResourceLocation(modid, "lantern"));
+//            genCustomBlock(new ResourceLocation(modid, String.format("%s_candle", color.getName())), new ResourceLocation(modid, "candle"));
+//            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_candle", color.getName())), new ResourceLocation(modid, "candle"));
         }
+
+        genSlab(new ResourceLocation(modid, "stone_slab"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"));
 
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
 //            genBlock(new ResourceLocation(modid, String.format("%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));
@@ -71,6 +79,84 @@ public class JsonGenerator {
 
         JsonObject textures = new JsonObject();
         textures.addProperty("all", textureName.getResourceDomain() + ":blocks/" + textureName.getResourcePath());
+        defaults.add("textures", textures);
+
+        defaults.addProperty("transform", "forge:default-block");
+        root.add("defaults", defaults);
+
+        JsonObject variants = new JsonObject();
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        variants.add("normal", empty);
+        variants.add("inventory", empty);
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getResourcePath()));
+        }
+    }
+
+    public static void genCustomBlock(ResourceLocation modIdAndName, ResourceLocation modelPath) {
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject defaults = new JsonObject();
+        defaults.addProperty("model", modelPath.getResourceDomain() + ":" + modelPath.getResourcePath());
+
+        defaults.addProperty("transform", "forge:default-block");
+        root.add("defaults", defaults);
+
+        JsonObject variants = new JsonObject();
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        variants.add("normal", empty);
+        variants.add("inventory", empty);
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getResourcePath()));
+        }
+    }
+
+    public static void genCustomBlockWithTexture(ResourceLocation modIdAndName, ResourceLocation modelPath, ResourceLocation textureLocation) {
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modIdAndName.getResourceDomain(), "blockstates");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject defaults = new JsonObject();
+        defaults.addProperty("model", modelPath.getResourceDomain() + ":" + modelPath.getResourcePath());
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("all", textureLocation.getResourceDomain() + ":blocks/" + textureLocation.getResourcePath());
         defaults.add("textures", textures);
 
         defaults.addProperty("transform", "forge:default-block");

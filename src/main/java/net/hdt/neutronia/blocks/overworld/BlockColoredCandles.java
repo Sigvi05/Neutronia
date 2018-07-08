@@ -57,7 +57,7 @@ public class BlockColoredCandles extends BlockColoredAlt implements IColoredLigh
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         if(isOn) {
             double d0 = (double) pos.getX() + 0.5D;
-            double d1 = (double) pos.getY() + 0.7D;
+            double d1 = (double) pos.getY() + 0.55D;
             double d2 = (double) pos.getZ() + 0.5D;
 
             worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0, d1, d2, 0.0D, 0.0D, 0.0D);

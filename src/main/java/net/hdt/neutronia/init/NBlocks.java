@@ -171,8 +171,8 @@ public class NBlocks {
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
             barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
             add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
-            addWall(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, WOOD_EXPANSION_TAB);
-            addFenceAndFenceGate(enumType, String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
+//            addWall(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, WOOD_EXPANSION_TAB);
+//            addFenceAndFenceGate(enumType, String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
 //            addFenceAndFenceGate(enumType, String.format("stripped_%s_bark", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
 //            addFenceAndFenceGate(enumType, String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true, true, WOOD_EXPANSION_TAB);
             ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
@@ -190,7 +190,7 @@ public class NBlocks {
 //            plankDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_dowel", enumType.getName()), WOOD_EXPANSION_TAB, false);
             plankPoles[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_pole", enumType.getName()), WOOD_EXPANSION_TAB, false);
 //            coffins[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, enumType.getName() + "_coffin", true).setCreativeTab(WOOD_EXPANSION_TAB);
-            addWall(String.format("%s_plank", enumType.getName()), Blocks.PLANKS, enumType.getMetadata(), WOOD_EXPANSION_TAB);
+//            addWall(String.format("%s_plank", enumType.getName()), Blocks.PLANKS, enumType.getMetadata(), WOOD_EXPANSION_TAB);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedLogs[enumType.getMetadata()], 1), log, NItems.logStripper);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedBarkBlocks[enumType.getMetadata()], 1), ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1), NItems.logStripper);
         }
@@ -200,18 +200,18 @@ public class NBlocks {
         add("jungle_log", Blocks.LOG, 3, true, true, WOOD_EXPANSION_TAB);
         add("acacia_log", Blocks.LOG2, 0, true, true, WOOD_EXPANSION_TAB);
         add("dark_oak_log", Blocks.LOG2, 1, true, true, WOOD_EXPANSION_TAB);
-        addWall("oak_log", Blocks.LOG, 0, WOOD_EXPANSION_TAB);
-        addWall("spruce_log", Blocks.LOG, 1, WOOD_EXPANSION_TAB);
-        addWall("birch_log", Blocks.LOG, 2, WOOD_EXPANSION_TAB);
-        addWall("jungle_log", Blocks.LOG, 3, WOOD_EXPANSION_TAB);
-        addWall("acacia_log", Blocks.LOG2, 0, WOOD_EXPANSION_TAB);
-        addWall("dark_oak_log", Blocks.LOG2, 1, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.OAK, "oak_log", Blocks.LOG, 0, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.SPRUCE, "spruce_log", Blocks.LOG, 1, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.BIRCH, "birch_log", Blocks.LOG, 2, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.JUNGLE, "jungle_log", Blocks.LOG, 3, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.ACACIA, "acacia_log", Blocks.LOG2, 0, true, true, WOOD_EXPANSION_TAB);
-        addFenceAndFenceGate(BlockPlanks.EnumType.DARK_OAK, "dark_oak_log", Blocks.LOG2, 1, true, true, WOOD_EXPANSION_TAB);
+//        addWall("oak_log", Blocks.LOG, 0, WOOD_EXPANSION_TAB);
+//        addWall("spruce_log", Blocks.LOG, 1, WOOD_EXPANSION_TAB);
+//        addWall("birch_log", Blocks.LOG, 2, WOOD_EXPANSION_TAB);
+//        addWall("jungle_log", Blocks.LOG, 3, WOOD_EXPANSION_TAB);
+//        addWall("acacia_log", Blocks.LOG2, 0, WOOD_EXPANSION_TAB);
+//        addWall("dark_oak_log", Blocks.LOG2, 1, WOOD_EXPANSION_TAB);
+//        addFenceAndFenceGate(BlockPlanks.EnumType.OAK, "oak_log", Blocks.LOG, 0, true, true, WOOD_EXPANSION_TAB);
+//        addFenceAndFenceGate(BlockPlanks.EnumType.SPRUCE, "spruce_log", Blocks.LOG, 1, true, true, WOOD_EXPANSION_TAB);
+//        addFenceAndFenceGate(BlockPlanks.EnumType.BIRCH, "birch_log", Blocks.LOG, 2, true, true, WOOD_EXPANSION_TAB);
+//        addFenceAndFenceGate(BlockPlanks.EnumType.JUNGLE, "jungle_log", Blocks.LOG, 3, true, true, WOOD_EXPANSION_TAB);
+//        addFenceAndFenceGate(BlockPlanks.EnumType.ACACIA, "acacia_log", Blocks.LOG2, 0, true, true, WOOD_EXPANSION_TAB);
+//        addFenceAndFenceGate(BlockPlanks.EnumType.DARK_OAK, "dark_oak_log", Blocks.LOG2, 1, true, true, WOOD_EXPANSION_TAB);
 
         // Frosted versions of vanilla stones & dirt
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
@@ -317,23 +317,6 @@ public class NBlocks {
         }
         if (slabs) {
             BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, block.getMaterial(state), false, creativeTabs), new BlockOverworldSlabBase(slabName, block.getMaterial(state), true, creativeTabs));
-        }
-    }
-
-    public static void addWithColoredName(String name, Block block, int meta, CreativeTabs creativeTabs, EnumDyeColor color) {
-        addWithColoredName(name, block, meta, true, true, creativeTabs, color);
-    }
-
-    public static void addWithColoredName(String name, Block block, int meta, boolean slabs, boolean stairs, CreativeTabs creativeTabs, EnumDyeColor color) {
-        IBlockState state = block.getStateFromMeta(meta);
-        String stairsName = name + "_stairs";
-        String slabName = name + "_slab";
-
-        if (stairs) {
-            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBaseColoredName(stairsName, state, creativeTabs, color));
-        }
-        if (slabs) {
-            BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBaseColoredName(slabName, block.getMaterial(state), false, creativeTabs, color), new BlockOverworldSlabBaseColoredName(slabName, block.getMaterial(state), true, creativeTabs, color));
         }
     }
 

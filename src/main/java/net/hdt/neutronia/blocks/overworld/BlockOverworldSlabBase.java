@@ -109,7 +109,7 @@ public class BlockOverworldSlabBase extends BlockModSlab implements IModBlock {
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer()
     {
-        return BlockRenderLayer.CUTOUT;
+        return BlockRenderLayer.TRANSLUCENT;
     }
 
     /**
@@ -121,9 +121,14 @@ public class BlockOverworldSlabBase extends BlockModSlab implements IModBlock {
     }
 
     @Override
+    public boolean isFullBlock(IBlockState state) {
+        return false;
+    }
+
+    @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return false;
+        return true;
     }
 
 }

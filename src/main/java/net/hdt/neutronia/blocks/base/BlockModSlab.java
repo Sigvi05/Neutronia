@@ -68,7 +68,12 @@ public abstract class BlockModSlab extends BlockSlab implements IModBlock {
 		return m;
 	}
 
-	@Override
+    @Override
+    public String getUnlocalizedName(int meta) {
+        return getUnlocalizedName();
+    }
+
+    @Override
 	public BlockStateContainer createBlockState() {
 		return tempDoubleSlab ? new BlockStateContainer(this, getVariantProp()) : new BlockStateContainer(this, HALF, getVariantProp());
 	}
@@ -144,18 +149,13 @@ public abstract class BlockModSlab extends BlockSlab implements IModBlock {
 	}
 
 	@Override
-	public String getUnlocalizedName(int meta) {
-		return getUnlocalizedName();
-	}
-
-	@Override
 	public boolean isDouble() {
 		return doubleSlab;
 	}
 
 	@Override
 	public boolean isFullBlock(IBlockState state) {
-		return isDouble();
+		return false;
 	}
 
 	@Override
@@ -288,7 +288,7 @@ public abstract class BlockModSlab extends BlockSlab implements IModBlock {
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer()
     {
-        return BlockRenderLayer.CUTOUT;
+        return BlockRenderLayer.TRANSLUCENT;
     }
 
     /**
@@ -302,7 +302,7 @@ public abstract class BlockModSlab extends BlockSlab implements IModBlock {
     @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return false;
+        return true;
     }
 
 	public static enum DummyEnum implements BlockMetaVariants.EnumBase {
