@@ -34,34 +34,34 @@ public class BlockCoral extends BlockWaterBlockBase {
 
     @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-        if(!this.dead && canLive(worldIn, pos))
-            worldIn.scheduleUpdate(pos,this,100);
-        if(this.dead && !canLive(worldIn, pos))
+        if(!dead && !canLive(worldIn,pos))
             worldIn.scheduleUpdate(pos,this,100);
     }
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if(!this.dead && canLive(worldIn, pos))
-            worldIn.scheduleUpdate(pos,this,100);
-        if(this.dead && !canLive(worldIn, pos))
-            worldIn.scheduleUpdate(pos,this,100);
+        worldIn.scheduleUpdate(pos,this,100);
     }
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if(!this.dead && canLive(worldIn, pos))
+
+        if(!this.dead && !canLive(worldIn, pos))
             worldIn.setBlockState(pos, deadVersion.get(livingVersion.indexOf(this)).getDefaultState());
-        if(this.dead && !canLive(worldIn, pos))
+        if(this.dead && canLive(worldIn, pos))
             worldIn.setBlockState(pos, livingVersion.get(deadVersion.indexOf(this)).getDefaultState());
     }
 
-    private boolean canLive(World world, BlockPos itsPosition) {
+    protected boolean canLive(World world,BlockPos itsPosition)
+    {
         for (EnumFacing facing : EnumFacing.values()) {
-            IBlockState sidestate = world.getBlockState(itsPosition.offset(facing));
-            if(sidestate.getBlock() == Blocks.WATER || sidestate.getBlock() == Blocks.FLOWING_WATER) return false;
+            IBlockState sidestate=world.getBlockState(itsPosition.offset(facing));
+            if(sidestate.getBlock()== Blocks.WATER || sidestate.getBlock()==Blocks.FLOWING_WATER)
+            {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
 }

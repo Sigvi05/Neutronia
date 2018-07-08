@@ -3,6 +3,7 @@ package net.hdt.neutronia.init;
 import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.hdt.huskylib2.recipie.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.neutronia.Main;
 import net.hdt.neutronia.blocks.base.*;
 import net.hdt.neutronia.blocks.nether.BlockNetherBase;
 import net.hdt.neutronia.blocks.nether.BlockNetherGlowingBase;
