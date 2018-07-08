@@ -6,11 +6,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public enum EnumCoralColor implements IStringSerializable {
 
-    YELLOW(0, "yellow", 16701501),
-    PINK(1, "pink", 15961002),
-    PURPLE(2, "purple", 8991416),
-    BLUE(3, "blue", 3949738),
-    RED(4, "red", 11546150);
+    BLUE(0, "blue", "tube", 3949738),
+    PINK(1, "pink", "brain", 15961002),
+    PURPLE(2, "purple", "bubble", 8991416),
+    RED(3, "red", "fire", 11546150),
+    YELLOW(4, "yellow", "horn", 16701501);
 
     private static final EnumCoralColor[] META_LOOKUP = new EnumCoralColor[values().length];
 
@@ -21,13 +21,25 @@ public enum EnumCoralColor implements IStringSerializable {
     }
 
     private final int meta;
-    private final String name;
+    private final String oldName, newName;
     private final int colorValue;
     private final float[] colorComponentValues;
 
-    EnumCoralColor(int metaIn, String nameIn, int colorValueIn) {
+    EnumCoralColor(int metaIn, String oldName, int colorValueIn) {
         this.meta = metaIn;
-        this.name = nameIn;
+        this.oldName = oldName;
+        this.newName = oldName;
+        this.colorValue = colorValueIn;
+        int i = (colorValueIn & 16711680) >> 16;
+        int j = (colorValueIn & 65280) >> 8;
+        int k = (colorValueIn & 255);
+        this.colorComponentValues = new float[]{(float) i / 255.0F, (float) j / 255.0F, (float) k / 255.0F};
+    }
+
+    EnumCoralColor(int metaIn, String oldName, String newName, int colorValueIn) {
+        this.meta = metaIn;
+        this.oldName = oldName;
+        this.newName = newName;
         this.colorValue = colorValueIn;
         int i = (colorValueIn & 16711680) >> 16;
         int j = (colorValueIn & 65280) >> 8;
@@ -47,9 +59,8 @@ public enum EnumCoralColor implements IStringSerializable {
         return this.meta;
     }
 
-    @SideOnly(Side.CLIENT)
-    public String getDyeColorName() {
-        return this.name;
+    public String getNewName() {
+        return newName;
     }
 
     @SideOnly(Side.CLIENT)
@@ -62,11 +73,11 @@ public enum EnumCoralColor implements IStringSerializable {
     }
 
     public String toString() {
-        return this.name;
+        return this.oldName;
     }
 
     public String getName() {
-        return this.name;
+        return this.oldName;
     }
 
 }

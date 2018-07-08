@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/pink_dead_coral"
+      "all": "neutronia:blocks/yellow_coral"
     },
     "transform": "forge:default-block"
   },

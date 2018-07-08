@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
+import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumDyeColor;
@@ -30,14 +31,21 @@ public class JsonGenerator {
     public static void main(String[] args) {
 
         for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
-//            genSlab(new ResourceLocation(modid, String.format("stripped_%s_log_slab", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())));
-//            genSlab(new ResourceLocation(modid, String.format("stripped_%s_bark_slab", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
-            genPillarBlock(new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
+            genSlab(new ResourceLocation(modid, String.format("%s_log_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s_top", type.getName())));
+            genSlab(new ResourceLocation(modid, String.format("%s_bark_slab", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())), new ResourceLocation("minecraft", String.format("log_%s", type.getName())));
+//            genPillarBlock(new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genBlock(new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
         }
 
         for(EnumDyeColor color : EnumDyeColor.values()) {
 //            genBlock(new ResourceLocation(modid, String.format("centered_glazed_terracotta_%s", color.getName())), new ResourceLocation(modid, String.format("centered_glazed_terracotta/centered_glazed_terracotta_%s", color.getName())));
+        }
+
+        for(EnumCoralColor coralColor : EnumCoralColor.values()) {
+//            genBlock(new ResourceLocation(modid, String.format("%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));
+//            genBlock(new ResourceLocation(modid, String.format("dead_%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_dead_coral", coralColor.getName())));
+//            genCoralFan(new ResourceLocation(modid, String.format("%s_coral_fan", coralColor.getNewName())), new ResourceLocation(modid, String.format("coral_fan_%s", coralColor.getName())));
+//            genCoralFan(new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getNewName())), new ResourceLocation(modid, String.format("coral_fan_%s_dead", coralColor.getName())));
         }
 
     }
