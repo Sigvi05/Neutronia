@@ -6,20 +6,16 @@ import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.module.ModuleHandler;
 import net.hdt.neutronia.util.LibObfuscation;
-import net.hdt.neutronia.util.Reference;
 import net.hdt.neutronia.util.handlers.EntityEventHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.Timer;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -109,13 +105,4 @@ public class ClientProxy extends CommonProxy {
         return ClientProxy.timer.renderPartialTicks;
     }
 
-    @Override
-    public void registerBlockItemModel(Block block) {
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block),0,new ModelResourceLocation(Reference.MOD_ID+":"+block.getRegistryName().getResourcePath(),"inventory"));
-    }
-
-    @Override
-    public void registerBlockItemModel(Block block, String modelName) {
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block),0,new ModelResourceLocation(Reference.MOD_ID+":"+modelName,"inventory"));
-    }
 }
