@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.blocks.BlockModStairs;
+import net.hdt.neutronia.blocks.base.BlockModStairs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

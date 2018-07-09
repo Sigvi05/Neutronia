@@ -6,6 +6,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
 import net.hdt.neutronia.properties.EnumCoralColor;
+import net.hdt.neutronia.properties.EnumNewStoneVariants;
+import net.hdt.neutronia.properties.EnumNewStoneVariantsSlabsAndStairs;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumDyeColor;
@@ -46,7 +48,15 @@ public class JsonGenerator {
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_lantern", color.getName())), new ResourceLocation(modid, "lantern"));
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_candle", color.getName())), new ResourceLocation(modid, "candle"));
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_candle", color.getName())), new ResourceLocation(modid, "candle"));
-            genSlab(new ResourceLocation(modid, String.format("%s_glass_slab", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())));
+//            genSlab(new ResourceLocation(modid, String.format("%s_glass_slab", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())));
+        }
+
+        for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
+            genBlock(new ResourceLocation(modid, newStoneVariants.getName()), new ResourceLocation(modid, newStoneVariants.getName()));
+        }
+
+        for(EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
+            genSlab(new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName() + "_slab"), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()));
         }
 
 //        genSlab(new ResourceLocation(modid, "stone_slab"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"));

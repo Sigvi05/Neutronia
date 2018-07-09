@@ -63,6 +63,15 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+
+    // generate version.properties file from the git version data earlier
+    doLast {
+        def propsFile = new File(destinationDir, 'version.properties')
+        def properties = new Properties()
+        properties.putAll(versionInfo)
+        properties['Neutronia.build.mcversion'] = project.minecraft.version
+        properties.store(propsFile.newWriter(), null)
+    }
 }
 
 jar {
