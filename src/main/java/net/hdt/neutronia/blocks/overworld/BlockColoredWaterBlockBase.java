@@ -41,17 +41,17 @@ public class BlockColoredWaterBlockBase extends BlockMod {
         return new ItemBlockCoralColoredName(this, getRegistryName(), color);
     }*/
 
+    @SideOnly(Side.CLIENT)
+    private static EnumCoralColor getColorFromBlock(Block blockIn) {
+        return blockIn instanceof BlockColoredWaterBlockBase ? ((BlockColoredWaterBlockBase) blockIn).getColor() : EnumCoralColor.BLUE;
+    }
+
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         for (int oreId : OreDictionary.getOreIDs(stack)) {
             String oreNameLowercase = OreDictionary.getOreName(oreId);
             tooltip.add(oreNameLowercase);
         }
-    }
-
-    @SideOnly(Side.CLIENT)
-    private static EnumCoralColor getColorFromBlock(Block blockIn) {
-        return blockIn instanceof BlockColoredWaterBlockBase ? ((BlockColoredWaterBlockBase) blockIn).getColor() : EnumCoralColor.BLUE;
     }
 
     @Override

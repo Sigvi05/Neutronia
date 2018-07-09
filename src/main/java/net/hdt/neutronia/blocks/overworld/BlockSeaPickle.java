@@ -57,7 +57,7 @@ public class BlockSeaPickle extends BlockWaterBlockBase implements IGrowable {
     public int getMetaFromState(IBlockState state) {
         int count = state.getValue(PICKLES);
         boolean waterlogged = state.getValue(WATERLOGGED);
-        return (count & 0b111) << 1 | (waterlogged ? 1  : 0);
+        return (count & 0b111) << 1 | (waterlogged ? 1 : 0);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class BlockSeaPickle extends BlockWaterBlockBase implements IGrowable {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         int picles = state.getValue(PICKLES);
-        if(playerIn.getActiveItemStack() == new ItemStack(this)) {
+        if (playerIn.getActiveItemStack() == new ItemStack(this)) {
             int i = 0;
             while (i < picles) {
                 worldIn.setBlockState(pos, state.withProperty(PICKLES, i));
@@ -108,11 +108,11 @@ public class BlockSeaPickle extends BlockWaterBlockBase implements IGrowable {
             int vInteger9 = pos.getX() - 2;
             int vInteger10 = 0;
 
-            for(int vInteger11 = 0; vInteger11 < 5; ++vInteger11) {
-                for(int vInteger12 = 0; vInteger12 < vInteger6; ++vInteger12) {
+            for (int vInteger11 = 0; vInteger11 < 5; ++vInteger11) {
+                for (int vInteger12 = 0; vInteger12 < vInteger6; ++vInteger12) {
                     int vInteger13 = 2 + pos.getY() - 1;
 
-                    for(int vInteger14 = vInteger13 - 2; vInteger14 < vInteger13; ++vInteger14) {
+                    for (int vInteger14 = vInteger13 - 2; vInteger14 < vInteger13; ++vInteger14) {
                         BlockPos vBlockPos15 = new BlockPos(vInteger9 + vInteger11, vInteger14, pos.getZ() - vInteger10 + vInteger12);
                         if (vBlockPos15 != pos && rand.nextInt(6) == 0 && worldIn.getBlockState(vBlockPos15).getBlock() == Blocks.WATER) {
                             IBlockState vIBlockState16 = worldIn.getBlockState(vBlockPos15.down());

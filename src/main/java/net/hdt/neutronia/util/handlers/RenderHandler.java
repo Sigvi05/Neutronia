@@ -9,15 +9,11 @@ public class RenderHandler {
     public static void registerEntityRenders() {
         RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, RenderMummy::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityMummyVillager.class, RenderMummyVillager::new);
-//        RenderingRegistry.registerEntityRenderingHandler(EntityScorp.class, RenderScorp::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDrowned.class, RenderDrowned::new);
-//        RenderingRegistry.registerEntityRenderingHandler(EntityCod.class, RenderCod::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityPhantom.class, RenderPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBloodPhantom.class, RenderRedPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderPhantom.class, RenderEnderPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityShadowPhantom.class, RenderShadowPhantom::new);
-//        RenderingRegistry.registerEntityRenderingHandler(EntitySeaTurtle.class, RenderSeaTurtle::new);
-//        RenderingRegistry.registerEntityRenderingHandler(EntityWhale.class, RenderWhale::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityInferno.class, RenderInferno::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityAnchored.class, RenderAnchored::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLostMiner.class, RenderLostMiner::new);
@@ -29,6 +25,10 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityDrownedScubaVillager.class, RenderDrownedScubaVillager::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySandDiverAquatic.class, RenderSandDiverAquatic::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityAlbadon.class, RenderAlbadon::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityAxolotl.class, RenderAxolotl::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityArcticWolf.class, RenderArcticWolf::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityFox.class, RenderFox::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBird.class, RenderBird::new);
     }
 
 }

@@ -88,14 +88,10 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
-    {
-        if (this.isDouble())
-        {
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+        if (this.isDouble()) {
             return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
-        }
-        else if (side != EnumFacing.UP && side != EnumFacing.DOWN && !super.shouldSideBeRendered(blockState, blockAccess, pos, side))
-        {
+        } else if (side != EnumFacing.UP && side != EnumFacing.DOWN && !super.shouldSideBeRendered(blockState, blockAccess, pos, side)) {
             return false;
         }
 
@@ -103,56 +99,48 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab {
     }
 
     @SideOnly(Side.CLIENT)
-    public boolean originalShouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
-    {
+    public boolean originalShouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         AxisAlignedBB axisalignedbb = blockState.getBoundingBox(blockAccess, pos);
 
-        switch (side)
-        {
+        switch (side) {
             case DOWN:
 
-                if (axisalignedbb.minY > 0.0D)
-                {
+                if (axisalignedbb.minY > 0.0D) {
                     return true;
                 }
 
                 break;
             case UP:
 
-                if (axisalignedbb.maxY < 1.0D)
-                {
+                if (axisalignedbb.maxY < 1.0D) {
                     return true;
                 }
 
                 break;
             case NORTH:
 
-                if (axisalignedbb.minZ > 0.0D)
-                {
+                if (axisalignedbb.minZ > 0.0D) {
                     return true;
                 }
 
                 break;
             case SOUTH:
 
-                if (axisalignedbb.maxZ < 1.0D)
-                {
+                if (axisalignedbb.maxZ < 1.0D) {
                     return true;
                 }
 
                 break;
             case WEST:
 
-                if (axisalignedbb.minX > 0.0D)
-                {
+                if (axisalignedbb.minX > 0.0D) {
                     return true;
                 }
 
                 break;
             case EAST:
 
-                if (axisalignedbb.maxX < 1.0D)
-                {
+                if (axisalignedbb.maxX < 1.0D) {
                     return true;
                 }
         }
@@ -162,8 +150,7 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab {
         Material material = sideBlockState.getMaterial();
 
         // Glass and other transparent materials force this side to be transparent.
-        if (!material.isOpaque() && material != Material.AIR)
-        {
+        if (!material.isOpaque() && material != Material.AIR) {
             return false;
         }
 
@@ -172,22 +159,19 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
+    public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 
     /**
      * Used to determine ambient occlusion and culling when rebuilding chunks for render
      */
-    public boolean isOpaqueCube(IBlockState state)
-    {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
     @Override
-    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
+    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
         return false;
     }
 

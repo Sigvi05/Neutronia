@@ -19,7 +19,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, value = Side.CLIENT)
 public class ItemEventHandler {
@@ -37,7 +36,6 @@ public class ItemEventHandler {
     }
 
     @SubscribeEvent
-    @SideOnly(Side.CLIENT)
     public void renderTooltip(RenderTooltipEvent.PostText event) {
         if (event.getStack().getItem() instanceof ItemMap && (!requireShift || GuiScreen.isShiftKeyDown())) {
             Minecraft mc = Minecraft.getMinecraft();

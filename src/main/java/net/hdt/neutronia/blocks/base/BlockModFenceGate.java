@@ -1,5 +1,8 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
@@ -8,9 +11,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.util.ResourceLocation;
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
 
 public class BlockModFenceGate extends BlockFenceGate implements IModBlock {
 

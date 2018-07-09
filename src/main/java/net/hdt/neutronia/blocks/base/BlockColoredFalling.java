@@ -1,6 +1,5 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -22,7 +21,7 @@ public class BlockColoredFalling extends BlockColoredAlt {
     public static boolean fallInstantly;
 
     public BlockColoredFalling(EnumDyeColor color, String name) {
-        super(Material.SAND,MOD_ID, name, color);
+        super(Material.SAND, MOD_ID, name, color);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 

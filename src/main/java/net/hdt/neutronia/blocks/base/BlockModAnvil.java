@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -12,7 +13,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ContainerRepair;
 import net.minecraft.item.ItemStack;
@@ -78,17 +78,13 @@ public class BlockModAnvil extends BlockFalling {
         EnumFacing enumfacing = placer.getHorizontalFacing().rotateY();
 
         try {
-            return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, enumfacing).withProperty(DAMAGE, Integer.valueOf(meta >> 2));
+            return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, enumfacing).withProperty(DAMAGE, meta >> 2);
         } catch (IllegalArgumentException var11) {
             if (!worldIn.isRemote) {
                 LOGGER.warn(String.format("Invalid damage property for anvil at %s. Found %d, must be in [0, 1, 2]", pos, meta >> 2));
-
-                if (placer instanceof EntityPlayer) {
-                    placer.sendMessage(new TextComponentTranslation("Invalid damage property. Please pick in [0, 1, 2]"));
-                }
             }
 
-            return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, placer).withProperty(FACING, enumfacing).withProperty(DAMAGE, Integer.valueOf(0));
+            return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, placer).withProperty(FACING, enumfacing).withProperty(DAMAGE, 0);
         }
     }
 
@@ -108,7 +104,7 @@ public class BlockModAnvil extends BlockFalling {
      * returns the metadata of the dropped item based on the old metadata of the block.
      */
     public int damageDropped(IBlockState state) {
-        return state.getValue(DAMAGE).intValue();
+        return state.getValue(DAMAGE);
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
@@ -146,7 +142,7 @@ public class BlockModAnvil extends BlockFalling {
      * Convert the given metadata into a BlockState for this Block
      */
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta & 3)).withProperty(DAMAGE, Integer.valueOf((meta & 15) >> 2));
+        return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta & 3)).withProperty(DAMAGE, (meta & 15) >> 2);
     }
 
     /**
@@ -155,7 +151,7 @@ public class BlockModAnvil extends BlockFalling {
     public int getMetaFromState(IBlockState state) {
         int i = 0;
         i = i | state.getValue(FACING).getHorizontalIndex();
-        i = i | state.getValue(DAMAGE).intValue() << 2;
+        i = i | state.getValue(DAMAGE) << 2;
         return i;
     }
 
@@ -198,7 +194,7 @@ public class BlockModAnvil extends BlockFalling {
          * Get the formatted ChatComponent that will be used for the sender's username in chat
          */
         public ITextComponent getDisplayName() {
-            return new TextComponentTranslation(Blocks.ANVIL.getUnlocalizedName() + ".name");
+            return new TextComponentTranslation(NBlocks.darkIronAnvil.getUnlocalizedName() + ".name");
         }
 
         public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
@@ -206,7 +202,7 @@ public class BlockModAnvil extends BlockFalling {
         }
 
         public String getGuiID() {
-            return "minecraft:anvil";
+            return "neutronia:anvil";
         }
     }
 }

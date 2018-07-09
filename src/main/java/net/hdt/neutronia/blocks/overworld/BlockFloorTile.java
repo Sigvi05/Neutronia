@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.huskylib2.blocks.BlockFacing;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
@@ -12,7 +13,6 @@ import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.hdt.huskylib2.blocks.BlockFacing;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 

@@ -1,5 +1,8 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
@@ -8,9 +11,6 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
 
 public class BlockModBush extends BlockBush implements IModBlock {
 

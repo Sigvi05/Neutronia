@@ -1,5 +1,8 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
@@ -10,9 +13,6 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
 
 public class BlockModTrapdoor extends BlockTrapDoor implements IModBlock {
 

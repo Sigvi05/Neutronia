@@ -33,100 +33,100 @@ import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 public class BlockColoredFlowerPot extends BlockFlowerPot implements IModBlock, IBlockColorProvider, IRecipeGrouped {
 
-	private final String[] variants;
-	private final String bareName;
+    private final String[] variants;
+    private final String bareName;
 
-	public BlockColoredFlowerPot(EnumDyeColor color) {
-		String name = color.getName() + "_terracotta_flowerpot";
-		variants = new String[] { name };
-		bareName = name;
-		
-		setHardness(0.0F);
-		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.DECORATIONS);
-		
-		setUnlocalizedName(name);
-	}
+    public BlockColoredFlowerPot(EnumDyeColor color) {
+        String name = color.getName() + "_terracotta_flowerpot";
+        variants = new String[]{name};
+        bareName = name;
 
-	@Override
-	public Block setUnlocalizedName(String name) {
-		super.setUnlocalizedName(name);
-		setRegistryName(MOD_ID, name);
-		ProxyRegistry.register(this);
-		ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(MOD_ID, name)));
-		return this;
-	}
+        setHardness(0.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(CreativeTabs.DECORATIONS);
 
-	@Override
-	public String getModNamespace() {
-		return MOD_ID;
-	}
+        setUnlocalizedName(name);
+    }
 
-	@Override
+    @Override
+    public Block setUnlocalizedName(String name) {
+        super.setUnlocalizedName(name);
+        setRegistryName(MOD_ID, name);
+        ProxyRegistry.register(this);
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(MOD_ID, name)));
+        return this;
+    }
+
+    @Override
+    public String getModNamespace() {
+        return MOD_ID;
+    }
+
+    @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         ItemStack stack = super.getItem(worldIn, pos, state);
-        if(stack.getItem() == Items.FLOWER_POT)
-        	stack = new ItemStack(Item.getItemFromBlock(this));
-        
+        if (stack.getItem() == Items.FLOWER_POT)
+            stack = new ItemStack(Item.getItemFromBlock(this));
+
         return stack;
     }
 
-	@Override
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return Item.getItemFromBlock(this);
-	}
-	
-	@Override
+        return Item.getItemFromBlock(this);
+    }
+
+    @Override
     public String getLocalizedName() {
         return I18n.translateToLocal(getUnlocalizedName() + ".name");
     }
-	
-	@Override
-	public String getBareName() {
-		return bareName;
-	}
 
-	@Override
-	public String[] getVariants() {
-		return variants;
-	}
+    @Override
+    public String getBareName() {
+        return bareName;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ItemMeshDefinition getCustomMeshDefinition() {
-		return null;
-	}
+    @Override
+    public String[] getVariants() {
+        return variants;
+    }
 
-	@Override
-	public IProperty[] getIgnoredProperties() {
-		return new IProperty[] { LEGACY_DATA };
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemMeshDefinition getCustomMeshDefinition() {
+        return null;
+    }
 
-	@Override
-	public IProperty getVariantProp() {
-		return null;
-	}
+    @Override
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[]{LEGACY_DATA};
+    }
 
-	@Override
-	public Class getVariantEnum() {
-		return null;
-	}
+    @Override
+    public IProperty getVariantProp() {
+        return null;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IItemColor getItemColor() {
-		return (stack, i) -> 0xFFFFFF;
-	}
+    @Override
+    public Class getVariantEnum() {
+        return null;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IBlockColor getBlockColor() {
-		return (state, world, pos, i) -> Minecraft.getMinecraft().getBlockColors().colorMultiplier(Blocks.FLOWER_POT.getDefaultState(), world, pos, i);
-	}
-	
-	@Override
-	public String getRecipeGroup() {
-		return "terracotta_flower_pot";
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IItemColor getItemColor() {
+        return (stack, i) -> 0xFFFFFF;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IBlockColor getBlockColor() {
+        return (state, world, pos, i) -> Minecraft.getMinecraft().getBlockColors().colorMultiplier(Blocks.FLOWER_POT.getDefaultState(), world, pos, i);
+    }
+
+    @Override
+    public String getRecipeGroup() {
+        return "terracotta_flower_pot";
+    }
 
 }

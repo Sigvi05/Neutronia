@@ -20,15 +20,15 @@ import java.util.Random;
 
 public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColoredLightSource {
 
-    public EnumDyeColor color;
     private final boolean isOn;
+    public EnumDyeColor color;
 
     public BlockColoredRedstoneLamp(EnumDyeColor color, boolean isOn) {
         super(Material.REDSTONE_LIGHT, Reference.MOD_ID, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
         this.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
-        this.setLightLevel(isOn ? 1.0F: 0.0F);
+        this.setLightLevel(isOn ? 1.0F : 0.0F);
     }
 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
@@ -40,10 +40,10 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColore
     }
 
     public void updateState(World worldIn, BlockPos pos, IBlockState state) {
-        if(!worldIn.isRemote) {
-            if(this.isOn && !worldIn.isBlockPowered(pos)) {
+        if (!worldIn.isRemote) {
+            if (this.isOn && !worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
-            } else if(!this.isOn && worldIn.isBlockPowered(pos)) {
+            } else if (!this.isOn && worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
             }
         }
@@ -54,16 +54,11 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColore
      * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
      * block, etc.
      */
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
-        if (!worldIn.isRemote)
-        {
-            if (this.isOn && !worldIn.isBlockPowered(pos))
-            {
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        if (!worldIn.isRemote) {
+            if (this.isOn && !worldIn.isBlockPowered(pos)) {
                 worldIn.scheduleUpdate(pos, this, 4);
-            }
-            else if (!this.isOn && worldIn.isBlockPowered(pos))
-            {
+            } else if (!this.isOn && worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
             }
         }
@@ -72,24 +67,21 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColore
     /**
      * Get the Item that this Block should drop when harvested.
      */
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
     }
 
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
     }
 
-    protected ItemStack getSilkTouchDrop(IBlockState state)
-    {
+    protected ItemStack getSilkTouchDrop(IBlockState state) {
         return new ItemStack(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
     }
 
     @Override
     public int getLightOpacity(IBlockState state, IBlockAccess world, BlockPos pos) {
-        if(isOn) {
+        if (isOn) {
             ColoredLights.addLightSource(world, pos, state);
             return super.getLightOpacity(state, world, pos);
         } else
@@ -98,7 +90,7 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColore
 
     @Override
     public float[] getColoredLight(IBlockAccess world, BlockPos pos) {
-        if(isOn) {
+        if (isOn) {
             return VANILLA_SPECTRUM_COLORS[color.getMetadata()];
         } else
             return null;

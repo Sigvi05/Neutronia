@@ -33,10 +33,22 @@ public class BlockBambooChest extends BlockChest {
 	
     */
 /**
-     * Called when a neighboring block was changed and marks that this state should perform any checks during a neighbor
-     * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
-     * block, etc.
-     *//*
+ * Called when a neighboring block was changed and marks that this state should perform any checks during a neighbor
+ * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
+ * block, etc.
+ * <p>
+ * Gets the hardness of block at the given coordinates in the given world, relative to the ability of the given
+ * EntityPlayer.
+ * <p>
+ * Gets the chest inventory at the given location, returning null if there is no chest at that location or
+ * optionally if the chest is blocked. Handles large chests.
+ *
+ * @param worldIn The world
+ * @param pos The position to check
+ * @param allowBlocking If false, then if the chest is blocked then <code>null</code> will be returned. If true,
+ * ignores blocking for the chest at the given position (but, due to <a href="https://bugs.mojang.com/browse/MC-
+ * 99321">a bug</a>, still checks if the neighbor is blocked).
+ *//*
 
 	@Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
@@ -56,9 +68,9 @@ public class BlockBambooChest extends BlockChest {
 
     */
 /**
-     * Gets the hardness of block at the given coordinates in the given world, relative to the ability of the given
-     * EntityPlayer.
-     *//*
+ * Gets the hardness of block at the given coordinates in the given world, relative to the ability of the given
+ * EntityPlayer.
+ *//*
 
     @SuppressWarnings("deprecation")
     @Override
@@ -72,15 +84,15 @@ public class BlockBambooChest extends BlockChest {
     
     */
 /**
-     * Gets the chest inventory at the given location, returning null if there is no chest at that location or
-     * optionally if the chest is blocked. Handles large chests.
-     *  
-     * @param worldIn The world
-     * @param pos The position to check
-     * @param allowBlocking If false, then if the chest is blocked then <code>null</code> will be returned. If true,
-     * ignores blocking for the chest at the given position (but, due to <a href="https://bugs.mojang.com/browse/MC-
-     * 99321">a bug</a>, still checks if the neighbor is blocked).
-     *//*
+ * Gets the chest inventory at the given location, returning null if there is no chest at that location or
+ * optionally if the chest is blocked. Handles large chests.
+ *
+ * @param worldIn The world
+ * @param pos The position to check
+ * @param allowBlocking If false, then if the chest is blocked then <code>null</code> will be returned. If true,
+ * ignores blocking for the chest at the given position (but, due to <a href="https://bugs.mojang.com/browse/MC-
+ * 99321">a bug</a>, still checks if the neighbor is blocked).
+ *//*
 
     @Nullable
     @Override

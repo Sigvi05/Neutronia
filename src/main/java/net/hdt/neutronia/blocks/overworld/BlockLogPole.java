@@ -32,6 +32,10 @@ public class BlockLogPole extends BlockRodBase {
         this.stripped = stripped;
     }
 
+    protected static boolean isExcepBlockForAttachWithPiston(Block p_194142_0_) {
+        return Block.isExceptBlockForAttachWithPiston(p_194142_0_) || p_194142_0_ == Blocks.BARRIER || p_194142_0_ == Blocks.MELON_BLOCK || p_194142_0_ == Blocks.PUMPKIN || p_194142_0_ == Blocks.LIT_PUMPKIN;
+    }
+
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
         this.updateState(worldIn, pos, state);
     }
@@ -53,23 +57,16 @@ public class BlockLogPole extends BlockRodBase {
     /**
      * Determines if an entity can path through this block
      */
-    public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
-    {
+    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
         return false;
     }
 
-    public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos, EnumFacing facing)
-    {
+    public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos, EnumFacing facing) {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         BlockFaceShape blockfaceshape = iblockstate.getBlockFaceShape(worldIn, pos, facing);
         Block block = iblockstate.getBlock();
         boolean flag = blockfaceshape == BlockFaceShape.MIDDLE_POLE && (iblockstate.getMaterial() == this.blockMaterial);
         return !isExcepBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID || flag;
-    }
-
-    protected static boolean isExcepBlockForAttachWithPiston(Block p_194142_0_)
-    {
-        return Block.isExceptBlockForAttachWithPiston(p_194142_0_) || p_194142_0_ == Blocks.BARRIER || p_194142_0_ == Blocks.MELON_BLOCK || p_194142_0_ == Blocks.PUMPKIN || p_194142_0_ == Blocks.LIT_PUMPKIN;
     }
 
     /**
@@ -101,20 +98,17 @@ public class BlockLogPole extends BlockRodBase {
     }
 
     @Override
-    public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing)
-    {
+    public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
         return canConnectTo(world, pos.offset(facing), facing.getOpposite());
     }
 
-    private boolean canFenceConnectTo(IBlockAccess world, BlockPos pos, EnumFacing facing)
-    {
+    private boolean canFenceConnectTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
         BlockPos other = pos.offset(facing);
         Block block = world.getBlockState(other).getBlock();
         return block.canBeConnectedTo(world, other, facing.getOpposite()) || canConnectTo(world, other, facing.getOpposite());
     }
 
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         return face != EnumFacing.UP && face != EnumFacing.DOWN ? BlockFaceShape.MIDDLE_POLE : BlockFaceShape.CENTER;
     }
 

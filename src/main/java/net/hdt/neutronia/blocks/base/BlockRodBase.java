@@ -26,7 +26,7 @@ public class BlockRodBase extends BlockDirectional {
         super(Material.CIRCUITS, name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
         this.setCreativeTab(creativeTabs);
-        if(emitsLight) {
+        if (emitsLight) {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }
@@ -38,7 +38,7 @@ public class BlockRodBase extends BlockDirectional {
         mapColor = color;
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
         this.setCreativeTab(creativeTabs);
-        if(emitsLight) {
+        if (emitsLight) {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }

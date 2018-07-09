@@ -21,8 +21,6 @@ public class NFluids {
 	 * matched up with the fluids
 	 */
 	public static void postInit() {
-//		tropicsWater.setBlock(NBlocks.tropicsWater);
-
 		NFluids.registerFluid(tropicsWater);
 	}
 

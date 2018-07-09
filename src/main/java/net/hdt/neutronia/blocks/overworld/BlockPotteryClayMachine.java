@@ -22,8 +22,8 @@ import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 public class BlockPotteryClayMachine extends BlockOverworldFacing {
 
-    private final boolean isBurning;
     private static boolean keepInventory;
+    private final boolean isBurning;
     private int meta;
 
     public BlockPotteryClayMachine(int meta, String name, boolean isBurning) {
@@ -35,43 +35,32 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
     /**
      * Get the Item that this Block should drop when harvested.
      */
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(NBlocks.potterySpinner[this.meta]);
     }
 
     /**
      * Called after the block is set in the Chunk data, but before the Tile Entity is set
      */
-    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
         this.setDefaultFacing(worldIn, pos, state);
     }
 
-    private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (!worldIn.isRemote)
-        {
+    private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
+        if (!worldIn.isRemote) {
             IBlockState iblockstate = worldIn.getBlockState(pos.north());
             IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
             IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
             IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
             EnumFacing enumfacing = state.getValue(FACING);
 
-            if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock())
-            {
+            if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock()) {
                 enumfacing = EnumFacing.SOUTH;
-            }
-            else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock())
-            {
+            } else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock()) {
                 enumfacing = EnumFacing.NORTH;
-            }
-            else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock())
-            {
+            } else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock()) {
                 enumfacing = EnumFacing.EAST;
-            }
-            else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock())
-            {
+            } else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock()) {
                 enumfacing = EnumFacing.WEST;
             }
 
@@ -101,28 +90,22 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
             return true;
         }
     }*/
-
-    public void setState(boolean active, World worldIn, BlockPos pos)
-    {
+    public void setState(boolean active, World worldIn, BlockPos pos) {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         TileEntity tileentity = worldIn.getTileEntity(pos);
         keepInventory = true;
 
-        if (active)
-        {
+        if (active) {
             worldIn.setBlockState(pos, NBlocks.potterySpinnerActive[meta].getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
             worldIn.setBlockState(pos, NBlocks.potterySpinnerActive[meta].getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-        }
-        else
-        {
+        } else {
             worldIn.setBlockState(pos, NBlocks.potterySpinner[meta].getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
             worldIn.setBlockState(pos, NBlocks.potterySpinner[meta].getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
 
         keepInventory = false;
 
-        if (tileentity != null)
-        {
+        if (tileentity != null) {
             tileentity.validate();
             worldIn.setTileEntity(pos, tileentity);
         }
@@ -140,18 +123,17 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
      * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the
      * IBlockstate
      */
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
     /**
      * The type of render function called. MODEL for mixed tesr and static model, MODELBLOCK_ANIMATED for TESR-only,
      * LIQUID for vanilla liquids, INVISIBLE to skip all rendering
+     *
      * @deprecated call via {@link IBlockState#getRenderType()} whenever possible. Implementing/overriding is fine.
      */
-    public EnumBlockRenderType getRenderType(IBlockState state)
-    {
+    public EnumBlockRenderType getRenderType(IBlockState state) {
         return EnumBlockRenderType.MODEL;
     }
 
@@ -191,9 +173,7 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
 
         super.breakBlock(worldIn, pos, state);
     }*/
-
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(NBlocks.potterySpinner[this.meta]);
     }
 
@@ -205,22 +185,22 @@ public class BlockPotteryClayMachine extends BlockOverworldFacing {
     /**
      * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
      * blockstate.
+     *
      * @deprecated call via {@link IBlockState#withRotation(Rotation)} whenever possible. Implementing/overriding is
      * fine.
      */
-    public IBlockState withRotation(IBlockState state, Rotation rot)
-    {
+    public IBlockState withRotation(IBlockState state, Rotation rot) {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     /**
      * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed
      * blockstate.
+     *
      * @deprecated call via {@link IBlockState#withMirror(Mirror)} whenever possible. Implementing/overriding is fine.
      */
-    public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
-    {
+    public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
         return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
-    
+
 }

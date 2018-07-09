@@ -29,7 +29,7 @@ public class BlockTurtleEgg extends BlockWaterBlockBase {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         int eggs = state.getValue(EGGS);
-        if(playerIn.getActiveItemStack() == new ItemStack(this)) {
+        if (playerIn.getActiveItemStack() == new ItemStack(this)) {
             int i = 0;
             while (i < eggs) {
                 worldIn.setBlockState(pos, state.withProperty(EGGS, i));

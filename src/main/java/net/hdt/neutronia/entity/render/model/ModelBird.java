@@ -71,6 +71,7 @@ public class ModelBird extends ModelBase {
         this.peak.render(f5);
         this.body1.render(f5);
         this.tail.render(f5);
+
     }
 
     /**

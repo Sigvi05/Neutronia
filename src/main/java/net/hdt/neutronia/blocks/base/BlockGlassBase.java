@@ -24,29 +24,25 @@ public class BlockGlassBase extends BlockMod {
      * transparency (glass, reeds), TRANSLUCENT for fully blended transparency (stained glass)
      */
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
+    public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 
     /**
      * Returns the quantity of items to drop on block destruction.
      */
-    public int quantityDropped(Random random)
-    {
+    public int quantityDropped(Random random) {
         return 0;
     }
 
-    protected boolean canSilkHarvest()
-    {
+    protected boolean canSilkHarvest() {
         return true;
     }
 
     /**
      * @deprecated call via {@link IBlockState#isFullCube()} whenever possible. Implementing/overriding is fine.
      */
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
@@ -58,10 +54,8 @@ public class BlockGlassBase extends BlockMod {
     /**
      * Called after the block is set in the Chunk data, but before the Tile Entity is set
      */
-    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (!worldIn.isRemote)
-        {
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+        if (!worldIn.isRemote) {
             BlockBeacon.updateColorAsync(worldIn, pos);
         }
     }
@@ -69,10 +63,8 @@ public class BlockGlassBase extends BlockMod {
     /**
      * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
      */
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (!worldIn.isRemote)
-        {
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+        if (!worldIn.isRemote) {
             BlockBeacon.updateColorAsync(worldIn, pos);
         }
     }

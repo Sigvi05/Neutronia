@@ -1,5 +1,8 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
@@ -14,9 +17,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
 
 import java.util.Random;
 

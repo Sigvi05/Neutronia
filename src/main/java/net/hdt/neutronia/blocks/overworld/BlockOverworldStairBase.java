@@ -32,44 +32,39 @@ public class BlockOverworldStairBase extends BlockModStairs {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
+    public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 
     @Override
-    protected boolean canSilkHarvest()
-    {
+    protected boolean canSilkHarvest() {
         return true;
     }
 
     @Override
-    public EnumBlockRenderType getRenderType(IBlockState state)
-    {
+    public EnumBlockRenderType getRenderType(IBlockState state) {
         return EnumBlockRenderType.MODEL;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
     /**
      * Check if the face of a block should block rendering.
-     *
+     * <p>
      * Faces which are fully opaque should return true, faces with transparency
      * or faces which do not span the full size of the block should return false.
      *
      * @param state The current block state
      * @param world The current world
-     * @param pos Block position in world
-     * @param face The side to check
+     * @param pos   Block position in world
+     * @param face  The side to check
      * @return True if the block is opaque on the specified side.
      */
     @Override
-    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
+    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
         BlockPos offSetPos = pos.offset(face);
         IBlockState offSetState = world.getBlockState(offSetPos);
         Material offSetMaterial = offSetState.getMaterial();

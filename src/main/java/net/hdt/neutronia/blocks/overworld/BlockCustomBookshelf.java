@@ -1,5 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -9,8 +11,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.huskylib2.interf.IModBlock;
 
 import javax.annotation.Nullable;
 import java.util.Random;

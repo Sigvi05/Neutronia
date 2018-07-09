@@ -16,7 +16,7 @@ public class BlockOverworldBase extends BlockMod {
         this.setHardness(3.0F);
         this.setResistance(5.0F);
         this.setHarvestLevel("pickaxe", 0);
-        if(flammable) {
+        if (flammable) {
             addFlammable(this);
         }
     }

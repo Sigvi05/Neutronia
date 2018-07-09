@@ -46,9 +46,10 @@ public class JsonGenerator {
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_lantern", color.getName())), new ResourceLocation(modid, "lantern"));
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_candle", color.getName())), new ResourceLocation(modid, "candle"));
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_candle", color.getName())), new ResourceLocation(modid, "candle"));
+            genSlab(new ResourceLocation(modid, String.format("%s_glass_slab", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())));
         }
 
-        genSlab(new ResourceLocation(modid, "stone_slab"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"));
+//        genSlab(new ResourceLocation(modid, "stone_slab"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"));
 
         for(EnumCoralColor coralColor : EnumCoralColor.values()) {
 //            genBlock(new ResourceLocation(modid, String.format("%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));

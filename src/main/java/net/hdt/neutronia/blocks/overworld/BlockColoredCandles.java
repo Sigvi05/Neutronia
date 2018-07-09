@@ -22,15 +22,15 @@ import java.util.Random;
 
 public class BlockColoredCandles extends BlockColoredAlt implements IColoredLightSource {
 
-    public EnumDyeColor color;
     private final boolean isOn;
+    public EnumDyeColor color;
 
     public BlockColoredCandles(EnumDyeColor color, boolean isOn) {
         super(Reference.MOD_ID, isOn ? "lit_candle" : "candle", color);
         this.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
-        this.setLightLevel(isOn ? 1.0F: 0.0F);
+        this.setLightLevel(isOn ? 1.0F : 0.0F);
         this.setTickRandomly(isOn);
     }
 
@@ -43,10 +43,10 @@ public class BlockColoredCandles extends BlockColoredAlt implements IColoredLigh
     }
 
     public void updateState(World worldIn, BlockPos pos, IBlockState state) {
-        if(!worldIn.isRemote) {
-            if(this.isOn && !worldIn.isBlockPowered(pos)) {
+        if (!worldIn.isRemote) {
+            if (this.isOn && !worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredCandles[color.getMetadata()].getDefaultState(), 2);
-            } else if(!this.isOn && worldIn.isBlockPowered(pos)) {
+            } else if (!this.isOn && worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredLitCandles[color.getMetadata()].getDefaultState(), 2);
             }
         }
@@ -55,7 +55,7 @@ public class BlockColoredCandles extends BlockColoredAlt implements IColoredLigh
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        if(isOn) {
+        if (isOn) {
             double d0 = (double) pos.getX() + 0.5D;
             double d1 = (double) pos.getY() + 0.55D;
             double d2 = (double) pos.getZ() + 0.5D;
@@ -70,16 +70,11 @@ public class BlockColoredCandles extends BlockColoredAlt implements IColoredLigh
      * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
      * block, etc.
      */
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
-        if (!worldIn.isRemote)
-        {
-            if (this.isOn && !worldIn.isBlockPowered(pos))
-            {
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        if (!worldIn.isRemote) {
+            if (this.isOn && !worldIn.isBlockPowered(pos)) {
                 worldIn.scheduleUpdate(pos, this, 4);
-            }
-            else if (!this.isOn && worldIn.isBlockPowered(pos))
-            {
+            } else if (!this.isOn && worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, NBlocks.coloredLitCandles[color.getMetadata()].getDefaultState(), 2);
             }
         }
@@ -88,24 +83,21 @@ public class BlockColoredCandles extends BlockColoredAlt implements IColoredLigh
     /**
      * Get the Item that this Block should drop when harvested.
      */
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(NBlocks.coloredCandles[color.getMetadata()]);
     }
 
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(NBlocks.coloredCandles[color.getMetadata()]);
     }
 
-    protected ItemStack getSilkTouchDrop(IBlockState state)
-    {
+    protected ItemStack getSilkTouchDrop(IBlockState state) {
         return new ItemStack(NBlocks.coloredCandles[color.getMetadata()]);
     }
 
     @Override
     public int getLightOpacity(IBlockState state, IBlockAccess world, BlockPos pos) {
-        if(isOn) {
+        if (isOn) {
             ColoredLights.addLightSource(world, pos, state);
             return super.getLightOpacity(state, world, pos);
         } else
@@ -114,7 +106,7 @@ public class BlockColoredCandles extends BlockColoredAlt implements IColoredLigh
 
     @Override
     public float[] getColoredLight(IBlockAccess world, BlockPos pos) {
-        if(isOn) {
+        if (isOn) {
             return VANILLA_SPECTRUM_COLORS[color.getMetadata()];
         } else
             return null;

@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.huskylib2.blocks.BlockMod;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
@@ -7,17 +8,16 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.hdt.huskylib2.blocks.BlockMod;
 
 import javax.annotation.Nonnull;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 /**
-  * Creates a block with textures that connect to other blocks
-  * <p>
-  * Based off a tutorial by Darkhax, used under the Creative Commons Zero 1.0 Universal license
-  */
+ * Creates a block with textures that connect to other blocks
+ * <p>
+ * Based off a tutorial by Darkhax, used under the Creative Commons Zero 1.0 Universal license
+ */
 public class BlockConnectedTexture extends BlockMod {
 
     // These are the properties used for determining whether or not a side is connected. They
@@ -47,12 +47,12 @@ public class BlockConnectedTexture extends BlockMod {
 
         // Creates the state to use for the block. This is where we check if every side is
         // connectable or not.
-        return state.withProperty(CONNECTED_DOWN,  this.isSideConnectable(world, position, EnumFacing.DOWN))
-                .withProperty(CONNECTED_EAST,  this.isSideConnectable(world, position, EnumFacing.EAST))
+        return state.withProperty(CONNECTED_DOWN, this.isSideConnectable(world, position, EnumFacing.DOWN))
+                .withProperty(CONNECTED_EAST, this.isSideConnectable(world, position, EnumFacing.EAST))
                 .withProperty(CONNECTED_NORTH, this.isSideConnectable(world, position, EnumFacing.NORTH))
                 .withProperty(CONNECTED_SOUTH, this.isSideConnectable(world, position, EnumFacing.SOUTH))
-                .withProperty(CONNECTED_UP,    this.isSideConnectable(world, position, EnumFacing.UP))
-                .withProperty(CONNECTED_WEST,  this.isSideConnectable(world, position, EnumFacing.WEST));
+                .withProperty(CONNECTED_UP, this.isSideConnectable(world, position, EnumFacing.UP))
+                .withProperty(CONNECTED_WEST, this.isSideConnectable(world, position, EnumFacing.WEST));
     }
 
     @Nonnull
@@ -73,8 +73,8 @@ public class BlockConnectedTexture extends BlockMod {
      * is connectable if the block is the same block as this one.
      *
      * @param world The world to run the check in.
-     * @param pos The position of the block to check for.
-     * @param side The side of the block to check.
+     * @param pos   The position of the block to check for.
+     * @param side  The side of the block to check.
      * @return Whether or not the side is connectable.
      */
     private boolean isSideConnectable(IBlockAccess world, BlockPos pos, EnumFacing side) {
@@ -86,6 +86,7 @@ public class BlockConnectedTexture extends BlockMod {
 
     /**
      * Checks if this block should connect to another block
+     *
      * @param original BlockState to check
      * @return True if the block is valid to connect
      */

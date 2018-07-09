@@ -30,9 +30,9 @@ import java.util.Random;
 
 public class BlockColoredWaterPlantBase extends BlockModBush {
 
+    protected static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
     private final EnumCoralColor color;
-    protected static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
 
     public BlockColoredWaterPlantBase(EnumCoralColor coralColor, String name) {
         super(Material.PLANTS, coralColor + "_" + name, Reference.MOD_ID);

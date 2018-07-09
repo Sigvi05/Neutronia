@@ -3,7 +3,6 @@ package net.hdt.neutronia.init;
 import net.hdt.neutronia.entity.*;
 import net.hdt.neutronia.util.handlers.RenderHandler;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
@@ -50,6 +49,10 @@ public class NEntities {
                 createBuilder("scuba_villager").entity(EntityScubaVillager.class).tracker(80, 3, true).egg(0x000000, 0xC3B99D).build(),
                 createBuilder("sanddiver_aquatic").entity(EntitySandDiverAquatic.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
                 createBuilder("albadon").entity(EntityAlbadon.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
+                createBuilder("axolotl").entity(EntityAxolotl.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
+                createBuilder("bird").entity(EntityBird.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
+                createBuilder("fox").entity(EntityFox.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
+                createBuilder("arctic_wolf").entity(EntityArcticWolf.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
 //                createBuilder("gulper").entity(EntityGreatHunger.class).tracker(80, 3, true).egg(0x876949, 0xce9252).build(),
                 createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("forsaken_diver").entity(EntityForsakenDiver.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
@@ -81,15 +84,17 @@ public class NEntities {
     }
 
     private static void addSpawns() {
-        EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT);
-        EntityRegistry.addSpawn(EntityPharaohGolem.class, 2, 2, 3, EnumCreatureType.AMBIENT, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT);
+        EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.BEACH);
+//        EntityRegistry.addSpawn(EntityPharaohGolem.class, 3, 1, 2, EnumCreatureType.CREATURE, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.BEACH);
 //        EntityRegistry.addSpawn(EntityScorp.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
+
         EntityRegistry.addSpawn(EntityDrowned.class, 14, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
-        EntityRegistry.addSpawn(EntityAnchored.class, 5, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
-        EntityRegistry.addSpawn(EntityForsakenDiver.class, 3, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityAnchored.class, 5, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
+        EntityRegistry.addSpawn(EntityForsakenDiver.class, 60, 1, 2, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
 
         EntityRegistry.addSpawn(EntityInferno.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.NETHER));
-        EntityRegistry.addSpawn(EntityScubaVillager.class, 10, 1, 3, EnumCreatureType.AMBIENT, Biomes.BEACH);
+
+        EntityRegistry.addSpawn(EntityScubaVillager.class, 10, 1, 3, EnumCreatureType.AMBIENT, Biomes.BEACH, Biomes.STONE_BEACH);
 //        EntityRegistry.addSpawn(EntityGreatHunger.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.SANDY));
 //        EntityRegistry.addSpawn(EntitySeaTurtle.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.BEACH));
 //        EntityRegistry.addSpawn(EntityMonsterOfTheOceanDepths.class, 10, 1, 3, EnumCreatureType.WATER_CREATURE, getBiomes(BiomeDictionary.Type.OCEAN));
@@ -103,18 +108,6 @@ public class NEntities {
 
     private static Biome[] getBiomes(final BiomeDictionary.Type type) {
         return BiomeDictionary.getBiomes(type).toArray(new Biome[0]);
-    }
-
-    //for use later...
-    private static void copySpawns(final Class<? extends EntityLiving> classToAdd, final EnumCreatureType creatureTypeToAdd, final Class<? extends EntityLiving> classToCopy, final EnumCreatureType creatureTypeToCopy) {
-        for (final Biome biome : ForgeRegistries.BIOMES) {
-            biome.getSpawnableList(creatureTypeToCopy).stream()
-                    .filter(entry -> entry.entityClass == classToCopy)
-                    .findFirst()
-                    .ifPresent(spawnListEntry ->
-                            biome.getSpawnableList(creatureTypeToAdd).add(new Biome.SpawnListEntry(classToAdd, spawnListEntry.itemWeight, spawnListEntry.minGroupCount, spawnListEntry.maxGroupCount))
-                    );
-        }
     }
 
 }

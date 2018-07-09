@@ -26,29 +26,28 @@ public class BlockRotatableDecoration extends BlockHorizontal {
         this.setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING);
     }
 
     /**
      * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
      * blockstate.
+     *
      * @deprecated call via {@link IBlockState#withRotation(Rotation)} whenever possible. Implementing/overriding is
      * fine.
      */
-    public IBlockState withRotation(IBlockState state, Rotation rot)
-    {
+    public IBlockState withRotation(IBlockState state, Rotation rot) {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     /**
      * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed
      * blockstate.
+     *
      * @deprecated call via {@link IBlockState#withMirror(Mirror)} whenever possible. Implementing/overriding is fine.
      */
-    public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
-    {
+    public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
         return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
@@ -56,16 +55,14 @@ public class BlockRotatableDecoration extends BlockHorizontal {
      * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the
      * IBlockstate
      */
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
     /**
      * Convert the BlockState into the correct metadata value
      */
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i = 0;
         i = i | state.getValue(FACING).getHorizontalIndex();
         return i;
@@ -74,16 +71,14 @@ public class BlockRotatableDecoration extends BlockHorizontal {
     /**
      * Convert the given metadata into a BlockState for this Block
      */
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta));
     }
 
     /**
      * @deprecated call via {@link IBlockState#getMobilityFlag()} whenever possible. Implementing/overriding is fine.
      */
-    public EnumPushReaction getMobilityFlag(IBlockState state)
-    {
+    public EnumPushReaction getMobilityFlag(IBlockState state) {
         return EnumPushReaction.PUSH_ONLY;
     }
 }

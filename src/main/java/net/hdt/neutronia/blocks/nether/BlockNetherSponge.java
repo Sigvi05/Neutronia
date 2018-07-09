@@ -20,11 +20,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.Random;
 
 public class BlockNetherSponge extends BlockNetherBase {
-    public static final PropertyBool WET = PropertyBool.create("wet");
+
+    private static final PropertyBool WET = PropertyBool.create("wet");
 
     public BlockNetherSponge() {
         super(Material.SPONGE, "nether_sponge");
@@ -34,6 +36,7 @@ public class BlockNetherSponge extends BlockNetherBase {
     /**
      * Gets the localized name of this block. Used for the statistics page.
      */
+    @Override
     public String getLocalizedName() {
         return I18n.translateToLocal(this.getUnlocalizedName() + "_dry.name");
     }
@@ -63,10 +66,10 @@ public class BlockNetherSponge extends BlockNetherBase {
         super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
     }
 
-    protected void tryAbsorb(World worldIn, BlockPos pos, IBlockState state) {
+    private void tryAbsorb(World worldIn, BlockPos pos, IBlockState state) {
         if (!state.getValue(WET) && this.absorb(worldIn, pos)) {
             worldIn.setBlockState(pos, state.withProperty(WET, Boolean.TRUE), 2);
-            worldIn.playEvent(2001, pos, Block.getIdFromBlock(Blocks.WATER));
+            worldIn.playEvent(2001, pos, Block.getIdFromBlock(Blocks.LAVA));
         }
     }
 
@@ -78,13 +81,13 @@ public class BlockNetherSponge extends BlockNetherBase {
 
         while (!queue.isEmpty()) {
             Tuple<BlockPos, Integer> tuple = queue.poll();
-            BlockPos blockpos = tuple.getFirst();
+            BlockPos blockpos = Objects.requireNonNull(tuple).getFirst();
             int j = tuple.getSecond();
 
             for (EnumFacing enumfacing : EnumFacing.values()) {
                 BlockPos blockpos1 = blockpos.offset(enumfacing);
 
-                if (worldIn.getBlockState(blockpos1).getMaterial() == Material.WATER) {
+                if (worldIn.getBlockState(blockpos1).getMaterial() == Material.LAVA) {
                     worldIn.setBlockState(blockpos1, Blocks.AIR.getDefaultState(), 2);
                     list.add(blockpos1);
                     ++i;
@@ -119,17 +122,18 @@ public class BlockNetherSponge extends BlockNetherBase {
      * Convert the given metadata into a BlockState for this Block
      */
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(WET, Boolean.valueOf((meta & 1) == 1));
+        return this.getDefaultState().withProperty(WET, (meta & 1) == 1);
     }
 
     /**
      * Convert the BlockState into the correct metadata value
      */
     public int getMetaFromState(IBlockState state) {
-        return state.getValue(WET).booleanValue() ? 1 : 0;
+        return state.getValue(WET) ? 1 : 0;
     }
 
-    protected BlockStateContainer createBlockState() {
+    @Override
+    public BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, WET);
     }
 

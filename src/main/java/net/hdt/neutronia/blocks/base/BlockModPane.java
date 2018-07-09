@@ -1,5 +1,7 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPane;
@@ -21,8 +23,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.huskylib2.interf.IModBlock;
 
 import java.util.List;
 
