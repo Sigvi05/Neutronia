@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:blocks/soul_glass_on"
+    }
+  },
+  "variants": {
+    "normal": {
+      "model": "neutronia:soul_glass_on"
+    },
+    "inventory": {
+      "model": "neutronia:soul_glass_on"
+    }
+  }
+}

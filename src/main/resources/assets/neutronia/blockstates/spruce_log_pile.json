@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:spruce_log_pile" },
+    "axis=z":     { "model": "neutronia:spruce_log_pile", "x": 90 },
+    "axis=x":     { "model": "neutronia:spruce_log_pile", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:spruce_log_pile" }
+  }
+}

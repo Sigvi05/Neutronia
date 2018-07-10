@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:blocks/chiseled_prismarine"
+    }
+  },
+  "variants": {
+    "normal": {
+      "model": "neutronia:chiseled_prismarine"
+    },
+    "inventory": {
+      "model": "neutronia:chiseled_prismarine"
+    }
+  }
+}

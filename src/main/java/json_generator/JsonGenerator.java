@@ -49,14 +49,16 @@ public class JsonGenerator {
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_candle", color.getName())), new ResourceLocation(modid, "candle"));
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_candle", color.getName())), new ResourceLocation(modid, "candle"));
 //            genSlab(new ResourceLocation(modid, String.format("%s_glass_slab", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())));
+//            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_plank", color.getName())), new ResourceLocation(modid, "cube_all_colored"), new ResourceLocation(modid, "colored_planks"));
+            genSlabCustom(new ResourceLocation(modid, String.format("%s_colored_plank_slab", color.getName())), new ResourceLocation(modid, "colored_planks"), new ResourceLocation(modid, "colored_planks") , new ResourceLocation(modid, "colored_planks"));
         }
 
         for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
-            genBlock(new ResourceLocation(modid, newStoneVariants.getName()), new ResourceLocation(modid, newStoneVariants.getName()));
+//            genBlock(new ResourceLocation(modid, newStoneVariants.getName()), new ResourceLocation(modid, newStoneVariants.getName()));
         }
 
         for(EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
-            genSlab(new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName() + "_slab"), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()));
+//            genSlab(new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName() + "_slab"), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()));
         }
 
 //        genSlab(new ResourceLocation(modid, "stone_slab"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"));
@@ -938,11 +940,11 @@ public class JsonGenerator {
 
     }
 
-    public static void genSlabBlock(String modId, String blockName, String bottomTexture, String sideTexture, String topTexture, String blockMockName) {
+    public static void genSlabCustom(ResourceLocation modIDAndName, ResourceLocation topTextureLocation, ResourceLocation sideTextureLocation, ResourceLocation bottomTextureLocation) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
+        Path base = Paths.get("src", "main", "resources", "assets", modIDAndName.getResourceDomain(), "blockstates");
         if (!base.toFile().exists()) {
             base.toFile().mkdirs();
         }
@@ -956,11 +958,11 @@ public class JsonGenerator {
         JsonObject half = new JsonObject();
 
         JsonObject upper = new JsonObject();
-        upper.addProperty("model", modId + ":upper_" + blockName);
+        upper.addProperty("model", modIDAndName.getResourceDomain() + ":upper_" + modIDAndName.getResourcePath());
         half.add("top", upper);
 
         JsonObject lower = new JsonObject();
-        lower.addProperty("model", modId + ":half_" + blockName);
+        lower.addProperty("model", modIDAndName.getResourceDomain() + ":half_" + modIDAndName.getResourcePath());
         half.add("bottom", lower);
 
         variants.add("half", half);
@@ -978,7 +980,12 @@ public class JsonGenerator {
         JsonObject prop = new JsonObject();
 
         JsonObject blarg = new JsonObject();
-        blarg.addProperty("model", modId + ":upper_" + blockName);
+        blarg.addProperty("model", "neutronia:cube_all_colored");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("all", sideTextureLocation.getResourceDomain() + ":blocks/" + sideTextureLocation.getResourcePath());
+
+        blarg.add("textures", textures);
 
         prop.add("blarg", blarg);
 
@@ -989,18 +996,60 @@ public class JsonGenerator {
         String json2 = gson.toJson(root2);
 
         try {
-            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-            FileUtils.writeStringToFile(base.resolve(blockName + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(modIDAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(modIDAndName.getResourcePath() + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getResourcePath()));
         }
 
-//        genSlabBlockModel(modId, blockName, bottomTexture, sideTexture, topTexture);
-//        genSlabItemModel(modId, blockName);
+        genSlabColoredBlockModel(modIDAndName, topTextureLocation, sideTextureLocation, bottomTextureLocation);
+        genSlabItemModel(modIDAndName.getResourceDomain(), modIDAndName.getResourcePath());
 
     }
 
     public static void genSlabBlockModel(ResourceLocation modIDAndName, ResourceLocation topTextureLocation, ResourceLocation sideTextureLocation, ResourceLocation bottomTextureLocation) {
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modIDAndName.getResourceDomain(), "models", "block");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+        root.addProperty("parent", "neutronia:block/slab");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("bottom", bottomTextureLocation.getResourceDomain() + ":blocks/" + bottomTextureLocation.getResourcePath());
+        textures.addProperty("side", sideTextureLocation.getResourceDomain() + ":blocks/" + sideTextureLocation.getResourcePath());
+        textures.addProperty("top", topTextureLocation.getResourceDomain() + ":blocks/" + topTextureLocation.getResourcePath());
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
+        JsonObject root2 = new JsonObject();
+        root2.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+        root2.addProperty("parent", "neutronia:block/slab_top");
+
+        JsonObject textures2 = new JsonObject();
+        textures2.addProperty("bottom", bottomTextureLocation.getResourceDomain() + ":blocks/" + bottomTextureLocation.getResourcePath());
+        textures2.addProperty("side", sideTextureLocation.getResourceDomain() + ":blocks/" + sideTextureLocation.getResourcePath());
+        textures2.addProperty("top", topTextureLocation.getResourceDomain() + ":blocks/" + topTextureLocation.getResourcePath());
+        root2.add("textures", textures2);
+
+        String json2 = gson.toJson(root2);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve("half_" + modIDAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve("upper_" + modIDAndName.getResourcePath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getResourcePath()));
+        }
+
+    }
+
+    public static void genSlabColoredBlockModel(ResourceLocation modIDAndName, ResourceLocation topTextureLocation, ResourceLocation sideTextureLocation, ResourceLocation bottomTextureLocation) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 

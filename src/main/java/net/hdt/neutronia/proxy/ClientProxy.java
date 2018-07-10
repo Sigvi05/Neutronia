@@ -1,6 +1,7 @@
 package net.hdt.neutronia.proxy;
 
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
+import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
 import net.hdt.neutronia.client.rendering.ResourceProxy;
 import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.init.NBlocks;
@@ -69,17 +70,45 @@ public class ClientProxy extends CommonProxy {
         	NBlocks.coloredLitLanterns,
         	NBlocks.coloredRedstoneLamp,
         	NBlocks.coloredLitRedstoneLamp,
+            NBlocks.coloredPlanks,
         };
-        Block[] coloredStuff = new Block[16*toColor.length];
+        Block[] coloredStuff = new Block[16 * toColor.length];
         
         for(int i = 0; i < toColor.length; i++) {
         	Block[] colored = toColor[i];
-	        for(int j = 0; j < 16; j++) {
-	        	coloredStuff[i*16+j] = colored[j];
-	        }
+            System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
         items.registerItemColorHandler(handlerItems, coloredStuff);
+
+        IBlockColor handlerSlabBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        IItemColor handlerSlabItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColorSlabs = new Block[][] {
+                NBlocks.coloredPlanksSlabSingle,
+                NBlocks.coloredPlanksSlabDouble,
+        };
+        Block[] coloredSlabs = new Block[16 * toColorSlabs.length];
+
+        for(int i = 0; i < toColorSlabs.length; i++) {
+            Block[] colored = toColorSlabs[i];
+            System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerSlabBlocks, coloredSlabs);
+        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);
+
+        /*IBlockColor handlerStairBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredStair) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        IItemColor handlerStairItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColorStair = new Block[][] {
+                NBlocks.coloredPlanksStair,
+        };
+        Block[] coloredStairs = new Block[16 * toColorStair.length];
+
+        for(int i = 0; i < toColorStair.length; i++) {
+            Block[] colored = toColorStair[i];
+            System.arraycopy(colored, 0, coloredStairs, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerStairBlocks, coloredStairs);
+        items.registerItemColorHandler(handlerStairItems, coloredStairs);*/
         
         ModuleHandler.INSTANCE.handleInitClient(event);
     }

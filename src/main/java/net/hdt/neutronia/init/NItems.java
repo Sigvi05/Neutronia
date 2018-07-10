@@ -1,6 +1,5 @@
 package net.hdt.neutronia.init;
 
-import net.hdt.neutronia.Main;
 import net.hdt.neutronia.items.*;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
@@ -103,8 +102,8 @@ public class NItems {
         anchor = new ItemSpear("anchor", Item.ToolMaterial.IRON).setCreativeTab(null);
 
         for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
-            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
-            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
+//            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
+//            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
             barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), tab);
         }
 

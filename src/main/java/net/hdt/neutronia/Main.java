@@ -118,6 +118,7 @@ public class Main {
     @SubscribeEvent
     public void onMissingMappings(RegistryEvent.MissingMappings<Block> event) {
         for (RegistryEvent.MissingMappings.Mapping<Block> entry : event.getAllMappings()) {
+            LOGGER.debug("Fixing mappings");
             for(EnumCoralColor coralColor : EnumCoralColor.values()) {
                 if (entry.key == new ResourceLocation(MOD_ID, String.format("%s_brain_coral", coralColor.getName())) || entry.key == new ResourceLocation(MOD_ID, String.format("%s_coral", coralColor.getName()))) {
                     ResourceLocation newName = new ResourceLocation(MOD_ID, String.format("%s_coral", coralColor.getNewName()));
@@ -128,6 +129,7 @@ public class Main {
                     entry.remap(Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(newName)));
                 }
             }
+            LOGGER.debug("Done Fixing Mappings");
         }
     }
 

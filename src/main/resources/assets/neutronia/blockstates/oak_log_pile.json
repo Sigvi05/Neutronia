@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:oak_log_pile" },
+    "axis=z":     { "model": "neutronia:oak_log_pile", "x": 90 },
+    "axis=x":     { "model": "neutronia:oak_log_pile", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:oak_log_pile" }
+  }
+}

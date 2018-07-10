@@ -1,6 +1,5 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -13,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ContainerRepair;
 import net.minecraft.item.ItemStack;
@@ -194,7 +194,7 @@ public class BlockModAnvil extends BlockFalling {
          * Get the formatted ChatComponent that will be used for the sender's username in chat
          */
         public ITextComponent getDisplayName() {
-            return new TextComponentTranslation(NBlocks.darkIronAnvil.getUnlocalizedName() + ".name");
+            return new TextComponentTranslation(Blocks.ANVIL.getUnlocalizedName() + ".name");
         }
 
         public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {

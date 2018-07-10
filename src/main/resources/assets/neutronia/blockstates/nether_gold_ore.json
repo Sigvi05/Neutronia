@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:blocks/nether_gold_ore"
+    }
+  },
+  "variants": {
+    "normal": {
+      "model": "neutronia:nether_gold_ore"
+    },
+    "inventory": {
+      "model": "neutronia:nether_gold_ore"
+    }
+  }
+}

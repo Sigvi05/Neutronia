@@ -3,14 +3,14 @@ package net.hdt.neutronia.init;
 import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.hdt.huskylib2.recipie.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.neutronia.blocks.*;
+import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.*;
+import net.hdt.neutronia.blocks.base.BlockFalling;
 import net.hdt.neutronia.blocks.nether.*;
 import net.hdt.neutronia.blocks.overworld.*;
 import net.hdt.neutronia.properties.*;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSandStone;
-import net.minecraft.block.BlockStoneSlab;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -28,7 +28,6 @@ import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 public class NBlocks {
 
-    public static final Block netherGlass, soulGlass, netherRod, netherSponge, ash, burnedBones;
     // Misc
     public static final Block blackSand;
     public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
@@ -53,6 +52,11 @@ public class NBlocks {
     public static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
     public static ArrayList<Block> livingCorals = new ArrayList<>(EnumCoralColor.values().length);
     public static ArrayList<Block> deadCorals = new ArrayList<>(EnumCoralColor.values().length);
+    public static final MRPillar prismarineColumn;
+    public static final BlockPrismarineChiseled chiseledPrismarine;
+    public static final BlockPrismarineChiseled chiseledPrismarineFilled;
+    public static final MRBlock elderPrismarine;
+    public static final MRBlock elderPrismarineBricks;
     //Stone Blocks
     public static Block[] newStoneVariants = new Block[26];
     //Wood Blocks
@@ -68,6 +72,11 @@ public class NBlocks {
     public static Block[] soulStone = new Block[4];
     public static Block[] netherPlants = new Block[3];
     public static Block[] tallNetherPlants = new Block[2];
+    public static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
+    public static final BlockSoulGlass soulGlass, soulGlassOn;
+    public static final MRPillar netherbrickPillar;
+    public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
+    public static final MRBlock netherGoldOre;
     //Frosted versions of some blocks
     public static Block[] frostedStones = new Block[6];
     public static Block[] frostedDirts = new Block[12];
@@ -76,6 +85,9 @@ public class NBlocks {
     public static Block[] coloredSand = new Block[16];
     public static Block[] coloredSandstone = new Block[16];
     public static BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
+    public static Block[] coloredPlanks = new Block[16];
+    public static Block[] coloredPlanksStair = new Block[16];
+    public static Block[] coloredPlanksSlabSingle = new Block[16], coloredPlanksSlabDouble = new Block[16];
     public static BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
     public static BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
     public static BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
@@ -87,10 +99,17 @@ public class NBlocks {
     private static Block[] coffins = new Block[13];
     private static Block slumpedWitherSkeleton, slumpedSkeleton;
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
-    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
+//    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
 //    public static final Block whiteBricks, redBricks, greenBricks;
 //    public static final Block redClayBlock, greenClayBlock;
+
+    public static MRPillar sandstonePillar;
+    public static MRPillar redSandstonePillar;
+    public static BlockPurpurChiseled chiseledPurpur;
+    public static BlockPurpurChiseled chiseledPurpurFilled;
+    public static BlockBrickChiseled chiseledBricks;
+    public static BlockBrickChiseled chiseledBricksFilled;
 
     static {
 
@@ -118,22 +137,25 @@ public class NBlocks {
         for (EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
             naturalAquamarine[naturalAquamarineVariants.getID()] = new BlockOverworldBase(Material.ROCK, naturalAquamarineVariants.getName(), false).setCreativeTab(OCEAN_EXPANSION_TAB);
         }
-//        seaPickle = new BlockSeaPickle("sea_pickle");
-//        turtleEgg = new BlockTurtleEgg("turtle_egg");
-        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block", false);
-//        kelp = new BlockKelp();
-        blackSand = new BlockFalling("black_sand");
-        wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false);
-        wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false);
-        wrautnautPorthole = new BlockOverworldBase(Material.IRON, "wrautnaut_porthole", false);
+        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(OCEAN_EXPANSION_TAB);
+        wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
+        wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
+        wrautnautPorthole = new BlockOverworldBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(OCEAN_EXPANSION_TAB);
+        prismarineColumn = new MRPillar(Material.ROCK, "prismarine_column", CreativeTabs.BUILDING_BLOCKS, 0.3F, 6.5F);
+        chiseledPrismarine = new BlockPrismarineChiseled("chiseled_prismarine", false);
+        chiseledPrismarineFilled = new BlockPrismarineChiseled("chiseled_prismarine_filled", true);
+        elderPrismarine = new MRBlock(Material.ROCK, "elder_prismarine", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
+        elderPrismarineBricks = new MRBlock(Material.ROCK, "elder_prismarine_bricks", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
 
         // Nether Blocks
         netherGlass = new BlockGlassBase("nether_glass").setCreativeTab(NETHER_EXPANSION_TAB);
-        soulGlass = new BlockGlassBase("soul_glass").setCreativeTab(NETHER_EXPANSION_TAB);
+        soulGlass = new BlockSoulGlass(false, Material.GLASS,"soul_glass", CreativeTabs.BUILDING_BLOCKS);
+        soulGlassOn = new BlockSoulGlass(true, Material.GLASS,"soul_glass_on", null);
         netherRod = new BlockRodBase("nether_rod", NETHER_EXPANSION_TAB, true);
         netherSponge = new BlockNetherSponge();
         burnedBones = new BlockBurnedBones();
         ash = new BlockNetherBase(Material.SAND, "ash");
+
         for (EnumGlowingNetherBlocks enumGlowingNetherBlocks : EnumGlowingNetherBlocks.values()) {
             glowingNetherBlocks[enumGlowingNetherBlocks.getMetadata()] = new BlockNetherGlowingBase(Material.GLASS, enumGlowingNetherBlocks.getName());
         }
@@ -141,6 +163,11 @@ public class NBlocks {
             soulStone[soulStoneTypes.getMetadata()] = new BlockSoulStone(soulStoneTypes.getName());
             add(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], Material.ROCK, 0, true, false, NETHER_EXPANSION_TAB);
         }
+
+        netherbrickPillar = new MRPillar(Material.ROCK, "netherbrick_pillar", CreativeTabs.BUILDING_BLOCKS, 0.4F, 7.5F);
+        chiseledNetherbrick = new BlockNetherbrickChiseled("chiseled_netherbrick", false);
+        chiseledNetherbrickFilled = new BlockNetherbrickChiseled("chiseled_netherbrick_filled", true);
+        netherGoldOre = new MRBlock(Material.ROCK, "nether_gold_ore", CreativeTabs.BUILDING_BLOCKS, 0.4F, 10.0F);
 
         // New Stone Blocks
         for (EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
@@ -231,6 +258,12 @@ public class NBlocks {
             add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), Material.ROCK, dyeColor.getMetadata(), true, false, OVERWORLD_EXPANSION_TAB);
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, Material.ROCK, dyeColor.getMetadata(), false, true, OVERWORLD_EXPANSION_TAB);
             coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
+            coloredPlanks[dyeColor.getMetadata()] = new BlockColoredAlt(MOD_ID, "colored_plank", dyeColor).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+//            coloredPlanksStair[dyeColor.getMetadata()] = new BlockOverworldColoredStair("colored_plank_stair", coloredPlanksStair[dyeColor.getMetadata()].getDefaultState(), dyeColor, NCreativeTabs.WOOD_EXPANSION_TAB);
+//            BlockModColoredStairs.initStairs(coloredPlanks[dyeColor.getMetadata()], 0, (BlockStairs) coloredPlanksStair[dyeColor.getMetadata()]);
+            coloredPlanksSlabSingle[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", MOD_ID, dyeColor, Material.WOOD, false).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+            coloredPlanksSlabDouble[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", MOD_ID, dyeColor, Material.WOOD, true).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+            BlockModColoredSlab.initSlab(coloredPlanks[dyeColor.getMetadata()], 0, (BlockModColoredSlab) coloredPlanksSlabSingle[dyeColor.getMetadata()], (BlockModColoredSlab) coloredPlanksSlabDouble[dyeColor.getMetadata()]);
             coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
             coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
             coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
@@ -287,12 +320,6 @@ public class NBlocks {
         RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Blocks.STONE_SLAB.getDefaultState().withProperty(BlockStoneSlab.VARIANT, BlockStoneSlab.EnumType.SAND).getBlock(), 4),
                 ProxyRegistry.newStack(Blocks.SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED).getBlock(), 1));
 
-//        whiteBricks = new BlockOverworldBase(Material.ROCK, "white_bricks");
-//        redBricks = new BlockOverworldBase(Material.ROCK, "red_bricks");
-//        greenBricks = new BlockOverworldBase(Material.ROCK, "green_bricks");
-//        redClayBlock = new BlockOverworldBase(Material.CLAY, "red_clay_block");
-//        greenClayBlock = new BlockOverworldBase(Material.CLAY, "green_clay_block");
-
         addWall("sandstone", Blocks.SANDSTONE, 0);
         addWall("chiseled_sandstone", Blocks.SANDSTONE, 1);
         addWall("smooth_sandstone", Blocks.SANDSTONE, 2);
@@ -300,19 +327,21 @@ public class NBlocks {
         addWall("chiseled_red_sandstone", Blocks.RED_SANDSTONE, 1);
         addWall("smooth_red_sandstone", Blocks.RED_SANDSTONE, 2);
 
-        stoneAnvil = new BlockModAnvil("stone_anvil", OVERWORLD_EXPANSION_TAB);
-        carbonAnvil = new BlockModAnvil("carbon_anvil", OVERWORLD_EXPANSION_TAB);
-        goldenAnvil = new BlockModAnvil("golden_anvil", OVERWORLD_EXPANSION_TAB);
-        marbleAnvil = new BlockModAnvil("marble_anvil", OVERWORLD_EXPANSION_TAB);
-        ironAnvil = new BlockModAnvil("iron_anvil", OVERWORLD_EXPANSION_TAB);
-        darkIronAnvil = new BlockModAnvil("dark_iron_anvil", OVERWORLD_EXPANSION_TAB);
-//
-//        stoneCauldron = new BlockModCauldron("stone_cauldron", OVERWORLD_EXPANSION_TAB);
-//        carbonCauldron = new BlockModCauldron("carbon_cauldron", OVERWORLD_EXPANSION_TAB);
-//        goldenCauldron = new BlockModCauldron("golden_cauldron", OVERWORLD_EXPANSION_TAB);
-//        marbleCauldron = new BlockModCauldron("marble_cauldron", OVERWORLD_EXPANSION_TAB);
-//        ironCauldron = new BlockModCauldron("iron_cauldron", OVERWORLD_EXPANSION_TAB);
-//        glassCauldron = new BlockModCauldron("glass_cauldron", OVERWORLD_EXPANSION_TAB);
+//        stoneAnvil = new BlockModAnvil("stone_anvil", OVERWORLD_EXPANSION_TAB);
+//        carbonAnvil = new BlockModAnvil("carbon_anvil", OVERWORLD_EXPANSION_TAB);
+//        goldenAnvil = new BlockModAnvil("golden_anvil", OVERWORLD_EXPANSION_TAB);
+//        marbleAnvil = new BlockModAnvil("marble_anvil", OVERWORLD_EXPANSION_TAB);
+//        ironAnvil = new BlockModAnvil("iron_anvil", OVERWORLD_EXPANSION_TAB);
+//        darkIronAnvil = new BlockModAnvil("dark_iron_anvil", OVERWORLD_EXPANSION_TAB);
+
+        blackSand = new BlockFalling("black_sand");
+
+        sandstonePillar = new MRPillar(Material.ROCK, "sandstone_pillar", CreativeTabs.BUILDING_BLOCKS, 0.8F, 4.0F);
+        redSandstonePillar = new MRPillar(Material.ROCK, "red_sandstone_pillar", CreativeTabs.BUILDING_BLOCKS, 0.8F, 4.0F);
+        chiseledPurpur = new BlockPurpurChiseled("purpur_chiseled", false);
+        chiseledPurpurFilled = new BlockPurpurChiseled("purpur_chiseled_filled", true);
+        chiseledBricks = new BlockBrickChiseled("chiseled_bricks", false);
+        chiseledBricksFilled = new BlockBrickChiseled("chiseled_bricks_filled", true);
     }
 
     @SubscribeEvent

@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:blocks/purpur_chiseled"
+    }
+  },
+  "variants": {
+    "normal": {
+      "model": "neutronia:purpur_chiseled"
+    },
+    "inventory": {
+      "model": "neutronia:purpur_chiseled"
+    }
+  }
+}

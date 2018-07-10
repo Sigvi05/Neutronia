@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:jungle_log_pile" },
+    "axis=z":     { "model": "neutronia:jungle_log_pile", "x": 90 },
+    "axis=x":     { "model": "neutronia:jungle_log_pile", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:jungle_log_pile" }
+  }
+}

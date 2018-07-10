@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:birch_log_pile" },
+    "axis=z":     { "model": "neutronia:birch_log_pile", "x": 90 },
+    "axis=x":     { "model": "neutronia:birch_log_pile", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:birch_log_pile" }
+  }
+}

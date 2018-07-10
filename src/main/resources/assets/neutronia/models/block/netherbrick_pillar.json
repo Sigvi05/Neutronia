@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "neutronia:blocks/netherbrick_pillar_top",
+    "side": "neutronia:blocks/netherbrick_pillar_side"
+  }
+}
