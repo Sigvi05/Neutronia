@@ -55,8 +55,8 @@ public class NBlocks {
     public static final MRPillar prismarineColumn;
     public static final BlockPrismarineChiseled chiseledPrismarine;
     public static final BlockPrismarineChiseled chiseledPrismarineFilled;
-    public static final MRBlock elderPrismarine;
-    public static final MRBlock elderPrismarineBricks;
+//    public static final MRBlock elderPrismarine;
+//    public static final MRBlock elderPrismarineBricks;
     //Stone Blocks
     public static Block[] newStoneVariants = new Block[26];
     //Wood Blocks
@@ -76,7 +76,6 @@ public class NBlocks {
     public static final BlockSoulGlass soulGlass, soulGlassOn;
     public static final MRPillar netherbrickPillar;
     public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
-    public static final MRBlock netherGoldOre;
     //Frosted versions of some blocks
     public static Block[] frostedStones = new Block[6];
     public static Block[] frostedDirts = new Block[12];
@@ -141,15 +140,15 @@ public class NBlocks {
         wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
         wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
         wrautnautPorthole = new BlockOverworldBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(OCEAN_EXPANSION_TAB);
-        prismarineColumn = new MRPillar(Material.ROCK, "prismarine_column", CreativeTabs.BUILDING_BLOCKS, 0.3F, 6.5F);
+        prismarineColumn = new MRPillar(Material.ROCK, "prismarine_column", OCEAN_EXPANSION_TAB, 0.3F, 6.5F);
         chiseledPrismarine = new BlockPrismarineChiseled("chiseled_prismarine", false);
         chiseledPrismarineFilled = new BlockPrismarineChiseled("chiseled_prismarine_filled", true);
-        elderPrismarine = new MRBlock(Material.ROCK, "elder_prismarine", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
-        elderPrismarineBricks = new MRBlock(Material.ROCK, "elder_prismarine_bricks", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
+//        elderPrismarine = new MRBlock(Material.ROCK, "elder_prismarine", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
+//        elderPrismarineBricks = new MRBlock(Material.ROCK, "elder_prismarine_bricks", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
 
         // Nether Blocks
         netherGlass = new BlockGlassBase("nether_glass").setCreativeTab(NETHER_EXPANSION_TAB);
-        soulGlass = new BlockSoulGlass(false, Material.GLASS,"soul_glass", CreativeTabs.BUILDING_BLOCKS);
+        soulGlass = new BlockSoulGlass(false, Material.GLASS,"soul_glass", NETHER_EXPANSION_TAB);
         soulGlassOn = new BlockSoulGlass(true, Material.GLASS,"soul_glass_on", null);
         netherRod = new BlockRodBase("nether_rod", NETHER_EXPANSION_TAB, true);
         netherSponge = new BlockNetherSponge();
@@ -164,10 +163,9 @@ public class NBlocks {
             add(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], Material.ROCK, 0, true, false, NETHER_EXPANSION_TAB);
         }
 
-        netherbrickPillar = new MRPillar(Material.ROCK, "netherbrick_pillar", CreativeTabs.BUILDING_BLOCKS, 0.4F, 7.5F);
+        netherbrickPillar = new MRPillar(Material.ROCK, "netherbrick_pillar", NETHER_EXPANSION_TAB, 0.4F, 7.5F);
         chiseledNetherbrick = new BlockNetherbrickChiseled("chiseled_netherbrick", false);
         chiseledNetherbrickFilled = new BlockNetherbrickChiseled("chiseled_netherbrick_filled", true);
-        netherGoldOre = new MRBlock(Material.ROCK, "nether_gold_ore", CreativeTabs.BUILDING_BLOCKS, 0.4F, 10.0F);
 
         // New Stone Blocks
         for (EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
@@ -334,10 +332,10 @@ public class NBlocks {
 //        ironAnvil = new BlockModAnvil("iron_anvil", OVERWORLD_EXPANSION_TAB);
 //        darkIronAnvil = new BlockModAnvil("dark_iron_anvil", OVERWORLD_EXPANSION_TAB);
 
-        blackSand = new BlockFalling("black_sand");
+        blackSand = new BlockFalling("black_sand", OVERWORLD_EXPANSION_TAB);
 
-        sandstonePillar = new MRPillar(Material.ROCK, "sandstone_pillar", CreativeTabs.BUILDING_BLOCKS, 0.8F, 4.0F);
-        redSandstonePillar = new MRPillar(Material.ROCK, "red_sandstone_pillar", CreativeTabs.BUILDING_BLOCKS, 0.8F, 4.0F);
+        sandstonePillar = new MRPillar(Material.ROCK, "sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);
+        redSandstonePillar = new MRPillar(Material.ROCK, "red_sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);
         chiseledPurpur = new BlockPurpurChiseled("purpur_chiseled", false);
         chiseledPurpurFilled = new BlockPurpurChiseled("purpur_chiseled_filled", true);
         chiseledBricks = new BlockBrickChiseled("chiseled_bricks", false);

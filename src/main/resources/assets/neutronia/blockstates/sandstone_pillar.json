@@ -1,4 +1,8 @@
 {
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block"
+  },
   "variants": {
     "axis=y":    { "model": "neutronia:sandstone_pillar" },
     "axis=z":     { "model": "neutronia:sandstone_pillar", "x": 90 },

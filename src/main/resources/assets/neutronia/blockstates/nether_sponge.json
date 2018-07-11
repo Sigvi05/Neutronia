@@ -3,16 +3,21 @@
   "forge_marker": 1,
   "defaults": {
     "model": "cube_all",
+    "textures": {
+      "all": "neutronia:blocks/nether_sponge"
+    },
     "transform": "forge:default-block"
   },
   "variants": {
     "wet": {
       "true": {
+        "model": "cube_all",
         "textures": {
           "all": "neutronia:blocks/nether_sponge_filled"
         }
       },
       "false": {
+        "model": "cube_all",
         "textures": {
           "all": "neutronia:blocks/nether_sponge"
         }

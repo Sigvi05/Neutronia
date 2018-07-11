@@ -24,22 +24,25 @@ public class OreGen implements IWorldGenerator {
     private WorldGenerator volcanicRock;
 
     public OreGen() {
-        marble = new WorldGenMinable(NBlocks.newStoneVariants[16].getDefaultState(), 22);
+        marble = new WorldGenMinable(NBlocks.newStoneVariants[7].getDefaultState(), 22);
 //        basalt = new WorldGenMinable(NBlocks.newStoneVariants[3].getDefaultState(), 13);
-        limestone = new WorldGenMinable(NBlocks.newStoneVariants[11].getDefaultState(), 25);
-        fieryStone = new WorldGenMinable(NBlocks.glowingNetherBlocks[0].getDefaultState(), 13, BlockMatcher.forBlock(Blocks.MAGMA));
-        volcanicGlowRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[1].getDefaultState(), 29, BlockMatcher.forBlock(Blocks.MAGMA));
-        volcanicRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[2].getDefaultState(), 13, BlockMatcher.forBlock(Blocks.MAGMA));
+        limestone = new WorldGenMinable(NBlocks.newStoneVariants[5].getDefaultState(), 25);
+        fieryStone = new WorldGenMinable(NBlocks.glowingNetherBlocks[0].getDefaultState(), 33, BlockMatcher.forBlock(Blocks.NETHERRACK));
+        volcanicGlowRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[1].getDefaultState(), 33, BlockMatcher.forBlock(Blocks.NETHERRACK));
+        volcanicRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[2].getDefaultState(), 33, BlockMatcher.forBlock(Blocks.NETHERRACK));
     }
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
                          IChunkProvider chunkProvider) {
         if (world.provider.getDimension() == -1) {
+
+            int i2 = world.getSeaLevel() / 2 + 1;
+
 //            this.runGenerator(basalt, world, random, chunkX, chunkZ, 400, 1, 15);
-            this.runGenerator(fieryStone, world, random, chunkX, chunkZ, 1, 0, 128);
-            this.runGenerator(volcanicGlowRock, world, random, chunkX, chunkZ, 1, 0, 128);
-            this.runGenerator(volcanicRock, world, random, chunkX, chunkZ, 1, 0, 128);
+            this.runGenerator(fieryStone, world, random, chunkX, chunkZ, 90, 0, i2 - 5 + random.nextInt(10));
+            this.runGenerator(volcanicGlowRock, world, random, chunkX, chunkZ, 90, 0,  i2 - 5 + random.nextInt(10));
+            this.runGenerator(volcanicRock, world, random, chunkX, chunkZ, 90, 0,  i2 - 5 + random.nextInt(10));
         }
         if (world.provider.getDimension() == 0) {
             this.runGenerator(marble, world, random, chunkX, chunkZ, 10, 60, 180);

@@ -21,10 +21,10 @@ import static net.hdt.neutronia.util.Reference.MOD_ID;
 public class BlockFalling extends BlockMod {
     public static boolean fallInstantly;
 
-    public BlockFalling(String name) {
+    public BlockFalling(String name, CreativeTabs creativeTabs) {
         super(Material.SAND, MOD_ID, name);
         setSoundType(SoundType.SAND);
-        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        this.setCreativeTab(creativeTabs);
     }
 
     public BlockFalling(Material materialIn, String name) {

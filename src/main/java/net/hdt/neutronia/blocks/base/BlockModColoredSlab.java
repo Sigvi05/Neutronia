@@ -52,7 +52,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
     boolean doubleSlab;
     public final EnumDyeColor color;
 
-    public BlockModColoredSlab(String name, String modid,EnumDyeColor color, Material materialIn, boolean doubleSlab) {
+    public BlockModColoredSlab(String name, String modid, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
         super(hacky(materialIn, doubleSlab));
 
         this.doubleSlab = doubleSlab;
@@ -64,7 +64,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
         this.modid = modid;
         this.color = color;
 
-        setUnlocalizedName(color.getName() + "_" + name);
+        setUnlocalizedName(name);
         if (!doubleSlab) {
             useNeighborBrightness = true;
             setDefaultState(blockState.getBaseState().withProperty(HALF, EnumBlockHalf.BOTTOM));
@@ -140,10 +140,10 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
     }
 
     public void register() {
-        setRegistryName(modid, color.getName() + "_" + bareName);
+        setRegistryName(modid, bareName);
         ProxyRegistry.register(this);
         if (!isDouble())
-            ProxyRegistry.register(new ItemModBlockColoredSlab(this, new ResourceLocation(modid, color.getName() + "_" + bareName)));
+            ProxyRegistry.register(new ItemModBlockColoredSlab(this, new ResourceLocation(modid, bareName)));
     }
 
     @Override

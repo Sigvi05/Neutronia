@@ -2,10 +2,10 @@ package net.hdt.neutronia.blocks;
 
 import net.hdt.huskylib2.blocks.BlockMod;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class BlockBrickChiseled extends BlockMod {
     public BlockBrickChiseled(String name, boolean filled) {
         super(Material.ROCK, MOD_ID, name);
         this.filled = filled;
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(filled ? null : NCreativeTabs.OVERWORLD_EXPANSION_TAB);
         setHardness(0.3F);
         setResistance(6.5F);
         setSoundType(SoundType.STONE);

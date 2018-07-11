@@ -38,6 +38,18 @@ public class JsonGenerator {
 //            genPillarBlock(new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genBlock(new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genFenceBlock(new ResourceLocation(modid, String.format("stripped_%s_bark_fence", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())));
+            genLangFile(modid, String.format("%s_log_slab", type.getName()), String.format("%s_log_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("%s_log_slab_double", type.getName()), String.format("double_%s_log_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("%s_bark_slab", type.getName()), String.format("%s_bark_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("%s_bark_slab_double", type.getName()), String.format("double_%s_bark_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("stripped_%s_log_slab", type.getName()), String.format("stripped_%s_log_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("stripped_%s_log_slab_double", type.getName()), String.format("stripped_double_%s_log_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("stripped_%s_bark_slab", type.getName()), String.format("stripped_%s_bark_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("stripped_%s_bark_slab_double", type.getName()), String.format("stripped_double_%s_bark_slab", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("%s_log_stairs", type.getName()), String.format("%s_log_stairs", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("%s_bark_stairs", type.getName()), String.format("%s_bark_stairs", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("stripped_%s_log_stairs", type.getName()), String.format("stripped_%s_log_stairs", type.getName()), "wood_blocks");
+            genLangFile(modid, String.format("stripped_%s_bark_stairs", type.getName()), String.format("stripped_%s_bark_stairs", type.getName()), "wood_blocks");
         }
 
         for(EnumDyeColor color : EnumDyeColor.values()) {
@@ -50,15 +62,31 @@ public class JsonGenerator {
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_lit_candle", color.getName())), new ResourceLocation(modid, "candle"));
 //            genSlab(new ResourceLocation(modid, String.format("%s_glass_slab", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())), new ResourceLocation("minecraft", String.format("glass_%s", color.getName())));
 //            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_plank", color.getName())), new ResourceLocation(modid, "cube_all_colored"), new ResourceLocation(modid, "colored_planks"));
-            genSlabCustom(new ResourceLocation(modid, String.format("%s_colored_plank_slab", color.getName())), new ResourceLocation(modid, "colored_planks"), new ResourceLocation(modid, "colored_planks") , new ResourceLocation(modid, "colored_planks"));
+//            genSlabCustom(new ResourceLocation(modid, String.format("%s_colored_plank_slab", color.getName())), new ResourceLocation(modid, "colored_planks"), new ResourceLocation(modid, "colored_planks") , new ResourceLocation(modid, "colored_planks"));
+//            genLangFile(modid, String.format("%s_colored_plank_slab", color.getName()), String.format("%s_colored_plank_slab", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_colored_plank_slab_double", color.getName()), String.format("double_%s_colored_plank_slab", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_colored_plank", color.getName()), String.format("%s_colored_plank", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_lantern", color.getName()), String.format("%s_lantern", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_lit_lantern", color.getName()), String.format("%s_lit_lantern", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_colored_redstone_lamp", color.getName()), String.format("%s_colored_redstone_lamp", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_colored_lit_redstone_lamp", color.getName()), String.format("%s_colored_lit_redstone_lamp", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("centered_glazed_terracotta_%s", color.getName()), String.format("centered_glazed_terracotta_%s", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_candle", color.getName()), String.format("%s_candle", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_lit_candle", color.getName()), String.format("%s_lit_candle", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_glass_slab", color.getName()), String.format("%s_glass_slab", color.getName()), "colored_blocks");
+//            genLangFile(modid, String.format("%s_glass_slab_double", color.getName()), String.format("double_%s_glass_slab", color.getName()), "colored_blocks");
         }
 
         for(EnumNewStoneVariants newStoneVariants : EnumNewStoneVariants.values()) {
 //            genBlock(new ResourceLocation(modid, newStoneVariants.getName()), new ResourceLocation(modid, newStoneVariants.getName()));
+//            genLangFile(modid, newStoneVariants.getName(), newStoneVariants.getName(), "stone_blocks");
         }
 
         for(EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
 //            genSlab(new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName() + "_slab"), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()), new ResourceLocation(modid, newStoneVariantsSlabsAndStairs.getName()));
+//            genLangFile(modid, newStoneVariantsSlabsAndStairs.getName() + "_slab", newStoneVariantsSlabsAndStairs.getName() + "_slab", "stone_blocks");
+//            genLangFile(modid, newStoneVariantsSlabsAndStairs.getName() + "_slab_double", "double_" + newStoneVariantsSlabsAndStairs.getName() + "_slab", "stone_blocks");
+//            genLangFile(modid, newStoneVariantsSlabsAndStairs.getName() + "_stairs", newStoneVariantsSlabsAndStairs.getName() + "_stairs", "stone_blocks");
         }
 
 //        genSlab(new ResourceLocation(modid, "stone_slab"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"), new ResourceLocation("minecraft", "stone"));
@@ -70,6 +98,12 @@ public class JsonGenerator {
 //            genBlock(new ResourceLocation(modid, String.format("decorative_dead_%s_coral", coralColor.getNewName())), new ResourceLocation(modid, String.format("%s_dead_coral", coralColor.getName())));
 //            genCoralFan(new ResourceLocation(modid, String.format("%s_coral_fan", coralColor.getNewName())), new ResourceLocation(modid, String.format("coral_fan_%s", coralColor.getName())));
 //            genCoralFan(new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getNewName())), new ResourceLocation(modid, String.format("coral_fan_%s_dead", coralColor.getName())));
+//            genLangFile(modid, String.format("%s_coral", coralColor.getNewName()), String.format("%s_coral", coralColor.getNewName()), "corals");
+//            genLangFile(modid, String.format("dead_%s_coral", coralColor.getNewName()), String.format("dead_%s_coral", coralColor.getNewName()), "corals");
+//            genLangFile(modid, String.format("decorative_%s_coral", coralColor.getNewName()), String.format("decorative_%s_coral", coralColor.getNewName()), "corals");
+//            genLangFile(modid, String.format("decorative_dead_%s_coral", coralColor.getNewName()), String.format("decorative_dead_%s_coral", coralColor.getNewName()), "corals");
+//            genLangFile(modid, String.format("%s_coral_fan", coralColor.getNewName()), String.format("%s_coral_fan", coralColor.getNewName()), "corals");
+//            genLangFile(modid, String.format("dead_%s_coral_fan", coralColor.getNewName()), String.format("dead_%s_coral_fan", coralColor.getNewName()), "corals");
         }
 
     }

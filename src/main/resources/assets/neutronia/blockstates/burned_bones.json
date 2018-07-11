@@ -1,8 +1,8 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v2.",
+  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "block/cube_column",
+    "model": "minecraft:cube_column",
     "textures": {
       "end": "neutronia:blocks/burnt_bone_block_top",
       "side": "neutronia:blocks/burnt_bone_block_side"
@@ -10,11 +10,16 @@
     "transform": "forge:default-block"
   },
   "variants": {
-    "normal": [
-      {}
-    ],
-    "inventory": [
-      {}
-    ]
+    "axis": {
+      "x": {
+        "x": 90,
+        "y": 90
+      },
+      "y": {},
+      "z": {
+        "x": 90
+      }
+    },
+    "inventory": [{}]
   }
 }

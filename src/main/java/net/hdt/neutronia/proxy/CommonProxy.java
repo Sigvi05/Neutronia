@@ -11,6 +11,7 @@ import net.hdt.neutronia.modules.moon.init.NMoonBiomes;
 import net.hdt.neutronia.tileentity.TileCustomChest;
 import net.hdt.neutronia.tileentity.TileEntityFloorTile;
 import net.hdt.neutronia.tileentity.TileEntityNeonLight;
+import net.hdt.neutronia.world.gen.OreGen;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -35,7 +36,7 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent event) {
 //        NRecipes.register();
-//        GameRegistry.registerWorldGenerator(new OreGen(), 0);
+        GameRegistry.registerWorldGenerator(new OreGen(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
 //        GameRegistry.registerWorldGenerator(new BasaltGenerator(33, 80, 10, 1), 0);
         GameRegistry.registerTileEntity(TileCustomChest.class, "neutronia:custom_chest");

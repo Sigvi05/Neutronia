@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockOverworldColoredSlab extends BlockModColoredSlab {
 
     public BlockOverworldColoredSlab(String name, String modid, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
-        super(name, modid, color, materialIn, doubleSlab);
+        super(color.getName() + "_" + name, modid, color, materialIn, doubleSlab);
     }
 
     @Override

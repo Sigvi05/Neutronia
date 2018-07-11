@@ -2,6 +2,7 @@ package net.hdt.neutronia.blocks;
 
 import net.hdt.huskylib2.blocks.BlockMod;
 import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -23,7 +24,6 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
-import static net.minecraft.creativetab.CreativeTabs.BUILDING_BLOCKS;
 
 public class BlockNetherbrickChiseled extends BlockMod {
 
@@ -32,7 +32,7 @@ public class BlockNetherbrickChiseled extends BlockMod {
     public BlockNetherbrickChiseled(String name, boolean filled) {
         super(Material.ROCK, MOD_ID, name);
         this.filled = filled;
-        setCreativeTab(BUILDING_BLOCKS);
+        setCreativeTab(filled ? null : NCreativeTabs.NETHER_EXPANSION_TAB);
         setHardness(2.0F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);
