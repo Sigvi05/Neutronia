@@ -10,7 +10,13 @@ public enum EnumCoralColor implements IStringSerializable {
     PINK(1, "pink", "brain", 15961002),
     PURPLE(2, "purple", "bubble", 8991416),
     RED(3, "red", "fire", 11546150),
-    YELLOW(4, "yellow", "horn", 16701501);
+    YELLOW(4, "yellow", "horn", 16701501)/*,
+    BLACK(5, "yellow", "seaweed", 16701501),
+    CYAN(6, "yellow", "horn", 16701501),
+    GREEN(7, "yellow", "forest", 16701501),
+    LIGHT_BLUE(8, "yellow", "horn", 16701501),
+    LIME(9, "yellow", "horn", 16701501),
+    ORANGE(10, "yellow", "anthias", 16701501)*/;
 
     private static final EnumCoralColor[] META_LOOKUP = new EnumCoralColor[values().length];
 
