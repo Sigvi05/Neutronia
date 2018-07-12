@@ -9,9 +9,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.*;
+import net.minecraftforge.fml.relauncher.Side;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 
@@ -66,7 +68,9 @@ public class NEntities {
                 createBuilder("steampunk_golem").entity(EntitySteampunkGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build()
         };
         event.getRegistry().registerAll(entries);
-        RenderHandler.registerEntityRenders();
+        if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
+            RenderHandler.registerEntityRenders();
+        }
         addSpawns();
 
         /*TODO: Add Great White Shark, Hammerhead Shark, Piranha, Angler Fish, Dragon Shark, Hare, Rabbit, Gecko, Desert Gecko,

@@ -1,5 +1,7 @@
 package net.hdt.neutronia.init;
 
+import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.items.*;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
@@ -7,6 +9,7 @@ import net.hdt.neutronia.items.base.tools.BaseShovel;
 import net.hdt.neutronia.items.base.tools.BaseSword;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -77,6 +80,8 @@ public class NItems {
         scute = new ItemBase("scute", tab);
         chisel = new ItemBase("chisel", tab);
         logStripper = new ItemBase("log_stripper", tab);
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(chisel, 1), "I", "S", 'I', Items.IRON_INGOT, 'S', Items.STICK);
+        RecipeHandler.addShapedRecipe(ProxyRegistry.newStack(logStripper, 1), "II ", " I ", " S ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
 //        rawSeaweed = new ItemBase("raw_seaweed", tab);
 
         /*AXE_CHITIN = new BaseAxe("axe_chitin", CAXE).setCreativeTab(tab);

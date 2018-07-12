@@ -18,7 +18,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.io.File;
 
-@Mod(modid = ColorfulArmorPoints.MODID, name = "Neutronia: Colorful Armor Points", version = "0.0.1", acceptedMinecraftVersions = "[1.12,1.13)")
+@Mod(modid = ColorfulArmorPoints.MODID, name = "Neutronia: Colorful Armor Points", version = "0.0.1", acceptedMinecraftVersions = "[1.12,1.13)", clientSideOnly = true)
 public class ColorfulArmorPoints {
 
 	public static final String MODID = "colorful_armor_points";

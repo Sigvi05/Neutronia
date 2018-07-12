@@ -38,18 +38,19 @@ public class JsonGenerator {
 //            genPillarBlock(new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log_top", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genBlock(new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_log", type.getName())));
 //            genFenceBlock(new ResourceLocation(modid, String.format("stripped_%s_bark_fence", type.getName())), new ResourceLocation(modid, String.format("stripped_%s_bark", type.getName())));
-            genLangFile(modid, String.format("%s_log_slab", type.getName()), String.format("%s_log_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("%s_log_slab_double", type.getName()), String.format("double_%s_log_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("%s_bark_slab", type.getName()), String.format("%s_bark_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("%s_bark_slab_double", type.getName()), String.format("double_%s_bark_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("stripped_%s_log_slab", type.getName()), String.format("stripped_%s_log_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("stripped_%s_log_slab_double", type.getName()), String.format("stripped_double_%s_log_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("stripped_%s_bark_slab", type.getName()), String.format("stripped_%s_bark_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("stripped_%s_bark_slab_double", type.getName()), String.format("stripped_double_%s_bark_slab", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("%s_log_stairs", type.getName()), String.format("%s_log_stairs", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("%s_bark_stairs", type.getName()), String.format("%s_bark_stairs", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("stripped_%s_log_stairs", type.getName()), String.format("stripped_%s_log_stairs", type.getName()), "wood_blocks");
-            genLangFile(modid, String.format("stripped_%s_bark_stairs", type.getName()), String.format("stripped_%s_bark_stairs", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("%s_log_slab", type.getName()), String.format("%s_log_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("%s_log_slab_double", type.getName()), String.format("double_%s_log_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("%s_bark_slab", type.getName()), String.format("%s_bark_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("%s_bark_slab_double", type.getName()), String.format("double_%s_bark_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("stripped_%s_log_slab", type.getName()), String.format("stripped_%s_log_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("stripped_%s_log_slab_double", type.getName()), String.format("stripped_double_%s_log_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("stripped_%s_bark_slab", type.getName()), String.format("stripped_%s_bark_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("stripped_%s_bark_slab_double", type.getName()), String.format("stripped_double_%s_bark_slab", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("%s_log_stairs", type.getName()), String.format("%s_log_stairs", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("%s_bark_stairs", type.getName()), String.format("%s_bark_stairs", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("stripped_%s_log_stairs", type.getName()), String.format("stripped_%s_log_stairs", type.getName()), "wood_blocks");
+//            genLangFile(modid, String.format("stripped_%s_bark_stairs", type.getName()), String.format("stripped_%s_bark_stairs", type.getName()), "wood_blocks");
+            genRecipe(modid, String.format("%s_bark", type.getName()), true, "BBB", "BLB", "BBB", new String[]{"B", "L"}, new String[]{String.format("neutronia:%s_bark_item", type.getName()), String.format("neutronia:stripped_%s_log", type.getName())}, new int[]{0, 0}, String.format("neutronia:%s_bark", type.getName()), "wood_blocks", 4);
         }
 
         for(EnumDyeColor color : EnumDyeColor.values()) {

@@ -39,10 +39,10 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         switch (world.provider.getDimension()) {
             case 5:
                 generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-//                generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-//                generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-//                generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-//                generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+                generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+                generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+                generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+                generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
                 break;
             case 3:
                 break;

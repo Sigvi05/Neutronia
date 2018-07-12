@@ -11,7 +11,6 @@ public class NCreativeTabs {
     public static CreativeTab OCEAN_EXPANSION_TAB = new CreativeTab("Neutronia: Ocean", true);
     public static CreativeTab WOOD_EXPANSION_TAB = new CreativeTab("Neutronia: Wood", true);
     public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Neutronia: Nether", true);
-    public static CreativeTab MORE_DIMENSIONS_EXPANSION_TAB = new CreativeTab("Neutronia: Other Dimensions", true);
     public static CreativeTab END_EXPANSION_TAB = new CreativeTab("Neutronia: End", false) {
         @Override
         public ItemStack getTabIconItem() {

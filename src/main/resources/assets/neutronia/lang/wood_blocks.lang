@@ -142,3 +142,5 @@ tile.dark_oak_log_stairs.name=Dark Oak Log Stairs
 tile.dark_oak_bark_stairs.name=Dark Oak Bark Stairs
 tile.stripped_dark_oak_log_stairs.name=Stripped Dark Oak Log Stairs
 tile.stripped_dark_oak_bark_stairs.name=Stripped Dark Oak Bark Stairs
+
+message.neutronia:death.coordinates=%s %s %s

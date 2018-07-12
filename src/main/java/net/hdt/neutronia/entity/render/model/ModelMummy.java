@@ -96,44 +96,4 @@ public class ModelMummy extends ModelBiped {
         modelRenderer.rotateAngleZ = z;
     }
 
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
-    {
-        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        bipedBody = Body1;
-        bipedBody = Body2;
-        bipedHead = Head;
-        bipedLeftArm = LeftArm;
-        bipedLeftLeg = LeftLeg;
-        bipedRightArm = RightArm;
-        bipedRightLeg = RightLeg;
-        boolean flag = entityIn instanceof EntityMummy && ((EntityMummy)entityIn).isArmsRaised();
-        float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
-        float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
-        this.RightArm.rotateAngleZ = 0.0F;
-        this.LeftArm.rotateAngleZ = 0.0F;
-        this.RightArm.rotateAngleY = -(0.1F - f * 0.6F);
-        this.LeftArm.rotateAngleY = 0.1F - f * 0.6F;
-        float f2 = -(float)Math.PI / (flag ? 1.5F : 2.25F);
-        this.RightArm.rotateAngleX = f2;
-        this.LeftArm.rotateAngleX = f2;
-        this.RightArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-        this.LeftArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-        this.RightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-        this.LeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-        this.RightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-        this.LeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-
-        this.bipedRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount / f;
-        this.bipedLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount / f;
-        this.bipedRightLeg.rotateAngleY = 0.0F;
-        this.bipedLeftLeg.rotateAngleY = 0.0F;
-        this.bipedRightLeg.rotateAngleZ = 0.0F;
-        this.bipedLeftLeg.rotateAngleZ = 0.0F;
-
-        this.bipedRightLeg.rotationPointZ = 0.1F;
-        this.bipedLeftLeg.rotationPointZ = 0.1F;
-        this.bipedRightLeg.rotationPointY = 12.0F;
-        this.bipedLeftLeg.rotationPointY = 12.0F;
-    }
-
 }
