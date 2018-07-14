@@ -60,8 +60,8 @@ public class FormationCaveGenerator implements IWorldGenerator {
             color2 = rand.nextInt(5);
         } while (color2 == color1);
 
-        IBlockState crystal1 = NBlocks.decorativeCoral[color1].getDefaultState();
-        IBlockState crystal2 = NBlocks.decorativeCoral[color2].getDefaultState();
+        IBlockState crystal1 = NBlocks.decorativeCoralBlock[color1].getDefaultState();
+        IBlockState crystal2 = NBlocks.decorativeCoralBlock[color2].getDefaultState();
 
         int length = 12 + rand.nextInt(10);
         int size = 4 + rand.nextInt(3);

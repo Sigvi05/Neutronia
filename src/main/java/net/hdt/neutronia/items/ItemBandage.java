@@ -3,7 +3,7 @@ package net.hdt.neutronia.items;
 import net.hdt.huskylib2.items.ItemMod;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
-import net.hdt.neutronia.util.WearableColourUtils;
+import net.hdt.neutronia.util.ColorUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -42,7 +42,7 @@ public class ItemBandage extends ItemMod {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return WearableColourUtils.getClosest(16351261) + super.getItemStackDisplayName(stack);
+        return ColorUtils.getClosest(16351261) + super.getItemStackDisplayName(stack);
     }
 
     @Override

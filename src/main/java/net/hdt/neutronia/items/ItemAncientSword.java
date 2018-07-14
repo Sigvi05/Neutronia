@@ -2,7 +2,7 @@ package net.hdt.neutronia.items;
 
 import net.hdt.huskylib2.items.ItemModSword;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.util.WearableColourUtils;
+import net.hdt.neutronia.util.ColorUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,7 +33,7 @@ public class ItemAncientSword extends ItemModSword {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return WearableColourUtils.getClosest(16351261) + super.getItemStackDisplayName(stack);
+        return ColorUtils.getClosest(16351261) + super.getItemStackDisplayName(stack);
     }
 
     @Override

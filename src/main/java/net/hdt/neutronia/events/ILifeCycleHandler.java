@@ -12,4 +12,6 @@ public interface ILifeCycleHandler {
 
 	public void loadComplete(FMLLoadCompleteEvent event);
 
+	public void serverInit(FMLServerStartingEvent event);
+
 }

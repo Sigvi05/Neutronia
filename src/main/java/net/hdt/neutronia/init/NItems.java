@@ -82,21 +82,11 @@ public class NItems {
         logStripper = new ItemBase("log_stripper", tab);
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(chisel, 1), "I", "S", 'I', Items.IRON_INGOT, 'S', Items.STICK);
         RecipeHandler.addShapedRecipe(ProxyRegistry.newStack(logStripper, 1), "II ", " I ", " S ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
-//        rawSeaweed = new ItemBase("raw_seaweed", tab);
-
-        /*AXE_CHITIN = new BaseAxe("axe_chitin", CAXE).setCreativeTab(tab);
-        PICKAXE_CHITIN = new BasePickaxe("pickaxe_chitin", CPICK).setCreativeTab(tab);
-        HOE_CHITIN = new BaseHoe("hoe_chitin", CHOE).setCreativeTab(tab);
-        SHOVEL_CHITIN = new BaseShovel("shovel_chitin", CSHOVEL).setCreativeTab(tab);
-        SWORD_CHITIN = new BaseSword("sword_chitin", CSWORD).setCreativeTab(tab);*/
 
         OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSDIDIAN).setCreativeTab(tab);
         OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSDIDIAN).setCreativeTab(tab);
         OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSDIDIAN).setCreativeTab(tab);
         OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSDIDIAN).setCreativeTab(tab);
-
-//        rawDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_raw", tab, 10, 9.6F, true);
-//        cookedDragonMeat = new ItemModFood(MOD_ID, "dragon_meat_cooked", tab, 20, 20F, true);
 
         woodSpear = new ItemSpear("wood_spear", Item.ToolMaterial.WOOD).setCreativeTab(null);
         stoneSpear = new ItemSpear("stone_spear", Item.ToolMaterial.STONE).setCreativeTab(null);

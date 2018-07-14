@@ -1,7 +1,7 @@
 package net.hdt.neutronia.items;
 
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.util.WearableColourUtils;
+import net.hdt.neutronia.util.ColorUtils;
 import net.minecraft.item.ItemStack;
 
 public class ItemPhantomMembrane extends ItemBase {
@@ -12,6 +12,6 @@ public class ItemPhantomMembrane extends ItemBase {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return WearableColourUtils.getClosest(0xd8cda9) + super.getItemStackDisplayName(stack);
+        return ColorUtils.getClosest(0xd8cda9) + super.getItemStackDisplayName(stack);
     }
 }

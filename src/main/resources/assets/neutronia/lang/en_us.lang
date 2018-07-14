@@ -708,7 +708,7 @@ item.heart_of_the_nether.name=Heart of the Nether
 item.heart_of_the_end.name=Heart of the End
 item.scute.name=Scute
 item.chisel.name=Chisel
-item.log_stripper.name=Log Stripper
+item.log_stripper.name=Bark Stripper
 
 item.oak_bark_item.name=Oak Bark
 item.birch_bark_item.name=Birch Bark
@@ -878,3 +878,8 @@ tile.smooth_quartz_slab.name=Smooth Quartz Slab
 tile.smooth_red_sandstone_slab.name=Smooth Red Sandstone Slab
 tile.smooth_sandstone_slab.name=Smooth Sandstone Slab
 tile.quartz_bricks_slab.name=Quartz Bricks Slab
+
+command.neutronia.biome_found=We found a biome at X: %d Z: %d called %s
+command.neutronia.biome_not_found=We could not find a biome called %s
+command.neutronia.biome_not_defined=There is no biome defined
+command.neutronia.biome_and_dimension_not_defined=There is no biome or dimension defined

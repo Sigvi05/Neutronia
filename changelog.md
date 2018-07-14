@@ -24,3 +24,9 @@
 * Changed the name of the Log Stripper to Bark Stripper
 * Added recipes for chisel and bark stripper
 * Added more wood recipes
+
+### 0.2.2
+* Renamed Corals to Coral Blocks and made the normal corals into plants
+* Added Dead Coral Fans
+* Fixed Basalt Biome Top Block
+* Fixed Red Desert Fill Block

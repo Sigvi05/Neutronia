@@ -13,7 +13,7 @@ import java.util.Random;
 
 /**
  * Created on 7/5/18 by alexiy.
- * This decorativeCoral turns dead if no water blocks are adjacent to it
+ * This coralBlock turns dead if no water blocks are adjacent to it
  */
 public class BlockCoral extends BlockWaterBlockBase {
 

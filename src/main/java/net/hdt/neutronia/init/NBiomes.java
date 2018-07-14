@@ -40,11 +40,11 @@ public class NBiomes {
 
         addOceanBiome(COLD_OCEAN, "cold_ocean", 15, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
         addOceanBiome(LUKEWARM_OCEAN, "lukewarm_ocean", 10, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
-        addOceanBiome(WARM_OCEAN, "warm_ocean", 100, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+        addOceanBiome(WARM_OCEAN, "warm_ocean", 80, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
 
         addOceanBiome(DEEP_COLD_OCEAN, "deep_cold_ocean", 20, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
         addOceanBiome(DEEP_LUKEWARM_OCEAN, "deep_lukewarm_ocean", 4, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
-        addOceanBiome(DEEP_WARM_OCEAN, "deep_warm_ocean", 100, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
+        addOceanBiome(DEEP_WARM_OCEAN, "deep_warm_ocean", 80, BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
 
 //        addOceanBiome(SUPER_DEEP_COLD_OCEAN, "super_deep_cold_ocean", 20, BiomeManager.BiomeType.ICY, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
 //        addOceanBiome(SUPER_DEEP_LUKEWARM_OCEAN, "super_deep_lukewarm_ocean", 4, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER);
@@ -68,7 +68,7 @@ public class NBiomes {
         BiomeManager.addStrongholdBiome(biome);
         BiomeManager.addVillageBiome(biome, true);
         System.out.println(String.format("Biome: %s is now added to the spawn biome's", name));
-        System.out.println(String.format("Biome: %s has a %d chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
+        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
     }
 
     private static Biome addOceanBiome(Biome biome, String name, int weight, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {
@@ -79,7 +79,7 @@ public class NBiomes {
         BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, weight));
         BiomeManager.addSpawnBiome(biome);
         System.out.println(String.format("Biome: %s is now added to the spawn biome's", name));
-        System.out.println(String.format("Biome: %s has a %d chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
+        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
         BiomeManager.oceanBiomes.add(biome);
         return biome;
     }

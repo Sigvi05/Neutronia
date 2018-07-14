@@ -6,13 +6,11 @@ import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.blocks.*;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.*;
+import net.hdt.neutronia.blocks.base.BlockFalling;
 import net.hdt.neutronia.blocks.nether.*;
 import net.hdt.neutronia.blocks.overworld.*;
 import net.hdt.neutronia.properties.*;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSandStone;
-import net.minecraft.block.BlockStoneSlab;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,8 +18,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -32,52 +30,56 @@ import static net.hdt.neutronia.util.Reference.MOD_ID;
 public class NBlocks {
 
     // Misc
-    public static final Block blackSand;
-    public static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
-    public static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
+    private static final Block blackSand;
+    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
-    public static Block[] coral = new Block[5];
-    public static Block[] deadCoral = new Block[5];
-    public static Block[] decorativeCoral = new Block[5];
-    public static Block[] decorativeDeadCoral = new Block[5];
-    public static Block[] coralFan = new Block[5];
-    public static Block[] deadCoralFan = new Block[5];
-    public static Block[] coralPlant = new Block[5];
-    public static Block[] deadCoralPlant = new Block[5];
+    public static final Block[] coralBlock = new Block[5];
+    static final Block[] deadCoralBlock = new Block[5];
+    public static final Block[] decorativeCoralBlock = new Block[5];
+    static final Block[] decorativeDeadCoralBlock = new Block[5];
+    public static final Block[] coralFan = new Block[5];
+    public static final Block[] deadCoralFan = new Block[5];
+    public static final Block[] decorativeCoralFan = new Block[5];
+    static final Block[] decorativeDeadCoralFan = new Block[5];
+    public static final Block[] coral = new Block[5];
+    public static final Block[] deadCoral = new Block[5];
+    public static final Block[] decorativeCoral = new Block[5];
+    static final Block[] decorativeDeadCoral = new Block[5];
     public static Block[] pipeCoral = new Block[5];
     public static Block[] deadPipeCoral = new Block[5];
     public static Block[] seaFan = new Block[5];
     public static Block[] deadSeaFan = new Block[5];
-    public static Block[] naturalAquamarine = new Block[13];
-    public static Block[] aquamarine = new Block[6];
+    private static final Block[] naturalAquamarine = new Block[13];
+    private static final Block[] aquamarine = new Block[6];
     public static Block seaPickle, turtleEgg;
-    public static Block kelp, driedKelpBlock;
-    public static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
-    public static ArrayList<Block> livingCorals = new ArrayList<>(EnumCoralColor.values().length);
-    public static ArrayList<Block> deadCorals = new ArrayList<>(EnumCoralColor.values().length);
-    public static final MRPillar prismarineColumn;
+    private static final Block driedKelpBlock;
+    private static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
+    public static final ArrayList<Block> livingCorals = new ArrayList<>(EnumCoralColor.values().length);
+    private static final ArrayList<Block> deadCorals = new ArrayList<>(EnumCoralColor.values().length);
+    private static final MRPillar prismarineColumn;
     public static final BlockPrismarineChiseled chiseledPrismarine;
     public static final BlockPrismarineChiseled chiseledPrismarineFilled;
-//    public static final MRBlock elderPrismarine;
-//    public static final MRBlock elderPrismarineBricks;
     //Stone Blocks
-    public static Block[] newStoneVariants = new Block[26];
+    public static final Block[] newStoneVariants = new Block[26];
     //Wood Blocks
-    public static Block[] strippedLogs = new Block[6], strippedBarkBlocks = new Block[6];
-    public static Block[] potterySpinner = new Block[6], potterySpinnerActive = new Block[6];
-    public static Block[] barkBlocks = new Block[6], chiseledBarkBlocks = new Block[6], unnamedChiseledBarkBlock = new Block[6];
-    public static Block[] logPoles = new Block[6], strippedLogPoles = new Block[6], plankPoles = new Block[6];
+    private static final Block[] strippedLogs = new Block[6], strippedBarkBlocks = new Block[6];
+    public static final Block[] potterySpinner = new Block[6], potterySpinnerActive = new Block[6];
+    private static final Block[] barkBlocks = new Block[6], chiseledBarkBlocks = new Block[6], unnamedChiseledBarkBlock = new Block[6];
+    public static final Block[] logPoles = new Block[6];
+    public static final Block[] strippedLogPoles = new Block[6];
+    private static final Block[] plankPoles = new Block[6];
     public static Block[] logDowels = new Block[6], strippedLogDowels = new Block[6], plankDowels = new Block[6];
     public static Block[] barkButtons = new Block[6], plankButtons = new Block[6];
     public static Block[] barkPressurePlates = new Block[6], plankPressurePlates = new Block[6];
     //Blocks for the nether
-    public static Block[] glowingNetherBlocks = new Block[24];
-    public static Block[] soulStone = new Block[4];
+    public static final Block[] glowingNetherBlocks;
+    private static final Block[] soulStone = new Block[4];
     public static Block[] netherPlants = new Block[3];
     public static Block[] tallNetherPlants = new Block[2];
-    public static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
+    private static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
     public static final BlockSoulGlass soulGlass, soulGlassOn;
-    public static final MRPillar netherbrickPillar;
+    private static final MRPillar netherbrickPillar;
     public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
     //Frosted versions of some blocks
     public static Block[] frostedStones = new Block[6];
@@ -86,18 +88,18 @@ public class NBlocks {
     // Some colored blocks
     public static Block[] coloredSand = new Block[16];
     public static Block[] coloredSandstone = new Block[16];
-    public static BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
-    public static Block[] coloredPlanks = new Block[16];
+    public static final BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
+    public static final Block[] coloredPlanks = new Block[16];
     public static Block[] coloredPlanksStair = new Block[16];
-    public static Block[] coloredPlanksSlabSingle = new Block[16], coloredPlanksSlabDouble = new Block[16];
-    public static BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
-    public static BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
-    public static BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
-    public static BlockColoredAlt[] coloredRedstoneLamp = new BlockColoredAlt[16];
-    public static BlockColoredAlt[] coloredLitRedstoneLamp = new BlockColoredAlt[16];
+    public static final Block[] coloredPlanksSlabSingle = new Block[16], coloredPlanksSlabDouble = new Block[16];
+    public static final BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
+    public static final BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
+    public static final BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
+    public static final BlockColoredAlt[] coloredRedstoneLamp = new BlockColoredAlt[16];
+    public static final BlockColoredAlt[] coloredLitRedstoneLamp = new BlockColoredAlt[16];
     public static Block[] coloredVases = new Block[16];
     public static Block[] terracottaPots = new Block[16];
-    private static Block[] centeredGlazedTerracottaBlocks = new Block[16];
+    private static final Block[] centeredGlazedTerracottaBlocks = new Block[16];
     private static Block[] coffins = new Block[13];
     private static Block slumpedWitherSkeleton, slumpedSkeleton;
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
@@ -106,26 +108,31 @@ public class NBlocks {
 //    public static final Block whiteBricks, redBricks, greenBricks;
 //    public static final Block redClayBlock, greenClayBlock;
 
-    public static MRPillar sandstonePillar;
-    public static MRPillar redSandstonePillar;
-    public static BlockPurpurChiseled chiseledPurpur;
-    public static BlockPurpurChiseled chiseledPurpurFilled;
-    public static BlockBrickChiseled chiseledBricks;
-    public static BlockBrickChiseled chiseledBricksFilled;
+    public static final MRPillar sandstonePillar;
+    public static final MRPillar redSandstonePillar;
+    public static final BlockPurpurChiseled chiseledPurpur;
+    public static final BlockPurpurChiseled chiseledPurpurFilled;
+    public static final BlockBrickChiseled chiseledBricks;
+    public static final BlockBrickChiseled chiseledBricksFilled;
 
     static {
+        glowingNetherBlocks = new Block[24];
 
         for (EnumCoralColor coralColor : EnumCoralColor.values()) {
-//            brainCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, "brain_coral", false, livingCorals, deadCorals);
-//            deadBrainCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, "dead_brain_coral", true, livingCorals, deadCorals);
+//            brainCoral[coralColor.getMetadata()] = new BlockCoralBlock(coralColor, "brain_coral", false, livingCorals, deadCorals);
+//            deadBrainCoral[coralColor.getMetadata()] = new BlockCoralBlock(coralColor, "dead_brain_coral", true, livingCorals, deadCorals);
+            coralBlock[coralColor.getMetadata()] = new BlockCoralBlock(coralColor, false, livingCorals, deadCorals);
+            deadCoralBlock[coralColor.getMetadata()] = new BlockCoralBlock(coralColor, true, livingCorals, deadCorals);
+            decorativeCoralBlock[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_%s_coral_block", coralColor.getNewName()));
+            decorativeDeadCoralBlock[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral_block", coralColor.getNewName()));
+            coralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, false, livingCorals, deadCorals);
+            deadCoralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, true, livingCorals, deadCorals);
+            decorativeCoralFan[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_%s_coral_fan", coralColor.getNewName()));
+            decorativeDeadCoralFan[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral_fan", coralColor.getNewName()));
             coral[coralColor.getMetadata()] = new BlockCoral(coralColor, false, livingCorals, deadCorals);
             deadCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, true, livingCorals, deadCorals);
             decorativeCoral[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_%s_coral", coralColor.getNewName()));
             decorativeDeadCoral[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral", coralColor.getNewName()));
-            coralFan[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, "_fan", false, livingCorals, deadCorals);
-            deadCoralFan[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, "_fan", true, livingCorals, deadCorals);
-            /*coralPlant[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "coral_plant");
-            deadCoralPlant[coralColor.getMetadata()] = new BlockColoredWaterPlantBase(coralColor, "dead_coral_plant");*/
             /*pipeCoral[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "pipe_coral");
             deadPipeCoral[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "dead_pipe_coral");
             seaFan[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "sea_fan");
@@ -151,8 +158,8 @@ public class NBlocks {
 
         // Nether Blocks
         netherGlass = new BlockGlassBase("nether_glass").setCreativeTab(NETHER_EXPANSION_TAB);
-        soulGlass = new BlockSoulGlass(false, Material.GLASS,"soul_glass", NETHER_EXPANSION_TAB);
-        soulGlassOn = new BlockSoulGlass(true, Material.GLASS,"soul_glass_on", null);
+        soulGlass = new BlockSoulGlass(false, Material.GLASS, "soul_glass", NETHER_EXPANSION_TAB);
+        soulGlassOn = new BlockSoulGlass(true, Material.GLASS, "soul_glass_on", null);
         netherRod = new BlockRodBase("nether_rod", NETHER_EXPANSION_TAB, true);
         netherSponge = new BlockNetherSponge();
         burnedBones = new BlockBurnedBones();
@@ -174,9 +181,10 @@ public class NBlocks {
         for (EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
             newStoneVariants[newStoneVariant.getMetadata()] = new BlockOverworldBase(Material.ROCK, newStoneVariant.getName(), false);
         }
-        for(EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
+        for (EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
             add(newStoneVariantsSlabsAndStairs.getName(), newStoneVariants[newStoneVariantsSlabsAndStairs.getMetadata()], Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
         }
+        GameRegistry.addSmelting(newStoneVariants[4], new ItemStack(newStoneVariants[1], 4), 2F);
         add("stone", Blocks.STONE, Material.ROCK, 0, false, true, OVERWORLD_EXPANSION_TAB);
         add("stone_granite", Blocks.STONE, Material.ROCK, 1, false, true, OVERWORLD_EXPANSION_TAB);
         add("stone_andesite", Blocks.STONE, Material.ROCK, 5, false, true, OVERWORLD_EXPANSION_TAB);
