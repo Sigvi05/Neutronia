@@ -1,6 +1,5 @@
 package json_generator;
 
-import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -25,7 +24,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.List;
 import java.util.Objects;
 
 public class JsonGenerator {
@@ -121,8 +119,6 @@ public class JsonGenerator {
 //            genLangFile(modid, String.format("decorative_dead_%s_coral", coralColor.getNewName()), String.format("decorative_dead_%s_coral", coralColor.getNewName()), "corals");
 //            genLangFile(modid, String.format("%s_coral_fan", coralColor.getNewName()), String.format("%s_coral_fan", coralColor.getNewName()), "corals");
 //            genLangFile(modid, String.format("dead_%s_coral_fan", coralColor.getNewName()), String.format("dead_%s_coral_fan", coralColor.getNewName()), "corals");
-            List<String> names = Lists.newArrayList(String.format("dead_%s_coral_fan", coralColor.getNewName()));
-            genLangJsonFile(modid, names, names, "corals");
         }
 
     }
