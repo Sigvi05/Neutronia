@@ -1,0 +1,28 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "neutronia:tube_coral_fan"
+  },
+  "variants": {
+    "facing": {
+      "north": {
+        "model": "neutronia:tube_coral_fan"
+      },
+      "south": {
+        "model": "neutronia:tube_coral_fan",
+        "y": "90"
+      },
+      "east": {
+        "model": "neutronia:tube_coral_fan",
+        "y": "180"
+      },
+      "west": {
+        "model": "neutronia:tube_coral_fan",
+        "y": "270"
+      }
+    },
+    "inventory": {}
+  }
+}

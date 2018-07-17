@@ -90,7 +90,7 @@ public class RevampStoneGen {
 	private void generateNewStones(OreGenEvent.GenerateMinable event) {
 		World world = event.getWorld();
 		BlockPos pos = event.getPos();
-		Chunk chunk = world.getChunkFromBlockCoords(pos);
+		Chunk chunk = world.getChunk(pos);
 		
 		for(StoneInfoBasedGenerator gen : generators)
 			gen.generate(chunk.x, chunk.z, world);

@@ -28,7 +28,7 @@ public class CommandFindBiome extends CommandBase {
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         ResourceLocation biomeName = new ResourceLocation(args[1]);
-        String name = StringUtils.capitalize(biomeName.getResourcePath());
+        String name = StringUtils.capitalize(biomeName.getPath());
         String biomeChatName = name.replace("_", " ");
         name = WordUtils.capitalizeFully(biomeChatName);
         if (args.length == 0) {
@@ -39,13 +39,13 @@ public class CommandFindBiome extends CommandBase {
             notifyCommandListener(sender, this, "command.neutronia.biome_not_defined");
             return;
         }
-        if (Biome.REGISTRY.getObject(new ResourceLocation(biomeName.getResourcePath())) == null) {
+        if (Biome.REGISTRY.getObject(new ResourceLocation(biomeName.getPath())) == null) {
             notifyCommandListener(sender, this, TextFormatting.RED + "command.neutronia.biome_not_found", name);
             return;
         }
         String finalName = name;
         new Thread(() -> {
-            BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(sender, sender.getEntityWorld(), Biome.REGISTRY.getObject(new ResourceLocation(biomeName.getResourcePath())), sender.getPosition().getX(), sender.getPosition().getZ(), 10_000);
+            BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(sender, sender.getEntityWorld(), Biome.REGISTRY.getObject(new ResourceLocation(biomeName.getPath())), sender.getPosition().getX(), sender.getPosition().getZ(), 10_000);
             if (pos == null) {
                 server.addScheduledTask(() -> sender.sendMessage(new TextComponentString(TextFormatting.RED + "Error! Biome '" + args[1] + "' could not be found after " + TextFormatting.GRAY + 30_000 + "ms" + TextFormatting.RED + ".")));
                 return;

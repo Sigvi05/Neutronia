@@ -314,7 +314,7 @@ public class WorldGenUtil {
             if (boundingBox == null || boundingBox.isVecInside(blockPos)) {
                 NBTTagCompound compound = entityInfo.entityData;
                 Vec3d vec3d = transformedVec3d(entityInfo.pos, placementSettings.getMirror(), placementSettings.getRotation());
-                Vec3d vec3d1 = vec3d.addVector((double) pos.getX(), (double) pos.getY(), (double) pos.getZ());
+                Vec3d vec3d1 = vec3d.add((double) pos.getX(), (double) pos.getY(), (double) pos.getZ());
                 NBTTagList tagList = new NBTTagList();
                 tagList.appendTag(new NBTTagDouble(vec3d1.x));
                 tagList.appendTag(new NBTTagDouble(vec3d1.y));

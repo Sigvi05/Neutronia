@@ -43,7 +43,7 @@ public class WorldUtil {
             d3 = ((EntityPlayerMP) entity).interactionManager.getBlockReachDistance();
         }
 
-        Vec3d vec31 = vec3.addVector((double) f7 * d3, (double) f6 * d3, (double) f8 * d3);
+        Vec3d vec31 = vec3.add((double) f7 * d3, (double) f6 * d3, (double) f8 * d3);
         return world.rayTraceBlocks(vec3, vec31, countNonSolidBlock, !countNonSolidBlock, countNonSolidBlock);
     }
 
@@ -61,7 +61,7 @@ public class WorldUtil {
     }
 
     public static BlockPos getHeighestPos(World worldObj, int x, int z) {
-        int startY = worldObj.getChunkFromBlockCoords(new BlockPos(x, 0, z)).getTopFilledSegment() + 16;
+        int startY = worldObj.getChunk(new BlockPos(x, 0, z)).getTopFilledSegment() + 16;
 
         for (int y = startY; y >= 0; y--) {
             BlockPos toCheck = new BlockPos(x, y, z);
@@ -106,7 +106,7 @@ public class WorldUtil {
         }
 
         for (Vec3i chunkVec : boxMap.keySet()) {
-            Chunk chunk = worldObj.getChunkFromChunkCoords(chunkVec.getX(), chunkVec.getZ());
+            Chunk chunk = worldObj.getChunk(chunkVec.getX(), chunkVec.getZ());
 
             ClassInheritanceMultiMap[] entityMapArray = chunk.getEntityLists();
 

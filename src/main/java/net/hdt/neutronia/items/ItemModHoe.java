@@ -27,7 +27,7 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder {
         bareName = name;
         this.variants = variants;
         this.modid = modid;
-        setUnlocalizedName(name, modid);
+        setTranslationKey(name, modid);
         ItemMod.variantHolders.add(this);
         this.toolMaterial = material;
         this.maxStackSize = 1;
@@ -44,8 +44,8 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder {
         return this.modid;
     }
 
-    public Item setUnlocalizedName(String name, String modid) {
-        super.setUnlocalizedName(name);
+    public Item setTranslationKey(String name, String modid) {
+        super.setTranslationKey(name);
         setRegistryName(new ResourceLocation(modid, name));
         ProxyRegistry.register(this);
 
@@ -53,7 +53,7 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack par1ItemStack) {
+    public String getTranslationKey(ItemStack par1ItemStack) {
         int dmg = par1ItemStack.getItemDamage();
         String[] variants = getVariants();
 

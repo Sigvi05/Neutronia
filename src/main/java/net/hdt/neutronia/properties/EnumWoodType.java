@@ -67,7 +67,7 @@ public enum EnumWoodType implements IStringSerializable {
         return this.name;
     }
 
-    public String getUnlocalizedName() {
+    public String getTranslationKey() {
         return this.unlocalizedName;
     }
 }

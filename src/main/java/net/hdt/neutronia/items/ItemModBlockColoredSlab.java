@@ -32,12 +32,12 @@ public class ItemModBlockColoredSlab extends ItemSlab implements IVariantHolder 
     }
 
     @Override
-    public ItemBlock setUnlocalizedName(String par1Str) {
-        return (ItemBlock) super.setUnlocalizedName(par1Str);
+    public ItemBlock setTranslationKey(String par1Str) {
+        return (ItemBlock) super.setTranslationKey(par1Str);
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack par1ItemStack) {
+    public String getTranslationKey(ItemStack par1ItemStack) {
         int dmg = par1ItemStack.getItemDamage();
         String[] variants = getVariants();
 

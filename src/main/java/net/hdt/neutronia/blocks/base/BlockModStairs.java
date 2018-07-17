@@ -32,7 +32,7 @@ public abstract class BlockModStairs extends BlockStairs implements IModBlock {
         super(state);
         this.variants = new String[]{name};
         this.bareName = name;
-        this.setUnlocalizedName(name);
+        this.setTranslationKey(name);
         this.useNeighborBrightness = true;
     }
 
@@ -40,8 +40,8 @@ public abstract class BlockModStairs extends BlockStairs implements IModBlock {
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 4), "B  ", "BB ", "BBB", 'B', ProxyRegistry.newStack(base, 1, meta));
     }
 
-    public Block setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
         this.setRegistryName(this.getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(this.getPrefix(), name)));
@@ -139,7 +139,7 @@ public abstract class BlockModStairs extends BlockStairs implements IModBlock {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

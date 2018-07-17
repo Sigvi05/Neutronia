@@ -1,4 +1,3 @@
-//Items
 item.dried_kelp.name=Dried Kelp
 item.stinger.name=Stinger
 item.chitin.name=Chitin
@@ -7,7 +6,6 @@ item.khopesh.name=§lKhopesh§r
 item.wither_bone.name=Burned Bones
 item.wither_bonemeal.name=Burned Bonemeal
 
-//Blocks
 tile.raw_basalt.name=Raw Basalt
 tile.smooth_basalt.name=Smooth Basalt
 tile.chiseled_basalt.name=Chiseled Basalt
@@ -680,7 +678,6 @@ tile.stripped_dark_oak_bark.name=Stripped Dark Oak Bark
 tile.stripped_dark_oak_log_pole.name=Stripped Dark Oak Log Pole
 tile.dark_oak_plank_pole.name=Dark Oak Plank Pole
 
-//Tools
 item.sword_chitin.name=Chitin Sword
 item.axe_chitin.name=Chitin Axe
 item.shovel_chitin.name=Chitin Shovel
@@ -717,7 +714,6 @@ item.acacia_bark_item.name=Acacia Bark
 item.jungle_bark_item.name=Jungle Bark
 item.dark_oak_bark_item.name=Dark Oak Bark
 
-//Entities
 entity.neutronia:mummy.name=Mummy
 entity.neutronia:mummy_villager.name=Mummy Villager
 entity.neutronia:scorpion.name=Scorpion

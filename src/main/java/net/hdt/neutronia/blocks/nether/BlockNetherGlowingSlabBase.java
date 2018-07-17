@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.huskylib2.blocks.BlockModSlab;
+import net.hdt.neutronia.blocks.base.BlockModSlab;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
@@ -159,7 +159,7 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 

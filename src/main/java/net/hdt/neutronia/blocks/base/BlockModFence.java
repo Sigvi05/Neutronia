@@ -37,7 +37,7 @@ public class BlockModFence extends BlockFence implements IModBlock {
         this.variants = variants;
         this.modid = modid;
 
-        setUnlocalizedName(name);
+        setTranslationKey(name);
 
         setHardness(1.5F);
         setResistance(30F);
@@ -54,8 +54,8 @@ public class BlockModFence extends BlockFence implements IModBlock {
         return true;
     }
 
-    public Block setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
         this.setRegistryName(getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(this.createItemBlock(new ResourceLocation(getPrefix(), name)));

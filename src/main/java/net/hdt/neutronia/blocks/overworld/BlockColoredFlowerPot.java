@@ -45,12 +45,12 @@ public class BlockColoredFlowerPot extends BlockFlowerPot implements IModBlock, 
         setSoundType(SoundType.STONE);
         setCreativeTab(CreativeTabs.DECORATIONS);
 
-        setUnlocalizedName(name);
+        setTranslationKey(name);
     }
 
     @Override
-    public Block setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
         setRegistryName(MOD_ID, name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(MOD_ID, name)));
@@ -78,7 +78,7 @@ public class BlockColoredFlowerPot extends BlockFlowerPot implements IModBlock, 
 
     @Override
     public String getLocalizedName() {
-        return I18n.translateToLocal(getUnlocalizedName() + ".name");
+        return I18n.translateToLocal(getTranslationKey() + ".name");
     }
 
     @Override

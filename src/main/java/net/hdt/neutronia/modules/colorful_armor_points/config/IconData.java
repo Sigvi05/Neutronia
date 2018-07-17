@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class IconData extends HashMap<String, IconData.ModEntry> {
 	/** @return The armor icon corresponding to {@code stack} */
 	public int getIcon(ItemStack stack) {
-		ModEntry mod = get(stack.getItem().getRegistryName().getResourceDomain());
+		ModEntry mod = get(stack.getItem().getRegistryName().getNamespace());
 		return mod != null ? mod.getIcon(stack) : ColorfulArmorPoints.config.iconDefault;
 	}
 

@@ -71,7 +71,7 @@ public class EventHandler {
             }
 
             Vec3d lookvec = theRenderViewEntity.getLook(0);
-            Vec3d var8 = pos.addVector(lookvec.x * var2,
+            Vec3d var8 = pos.add(lookvec.x * var2,
                     lookvec.y * var2,
                     lookvec.z * var2);
             Entity pointedEntity = null;

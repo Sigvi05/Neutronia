@@ -1,9 +1,8 @@
 package net.hdt.neutronia.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.neutronia.blocks.test.BlockMod;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,12 +21,9 @@ public class BlockPrismarineChiseled extends BlockMod {
     private boolean filled;
 
     public BlockPrismarineChiseled(String name, boolean filled) {
-        super(Material.ROCK, MOD_ID, name);
+        super(BlockMod.Builder.of(Material.ROCK), MOD_ID, name);
         this.filled = filled;
         setCreativeTab(filled ? null : NCreativeTabs.OCEAN_EXPANSION_TAB);
-        setHardness(0.3F);
-        setResistance(6.5F);
-        setSoundType(SoundType.STONE);
     }
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {

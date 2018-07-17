@@ -109,7 +109,7 @@ public class BlockRodBase extends BlockDirectional {
     @Override
     public IBlockState getStateFromMeta(int meta) {
         IBlockState state = this.getDefaultState();
-        state = state.withProperty(FACING, EnumFacing.getFront(meta));
+        state = state.withProperty(FACING, EnumFacing.byIndex(meta));
         return state;
     }
 
@@ -120,7 +120,7 @@ public class BlockRodBase extends BlockDirectional {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 

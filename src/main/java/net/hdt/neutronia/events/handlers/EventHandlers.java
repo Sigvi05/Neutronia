@@ -37,7 +37,6 @@ public class EventHandlers implements ILifeCycleHandler {
         event.registerServerCommand(new CommandFindBiome());
         event.registerServerCommand(new CommandTeleportToDimension());
         event.registerServerCommand(new CommandStructureCapture());
-        event.registerServerCommand(new net.hdt.neutronia.commands.other.CommandFindBiome());
     }
 
 }

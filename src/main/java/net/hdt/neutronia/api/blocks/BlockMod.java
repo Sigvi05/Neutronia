@@ -32,7 +32,7 @@ public abstract class BlockMod extends Block implements IModBlock {
         this.modid = modid;
 
         if (registerInConstruction())
-            setUnlocalizedName(getPrefix(), name);
+            setTranslationKey(getPrefix(), name);
 
         setHardness(1.5F);
         setResistance(30F);
@@ -49,8 +49,8 @@ public abstract class BlockMod extends Block implements IModBlock {
         return true;
     }
 
-    public Block setUnlocalizedName(String modid, String name) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String modid, String name) {
+        super.setTranslationKey(name);
         this.setRegistryName(modid, name);
         return this;
     }

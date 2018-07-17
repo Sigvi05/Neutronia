@@ -142,7 +142,7 @@ public class BlockModAnvil extends BlockFalling {
      * Convert the given metadata into a BlockState for this Block
      */
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta & 3)).withProperty(DAMAGE, (meta & 15) >> 2);
+        return this.getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta & 3)).withProperty(DAMAGE, (meta & 15) >> 2);
     }
 
     /**
@@ -194,7 +194,7 @@ public class BlockModAnvil extends BlockFalling {
          * Get the formatted ChatComponent that will be used for the sender's username in chat
          */
         public ITextComponent getDisplayName() {
-            return new TextComponentTranslation(Blocks.ANVIL.getUnlocalizedName() + ".name");
+            return new TextComponentTranslation(Blocks.ANVIL.getTranslationKey() + ".name");
         }
 
         public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {

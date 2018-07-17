@@ -64,7 +64,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
         this.modid = modid;
         this.color = color;
 
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         if (!doubleSlab) {
             useNeighborBrightness = true;
             setDefaultState(blockState.getBaseState().withProperty(HALF, EnumBlockHalf.BOTTOM));
@@ -93,8 +93,8 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
     }
 
     @Override
-    public String getUnlocalizedName(int meta) {
-        return getUnlocalizedName();
+    public String getTranslationKey(int meta) {
+        return getTranslationKey();
     }
 
     @Override
@@ -284,7 +284,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

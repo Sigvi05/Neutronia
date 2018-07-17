@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.blocks.BlockFacing;
+import net.hdt.neutronia.blocks.base.BlockFacing;
 import net.minecraft.block.material.Material;
 
 public class BlockOverworldFacing extends BlockFacing {

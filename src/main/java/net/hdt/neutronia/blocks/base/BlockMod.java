@@ -46,7 +46,7 @@ public abstract class BlockMod extends Block implements IModBlock {
         this.modid = modid;
 
         if (registerInConstruction())
-            setUnlocalizedName(name, textureName);
+            setTranslationKey(name, textureName);
 
         setHardness(1.5F);
         setResistance(30F);
@@ -159,8 +159,8 @@ public abstract class BlockMod extends Block implements IModBlock {
         return true;
     }
 
-    public Block setUnlocalizedName(String name, String textureName) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String name, String textureName) {
+        super.setTranslationKey(name);
         this.setRegistryName(getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(createItemBlock(new ResourceLocation(getPrefix(), name)));

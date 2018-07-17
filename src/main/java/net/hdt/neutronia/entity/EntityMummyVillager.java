@@ -144,7 +144,7 @@ public class EntityMummyVillager extends EntityMummy {
         this.conversionTime = conversionTimeIn;
         this.getDataManager().set(CONVERTING, Boolean.TRUE);
         this.removePotionEffect(MobEffects.WEAKNESS);
-        this.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, conversionTimeIn, Math.min(this.world.getDifficulty().getDifficultyId() - 1, 0)));
+        this.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, conversionTimeIn, Math.min(this.world.getDifficulty().getId() - 1, 0)));
         this.world.setEntityState(this, (byte) 16);
     }
 

@@ -38,7 +38,7 @@ public class BlockNetherSponge extends BlockNetherBase {
      */
     @Override
     public String getLocalizedName() {
-        return I18n.translateToLocal(this.getUnlocalizedName() + "_dry.name");
+        return I18n.translateToLocal(this.getTranslationKey() + "_dry.name");
     }
 
     /**

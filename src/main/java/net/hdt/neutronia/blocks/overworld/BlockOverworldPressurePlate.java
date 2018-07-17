@@ -35,7 +35,7 @@ public class BlockOverworldPressurePlate extends BlockBasePressurePlate {
     }
 
     protected void playClickOnSound(World worldIn, BlockPos color) {
-        if (this.blockMaterial == Material.WOOD) {
+        if (this.material == Material.WOOD) {
             worldIn.playSound(null, color, SoundEvents.BLOCK_WOOD_PRESSPLATE_CLICK_ON, SoundCategory.BLOCKS, 0.3F, 0.8F);
         } else {
             worldIn.playSound(null, color, SoundEvents.BLOCK_STONE_PRESSPLATE_CLICK_ON, SoundCategory.BLOCKS, 0.3F, 0.6F);
@@ -43,7 +43,7 @@ public class BlockOverworldPressurePlate extends BlockBasePressurePlate {
     }
 
     protected void playClickOffSound(World worldIn, BlockPos pos) {
-        if (this.blockMaterial == Material.WOOD) {
+        if (this.material == Material.WOOD) {
             worldIn.playSound(null, pos, SoundEvents.BLOCK_WOOD_PRESSPLATE_CLICK_OFF, SoundCategory.BLOCKS, 0.3F, 0.7F);
         } else {
             worldIn.playSound(null, pos, SoundEvents.BLOCK_STONE_PRESSPLATE_CLICK_OFF, SoundCategory.BLOCKS, 0.3F, 0.5F);

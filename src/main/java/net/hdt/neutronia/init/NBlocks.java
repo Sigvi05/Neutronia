@@ -41,7 +41,7 @@ public class NBlocks {
     public static final Block[] coralFan = new Block[5];
     public static final Block[] deadCoralFan = new Block[5];
     public static final Block[] decorativeCoralFan = new Block[5];
-    static final Block[] decorativeDeadCoralFan = new Block[5];
+    public static final Block[] decorativeDeadCoralFan = new Block[5];
     public static final Block[] coral = new Block[5];
     public static final Block[] deadCoral = new Block[5];
     public static final Block[] decorativeCoral = new Block[5];
@@ -127,12 +127,12 @@ public class NBlocks {
             decorativeDeadCoralBlock[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral_block", coralColor.getNewName()));
             coralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, false, livingCorals, deadCorals);
             deadCoralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, true, livingCorals, deadCorals);
-            decorativeCoralFan[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_%s_coral_fan", coralColor.getNewName()));
-            decorativeDeadCoralFan[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral_fan", coralColor.getNewName()));
-            coral[coralColor.getMetadata()] = new BlockCoral(coralColor, false, livingCorals, deadCorals);
-            deadCoral[coralColor.getMetadata()] = new BlockCoral(coralColor, true, livingCorals, deadCorals);
-            decorativeCoral[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_%s_coral", coralColor.getNewName()));
-            decorativeDeadCoral[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral", coralColor.getNewName()));
+            decorativeCoralFan[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral_fan", coralColor.getNewName()));
+            decorativeDeadCoralFan[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_dead_%s_coral_fan", coralColor.getNewName()));
+            coral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, false, livingCorals, deadCorals);
+            deadCoral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, true, livingCorals, deadCorals);
+            decorativeCoral[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral", coralColor.getNewName()));
+            decorativeDeadCoral[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_dead_%s_coral", coralColor.getNewName()));
             /*pipeCoral[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "pipe_coral");
             deadPipeCoral[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "dead_pipe_coral");
             seaFan[coralColor.getMetadata()] = new BlockNetherDoublePlantBase(coralColor, "sea_fan");

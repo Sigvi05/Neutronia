@@ -139,7 +139,7 @@ public class BlockUtil {
                 block.onBlockHarvested(world, pos, state, player);
             }
             if (block.removedByPlayer(state, world, pos, player, false)) {
-                block.onBlockDestroyedByPlayer(world, pos, state);
+                block.onPlayerDestroy(world, pos, state);
             }
             if (!world.isRemote) {
                 playerMP.connection.sendPacket(new SPacketBlockChange(world, pos));
@@ -152,7 +152,7 @@ public class BlockUtil {
             block.onBlockHarvested(world, pos, state, player);
 
             if (block.removedByPlayer(state, world, pos, player, true)) {
-                block.onBlockDestroyedByPlayer(world, pos, state);
+                block.onPlayerDestroy(world, pos, state);
                 block.harvestBlock(world, player, pos, state, null, stack);
                 block.dropXpOnBlockBreak(world, pos, event);
             }
@@ -160,7 +160,7 @@ public class BlockUtil {
             playerMP.connection.sendPacket(new SPacketBlockChange(world, pos));
         } else {
             if (block.removedByPlayer(state, world, pos, player, true)) {
-                block.onBlockDestroyedByPlayer(world, pos, state);
+                block.onPlayerDestroy(world, pos, state);
             }
 
             Minecraft.getMinecraft().getConnection().sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK, pos, side));

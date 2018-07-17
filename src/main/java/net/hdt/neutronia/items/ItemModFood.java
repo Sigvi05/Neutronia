@@ -31,7 +31,7 @@ public class ItemModFood extends ItemFood implements IVariantHolder {
         bareName = name;
         this.variants = variants;
         this.modid = modid;
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         variantHolders.add(this);
     }
 
@@ -39,15 +39,15 @@ public class ItemModFood extends ItemFood implements IVariantHolder {
         this(modid, name, creativeTabs, amount, 0.6F, isWolfFood, variants);
     }
 
-    public Item setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Item setTranslationKey(String name) {
+        super.setTranslationKey(name);
         this.setRegistryName(new ResourceLocation(getPrefix(), name));
         ProxyRegistry.register(this);
         return this;
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack par1ItemStack) {
+    public String getTranslationKey(ItemStack par1ItemStack) {
         int dmg = par1ItemStack.getItemDamage();
         String[] variants = getVariants();
 

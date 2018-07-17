@@ -94,7 +94,7 @@ public class BlockOverworldColoredSlab extends BlockModColoredSlab {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

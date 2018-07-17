@@ -57,7 +57,7 @@ public class Utilities
     public static Item setItemName(Item parItem, String parItemName)
     {
         parItem.setRegistryName(parItemName);
-        parItem.setUnlocalizedName(parItemName);
+        parItem.setTranslationKey(parItemName);
         return parItem;
     }
 
@@ -75,7 +75,7 @@ public class Utilities
     public static Block setBlockName(Block parBlock, String parBlockName)
     {
         parBlock.setRegistryName(parBlockName);
-        parBlock.setUnlocalizedName(parBlockName);
+        parBlock.setTranslationKey(parBlockName);
         return parBlock;
     }
 
@@ -303,7 +303,7 @@ public class Utilities
 
         int chunkX = intX >> 4;
         int chunkZ = intZ >> 4;
-        double height = parWorld.getChunkFromChunkCoords(chunkX, chunkZ)
+        double height = parWorld.getChunk(chunkX, chunkZ)
                 .getHeightValue(intX & 15, intZ & 15);
 
         return height;
@@ -342,7 +342,7 @@ public class Utilities
             }
 
             Vec3d lookvec = theRenderViewEntity.getLook(0);
-            Vec3d var8 = pos.addVector(lookvec.x * var2, lookvec.y * var2, lookvec.z * var2);
+            Vec3d var8 = pos.add(lookvec.x * var2, lookvec.y * var2, lookvec.z * var2);
             Entity pointedEntity = null;
             float var9 = 1.0F;
             List<Entity> list = mc.world.getEntitiesWithinAABBExcludingEntity(theRenderViewEntity,

@@ -26,12 +26,12 @@ public class BlockModFenceGate extends BlockFenceGate implements IModBlock {
         variants = new String[]{name};
         bareName = name;
 
-        setUnlocalizedName(name);
+        setTranslationKey(name);
     }
 
     @Override
-    public Block setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
         setRegistryName(getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(getPrefix(), name)));

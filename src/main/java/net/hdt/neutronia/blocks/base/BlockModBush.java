@@ -23,12 +23,12 @@ public class BlockModBush extends BlockBush implements IModBlock {
         bareName = name;
         this.modid = modid;
 
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setCreativeTab(CreativeTabs.SEARCH);
     }
 
-    public Block setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
         this.setRegistryName(getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(createItemBlock(new ResourceLocation(getPrefix(), name)));

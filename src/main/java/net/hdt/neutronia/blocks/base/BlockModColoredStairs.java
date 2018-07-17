@@ -48,7 +48,7 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
         this.variants = new String[]{name};
         this.bareName = name;
         this.color = color;
-        this.setUnlocalizedName(color.getName() + "_" + name);
+        this.setTranslationKey(color.getName() + "_" + name);
         this.useNeighborBrightness = true;
     }
 
@@ -56,8 +56,8 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 4), "B  ", "BB ", "BBB", 'B', ProxyRegistry.newStack(base, 1, meta));
     }
 
-    public Block setUnlocalizedName(String name) {
-        super.setUnlocalizedName(name);
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
         this.setRegistryName(this.getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(this.getPrefix(), name)));
@@ -155,7 +155,7 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
 
     @Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
     }
 

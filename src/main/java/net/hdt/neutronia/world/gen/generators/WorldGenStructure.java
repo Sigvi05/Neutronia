@@ -10,38 +10,38 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static net.hdt.neutronia.util.Reference.MOD_ID;
 
 public class WorldGenStructure extends WorldGenerator implements IStructure {
-    private static String structureName;
 
-    public WorldGenStructure(String name) {
-        structureName = name;
-    }
+    private static List<String> structureNames = new ArrayList<>();
 
-    private static void generateStructure(World world, BlockPos pos) {
-        MinecraftServer mcServer = world.getMinecraftServer();
-        TemplateManager manager = worldServer.getStructureTemplateManager();
-        ResourceLocation location = new ResourceLocation(MOD_ID, structureName);
-        Template template = manager.get(mcServer, location);
-
-        if (template != null) {
-            IBlockState state = world.getBlockState(pos);
-            world.notifyBlockUpdate(pos, state, state, 3);
-            template.addBlocksToWorldChunk(world, pos, settings);
-        }
-
-        if (template == null) {
-            System.out.println("NO STRUCTURE");
-        }
-
+    public WorldGenStructure(List<String> name) {
+        structureNames = name;
     }
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        generateStructure(worldIn, position);
+        MinecraftServer mcServer = worldIn.getMinecraftServer();
+        TemplateManager manager = worldServer.getStructureTemplateManager();
+        ResourceLocation location = new ResourceLocation(MOD_ID, structureNames.get(rand.nextInt(structureNames.size())));
+        Template template = manager.get(mcServer, location);
+
+        if (template != null) {
+            IBlockState state = worldIn.getBlockState(position);
+            worldIn.notifyBlockUpdate(position, state, state, 3);
+            template.addBlocksToWorldChunk(worldIn, position, settings);
+        }
+
+        if (template == null) {
+            System.out.println("NO STRUCTURE");
+            System.out.println(location.toString());
+        }
         return true;
     }
+
 }

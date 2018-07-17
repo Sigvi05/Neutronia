@@ -22,7 +22,7 @@ public abstract class BlockMod extends Block implements IModBlock {
     private String bareName;
     private String modid;
 
-    public BlockMod(Material material, String modid, String unlocalizedName, String registryName, String... variants) {
+    public BlockMod(Material material, String modid, String translationKey, String registryName, String... variants) {
         super(material);
         if (variants.length == 0) {
             variants = new String[]{registryName};
@@ -32,7 +32,7 @@ public abstract class BlockMod extends Block implements IModBlock {
         this.variants = variants;
         this.modid = modid;
         if (this.registerInConstruction()) {
-            this.setUnlocalizedName(this.getPrefix(), unlocalizedName, registryName);
+            this.setTranslationKey(this.getPrefix(), translationKey, registryName);
         }
 
         this.setHardness(1.5F);
@@ -48,8 +48,8 @@ public abstract class BlockMod extends Block implements IModBlock {
         return true;
     }
 
-    public Block setUnlocalizedName(String modid, String unlocalizedName, String registryName) {
-        super.setUnlocalizedName(unlocalizedName);
+    public Block setTranslationKey(String modid, String translationKey, String registryName) {
+        super.setTranslationKey(translationKey);
         this.setRegistryName(modid, registryName);
         ProxyRegistry.register(this);
         ProxyRegistry.register(this.createItemBlock(new ResourceLocation(this.getPrefix(), registryName)));

@@ -48,7 +48,7 @@ public class BlockColoredVase extends BlockFlowerPot implements IModBlock, IBloc
     }
 
     public Block register(String name) {
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setRegistryName(getPrefix(), name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(getPrefix(), name)));
@@ -71,7 +71,7 @@ public class BlockColoredVase extends BlockFlowerPot implements IModBlock, IBloc
 
     @Override
     public String getLocalizedName() {
-        return I18n.translateToLocal(getUnlocalizedName() + ".name");
+        return I18n.translateToLocal(getTranslationKey() + ".name");
     }
 
     @Override

@@ -46,7 +46,7 @@ public class GuiArmor extends Gui {
 
 	/** Render the bar as a full replacement for {@link GuiIngameForge#renderArmor(int, int)} */
 	public void draw(int width, int height) {
-		MINECRAFT.mcProfiler.startSection("armor");
+		MINECRAFT.profiler.startSection("armor");
 		int left = width / 2 - 91;
 		int top = height - GuiIngameForge.left_height;
 
@@ -76,7 +76,7 @@ public class GuiArmor extends Gui {
 		GuiIngameForge.left_height += (barPoints-1) / 20 * ROW_SPACING + 10;
 
 		MINECRAFT.getTextureManager().bindTexture(ICONS);
-		MINECRAFT.mcProfiler.endSection();
+		MINECRAFT.profiler.endSection();
 	}
 
 	/** Draws the armor bar background with a border if {@code level > 0} */

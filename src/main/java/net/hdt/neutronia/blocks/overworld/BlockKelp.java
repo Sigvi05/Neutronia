@@ -181,7 +181,7 @@ public class BlockKelp extends BlockOverworldBase {
 
             offset = new Vec3d((rand.nextFloat() - 0.5f) * 0.25f, 0, (rand.nextFloat() - 0.5f) * 0.25f);
 
-            Vec3d centerPos = new Vec3d(getPos()).addVector(0.5, 0.5, 0.5).add(offset);
+            Vec3d centerPos = new Vec3d(getPos()).add(0.5, 0.5, 0.5).add(offset);
 
             swayAngle = angleNoise.getValue(centerPos.x / 200, centerPos.z / 200);
             swayAngle += 1; // convert to 0..2

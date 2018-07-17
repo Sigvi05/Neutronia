@@ -77,7 +77,7 @@ public class RecipeUtil {
         json.put("key", key);
         json.put("result", serializeItem(result));
 
-        String registryName = result.getItem().getRegistryName().getResourcePath() + "_" + result.getItemDamage();
+        String registryName = result.getItem().getRegistryName().getPath() + "_" + result.getItemDamage();
         File f = new File(RECIPE_DIR, registryName + ".json");
 
         while (f.exists()) {
@@ -112,7 +112,7 @@ public class RecipeUtil {
         json.put("ingredients", ingredients);
         json.put("result", serializeItem(result));
 
-        String registryName = Objects.requireNonNull(result.getItem().getRegistryName()).getResourcePath() + "_" + result.getItemDamage();
+        String registryName = Objects.requireNonNull(result.getItem().getRegistryName()).getPath() + "_" + result.getItemDamage();
         File f = new File(RECIPE_DIR, registryName + ".json");
 
         while (f.exists()) {

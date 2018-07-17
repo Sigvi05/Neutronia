@@ -142,7 +142,7 @@ public abstract class IconMap implements Map<Object, Integer> {
 	public static class ItemIconMap extends IconMap {
 		@Override
 		protected String getName(ItemStack stack) {
-			return stack.getItem().getRegistryName().getResourcePath();
+			return stack.getItem().getRegistryName().getPath();
 		}
 	}
 

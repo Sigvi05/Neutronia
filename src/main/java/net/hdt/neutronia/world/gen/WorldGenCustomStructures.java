@@ -1,5 +1,6 @@
 package net.hdt.neutronia.world.gen;
 
+import com.google.common.collect.Lists;
 import net.hdt.neutronia.init.NBiomes;
 import net.hdt.neutronia.world.gen.generators.WorldGenStructure;
 import net.hdt.neutronia.world.utils.WorldGenUtils;
@@ -15,18 +16,11 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class WorldGenCustomStructures implements IWorldGenerator {
 
-    public static final WorldGenStructure CORAL_PINK = new WorldGenStructure("coral_pink");
-    public static final WorldGenStructure CORAL_YELLOW = new WorldGenStructure("coral_yellow");
-    public static final WorldGenStructure CORAL_PURPLE = new WorldGenStructure("coral_purple");
-    public static final WorldGenStructure CORAL_BLUE = new WorldGenStructure("coral_blue");
-    public static final WorldGenStructure CORAL_RED = new WorldGenStructure("coral_red");
+    private static final WorldGenStructure CORALS = new WorldGenStructure(Lists.newArrayList("ocean_structures/coral_1", "ocean_structures/coral_2", "ocean_structures/coral_3", "ocean_structures/coral_4", "ocean_structures/coral_5", "ocean_structures/coral_blue", "ocean_structures/coral_pink", "ocean_structures/coral_purple", "ocean_structures/coral_yellow", "ocean_structures/coral_red"));
 
     /**TODO: Add Mini Castle, More Village Stuff, Spider Nests, Endermite Nests, Guardian Ruins, Mesa Temple, Mesa Village, Desert Labyrinth, Actual Pyramids,
     **/
@@ -38,24 +32,10 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()) {
             case 5:
-                generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 40, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                break;
-            case 3:
-                break;
-            case 1:
+                generateCoral(CORALS, world, random, chunkX, chunkZ, 10);
                 break;
             case 0:
-                generateStructure(CORAL_PINK, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_YELLOW, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_PURPLE, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_BLUE, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                generateStructure(CORAL_RED, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-                break;
-            case -1:
+                generateStructure(CORALS, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
                 break;
         }
     }
@@ -99,7 +79,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             if (!biomeSet.contains(biome)) {
                 return;
             }
-            for (int rnd = 0; rnd < chance; rnd++) {
+            if(random.nextInt(chance) == 0)
+            {
                 if (y + structureHeight < world.getHeight()) {
                     generator.generate(world, random, pos);
                 }
