@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/wrautnaut_old"
+      "all": "neutronia:block/wrautnaut_old"
     },
     "transform": "forge:default-block"
   },

@@ -3,7 +3,7 @@
   "defaults": {
     "textures": {
       "particle": "blocks/slime",
-      "all": "neutronia:blocks/slime_flow"
+      "all": "neutronia:block/slime_flow"
     },
     "model": "forge:fluid",
     "custom": { "fluid": "slime" },

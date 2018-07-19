@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "neutronia:blocks/nether_grass"
+      "cross": "neutronia:block/nether_grass"
     },
     "transform": "forge:default-block"
   },

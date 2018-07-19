@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/smooth_rust_arduin"
+      "all": "neutronia:block/smooth_rust_arduin"
     },
     "transform": "forge:default-block"
   },

@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/stone_marble",
-      "top": "neutronia:blocks/stone_marble",
-      "side": "neutronia:blocks/stone_marble"
+      "bottom": "neutronia:block/stone_marble",
+      "top": "neutronia:block/stone_marble",
+      "side": "neutronia:block/stone_marble"
     }
   },
   "variants": {

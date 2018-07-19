@@ -33,14 +33,28 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
  */
 public class BlockCoralFan extends BlockWaterPlantBase {
 
-    private boolean dead;
-    private ArrayList<Block> livingVersion, deadVersion;
     protected static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
+    private boolean dead;
+    private ArrayList<Block> livingVersion, deadVersion;
     private EnumCoralColor color;
 
     public BlockCoralFan(EnumCoralColor colorIn, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
         super(isDead ? "dead_" + colorIn.getNewName() + "_coral_fan" : colorIn.getNewName() + "_coral_fan");
+        this.dead = isDead;
+        this.color = colorIn;
+        this.livingVersion = livingVersion;
+        this.deadVersion = deadVersion;
+        if (isDead) {
+            deadVersion.add(this);
+        } else {
+            livingVersion.add(this);
+        }
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
+    }
+
+    public BlockCoralFan(EnumCoralColor colorIn, String name, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
+        super(isDead ? "dead_" + colorIn.getNewName() + name : colorIn.getNewName() + name);
         this.dead = isDead;
         this.color = colorIn;
         this.livingVersion = livingVersion;

@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/smooth_meteorite",
-      "side": "neutronia:blocks/smooth_meteorite",
-      "top": "neutronia:blocks/smooth_meteorite"
+      "bottom": "neutronia:block/smooth_meteorite",
+      "side": "neutronia:block/smooth_meteorite",
+      "top": "neutronia:block/smooth_meteorite"
     },
     "transform": "forge:default-block"
   },

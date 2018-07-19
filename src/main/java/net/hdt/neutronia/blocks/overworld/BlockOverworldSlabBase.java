@@ -24,7 +24,7 @@ public class BlockOverworldSlabBase extends BlockModSlab implements IModBlock {
     @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-        if(blockState.getMaterial() == Material.GLASS) {
+        if (blockState.getMaterial() == Material.GLASS) {
             if (this.isDouble()) {
                 return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
             } else
@@ -86,7 +86,7 @@ public class BlockOverworldSlabBase extends BlockModSlab implements IModBlock {
         Material material = sideBlockState.getMaterial();
 
         // Glass and other transparent materials force this side to be transparent.
-        if(material == Material.GLASS) {
+        if (material == Material.GLASS) {
             if (!material.isOpaque() && material != Material.AIR) {
                 return false;
             }

@@ -2,8 +2,8 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "neutronia:blocks/smooth_meteorite",
-    "side": "neutronia:blocks/smooth_meteorite",
-    "top": "neutronia:blocks/smooth_meteorite"
+    "bottom": "neutronia:block/smooth_meteorite",
+    "side": "neutronia:block/smooth_meteorite",
+    "top": "neutronia:block/smooth_meteorite"
   }
 }

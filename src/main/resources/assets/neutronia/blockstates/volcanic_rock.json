@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/volcanic_rock"
+      "all": "neutronia:block/volcanic_rock"
     },
     "transform": "forge:default-block"
   },

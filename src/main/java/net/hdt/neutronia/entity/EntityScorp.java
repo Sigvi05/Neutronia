@@ -39,16 +39,6 @@ public class EntityScorp extends EntitySpider {
 
     public static final DataParameter<Boolean> TAIL_OUT = EntityDataManager.createKey(EntityScorp.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityScorp.class, DataSerializers.BYTE);
-    private static final DataParameter<Integer> VARIANTS = EntityDataManager.createKey(EntityScorp.class, DataSerializers.VARINT);
-    private static final String[] HORSE_TEXTURES = new String[]{
-            "neutronia:textures/entity/scorpion/scorpion_ender.png",
-            "neutronia:textures/entity/scorpion/scorpion_grey.png",
-            "neutronia:textures/entity/scorpion/scorpion_nether.png",
-            "neutronia:textures/entity/scorpion/scorpion_sand.png"
-    };
-    private static final String[] HORSE_TEXTURES_ABBR = new String[]{"sce", "scg", "scn", "scs"};
-    private final String[] horseTexturesArray = new String[3];
-    private String texturePrefix;
 
     public EntityScorp(World worldIn) {
         super(worldIn);

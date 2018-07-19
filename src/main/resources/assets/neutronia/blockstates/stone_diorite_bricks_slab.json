@@ -3,9 +3,9 @@
   "defaults": {
     "model": "minecraft:half_slab",
     "textures": {
-      "bottom": "neutronia:blocks/stone_diorite_bricks",
-      "top": "neutronia:blocks/stone_diorite_bricks",
-      "side": "neutronia:blocks/stone_diorite_bricks"
+      "bottom": "neutronia:block/stone_diorite_bricks",
+      "top": "neutronia:block/stone_diorite_bricks",
+      "side": "neutronia:block/stone_diorite_bricks"
     },
     "transform": "forge:default-block"
   },

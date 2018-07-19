@@ -18,6 +18,7 @@ import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.Timer;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -25,6 +26,9 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 import java.util.List;
 
+import static net.hdt.neutronia.util.Reference.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID)
 public class ClientProxy extends CommonProxy {
 
     private static ResourceProxy resourceProxy;
@@ -71,6 +75,7 @@ public class ClientProxy extends CommonProxy {
         	NBlocks.coloredRedstoneLamp,
         	NBlocks.coloredLitRedstoneLamp,
             NBlocks.coloredPlanks,
+            NBlocks.coloredSlimeBlock
         };
         Block[] coloredStuff = new Block[16 * toColor.length];
         
@@ -85,7 +90,7 @@ public class ClientProxy extends CommonProxy {
         IItemColor handlerSlabItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
         Block[][] toColorSlabs = new Block[][] {
                 NBlocks.coloredPlanksSlabSingle,
-                NBlocks.coloredPlanksSlabDouble,
+                NBlocks.coloredPlanksSlabDouble
         };
         Block[] coloredSlabs = new Block[16 * toColorSlabs.length];
 
@@ -96,20 +101,6 @@ public class ClientProxy extends CommonProxy {
         blocks.registerBlockColorHandler(handlerSlabBlocks, coloredSlabs);
         items.registerItemColorHandler(handlerSlabItems, coloredSlabs);
 
-        /*IBlockColor handlerStairBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredStair) s.getBlock()).color.getColorValue() : 0xFFFFFF;
-        IItemColor handlerStairItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
-        Block[][] toColorStair = new Block[][] {
-                NBlocks.coloredPlanksStair,
-        };
-        Block[] coloredStairs = new Block[16 * toColorStair.length];
-
-        for(int i = 0; i < toColorStair.length; i++) {
-            Block[] colored = toColorStair[i];
-            System.arraycopy(colored, 0, coloredStairs, i * 16, 16);
-        }
-        blocks.registerBlockColorHandler(handlerStairBlocks, coloredStairs);
-        items.registerItemColorHandler(handlerStairItems, coloredStairs);*/
-        
         ModuleHandler.INSTANCE.handleInitClient(event);
     }
 

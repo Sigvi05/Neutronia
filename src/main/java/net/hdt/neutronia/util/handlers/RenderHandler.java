@@ -33,6 +33,7 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntitySeaSwallowedCaptain.class, RenderSeaSwallowedCaptain::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityOlDiggy.class, RenderOlDiggy::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityWellWisher.class, RenderWellWisher::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityScorp.class, RenderScorp::new);
     }
 
 }

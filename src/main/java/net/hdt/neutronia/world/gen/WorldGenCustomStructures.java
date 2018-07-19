@@ -14,13 +14,18 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class WorldGenCustomStructures implements IWorldGenerator {
 
     private static final WorldGenStructure CORALS = new WorldGenStructure(Lists.newArrayList("ocean_structures/coral_1", "ocean_structures/coral_2", "ocean_structures/coral_3", "ocean_structures/coral_4", "ocean_structures/coral_5", "ocean_structures/coral_blue", "ocean_structures/coral_pink", "ocean_structures/coral_purple", "ocean_structures/coral_yellow", "ocean_structures/coral_red"));
+    private static final WorldGenStructure MISC_STRUCTURES = new WorldGenStructure(Lists.newArrayList("dungeon_top"));
 
     /**TODO: Add Mini Castle, More Village Stuff, Spider Nests, Endermite Nests, Guardian Ruins, Mesa Temple, Mesa Village, Desert Labyrinth, Actual Pyramids,
     **/
@@ -36,8 +41,13 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 break;
             case 0:
                 generateStructure(CORALS, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+                generateStructure(MISC_STRUCTURES, world, random, chunkX, chunkZ, 10, Blocks.GRASS, Biomes.PLAINS, Biomes.MUTATED_PLAINS, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.TAIGA, Biomes.TAIGA_HILLS, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.BEACH, Biomes.COLD_BEACH, Biomes.STONE_BEACH);
                 break;
         }
+    }
+
+    private static Biome[] getBiomes(final BiomeDictionary.Type type) {
+        return BiomeDictionary.getBiomes(type).toArray(new Biome[0]);
     }
 
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Biome... classes) {

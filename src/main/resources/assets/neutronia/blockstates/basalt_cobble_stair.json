@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/basalt_cobble",
-      "side": "neutronia:blocks/basalt_cobble",
-      "top": "neutronia:blocks/basalt_cobble"
+      "bottom": "neutronia:block/basalt_cobble",
+      "side": "neutronia:block/basalt_cobble",
+      "top": "neutronia:block/basalt_cobble"
     },
     "transform": "forge:default-block"
   },

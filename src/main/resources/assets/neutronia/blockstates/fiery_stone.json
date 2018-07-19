@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/fiery_stone"
+      "all": "neutronia:block/fiery_stone"
     },
     "transform": "forge:default-block"
   },

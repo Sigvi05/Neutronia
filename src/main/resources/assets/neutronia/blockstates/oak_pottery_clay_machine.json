@@ -4,7 +4,7 @@
   "defaults": {
     "model": "neutronia:pottery_machine_clay_off",
     "textures": {
-      "0": "neutronia:blocks/oak_pottery_machine_clay",
+      "0": "neutronia:block/oak_pottery_machine_clay",
       "planks": "minecraft:blocks/planks_oak"
     },
     "transform": "forge:default-block"

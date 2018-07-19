@@ -22,23 +22,12 @@ public class NEntities {
 
     private static int entityID = 0;
 
-    @GameRegistry.ObjectHolder(MOD_ID + ":necro")
-    public static VillagerRegistry.VillagerProfession necroProfession = null; // will be assigned by forge during init
-    @GameRegistry.ObjectHolder(MOD_ID + ":adventurer")
-    public static VillagerRegistry.VillagerProfession adventurerProfession = null; // will be assigned by forge during init
-    @GameRegistry.ObjectHolder(MOD_ID + ":miner")
-    public static VillagerRegistry.VillagerProfession minerProfession = null; // will be assigned by forge during init
-    @GameRegistry.ObjectHolder(MOD_ID + ":scuba_diver")
-    public static VillagerRegistry.VillagerProfession scubaDiverProfession = null; // will be assigned by forge during init
-    @GameRegistry.ObjectHolder(MOD_ID + ":drowned_scuba_diver")
-    public static VillagerRegistry.VillagerProfession drownedScubaDiverProfession = null; // will be assigned by forge during init
-
     @SubscribeEvent
     public static void entityRegistering(RegistryEvent.Register<EntityEntry> event) {
         final EntityEntry[] entries = {
                 createBuilder("mummy").entity(EntityMummy.class).tracker(80, 3, true).egg(0xC9CE92, 0x444444).build(),
                 createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
-//                createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
+                createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
                 createBuilder("phantom").entity(EntityPhantom.class).tracker(80, 3, true).egg(0x2d3f56, 0x958c79).build(),
                 createBuilder("red_phantom").entity(EntityBloodPhantom.class).tracker(80, 3, true).egg(0x4A2929, 0x799591).build(),
                 createBuilder("ender_phantom").entity(EntityEnderPhantom.class).tracker(80, 3, true).egg(0x352D56, 0x8C9579).build(),
@@ -65,6 +54,7 @@ public class NEntities {
                 createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("pharaoh_golem").entity(EntityPharaohGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("yeti_golem").entity(EntityYetiGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("firefly").entity(EntityFirefly.class).tracker(64, 20, true).egg(0,0).build(),
 //                createBuilder("clay_golem").entity(EntityClayGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("diamond_golem").entity(EntityDiamondGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("gold_golem").entity(EntityGoldGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),

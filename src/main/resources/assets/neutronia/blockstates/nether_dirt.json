@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/nether_dirt"
+      "all": "neutronia:block/nether_dirt"
     },
     "transform": "forge:default-block"
   },

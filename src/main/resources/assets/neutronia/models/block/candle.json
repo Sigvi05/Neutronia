@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "neutronia:blocks/candle",
-		"particle": "neutronia:blocks/candle"
+		"0": "neutronia:block/candle",
+		"particle": "neutronia:block/candle"
 	},
 	"elements": [
 		{

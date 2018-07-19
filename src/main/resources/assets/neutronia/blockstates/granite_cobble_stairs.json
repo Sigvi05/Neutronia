@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/granite_cobble",
-      "top": "neutronia:blocks/granite_cobble",
-      "side": "neutronia:blocks/granite_cobble"
+      "bottom": "neutronia:block/granite_cobble",
+      "top": "neutronia:block/granite_cobble",
+      "side": "neutronia:block/granite_cobble"
     }
   },
   "variants": {

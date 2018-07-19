@@ -13,7 +13,7 @@ public class NCreativeTabs {
     public static CreativeTab NETHER_EXPANSION_TAB = new CreativeTab("Neutronia: Nether", true);
     public static CreativeTab END_EXPANSION_TAB = new CreativeTab("Neutronia: End", false) {
         @Override
-        public ItemStack getTabIconItem() {
+        public ItemStack getIcon() {
             return new ItemStack(Item.getItemFromBlock(Blocks.END_BRICKS));
         }
     };

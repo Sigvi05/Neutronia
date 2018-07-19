@@ -3,7 +3,7 @@
   "textures": {
     "texture": "minecraft:entity/chest/normal",
     "particle": "minecraft:blocks/planks_oak",
-    "overlay": "neutronia:blocks/chests/no_overlay"
+    "overlay": "neutronia:block/chests/no_overlay"
   },
   "elements": [
     {

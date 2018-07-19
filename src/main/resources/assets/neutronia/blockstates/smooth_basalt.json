@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/smooth_basalt"
+      "all": "neutronia:block/smooth_basalt"
     },
     "transform": "forge:default-block"
   },

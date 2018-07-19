@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/red_sandstone_bricks",
-      "top": "neutronia:blocks/red_sandstone_bricks",
-      "side": "neutronia:blocks/red_sandstone_bricks"
+      "bottom": "neutronia:block/red_sandstone_bricks",
+      "top": "neutronia:block/red_sandstone_bricks",
+      "side": "neutronia:block/red_sandstone_bricks"
     }
   },
   "variants": {

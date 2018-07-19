@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/diorite_bricks",
-      "top": "neutronia:blocks/diorite_bricks",
-      "side": "neutronia:blocks/diorite_bricks"
+      "bottom": "neutronia:block/diorite_bricks",
+      "top": "neutronia:block/diorite_bricks",
+      "side": "neutronia:block/diorite_bricks"
     }
   },
   "variants": {

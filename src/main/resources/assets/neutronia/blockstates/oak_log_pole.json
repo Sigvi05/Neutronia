@@ -7,7 +7,7 @@
     "facing=up": {
       "model": "neutronia:pole",
       "textures": {
-        "pole_inner": "neutronia:blocks/stripped_oak_log",
+        "pole_inner": "neutronia:block/stripped_oak_log",
         "pole_outer": "blocks/log_oak",
         "pole_top": "blocks/log_oak_top"
       }
@@ -15,7 +15,7 @@
     "facing=down": {
       "model": "neutronia:pole",
       "textures": {
-        "pole_inner": "neutronia:blocks/stripped_oak_log",
+        "pole_inner": "neutronia:block/stripped_oak_log",
         "pole_outer": "blocks/log_oak",
         "pole_top": "blocks/log_oak_top"
       },
@@ -24,7 +24,7 @@
     "facing=east": {
       "model": "neutronia:pole",
       "textures": {
-        "pole_inner": "neutronia:blocks/stripped_oak_log",
+        "pole_inner": "neutronia:block/stripped_oak_log",
         "pole_outer": "blocks/log_oak",
         "pole_top": "blocks/log_oak_top"
       },
@@ -34,7 +34,7 @@
     "facing=south": {
       "model": "neutronia:pole",
       "textures": {
-        "pole_inner": "neutronia:blocks/stripped_oak_log",
+        "pole_inner": "neutronia:block/stripped_oak_log",
         "pole_outer": "blocks/log_oak",
         "pole_top": "blocks/log_oak_top"
       },
@@ -44,7 +44,7 @@
     "facing=west": {
       "model": "neutronia:pole",
       "textures": {
-        "pole_inner": "neutronia:blocks/stripped_oak_log",
+        "pole_inner": "neutronia:block/stripped_oak_log",
         "pole_outer": "blocks/log_oak",
         "pole_top": "blocks/log_oak_top"
       },
@@ -54,7 +54,7 @@
     "facing=north": {
       "model": "neutronia:pole",
       "textures": {
-        "pole_inner": "neutronia:blocks/stripped_oak_log",
+        "pole_inner": "neutronia:block/stripped_oak_log",
         "pole_outer": "blocks/log_oak",
         "pole_top": "blocks/log_oak_top"
       },

@@ -3,9 +3,9 @@
   "defaults": {
     "model": "minecraft:half_slab",
     "textures": {
-      "bottom": "neutronia:blocks/stone_andesite_bricks",
-      "top": "neutronia:blocks/stone_andesite_bricks",
-      "side": "neutronia:blocks/stone_andesite_bricks"
+      "bottom": "neutronia:block/stone_andesite_bricks",
+      "top": "neutronia:block/stone_andesite_bricks",
+      "side": "neutronia:block/stone_andesite_bricks"
     },
     "transform": "forge:default-block"
   },

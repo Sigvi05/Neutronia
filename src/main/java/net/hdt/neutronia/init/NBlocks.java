@@ -9,6 +9,7 @@ import net.hdt.neutronia.blocks.base.*;
 import net.hdt.neutronia.blocks.base.BlockFalling;
 import net.hdt.neutronia.blocks.nether.*;
 import net.hdt.neutronia.blocks.overworld.*;
+import net.hdt.neutronia.blocks.overworld.BlockColoredSlime;
 import net.hdt.neutronia.properties.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -42,6 +43,10 @@ public class NBlocks {
     public static final Block[] deadCoralFan = new Block[5];
     public static final Block[] decorativeCoralFan = new Block[5];
     public static final Block[] decorativeDeadCoralFan = new Block[5];
+    public static final Block[] coralFanWall = new Block[5];
+    public static final Block[] deadCoralFanWall = new Block[5];
+    public static final Block[] decorativeCoralFanWall = new Block[5];
+    public static final Block[] decorativeDeadCoralFanWall = new Block[5];
     public static final Block[] coral = new Block[5];
     public static final Block[] deadCoral = new Block[5];
     public static final Block[] decorativeCoral = new Block[5];
@@ -97,12 +102,14 @@ public class NBlocks {
     public static final BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredRedstoneLamp = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitRedstoneLamp = new BlockColoredAlt[16];
+    public static final BlockColoredAlt[] coloredSlimeBlock = new BlockColoredAlt[16];
     public static Block[] coloredVases = new Block[16];
     public static Block[] terracottaPots = new Block[16];
     private static final Block[] centeredGlazedTerracottaBlocks = new Block[16];
     private static Block[] coffins = new Block[13];
     private static Block slumpedWitherSkeleton, slumpedSkeleton;
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
+    public static final Block fireflyBulbOff, fireflyBulbOn;
 //    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
 //    public static final Block whiteBricks, redBricks, greenBricks;
@@ -114,6 +121,7 @@ public class NBlocks {
     public static final BlockPurpurChiseled chiseledPurpurFilled;
     public static final BlockBrickChiseled chiseledBricks;
     public static final BlockBrickChiseled chiseledBricksFilled;
+    public static final Block scaffoldingBlock;
 
     static {
         glowingNetherBlocks = new Block[24];
@@ -129,6 +137,10 @@ public class NBlocks {
             deadCoralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, true, livingCorals, deadCorals);
             decorativeCoralFan[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral_fan", coralColor.getNewName()));
             decorativeDeadCoralFan[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_dead_%s_coral_fan", coralColor.getNewName()));
+            coralFanWall[coralColor.getMetadata()] = new BlockCoralFan(coralColor, "coral_wall_fan",false, livingCorals, deadCorals);
+            deadCoralFanWall[coralColor.getMetadata()] = new BlockCoralFan(coralColor, "coral_wall_fan", true, livingCorals, deadCorals);
+            decorativeCoralFanWall[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral_wall_fan", coralColor.getNewName()));
+            decorativeDeadCoralFanWall[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_dead_%s_coral_wall_fan", coralColor.getNewName()));
             coral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, false, livingCorals, deadCorals);
             deadCoral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, true, livingCorals, deadCorals);
             decorativeCoral[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral", coralColor.getNewName()));
@@ -211,8 +223,8 @@ public class NBlocks {
         for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
 //            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(WOOD_EXPANSION_TAB);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
-            barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_bark", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
-            add(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
+            barkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("%s_wood", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
+            add(String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
 //            addWall(String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], Material.WOOD, 0, WOOD_EXPANSION_TAB);
 //            addFenceAndFenceGate(enumType, String.format("%s_bark", enumType.getName()), barkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
 //            addFenceAndFenceGate(enumType, String.format("stripped_%s_bark", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
@@ -224,7 +236,7 @@ public class NBlocks {
             strippedBarkBlocks[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("stripped_%s_bark", enumType.getName()), true).setCreativeTab(WOOD_EXPANSION_TAB);
             strippedLogPoles[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_pole", enumType.getName()), WOOD_EXPANSION_TAB, false);
             add(String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
-            add(String.format("stripped_%s_bark", enumType.getName()), strippedLogs[enumType.getMetadata()], Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
+            add(String.format("stripped_%s_wood", enumType.getName()), strippedLogs[enumType.getMetadata()], Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
 //            logDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_dowel", enumType.getName()), WOOD_EXPANSION_TAB, false);
 //            strippedLogDowels[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_dowel", enumType.getName()), WOOD_EXPANSION_TAB, false);
 //            plankDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_dowel", enumType.getName()), WOOD_EXPANSION_TAB, false);
@@ -278,11 +290,15 @@ public class NBlocks {
             coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
             coloredRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, false);
             coloredLitRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, true);
+            coloredSlimeBlock[dyeColor.getMetadata()] = new BlockColoredSlime(dyeColor);
             add(String.format("%s_glass", dyeColor.getName()), Blocks.STAINED_GLASS, Material.GLASS, dyeColor.getMetadata(), true, false, NCreativeTabs.OVERWORLD_EXPANSION_TAB);
             centeredGlazedTerracottaBlocks[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("centered_glazed_terracotta_%s", dyeColor.getName()), false);
         }
 
         //Misc
+        fireflyBulbOff = new BlockFireflyBulb(false);
+        fireflyBulbOn = new BlockFireflyBulb(true);
+
         smoothQuartz = new BlockOverworldBase(Material.ROCK, "smooth_quartz", false);
         smoothRedSandstone = new BlockOverworldBase(Material.ROCK, "smooth_red_sandstone", false);
         smoothSandstone = new BlockOverworldBase(Material.ROCK, "smooth_sandstone", false);
@@ -351,6 +367,8 @@ public class NBlocks {
         chiseledPurpurFilled = new BlockPurpurChiseled("purpur_chiseled_filled", true);
         chiseledBricks = new BlockBrickChiseled("chiseled_bricks", false);
         chiseledBricksFilled = new BlockBrickChiseled("chiseled_bricks_filled", true);
+
+        scaffoldingBlock = new BlockScaffoldingBlock();
     }
 
     @SubscribeEvent

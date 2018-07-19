@@ -1,6 +1,6 @@
 {
     "parent": "block/tinted_cross",
     "textures": {
-        "cross": "neutronia:blocks/kelp_plant"
+        "cross": "neutronia:block/kelp_plant"
     }
 }

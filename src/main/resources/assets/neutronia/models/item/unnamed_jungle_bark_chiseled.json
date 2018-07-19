@@ -2,6 +2,6 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/cube_all",
   "textures": {
-    "all": "neutronia:blocks/jungle_bark_top"
+    "all": "neutronia:block/jungle_bark_top"
   }
 }

@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/cracked_marble_bricks",
-      "side": "neutronia:blocks/cracked_marble_bricks",
-      "top": "neutronia:blocks/cracked_marble_bricks"
+      "bottom": "neutronia:block/cracked_marble_bricks",
+      "side": "neutronia:block/cracked_marble_bricks",
+      "top": "neutronia:block/cracked_marble_bricks"
     },
     "transform": "forge:default-block"
   },

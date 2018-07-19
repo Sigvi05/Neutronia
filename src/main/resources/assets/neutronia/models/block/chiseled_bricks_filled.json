@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "neutronia:blocks/chiseled_bricks_filled"
+    "all": "neutronia:block/chiseled_bricks_filled"
   }
 }

@@ -46,7 +46,7 @@ public class OreGen implements IWorldGenerator {
         }
         if (world.provider.getDimension() == 0) {
             this.runGenerator(marble, world, random, chunkX, chunkZ, 10, 60, 180);
-            this.runGenerator(limestone, world, random, chunkX, chunkZ, 13, 10, 75);
+            this.runGenerator(limestone, world, random, chunkX, chunkZ, 7, 10, 75);
         }
     }
 

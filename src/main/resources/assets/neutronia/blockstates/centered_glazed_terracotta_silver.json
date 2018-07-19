@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/centered_glazed_terracotta/centered_glazed_terracotta_silver"
+      "all": "neutronia:block/centered_glazed_terracotta/centered_glazed_terracotta_silver"
     },
     "transform": "forge:default-block"
   },

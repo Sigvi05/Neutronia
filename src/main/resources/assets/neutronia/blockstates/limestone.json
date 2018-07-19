@@ -8,14 +8,14 @@
     "variant=stone_limestone": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_limestone"
+          "all": "neutronia:block/stone_limestone"
         }
       }
     ],
     "variant=stone_limestone_smooth": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_limestone_smooth"
+          "all": "neutronia:block/stone_limestone_smooth"
         }
       }
     ]

@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/natural_mossy_chiseled_aquamarine"
+      "all": "neutronia:block/natural_mossy_chiseled_aquamarine"
     },
     "transform": "forge:default-block"
   },

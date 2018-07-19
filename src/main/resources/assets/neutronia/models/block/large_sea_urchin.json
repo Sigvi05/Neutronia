@@ -2,6 +2,6 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/cross",
   "textures": {
-    "cross": "neutronia:blocks/large_sea_urchin"
+    "cross": "neutronia:block/large_sea_urchin"
   }
 }

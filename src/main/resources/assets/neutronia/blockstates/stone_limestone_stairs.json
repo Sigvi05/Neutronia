@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/stone_limestone",
-      "top": "neutronia:blocks/stone_limestone",
-      "side": "neutronia:blocks/stone_limestone"
+      "bottom": "neutronia:block/stone_limestone",
+      "top": "neutronia:block/stone_limestone",
+      "side": "neutronia:block/stone_limestone"
     }
   },
   "variants": {

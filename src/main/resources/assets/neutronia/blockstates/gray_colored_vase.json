@@ -7,7 +7,7 @@
     "contents=empty": {
       "model": "neutronia:flower_pot",
       "textures": {
-        "flowerpot": "neutronia:blocks/flower_pot_stained_gray"
+        "flowerpot": "neutronia:block/flower_pot_stained_gray"
       }
     },
     "contents=rose":             { "model": "neutronia:flower_pot_rose" },

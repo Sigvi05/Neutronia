@@ -2,8 +2,8 @@
   "_comment": "Generated using Husky's JSON Generator v2.",
   "parent": "neutronia:block/slab",
   "textures": {
-    "top": "neutronia:blocks/raw_natural_aquamarine",
-    "side": "neutronia:blocks/raw_natural_aquamarine",
-    "bottom": "neutronia:blocks/raw_natural_aquamarine"
+    "top": "neutronia:block/raw_natural_aquamarine",
+    "side": "neutronia:block/raw_natural_aquamarine",
+    "bottom": "neutronia:block/raw_natural_aquamarine"
   }
 }

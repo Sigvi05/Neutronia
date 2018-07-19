@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/smooth_limestone",
-      "side": "neutronia:blocks/smooth_limestone",
-      "top": "neutronia:blocks/smooth_limestone"
+      "bottom": "neutronia:block/smooth_limestone",
+      "side": "neutronia:block/smooth_limestone",
+      "top": "neutronia:block/smooth_limestone"
     },
     "transform": "forge:default-block"
   },

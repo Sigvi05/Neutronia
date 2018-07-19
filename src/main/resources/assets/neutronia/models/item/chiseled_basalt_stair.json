@@ -2,8 +2,8 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "neutronia:blocks/chiseled_basalt",
-    "side": "neutronia:blocks/chiseled_basalt",
-    "top": "neutronia:blocks/chiseled_basalt"
+    "bottom": "neutronia:block/chiseled_basalt",
+    "side": "neutronia:block/chiseled_basalt",
+    "top": "neutronia:block/chiseled_basalt"
   }
 }

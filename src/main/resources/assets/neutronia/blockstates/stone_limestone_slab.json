@@ -3,9 +3,9 @@
   "defaults": {
     "model": "minecraft:half_slab",
     "textures": {
-      "bottom": "neutronia:blocks/stone_limestone",
-      "top": "neutronia:blocks/stone_limestone",
-      "side": "neutronia:blocks/stone_limestone"
+      "bottom": "neutronia:block/stone_limestone",
+      "top": "neutronia:block/stone_limestone",
+      "side": "neutronia:block/stone_limestone"
     },
     "transform": "forge:default-block"
   },

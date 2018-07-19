@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/limestone_cobble"
+      "all": "neutronia:block/limestone_cobble"
     },
     "transform": "forge:default-block"
   },

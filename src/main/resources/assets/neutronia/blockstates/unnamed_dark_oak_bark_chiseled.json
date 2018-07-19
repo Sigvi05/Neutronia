@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/dark_oak_bark_top"
+      "all": "neutronia:block/dark_oak_bark_top"
     },
     "transform": "forge:default-block"
   },

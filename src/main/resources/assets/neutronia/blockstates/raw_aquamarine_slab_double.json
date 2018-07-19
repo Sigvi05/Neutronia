@@ -6,7 +6,7 @@
       "blarg": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:blocks/raw_aquamarine"
+          "all": "neutronia:block/raw_aquamarine"
         }
       }
     }

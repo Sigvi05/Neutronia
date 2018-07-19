@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.blocks.test.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.material.Material;
@@ -21,7 +21,7 @@ import java.util.List;
 public class BlockWaterBlockBase extends BlockMod {
 
     public BlockWaterBlockBase(String name) {
-        super(BlockMod.Builder.of(Material.CORAL), Reference.MOD_ID, name);
+        super(Material.CORAL, Reference.MOD_ID, name);
         this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
     }
 

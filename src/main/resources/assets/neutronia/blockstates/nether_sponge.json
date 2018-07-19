@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/nether_sponge"
+      "all": "neutronia:block/nether_sponge"
     },
     "transform": "forge:default-block"
   },
@@ -13,13 +13,13 @@
       "true": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:blocks/nether_sponge_filled"
+          "all": "neutronia:block/nether_sponge_filled"
         }
       },
       "false": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:blocks/nether_sponge"
+          "all": "neutronia:block/nether_sponge"
         }
       }
     },

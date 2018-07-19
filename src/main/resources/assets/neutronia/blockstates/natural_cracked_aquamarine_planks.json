@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/natural_cracked_aquamarine_planks"
+      "all": "neutronia:block/natural_cracked_aquamarine_planks"
     },
     "transform": "forge:default-block"
   },

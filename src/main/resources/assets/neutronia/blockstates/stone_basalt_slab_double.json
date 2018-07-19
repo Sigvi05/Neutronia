@@ -8,14 +8,14 @@
     "normal": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_basalt"
+          "all": "neutronia:block/stone_basalt"
         }
       }
     ],
     "prop=blarg": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_basalt"
+          "all": "neutronia:block/stone_basalt"
         }
       }
     ]

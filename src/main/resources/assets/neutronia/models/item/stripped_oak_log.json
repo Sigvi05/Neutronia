@@ -2,7 +2,7 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/cube_column",
   "textures": {
-    "end": "neutronia:blocks/stripped_oak_log_top",
-    "side": "neutronia:blocks/stripped_oak_log"
+    "end": "neutronia:block/stripped_oak_log_top",
+    "side": "neutronia:block/stripped_oak_log"
   }
 }

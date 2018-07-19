@@ -6,7 +6,7 @@
       "blarg": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:blocks/polished_limestone"
+          "all": "neutronia:block/polished_limestone"
         }
       }
     }

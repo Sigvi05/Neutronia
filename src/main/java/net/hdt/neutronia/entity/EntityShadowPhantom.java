@@ -1,18 +1,21 @@
 package net.hdt.neutronia.entity;
 
-import net.minecraft.entity.EntityLiving;
+import net.hdt.neutronia.util.handlers.LootTableHandler;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntityShadowPhantom extends EntityLiving {
+import javax.annotation.Nullable;
+
+public class EntityShadowPhantom extends EntityPhantomBase {
 
     public EntityShadowPhantom(World worldIn) {
         super(worldIn);
-        this.setHealth(this.getMaxHealth());
-        setSize(0.5F, 0.5F);
     }
 
-    protected void entityInit() {
-        super.entityInit();
+    @Nullable
+    @Override
+    protected ResourceLocation getLootTable() {
+        return LootTableHandler.PHANTOM;
     }
 
 }

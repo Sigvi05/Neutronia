@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "neutronia:blocks/oak_log_pile_top",
-    "side": "neutronia:blocks/oak_log_pile_side"
+    "end": "neutronia:block/oak_log_pile_top",
+    "side": "neutronia:block/oak_log_pile_side"
   }
 }

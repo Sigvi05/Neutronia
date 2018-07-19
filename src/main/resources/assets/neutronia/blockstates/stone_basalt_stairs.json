@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/stone_basalt",
-      "top": "neutronia:blocks/stone_basalt",
-      "side": "neutronia:blocks/stone_basalt"
+      "bottom": "neutronia:block/stone_basalt",
+      "top": "neutronia:block/stone_basalt",
+      "side": "neutronia:block/stone_basalt"
     }
   },
   "variants": {

@@ -4,8 +4,8 @@
   "defaults": {
     "model": "block/cube_column",
     "textures": {
-      "end": "neutronia:blocks/stripped_birch_log_top",
-      "side": "neutronia:blocks/stripped_birch_log"
+      "end": "neutronia:block/stripped_birch_log_top",
+      "side": "neutronia:block/stripped_birch_log"
     },
     "transform": "forge:default-block"
   },

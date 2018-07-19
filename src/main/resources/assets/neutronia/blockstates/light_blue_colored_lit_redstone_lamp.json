@@ -4,7 +4,7 @@
   "defaults": {
     "model": "neutronia:cube_all_colored",
     "textures": {
-      "all": "neutronia:blocks/coloured_redstone_lamp_on"
+      "all": "neutronia:block/coloured_redstone_lamp_on"
     },
     "transform": "forge:default-block"
   },

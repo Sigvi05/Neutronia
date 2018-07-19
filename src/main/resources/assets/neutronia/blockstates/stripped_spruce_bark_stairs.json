@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/stripped_spruce_log",
-      "top": "neutronia:blocks/stripped_spruce_log",
-      "side": "neutronia:blocks/stripped_spruce_log"
+      "bottom": "neutronia:block/stripped_spruce_log",
+      "top": "neutronia:block/stripped_spruce_log",
+      "side": "neutronia:block/stripped_spruce_log"
     }
   },
   "variants": {

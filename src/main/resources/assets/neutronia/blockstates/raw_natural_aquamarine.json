@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/raw_natural_aquamarine"
+      "all": "neutronia:block/raw_natural_aquamarine"
     },
     "transform": "forge:default-block"
   },

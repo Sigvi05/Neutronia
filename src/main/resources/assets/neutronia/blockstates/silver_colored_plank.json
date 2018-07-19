@@ -4,7 +4,7 @@
   "defaults": {
     "model": "neutronia:cube_all_colored",
     "textures": {
-      "all": "neutronia:blocks/colored_planks"
+      "all": "neutronia:block/colored_planks"
     },
     "transform": "forge:default-block"
   },

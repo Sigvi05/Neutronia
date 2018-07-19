@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.blocks.test.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.hdt.neutronia.util.Reference;
@@ -26,7 +26,7 @@ public class BlockColoredWaterBlockBase extends BlockMod {
     private final EnumCoralColor color;
 
     public BlockColoredWaterBlockBase(EnumCoralColor colorIn, String name) {
-        super(BlockMod.Builder.of(Material.CORAL), Reference.MOD_ID, colorIn + "_" + name);
+        super(Material.CORAL, Reference.MOD_ID, colorIn + "_" + name);
         this.color = colorIn;
         this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
     }

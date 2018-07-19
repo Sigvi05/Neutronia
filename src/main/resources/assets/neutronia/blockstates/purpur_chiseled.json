@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia:blocks/purpur_chiseled"
+      "all": "neutronia:block/purpur_chiseled"
     }
   },
   "variants": {

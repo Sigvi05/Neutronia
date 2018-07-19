@@ -8,42 +8,42 @@
     "variant=stone_diorite_bricks": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_diorite_bricks"
+          "all": "neutronia:block/stone_diorite_bricks"
         }
       }
     ],
     "variant=stone_granite_bricks": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_granite_bricks"
+          "all": "neutronia:block/stone_granite_bricks"
         }
       }
     ],
     "variant=stone_andesite_bricks": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_andesite_bricks"
+          "all": "neutronia:block/stone_andesite_bricks"
         }
       }
     ],
     "variant=stone_basalt_bricks": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_basalt_bricks"
+          "all": "neutronia:block/stone_basalt_bricks"
         }
       }
     ],
     "variant=stone_marble_bricks": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_marble_bricks"
+          "all": "neutronia:block/stone_marble_bricks"
         }
       }
     ],
     "variant=stone_limestone_bricks": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_limestone_bricks"
+          "all": "neutronia:block/stone_limestone_bricks"
         }
       }
     ]

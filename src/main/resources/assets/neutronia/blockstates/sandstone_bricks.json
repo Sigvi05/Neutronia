@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/sandstone_bricks"
+      "all": "neutronia:block/sandstone_bricks"
     },
     "transform": "forge:default-block"
   },

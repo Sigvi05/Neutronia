@@ -2,8 +2,8 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "block/stairs",
   "textures": {
-    "bottom": "neutronia:blocks/hardened_clay_stained_magenta",
-    "side": "neutronia:blocks/hardened_clay_stained_magenta",
-    "top": "neutronia:blocks/hardened_clay_stained_magenta"
+    "bottom": "neutronia:block/hardened_clay_stained_magenta",
+    "side": "neutronia:block/hardened_clay_stained_magenta",
+    "top": "neutronia:block/hardened_clay_stained_magenta"
   }
 }

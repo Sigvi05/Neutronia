@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "neutronia:blocks/soul_glass"
+    "all": "neutronia:block/soul_glass"
   }
 }

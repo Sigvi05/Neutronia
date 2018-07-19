@@ -6,7 +6,7 @@
       "blarg": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:blocks/raw_meteorite"
+          "all": "neutronia:block/raw_meteorite"
         }
       }
     }

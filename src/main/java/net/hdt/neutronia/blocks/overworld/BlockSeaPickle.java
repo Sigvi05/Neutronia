@@ -35,24 +35,6 @@ public class BlockSeaPickle extends BlockWaterBlockBase implements IGrowable {
         return this.isWaterLogged(aIBlockState) ? 0 : super.getLightValue(aIBlockState) + 3 * aIBlockState.getValue(PICKLES);
     }
 
-    /*@Override
-    public int getMetaFromState(IBlockState state) {
-        int i = 0;
-        i = i | ((EnumFacing)state.getValue(FACING)).getHorizontalIndex();
-
-        if (state.getValue(PART) == BlockBed.EnumPartType.HEAD)
-        {
-            i |= 8;
-
-            if (((Boolean)state.getValue(OCCUPIED)).booleanValue())
-            {
-                i |= 4;
-            }
-        }
-
-        return i;
-    }*/
-
     @Override
     public int getMetaFromState(IBlockState state) {
         int count = state.getValue(PICKLES);

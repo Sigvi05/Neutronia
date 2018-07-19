@@ -1,13 +1,13 @@
 {
     "parent": "block/block",
     "textures": {
-        "particle": "neutronia:blocks/dried_kelp_side",
-        "down": "neutronia:blocks/dried_kelp_bottom",
-        "up": "neutronia:blocks/dried_kelp_top",
-        "north": "neutronia:blocks/dried_kelp_side",
-        "east": "neutronia:blocks/dried_kelp_side",
-        "south": "neutronia:blocks/dried_kelp_side",
-        "west": "neutronia:blocks/dried_kelp_side"
+        "particle": "neutronia:block/dried_kelp_side",
+        "down": "neutronia:block/dried_kelp_bottom",
+        "up": "neutronia:block/dried_kelp_top",
+        "north": "neutronia:block/dried_kelp_side",
+        "east": "neutronia:block/dried_kelp_side",
+        "south": "neutronia:block/dried_kelp_side",
+        "west": "neutronia:block/dried_kelp_side"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

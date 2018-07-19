@@ -10,7 +10,7 @@ public class CreativeTab extends CreativeTabs {
 
     private String title = "";
 
-    private ItemStack icon = getTabIconItem();
+    private ItemStack icon = getIcon();
     private boolean displayRandom;
     private int tempIndex = 0;
     private ItemStack tempDisplayStack = ItemStack.EMPTY;
@@ -21,7 +21,7 @@ public class CreativeTab extends CreativeTabs {
     }
 
     @Override
-    public ItemStack getIconItemStack() {
+    public ItemStack getIcon() {
         if (this.displayRandom) {
             if (Minecraft.getSystemTime() % 120 == 0) {
                 this.updateDisplayStack();
@@ -31,7 +31,7 @@ public class CreativeTab extends CreativeTabs {
     }
 
     @Override
-    public String getTranslatedTabLabel() {
+    public String getTranslationKey() {
         return getTabLabel();
     }
 
@@ -54,8 +54,7 @@ public class CreativeTab extends CreativeTabs {
     }
 
     @Override
-    public ItemStack getTabIconItem() {
-        return this.getIconItemStack();
+    public ItemStack createIcon() {
+        return this.getIcon();
     }
-
 }

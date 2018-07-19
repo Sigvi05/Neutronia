@@ -2,8 +2,8 @@
   "_comment": "Generated using Husky's JSON Generator v2.",
   "parent": "neutronia:block/slab",
   "textures": {
-    "top": "neutronia:blocks/soulsand_stone_top",
-    "side": "neutronia:blocks/soulsand_stone_normal",
-    "bottom": "neutronia:blocks/soulsand_stone_bottom"
+    "top": "neutronia:block/soulsand_stone_top",
+    "side": "neutronia:block/soulsand_stone_normal",
+    "bottom": "neutronia:block/soulsand_stone_bottom"
   }
 }

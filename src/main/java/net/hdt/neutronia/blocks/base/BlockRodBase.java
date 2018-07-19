@@ -130,7 +130,8 @@ public class BlockRodBase extends BlockDirectional {
     }
 
     @Override
-    public EnumPushReaction getMobilityFlag(IBlockState blockState) {
+    public EnumPushReaction getPushReaction(IBlockState blockState) {
         return EnumPushReaction.NORMAL;
     }
+
 }

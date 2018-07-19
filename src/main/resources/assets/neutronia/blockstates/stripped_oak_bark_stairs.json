@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/stripped_oak_log",
-      "top": "neutronia:blocks/stripped_oak_log",
-      "side": "neutronia:blocks/stripped_oak_log"
+      "bottom": "neutronia:block/stripped_oak_log",
+      "top": "neutronia:block/stripped_oak_log",
+      "side": "neutronia:block/stripped_oak_log"
     }
   },
   "variants": {

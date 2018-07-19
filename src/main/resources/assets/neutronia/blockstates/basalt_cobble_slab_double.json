@@ -6,7 +6,7 @@
       "blarg": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:blocks/basalt_cobble"
+          "all": "neutronia:block/basalt_cobble"
         }
       }
     }

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks;
 
-import net.hdt.neutronia.blocks.test.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.material.Material;
@@ -21,7 +21,7 @@ public class BlockPrismarineChiseled extends BlockMod {
     private boolean filled;
 
     public BlockPrismarineChiseled(String name, boolean filled) {
-        super(BlockMod.Builder.of(Material.ROCK), MOD_ID, name);
+        super(Material.ROCK, MOD_ID, name);
         this.filled = filled;
         setCreativeTab(filled ? null : NCreativeTabs.OCEAN_EXPANSION_TAB);
     }

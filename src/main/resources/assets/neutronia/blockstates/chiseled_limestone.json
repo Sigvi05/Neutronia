@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/chiseled_limestone"
+      "all": "neutronia:block/chiseled_limestone"
     },
     "transform": "forge:default-block"
   },

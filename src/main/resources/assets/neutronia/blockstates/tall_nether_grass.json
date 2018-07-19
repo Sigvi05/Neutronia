@@ -9,12 +9,12 @@
     "half": {
       "lower": {
         "textures": {
-          "cross": "neutronia:blocks/tall_nether_grass"
+          "cross": "neutronia:block/tall_nether_grass"
         }
       },
       "upper": {
         "textures": {
-          "cross": "neutronia:blocks/tall_nether_grass"
+          "cross": "neutronia:block/tall_nether_grass"
         }
       }
     },

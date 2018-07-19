@@ -6,7 +6,7 @@
       "blarg": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:blocks/andesite_cobble"
+          "all": "neutronia:block/andesite_cobble"
         }
       }
     }

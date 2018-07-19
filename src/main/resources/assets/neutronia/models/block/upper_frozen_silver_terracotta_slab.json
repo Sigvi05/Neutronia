@@ -3,6 +3,6 @@
   "parent": "neutronia:block/cube_top_half_overlay_all",
   "textures": {
     "all": "minecraft:blocks/hardened_clay_stained_silver",
-    "overlay": "neutronia:blocks/ice_packed"
+    "overlay": "neutronia:block/ice_packed"
   }
 }

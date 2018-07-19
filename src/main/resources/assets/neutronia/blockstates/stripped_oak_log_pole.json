@@ -7,23 +7,23 @@
     "facing=up": {
       "model": "neutronia:stripped_pole",
       "textures": {
-        "pole": "neutronia:blocks/stripped_oak_log",
-        "pole_top": "neutronia:blocks/stripped_oak_log_top"
+        "pole": "neutronia:block/stripped_oak_log",
+        "pole_top": "neutronia:block/stripped_oak_log_top"
       }
     },
     "facing=down": {
       "model": "neutronia:stripped_pole",
       "textures": {
-        "pole": "neutronia:blocks/stripped_oak_log",
-        "pole_top": "neutronia:blocks/stripped_oak_log_top"
+        "pole": "neutronia:block/stripped_oak_log",
+        "pole_top": "neutronia:block/stripped_oak_log_top"
       },
       "x": 180
     },
     "facing=east": {
       "model": "neutronia:stripped_pole",
       "textures": {
-        "pole": "neutronia:blocks/stripped_oak_log",
-        "pole_top": "neutronia:blocks/stripped_oak_log_top"
+        "pole": "neutronia:block/stripped_oak_log",
+        "pole_top": "neutronia:block/stripped_oak_log_top"
       },
       "y": 90,
       "x": 90
@@ -31,8 +31,8 @@
     "facing=south": {
       "model": "neutronia:stripped_pole",
       "textures": {
-        "pole": "neutronia:blocks/stripped_oak_log",
-        "pole_top": "neutronia:blocks/stripped_oak_log_top"
+        "pole": "neutronia:block/stripped_oak_log",
+        "pole_top": "neutronia:block/stripped_oak_log_top"
       },
       "y": 180,
       "x": 90
@@ -40,8 +40,8 @@
     "facing=west": {
       "model": "neutronia:stripped_pole",
       "textures": {
-        "pole": "neutronia:blocks/stripped_oak_log",
-        "pole_top": "neutronia:blocks/stripped_oak_log_top"
+        "pole": "neutronia:block/stripped_oak_log",
+        "pole_top": "neutronia:block/stripped_oak_log_top"
       },
       "y": 270,
       "x": 90
@@ -49,8 +49,8 @@
     "facing=north": {
       "model": "neutronia:stripped_pole",
       "textures": {
-        "pole": "neutronia:blocks/stripped_oak_log",
-        "pole_top": "neutronia:blocks/stripped_oak_log_top"
+        "pole": "neutronia:block/stripped_oak_log",
+        "pole_top": "neutronia:block/stripped_oak_log_top"
       },
       "y": 0,
       "x": 90

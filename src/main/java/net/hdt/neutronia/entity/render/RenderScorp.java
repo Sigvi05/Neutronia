@@ -16,7 +16,7 @@ public class RenderScorp extends RenderLiving<EntityScorp> {
 
     @Override
     protected ResourceLocation getEntityTexture(EntityScorp entity) {
-        return new ResourceLocation(MOD_ID, "textures/entity/scorpion/scorpion_grey");
+        return new ResourceLocation(MOD_ID, "textures/entity/scorpion/grey_scorpion.png");
     }
 
 }

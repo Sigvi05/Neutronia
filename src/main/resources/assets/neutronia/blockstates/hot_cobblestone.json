@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/hot_cobblestone"
+      "all": "neutronia:block/hot_cobblestone"
     },
     "transform": "forge:default-block"
   },

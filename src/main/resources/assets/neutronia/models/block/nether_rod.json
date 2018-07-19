@@ -38,8 +38,8 @@
   },
   "ambientocclusion": false,
   "textures": {
-    "end_rod": "neutronia:blocks/nether_rod",
-    "particle": "neutronia:blocks/nether_rod"
+    "end_rod": "neutronia:block/nether_rod",
+    "particle": "neutronia:block/nether_rod"
   },
   "elements": [
     {

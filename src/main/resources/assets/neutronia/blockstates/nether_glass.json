@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/nether_glass"
+      "all": "neutronia:block/nether_glass"
     },
     "transform": "forge:default-block"
   },

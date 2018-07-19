@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/jungle_chiseled"
+      "all": "neutronia:block/jungle_chiseled"
     },
     "transform": "forge:default-block"
   },

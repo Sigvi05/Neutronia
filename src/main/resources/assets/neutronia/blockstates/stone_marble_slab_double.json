@@ -8,14 +8,14 @@
     "normal": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_marble"
+          "all": "neutronia:block/stone_marble"
         }
       }
     ],
     "prop=blarg": [
       {
         "textures": {
-          "all": "neutronia:blocks/stone_marble"
+          "all": "neutronia:block/stone_marble"
         }
       }
     ]

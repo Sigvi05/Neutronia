@@ -1,23 +1,20 @@
 package net.hdt.neutronia.entity;
 
-import net.minecraft.entity.EntityFlying;
-import net.minecraft.entity.EntityLivingBase;
+import net.hdt.neutronia.util.handlers.LootTableHandler;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntityPhantom extends EntityFlying {
+import javax.annotation.Nullable;
+
+public class EntityPhantom extends EntityPhantomBase {
 
     public EntityPhantom(World worldIn) {
         super(worldIn);
-        this.setHealth(this.getMaxHealth());
-        setSize(0.5F, 0.5F);
     }
 
-    protected float getSoundVolume() {
-        return 1.0F;
+    @Nullable
+    @Override
+    protected ResourceLocation getLootTable() {
+        return LootTableHandler.PHANTOM;
     }
-
-    public boolean canAttackClass(Class<? extends EntityLivingBase> var1) {
-        return true;
-    }
-
 }

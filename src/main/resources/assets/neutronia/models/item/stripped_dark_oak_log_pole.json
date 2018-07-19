@@ -2,7 +2,7 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "neutronia:block/stripped_pole",
   "textures": {
-    "pole": "neutronia:blocks/stripped_dark_oak_log",
-    "pole_top": "neutronia:blocks/stripped_dark_oak_log_top"
+    "pole": "neutronia:block/stripped_dark_oak_log",
+    "pole_top": "neutronia:block/stripped_dark_oak_log_top"
   }
 }

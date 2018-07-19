@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/birch_bark_top"
+      "all": "neutronia:block/birch_bark_top"
     },
     "transform": "forge:default-block"
   },

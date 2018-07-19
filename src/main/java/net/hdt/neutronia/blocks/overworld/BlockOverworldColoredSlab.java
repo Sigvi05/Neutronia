@@ -21,7 +21,7 @@ public class BlockOverworldColoredSlab extends BlockModColoredSlab {
     @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-        if(blockState.getMaterial() == Material.GLASS) {
+        if (blockState.getMaterial() == Material.GLASS) {
             if (this.isDouble()) {
                 return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
             } else
@@ -83,7 +83,7 @@ public class BlockOverworldColoredSlab extends BlockModColoredSlab {
         Material material = sideBlockState.getMaterial();
 
         // Glass and other transparent materials force this side to be transparent.
-        if(material == Material.GLASS) {
+        if (material == Material.GLASS) {
             if (!material.isOpaque() && material != Material.AIR) {
                 return false;
             }

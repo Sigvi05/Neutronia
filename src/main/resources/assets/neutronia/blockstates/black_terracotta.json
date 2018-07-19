@@ -3,9 +3,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/hardened_clay_stained_black",
-      "side": "neutronia:blocks/hardened_clay_stained_black",
-      "top": "neutronia:blocks/hardened_clay_stained_black"
+      "bottom": "neutronia:block/hardened_clay_stained_black",
+      "side": "neutronia:block/hardened_clay_stained_black",
+      "top": "neutronia:block/hardened_clay_stained_black"
     },
     "transform": "forge:default-block"
   },

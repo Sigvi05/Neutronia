@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/smooth_tinted_arduin"
+      "all": "neutronia:block/smooth_tinted_arduin"
     },
     "transform": "forge:default-block"
   },

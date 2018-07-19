@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:blocks/andesite_cobble"
+      "all": "neutronia:block/andesite_cobble"
     },
     "transform": "forge:default-block"
   },

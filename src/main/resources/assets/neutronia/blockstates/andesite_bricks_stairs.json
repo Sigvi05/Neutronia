@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/andesite_bricks",
-      "top": "neutronia:blocks/andesite_bricks",
-      "side": "neutronia:blocks/andesite_bricks"
+      "bottom": "neutronia:block/andesite_bricks",
+      "top": "neutronia:block/andesite_bricks",
+      "side": "neutronia:block/andesite_bricks"
     }
   },
   "variants": {

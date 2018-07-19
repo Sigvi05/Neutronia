@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.blocks.test.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.util.Reference;
 import net.minecraft.block.Block;
@@ -12,7 +12,7 @@ import net.minecraft.util.BlockRenderLayer;
 public class BlockOverworldBase extends BlockMod {
 
     public BlockOverworldBase(Material material, String name, boolean flammable) {
-        super(BlockMod.Builder.of(material, material.getMaterialMapColor()), Reference.MOD_ID, name);
+        super(material, Reference.MOD_ID, name);
         setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
         if (flammable) {
             addFlammable(this);
@@ -31,8 +31,7 @@ public class BlockOverworldBase extends BlockMod {
     /**
      * @deprecated call via {@link IBlockState#isFullCube()} whenever possible. Implementing/overriding is fine.
      */
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 

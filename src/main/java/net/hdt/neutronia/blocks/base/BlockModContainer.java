@@ -5,7 +5,7 @@
 
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.neutronia.blocks.test.BlockMod;
+import net.hdt.huskylib2.blocks.BlockMod;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public abstract class BlockModContainer extends BlockMod implements ITileEntityProvider {
     public BlockModContainer(Material materialIn, String modid, String name, String... variants) {
-        super(BlockMod.Builder.of(materialIn), modid, name, variants);
+        super(materialIn, modid, name, variants);
         this.hasTileEntity = true;
     }
 
