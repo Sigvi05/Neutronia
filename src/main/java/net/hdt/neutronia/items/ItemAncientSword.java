@@ -2,7 +2,7 @@ package net.hdt.neutronia.items;
 
 import net.hdt.huskylib2.items.ItemModSword;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.util.ColorUtils;
+import net.hdt.neutronia.base.util.ColorUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,7 +13,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class ItemAncientSword extends ItemModSword {
 

@@ -14,7 +14,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class BlockPrismarineChiseled extends BlockMod {
 

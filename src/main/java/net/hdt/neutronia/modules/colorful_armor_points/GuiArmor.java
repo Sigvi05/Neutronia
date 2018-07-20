@@ -1,5 +1,6 @@
 package net.hdt.neutronia.modules.colorful_armor_points;
 
+import net.hdt.neutronia.modules.colorful_armor_points.features.ColoredArmorPoints;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -16,7 +17,7 @@ import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.ISpecialArmor;
 
-import static net.hdt.neutronia.modules.colorful_armor_points.ColorfulArmorPoints.MODID;
+import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 import static org.lwjgl.opengl.GL11.*;
 
 /** Renders the armor bar in the HUD */
@@ -24,7 +25,7 @@ public class GuiArmor extends Gui {
 
 	/** {@link ResourceLocation} for different armor icons
 	 * @see #draw(int, int) */
-	private static final ResourceLocation ARMOR_ICONS = new ResourceLocation(MODID, "textures/gui/armor_icons.png");
+	private static final ResourceLocation ARMOR_ICONS = new ResourceLocation(MOD_ID, "textures/gui/armor_icons.png");
 	private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
 
 	/** {@link ResourceLocation} for item glints
@@ -117,9 +118,9 @@ public class GuiArmor extends Gui {
 	/** Renders a partial row of icons, {@code stackPoints} wide
 	 * @param barPoints The points already in the bar */
 	private void drawPartialRow(int left, int top, int barPoints, int stackPoints, ItemStack stack) {
-		int iconIndex = ColorfulArmorPoints.config.getIcon(stack);
+		int iconIndex = ColoredArmorPoints.getIcon(stack);
 		int color     = ((ItemArmor)stack.getItem()).getColor(stack);
-		boolean glint = ColorfulArmorPoints.config.renderGlint && stack.hasEffect();
+		boolean glint = ColoredArmorPoints.renderGlint && stack.hasEffect();
 
 		if(glint) zLevel += 2; // Glint rows should appear on top of normal rows
 
@@ -133,7 +134,7 @@ public class GuiArmor extends Gui {
 			drawTexturedMaskedModalRect(x - 4, top, u, v, ATLAS.getU(-2), ATLAS.getV(-2), 9, 9, color);
 			x += 4;
 		}
-		for(; i < stackPoints - 1; i += 2, x += 8) { // Main body icons
+		for(; i < stackPoints - 1; i += 2, x += 8) { // NeutroniaMain body icons
 			drawTexturedColoredModalRect(x, top, u, v, 9, 9, color);
 		}
 		if(i < stackPoints) { // Trailing half icon
@@ -157,7 +158,7 @@ public class GuiArmor extends Gui {
 		points[4] = 0;
 
 		// Skip full bars if compressing
-		if(ColorfulArmorPoints.config.compressBar) {
+		if(ColoredArmorPoints.compressBar) {
 			int ignore = ForgeHooks.getTotalArmorValue(player) - 1;
 			ignore /= 20; // Number of full bars to ignore
 

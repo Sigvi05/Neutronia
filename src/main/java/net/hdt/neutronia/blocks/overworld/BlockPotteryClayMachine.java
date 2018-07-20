@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class BlockPotteryClayMachine extends BlockOverworldFacing {
 

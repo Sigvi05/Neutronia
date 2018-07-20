@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 /**
  * Handler for player-related events.
@@ -50,7 +50,7 @@ public class PlayerEventHandler {
 
 			ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(Items.APPLE));
 
-			message = "message.testmod3:login.free_apple";
+			message = "message.neutronia:login.free_apple";
 		}
 
 		final ITextComponent chatComponent = new TextComponentTranslation(message);

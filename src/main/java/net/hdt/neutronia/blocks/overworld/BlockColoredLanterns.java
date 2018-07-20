@@ -5,7 +5,7 @@ import net.hdt.neutronia.colored_lighting.ColoredLights;
 import net.hdt.neutronia.colored_lighting.IColoredLightSource;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.EnumDyeColor;

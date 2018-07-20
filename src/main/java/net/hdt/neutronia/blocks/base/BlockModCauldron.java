@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class BlockModCauldron extends BlockMod {
     public static final PropertyInteger LEVEL = PropertyInteger.create("level", 0, 3);

@@ -3,7 +3,7 @@ package net.hdt.neutronia.items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class ItemArmorTestBase extends ItemModArmor {
 

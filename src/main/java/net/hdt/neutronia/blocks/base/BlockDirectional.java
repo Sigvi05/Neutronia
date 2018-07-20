@@ -4,7 +4,7 @@ import net.hdt.huskylib2.blocks.BlockMod;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public abstract class BlockDirectional extends BlockMod {
     public static final PropertyDirection FACING = PropertyDirection.create("facing");

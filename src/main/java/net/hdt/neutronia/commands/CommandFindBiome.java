@@ -1,7 +1,7 @@
 package net.hdt.neutronia.commands;
 
 import com.google.common.collect.Lists;
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;

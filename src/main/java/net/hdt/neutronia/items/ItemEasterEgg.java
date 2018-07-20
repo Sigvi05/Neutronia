@@ -1,6 +1,6 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;

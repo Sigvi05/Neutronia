@@ -1,6 +1,6 @@
 package net.hdt.neutronia.properties;
 
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.util.ResourceLocation;
 

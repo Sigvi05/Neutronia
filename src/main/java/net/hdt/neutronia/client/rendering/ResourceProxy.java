@@ -1,7 +1,7 @@
 package net.hdt.neutronia.client.rendering;
 
 import com.google.common.collect.ImmutableSet;
-import net.hdt.neutronia.Main;
+import net.hdt.neutronia.base.NeutroniaMain;
 import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraftforge.fml.common.Loader;
 
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class ResourceProxy extends AbstractResourcePack {
 
@@ -40,7 +40,7 @@ public class ResourceProxy extends AbstractResourcePack {
 
     @Override
     protected InputStream getInputStreamByName(String name) {
-        return Main.class.getResourceAsStream(overrides.get(name));
+        return NeutroniaMain.class.getResourceAsStream(overrides.get(name));
     }
 
     @Override

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity;
 
-import net.hdt.neutronia.util.handlers.LootTableHandler;
+import net.hdt.neutronia.base.util.handlers.LootTableHandler;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIWatchClosest;

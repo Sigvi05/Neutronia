@@ -1,6 +1,6 @@
 package net.hdt.neutronia.world.gen.generators;
 
-import net.hdt.neutronia.util.interfaces.IStructure;
+import net.hdt.neutronia.base.util.interfaces.IStructure;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class WorldGenStructure extends WorldGenerator implements IStructure {
 

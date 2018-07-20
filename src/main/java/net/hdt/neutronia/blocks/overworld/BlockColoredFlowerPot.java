@@ -29,7 +29,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class BlockColoredFlowerPot extends BlockFlowerPot implements IModBlock, IBlockColorProvider, IRecipeGrouped {
 

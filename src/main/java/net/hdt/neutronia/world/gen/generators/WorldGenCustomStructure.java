@@ -1,7 +1,7 @@
 package net.hdt.neutronia.world.gen.generators;
 
-import net.hdt.neutronia.util.Reference;
-import net.hdt.neutronia.util.interfaces.IStructure;
+import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.base.util.interfaces.IStructure;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;

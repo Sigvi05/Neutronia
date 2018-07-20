@@ -1,7 +1,7 @@
 package net.hdt.neutronia.init;
 
 import net.hdt.neutronia.entity.*;
-import net.hdt.neutronia.util.handlers.RenderHandler;
+import net.hdt.neutronia.base.util.handlers.RenderHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.*;
 import net.minecraftforge.fml.relauncher.Side;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class NEntities {

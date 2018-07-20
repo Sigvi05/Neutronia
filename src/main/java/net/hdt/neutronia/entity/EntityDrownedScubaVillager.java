@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity;
 
-import net.hdt.neutronia.util.handlers.LootTableHandler;
+import net.hdt.neutronia.base.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;

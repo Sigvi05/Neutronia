@@ -2,6 +2,7 @@ package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.neutronia.blocks.base.BlockBreakable;
 import net.hdt.neutronia.init.NCreativeTabs;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -19,6 +20,7 @@ public class BlockColoredSlime extends BlockBreakable {
         super(Material.CLAY, "colored_slime_block", color, false);
         setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
         this.slipperiness = 0.8F;
+        setSoundType(SoundType.SLIME);
     }
 
     /**

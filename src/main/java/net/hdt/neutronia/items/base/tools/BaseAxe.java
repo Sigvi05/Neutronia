@@ -1,6 +1,6 @@
 package net.hdt.neutronia.items.base.tools;
 
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.hdt.huskylib2.items.ItemModAxe;
 

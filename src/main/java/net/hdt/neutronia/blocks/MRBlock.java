@@ -4,7 +4,7 @@ import net.hdt.huskylib2.blocks.BlockMod;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class MRBlock extends BlockMod {
 

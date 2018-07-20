@@ -3,7 +3,7 @@ package net.hdt.neutronia.blocks.base;
 import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.huskylib2.items.blocks.ItemModBlock;
 import net.hdt.huskylib2.utils.ProxyRegistry;
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;

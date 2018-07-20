@@ -1,7 +1,7 @@
 package net.hdt.neutronia.world.gen;
 
 import net.hdt.huskylib2.module.ModuleLoader;
-import net.hdt.neutronia.util.handlers.DimensionConfig;
+import net.hdt.neutronia.base.util.handlers.DimensionConfig;
 import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.List;

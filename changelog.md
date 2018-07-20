@@ -25,8 +25,12 @@
 * Added recipes for chisel and bark stripper
 * Added more wood recipes
 
-### 0.2.2
-* Renamed Corals to Coral Blocks and made the normal corals into plants
+### 0.3.0 - The Big Renaming Update
+* Renamed Corals to Coral Blocks and Coral Plants into Corals
 * Added Dead Coral Fans
 * Fixed Basalt Biome Top Block
 * Fixed Red Desert Fill Block
+* Renamed a lot of wood blocks
+* Made the mod into modules (WIP Config Screen)
+* Added a lot of new features
+* Updated to latest mappings (this version will not work on earlier versions)

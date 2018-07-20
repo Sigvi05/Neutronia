@@ -1,8 +1,8 @@
 package net.hdt.neutronia.modules.mars.world;
 
 import net.hdt.neutronia.init.NDimension;
-import net.hdt.neutronia.modules.moon.init.NMoonBiomes;
 import net.hdt.neutronia.modules.mars.world.gen.MarsChunkGenerator;
+import net.hdt.neutronia.modules.moon.features.MoonBiomes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
@@ -16,12 +16,12 @@ public class MarsWorldProvider extends WorldProvider {
     @Override
     protected void init() {
         super.init();
-        biomeProvider = new BiomeProviderSingle(NMoonBiomes.MOON_MAIN);
+        biomeProvider = new BiomeProviderSingle(MoonBiomes.MOON_MAIN);
     }
 
     @Override
     public DimensionType getDimensionType() {
-        return NDimension.MOON;
+        return NDimension.MARS;
     }
 
     @Override

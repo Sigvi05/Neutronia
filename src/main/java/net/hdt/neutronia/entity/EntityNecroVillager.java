@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity;
 
-import net.hdt.neutronia.util.handlers.LootTableHandler;
+import net.hdt.neutronia.base.util.handlers.LootTableHandler;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;

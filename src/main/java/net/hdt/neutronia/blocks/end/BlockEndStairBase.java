@@ -2,7 +2,7 @@ package net.hdt.neutronia.blocks.end;
 
 import net.hdt.huskylib2.blocks.BlockModStairs;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;

@@ -27,13 +27,29 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public abstract class BlockModStairs extends BlockStairs implements IModBlock {
     private final String[] variants;
     private String bareName;
+    private Material material;
 
     public BlockModStairs(String name, IBlockState state) {
         super(state);
+        this.material = Material.ROCK;
         this.variants = new String[]{name};
         this.bareName = name;
         this.setTranslationKey(name);
         this.useNeighborBrightness = true;
+    }
+
+    public BlockModStairs(Material material, String name, IBlockState state) {
+        super(state);
+        this.material = material;
+        this.variants = new String[]{name};
+        this.bareName = name;
+        this.setTranslationKey(name);
+        this.useNeighborBrightness = true;
+    }
+
+    @Override
+    public Material getMaterial(IBlockState state) {
+        return material;
     }
 
     public static void initStairs(Block base, int meta, BlockStairs block) {

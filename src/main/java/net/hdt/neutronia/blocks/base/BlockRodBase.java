@@ -34,7 +34,7 @@ public class BlockRodBase extends BlockDirectional {
 
     @SuppressWarnings("unused")
     public BlockRodBase(Material color, String name, CreativeTabs creativeTabs, boolean emitsLight) {
-        super(Material.CIRCUITS, name);
+        super(color, name);
         mapColor = color;
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
         this.setCreativeTab(creativeTabs);

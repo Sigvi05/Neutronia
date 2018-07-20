@@ -1,6 +1,6 @@
 package net.hdt.neutronia.colored_lighting;
 
-import net.hdt.neutronia.util.LibObfuscation;
+import net.hdt.neutronia.base.util.LibObfuscation;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;

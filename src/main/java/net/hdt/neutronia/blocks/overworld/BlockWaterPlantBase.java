@@ -2,7 +2,7 @@ package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;

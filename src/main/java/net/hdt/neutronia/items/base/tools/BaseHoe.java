@@ -1,7 +1,7 @@
 package net.hdt.neutronia.items.base.tools;
 
 import net.hdt.neutronia.items.ItemModHoe;
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 
 public class BaseHoe extends ItemModHoe {
 

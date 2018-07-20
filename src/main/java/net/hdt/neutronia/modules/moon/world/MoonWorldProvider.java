@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.moon.world;
 
-import net.hdt.neutronia.init.NDimension;
-import net.hdt.neutronia.modules.moon.init.NMoonBiomes;
+import net.hdt.neutronia.modules.moon.features.MoonBiomes;
+import net.hdt.neutronia.modules.moon.features.MoonDimension;
 import net.hdt.neutronia.modules.moon.world.gen.MoonChunkGenerator;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
@@ -16,12 +16,12 @@ public class MoonWorldProvider extends WorldProvider {
     @Override
     protected void init() {
         super.init();
-        biomeProvider = new BiomeProviderSingle(NMoonBiomes.MOON_MAIN);
+        biomeProvider = new BiomeProviderSingle(MoonBiomes.MOON_MAIN);
     }
 
     @Override
     public DimensionType getDimensionType() {
-        return NDimension.MOON;
+        return MoonDimension.MOON;
     }
 
     @Override

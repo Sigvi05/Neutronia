@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import static net.hdt.neutronia.util.Reference.MOD_ID;
+import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 import java.util.Objects;
 

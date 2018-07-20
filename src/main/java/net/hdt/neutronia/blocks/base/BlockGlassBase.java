@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.base;
 
 import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.util.Reference;
+import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.BlockBeacon;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.modules.colorful_armor_points.config;
 
-import net.hdt.neutronia.modules.colorful_armor_points.ColorfulArmorPoints;
+import net.hdt.neutronia.modules.colorful_armor_points.features.ColoredArmorPoints;
 import net.minecraft.item.ItemStack;
 
 import java.util.HashMap;
@@ -10,7 +10,7 @@ public class IconData extends HashMap<String, IconData.ModEntry> {
 	/** @return The armor icon corresponding to {@code stack} */
 	public int getIcon(ItemStack stack) {
 		ModEntry mod = get(stack.getItem().getRegistryName().getNamespace());
-		return mod != null ? mod.getIcon(stack) : ColorfulArmorPoints.config.iconDefault;
+		return mod != null ? mod.getIcon(stack) : ColoredArmorPoints.iconDefault;
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class IconData extends HashMap<String, IconData.ModEntry> {
 			if(iconIndex != null) return iconIndex;
 
 			iconIndex = materials.get(stack);
-			return iconIndex != null ? iconIndex : ColorfulArmorPoints.config.iconDefault;
+			return iconIndex != null ? iconIndex : ColoredArmorPoints.iconDefault;
 		}
 
 		/** Adds all icons from {@code other} to the entry */
