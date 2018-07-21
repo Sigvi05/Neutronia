@@ -8,8 +8,6 @@ import net.minecraft.util.NonNullList;
 
 public class ModCreativeTab extends CreativeTabs {
 
-    private String title = "";
-
     private ItemStack icon = getIcon();
     private boolean displayRandom;
     private int tempIndex = 0;
@@ -35,10 +33,6 @@ public class ModCreativeTab extends CreativeTabs {
         return getTabLabel();
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     private void updateDisplayStack() {
         if (this.displayRandom) {
             NonNullList<ItemStack> itemStacks = NonNullList.create();
@@ -57,4 +51,5 @@ public class ModCreativeTab extends CreativeTabs {
     public ItemStack createIcon() {
         return this.getIcon();
     }
+
 }

@@ -80,7 +80,7 @@ public class CommandFindBiome extends CommandBase {
      * Get a list of options for when the user presses the TAB key
      */
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos) {
-        if(args.length == 2) {
+        if (args.length == 2) {
             List<String> strings = new ArrayList<>();
             for (Biome b : ForgeRegistries.BIOMES.getValues()) {
                 String s = b.getRegistryName().toString();

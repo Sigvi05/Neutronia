@@ -18,39 +18,36 @@ import java.util.List;
 
 /**
  * This command is used to write information about every block in an area
- * to a file, in basically a simplified schematic format. This can be used in 
+ * to a file, in basically a simplified schematic format. This can be used in
  * conjuction with a complementary build structure command that takes the file
  * and places the blocks to recreate the structure.
  * moved wrongly
- * @author jabelar
  *
+ * @author jabelar
  */
-public class CommandStructureCapture extends CommandBase
-{
-    private final List<String> aliases;
-
-    World theWorld;
-    Entity thePlayer;
+public class CommandStructureCapture extends CommandBase {
     public static String[][][] blockNameArray;
     public static int[][][] blockMetaArray;
-    int startX;
-    int startY;
-    int startZ;
-    int endX;
-    int endY;
-    int endZ;
     static int dimX;
     static int dimY;
     static int dimZ;
     static int signX;
     static int signY;
     static int signZ;
+    private final List<String> aliases;
+    World theWorld;
+    Entity thePlayer;
+    int startX;
+    int startY;
+    int startZ;
+    int endX;
+    int endY;
+    int endZ;
 
     /**
      * Instantiates a new command structure capture.
      */
-    public CommandStructureCapture()
-    {
+    public CommandStructureCapture() {
         aliases = new ArrayList<String>();
         aliases.add("capture");
         aliases.add("capt");
@@ -58,56 +55,48 @@ public class CommandStructureCapture extends CommandBase
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.minecraft.command.ICommand#getName()
      */
     @Override
-    public String getName()
-    {
+    public String getName() {
         return "capture";
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.minecraft.command.ICommand#getUsage(net.minecraft.command.ICommandSender)
      */
     @Override
-    public String getUsage(ICommandSender var1)
-    {
+    public String getUsage(ICommandSender var1) {
         return "capture <int> <int> <int> <int> <int> <int> <text>"; // use "structure <text>"; later when passing name of structure
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.minecraft.command.ICommand#getAliases()
      */
     @Override
-    public List<String> getAliases()
-    {
+    public List<String> getAliases() {
         return this.aliases;
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.minecraft.command.ICommand#execute(net.minecraft.server.MinecraftServer, net.minecraft.command.ICommandSender, java.lang.String[])
      */
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] argString)
-    {
+    public void execute(MinecraftServer server, ICommandSender sender, String[] argString) {
         theWorld = sender.getEntityWorld();
 
-        if (theWorld.isRemote)
-        {
+        if (theWorld.isRemote) {
             System.out.println("Not processing on Client side");
-        }
-        else
-        {
+        } else {
 
-            if (argString.length != 7)
-            {
+            if (argString.length != 7) {
                 sender.sendMessage(new TextComponentString("Invalid number of arguments"));
                 return;
             }
@@ -122,26 +111,22 @@ public class CommandStructureCapture extends CommandBase
             dimX = Math.abs(endX - startX);
             dimY = Math.abs(endY - startY);
             dimZ = Math.abs(endZ - startZ);
-            if (endX < startX)
-            {
+            if (endX < startX) {
                 int temp = startX;
                 startX = endX;
                 endX = temp;
             }
-            if (endY < startY)
-            {
+            if (endY < startY) {
                 int temp = startY;
                 startY = endY;
                 endY = temp;
             }
-            if (endZ < startZ)
-            {
+            if (endZ < startZ) {
                 int temp = startZ;
                 startZ = endZ;
                 endZ = temp;
             }
-            if (dimX * dimY * dimZ > 64 * 64 * 64)
-            {
+            if (dimX * dimY * dimZ > 64 * 64 * 64) {
                 sender.sendMessage(new TextComponentString("Capture area too big"));
                 return;
             }
@@ -153,10 +138,8 @@ public class CommandStructureCapture extends CommandBase
 
             for (int indY = 0; indY < dimY; indY++) // Y first to organize in vertical layers
             {
-                for (int indX = 0; indX < dimX; indX++)
-                {
-                    for (int indZ = 0; indZ < dimZ; indZ++)
-                    {
+                for (int indX = 0; indX < dimX; indX++) {
+                    for (int indZ = 0; indZ < dimZ; indZ++) {
                         BlockPos theBlockPos = new BlockPos(startX + indX, startY + indY, startZ + indZ);
                         blockNameArray[indX][indY][indZ] = Block.REGISTRY.getNameForObject(theWorld
                                 .getBlockState(theBlockPos).getBlock()).toString();
@@ -173,23 +156,19 @@ public class CommandStructureCapture extends CommandBase
     /**
      * Prints the name array.
      */
-    protected void printNameArray()
-    {
+    protected void printNameArray() {
         System.out.println("// Block Name Array");
         System.out.println("{");
         for (int indY = 0; indY < dimY; indY++) // Y first to organize in layers
         {
             System.out.println("    {   // Layer =" + indY);
-            for (int indX = 0; indX < dimX; indX++)
-            {
+            for (int indX = 0; indX < dimX; indX++) {
                 String row = "";
-                for (int indZ = 0; indZ < dimZ; indZ++)
-                {
+                for (int indZ = 0; indZ < dimZ; indZ++) {
                     if (indZ < dimZ - 1) // not last element in row
                     {
                         row = row + blockNameArray[indX][indY][indZ] + ", ";
-                    }
-                    else // last element in row
+                    } else // last element in row
                     {
                         row = row + blockNameArray[indX][indY][indZ];
                     }
@@ -197,8 +176,7 @@ public class CommandStructureCapture extends CommandBase
                 if (indX < dimX - 1) // not last element in column
                 {
                     System.out.println("        { " + row + " },");
-                }
-                else // last element in column
+                } else // last element in column
                 {
                     System.out.println("        { " + row + " }");
                 }
@@ -206,8 +184,7 @@ public class CommandStructureCapture extends CommandBase
             if (indY < dimY - 1) // not last layer
             {
                 System.out.println("    },");
-            }
-            else // last layer
+            } else // last layer
             {
                 System.out.println("    }");
             }
@@ -218,23 +195,19 @@ public class CommandStructureCapture extends CommandBase
     /**
      * Prints the meta array.
      */
-    protected void printMetaArray()
-    {
+    protected void printMetaArray() {
         System.out.println("// Metadata Array");
         System.out.println("{");
         for (int indY = 0; indY < dimY; indY++) // Y first to organize in layers
         {
             System.out.println("    {   // Layer =" + indY);
-            for (int indX = 0; indX < dimX; indX++)
-            {
+            for (int indX = 0; indX < dimX; indX++) {
                 String row = "";
-                for (int indZ = 0; indZ < dimZ; indZ++)
-                {
+                for (int indZ = 0; indZ < dimZ; indZ++) {
                     if (indZ < dimZ - 1) // not last element in row
                     {
                         row = row + blockMetaArray[indX][indY][indZ] + ", ";
-                    }
-                    else // last element in row
+                    } else // last element in row
                     {
                         row = row + blockMetaArray[indX][indY][indZ];
                     }
@@ -242,8 +215,7 @@ public class CommandStructureCapture extends CommandBase
                 if (indX < dimX - 1) // not last element in column
                 {
                     System.out.println("        { " + row + " },");
-                }
-                else // last element in column
+                } else // last element in column
                 {
                     System.out.println("        { " + row + " }");
                 }
@@ -251,8 +223,7 @@ public class CommandStructureCapture extends CommandBase
             if (indY < dimY - 1) // not last layer
             {
                 System.out.println("    },");
-            }
-            else // last layer
+            } else // last layer
             {
                 System.out.println("    }");
             }
@@ -265,32 +236,25 @@ public class CommandStructureCapture extends CommandBase
      *
      * @param fileName the file name
      */
-    protected void writeFileNameArray(String fileName)
-    {
+    protected void writeFileNameArray(String fileName) {
         File file = new File(fileName + ".txt");
         PrintWriter printOut = null;
-        try
-        {
+        try {
             printOut = new PrintWriter(new FileWriter(file));
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         // print dimensions to the file
-        if (printOut != null)
-        {
+        if (printOut != null) {
             printOut.println(dimX);
             printOut.println(dimY);
             printOut.println(dimZ);
-    
+
             // Write each string in the array on a separate line
             for (int indY = 0; indY < dimY; indY++) // Y first to organize in layers
             {
-                for (int indX = 0; indX < dimX; indX++)
-                {
-                    for (int indZ = 0; indZ < dimZ; indZ++)
-                    {
+                for (int indX = 0; indX < dimX; indX++) {
+                    for (int indZ = 0; indZ < dimZ; indZ++) {
                         printOut.println(blockNameArray[indX][indY][indZ]);
                         printOut.println(blockMetaArray[indX][indY][indZ]);
                     }
@@ -302,25 +266,23 @@ public class CommandStructureCapture extends CommandBase
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.minecraft.command.ICommand#checkPermission(net.minecraft.server.MinecraftServer, net.minecraft.command.ICommandSender)
      */
     @Override
-    public boolean checkPermission(MinecraftServer server, ICommandSender var1)
-    {
+    public boolean checkPermission(MinecraftServer server, ICommandSender var1) {
         return true;
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see net.minecraft.command.ICommand#getTabCompletions(net.minecraft.server.MinecraftServer, net.minecraft.command.ICommandSender, java.lang.String[],
      * net.minecraft.util.math.BlockPos)
      */
     @Override
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args,
-            BlockPos targetPos)
-    {
+                                          BlockPos targetPos) {
         return null;
     }
 }

@@ -1,9 +1,7 @@
 package net.hdt.neutronia.world.biome.overworld;
 
 import net.hdt.neutronia.init.NBlocks;
-import net.hdt.neutronia.world.biome.overworld.decorator.BiomeDesertDecorator;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeDecorator;
 
 public class BiomeBasaltOverworld extends Biome {
 
@@ -17,11 +15,6 @@ public class BiomeBasaltOverworld extends Biome {
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableWaterCreatureList.clear();
-    }
-
-    @Override
-    public BiomeDecorator createBiomeDecorator() {
-        return new BiomeDesertDecorator(topBlock.getBlock(), fillerBlock.getBlock());
     }
 
 }

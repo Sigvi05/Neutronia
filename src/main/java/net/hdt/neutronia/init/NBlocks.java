@@ -31,7 +31,7 @@ import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 public class NBlocks {
 
     // Misc
-    private static final Block blackSand;
+    public static final Block blackSand;
     private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
     private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks

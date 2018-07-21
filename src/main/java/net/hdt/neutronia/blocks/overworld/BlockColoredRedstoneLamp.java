@@ -1,11 +1,9 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
-import net.hdt.neutronia.colored_lighting.ColoredLights;
-import net.hdt.neutronia.colored_lighting.IColoredLightSource;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -13,12 +11,11 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColoredLightSource {
+public class BlockColoredRedstoneLamp extends BlockColoredAlt {
 
     private final boolean isOn;
     public EnumDyeColor color;
@@ -77,23 +74,6 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt implements IColore
 
     protected ItemStack getSilkTouchDrop(IBlockState state) {
         return new ItemStack(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
-    }
-
-    @Override
-    public int getLightOpacity(IBlockState state, IBlockAccess world, BlockPos pos) {
-        if (isOn) {
-            ColoredLights.addLightSource(world, pos, state);
-            return super.getLightOpacity(state, world, pos);
-        } else
-            return super.getLightOpacity(state, world, pos);
-    }
-
-    @Override
-    public float[] getColoredLight(IBlockAccess world, BlockPos pos) {
-        if (isOn) {
-            return VANILLA_SPECTRUM_COLORS[color.getMetadata()];
-        } else
-            return null;
     }
 
 }

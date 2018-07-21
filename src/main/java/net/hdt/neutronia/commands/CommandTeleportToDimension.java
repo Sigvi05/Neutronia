@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class CommandTeleportToDimension extends CommandBase {
+
     private final List<String> aliases = Lists.newArrayList(Reference.MOD_ID, "TP", "tp", "tpdim", "tpdimension", "teleport");
 
     @Override
@@ -60,4 +61,5 @@ public class CommandTeleportToDimension extends CommandBase {
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos targetPos) {
         return Collections.emptyList();
     }
+
 }

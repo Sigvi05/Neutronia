@@ -23,54 +23,33 @@ import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 /**
  * Remaps this mod's {@link Block}s and {@link Item}s after registry names have been changed.
  *
- * @author Choonster
+ * @author HuskyTheArtist
  */
 final class Remapper<T extends IForgeRegistryEntry<T>> {
 
-	private static final Marker MARKER = MarkerManager.getMarker("Remapper").addParents(Logger.MOD_MARKER);
+	private static final Marker MARKER = MarkerManager.getMarker("Remapper").addParents(MarkerManager.getMarker(MOD_ID));
 
-	/**
-	 * A list of remapping functions that return {@code true} if they took an action for the {@link Mapping<T>}.
-	 */
 	private final List<Predicate<Mapping<T>>> remappingFunctions = ImmutableList.of(this::remapCustomName);
 
 	private Remapper() {
 	}
 
-	/**
-	 * Remap this mod's missing mappings.
-	 *
-	 * @param missingMappings This mod's missing mappings
-	 */
 	private void remapAll(final List<Mapping<T>> missingMappings) {
-		for (final Mapping<T> missingMapping : missingMappings) { // For each missing mapping,
-			Logger.info(MARKER, "Trying to remap %s", missingMapping.key);
-
-			// Try to apply all remapping functions until one performs an action.
+		for (final Mapping<T> missingMapping : missingMappings) {
+			NeutroniaMain.LOGGER.info(MARKER, "Trying to remap %s", missingMapping.key);
 			final boolean remapped = remappingFunctions.stream().anyMatch(mappingPredicate -> mappingPredicate.test(missingMapping));
-
-			if (!remapped) {
-				Logger.info(MARKER, "Couldn't remap %s", missingMapping.key);
-			}
+			if (!remapped) NeutroniaMain.LOGGER.info(MARKER, "Couldn't remap %s", missingMapping.key);
 		}
 	}
 
-	/**
-	 * Try to remap {@code missingMapping} to the value of {@code registryName}.
-	 *
-	 * @param missingMapping The missing mapping
-	 * @param registryName   The registry name to remap to
-	 * @return True if the remapping was successful
-	 */
 	private boolean tryRemap(final Mapping<T> missingMapping, final ResourceLocation registryName) {
 		final IForgeRegistry<T> registry = missingMapping.registry;
 		final T value = registry.getValue(registryName);
 		if (registry.containsKey(registryName) && value != null) {
-			Logger.info(MARKER, "Remapped %s %s to %s", registry.getRegistrySuperType().getSimpleName(), missingMapping.key, registryName);
+			NeutroniaMain.LOGGER.info(MARKER, "Remapped %s %s to %s", registry.getRegistrySuperType().getSimpleName(), missingMapping.key, registryName);
 			missingMapping.remap(value);
 			return true;
 		}
-
 		return false;
 	}
 
@@ -137,20 +116,11 @@ final class Remapper<T extends IForgeRegistryEntry<T>> {
                 .build();
 	}
 
-	/**
-	 * Remap names to those specified in {@link #customNames}.
-	 *
-	 * @param missingMapping The missing mapping
-	 * @return True if the missing mapping was remapped
-	 */
 	private boolean remapCustomName(final Mapping<T> missingMapping) {
 		final String missingPath = missingMapping.key.getPath();
-
 		if (!customNames.containsKey(missingPath)) return false;
-
 		final String newPath = customNames.get(missingPath);
 		final ResourceLocation newRegistryName = new ResourceLocation(missingMapping.key.getPath(), newPath);
-
 		return tryRemap(missingMapping, newRegistryName);
 	}
 
