@@ -16,7 +16,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 	public GuiConfigRoot(GuiScreen parent) {
 		super(parent);
 		
-		qEnabled = GlobalConfig.enableQButton;
+		qEnabled = GlobalConfig.enableNButton;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 
 		x = width / 2;
 		y = startY + 113;
-		buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.qButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
+		buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
 		buttonList.add(new GuiButton(1, x - 100, y + 22, 200, 20, I18n.translateToLocal("neutronia.config.general")));
 		buttonList.add(new GuiButton(2, x - 100, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.import")));
 		buttonList.add(new GuiButton(3, x + 2, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.opensite")));
@@ -58,7 +58,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 		String s = null;
 		if(mayRequireRestart)
 			s = I18n.translateToLocal("neutronia.config.needrestart");
-		else if(qEnabled && !GlobalConfig.enableQButton)
+		else if(qEnabled && !GlobalConfig.enableNButton)
 			s = I18n.translateToLocal("neutronia.config.qdisabled");
 		
 		if(s != null)

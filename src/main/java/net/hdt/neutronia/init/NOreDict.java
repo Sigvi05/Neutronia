@@ -21,12 +21,12 @@ public class NOreDict {
             String color = StringUtils.capitalize(coralColor.getNewName());
 //            registerToOreDict(String.format("%sBrainCoral", coralColor.getName()), new ItemStack(NBlocks.brainCoral[coralColor.getMetadata()], 1));
 //            registerToOreDict(String.format("dead%sBrainCoral", color), new ItemStack(NBlocks.deadBrainCoral[coralColor.getMetadata()], 1));
-            registerToOreDict(String.format("%sCoral", coralColor.getNewName()), new ItemStack(NBlocks.coralBlock[coralColor.getMetadata()], 1));
-            registerToOreDict(String.format("dead%sCoral", color), new ItemStack(NBlocks.deadCoralBlock[coralColor.getMetadata()], 1));
-            registerToOreDict(String.format("decorative%sCoral", color), new ItemStack(NBlocks.decorativeCoralBlock[coralColor.getMetadata()], 1));
-            registerToOreDict(String.format("deadDecorative%sCoral", color), new ItemStack(NBlocks.decorativeDeadCoralBlock[coralColor.getMetadata()], 1));
-            registerToOreDict(String.format("%sCoralFan", coralColor.getNewName()), new ItemStack(NBlocks.coralFan[coralColor.getMetadata()], 1));
-            registerToOreDict(String.format("dead%sCoralFan", color), new ItemStack(NBlocks.deadCoralFan[coralColor.getMetadata()], 1));
+//            registerToOreDict(String.format("%sCoral", coralColor.getNewName()), new ItemStack(NBlocks.coralBlock[coralColor.getMetadata()], 1));
+//            registerToOreDict(String.format("dead%sCoral", color), new ItemStack(NBlocks.deadCoralBlock[coralColor.getMetadata()], 1));
+//            registerToOreDict(String.format("decorative%sCoral", color), new ItemStack(NBlocks.decorativeCoralBlock[coralColor.getMetadata()], 1));
+//            registerToOreDict(String.format("deadDecorative%sCoral", color), new ItemStack(NBlocks.decorativeDeadCoralBlock[coralColor.getMetadata()], 1));
+//            registerToOreDict(String.format("%sCoralFan", coralColor.getNewName()), new ItemStack(NBlocks.coralFan[coralColor.getMetadata()], 1));
+//            registerToOreDict(String.format("dead%sCoralFan", color), new ItemStack(NBlocks.deadCoralFan[coralColor.getMetadata()], 1));
         }
     }
 

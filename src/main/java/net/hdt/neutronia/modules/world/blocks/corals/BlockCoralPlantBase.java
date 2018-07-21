@@ -1,8 +1,8 @@
-package net.hdt.neutronia.blocks.overworld;
+package net.hdt.neutronia.modules.world.blocks.corals;
 
+import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -63,8 +63,8 @@ public class BlockCoralPlantBase extends BlockModBush {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Block.EnumOffsetType getOffsetType() {
-        return Block.EnumOffsetType.XZ;
+    public EnumOffsetType getOffsetType() {
+        return EnumOffsetType.XZ;
     }
 
     @Nullable
@@ -96,7 +96,7 @@ public class BlockCoralPlantBase extends BlockModBush {
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
-        return net.minecraftforge.common.EnumPlantType.Water;
+        return EnumPlantType.Water;
     }
 
     @Override

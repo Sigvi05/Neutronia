@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.sun.world;
 
-import net.hdt.neutronia.init.NDimension;
 import net.hdt.neutronia.modules.moon.features.MoonBiomes;
+import net.hdt.neutronia.modules.sun.features.SunDimension;
 import net.hdt.neutronia.modules.sun.world.gen.SunChunkGenerator;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
@@ -21,7 +21,7 @@ public class SunWorldProvider extends WorldProvider {
 
     @Override
     public DimensionType getDimensionType() {
-        return NDimension.SUN;
+        return SunDimension.SUN;
     }
 
     @Override

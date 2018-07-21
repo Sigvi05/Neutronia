@@ -54,11 +54,11 @@ public class VanillaStairsAndSlabs extends Feature {
 		add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, redNetherBricks);
 	}
 
-	public void add(String name, Block block, int meta, boolean doit) {
+	public static void add(String name, Block block, int meta, boolean doit) {
 		add(name, block, meta, true, true, doit);
 	}
 
-	public void add(String name, Block block, int meta, boolean slab, boolean stairs, boolean doit) {
+	public static void add(String name, Block block, int meta, boolean slab, boolean stairs, boolean doit) {
 		if(!doit)
 			return;
 

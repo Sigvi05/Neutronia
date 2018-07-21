@@ -1,8 +1,8 @@
 package net.hdt.neutronia.modules.building.blocks.slab;
 
+import net.hdt.huskylib2.blocks.BlockModSlab;
 import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.neutronia.base.util.Reference;
-import net.hdt.neutronia.blocks.base.BlockModSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockWoodSlabBase extends BlockModSlab implements IModBlock {
 
-    public BlockWoodSlabBase(String name, Material material, boolean isDouble, CreativeTabs tab) {
-        super(name, Reference.MOD_ID, material, isDouble);
+    public BlockWoodSlabBase(String name,  boolean isDouble, CreativeTabs tab) {
+        super(name + "_slab", Reference.MOD_ID, Material.WOOD, isDouble);
         setCreativeTab(isDouble ? null : tab);
     }
 

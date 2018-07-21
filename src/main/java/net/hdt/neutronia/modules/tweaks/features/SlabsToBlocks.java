@@ -49,25 +49,25 @@ public class SlabsToBlocks extends Feature {
 	
 	@Override
 	public void postPreInit(FMLPreInitializationEvent event) {
-		multiRecipe = new MultiRecipe(new ResourceLocation("quark", "slabs_to_blocks"));
+		multiRecipe = new MultiRecipe(new ResourceLocation("neutronia", "slabs_to_blocks"));
 	}
 	
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
-		List<ResourceLocation> recipeList = new ArrayList(CraftingManager.REGISTRY.getKeys());
+		List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
 		for(ResourceLocation res : recipeList) {
 			IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
 			if(recipe instanceof ShapedRecipes || recipe instanceof ShapedOreRecipe) {
 				NonNullList<Ingredient> recipeItems;
 				if(recipe instanceof ShapedRecipes)
 					recipeItems = ((ShapedRecipes) recipe).recipeItems;
-				else recipeItems = ((ShapedOreRecipe) recipe).getIngredients();
+				else recipeItems = recipe.getIngredients();
 
 				ItemStack output = recipe.getRecipeOutput();
 				if(!output.isEmpty() && output.getCount() == originalSize) {
 					Item outputItem = output.getItem();
 					Block outputBlock = Block.getBlockFromItem(outputItem);
-					if(outputBlock != null && outputBlock instanceof BlockSlab) {
+					if(outputBlock instanceof BlockSlab) {
 						ItemStack outStack = ItemStack.EMPTY;
 						int inputItems = 0;
 
@@ -77,8 +77,8 @@ public class SlabsToBlocks extends Feature {
 							if(matches.length > 0)
 								recipeItem = matches[0];
 							
-							if(recipeItem != null && !((ItemStack) recipeItem).isEmpty()) {
-								ItemStack recipeStack = (ItemStack) recipeItem;
+							if(recipeItem != null && !recipeItem.isEmpty()) {
+								ItemStack recipeStack = recipeItem;
 								if(outStack.isEmpty())
 									outStack = recipeStack;
 								

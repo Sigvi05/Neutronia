@@ -913,6 +913,10 @@ neutronia.config.module.moon=Moon
 neutronia.config.module.mars=Mars
 neutronia.config.module.sun=Sun
 neutronia.config.module.colorfularmorpoints=Colorful Armor Points
+neutronia.config.module.building=Building
+neutronia.config.module.decoration=Decoration
+neutronia.config.module.tweaks=Tweaks
+neutronia.config.module.world=World
 
 # MISC
 neutroniaMisc.chestButton.restock=Restock

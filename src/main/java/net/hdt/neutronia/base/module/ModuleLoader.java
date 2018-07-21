@@ -1,16 +1,11 @@
 package net.hdt.neutronia.base.module;
 
+import net.hdt.neutronia.base.NeutroniaMain;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.modules.building.NeutroniaBuilding;
-import net.hdt.neutronia.modules.colorful_armor_points.NeutroniaColorfulArmorPoints;
-import net.hdt.neutronia.modules.mars.NeutroniaMars;
-import net.hdt.neutronia.modules.moon.NeutroniaMoon;
-import net.hdt.neutronia.modules.sun.NeutroniaSun;
-import net.hdt.neutronia.modules.tweaks.NeutroniaTweaks;
+import net.hdt.neutronia.modules.NeutroniaModules;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,13 +25,7 @@ public final class ModuleLoader {
 
 	static {
 		moduleClasses = new ArrayList<>();
-
-		registerModule(NeutroniaSun.class);
-		registerModule(NeutroniaColorfulArmorPoints.class);
-		registerModule(NeutroniaMars.class);
-		registerModule(NeutroniaMoon.class);
-		registerModule(NeutroniaTweaks.class);
-		registerModule(NeutroniaBuilding.class);
+        NeutroniaModules.registerModules();
 	}
 
 	private static List<Class<? extends Module>> moduleClasses;
@@ -60,7 +49,7 @@ public final class ModuleLoader {
 
 		setupConfig(event);
 
-		forEachModule(module -> FMLLog.info("[Neutronia] Module " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
+		forEachModule(module -> NeutroniaMain.LOGGER.info("[Neutronia] Module " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
 
 		forEachEnabled(module -> module.preInit(event));
 		forEachEnabled(module -> module.postPreInit(event));
@@ -147,7 +136,7 @@ public final class ModuleLoader {
 		enabledModules.forEach(consumer);
 	}
 
-	private static void registerModule(Class<? extends Module> clazz) {
+	public static void registerModule(Class<? extends Module> clazz) {
 		if(!moduleClasses.contains(clazz))
 			moduleClasses.add(clazz);
 	}

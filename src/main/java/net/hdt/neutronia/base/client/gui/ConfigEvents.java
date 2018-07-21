@@ -29,15 +29,15 @@ public final class ConfigEvents {
 	public static void onGuiInit(GuiScreenEvent.InitGuiEvent event) {
 		GuiScreen gui = event.getGui();
 		
-		if(GlobalConfig.enableQButton && (gui instanceof GuiMainMenu || gui instanceof GuiIngameMenu)) {
-			ImmutableSet<String> targets = GlobalConfig.qButtonOnRight 
+		if(GlobalConfig.enableNButton && (gui instanceof GuiMainMenu || gui instanceof GuiIngameMenu)) {
+			ImmutableSet<String> targets = GlobalConfig.NButtonOnRight
 					? ImmutableSet.of(I18n.format("fml.menu.modoptions"), I18n.format("menu.online").replace("Test", "").trim())
 					: ImmutableSet.of(I18n.format("menu.options"), I18n.format("fml.menu.mods"));
 					
 			List<GuiButton> buttons = event.getButtonList();
 			for(GuiButton b : buttons)
 				if(targets.contains(b.displayString)) {
-					GuiButton qButton = new GuiButtonQ(b.x + (GlobalConfig.qButtonOnRight ? 103 : -24), b.y);
+					GuiButton qButton = new GuiButtonQ(b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y);
 					buttons.add(qButton);
 					return;
 				}

@@ -1,20 +1,10 @@
-/**
- * This class was created by <Vazkii>. It's distributed as
- * part of the Quark Mod. Get the Source Code in github:
- * https://github.com/Vazkii/Quark
- *
- * Quark is Open Source and distributed under the
- * CC-BY-NC-SA 3.0 License: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB
- *
- * File Created @ [18/03/2016, 21:52:14 (GMT)]
- */
 package net.hdt.neutronia.base.module;
 
+import net.hdt.neutronia.base.NeutroniaMain;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -98,7 +88,7 @@ public class Module implements Comparable<Module> {
 						}
 					
 					if(!failiures.isEmpty())
-						FMLLog.info("[Neutronia] '" + feature.configName + "' is forcefully disabled as it's incompatible with the following loaded mods: " + failiures);
+						NeutroniaMain.LOGGER.info("[Neutronia] '" + feature.configName + "' is forcefully disabled as it's incompatible with the following loaded mods: " + failiures);
 				}
 			}
 			

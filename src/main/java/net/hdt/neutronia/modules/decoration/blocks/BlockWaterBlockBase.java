@@ -1,14 +1,11 @@
-package net.hdt.neutronia.blocks.overworld;
+package net.hdt.neutronia.modules.decoration.blocks;
 
 import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.properties.EnumCoralColor;
 import net.hdt.neutronia.base.util.Reference;
-import net.minecraft.block.Block;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -21,24 +18,11 @@ import net.minecraftforge.oredict.OreDictionary;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockColoredWaterBlockBase extends BlockMod {
+public class BlockWaterBlockBase extends BlockMod {
 
-    private final EnumCoralColor color;
-
-    public BlockColoredWaterBlockBase(EnumCoralColor colorIn, String name) {
-        super(Material.CORAL, Reference.MOD_ID, colorIn + "_" + name);
-        this.color = colorIn;
+    public BlockWaterBlockBase(String name) {
+        super(Material.CORAL, Reference.MOD_ID, name);
         this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public static EnumCoralColor getColorFromItem(Item itemIn) {
-        return getColorFromBlock(Block.getBlockFromItem(itemIn));
-    }
-
-    @SideOnly(Side.CLIENT)
-    private static EnumCoralColor getColorFromBlock(Block blockIn) {
-        return blockIn instanceof BlockColoredWaterBlockBase ? ((BlockColoredWaterBlockBase) blockIn).getColor() : EnumCoralColor.BLUE;
     }
 
     @Override
@@ -85,11 +69,6 @@ public class BlockColoredWaterBlockBase extends BlockMod {
     @SideOnly(Side.CLIENT)
     public boolean hasCustomBreakingProgress(IBlockState state) {
         return true;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public EnumCoralColor getColor() {
-        return this.color;
     }
 
 }

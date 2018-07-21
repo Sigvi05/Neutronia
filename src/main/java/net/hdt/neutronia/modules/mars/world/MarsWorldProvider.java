@@ -1,6 +1,6 @@
 package net.hdt.neutronia.modules.mars.world;
 
-import net.hdt.neutronia.init.NDimension;
+import net.hdt.neutronia.modules.mars.features.MarsDimension;
 import net.hdt.neutronia.modules.mars.world.gen.MarsChunkGenerator;
 import net.hdt.neutronia.modules.moon.features.MoonBiomes;
 import net.minecraft.util.math.Vec3d;
@@ -21,7 +21,7 @@ public class MarsWorldProvider extends WorldProvider {
 
     @Override
     public DimensionType getDimensionType() {
-        return NDimension.MARS;
+        return MarsDimension.MARS;
     }
 
     @Override

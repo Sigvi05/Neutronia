@@ -1,6 +1,5 @@
 package net.hdt.neutronia.world.utils;
 
-import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -60,8 +59,8 @@ public class FormationCaveGenerator implements IWorldGenerator {
             color2 = rand.nextInt(5);
         } while (color2 == color1);
 
-        IBlockState crystal1 = NBlocks.decorativeCoralBlock[color1].getDefaultState();
-        IBlockState crystal2 = NBlocks.decorativeCoralBlock[color2].getDefaultState();
+        IBlockState crystal1 = Blocks.END_BRICKS.getDefaultState();
+        IBlockState crystal2 = Blocks.LOG.getDefaultState();
 
         int length = 12 + rand.nextInt(10);
         int size = 4 + rand.nextInt(3);

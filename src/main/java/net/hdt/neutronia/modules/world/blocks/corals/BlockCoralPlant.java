@@ -1,5 +1,6 @@
-package net.hdt.neutronia.blocks.overworld;
+package net.hdt.neutronia.modules.world.blocks.corals;
 
+import net.hdt.neutronia.modules.world.blocks.BlockWaterPlantBase;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -12,15 +13,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created on 7/5/18 by alexiy.
- * This coralBlock turns dead if no water blocks are adjacent to it
+ * Created on 7/8/18 by HuskyTheArtist.
+ * This decorativeCoralBlock plant turns dead if no water blocks are adjacent to it
  */
-public class BlockCoral extends BlockWaterBlockBase {
+public class BlockCoralPlant extends BlockWaterPlantBase {
 
     private boolean dead;
     private ArrayList<Block> livingVersion, deadVersion;
 
-    public BlockCoral(EnumCoralColor colorIn, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
+    public BlockCoralPlant(EnumCoralColor colorIn, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
         super(isDead ? "dead_" + colorIn.getNewName() + "_coral" : colorIn.getNewName() + "_coral");
         this.dead = isDead;
         this.livingVersion = livingVersion;
@@ -34,32 +35,34 @@ public class BlockCoral extends BlockWaterBlockBase {
 
     @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-        if (!dead && !canLive(worldIn, pos))
+        if (!this.dead && canLive(worldIn, pos))
+            worldIn.scheduleUpdate(pos, this, 100);
+        if (this.dead && !canLive(worldIn, pos))
             worldIn.scheduleUpdate(pos, this, 100);
     }
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        worldIn.scheduleUpdate(pos, this, 100);
+        if (!this.dead && canLive(worldIn, pos))
+            worldIn.scheduleUpdate(pos, this, 100);
+        if (this.dead && !canLive(worldIn, pos))
+            worldIn.scheduleUpdate(pos, this, 100);
     }
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-
-        if (!this.dead && !canLive(worldIn, pos))
+        if (!this.dead && canLive(worldIn, pos))
             worldIn.setBlockState(pos, deadVersion.get(livingVersion.indexOf(this)).getDefaultState());
-        if (this.dead && canLive(worldIn, pos))
+        if (this.dead && !canLive(worldIn, pos))
             worldIn.setBlockState(pos, livingVersion.get(deadVersion.indexOf(this)).getDefaultState());
     }
 
-    protected boolean canLive(World world, BlockPos itsPosition) {
+    private boolean canLive(World world, BlockPos itsPosition) {
         for (EnumFacing facing : EnumFacing.values()) {
             IBlockState sidestate = world.getBlockState(itsPosition.offset(facing));
-            if (sidestate.getBlock() == Blocks.WATER || sidestate.getBlock() == Blocks.FLOWING_WATER) {
-                return true;
-            }
+            if (sidestate.getBlock() == Blocks.WATER || sidestate.getBlock() == Blocks.FLOWING_WATER) return false;
         }
-        return false;
+        return true;
     }
 
 }

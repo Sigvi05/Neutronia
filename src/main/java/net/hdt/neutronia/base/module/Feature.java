@@ -1,17 +1,8 @@
-/**
- * This class was created by <Vazkii>. It's distributed as
- * part of the Quark Mod. Get the Source Code in github:
- * https://github.com/Vazkii/Quark
- *
- * Quark is Open Source and distributed under the
- * CC-BY-NC-SA 3.0 License: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB
- *
- * File Created @ [18/03/2016, 22:46:32 (GMT)]
- */
 package net.hdt.neutronia.base.module;
 
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -23,23 +14,27 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.text.WordUtils;
 
+import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
+
 public class Feature implements Comparable<Feature> {
 
 	public Module module;
 	
-	public boolean loadtimeDone;
-	public boolean enabledAtLoadtime;
+	boolean loadtimeDone;
+	boolean enabledAtLoadtime;
 	
-	public boolean enabledByDefault;
+	boolean enabledByDefault;
 	public boolean enabled;
-	public boolean prevEnabled;
+	boolean prevEnabled;
 	public String configCategory;
-	public String configName;
+	String configName;
+	private String iconFile = "";
+	private ResourceLocation icon;
 	public Property prop;
 	
-	public boolean forceLoad;
+	boolean forceLoad;
 	
-	public final void setupConstantConfig() {
+	final void setupConstantConfig() {
 		String[] incompat = getIncompatibleMods();
 		if(incompat != null && incompat.length > 0) {
 			StringBuilder desc = new StringBuilder("This feature disables itself if any of the following mods are loaded: \n");
@@ -56,11 +51,11 @@ public class Feature implements Comparable<Feature> {
 		// NO-OP
 	}
 
-	public void onEnabled() {
+	void onEnabled() {
 		// NO-OP
 	}
 	
-	public void onDisabled() {
+	void onDisabled() {
 		// NO-OP
 	}
 	
@@ -85,21 +80,21 @@ public class Feature implements Comparable<Feature> {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void preInitClient(FMLPreInitializationEvent event) {
+	void preInitClient(FMLPreInitializationEvent event) {
 		// NO-OP
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void initClient(FMLInitializationEvent event) {
+	void initClient(FMLInitializationEvent event) {
 		// NO-OP
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void postInitClient(FMLPostInitializationEvent event) {
+	void postInitClient(FMLPostInitializationEvent event) {
 		// NO-OP
 	}
 
-	public void serverStarting(FMLServerStartingEvent event) {
+	void serverStarting(FMLServerStartingEvent event) {
 		// NO-OP
 	}
 	
@@ -111,15 +106,15 @@ public class Feature implements Comparable<Feature> {
 		return false;
 	}
 
-	public boolean hasTerrainSubscriptions() {
+	boolean hasTerrainSubscriptions() {
 		return false;
 	}
 
-	public boolean hasOreGenSubscriptions() {
+	boolean hasOreGenSubscriptions() {
 		return false;
 	}
 
-	public String getFeatureDescription() {
+	String getFeatureDescription() {
 		return "";
 	}
 	
@@ -132,14 +127,14 @@ public class Feature implements Comparable<Feature> {
 	}
 
 	public static void registerTile(Class<? extends TileEntity> clazz, String key) {
-		GameRegistry.registerTileEntity(clazz, LibMisc.PREFIX_MOD + key);
+		GameRegistry.registerTileEntity(clazz, new ResourceLocation(LibMisc.PREFIX_MOD + key));
 	}
 
 	public final boolean isClient() {
 		return FMLCommonHandler.instance().getSide().isClient();
 	}
 
-	public final int loadPropInt(String propName, String desc, int default_) {
+	protected final int loadPropInt(String propName, String desc, int default_) {
 		return ConfigHelper.loadPropInt(propName, configCategory, desc, default_);
 	}
 
@@ -163,4 +158,20 @@ public class Feature implements Comparable<Feature> {
 	public int compareTo(Feature o) {
 		return configName.compareTo(o.configName);
 	}
+
+    public void setIconFile(String iconFile) {
+        this.iconFile = iconFile;
+    }
+
+    public ResourceLocation getIcon() {
+        if (icon != null) {
+            return icon;
+        }
+        if (iconFile == null || iconFile.isEmpty()) {
+            return null;
+        }
+        icon = new ResourceLocation(MOD_ID, iconFile);
+        return icon;
+    }
+
 }

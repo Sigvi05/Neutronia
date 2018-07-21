@@ -25,6 +25,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
+import java.awt.*;
 import java.util.List;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
@@ -72,8 +73,7 @@ public class ClientProxy extends CommonProxy {
         	NBlocks.coloredLitLanterns,
         	NBlocks.coloredRedstoneLamp,
         	NBlocks.coloredLitRedstoneLamp,
-            NBlocks.coloredPlanks,
-            NBlocks.coloredSlimeBlock
+            NBlocks.coloredPlanks
         };
         Block[] coloredStuff = new Block[16 * toColor.length];
         
@@ -83,6 +83,20 @@ public class ClientProxy extends CommonProxy {
         }
         blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
         items.registerItemColorHandler(handlerItems, coloredStuff);
+
+        IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : new Color(255, 255, 255, 128).getRGB();
+        IItemColor handlerItemsTranslucent = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColorTranslucent = new Block[][] {
+                NBlocks.coloredSlimeBlock
+        };
+        Block[] coloredStuffTranslucent = new Block[16 * toColorTranslucent.length];
+
+        for(int i = 0; i < toColorTranslucent.length; i++) {
+            Block[] colored = toColorTranslucent[i];
+            System.arraycopy(colored, 0, coloredStuffTranslucent, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerBlocksTranslucent, coloredStuffTranslucent);
+        items.registerItemColorHandler(handlerItemsTranslucent, coloredStuffTranslucent);
 
         IBlockColor handlerSlabBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
         IItemColor handlerSlabItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);

@@ -26,7 +26,7 @@ public class MoonWorldProvider extends WorldProvider {
 
     @Override
     public String getSaveFolder() {
-        return "MOON";
+        return "MARS";
     }
 
     @Override

@@ -9,7 +9,6 @@ import net.hdt.neutronia.events.handlers.RecipeHandlers;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import static net.hdt.neutronia.base.util.Reference.*;
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY, updateJSON = UPDATE_JSON)
 public class NeutroniaMain {
 
-    public static final Logger LOGGER = LogManager.getLogger(NAME);
+    public static Logger LOGGER;
 
     @Mod.Instance
     public static NeutroniaMain instance;
@@ -35,6 +34,7 @@ public class NeutroniaMain {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        LOGGER = event.getModLog();
         handlers.forEach(handler -> handler.preInit(event));
         proxy.preInit(event);
     }

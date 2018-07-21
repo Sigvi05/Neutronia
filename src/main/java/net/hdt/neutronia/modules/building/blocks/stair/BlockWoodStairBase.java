@@ -13,7 +13,7 @@ import net.minecraft.world.IBlockAccess;
 public class BlockWoodStairBase extends BlockModStairs {
 
     public BlockWoodStairBase(String name, IBlockState state, CreativeTabs tab) {
-        super(Material.WOOD, name, state);
+        super(Material.WOOD, name + "_stair", state);
         setCreativeTab(tab);
     }
 

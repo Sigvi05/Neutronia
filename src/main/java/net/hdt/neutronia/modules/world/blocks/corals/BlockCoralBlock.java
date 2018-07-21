@@ -1,5 +1,6 @@
-package net.hdt.neutronia.blocks.overworld;
+package net.hdt.neutronia.modules.world.blocks.corals;
 
+import net.hdt.neutronia.modules.world.blocks.BlockWaterBlockBase;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

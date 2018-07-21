@@ -1,21 +1,18 @@
-package net.hdt.neutronia.blocks.overworld;
+package net.hdt.neutronia.modules.world.blocks.corals;
 
-import net.hdt.neutronia.blocks.base.BlockModBush;
-import net.hdt.neutronia.init.NBlocks;
-import net.hdt.neutronia.init.NCreativeTabs;
+import net.hdt.neutronia.modules.world.blocks.BlockWaterPlantBase;
+import net.hdt.neutronia.modules.world.features.Corals;
 import net.hdt.neutronia.properties.EnumCoralColor;
-import net.hdt.neutronia.base.util.Reference;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -26,32 +23,65 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Random;
 
-public class BlockColoredWaterPlantBase extends BlockModBush {
+import static net.minecraft.block.BlockLiquid.LEVEL;
+
+/**
+ * Created on 7/5/18 by alexiy.
+ * This decorativeCoralBlock turns dead if no water blocks are adjacent to it
+ */
+public class BlockCoralFan extends BlockWaterPlantBase {
 
     protected static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
-    private final EnumCoralColor color;
+    private boolean dead;
+    private ArrayList<Block> livingVersion, deadVersion;
+    private EnumCoralColor color;
 
-    public BlockColoredWaterPlantBase(EnumCoralColor coralColor, String name) {
-        super(Material.PLANTS, coralColor + "_" + name, Reference.MOD_ID);
-        this.color = coralColor;
-        setTickRandomly(false);
-        setSoundType(SoundType.PLANT);
-        this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+    public BlockCoralFan(EnumCoralColor colorIn, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
+        super(isDead ? "dead_" + colorIn.getNewName() + "_coral_fan" : colorIn.getNewName() + "_coral_fan");
+        this.dead = isDead;
+        this.color = colorIn;
+        this.livingVersion = livingVersion;
+        this.deadVersion = deadVersion;
+        if (isDead) {
+            deadVersion.add(this);
+        } else {
+            livingVersion.add(this);
+        }
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
+    }
+
+    public BlockCoralFan(EnumCoralColor colorIn, String name, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
+        super(isDead ? "dead_" + colorIn.getNewName() + name : colorIn.getNewName() + name);
+        this.dead = isDead;
+        this.color = colorIn;
+        this.livingVersion = livingVersion;
+        this.deadVersion = deadVersion;
+        if (isDead) {
+            deadVersion.add(this);
+        } else {
+            livingVersion.add(this);
+        }
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[]{LEVEL};
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
-        return false;
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+        if (!dead && !canLive(worldIn, pos))
+            worldIn.scheduleUpdate(pos, this, 100);
+    }
+
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        worldIn.scheduleUpdate(pos, this, 100);
     }
 
     @Override
@@ -98,16 +128,11 @@ public class BlockColoredWaterPlantBase extends BlockModBush {
 
     @Override
     public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side) {
-        if (this == NBlocks.coralFan[getColor().getMetadata()] || this == NBlocks.deadCoralFan[getColor().getMetadata()]) {
+        if (this == Corals.coralFan[color.getMetadata()] || this == Corals.deadCoralFan[color.getMetadata()]) {
             return side != EnumFacing.DOWN && side != EnumFacing.UP;
         } else {
             return true;
         }
-    }
-
-    @SideOnly(Side.CLIENT)
-    private EnumCoralColor getColor() {
-        return this.color;
     }
 
     @Override
@@ -126,11 +151,25 @@ public class BlockColoredWaterPlantBase extends BlockModBush {
     }
 
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, FACING);
+        return new BlockStateContainer(this, FACING, BlockLiquid.LEVEL);
     }
 
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(this);
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        if (!this.dead && !canLive(worldIn, pos))
+            worldIn.setBlockState(pos, deadVersion.get(livingVersion.indexOf(this)).getDefaultState());
+        if (this.dead && canLive(worldIn, pos))
+            worldIn.setBlockState(pos, livingVersion.get(deadVersion.indexOf(this)).getDefaultState());
+    }
+
+    private boolean canLive(World world, BlockPos itsPosition) {
+        for (EnumFacing facing : EnumFacing.values()) {
+            IBlockState sidestate = world.getBlockState(itsPosition.offset(facing));
+            if (sidestate.getBlock() == Blocks.WATER || sidestate.getBlock() == Blocks.FLOWING_WATER) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

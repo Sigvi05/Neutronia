@@ -14,6 +14,8 @@ public class NeutroniaBuilding extends Module {
         registerFeature(new VanillaStairsAndSlabs());
         registerFeature(new VanillaWalls());
         registerFeature(new WorldStoneBricks());
+        registerFeature(new LogBlocks());
+        registerFeature(new WoodBlocks());
     }
 
     @Override

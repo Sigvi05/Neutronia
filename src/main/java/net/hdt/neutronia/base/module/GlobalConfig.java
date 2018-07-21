@@ -5,16 +5,14 @@ import net.minecraftforge.common.config.Property;
 
 public final class GlobalConfig {
 
-	public static boolean enableAntiOverlap;
-	public static boolean enableSeasonalFeatures;
-	public static boolean enableConfigCommand;
+	static boolean enableAntiOverlap;
 	public static boolean enableVariants;
-	public static boolean enableQButton;
-	public static boolean qButtonOnRight;
+	public static boolean enableNButton;
+	public static boolean NButtonOnRight;
 	
-	public static Property qButtonProp;
+	public static Property NButtonProp;
 
-	public static void initGlobalConfig() {
+	static void initGlobalConfig() {
 		String category = "_global";
 		
 		ConfigHelper.needsRestart = ConfigHelper.allNeedRestart = true;
@@ -23,21 +21,7 @@ public final class GlobalConfig {
 				"Set this to false to remove the system that has features turn themselves off automatically when "
 				+ "other mods are present that add similar features."
 				+ "\nNote that you can force features to be enabled individually through their respective configs.", true);
-		
-		enableSeasonalFeatures = ConfigHelper.loadPropBool("Enable Seasonal Features", category,
-				"Whether features that are based on the time of year should be enabled."
-				+ "\nAn example is chests turning to presents when it's Christmas."
-				+ "\nNote that this will not affect vanilla's own seasonal features.", true);
-		
-		enableConfigCommand = ConfigHelper.loadPropBool("Enable Quark Config Command", category,
-				"Adds the /quarkconfig command which allows for modification of the Quark config file through any means that can run commands at permission 2 (command block level) or higher."
-				+ "\nAn example syntax of the command would be /quarkconfig management \"store to chests\" \"B:Invert button\" true nosave playerdude"
-				+ "\nDoing this would set the dropoff button for playerdude to be inverted. "
-				+ "\"save\" means it should save the changes to the config file on disk. Using \"nosave\" won't save."
-				+ "\nAnother example can be /quarkconfig tweaks - \"Shearable chickens\" false"
-				+ "\nThis disables shearable chickens for everybody on the server. \"nosave\" doesn't need to be included, as it's the default."
-				+ "\n\"nosave\" does need to be there if a player name is used. Lastly, - signifies no subcategory inside the module.", true);
-		
+
 		enableVariants = ConfigHelper.loadPropBool("Allow Block Variants", category, 
 				"Set this to false to disable stairs, slabs, and walls, mod-wide. As these blocks can use a lot of Block IDs,\n"
 				+ "this is helpful to reduce the load, if you intend on running a really large modpack.\n"
@@ -45,21 +29,18 @@ public final class GlobalConfig {
 		
 		ConfigHelper.needsRestart = ConfigHelper.allNeedRestart = false;
 		
-		enableQButton = ConfigHelper.loadPropBool("Enable q Button", category, 
+		enableNButton = ConfigHelper.loadPropBool("Enable N Button", category,
 				"Set this to false to disable the q button in the main and pause menus.\n"
-				+ "If you disable this, you can still access the quark config from Mod Options > Quark > Config", true);
-		qButtonProp = ConfigHelper.lastProp;
+				+ "If you disable this, you can still access the neutronia config from Mod Options > Neutronia > Config", true);
+		NButtonProp = ConfigHelper.lastProp;
 		
-		qButtonOnRight = ConfigHelper.loadPropBool("q Button on the Right", category,
-				"Set this to true to move the q button to the right of the buttons, instead\n"
+		NButtonOnRight = ConfigHelper.loadPropBool("N Button on the Right", category,
+				"Set this to true to move the N button to the right of the buttons, instead\n"
 				+ "of to the left as it is by default.", false);
 		
 	}
 	
 	public static void changeConfig(String moduleName, String category, String key, String value, boolean saveToFile) {
-		if(!enableConfigCommand)
-			return;
-		
 		Configuration config = ModuleLoader.config;
 		String fullCategory = moduleName;
 		if(!category.equals("-"))
@@ -69,9 +50,8 @@ public final class GlobalConfig {
 		key = key.substring(2);
 		
 		if(config.hasKey(fullCategory, key)) {
-			boolean changed = false;
 
-			try {
+            try {
 				switch(type) {
 				case 'B': 
 					boolean b = Boolean.parseBoolean(value);
