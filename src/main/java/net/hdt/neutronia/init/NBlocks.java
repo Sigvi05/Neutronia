@@ -1,7 +1,7 @@
 package net.hdt.neutronia.init;
 
 import net.hdt.huskylib2.blocks.BlockModStairs;
-import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.neutronia.base.recipe.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.blocks.*;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;

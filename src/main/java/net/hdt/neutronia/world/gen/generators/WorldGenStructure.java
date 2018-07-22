@@ -1,18 +1,14 @@
 package net.hdt.neutronia.world.gen.generators;
 
+import net.hdt.neutronia.base.util.interfaces.IStructure;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +16,7 @@ import java.util.Random;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
-public class WorldGenStructure extends WorldGenerator {
-
-    private WorldServer worldServer = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(0);
-    private PlacementSettings settings = (new PlacementSettings()).setChunk(null).setIgnoreEntities(false).setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
+public class WorldGenStructure extends WorldGenerator implements IStructure {
 
     private static List<String> structureNames = new ArrayList<>();
 

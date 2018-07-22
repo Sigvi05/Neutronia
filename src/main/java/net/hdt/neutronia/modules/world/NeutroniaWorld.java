@@ -12,6 +12,7 @@ public class NeutroniaWorld extends Module {
     public void addFeatures() {
         registerFeature(new Corals());
         registerFeature(new NaturalAquamarine());
+//        registerFeature(new SeaPickles());
     }
 
     @Override

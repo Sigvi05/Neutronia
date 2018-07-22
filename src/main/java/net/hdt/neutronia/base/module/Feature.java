@@ -80,17 +80,17 @@ public class Feature implements Comparable<Feature> {
 	}
 
 	@SideOnly(Side.CLIENT)
-	void preInitClient(FMLPreInitializationEvent event) {
+	public void preInitClient(FMLPreInitializationEvent event) {
 		// NO-OP
 	}
 
 	@SideOnly(Side.CLIENT)
-	void initClient(FMLInitializationEvent event) {
+	public void initClient(FMLInitializationEvent event) {
 		// NO-OP
 	}
 
 	@SideOnly(Side.CLIENT)
-	void postInitClient(FMLPostInitializationEvent event) {
+	public void postInitClient(FMLPostInitializationEvent event) {
 		// NO-OP
 	}
 

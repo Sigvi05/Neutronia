@@ -1,4 +1,4 @@
-package net.hdt.neutronia.modules.decoration.blocks;
+package net.hdt.neutronia.modules.decoration.blocks.corals;
 
 import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.blocks.base.BlockModBush;

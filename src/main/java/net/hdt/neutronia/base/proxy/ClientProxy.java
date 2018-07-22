@@ -5,6 +5,7 @@ import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.base.util.ModelHandler;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
@@ -46,7 +47,8 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
-        MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
+        MinecraftForge.EVENT_BUS.register(ModelHandler.class);
+        MinecraftForge.EVENT_BUS.register(EntityEventHandler.class);
 
         overrideBlock("stone_granite", true);
         overrideBlock("stone_andesite", false);
@@ -84,7 +86,7 @@ public class ClientProxy extends CommonProxy {
         blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
         items.registerItemColorHandler(handlerItems, coloredStuff);
 
-        IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : new Color(255, 255, 255, 128).getRGB();
+        IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : new Color(255, 255, 255, 0.5F).getRGB();
         IItemColor handlerItemsTranslucent = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
         Block[][] toColorTranslucent = new Block[][] {
                 NBlocks.coloredSlimeBlock

@@ -1,8 +1,8 @@
 package net.hdt.neutronia.modules.decoration.features;
 
 import net.hdt.neutronia.base.module.Feature;
-import net.hdt.neutronia.modules.decoration.blocks.BlockWaterBlockBase;
-import net.hdt.neutronia.modules.decoration.blocks.BlockWaterPlantBase;
+import net.hdt.neutronia.modules.decoration.blocks.corals.BlockWaterBlockBase;
+import net.hdt.neutronia.modules.decoration.blocks.corals.BlockWaterPlantBase;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

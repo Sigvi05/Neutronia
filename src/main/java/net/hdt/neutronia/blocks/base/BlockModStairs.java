@@ -7,7 +7,7 @@ package net.hdt.neutronia.blocks.base;
 
 import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.neutronia.base.recipe.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;

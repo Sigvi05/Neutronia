@@ -3,7 +3,7 @@ package net.hdt.neutronia.blocks.base;
 import net.hdt.huskylib2.blocks.BlockMetaVariants;
 import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.neutronia.base.recipe.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.items.ItemModBlockColoredSlab;
 import net.minecraft.block.Block;

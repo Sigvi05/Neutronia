@@ -2,7 +2,7 @@ package net.hdt.neutronia.modules.building.features;
 
 import net.hdt.huskylib2.blocks.BlockModSlab;
 import net.hdt.huskylib2.blocks.BlockModStairs;
-import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.neutronia.base.recipe.RecipeHandler;
 import net.hdt.huskylib2.utils.ProxyRegistry;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.blocks.base.BlockModPillar;

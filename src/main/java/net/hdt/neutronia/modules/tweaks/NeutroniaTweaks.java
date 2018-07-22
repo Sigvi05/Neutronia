@@ -21,6 +21,10 @@ public class NeutroniaTweaks extends Module {
         registerFeature(new StackableItems());
         registerFeature(new StairsMakeMore());
         registerFeature(new TorchesBurnInFurnaces());
+        registerFeature(new BlastproofShulkerBoxes());
+        registerFeature(new ChickensShedFeathers());
+        registerFeature(new AxesBreakLeaves());
+        registerFeature(new ConvertClay());
     }
 
     @Override

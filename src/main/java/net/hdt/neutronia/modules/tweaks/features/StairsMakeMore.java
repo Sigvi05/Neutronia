@@ -10,8 +10,8 @@
  */
 package net.hdt.neutronia.modules.tweaks.features;
 
-import net.hdt.huskylib2.recipie.MultiRecipe;
-import net.hdt.huskylib2.recipie.RecipeHandler;
+import net.hdt.neutronia.base.recipe.MultiRecipe;
+import net.hdt.neutronia.base.recipe.RecipeHandler;
 import net.hdt.neutronia.base.module.Feature;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;

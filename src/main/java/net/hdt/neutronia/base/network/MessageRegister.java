@@ -8,6 +8,7 @@ public class MessageRegister {
 	public static void init() {
 		NetworkHandler.register(MessageChangeConfig.class, Side.CLIENT);
 		NetworkHandler.register(MessageUpdateAfk.class, Side.SERVER);
+		NetworkHandler.register(MessageFavoriteItem.class, Side.SERVER);
 	}
 	
 }

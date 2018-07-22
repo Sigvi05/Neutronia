@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Property;
 public final class GlobalConfig {
 
 	static boolean enableAntiOverlap;
+	public static boolean enableSeasonalFeatures;
 	public static boolean enableVariants;
 	public static boolean enableNButton;
 	public static boolean NButtonOnRight;
@@ -21,6 +22,11 @@ public final class GlobalConfig {
 				"Set this to false to remove the system that has features turn themselves off automatically when "
 				+ "other mods are present that add similar features."
 				+ "\nNote that you can force features to be enabled individually through their respective configs.", true);
+
+		enableSeasonalFeatures = ConfigHelper.loadPropBool("Enable Seasonal Features", category,
+				"Whether features that are based on the time of year should be enabled."
+						+ "\nAn example is chests turning to presents when it's Christmas."
+						+ "\nNote that this will not affect vanilla's own seasonal features.", true);
 
 		enableVariants = ConfigHelper.loadPropBool("Allow Block Variants", category, 
 				"Set this to false to disable stairs, slabs, and walls, mod-wide. As these blocks can use a lot of Block IDs,\n"
