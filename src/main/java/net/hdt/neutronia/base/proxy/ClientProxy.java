@@ -6,17 +6,8 @@ import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.module.ModuleLoader;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
-import net.hdt.neutronia.blocks.base.BlockColoredAlt;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
-import net.hdt.neutronia.init.NBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.Timer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -25,7 +16,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
-import java.awt.*;
 import java.util.List;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
@@ -61,7 +51,7 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
         super.init(event);
         
-        ItemColors items = Minecraft.getMinecraft().getItemColors();
+        /*ItemColors items = Minecraft.getMinecraft().getItemColors();
         BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
 
         IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
@@ -111,7 +101,7 @@ public class ClientProxy extends CommonProxy {
             System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerSlabBlocks, coloredSlabs);
-        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);
+        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);*/
 
         ModuleLoader.initClient(event);
 

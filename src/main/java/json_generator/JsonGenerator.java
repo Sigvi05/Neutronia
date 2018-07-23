@@ -1839,7 +1839,7 @@ public class JsonGenerator {
         try (BufferedWriter w = Files.newBufferedWriter(base.resolve(String.format("%s.lang", lang_file_name)), StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
             String name = unlocalized_name.replace("_", " ");
             unlocalized_name = WordUtils.capitalizeFully(name);
-            w.write("tile." + block_name + ".name=" + unlocalized_name + "\n");
+            w.write("tile." + modid + ":" + block_name + ".name=" + unlocalized_name + "\n");
         } catch (IOException ignored) {
             System.out.print(String.format("Error creating file %s.json" + "\n", lang_file_name));
         }

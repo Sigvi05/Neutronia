@@ -2,10 +2,7 @@ package net.hdt.neutronia.base.proxy;
 
 import net.hdt.neutronia.base.module.ModuleLoader;
 import net.hdt.neutronia.base.network.MessageRegister;
-import net.hdt.neutronia.init.NBiomes;
-import net.hdt.neutronia.init.NDimension;
 import net.hdt.neutronia.tileentity.TileEntityPot;
-import net.hdt.neutronia.world.gen.OreGen;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,14 +16,14 @@ import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
-        NBiomes.registerBiomes();
-        NDimension.registerDimensions();
+//        NBiomes.registerBiomes();
+//        NDimension.registerDimensions();
         ModuleLoader.preInit(event);
         MessageRegister.init();
     }
 
     public void init(FMLInitializationEvent event) {
-        GameRegistry.registerWorldGenerator(new OreGen(), 0);
+//        GameRegistry.registerWorldGenerator(new OreGen(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
         GameRegistry.registerTileEntity(TileEntityPot.class, new ResourceLocation(MOD_ID, "pot"));
         ModuleLoader.init(event);

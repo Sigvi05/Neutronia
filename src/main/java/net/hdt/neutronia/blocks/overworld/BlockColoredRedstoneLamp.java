@@ -1,6 +1,5 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
@@ -21,7 +20,7 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt {
     public EnumDyeColor color;
 
     public BlockColoredRedstoneLamp(EnumDyeColor color, boolean isOn) {
-        super(Material.REDSTONE_LIGHT, Reference.MOD_ID, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
+        super(Material.REDSTONE_LIGHT, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
         this.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);

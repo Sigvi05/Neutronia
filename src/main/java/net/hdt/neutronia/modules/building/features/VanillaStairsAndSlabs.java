@@ -1,13 +1,3 @@
-/**
- * This class was created by <Vazkii>. It's distributed as
- * part of the Quark Mod. Get the Source Code in github:
- * https://github.com/Vazkii/Quark
- *
- * Quark is Open Source and distributed under the
- * CC-BY-NC-SA 3.0 License: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB
- *
- * File Created @ [20/03/2016, 19:34:51 (GMT)]
- */
 package net.hdt.neutronia.modules.building.features;
 
 import net.hdt.huskylib2.block.BlockModSlab;
@@ -64,12 +54,11 @@ public class VanillaStairsAndSlabs extends Feature {
 
 		IBlockState state = block.getStateFromMeta(meta);
 		String stairsName = name + "_stairs";
-		String slabName = name + "_slab";
 
 		if(stairs)
 			BlockModStairs.initStairs(block, meta, new BlockNeutroniaStairs(stairsName, state));
 		if(slab)
-			BlockModSlab.initSlab(block, meta, new BlockVanillaSlab(slabName, state, false), new BlockVanillaSlab(slabName, state, true));
+			BlockModSlab.initSlab(block, meta, new BlockVanillaSlab(name, state, false), new BlockVanillaSlab(name, state, true));
 	}
 
 	@Override

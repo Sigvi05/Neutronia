@@ -3,13 +3,10 @@ package net.hdt.neutronia.base.client.gui;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.base.module.Module;
 import net.hdt.neutronia.base.module.ModuleLoader;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -111,14 +108,14 @@ public class GuiConfigModule extends GuiConfigBase {
 			drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
 		}
 
-        for(int i = 0; i < features.size(); i++) {
+        /*for(int i = 0; i < features.size(); i++) {
             if(features.size() < 2)
                 drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100, Color.WHITE.getRGB());
             else
                 drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100 * i, Color.WHITE.getRGB());
             mc.getTextureManager().bindTexture(new ResourceLocation("neutronia", "textures/config_gui/test_icon.png"));
             drawModalRectWithCustomSizedTexture(10, 10, 128, 128, 80, 80, 128, 128);
-        }
+        }*/
 		
 		if(mayRequireRestart) {
 			String s = I18n.translateToLocal("neutronia.config.needrestart");

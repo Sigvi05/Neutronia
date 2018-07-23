@@ -14,7 +14,7 @@ public class NeutroniaColorfulArmorPoints extends Module {
 
     @Override
     public ItemStack getIconStack() {
-        return new ItemStack(Items.LEATHER_CHESTPLATE);
+        return new ItemStack(Items.IRON_CHESTPLATE);
     }
 
 }

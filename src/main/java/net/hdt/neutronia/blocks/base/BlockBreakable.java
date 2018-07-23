@@ -11,15 +11,13 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
 public class BlockBreakable extends BlockColoredAlt
 {
     private final boolean ignoreSimilarity;
 
     protected BlockBreakable(Material materialIn, String name, EnumDyeColor color, boolean ignoreSimilarityIn)
     {
-        super(materialIn, MOD_ID, name, color);
+        super(materialIn, name, color);
         this.ignoreSimilarity = ignoreSimilarityIn;
     }
 

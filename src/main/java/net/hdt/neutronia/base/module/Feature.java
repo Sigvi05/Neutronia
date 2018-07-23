@@ -51,11 +51,11 @@ public class Feature implements Comparable<Feature> {
 		// NO-OP
 	}
 
-	void onEnabled() {
+	public void onEnabled() {
 		// NO-OP
 	}
 	
-	void onDisabled() {
+	public void onDisabled() {
 		// NO-OP
 	}
 	
@@ -106,15 +106,15 @@ public class Feature implements Comparable<Feature> {
 		return false;
 	}
 
-	boolean hasTerrainSubscriptions() {
+	public boolean hasTerrainSubscriptions() {
 		return false;
 	}
 
-	boolean hasOreGenSubscriptions() {
+	public boolean hasOreGenSubscriptions() {
 		return false;
 	}
 
-	String getFeatureDescription() {
+	public String getFeatureDescription() {
 		return "";
 	}
 	

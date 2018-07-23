@@ -13,39 +13,26 @@ import net.minecraft.util.ResourceLocation;
 
 public abstract class ItemModArmor extends ItemArmor implements IVariantHolder {
 
-    private final String bareName, modid;
+    private final String bareName;
 
-    public ItemModArmor(String name, String modid, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public ItemModArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
 
-        setTranslationKey(name, modid);
+        setTranslationKey(name);
         bareName = name;
-        this.modid = modid;
         ItemMod.variantHolders.add(this);
         setCreativeTab(CreativeTabs.COMBAT);
     }
 
-    public Item setTranslationKey(String name, String modid) {
+    public Item setTranslationKey(String name) {
         super.setTranslationKey(name);
-        setRegistryName(new ResourceLocation(modid, name));
+        setRegistryName(new ResourceLocation(getPrefix() + name));
         ProxyRegistry.register(this);
         return this;
     }
 
     @Override
-    public String getPrefix() {
-        return this.modid;
-    }
-
-    @Override
-    public String getModNamespace() {
-        return this.modid;
-    }
-
-    @Override
     public String getTranslationKey(ItemStack par1ItemStack) {
-        par1ItemStack.getItemDamage();
-
         return "item." + bareName;
     }
 

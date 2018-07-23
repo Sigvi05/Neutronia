@@ -23,12 +23,11 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 import static net.hdt.neutronia.init.NCreativeTabs.*;
 
+//@Mod.EventBusSubscriber(modid = MOD_ID)
 public class NBlocks {
 
     // Misc
@@ -36,28 +35,19 @@ public class NBlocks {
     private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
     private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
-    private static final Block[] naturalAquamarine = new Block[13];
     private static final Block[] aquamarine = new Block[6];
     public static Block seaPickle, turtleEgg;
     private static final Block driedKelpBlock;
     private static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
-    public static final ArrayList<Block> livingCorals = new ArrayList<>(EnumCoralColor.values().length);
-    private static final ArrayList<Block> deadCorals = new ArrayList<>(EnumCoralColor.values().length);
     private static final MRPillar prismarineColumn;
     public static final BlockPrismarineChiseled chiseledPrismarine;
     public static final BlockPrismarineChiseled chiseledPrismarineFilled;
     //Stone Blocks
     public static final Block[] newStoneVariants = new Block[26];
     //Wood Blocks
-    private static final Block[] strippedLogs = new Block[6], strippedBarkBlocks = new Block[6];
     public static final Block[] potterySpinner = new Block[6], potterySpinnerActive = new Block[6];
-    private static final Block[] barkBlocks = new Block[6], chiseledBarkBlocks = new Block[6], unnamedChiseledBarkBlock = new Block[6];
     public static final Block[] logPoles = new Block[6];
     public static final Block[] strippedLogPoles = new Block[6];
-    private static final Block[] plankPoles = new Block[6];
-    public static Block[] logDowels = new Block[6], strippedLogDowels = new Block[6], plankDowels = new Block[6];
-    public static Block[] plankButtons = new Block[6];
-    public static Block[] plankPressurePlates = new Block[6];
     //Blocks for the nether
     public static final Block[] glowingNetherBlocks = new Block[24];
     private static final Block[] soulStone = new Block[4];
@@ -158,12 +148,6 @@ public class NBlocks {
 //            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(WOOD_EXPANSION_TAB);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
         }*/
-//        addFenceAndFenceGate(BlockPlanks.EnumType.OAK, "oak_log", Blocks.LOG, Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
-//        addFenceAndFenceGate(BlockPlanks.EnumType.SPRUCE, "spruce_log", Blocks.LOG, 1, true, true, WOOD_EXPANSION_TAB);
-//        addFenceAndFenceGate(BlockPlanks.EnumType.BIRCH, "birch_log", Blocks.LOG, 2, true, true, WOOD_EXPANSION_TAB);
-//        addFenceAndFenceGate(BlockPlanks.EnumType.JUNGLE, "jungle_log", Blocks.LOG, 3, true, true, WOOD_EXPANSION_TAB);
-//        addFenceAndFenceGate(BlockPlanks.EnumType.ACACIA, "acacia_log", Blocks.LOG2, Material.WOOD, 0, true, true, WOOD_EXPANSION_TAB);
-//        addFenceAndFenceGate(BlockPlanks.EnumType.DARK_OAK, "dark_oak_log", Blocks.LOG2, 1, true, true, WOOD_EXPANSION_TAB);
 
         // Frosted versions of vanilla stones & dirt
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
@@ -177,7 +161,7 @@ public class NBlocks {
             add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), Material.ROCK, dyeColor.getMetadata(), true, false, OVERWORLD_EXPANSION_TAB);
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, Material.ROCK, dyeColor.getMetadata(), false, true, OVERWORLD_EXPANSION_TAB);
             coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
-            coloredPlanks[dyeColor.getMetadata()] = new BlockColoredAlt(MOD_ID, "colored_plank", dyeColor).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+            coloredPlanks[dyeColor.getMetadata()] = new BlockColoredAlt("colored_plank", dyeColor).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
 //            coloredPlanksStair[dyeColor.getMetadata()] = new BlockOverworldColoredStair("colored_plank_stair", coloredPlanksStair[dyeColor.getMetadata()].getDefaultState(), dyeColor, NCreativeTabs.WOOD_EXPANSION_TAB);
 //            BlockModColoredStairs.initStairs(coloredPlanks[dyeColor.getMetadata()], 0, (BlockStairs) coloredPlanksStair[dyeColor.getMetadata()]);
             coloredPlanksSlabSingle[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", dyeColor, Material.WOOD, false).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
@@ -274,13 +258,12 @@ public class NBlocks {
     public static void add(String name, Block block, Material material, int meta, boolean slabs, boolean stairs, CreativeTabs creativeTabs) {
         IBlockState state = block.getStateFromMeta(meta);
         String stairsName = name + "_stairs";
-        String slabName = name + "_slab";
 
         if (stairs) {
             BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(stairsName, state, creativeTabs));
         }
         if (slabs) {
-            BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, material, false, creativeTabs), new BlockOverworldSlabBase(slabName, material, true, creativeTabs));
+            BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(name, material, false, creativeTabs), new BlockOverworldSlabBase(name, material, true, creativeTabs));
         }
     }
 

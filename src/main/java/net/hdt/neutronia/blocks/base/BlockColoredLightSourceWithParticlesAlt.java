@@ -12,8 +12,8 @@ import java.util.Random;
 
 public class BlockColoredLightSourceWithParticlesAlt extends BlockColoredLightSourceAlt {
 
-    public BlockColoredLightSourceWithParticlesAlt(String modid, String name, EnumDyeColor color) {
-        super(modid, name, color);
+    public BlockColoredLightSourceWithParticlesAlt(String name, EnumDyeColor color) {
+        super(name, color);
     }
 
     @Override

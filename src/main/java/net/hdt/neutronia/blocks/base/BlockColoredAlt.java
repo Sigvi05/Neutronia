@@ -21,12 +21,12 @@ public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IN
 
     public final EnumDyeColor color;
 
-    public BlockColoredAlt(String modid, String name, EnumDyeColor color) {
+    public BlockColoredAlt(String name, EnumDyeColor color) {
         super(color.getName() + "_" + name, Material.ROCK);
         this.color = color;
     }
 
-    public BlockColoredAlt(Material material, String modid, String name, EnumDyeColor color) {
+    public BlockColoredAlt(Material material, String name, EnumDyeColor color) {
         super(color.getName() + "_" + name, material);
         this.color = color;
     }

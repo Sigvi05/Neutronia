@@ -15,18 +15,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
 public class BlockColoredFalling extends BlockColoredAlt {
     public static boolean fallInstantly;
 
     public BlockColoredFalling(EnumDyeColor color, String name) {
-        super(Material.SAND, MOD_ID, name, color);
+        super(Material.SAND, name, color);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     public BlockColoredFalling(Material materialIn, EnumDyeColor color, String name) {
-        super(materialIn, MOD_ID, name, color);
+        super(materialIn, name, color);
     }
 
     public static boolean canFallThrough(IBlockState state) {

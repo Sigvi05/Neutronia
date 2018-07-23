@@ -28,9 +28,9 @@ public class BlockModBush extends BlockBush implements INeutroniaBlock {
 
     public Block setTranslationKey(String name) {
         super.setTranslationKey(name);
-        this.setRegistryName(getPrefix(), name);
+        this.setRegistryName(getPrefix() + name);
         ProxyRegistry.register(this);
-        ProxyRegistry.register(createItemBlock(new ResourceLocation(getPrefix(), name)));
+        ProxyRegistry.register(createItemBlock(new ResourceLocation(getPrefix() + name)));
         return this;
     }
 

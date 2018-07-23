@@ -1,16 +1,15 @@
 package net.hdt.neutronia.items;
 
+import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class ItemArmorTestBase extends ItemModArmor {
+public class ItemArmorTestBase extends ItemModArmor implements INeutroniaItem {
 
     private boolean hasOverlay, hasColor;
 
     public ItemArmorTestBase(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
-        super(name, MOD_ID, materialIn, renderIndexIn, equipmentSlotIn);
+        super(name, materialIn, renderIndexIn, equipmentSlotIn);
     }
 
     @Override

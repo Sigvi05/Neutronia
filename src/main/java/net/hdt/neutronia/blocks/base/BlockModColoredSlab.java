@@ -139,10 +139,10 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
     }
 
     public void register() {
-        setRegistryName(getPrefix(), bareName);
+        setRegistryName(getPrefix() + bareName);
         ProxyRegistry.register(this);
         if (!isDouble())
-            ProxyRegistry.register(new ItemModBlockColoredSlab(this, new ResourceLocation(getPrefix(), bareName)));
+            ProxyRegistry.register(new ItemModBlockColoredSlab(this, new ResourceLocation(getPrefix() + bareName)));
     }
 
     @Override

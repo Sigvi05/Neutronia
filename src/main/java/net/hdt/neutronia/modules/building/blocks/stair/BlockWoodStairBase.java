@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.building.blocks.stair;
 
 import net.hdt.huskylib2.block.BlockModStairs;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -10,21 +10,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockWoodStairBase extends BlockModStairs {
+public class BlockWoodStairBase extends BlockModStairs implements INeutroniaBlock {
 
     public BlockWoodStairBase(String name, IBlockState state, CreativeTabs tab) {
         super(name + "_stair", state);
         setCreativeTab(tab);
-    }
-
-    @Override
-    public String getModNamespace() {
-        return Reference.MOD_ID;
-    }
-
-    @Override
-    public String getPrefix() {
-        return Reference.MOD_ID;
     }
 
     @Override

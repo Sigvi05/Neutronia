@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.huskylib2.block.BlockModStairs;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,21 +13,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockOverworldStairBase extends BlockModStairs {
+public class BlockOverworldStairBase extends BlockModStairs implements INeutroniaBlock {
 
     public BlockOverworldStairBase(String name, IBlockState state, CreativeTabs tab) {
         super(name, state);
         setCreativeTab(tab);
-    }
-
-    @Override
-    public String getModNamespace() {
-        return Reference.MOD_ID;
-    }
-
-    @Override
-    public String getPrefix() {
-        return Reference.MOD_ID;
     }
 
     @Override

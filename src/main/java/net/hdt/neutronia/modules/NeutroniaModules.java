@@ -4,6 +4,7 @@ import net.hdt.neutronia.modules.building.NeutroniaBuilding;
 import net.hdt.neutronia.modules.client.NeutroniaClient;
 import net.hdt.neutronia.modules.colorful_armor_points.NeutroniaColorfulArmorPoints;
 import net.hdt.neutronia.modules.decoration.NeutroniaDecoration;
+import net.hdt.neutronia.modules.experimental.NeutroniaExperimental;
 import net.hdt.neutronia.modules.management.NeutroniaManagement;
 import net.hdt.neutronia.modules.mars.NeutroniaMars;
 import net.hdt.neutronia.modules.moon.NeutroniaMoon;
@@ -28,6 +29,7 @@ public class NeutroniaModules {
         registerModule(NeutroniaManagement.class);
         registerModule(NeutroniaVanity.class);
         registerModule(NeutroniaClient.class);
+        registerModule(NeutroniaExperimental.class);
     }
 
 }

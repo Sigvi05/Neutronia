@@ -44,7 +44,7 @@ public class Module implements Comparable<Module> {
 		return Character.toUpperCase(withSpaces.charAt(0)) + withSpaces.substring(1);
 	}
 
-	private void registerFeature(Feature feature, String name) {
+	public void registerFeature(Feature feature, String name) {
 		registerFeature(feature, name, true);
 	}
 
@@ -177,7 +177,7 @@ public class Module implements Comparable<Module> {
 		return getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
 	}
 
-	String getModuleDescription() {
+	public String getModuleDescription() {
 		return "";
 	}
 	

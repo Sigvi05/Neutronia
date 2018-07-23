@@ -39,4 +39,5 @@ public class BlockOverworldBase extends BlockMod implements INeutroniaBlock {
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
+
 }

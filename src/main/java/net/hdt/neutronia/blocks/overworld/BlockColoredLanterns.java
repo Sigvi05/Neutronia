@@ -1,6 +1,5 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
@@ -23,7 +22,7 @@ public class BlockColoredLanterns extends BlockColoredAlt {
     public EnumDyeColor color = null;
 
     public BlockColoredLanterns(EnumDyeColor color, boolean isOn) {
-        super(Reference.MOD_ID, isOn ? "lit_lantern" : "lantern", color);
+        super(isOn ? "lit_lantern" : "lantern", color);
         this.color = color;
         this.isOn = isOn;
         setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
