@@ -1,6 +1,9 @@
 {
   "name": "Building",
-  "icon_stack": "minecraft:iron_pickaxe",
+  "icon_stack": {
+    "id": "minecraft:iron_pickaxe",
+    "metadata": 0
+  },
   "description": "This module is for features that extends building",
   "enabledByDefault": true,
   "enabled": true,
