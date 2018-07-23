@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.decoration.item;
 
 import net.hdt.huskylib2.interf.IExtraVariantHolder;
-import net.hdt.huskylib2.items.ItemMod;
+import net.hdt.huskylib2.item.ItemMod;
 import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.base.module.ModuleLoader;
 import net.hdt.neutronia.modules.decoration.entity.EntityGlassItemFrame;

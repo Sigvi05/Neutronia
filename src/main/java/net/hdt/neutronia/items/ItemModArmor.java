@@ -1,5 +1,8 @@
 package net.hdt.neutronia.items;
 
+import net.hdt.huskylib2.interf.IVariantHolder;
+import net.hdt.huskylib2.item.ItemMod;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -7,9 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.hdt.huskylib2.interf.IVariantHolder;
-import net.hdt.huskylib2.items.ItemMod;
-import net.hdt.huskylib2.utils.ProxyRegistry;
 
 public abstract class ItemModArmor extends ItemArmor implements IVariantHolder {
 

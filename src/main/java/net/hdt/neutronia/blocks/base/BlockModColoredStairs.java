@@ -7,9 +7,9 @@ package net.hdt.neutronia.blocks.base;
 
 import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;

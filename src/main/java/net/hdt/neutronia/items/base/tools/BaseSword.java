@@ -1,12 +1,12 @@
 package net.hdt.neutronia.items.base.tools;
 
-import net.hdt.neutronia.base.util.Reference;
-import net.hdt.huskylib2.items.ItemModSword;
+import net.hdt.huskylib2.item.ItemModSword;
+import net.hdt.neutronia.base.items.INeutroniaItem;
 
-public class BaseSword extends ItemModSword {
+public class BaseSword extends ItemModSword implements INeutroniaItem {
 
     public BaseSword(String name, ToolMaterial material) {
-        super(name, Reference.MOD_ID, material);
+        super(name, material);
     }
 
 }

@@ -1,9 +1,9 @@
 package net.hdt.neutronia.modules.building.features;
 
-import net.hdt.huskylib2.blocks.BlockModSlab;
-import net.hdt.huskylib2.blocks.BlockModStairs;
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.block.BlockModSlab;
+import net.hdt.huskylib2.block.BlockModStairs;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.blocks.base.BlockModPillar;
 import net.hdt.neutronia.blocks.base.BlockRodBase;
@@ -64,10 +64,10 @@ public class LogBlocks extends Feature {
         String slabName = name + "_slab";
 
         if (stairs) {
-            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(material, stairsName, state, creativeTabs));
+            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(stairsName, state, creativeTabs));
         }
         if (slabs) {
-            net.hdt.neutronia.blocks.base.BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, material, false, creativeTabs), new BlockOverworldSlabBase(slabName, material, true, creativeTabs));
+            BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, material, false, creativeTabs), new BlockOverworldSlabBase(slabName, material, true, creativeTabs));
         }
     }
 

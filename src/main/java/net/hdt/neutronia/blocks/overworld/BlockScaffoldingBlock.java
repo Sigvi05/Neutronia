@@ -1,21 +1,14 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-import java.util.Objects;
-
-import javax.annotation.Nullable;
-
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -28,12 +21,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockScaffoldingBlock extends BlockMod {
+import javax.annotation.Nullable;
+import java.util.Objects;
+
+public class BlockScaffoldingBlock extends BlockMod implements INeutroniaBlock {
 
 	private static AxisAlignedBB AABB = new AxisAlignedBB(1.0/16.0, 0, 1.0/16.0, 15.0/16.0, 1, 15.0/16.0);
 	
     public BlockScaffoldingBlock() {
-        super(Material.WOOD, MOD_ID, "scaffolding_block");
+        super("scaffolding_block", Material.WOOD);
         this.setCreativeTab(CreativeTabs.DECORATIONS);
         this.setHardness(0.2F);
         setHarvestLevel("axe", 0);

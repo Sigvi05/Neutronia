@@ -5,7 +5,6 @@ import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.module.ModuleLoader;
-import net.hdt.neutronia.base.util.ModelHandler;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
@@ -47,7 +46,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
-        MinecraftForge.EVENT_BUS.register(ModelHandler.class);
         MinecraftForge.EVENT_BUS.register(EntityEventHandler.class);
 
         overrideBlock("stone_granite", true);

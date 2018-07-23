@@ -2,7 +2,7 @@ package net.hdt.neutronia.items;
 
 import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.huskylib2.interf.IVariantHolder;
-import net.hdt.huskylib2.items.ItemMod;
+import net.hdt.huskylib2.item.ItemMod;
 import net.hdt.neutronia.blocks.base.BlockModColoredSlab;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.creativetab.CreativeTabs;

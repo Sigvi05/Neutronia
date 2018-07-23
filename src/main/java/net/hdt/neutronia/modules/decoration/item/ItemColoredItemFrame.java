@@ -2,7 +2,7 @@ package net.hdt.neutronia.modules.decoration.item;
 
 import net.hdt.huskylib2.interf.IExtraVariantHolder;
 import net.hdt.huskylib2.interf.IItemColorProvider;
-import net.hdt.huskylib2.items.ItemMod;
+import net.hdt.huskylib2.item.ItemMod;
 import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.base.module.ModuleLoader;
 import net.hdt.neutronia.modules.decoration.entity.EntityColoredItemFrame;
@@ -20,8 +20,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
 
 public class ItemColoredItemFrame extends ItemMod implements IItemColorProvider, IExtraVariantHolder, INeutroniaItem {
@@ -53,7 +51,7 @@ public class ItemColoredItemFrame extends ItemMod implements IItemColorProvider,
 	};
 
 	public ItemColoredItemFrame() {
-		super("colored_item_frame", MOD_ID, VARIANTS);
+		super("colored_item_frame", VARIANTS);
 		setCreativeTab(CreativeTabs.DECORATIONS);
 	}
 

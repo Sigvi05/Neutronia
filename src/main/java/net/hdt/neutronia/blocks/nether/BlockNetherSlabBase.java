@@ -1,8 +1,8 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.neutronia.blocks.base.BlockModSlab;
+import net.hdt.huskylib2.block.BlockModSlab;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -15,21 +15,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockNetherSlabBase extends BlockModSlab {
+public class BlockNetherSlabBase extends BlockModSlab implements INeutroniaBlock {
 
     public BlockNetherSlabBase(String name, boolean isDouble) {
-        super(name, Reference.MOD_ID, Material.ROCK, isDouble);
+        super(name, Material.ROCK, isDouble);
         setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
-    }
-
-    @Override
-    public String getModNamespace() {
-        return Reference.MOD_ID;
-    }
-
-    @Override
-    public String getPrefix() {
-        return Reference.MOD_ID;
     }
 
     @Override

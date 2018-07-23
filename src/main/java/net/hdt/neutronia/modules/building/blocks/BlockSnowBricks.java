@@ -1,6 +1,6 @@
 package net.hdt.neutronia.modules.building.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -13,12 +13,10 @@ import net.minecraft.world.IBlockAccess;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
 public class BlockSnowBricks extends BlockMod implements INeutroniaBlock {
 
 	public BlockSnowBricks() {
-		super(Material.CRAFTED_SNOW, MOD_ID, "snow_bricks");
+		super("snow_bricks", Material.CRAFTED_SNOW);
 		setHardness(0.2F);
 		setSoundType(SoundType.SNOW);
 		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);

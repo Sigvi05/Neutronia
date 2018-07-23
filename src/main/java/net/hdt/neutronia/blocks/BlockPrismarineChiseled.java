@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.material.Material;
@@ -14,14 +15,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockPrismarineChiseled extends BlockMod {
+public class BlockPrismarineChiseled extends BlockMod implements INeutroniaBlock {
 
     private boolean filled;
 
     public BlockPrismarineChiseled(String name, boolean filled) {
-        super(Material.ROCK, MOD_ID, name);
+        super(name, Material.ROCK);
         this.filled = filled;
         setCreativeTab(filled ? null : NCreativeTabs.OCEAN_EXPANSION_TAB);
     }

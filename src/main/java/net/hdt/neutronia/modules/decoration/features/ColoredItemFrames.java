@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.decoration.features;
 
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.NeutroniaMain;
 import net.hdt.neutronia.base.lib.LibEntityIDs;
 import net.hdt.neutronia.base.lib.LibMisc;

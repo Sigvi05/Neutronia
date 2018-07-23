@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
@@ -11,14 +12,12 @@ import net.minecraft.world.IBlockAccess;
 
 import javax.annotation.Nonnull;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
 /**
  * Creates a block with textures that connect to other blocks
  * <p>
  * Based off a tutorial by Darkhax, used under the Creative Commons Zero 1.0 Universal license
  */
-public class BlockConnectedTexture extends BlockMod {
+public class BlockConnectedTexture extends BlockMod implements INeutroniaBlock {
 
     // These are the properties used for determining whether or not a side is connected. They
     // do NOT take up block IDs, they are unlisted properties
@@ -31,7 +30,7 @@ public class BlockConnectedTexture extends BlockMod {
 
     public BlockConnectedTexture(Material material, String name) {
 
-        super(material, MOD_ID, name);
+        super(name, material);
         // By default none of the sides are connected
         this.setDefaultState(this.blockState.getBaseState()
                 .withProperty(CONNECTED_DOWN, Boolean.FALSE)

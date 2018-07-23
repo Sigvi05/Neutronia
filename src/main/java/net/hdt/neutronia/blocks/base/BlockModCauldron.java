@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
@@ -33,9 +34,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockModCauldron extends BlockMod {
+public class BlockModCauldron extends BlockMod implements INeutroniaBlock {
     public static final PropertyInteger LEVEL = PropertyInteger.create("level", 0, 3);
     protected static final AxisAlignedBB AABB_LEGS = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.3125D, 1.0D);
     protected static final AxisAlignedBB AABB_WALL_NORTH = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.125D);
@@ -44,7 +43,7 @@ public class BlockModCauldron extends BlockMod {
     protected static final AxisAlignedBB AABB_WALL_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.125D, 1.0D, 1.0D);
 
     public BlockModCauldron(String name, CreativeTabs creativeTabs) {
-        super(Material.IRON, MOD_ID, name);
+        super(name, Material.IRON);
         setCreativeTab(creativeTabs);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 0));
     }

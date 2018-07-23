@@ -1,5 +1,7 @@
 package net.hdt.neutronia.items;
 
+import net.hdt.huskylib2.item.ItemMod;
+import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
@@ -17,13 +19,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.hdt.huskylib2.items.ItemMod;
 
 import javax.annotation.Nullable;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
-public class ItemWingBase extends ItemMod
+public class ItemWingBase extends ItemMod implements INeutroniaItem
 {
     public ItemWingBase(String name)
     {

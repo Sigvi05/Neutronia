@@ -1,12 +1,13 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.blocks.base.BlockFacing;
+import net.hdt.huskylib2.block.BlockFacing;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 
-public class BlockOverworldFacing extends BlockFacing {
+public class BlockOverworldFacing extends BlockFacing implements INeutroniaBlock {
 
-    public BlockOverworldFacing(Material materialIn, String modid, String name, String... variants) {
-        super(materialIn, modid, name, variants);
+    public BlockOverworldFacing(Material materialIn, String name, String... variants) {
+        super(name, materialIn, variants);
     }
 
 }

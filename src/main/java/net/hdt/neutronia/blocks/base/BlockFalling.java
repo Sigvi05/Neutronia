@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -16,19 +17,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockFalling extends BlockMod {
+public class BlockFalling extends BlockMod implements INeutroniaBlock {
     public static boolean fallInstantly;
 
     public BlockFalling(String name, CreativeTabs creativeTabs) {
-        super(Material.SAND, MOD_ID, name);
+        super(name, Material.SAND);
         setSoundType(SoundType.SAND);
-        this.setCreativeTab(creativeTabs);
+        this.setCreativeTabs(creativeTabs);
     }
 
     public BlockFalling(Material materialIn, String name) {
-        super(materialIn, MOD_ID, name);
+        super(name, materialIn);
     }
 
     public static boolean canFallThrough(IBlockState state) {

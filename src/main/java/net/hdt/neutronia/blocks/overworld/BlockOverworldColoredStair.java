@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.blocks.base.BlockModColoredStairs;
 import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.material.Material;
@@ -14,7 +15,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockOverworldColoredStair extends BlockModColoredStairs {
+public class BlockOverworldColoredStair extends BlockModColoredStairs implements INeutroniaBlock {
 
     public BlockOverworldColoredStair(String name, IBlockState state, EnumDyeColor color, CreativeTabs tab) {
         super(name, state, color);

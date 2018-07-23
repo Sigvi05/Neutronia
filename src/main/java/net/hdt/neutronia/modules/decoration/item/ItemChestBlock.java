@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.decoration.item;
 
 import net.hdt.huskylib2.interf.IExtraVariantHolder;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
+import net.hdt.huskylib2.item.ItemModBlock;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.modules.decoration.blocks.BlockCustomChest;
 import net.hdt.neutronia.modules.decoration.features.VariedChests;

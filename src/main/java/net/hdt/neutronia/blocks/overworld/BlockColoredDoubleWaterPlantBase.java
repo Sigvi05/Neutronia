@@ -3,7 +3,6 @@ package net.hdt.neutronia.blocks.overworld;
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.properties.EnumCoralColor;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -40,7 +39,7 @@ public class BlockColoredDoubleWaterPlantBase extends BlockModBush {
     public static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
     public BlockColoredDoubleWaterPlantBase(EnumCoralColor coralColor, String name) {
-        super(Material.WATER, coralColor + "_" + name, Reference.MOD_ID);
+        super(coralColor + "_" + name, Material.WATER);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockColoredDoubleWaterPlantBase.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
         setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
     }

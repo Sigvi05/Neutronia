@@ -1,10 +1,10 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.blocks.BlockMetaVariants;
+import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.huskylib2.interf.IBlockColorProvider;
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.items.ItemModBlockColoredSlab;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -41,18 +41,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock, IBlockColorProvider {
+public abstract class BlockModColoredSlab extends BlockSlab implements INeutroniaBlock, IBlockColorProvider {
 
     public static final PropertyEnum prop = PropertyEnum.create("prop", DummyEnum.class);
     public static HashMap<BlockModColoredSlab, BlockModColoredSlab> halfSlabs = new HashMap<>();
     public static HashMap<BlockModColoredSlab, BlockModColoredSlab> fullSlabs = new HashMap<>();
     static boolean tempDoubleSlab;
     private final String[] variants;
-    private final String bareName, modid;
+    private final String bareName;
     boolean doubleSlab;
     public final EnumDyeColor color;
 
-    public BlockModColoredSlab(String name, String modid, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
+    public BlockModColoredSlab(String name, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
         super(hacky(materialIn, doubleSlab));
 
         this.doubleSlab = doubleSlab;
@@ -61,7 +61,6 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
 
         variants = new String[]{name};
         bareName = name;
-        this.modid = modid;
         this.color = color;
 
         setTranslationKey(name);
@@ -140,10 +139,10 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
     }
 
     public void register() {
-        setRegistryName(modid, bareName);
+        setRegistryName(getPrefix(), bareName);
         ProxyRegistry.register(this);
         if (!isDouble())
-            ProxyRegistry.register(new ItemModBlockColoredSlab(this, new ResourceLocation(modid, bareName)));
+            ProxyRegistry.register(new ItemModBlockColoredSlab(this, new ResourceLocation(getPrefix(), bareName)));
     }
 
     @Override
@@ -340,11 +339,6 @@ public abstract class BlockModColoredSlab extends BlockSlab implements IModBlock
             default:
                 return TextFormatting.WHITE;
         }
-    }
-
-    @Override
-    public String getModNamespace() {
-        return modid;
     }
 
     @Override

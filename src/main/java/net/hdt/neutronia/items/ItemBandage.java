@@ -1,9 +1,10 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.huskylib2.items.ItemMod;
-import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.huskylib2.item.ItemMod;
+import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.base.util.ColorUtils;
+import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemBandage extends ItemMod {
+public class ItemBandage extends ItemMod implements INeutroniaItem {
 
     public ItemBandage() {
         super("bandage", Reference.MOD_ID);

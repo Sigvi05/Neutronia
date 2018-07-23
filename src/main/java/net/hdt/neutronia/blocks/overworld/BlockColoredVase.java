@@ -1,12 +1,12 @@
 package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.huskylib2.interf.IBlockColorProvider;
-import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.huskylib2.interf.IRecipeGrouped;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
-import net.hdt.neutronia.init.NCreativeTabs;
+import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.block.SoundType;
@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-public class BlockColoredVase extends BlockFlowerPot implements IModBlock, IBlockColorProvider, IRecipeGrouped {
+public class BlockColoredVase extends BlockFlowerPot implements INeutroniaBlock, IBlockColorProvider, IRecipeGrouped {
 
     private final String[] variants;
     private final String bareName;

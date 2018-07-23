@@ -1,17 +1,17 @@
 package net.hdt.neutronia.modules.building.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 
-public class BlockWoodBase extends BlockMod {
+public class BlockWoodBase extends BlockMod implements INeutroniaBlock {
 
     public BlockWoodBase(Material material, String name, boolean flammable) {
-        super(material, Reference.MOD_ID, name);
+        super(name, material);
         setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
         if (flammable) {
             addFlammable(this);

@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockRodBase extends BlockDirectional {
+public class BlockRodBase extends BlockDirectional implements INeutroniaBlock {
 
     protected static final AxisAlignedBB BB_AXIS_Y = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D);
     protected static final AxisAlignedBB BB_AXIS_Z = new AxisAlignedBB(0.375D, 0.375D, 0.0D, 0.625D, 0.625D, 1.0D);

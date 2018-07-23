@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -13,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockBasePressurePlateWeighted extends BlockBasePressurePlate {
+public class BlockBasePressurePlateWeighted extends BlockBasePressurePlate implements INeutroniaBlock {
     public static final PropertyInteger POWER = PropertyInteger.create("power", 0, 15);
     private final int maxWeight;
 

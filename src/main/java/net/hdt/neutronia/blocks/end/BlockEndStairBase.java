@@ -1,8 +1,8 @@
 package net.hdt.neutronia.blocks.end;
 
-import net.hdt.huskylib2.blocks.BlockModStairs;
+import net.hdt.huskylib2.block.BlockModStairs;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
@@ -13,21 +13,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockEndStairBase extends BlockModStairs {
+public class BlockEndStairBase extends BlockModStairs implements INeutroniaBlock {
 
     public BlockEndStairBase(String name, IBlockState state) {
         super(name, state);
         setCreativeTab(NCreativeTabs.END_EXPANSION_TAB);
-    }
-
-    @Override
-    public String getModNamespace() {
-        return Reference.MOD_ID;
-    }
-
-    @Override
-    public String getPrefix() {
-        return Reference.MOD_ID;
     }
 
     @Override

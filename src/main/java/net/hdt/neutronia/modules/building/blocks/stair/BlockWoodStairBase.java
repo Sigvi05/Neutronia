@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.building.blocks.stair;
 
+import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.neutronia.base.util.Reference;
-import net.hdt.neutronia.blocks.base.BlockModStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,7 +13,7 @@ import net.minecraft.world.IBlockAccess;
 public class BlockWoodStairBase extends BlockModStairs {
 
     public BlockWoodStairBase(String name, IBlockState state, CreativeTabs tab) {
-        super(Material.WOOD, name + "_stair", state);
+        super(name + "_stair", state);
         setCreativeTab(tab);
     }
 

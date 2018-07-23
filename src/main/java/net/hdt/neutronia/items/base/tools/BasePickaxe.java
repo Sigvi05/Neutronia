@@ -1,12 +1,12 @@
 package net.hdt.neutronia.items.base.tools;
 
-import net.hdt.neutronia.base.util.Reference;
-import net.hdt.huskylib2.items.ItemModPickaxe;
+import net.hdt.huskylib2.item.ItemModPickaxe;
+import net.hdt.neutronia.base.items.INeutroniaItem;
 
-public class BasePickaxe extends ItemModPickaxe {
+public class BasePickaxe extends ItemModPickaxe implements INeutroniaItem {
 
     public BasePickaxe(String name, ToolMaterial material) {
-        super(material, name, Reference.MOD_ID);
+        super(material, name);
     }
 
 }

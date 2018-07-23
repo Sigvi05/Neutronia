@@ -1,10 +1,10 @@
 package net.hdt.neutronia.modules.decoration.features;
 
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.recipe.BlacklistOreIngredient;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaTrapdoor;
 import net.hdt.neutronia.base.module.Feature;
-import net.hdt.neutronia.base.recipe.BlacklistOreIngredient;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;

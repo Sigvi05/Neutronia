@@ -1,8 +1,8 @@
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
@@ -23,8 +23,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
 public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
 
 	public static final PropertyBool UP = PropertyBool.create("up");
@@ -37,7 +35,7 @@ public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
 	protected static final AxisAlignedBB[] CLIP_AABB_BY_INDEX = new AxisAlignedBB[] {AABB_BY_INDEX[0].setMaxY(1.5D), AABB_BY_INDEX[1].setMaxY(1.5D), AABB_BY_INDEX[2].setMaxY(1.5D), AABB_BY_INDEX[3].setMaxY(1.5D), AABB_BY_INDEX[4].setMaxY(1.5D), AABB_BY_INDEX[5].setMaxY(1.5D), AABB_BY_INDEX[6].setMaxY(1.5D), AABB_BY_INDEX[7].setMaxY(1.5D), AABB_BY_INDEX[8].setMaxY(1.5D), AABB_BY_INDEX[9].setMaxY(1.5D), AABB_BY_INDEX[10].setMaxY(1.5D), AABB_BY_INDEX[11].setMaxY(1.5D), AABB_BY_INDEX[12].setMaxY(1.5D), AABB_BY_INDEX[13].setMaxY(1.5D), AABB_BY_INDEX[14].setMaxY(1.5D), AABB_BY_INDEX[15].setMaxY(1.5D)};
 
 	public BlockNeutroniaWall(String name, IBlockState state) {
-		super(state.getMaterial(), MOD_ID, name);
+		super(name, state.getMaterial());
 
 		setHardness(state.getBlockHardness(null, new BlockPos(0, 0, 0)));
 		setResistance(state.getBlock().getExplosionResistance(null) * 5F / 3F);

@@ -1,8 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -15,10 +14,10 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockCustomBookshelf extends BlockMod implements IModBlock {
+public class BlockCustomBookshelf extends BlockMod implements INeutroniaBlock {
 
     public BlockCustomBookshelf(String name) {
-        super(Material.WOOD, Reference.MOD_ID, name + "_bookshelf");
+        super(name + "_bookshelf", Material.WOOD);
         setHardness(1.5F);
         setSoundType(SoundType.WOOD);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);

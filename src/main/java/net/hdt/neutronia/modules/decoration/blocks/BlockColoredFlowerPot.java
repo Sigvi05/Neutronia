@@ -2,8 +2,8 @@ package net.hdt.neutronia.modules.decoration.blocks;
 
 import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.interf.IRecipeGrouped;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;

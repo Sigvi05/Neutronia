@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.blocks.base.BlockBasePressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -15,7 +16,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class BlockOverworldPressurePlate extends BlockBasePressurePlate {
+public class BlockOverworldPressurePlate extends BlockBasePressurePlate implements INeutroniaBlock {
 
     public static final PropertyBool POWERED = PropertyBool.create("powered");
     private final BlockOverworldPressurePlate.Sensitivity sensitivity;

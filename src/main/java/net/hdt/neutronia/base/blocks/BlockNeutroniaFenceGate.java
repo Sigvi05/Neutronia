@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
@@ -9,6 +9,8 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroniaBlock {
@@ -50,6 +52,11 @@ public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroni
 	@Override
 	public ItemMeshDefinition getCustomMeshDefinition() {
 		return null;
+	}
+
+	@Override
+	public EnumRarity getBlockRarity(ItemStack stack) {
+		return EnumRarity.COMMON;
 	}
 
 	@Override

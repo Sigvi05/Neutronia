@@ -1,11 +1,11 @@
 package net.hdt.neutronia.modules.decoration.features;
 
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.recipe.BlacklistOreIngredient;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.handler.ModIntegrationHandler;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.base.module.Feature;
-import net.hdt.neutronia.base.recipe.BlacklistOreIngredient;
 import net.hdt.neutronia.modules.decoration.blocks.BlockCustomChest;
 import net.hdt.neutronia.modules.decoration.client.render.RenderTileCustomChest;
 import net.hdt.neutronia.modules.decoration.tile.TileCustomChest;

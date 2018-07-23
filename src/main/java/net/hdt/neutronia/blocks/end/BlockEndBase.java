@@ -1,14 +1,15 @@
 package net.hdt.neutronia.blocks.end;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.material.Material;
 
-public class BlockEndBase extends BlockMod {
+public class BlockEndBase extends BlockMod implements INeutroniaBlock {
 
     public BlockEndBase(Material material, String name) {
-        super(material, Reference.MOD_ID, name);
-//        setCreativeTab(NeutroniaMain.END_EXPANSION_TAB);
+        super(name, material);
+        setCreativeTabs(NCreativeTabs.END_EXPANSION_TAB);
         setHardness(3.0F);
         setResistance(15.0F);
     }

@@ -1,6 +1,5 @@
 package net.hdt.neutronia.modules.world.blocks;
 
-import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
@@ -31,7 +30,7 @@ public class BlockWaterPlantBase extends BlockModBush {
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
     public BlockWaterPlantBase(String name) {
-        super(Material.WATER, name, Reference.MOD_ID);
+        super(name, Material.WATER);
         this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
     }

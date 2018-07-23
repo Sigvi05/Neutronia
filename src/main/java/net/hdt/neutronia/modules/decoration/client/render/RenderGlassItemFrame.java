@@ -1,6 +1,6 @@
 package net.hdt.neutronia.modules.decoration.client.render;
 
-import net.hdt.neutronia.base.util.ModelHandler;
+import net.hdt.huskylib2.util.ModelHandler;
 import net.hdt.neutronia.modules.decoration.entity.EntityFlatItemFrame;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.modules.decoration.features;
 
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.module.Feature;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

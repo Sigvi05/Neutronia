@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.tileentity.TileEntityPot;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
@@ -26,14 +27,12 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockPot extends BlockMod {
+public class BlockPot extends BlockMod implements INeutroniaBlock {
 
     public static final PropertyInteger PATTERN = PropertyInteger.create("pattern", 0, 13);
 
     public BlockPot() {
-        super(Material.ROCK, MOD_ID, "pot");
+        super("pot", Material.ROCK);
         setHardness(2F);
         setResistance(5F);
     }

@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.blocks.base.BlockHorizontal;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
@@ -14,12 +15,10 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockRotatableDecoration extends BlockHorizontal {
+public class BlockRotatableDecoration extends BlockHorizontal implements INeutroniaBlock {
 
     public BlockRotatableDecoration(String name) {
-        super(Material.ROCK, MOD_ID, name);
+        super(Material.ROCK, name);
         this.setHardness(1.4F);
         this.setSoundType(SoundType.STONE);
 
@@ -76,7 +75,7 @@ public class BlockRotatableDecoration extends BlockHorizontal {
     }
 
     /**
-     * @deprecated call via {@link IBlockState#getMobilityFlag()} whenever possible. Implementing/overriding is fine.
+     * @deprecated call via  whenever possible. Implementing/overriding is fine.
      */
     public EnumPushReaction getMobilityFlag(IBlockState state) {
         return EnumPushReaction.PUSH_ONLY;

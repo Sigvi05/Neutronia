@@ -1,18 +1,18 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
 
-public class BlockOverworldBase extends BlockMod {
+public class BlockOverworldBase extends BlockMod implements INeutroniaBlock {
 
     public BlockOverworldBase(Material material, String name, boolean flammable) {
-        super(material, Reference.MOD_ID, name);
+        super(name, material);
         setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
         if (flammable) {
             addFlammable(this);

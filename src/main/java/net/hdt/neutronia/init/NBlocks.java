@@ -1,17 +1,18 @@
 package net.hdt.neutronia.init;
 
-import net.hdt.huskylib2.blocks.BlockModStairs;
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.block.BlockModSlab;
+import net.hdt.huskylib2.block.BlockModStairs;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.blocks.*;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.*;
-import net.hdt.neutronia.blocks.base.BlockFalling;
 import net.hdt.neutronia.blocks.nether.*;
 import net.hdt.neutronia.blocks.overworld.*;
-import net.hdt.neutronia.blocks.overworld.BlockColoredSlime;
 import net.hdt.neutronia.properties.*;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSandStone;
+import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,8 +26,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static net.hdt.neutronia.init.NCreativeTabs.*;
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
+import static net.hdt.neutronia.init.NCreativeTabs.*;
 
 public class NBlocks {
 
@@ -179,8 +180,8 @@ public class NBlocks {
             coloredPlanks[dyeColor.getMetadata()] = new BlockColoredAlt(MOD_ID, "colored_plank", dyeColor).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
 //            coloredPlanksStair[dyeColor.getMetadata()] = new BlockOverworldColoredStair("colored_plank_stair", coloredPlanksStair[dyeColor.getMetadata()].getDefaultState(), dyeColor, NCreativeTabs.WOOD_EXPANSION_TAB);
 //            BlockModColoredStairs.initStairs(coloredPlanks[dyeColor.getMetadata()], 0, (BlockStairs) coloredPlanksStair[dyeColor.getMetadata()]);
-            coloredPlanksSlabSingle[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", MOD_ID, dyeColor, Material.WOOD, false).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
-            coloredPlanksSlabDouble[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", MOD_ID, dyeColor, Material.WOOD, true).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+            coloredPlanksSlabSingle[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", dyeColor, Material.WOOD, false).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+            coloredPlanksSlabDouble[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", dyeColor, Material.WOOD, true).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
             BlockModColoredSlab.initSlab(coloredPlanks[dyeColor.getMetadata()], 0, (BlockModColoredSlab) coloredPlanksSlabSingle[dyeColor.getMetadata()], (BlockModColoredSlab) coloredPlanksSlabDouble[dyeColor.getMetadata()]);
             coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
             coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
@@ -276,7 +277,7 @@ public class NBlocks {
         String slabName = name + "_slab";
 
         if (stairs) {
-            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(material, stairsName, state, creativeTabs));
+            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(stairsName, state, creativeTabs));
         }
         if (slabs) {
             BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, material, false, creativeTabs), new BlockOverworldSlabBase(slabName, material, true, creativeTabs));
@@ -295,17 +296,6 @@ public class NBlocks {
         IBlockState state = block.getStateFromMeta(meta);
         String wallName = name + "_wall";
         BlockModWall.initWall(block, meta, supplier.supply(wallName, state).setCreativeTab(creativeTab));
-    }
-
-    public static void addFenceAndFenceGate(BlockPlanks.EnumType woodType, String name, Block block, int meta, boolean fence, boolean gate, CreativeTabs creativeTabs) {
-        IBlockState state = block.getStateFromMeta(meta);
-
-        if (fence) {
-            new BlockModFence(block.getMaterial(state), MOD_ID, name + "_fence").setCreativeTab(creativeTabs);
-        }
-        if (gate) {
-            new BlockModFenceGate(woodType, name + "_fence_gate").setCreativeTab(creativeTabs);
-        }
     }
 
     public interface WallSupplier {

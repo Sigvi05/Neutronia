@@ -1,9 +1,9 @@
 package net.hdt.neutronia.modules.building.features;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.huskylib2.blocks.BlockModSlab;
-import net.hdt.huskylib2.blocks.BlockModStairs;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.huskylib2.block.BlockModSlab;
+import net.hdt.huskylib2.block.BlockModStairs;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.handler.ModIntegrationHandler;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.base.module.GlobalConfig;

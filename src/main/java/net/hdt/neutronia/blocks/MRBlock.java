@@ -1,17 +1,16 @@
 package net.hdt.neutronia.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class MRBlock extends BlockMod {
+public class MRBlock extends BlockMod implements INeutroniaBlock {
 
     protected String name;
 
     public MRBlock(Material material, String name, CreativeTabs creativetab, float hardness, float resistance) {
-        super(material, MOD_ID, name);
+        super(name, material);
         setCreativeTab(creativetab);
         setHardness(hardness);
         setResistance(resistance);

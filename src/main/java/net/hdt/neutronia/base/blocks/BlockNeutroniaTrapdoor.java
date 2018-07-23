@@ -1,17 +1,7 @@
-/**
- * This class was created by <Vazkii>. It's distributed as
- * part of the Quark Mod. Get the Source Code in github:
- * https://github.com/Vazkii/Quark
- *
- * Quark is Open Source and distributed under the
- * CC-BY-NC-SA 3.0 License: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB
- *
- * File Created @ [24/03/2016, 16:54:45 (GMT)]
- */
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;

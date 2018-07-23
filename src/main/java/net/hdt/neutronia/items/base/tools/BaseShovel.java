@@ -1,12 +1,12 @@
 package net.hdt.neutronia.items.base.tools;
 
-import net.hdt.neutronia.base.util.Reference;
-import net.hdt.huskylib2.items.ItemModSpade;
+import net.hdt.huskylib2.item.ItemModSpade;
+import net.hdt.neutronia.base.items.INeutroniaItem;
 
-public class BaseShovel extends ItemModSpade {
+public class BaseShovel extends ItemModSpade implements INeutroniaItem {
 
     public BaseShovel(String name, ToolMaterial material) {
-        super(material, name, Reference.MOD_ID);
+        super(material, name);
     }
 
 }

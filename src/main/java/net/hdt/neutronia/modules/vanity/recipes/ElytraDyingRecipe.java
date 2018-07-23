@@ -1,6 +1,6 @@
 package net.hdt.neutronia.modules.vanity.recipes;
 
-import net.hdt.huskylib2.recipie.ModRecipe;
+import net.hdt.huskylib2.recipe.ModRecipe;
 import net.hdt.neutronia.modules.tweaks.util.ItemNBTHelper;
 import net.hdt.neutronia.modules.vanity.feature.DyableElytra;
 import net.minecraft.init.Items;

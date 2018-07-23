@@ -1,12 +1,14 @@
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class BlockNeutroniaBush extends BlockBush implements INeutroniaBlock {
@@ -28,6 +30,11 @@ public class BlockNeutroniaBush extends BlockBush implements INeutroniaBlock {
 		ProxyRegistry.register(this);
 		ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
 		return this;
+	}
+
+	@Override
+	public EnumRarity getBlockRarity(ItemStack stack) {
+		return EnumRarity.COMMON;
 	}
 
 	@Override

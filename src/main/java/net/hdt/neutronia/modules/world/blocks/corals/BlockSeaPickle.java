@@ -15,8 +15,6 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
 public class BlockSeaPickle extends BlockModBush implements IGrowable
 {
     public static final PropertyInteger field_204902_a = BlockStateProperties.field_208135_aj;
@@ -24,7 +22,7 @@ public class BlockSeaPickle extends BlockModBush implements IGrowable
 
     public BlockSeaPickle()
     {
-        super(Material.CORAL,"sea_pickle", MOD_ID);
+        super("sea_pickle", Material.CORAL);
         this.setDefaultState((this.blockState.getBaseState()).withProperty(field_204902_a, 1).withProperty(field_204903_b, Boolean.TRUE));
     }
 

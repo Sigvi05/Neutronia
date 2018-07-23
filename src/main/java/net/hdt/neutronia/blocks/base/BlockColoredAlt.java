@@ -1,8 +1,8 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.huskylib2.interf.IBlockColorProvider;
-import net.hdt.huskylib2.interf.IModBlock;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -17,21 +17,18 @@ import org.apache.commons.lang3.text.WordUtils;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IModBlock {
+public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, INeutroniaBlock {
 
     public final EnumDyeColor color;
-    private String modid;
 
     public BlockColoredAlt(String modid, String name, EnumDyeColor color) {
-        super(Material.ROCK, modid, color.getName() + "_" + name);
+        super(color.getName() + "_" + name, Material.ROCK);
         this.color = color;
-        this.modid = modid;
     }
 
     public BlockColoredAlt(Material material, String modid, String name, EnumDyeColor color) {
-        super(material, modid, color.getName() + "_" + name);
+        super(color.getName() + "_" + name, material);
         this.color = color;
-        this.modid = modid;
     }
 
     private static TextFormatting getFromColor(EnumDyeColor color) {
@@ -69,11 +66,6 @@ public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IM
             default:
                 return TextFormatting.WHITE;
         }
-    }
-
-    @Override
-    public String getModNamespace() {
-        return modid;
     }
 
     @Override

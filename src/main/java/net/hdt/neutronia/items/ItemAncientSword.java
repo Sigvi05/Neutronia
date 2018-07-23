@@ -1,8 +1,9 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.huskylib2.items.ItemModSword;
-import net.hdt.neutronia.init.NCreativeTabs;
+import net.hdt.huskylib2.item.ItemModSword;
+import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.base.util.ColorUtils;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,14 +14,12 @@ import net.minecraftforge.common.util.EnumHelper;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class ItemAncientSword extends ItemModSword {
+public class ItemAncientSword extends ItemModSword implements INeutroniaItem {
 
     private static Item.ToolMaterial ancientToolMaterial = EnumHelper.addToolMaterial("egyptian", 1, 131, 8.0F, 3.5F, 22);
 
     public ItemAncientSword() {
-        super("khopesh", MOD_ID, ancientToolMaterial);
+        super("khopesh", ancientToolMaterial);
         setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
     }
 

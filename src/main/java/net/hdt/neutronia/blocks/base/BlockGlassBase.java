@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.BlockBeacon;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -13,10 +13,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-public class BlockGlassBase extends BlockMod {
+public class BlockGlassBase extends BlockMod implements INeutroniaBlock {
 
     public BlockGlassBase(String name) {
-        super(Material.GLASS, Reference.MOD_ID, name);
+        super(name, Material.GLASS);
     }
 
     /**

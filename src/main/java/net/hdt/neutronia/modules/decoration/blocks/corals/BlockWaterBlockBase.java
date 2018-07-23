@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.decoration.blocks.corals;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,10 +18,10 @@ import net.minecraftforge.oredict.OreDictionary;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockWaterBlockBase extends BlockMod {
+public class BlockWaterBlockBase extends BlockMod implements INeutroniaBlock {
 
     public BlockWaterBlockBase(String name) {
-        super(Material.CORAL, Reference.MOD_ID, name);
+        super(name, Material.CORAL);
         this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
     }
 
@@ -31,16 +31,6 @@ public class BlockWaterBlockBase extends BlockMod {
             String oreNameLowercase = OreDictionary.getOreName(oreId);
             tooltip.add(oreNameLowercase);
         }
-    }
-
-    @Override
-    public String getPrefix() {
-        return Reference.MOD_ID;
-    }
-
-    @Override
-    public String getModNamespace() {
-        return Reference.MOD_ID;
     }
 
     @Override

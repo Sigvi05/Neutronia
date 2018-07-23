@@ -1,12 +1,11 @@
 package net.hdt.neutronia.blocks.nether;
 
-import net.hdt.huskylib2.blocks.BlockLightSource;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.blocks.base.BlockLightSource;
 
 public class BlockGlowingGrass extends BlockLightSource {
 
     public BlockGlowingGrass() {
-        super(Reference.MOD_ID, "glowing_grass");
+        super("glowing_grass");
         this.setLightLevel(2.0F);
     }
 

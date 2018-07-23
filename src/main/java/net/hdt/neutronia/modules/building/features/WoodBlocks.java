@@ -1,7 +1,7 @@
 package net.hdt.neutronia.modules.building.features;
 
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldWoodBase;
 import net.hdt.neutronia.init.NItems;

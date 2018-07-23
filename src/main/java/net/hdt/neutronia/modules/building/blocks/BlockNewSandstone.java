@@ -1,18 +1,16 @@
 package net.hdt.neutronia.modules.building.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMetaVariants;
+import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.module.ModuleLoader;
 import net.hdt.neutronia.modules.building.features.SoulSandstone;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
 public class BlockNewSandstone extends BlockMetaVariants implements INeutroniaBlock {
 
 	public BlockNewSandstone() {
-		super("sandstone_new", MOD_ID, Material.ROCK, Variants.class);
+		super("sandstone_new", Material.ROCK, Variants.class);
 		setHardness(0.8F);
 		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 	}

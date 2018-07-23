@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.SoundType;
@@ -15,14 +16,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockPurpurChiseled extends BlockMod {
+public class BlockPurpurChiseled extends BlockMod implements INeutroniaBlock {
 
     private boolean filled;
 
     public BlockPurpurChiseled(String name, boolean filled) {
-        super(Material.ROCK, MOD_ID, name);
+        super(name, Material.ROCK);
         this.filled = filled;
         setCreativeTab(filled ? null : NCreativeTabs.END_EXPANSION_TAB);
         setHardness(1.5F);

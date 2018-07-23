@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
@@ -20,9 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockFarmingBlockBase extends BlockMod {
+public class BlockFarmingBlockBase extends BlockMod implements INeutroniaBlock {
 
     public static final PropertyInteger MOISTURE = PropertyInteger.create("moisture", 0, 7);
     protected static final AxisAlignedBB FARMLAND_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
@@ -31,7 +30,7 @@ public class BlockFarmingBlockBase extends BlockMod {
     private static Block normalBlock;
 
     public BlockFarmingBlockBase(String name, Block normalBlock) {
-        super(Material.CARPET, MOD_ID, name);
+        super(name, Material.CARPET);
         this.setDefaultState(this.blockState.getBaseState().withProperty(MOISTURE, Integer.valueOf(0)));
         this.setTickRandomly(true);
         this.setLightOpacity(255);

@@ -1,10 +1,10 @@
 package net.hdt.neutronia.modules.decoration.features;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.neutronia.base.recipe.RecipeHandler;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.huskylib2.recipe.BlacklistOreIngredient;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.module.Feature;
-import net.hdt.neutronia.base.recipe.BlacklistOreIngredient;
 import net.hdt.neutronia.modules.decoration.blocks.BlockCustomBookshelf;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

@@ -12,6 +12,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 public class ItemSpear extends BaseSword {
 
     public ItemSpear(String name, ToolMaterial material) {
@@ -39,7 +41,7 @@ public class ItemSpear extends BaseSword {
             worldIn.spawnEntity(entity);
         }
 
-        playerIn.addStat(StatList.getObjectUseStats(this));
+        playerIn.addStat(Objects.requireNonNull(StatList.getObjectUseStats(this)));
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }

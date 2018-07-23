@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.blocks.BlockFacing;
+import net.hdt.huskylib2.block.BlockFacing;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
@@ -14,12 +15,10 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockFloorTile extends BlockFacing implements ITileEntityProvider {
+public class BlockFloorTile extends BlockFacing implements ITileEntityProvider, INeutroniaBlock {
 
     public BlockFloorTile() {
-        super(Material.CARPET, MOD_ID, "floor_tile");
+        super("floor_tile", Material.CARPET);
         this.setDefaultState(getDefaultState().withProperty(FACING, EnumFacing.NORTH));
         this.setHardness(1.4F);
         this.setSoundType(SoundType.STONE);

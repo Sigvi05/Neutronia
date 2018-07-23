@@ -2,7 +2,6 @@ package net.hdt.neutronia.blocks.nether;
 
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -36,7 +35,7 @@ public class BlockNetherDoublePlantBase extends BlockModBush {
     public static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
     public BlockNetherDoublePlantBase(String name) {
-        super(Material.PLANTS, name, Reference.MOD_ID);
+        super(name, Material.PLANTS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockNetherDoublePlantBase.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH));
         setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
     }

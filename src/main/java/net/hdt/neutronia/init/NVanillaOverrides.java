@@ -1,6 +1,6 @@
 package net.hdt.neutronia.init;
 
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

@@ -1,6 +1,7 @@
 package net.hdt.neutronia.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,15 +19,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockSoulGlass extends BlockMod {
+public class BlockSoulGlass extends BlockMod implements INeutroniaBlock {
 
     boolean ignoreSimilarity = true;
     private boolean isOn;
 
     public BlockSoulGlass(boolean isOn, Material material, String name, CreativeTabs creativeTab) {
-        super(material, MOD_ID, name);
+        super(name, material);
         this.isOn = isOn;
         setHardness(0.3F);
         setResistance(7.0F);

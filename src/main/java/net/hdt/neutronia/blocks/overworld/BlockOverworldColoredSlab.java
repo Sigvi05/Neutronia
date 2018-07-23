@@ -1,5 +1,6 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.blocks.base.BlockModColoredSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,10 +13,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockOverworldColoredSlab extends BlockModColoredSlab {
+public class BlockOverworldColoredSlab extends BlockModColoredSlab implements INeutroniaBlock {
 
-    public BlockOverworldColoredSlab(String name, String modid, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
-        super(color.getName() + "_" + name, modid, color, materialIn, doubleSlab);
+    public BlockOverworldColoredSlab(String name, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
+        super(color.getName() + "_" + name, color, materialIn, doubleSlab);
     }
 
     @Override

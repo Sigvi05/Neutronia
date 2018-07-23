@@ -1,6 +1,7 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.huskylib2.items.ItemMod;
+import net.hdt.huskylib2.item.ItemMod;
+import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -22,7 +23,7 @@ import javax.annotation.Nullable;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
-public class ItemShieldBase extends ItemMod {
+public class ItemShieldBase extends ItemMod implements INeutroniaItem {
 
     public ItemShieldBase(String name){
         super(name, MOD_ID);

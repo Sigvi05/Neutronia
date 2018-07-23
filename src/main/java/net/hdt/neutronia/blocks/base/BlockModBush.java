@@ -1,8 +1,8 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.huskylib2.items.blocks.ItemModBlock;
-import net.hdt.huskylib2.utils.ProxyRegistry;
+import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
@@ -12,16 +12,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 
-public class BlockModBush extends BlockBush implements IModBlock {
+public class BlockModBush extends BlockBush implements INeutroniaBlock {
 
     private final String[] variants;
-    private final String bareName, modid;
+    private final String bareName;
 
-    public BlockModBush(Material material, String name, String modid) {
+    public BlockModBush(String name, Material material) {
         super(material);
         variants = new String[]{name};
         bareName = name;
-        this.modid = modid;
 
         setTranslationKey(name);
         setCreativeTab(CreativeTabs.SEARCH);
@@ -47,16 +46,6 @@ public class BlockModBush extends BlockBush implements IModBlock {
     @Override
     public String[] getVariants() {
         return variants;
-    }
-
-    @Override
-    public String getPrefix() {
-        return this.modid;
-    }
-
-    @Override
-    public String getModNamespace() {
-        return this.modid;
     }
 
     @Override

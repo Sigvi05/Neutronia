@@ -1,8 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.huskylib2.interf.IModBlock;
-import net.hdt.neutronia.blocks.base.BlockModSlab;
-import net.hdt.neutronia.base.util.Reference;
+import net.hdt.huskylib2.block.BlockModSlab;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,10 +13,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockOverworldSlabBase extends BlockModSlab implements IModBlock {
+public class BlockOverworldSlabBase extends BlockModSlab implements INeutroniaBlock {
 
     public BlockOverworldSlabBase(String name, Material material, boolean isDouble, CreativeTabs tab) {
-        super(name, Reference.MOD_ID, material, isDouble);
+        super(name, material, isDouble);
         setCreativeTab(isDouble ? null : tab);
     }
 

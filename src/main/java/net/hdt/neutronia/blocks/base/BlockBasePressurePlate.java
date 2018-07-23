@@ -1,6 +1,6 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.EnumPushReaction;
@@ -18,8 +18,6 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
 public abstract class BlockBasePressurePlate extends BlockMod {
     /**
      * The bounding box for the pressure plate pressed state
@@ -32,8 +30,8 @@ public abstract class BlockBasePressurePlate extends BlockMod {
     protected static final AxisAlignedBB PRESSURE_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 0.25D, 0.875D);
 
     protected BlockBasePressurePlate(Material materialIn, String name) {
-        super(materialIn, MOD_ID, name);
-        this.setCreativeTab(CreativeTabs.REDSTONE);
+        super(name, materialIn);
+        this.setCreativeTabs(CreativeTabs.REDSTONE);
         this.setTickRandomly(true);
     }
 
@@ -112,7 +110,7 @@ public abstract class BlockBasePressurePlate extends BlockMod {
     }
 
     private boolean canBePlacedOn(World worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos).isTopSolid() || worldIn.getBlockState(pos).getBlock() instanceof BlockFence || worldIn.getBlockState(pos).getBlock() instanceof BlockModFence;
+        return worldIn.getBlockState(pos).isTopSolid() || worldIn.getBlockState(pos).getBlock() instanceof BlockFence;
     }
 
     /**
@@ -219,7 +217,7 @@ public abstract class BlockBasePressurePlate extends BlockMod {
     }
 
     /**
-     * @deprecated call via {@link IBlockState#getMobilityFlag()} whenever possible. Implementing/overriding is fine.
+     * @deprecated call via  whenever possible. Implementing/overriding is fine.
      */
     public EnumPushReaction getMobilityFlag(IBlockState state) {
         return EnumPushReaction.DESTROY;

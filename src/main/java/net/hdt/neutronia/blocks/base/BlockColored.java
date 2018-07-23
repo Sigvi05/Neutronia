@@ -1,4 +1,4 @@
-package net.hdt.neutronia.blocks;
+package net.hdt.neutronia.blocks.base;
 
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.huskylib2.interf.IBlockColorProvider;
@@ -17,17 +17,12 @@ import org.apache.commons.lang3.text.WordUtils;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, INeutroniaBlock {
+public class BlockColored extends BlockMod implements IBlockColorProvider, INeutroniaBlock {
 
     public final EnumDyeColor color;
 
-    public BlockColoredAlt(String name, EnumDyeColor color) {
-        super(name, Material.ROCK);
-        this.color = color;
-    }
-
-    public BlockColoredAlt(Material material, String name, EnumDyeColor color) {
-        super(name, material);
+    public BlockColored(String name, EnumDyeColor color) {
+        super(name + "_" + color.getName(), Material.ROCK);
         this.color = color;
     }
 

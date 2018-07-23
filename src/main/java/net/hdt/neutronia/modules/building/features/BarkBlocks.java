@@ -1,8 +1,8 @@
 package net.hdt.neutronia.modules.building.features;
 
-import net.hdt.huskylib2.blocks.BlockMod;
-import net.hdt.huskylib2.blocks.BlockModSlab;
-import net.hdt.huskylib2.blocks.BlockModStairs;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.huskylib2.block.BlockModSlab;
+import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.base.module.GlobalConfig;
 import net.hdt.neutronia.modules.building.blocks.BlockBark;

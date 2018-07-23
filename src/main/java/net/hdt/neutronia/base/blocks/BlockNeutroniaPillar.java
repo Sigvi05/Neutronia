@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.huskylib2.blocks.BlockMod;
+import net.hdt.huskylib2.block.BlockMod;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -12,12 +12,10 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
 public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
 
 	public BlockNeutroniaPillar(Material materialIn, String name, String... variants) {
-		super(materialIn, name, MOD_ID, variants);
+		super(name, materialIn, variants);
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package net.hdt.neutronia.items;
 
+import net.hdt.huskylib2.interf.IVariantHolder;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -7,8 +9,6 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.hdt.huskylib2.interf.IVariantHolder;
-import net.hdt.huskylib2.utils.ProxyRegistry;
 
 import java.util.ArrayList;
 

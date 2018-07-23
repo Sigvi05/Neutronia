@@ -1,6 +1,5 @@
 package net.hdt.neutronia.modules.world.blocks.corals;
 
-import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
@@ -26,7 +25,7 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
 public class BlockCoralPlantBase extends BlockModBush {
 
     public BlockCoralPlantBase(String name) {
-        super(Material.PLANTS, name, Reference.MOD_ID);
+        super(name, Material.PLANTS);
         this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 15));
     }
@@ -107,21 +106,6 @@ public class BlockCoralPlantBase extends BlockModBush {
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         checkFlowerChange(world, pos, state);
-        //System.out.println("Block update");
-		/*if(!world.isRemote && world.getLoadedEntityList().size() < 200) {
-			if(rand.nextInt(12) == 0) {
-				EntityPiranha fish = new EntityPiranha(world);
-				fish.setPosition(pos.getX(), pos.getY(), pos.getZ());
-				world.spawnEntity(fish);
-				fish.markAsLeader();
-				int amt = rand.nextInt(12);
-				for(int i =0 ; i < amt; i++) {
-					EntityPiranha fishe = new EntityPiranha(fish);
-					fishe.setPosition(pos.getX(), pos.getY(), pos.getZ());
-					world.spawnEntity(fishe);
-				}
-			}
-		}*/
     }
 
     protected void checkFlowerChange(World world, BlockPos pos, IBlockState state) {

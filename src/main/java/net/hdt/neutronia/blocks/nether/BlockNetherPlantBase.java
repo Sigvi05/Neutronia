@@ -2,7 +2,6 @@ package net.hdt.neutronia.blocks.nether;
 
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraftforge.fml.relauncher.Side;
@@ -11,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockNetherPlantBase extends BlockModBush {
 
     public BlockNetherPlantBase(String name) {
-        super(Material.PLANTS, name, Reference.MOD_ID);
+        super(name, Material.PLANTS);
         this.setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
     }
 

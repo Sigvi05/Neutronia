@@ -1,10 +1,11 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -13,12 +14,12 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public abstract class BlockFacing extends BlockModContainer {
+public abstract class BlockColoredFacing extends BlockColoredModContainer {
 
-    public static final PropertyDirection FACING = PropertyDirection.create("facing");
+    public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
-    public BlockFacing(Material materialIn, String modid, String name, String... variants) {
-        super(materialIn, modid, name, variants);
+    public BlockColoredFacing(String name, EnumDyeColor color) {
+        super(name, color);
         setDefaultState(makeDefaultState());
     }
 
@@ -50,8 +51,6 @@ public abstract class BlockFacing extends BlockModContainer {
             IBlockState iblockstate1 = worldIn.getBlockState(pos.south());
             IBlockState iblockstate2 = worldIn.getBlockState(pos.west());
             IBlockState iblockstate3 = worldIn.getBlockState(pos.east());
-            IBlockState iblockstate4 = worldIn.getBlockState(pos.up());
-            IBlockState iblockstate5 = worldIn.getBlockState(pos.down());
             EnumFacing enumfacing = state.getValue(FACING);
 
             if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock()) {
@@ -62,10 +61,6 @@ public abstract class BlockFacing extends BlockModContainer {
                 enumfacing = EnumFacing.EAST;
             } else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock()) {
                 enumfacing = EnumFacing.WEST;
-            } else if (enumfacing == EnumFacing.UP && iblockstate4.isFullBlock() && !iblockstate4.isFullBlock()) {
-                enumfacing = EnumFacing.UP;
-            } else if (enumfacing == EnumFacing.DOWN && iblockstate5.isFullBlock() && !iblockstate5.isFullBlock()) {
-                enumfacing = EnumFacing.DOWN;
             }
 
             worldIn.setBlockState(pos, state.withProperty(FACING, enumfacing), 2);
@@ -77,11 +72,7 @@ public abstract class BlockFacing extends BlockModContainer {
         EnumFacing enumfacing = EnumFacing.byIndex(meta);
 
         if (enumfacing.getAxis() == EnumFacing.Axis.Y)
-            enumfacing = EnumFacing.UP;
-        if (enumfacing.getAxis() == EnumFacing.Axis.X)
             enumfacing = EnumFacing.NORTH;
-        if (enumfacing.getAxis() == EnumFacing.Axis.Z)
-            enumfacing = EnumFacing.EAST;
 
         return getDefaultState().withProperty(FACING, enumfacing);
     }
@@ -93,7 +84,7 @@ public abstract class BlockFacing extends BlockModContainer {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, FACING);
+        return new BlockStateContainer(this, new IProperty[]{FACING});
     }
 
 }
