@@ -7,5 +7,6 @@ public class Feature {
 	private String name, description;
 	private ResourceLocation icon_texture;
 	private boolean enabledByDefault, enabled;
+	private String featureClass;
 	
 }

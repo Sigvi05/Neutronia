@@ -909,14 +909,15 @@ neutronia.config.firstloadinfo6=If you are going to play on a Vanilla server, or
 neutronia.config.firstloadinfo7=doesn't have Neutronia installed. You NEED to disable every module except
 neutronia.config.firstloadinfo8=for Client, or you will find incompatibilities and/or crashes. If you're
 neutronia.config.firstloadinfo9=playing on a server with Neutronia, don't disable anything outside Client.
-neutronia.config.module.moon=Moon
-neutronia.config.module.mars=Mars
-neutronia.config.module.sun=Sun
-neutronia.config.module.colorfularmorpoints=Colorful Armor Points
+neutronia.config.module.dimensions=Dimensions
 neutronia.config.module.building=Building
 neutronia.config.module.decoration=Decoration
 neutronia.config.module.tweaks=Tweaks
 neutronia.config.module.world=World
+neutronia.config.module.experimental=Experimental
+neutronia.config.module.client=Client
+neutronia.config.module.management=Management
+neutronia.config.module.vanity=Vanity
 
 # MISC
 neutroniaMisc.chestButton.restock=Restock

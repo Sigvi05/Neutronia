@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockNetherSlabBase extends BlockModSlab implements INeutroniaBlock {
 
     public BlockNetherSlabBase(String name, boolean isDouble) {
-        super(name, Material.ROCK, isDouble);
+        super(name + "_slab", Material.ROCK, isDouble);
         setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
     }
 

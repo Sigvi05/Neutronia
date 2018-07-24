@@ -6,50 +6,82 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.text.translation.I18n;
 
 import java.io.IOException;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class GuiConfigRoot extends GuiConfigBase {
 	
 	boolean qEnabled;
+
+	private static int MODULES_PER_PAGE = 8;
+    private int page = 0;
+    private int totalPages;
+    private GuiButton left, right;
+    private final List<Module> modules;
 	
-	public GuiConfigRoot(GuiScreen parent) {
+	GuiConfigRoot(GuiScreen parent) {
 		super(parent);
+
+        modules = new ArrayList<>();
+        modules.addAll(ModuleLoader.moduleInstances.values());
+        Collections.sort(modules);
 		
 		qEnabled = GlobalConfig.enableNButton;
+
+		System.out.println(modules.size());
+        totalPages = (modules.size() - 1) / MODULES_PER_PAGE + 1;
 	}
 
 	@Override
 	public void initGui() {
 		super.initGui();
 
-		int startX = width / 2 - 175;
-		int startY = height / 6 - 12;
+		int x, y;
 
-		int x = 0, y = 0, i = 0;
+        if(totalPages > 1) {
+            x = width / 2;
+            y = height / 6 - 12;
+            buttonList.add(left = new GuiButton(0, x - 40, y, 20, 20, "<"));
+            buttonList.add(right = new GuiButton(0, x + 20, y, 20, 20, ">"));
+        }
 
-		Set<Module> modules = new TreeSet();
-		modules.addAll(ModuleLoader.moduleInstances.values());
-
-		for(Module module : modules) {
-			x = startX + i % 2 * 180;
-			y = startY + i / 2 * 22;
-
-			buttonList.add(new GuiButtonModule(x, y, module));
-			buttonList.add(new GuiButtonConfigSetting(x + 150, y, module.prop, false));
-
-			i++;
-		}
-
-		x = width / 2;
-		y = startY + 113;
-		buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
-		buttonList.add(new GuiButton(1, x - 100, y + 22, 200, 20, I18n.translateToLocal("neutronia.config.general")));
-		buttonList.add(new GuiButton(2, x - 100, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.import")));
-		buttonList.add(new GuiButton(3, x + 2, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.opensite")));
-
-		buttonList.add(backButton = new GuiButton(0, x - 100, y + 66, 200, 20, I18n.translateToLocal("gui.done")));
+        addFeatureButtons();
 	}
+
+    private void addFeatureButtons() {
+
+        int x, y;
+
+        int startX = width / 2 - 185;
+        int startY = height / 5 + 3;
+
+        buttonList.removeIf((b) -> b instanceof GuiButtonModule || b instanceof GuiButtonConfigSetting);
+
+        int start = page * MODULES_PER_PAGE;
+        for(int j = start; j < Math.min(start + MODULES_PER_PAGE, modules.size()); j++) {
+            int k = j - start;
+            x = startX + k % 2 * 180;
+            y = startY + k / 2 * 22;
+            Module module = modules.get(j);
+            buttonList.add(new GuiButtonModule(x, y, module));
+            buttonList.add(new GuiButtonConfigSetting(x + 150, y, module.prop, false));
+        }
+
+        if(left != null) {
+            left.enabled = (page > 0);
+            right.enabled = (page < totalPages - 1);
+        }
+
+        int startYButtons = height / 6;
+
+        x = width / 2;
+        y = startYButtons + 103;
+        buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
+        buttonList.add(new GuiButton(1, x - 100, y + 22, 200, 20, I18n.translateToLocal("neutronia.config.general")));
+        buttonList.add(new GuiButton(2, x - 100, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.import")));
+        buttonList.add(new GuiButton(3, x + 2, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.opensite")));
+
+        buttonList.add(backButton = new GuiButton(0, x - 100, y + 66, 200, 20, I18n.translateToLocal("gui.done")));
+    }
 	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
@@ -60,7 +92,13 @@ public class GuiConfigRoot extends GuiConfigBase {
 			s = I18n.translateToLocal("neutronia.config.needrestart");
 		else if(qEnabled && !GlobalConfig.enableNButton)
 			s = I18n.translateToLocal("neutronia.config.qdisabled");
-		
+
+        if(totalPages > 1) {
+            int x = width / 2;
+            int y = height / 6 - 7;
+            drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
+        }
+
 		if(s != null)
 			drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
 	}
@@ -72,7 +110,13 @@ public class GuiConfigRoot extends GuiConfigBase {
 		if(button instanceof GuiButtonModule) {
 			GuiButtonModule moduleButton = (GuiButtonModule) button;
 			mc.displayGuiScreen(new GuiConfigModule(this, moduleButton.module));
-		} 
+		}  else if(button == left || button == right) {
+            if(button == left)
+                page = Math.max(page - 1, 0);
+            else page = Math.min(page + 1, totalPages - 1);
+
+            addFeatureButtons();
+        }
 		else switch(button.id) {
 		case 1: // General Settings
 			mc.displayGuiScreen(new GuiConfigCategory(this, "_global"));

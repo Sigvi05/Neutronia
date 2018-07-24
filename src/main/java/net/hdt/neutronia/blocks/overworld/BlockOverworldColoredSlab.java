@@ -29,7 +29,7 @@ public class BlockOverworldColoredSlab extends BlockModColoredSlab implements IN
                 return side == EnumFacing.UP || side == EnumFacing.DOWN || super.shouldSideBeRendered(blockState, blockAccess, pos, side);
         }
 
-        return true;
+        return false;
     }
 
     @SideOnly(Side.CLIENT)

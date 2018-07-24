@@ -1,7 +1,6 @@
 package net.hdt.neutronia.modules.world.world.underground;
 
 import net.hdt.neutronia.base.module.ModuleLoader;
-import net.hdt.neutronia.modules.world.features.UndergroundBiomes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -18,16 +17,12 @@ public class UndergroundBiomeLava extends BasicUndergroundBiome {
 	
 	@Override
 	public void fillCeiling(World world, BlockPos pos, IBlockState state) {
-		if(UndergroundBiomes.firestoneEnabled && world.rand.nextBoolean())
-			world.setBlockState(pos, UndergroundBiomes.firestoneState, 2);
-		else super.fillCeiling(world, pos, state);
+		world.setBlockState(pos, Blocks.MAGMA.getDefaultState(), 2);
 	}
 	
 	@Override
 	public void fillWall(World world, BlockPos pos, IBlockState state) {
-		if(UndergroundBiomes.firestoneEnabled)
-			world.setBlockState(pos, UndergroundBiomes.firestoneState, 2);
-		else super.fillWall(world, pos, state);
+		world.setBlockState(pos, Blocks.MAGMA.getDefaultState(), 2);
 	}
 	
 	@Override
@@ -36,9 +31,8 @@ public class UndergroundBiomeLava extends BasicUndergroundBiome {
 			world.setBlockState(pos, Blocks.LAVA.getDefaultState());
 		else if(obsidianChance > 0 && world.rand.nextInt(obsidianChance) == 0)
 			world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), 2);
-		else if(UndergroundBiomes.firestoneEnabled)
-			world.setBlockState(pos, UndergroundBiomes.firestoneState, 2);
-		else super.fillFloor(world, pos, state);
+		else
+			world.setBlockState(pos, Blocks.MAGMA.getDefaultState(), 2);
 	}
 	
 	@Override

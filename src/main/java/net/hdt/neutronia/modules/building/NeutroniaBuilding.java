@@ -10,7 +10,6 @@ public class NeutroniaBuilding extends Module {
     public void addFeatures() {
         registerFeature(new BarkBlocks());
         registerFeature(new CarvedWood());
-        registerFeature(new SoulSandstone());
         registerFeature(new VanillaStairsAndSlabs());
         registerFeature(new VanillaWalls());
         registerFeature(new WorldStoneBricks());

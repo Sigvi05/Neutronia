@@ -2,8 +2,6 @@ package net.hdt.neutronia.modules.building.blocks;
 
 import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
-import net.hdt.neutronia.base.module.ModuleLoader;
-import net.hdt.neutronia.modules.building.features.SoulSandstone;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -17,16 +15,14 @@ public class BlockNewSandstone extends BlockMetaVariants implements INeutroniaBl
 
 	@Override
 	public boolean shouldDisplayVariant(int variant) {
-		return ModuleLoader.isFeatureEnabled(SoulSandstone.class) || variant < 4;
+		return variant < 4;
 	}
 	
 	public enum Variants implements EnumBase {
 		SANDSTONE_SMOOTH(false, true),
 		SANDSTONE_BRICKS(true, true),
 		RED_SANDSTONE_SMOOTH(false, true),
-		RED_SANDSTONE_BRICKS(true, true),
-		SOUL_SANDSTONE_SMOOTH(false, true),
-		SOUL_SANDSTONE_BRICKS(true, true);
+		RED_SANDSTONE_BRICKS(true, true);
 
 		Variants(boolean stairs, boolean slabs) {
 			this.stairs = stairs;

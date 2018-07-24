@@ -1,0 +1,16 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:custom_flower_pot",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "contents": {
+      "empty": {}
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}

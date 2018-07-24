@@ -24,6 +24,7 @@ public class NeutroniaWorld extends Module {
         registerFeature(new UndergroundBiomes());
         registerFeature(new PathfinderMaps());
         registerFeature(new NetherFossils());
+        registerFeature(new NetherMushrooms());
 
         registerFeature(new RealisticWorldType());
         registerFeature(new DefaultWorldOptions());

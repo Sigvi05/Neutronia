@@ -17,7 +17,6 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
 //        NBiomes.registerBiomes();
-//        NDimension.registerDimensions();
         ModuleLoader.preInit(event);
         MessageRegister.init();
     }

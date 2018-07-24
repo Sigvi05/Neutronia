@@ -27,13 +27,12 @@ import java.util.Objects;
 
 import static net.hdt.neutronia.init.NCreativeTabs.*;
 
-//@Mod.EventBusSubscriber(modid = MOD_ID)
 public class NBlocks {
 
     // Misc
     public static final Block blackSand;
-    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
-    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
+//    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+//    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
     private static final Block[] aquamarine = new Block[6];
     public static Block seaPickle, turtleEgg;
@@ -50,7 +49,9 @@ public class NBlocks {
     public static final Block[] strippedLogPoles = new Block[6];
     //Blocks for the nether
     public static final Block[] glowingNetherBlocks = new Block[24];
-    private static final Block[] soulStone = new Block[4];
+    private static final Block[] soulStone = new Block[3];
+    private static final Block[] soulStoneSlabSingle = new Block[3];
+    private static final Block[] soulStoneSlabDouble = new Block[3];
     public static Block[] netherPlants = new Block[3];
     public static Block[] tallNetherPlants = new Block[2];
     private static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
@@ -96,8 +97,8 @@ public class NBlocks {
 
     static {
         for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
-            aquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName(), false).setCreativeTab(OCEAN_EXPANSION_TAB);
-            add(aquamarineVariants.getName(), aquamarine[aquamarineVariants.getID()], Material.ROCK, 0, true, false, OCEAN_EXPANSION_TAB);
+//            aquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName(), false).setCreativeTab(OCEAN_EXPANSION_TAB);
+//            add(aquamarineVariants.getName(), aquamarine[aquamarineVariants.getID()], Material.ROCK, 0, true, false, OCEAN_EXPANSION_TAB);
         }
         driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(OCEAN_EXPANSION_TAB);
         wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
@@ -121,10 +122,23 @@ public class NBlocks {
         for (EnumGlowingNetherBlocks enumGlowingNetherBlocks : EnumGlowingNetherBlocks.values()) {
             glowingNetherBlocks[enumGlowingNetherBlocks.getMetadata()] = new BlockNetherGlowingBase(Material.GLASS, enumGlowingNetherBlocks.getName());
         }
+
         for (EnumSoulStoneTypes soulStoneTypes : EnumSoulStoneTypes.values()) {
-            soulStone[soulStoneTypes.getMetadata()] = new BlockSoulStone(soulStoneTypes.getName());
-            add(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], Material.ROCK, 0, true, false, NETHER_EXPANSION_TAB);
+            soulStone[soulStoneTypes.getMetadata()] = new BlockNetherBase(Material.ROCK, soulStoneTypes.getName());
+            soulStoneSlabSingle[soulStoneTypes.getMetadata()] = new BlockNetherSlabBase(soulStoneTypes.getName(), false);
+            soulStoneSlabDouble[soulStoneTypes.getMetadata()] = new BlockNetherSlabBase(soulStoneTypes.getName(), true);
+            BlockModSlab.initSlab(soulStone[soulStoneTypes.getMetadata()], 0, (BlockModSlab) soulStoneSlabSingle[soulStoneTypes.getMetadata()], (BlockModSlab) soulStoneSlabDouble[soulStoneTypes.getMetadata()]);
         }
+
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[0]),
+                "SS", "SS",
+                'S', ProxyRegistry.newStack(Blocks.SOUL_SAND));
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[2], 4),
+                "SS", "SS",
+                'S', ProxyRegistry.newStack(soulStone[0], 1));
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[1], 1),
+                "S", "S",
+                'S', ProxyRegistry.newStack(soulStoneSlabSingle[0], 1));
 
         netherbrickPillar = new MRPillar(Material.ROCK, "netherbrick_pillar", NETHER_EXPANSION_TAB, 0.4F, 7.5F);
         chiseledNetherbrick = new BlockNetherbrickChiseled("chiseled_netherbrick", false);
@@ -153,7 +167,7 @@ public class NBlocks {
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             frostedClay[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("frozen_%s_terracotta", dyeColor.getName()), false);
 //            coloredVases[dyeColor.getMetadata()] = new BlockColoredVase(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
-//            terracottaPots[dyeColor.getMetadata()] = new BlockColoredFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
+//            terracottaPots[dyeColor.getMetadata()] = new BlockTerracottaFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
 //            glazedTerracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_glazed_terracotta_pillar", dyeColor.getName()), Material.ROCK);
 //            terracottaPillar[dyeColor.getMetadata()] = new BlockModPillar(String.format("%s_terracotta_pillar", dyeColor.getName()), Material.ROCK);
             add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()], Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
@@ -181,7 +195,7 @@ public class NBlocks {
         fireflyBulbOff = new BlockFireflyBulb(false);
         fireflyBulbOn = new BlockFireflyBulb(true);
 
-        smoothQuartz = new BlockOverworldBase(Material.ROCK, "smooth_quartz", false);
+        /*smoothQuartz = new BlockOverworldBase(Material.ROCK, "smooth_quartz", false);
         smoothRedSandstone = new BlockOverworldBase(Material.ROCK, "smooth_red_sandstone", false);
         smoothSandstone = new BlockOverworldBase(Material.ROCK, "smooth_sandstone", false);
 
@@ -216,7 +230,7 @@ public class NBlocks {
                 'S', ProxyRegistry.newStack(Blocks.RED_SANDSTONE));
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(redSandstoneBricks, 4),
                 "SS", "SS",
-                'S', ProxyRegistry.newStack(smoothRedSandstone, 1));
+                'S', ProxyRegistry.newStack(smoothRedSandstone, 1));*/
 
         RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Blocks.SAND, 4),
                 ProxyRegistry.newStack(Blocks.SANDSTONE, 1));

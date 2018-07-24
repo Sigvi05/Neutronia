@@ -67,15 +67,15 @@ public class GuiConfigModule extends GuiConfigBase {
 			int j = i - start;
 			x = startX + j % 2 * 200;
 			y = startY + j / 2 * 22;
-			
+
 			Feature feature = features.get(i);
-			
+
 			buttonList.add(new GuiButtonConfigSetting(x + 150, y, feature.prop, true, feature.getFeatureIngameConfigName()));
-			
+
 			if(ModuleLoader.config.hasCategory(feature.configCategory))
 				buttonList.add(new GuiButtonFeatureSettings(x + 170, y, feature.configCategory));
 		}
-		
+
 		if(left != null) {
 			left.enabled = (page > 0);
 			right.enabled = (page < totalPages - 1);

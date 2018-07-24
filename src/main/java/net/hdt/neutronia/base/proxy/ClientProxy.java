@@ -6,8 +6,17 @@ import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.module.ModuleLoader;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
+import net.hdt.neutronia.blocks.base.BlockColoredAlt;
+import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
+import net.hdt.neutronia.init.NBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.Timer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -50,31 +59,33 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
-        
-        /*ItemColors items = Minecraft.getMinecraft().getItemColors();
+
+        ModuleLoader.initClient(event);
+
+        ItemColors items = Minecraft.getMinecraft().getItemColors();
         BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
 
         IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
         IItemColor handlerItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
         Block[][] toColor = new Block[][] {
-        	NBlocks.coloredCandles,
-        	NBlocks.coloredLitCandles,
-        	NBlocks.coloredLanterns,
-        	NBlocks.coloredLitLanterns,
-        	NBlocks.coloredRedstoneLamp,
-        	NBlocks.coloredLitRedstoneLamp,
-            NBlocks.coloredPlanks
+                NBlocks.coloredCandles,
+                NBlocks.coloredLitCandles,
+                NBlocks.coloredLanterns,
+                NBlocks.coloredLitLanterns,
+                NBlocks.coloredRedstoneLamp,
+                NBlocks.coloredLitRedstoneLamp,
+                NBlocks.coloredPlanks
         };
         Block[] coloredStuff = new Block[16 * toColor.length];
-        
+
         for(int i = 0; i < toColor.length; i++) {
-        	Block[] colored = toColor[i];
+            Block[] colored = toColor[i];
             System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
         items.registerItemColorHandler(handlerItems, coloredStuff);
 
-        IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : new Color(255, 255, 255, 0.5F).getRGB();
+        IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
         IItemColor handlerItemsTranslucent = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
         Block[][] toColorTranslucent = new Block[][] {
                 NBlocks.coloredSlimeBlock
@@ -101,9 +112,7 @@ public class ClientProxy extends CommonProxy {
             System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerSlabBlocks, coloredSlabs);
-        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);*/
-
-        ModuleLoader.initClient(event);
+        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);
 
         MinecraftForge.EVENT_BUS.register(DevCapeHandler.class);
         MinecraftForge.EVENT_BUS.register(ConfigEvents.class);

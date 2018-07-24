@@ -3,6 +3,7 @@ package net.hdt.neutronia.modules.building.features;
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
+import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.handler.ModIntegrationHandler;
 import net.hdt.neutronia.base.module.Feature;
@@ -11,6 +12,7 @@ import net.hdt.neutronia.modules.building.blocks.BlockWorldStoneBricks;
 import net.hdt.neutronia.modules.building.blocks.slab.BlockVanillaSlab;
 import net.hdt.neutronia.modules.building.blocks.stair.BlockVanillaStairs;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -46,7 +48,7 @@ public class WorldStoneBricks extends Feature {
 					continue;
 
 				IBlockState state = world_stone_bricks.getDefaultState().withProperty(world_stone_bricks.getVariantProp(), variant);
-				String name = variant.getName() + "_slab";
+				String name = variant.getName();
 				BlockModSlab.initSlab(world_stone_bricks, variant.ordinal(), new BlockVanillaSlab(name , state, false), new BlockVanillaSlab(name, state, true));
 			}
 		}
@@ -64,10 +66,10 @@ public class WorldStoneBricks extends Feature {
 
 	@Override
 	public void postPreInit(FMLPreInitializationEvent event) {		
-		/*for(int i = 0; i < 3; i++)
+		for(int i = 0; i < 3; i++)
 			RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(world_stone_bricks, 4, i),
 					"SS", "SS",
-					'S', ProxyRegistry.newStack(Blocks.STONE, 1, i * 2 + 2));*/
+					'S', ProxyRegistry.newStack(Blocks.STONE, 1, i * 2 + 2));
 	}
 
 	@Override

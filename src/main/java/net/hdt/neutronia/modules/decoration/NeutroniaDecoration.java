@@ -15,11 +15,11 @@ public class NeutroniaDecoration extends Module {
         registerFeature(new NetherBrickFenceGate());
         registerFeature(new ColoredItemFrames());
         registerFeature(new CharcoalBlock());
-        registerFeature(new VariedChests());
         registerFeature(new VariedBookshelves());
         registerFeature(new FlatItemFrames());
         registerFeature(new GlassItemFrame());
-        registerFeature(new ColoredFlowerPots());
+        registerFeature(new TerracottaFlowerPots());
+        registerFeature(new DecorativeAquamarine());
     }
 
     @Override

@@ -37,8 +37,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()) {
             case 0:
-//                generateStructure(CORALS, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
-//                generateStructure(MISC_STRUCTURES, world, random, chunkX, chunkZ, 10, Blocks.GRASS, Biomes.PLAINS, Biomes.MUTATED_PLAINS, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.TAIGA, Biomes.TAIGA_HILLS, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.BEACH, Biomes.COLD_BEACH, Biomes.STONE_BEACH);
+                generateStructure(CORALS, world, random, chunkX, chunkZ, 10, Blocks.GRAVEL, NBiomes.DEEP_WARM_OCEAN, NBiomes.WARM_OCEAN);
+                generateStructure(MISC_STRUCTURES, world, random, chunkX, chunkZ, 10, Blocks.GRASS, Biomes.PLAINS, Biomes.MUTATED_PLAINS, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.TAIGA, Biomes.TAIGA_HILLS, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.BEACH, Biomes.COLD_BEACH, Biomes.STONE_BEACH);
                 break;
         }
     }

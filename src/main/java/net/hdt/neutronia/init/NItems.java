@@ -10,14 +10,10 @@ import net.hdt.neutronia.items.base.tools.BaseSword;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class NItems {
 
@@ -28,13 +24,6 @@ public class NItems {
     public static final Item.ToolMaterial CSWORD = EnumHelper.addToolMaterial("csword", 3, 325, 7.0F, 8.0F, 12);
 
     public static final Item.ToolMaterial OBSDIDIAN = EnumHelper.addToolMaterial("obsidian", 3, 1561 * 2, 10F, 6.0F, 22);
-
-    public static final ItemArmor.ArmorMaterial ghost = EnumHelper.addArmorMaterial("ghost", MOD_ID + ":ghost", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor.ArmorMaterial werewolf = EnumHelper.addArmorMaterial("werewolf", MOD_ID + ":werewolf", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor.ArmorMaterial scarecrow = EnumHelper.addArmorMaterial("scarecrow", MOD_ID + ":scarecrow", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor.ArmorMaterial witch = EnumHelper.addArmorMaterial("witch", MOD_ID + ":witch", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor.ArmorMaterial jason = EnumHelper.addArmorMaterial("jason", MOD_ID + ":jason", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor.ArmorMaterial banshee = EnumHelper.addArmorMaterial("banshee", MOD_ID + ":banshee", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 
     public static final Item ancientSword, bandage, /*witherBone, witherBonemeal, driedKelp, stinger, chitin, */ phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
 //    public static final Item rawSeaweed;

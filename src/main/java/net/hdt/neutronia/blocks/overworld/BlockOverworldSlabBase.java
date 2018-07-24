@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockOverworldSlabBase extends BlockModSlab implements INeutroniaBlock {
 
     public BlockOverworldSlabBase(String name, Material material, boolean isDouble, CreativeTabs tab) {
-        super(name, material, isDouble);
+        super(name + "_slab", material, isDouble);
         setCreativeTab(isDouble ? null : tab);
     }
 
@@ -25,7 +25,7 @@ public class BlockOverworldSlabBase extends BlockModSlab implements INeutroniaBl
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         if (blockState.getMaterial() == Material.GLASS) {
             if (this.isDouble()) {
-                return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
+                return true;
             } else
                 return side == EnumFacing.UP || side == EnumFacing.DOWN || super.shouldSideBeRendered(blockState, blockAccess, pos, side);
         }
@@ -114,7 +114,7 @@ public class BlockOverworldSlabBase extends BlockModSlab implements INeutroniaBl
 
     @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
-        return false;
+        return !isSideSolid(state, world, pos, face);
     }
 
 }

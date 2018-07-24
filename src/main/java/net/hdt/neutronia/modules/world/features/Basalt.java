@@ -7,8 +7,11 @@ import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.base.module.GlobalConfig;
-import net.hdt.neutronia.base.module.ModuleLoader;
 import net.hdt.neutronia.modules.building.features.VanillaWalls;
+import net.hdt.neutronia.modules.world.blocks.BlockBasalt;
+import net.hdt.neutronia.modules.world.blocks.slab.BlockBasaltSlab;
+import net.hdt.neutronia.modules.world.blocks.stairs.BlockBasaltStairs;
+import net.hdt.neutronia.modules.world.features.RevampStoneGen.StoneInfo;
 import net.hdt.neutronia.modules.world.world.BasaltGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -18,10 +21,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import net.hdt.neutronia.modules.world.blocks.BlockBasalt;
-import net.hdt.neutronia.modules.world.blocks.slab.BlockBasaltSlab;
-import net.hdt.neutronia.modules.world.blocks.stairs.BlockBasaltStairs;
-import net.hdt.neutronia.modules.world.features.RevampStoneGen.StoneInfo;
 
 public class Basalt extends Feature {
 

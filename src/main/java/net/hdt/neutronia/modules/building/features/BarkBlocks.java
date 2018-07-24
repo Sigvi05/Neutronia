@@ -3,11 +3,15 @@ package net.hdt.neutronia.modules.building.features;
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.base.module.GlobalConfig;
 import net.hdt.neutronia.modules.building.blocks.BlockBark;
 import net.hdt.neutronia.modules.building.blocks.slab.BlockBarkSlab;
 import net.hdt.neutronia.modules.building.blocks.stair.BlockBarkStairs;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class BarkBlocks extends Feature {
@@ -27,7 +31,7 @@ public class BarkBlocks extends Feature {
 	public void preInit(FMLPreInitializationEvent event) {
 		bark = new BlockBark();
 
-		/*for(int i = 0; i < 6; i++) {
+		for(int i = 0; i < 6; i++) {
 			ItemStack log = ProxyRegistry.newStack(i > 3 ? Blocks.LOG2 : Blocks.LOG, 1, i % 4);
 
 			if(!use2x2)
@@ -38,7 +42,7 @@ public class BarkBlocks extends Feature {
 					"WW", "WW",
 					'W', log);
 			RecipeHandler.addShapelessOreDictRecipe(log, ProxyRegistry.newStack(bark, 1, i));
-		}*/
+		}
 
 		for(BlockBark.Variants variant : BlockBark.Variants.values()) {
 			bark.getDefaultState().withProperty(bark.getVariantProp(), variant);

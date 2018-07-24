@@ -28,8 +28,12 @@ public class JsonGenerator {
 
     public static void main(String[] args) {
         for(EnumDyeColor color : EnumDyeColor.values()) {
-            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_slime_block", color.getName())), new ResourceLocation(modid, "colored_slime_block"), new ResourceLocation(modid, "colored_slime_block"));
+//            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_slime_block", color.getName())), new ResourceLocation(modid, "colored_slime_block"), new ResourceLocation(modid, "colored_slime_block"));
+            genCustomBlock(new ResourceLocation(modid, String.format("%s_terracotta_pot", color.getName())), new ResourceLocation(modid, "custom_flower_pot"));
         }
+        /*for(EnumVanillaWoodTypes woodTypes : EnumVanillaWoodTypes.values()) {
+            genOrientedBlock(new ResourceLocation(modid, String.format("%s_bookshelf", woodTypes.getName())), new ResourceLocation("minecraft", String.format("planks_%s", woodTypes.getName())), new ResourceLocation(modid, String.format("bookshelf_%s", woodTypes.getName())), new ResourceLocation(modid, String.format("bookshelf_%s", woodTypes.getName())));
+        }*/
     }
 
     public static void genBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
