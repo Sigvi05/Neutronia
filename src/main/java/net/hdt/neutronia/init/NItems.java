@@ -41,6 +41,7 @@ public class NItems {
     public static final Item anchor;
     public static final Item chisel;
     public static final Item logStripper;
+    public static final Item easter_egg;
 
 //    public static final Item rawDragonMeat, cookedDragonMeat;
 
@@ -84,6 +85,7 @@ public class NItems {
         diamondSpear = new ItemSpear("diamond_spear", Item.ToolMaterial.DIAMOND).setCreativeTab(null);
         trident = new ItemSpear("trident", Item.ToolMaterial.DIAMOND).setCreativeTab(null);
         anchor = new ItemSpear("anchor", Item.ToolMaterial.IRON).setCreativeTab(null);
+        easter_egg = new ItemEasterEgg();
 
         for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
 //            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
