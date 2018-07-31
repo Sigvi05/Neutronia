@@ -1,6 +1,5 @@
 package net.hdt.neutronia.base.module;
 
-import net.hdt.neutronia.base.NeutroniaMain;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.modules.NeutroniaModules;
 import net.minecraftforge.common.MinecraftForge;
@@ -49,7 +48,7 @@ public final class ModuleLoader {
 
 		setupConfig(event);
 
-		forEachModule(module -> NeutroniaMain.LOGGER.info("[Neutronia] Module " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
+		forEachModule(module -> LibMisc.LOGGER.info("Module " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
 
 		forEachEnabled(module -> module.preInit(event));
 		forEachEnabled(module -> module.postPreInit(event));

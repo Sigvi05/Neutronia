@@ -1,8 +1,8 @@
 package net.hdt.neutronia.modules.decoration.features;
 
 import net.hdt.neutronia.base.module.Feature;
-import net.hdt.neutronia.modules.decoration.blocks.corals.BlockWaterBlockBase;
-import net.hdt.neutronia.modules.decoration.blocks.corals.BlockWaterPlantBase;
+import net.hdt.neutronia.modules.decoration.blocks.corals.BlockDecorativeCoralBlockBase;
+import net.hdt.neutronia.modules.decoration.blocks.corals.BlockDecorativeCoralPlantBase;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,14 +21,14 @@ public class DecorativeCorals extends Feature {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumCoralColor coralColor : EnumCoralColor.values()) {
-            decorativeCoralBlock[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_%s_coral_block", coralColor.getNewName()));
-            decorativeDeadCoralBlock[coralColor.getMetadata()] = new BlockWaterBlockBase(String.format("decorative_dead_%s_coral_block", coralColor.getNewName()));
-            decorativeCoralFan[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral_fan", coralColor.getNewName()));
-            decorativeDeadCoralFan[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_dead_%s_coral_fan", coralColor.getNewName()));
-            decorativeCoralFanWall[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral_wall_fan", coralColor.getNewName()));
-            decorativeDeadCoralFanWall[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_dead_%s_coral_wall_fan", coralColor.getNewName()));
-            decorativeCoral[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_%s_coral", coralColor.getNewName()));
-            decorativeDeadCoral[coralColor.getMetadata()] = new BlockWaterPlantBase(String.format("decorative_dead_%s_coral", coralColor.getNewName()));
+            decorativeCoralBlock[coralColor.getMetadata()] = new BlockDecorativeCoralBlockBase(String.format("decorative_%s_coral_block", coralColor.getNewName()));
+            decorativeDeadCoralBlock[coralColor.getMetadata()] = new BlockDecorativeCoralBlockBase(String.format("decorative_dead_%s_coral_block", coralColor.getNewName()));
+            decorativeCoralFan[coralColor.getMetadata()] = new BlockDecorativeCoralPlantBase(String.format("decorative_%s_coral_fan", coralColor.getNewName()));
+            decorativeDeadCoralFan[coralColor.getMetadata()] = new BlockDecorativeCoralPlantBase(String.format("decorative_dead_%s_coral_fan", coralColor.getNewName()));
+            decorativeCoralFanWall[coralColor.getMetadata()] = new BlockDecorativeCoralPlantBase(String.format("decorative_%s_coral_wall_fan", coralColor.getNewName()));
+            decorativeDeadCoralFanWall[coralColor.getMetadata()] = new BlockDecorativeCoralPlantBase(String.format("decorative_dead_%s_coral_wall_fan", coralColor.getNewName()));
+            decorativeCoral[coralColor.getMetadata()] = new BlockDecorativeCoralPlantBase(String.format("decorative_%s_coral", coralColor.getNewName()));
+            decorativeDeadCoral[coralColor.getMetadata()] = new BlockDecorativeCoralPlantBase(String.format("decorative_dead_%s_coral", coralColor.getNewName()));
         }
     }
 

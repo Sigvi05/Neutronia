@@ -1,5 +1,8 @@
 package net.hdt.neutronia.modules.world.blocks.corals;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
+import net.hdt.neutronia.base.states.BlockStateProperties;
 import net.hdt.neutronia.modules.world.blocks.BlockWaterPlantBase;
 import net.hdt.neutronia.modules.world.features.Corals;
 import net.hdt.neutronia.properties.EnumCoralColor;
@@ -8,13 +11,17 @@ import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -24,21 +31,23 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
 
 /**
  * Created on 7/5/18 by alexiy.
- * This decorativeCoralBlock turns dead if no water blocks are adjacent to it
+ * This coral fan turns dead if no water blocks are adjacent to it
  */
 public class BlockCoralFan extends BlockWaterPlantBase {
 
-    protected static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
+    private static final Map<EnumFacing, AxisAlignedBB> field_211885_c = Maps.newEnumMap(ImmutableMap.of(EnumFacing.NORTH, new AxisAlignedBB(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), EnumFacing.SOUTH, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), EnumFacing.WEST, new AxisAlignedBB(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), EnumFacing.EAST, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D)));
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
     private boolean dead;
     private ArrayList<Block> livingVersion, deadVersion;
     private EnumCoralColor color;
+    public static final PropertyBool field_211882_a = BlockStateProperties.field_208198_y;
 
     public BlockCoralFan(EnumCoralColor colorIn, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
         super(isDead ? "dead_" + colorIn.getNewName() + "_coral_fan" : colorIn.getNewName() + "_coral_fan");
@@ -112,13 +121,34 @@ public class BlockCoralFan extends BlockWaterPlantBase {
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return ALGAE_AABB;
+        return field_211885_c.get(state.getValue(FACING));
     }
 
     @Override
     @Nullable
     public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-        return NULL_AABB;
+        return field_211885_c.get(state.getValue(FACING));
+    }
+
+    /**
+     * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
+     * blockstate.
+     * @deprecated call via {@link IBlockState#withRotation(Rotation)} whenever possible. Implementing/overriding is
+     * fine.
+     */
+    public IBlockState withRotation(IBlockState state, Rotation rot)
+    {
+        return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
+    }
+
+    /**
+     * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed
+     * blockstate.
+     * @deprecated call via {@link IBlockState#withMirror(Mirror)} whenever possible. Implementing/overriding is fine.
+     */
+    public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
+    {
+        return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
     @SideOnly(Side.CLIENT)
@@ -139,6 +169,24 @@ public class BlockCoralFan extends BlockWaterPlantBase {
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
         IBlockState state = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
         return state.withProperty(FACING, placer.getHorizontalFacing());
+    }
+
+    /*public IBlockState func_196271_a(IBlockState p_196271_1_, EnumFacing p_196271_2_, IBlockState p_196271_3_, World p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_)
+    {
+        if (p_196271_1_.getValue(field_211882_a))
+        {
+            p_196271_4_.func_205219_F_().func_205360_a(p_196271_5_, Fluids.field_204546_a, Fluids.field_204546_a.func_205569_a(p_196271_4_));
+        }
+
+        return p_196271_2_.getOpposite() == p_196271_1_.getValue(FACING) && !p_196271_1_.withProperty(p_196271_4_, p_196271_5_) ? Blocks.AIR.getDefaultState() : p_196271_1_;
+    }*/
+
+    @Override
+    public boolean canBlockStay(IBlockAccess worldIn, BlockPos pos, IBlockState state) {
+        EnumFacing enumfacing = state.getValue(FACING);
+        BlockPos blockpos = pos.offset(enumfacing.getOpposite());
+        IBlockState iblockstate = worldIn.getBlockState(blockpos);
+        return iblockstate.getBlockFaceShape(worldIn, blockpos, enumfacing) == BlockFaceShape.SOLID && !isExceptBlockForAttachWithPiston(iblockstate.getBlock());
     }
 
     public int getMetaFromState(IBlockState state) {

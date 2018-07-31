@@ -6,7 +6,6 @@ import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.base.module.Feature;
 import net.hdt.neutronia.modules.decoration.blocks.BlockTerracottaFlowerPot;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -14,8 +13,9 @@ import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class TerracottaFlowerPots extends Feature {
 
@@ -29,13 +29,11 @@ public class TerracottaFlowerPots extends Feature {
 		}
 	}
 
-	@Override
-	public void initClient(FMLInitializationEvent event) {
-        ItemColors items = Minecraft.getMinecraft().getItemColors();
-        BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
+	@SubscribeEvent
+	public static void coloringHandling(ColorHandlerEvent.Block event) {
+        BlockColors blocks = event.getBlockColors();
 
         IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockTerracottaFlowerPot) s.getBlock()).color.getColorValue() : 0xFFFFFF;
-        IItemColor handlerItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
         Block[][] toColor = new Block[][] {
                 pots
         };
@@ -46,7 +44,27 @@ public class TerracottaFlowerPots extends Feature {
             System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
-        items.registerItemColorHandler(handlerItems, coloredStuff);
-	}
+    }
 
+    @SubscribeEvent
+    public static void coloringHandling(ColorHandlerEvent.Item event) {
+        ItemColors items = event.getItemColors();
+
+        IItemColor handlerItems = (s, t) -> event.getBlockColors().colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColor = new Block[][] {
+                pots
+        };
+        Block[] coloredStuff = new Block[16 * toColor.length];
+
+        for(int i = 0; i < toColor.length; i++) {
+            Block[] colored = toColor[i];
+            System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
+        }
+        items.registerItemColorHandler(handlerItems, coloredStuff);
+    }
+
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
 }

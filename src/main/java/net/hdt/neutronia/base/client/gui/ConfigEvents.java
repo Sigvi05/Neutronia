@@ -31,7 +31,7 @@ public final class ConfigEvents {
 		
 		if(GlobalConfig.enableNButton && (gui instanceof GuiMainMenu || gui instanceof GuiIngameMenu)) {
 			ImmutableSet<String> targets = GlobalConfig.NButtonOnRight
-					? ImmutableSet.of(I18n.format("fml.menu.modoptions"), I18n.format("menu.online").replace("Test", "").trim())
+					? ImmutableSet.of(I18n.format("fml.menu.modoptions"), I18n.format("menu.online").replace("Minecraft", "").trim())
 					: ImmutableSet.of(I18n.format("menu.options"), I18n.format("fml.menu.mods"));
 					
 			List<GuiButton> buttons = event.getButtonList();

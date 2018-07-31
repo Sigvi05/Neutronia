@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.module;
 
-import net.hdt.neutronia.base.NeutroniaMain;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -88,7 +88,7 @@ public class Module implements Comparable<Module> {
 						}
 					
 					if(!failiures.isEmpty())
-						NeutroniaMain.LOGGER.info("[Neutronia] '" + feature.configName + "' is forcefully disabled as it's incompatible with the following loaded mods: " + failiures);
+						LibMisc.LOGGER.info("'" + feature.configName + "' is forcefully disabled as it's incompatible with the following loaded mods: " + failiures);
 				}
 			}
 			

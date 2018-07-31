@@ -6,7 +6,6 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-        classpath 'com.android.tools.build:gradle:1.0.0'// For gradle 2.2.1 - 2.3
     }
 }
 
@@ -64,6 +63,7 @@ processResources {
         exclude 'mcmod.info'
     }
 
+    rename '(.+_at.cfg)', 'META-INF/$1'
 }
 
 jar {

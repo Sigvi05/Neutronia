@@ -1,6 +1,5 @@
 package net.hdt.neutronia.modules.client.features;
 
-import betterwithmods.api.FeatureEnabledEvent;
 import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.module.Feature;
 import net.minecraft.client.Minecraft;
@@ -19,13 +18,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 public class FoodTooltip extends Feature {
 
 	int divisor = 2;
-	
-	@SubscribeEvent
-	public void bwmFeatureEnabled(FeatureEnabledEvent event) {
-		if(event.getFeature().equals("hchunger") && event.isEnabled())
-			divisor = 12;
-	}
-	
+
 	@SubscribeEvent
 	public void makeTooltip(ItemTooltipEvent event) {
 		if(!event.getItemStack().isEmpty() && event.getItemStack().getItem() instanceof ItemFood) {

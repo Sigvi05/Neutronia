@@ -1,6 +1,5 @@
 package net.hdt.neutronia.base.proxy;
 
-import net.hdt.neutronia.base.client.DevCapeHandler;
 import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.lib.LibObfuscation;
@@ -34,7 +33,7 @@ public class ClientProxy extends CommonProxy {
 
     private static ResourceProxy resourceProxy;
     public static final Minecraft minecraft = Minecraft.getMinecraft();
-    public static final Timer timer = ReflectionHelper.getPrivateValue(Minecraft.class, ClientProxy.minecraft, "timer", "field_71428_T", "aa");
+    private static final Timer timer = ReflectionHelper.getPrivateValue(Minecraft.class, ClientProxy.minecraft, "timer", "field_71428_T", "aa");
 
     static {
         List<IResourcePack> packs = ReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), LibObfuscation.DEFAULT_RESOURCE_PACKS);
@@ -62,7 +61,7 @@ public class ClientProxy extends CommonProxy {
 
         ModuleLoader.initClient(event);
 
-        ItemColors items = Minecraft.getMinecraft().getItemColors();
+        /*ItemColors items = Minecraft.getMinecraft().getItemColors();
         BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
 
         IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
@@ -112,9 +111,8 @@ public class ClientProxy extends CommonProxy {
             System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerSlabBlocks, coloredSlabs);
-        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);
+        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);*/
 
-        MinecraftForge.EVENT_BUS.register(DevCapeHandler.class);
         MinecraftForge.EVENT_BUS.register(ConfigEvents.class);
     }
 

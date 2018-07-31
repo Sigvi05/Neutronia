@@ -13,12 +13,10 @@ public class NeutroniaDecoration extends Module {
         registerFeature(new VariedTrapdoors());
         registerFeature(new MoreBanners());
         registerFeature(new NetherBrickFenceGate());
-        registerFeature(new ColoredItemFrames());
         registerFeature(new CharcoalBlock());
         registerFeature(new VariedBookshelves());
         registerFeature(new FlatItemFrames());
-        registerFeature(new GlassItemFrame());
-        registerFeature(new TerracottaFlowerPots());
+//        registerFeature(new TerracottaFlowerPots());
         registerFeature(new DecorativeAquamarine());
     }
 

@@ -7,16 +7,10 @@ import java.util.Collection;
 
 public class FluidTags
 {
-    private static TagCollection<Fluid> field_206961_c = new TagCollection<Fluid>((p_206955_0_) ->
-    {
-        return false;
-    }, (p_206957_0_) ->
-    {
-        return null;
-    }, "", false, "");
+    private static TagCollection<Fluid> field_206961_c = new TagCollection<Fluid>((p_206955_0_) -> false, (p_206957_0_) -> null, "", false, "");
     private static int field_206962_d;
-    public static final Tag<Fluid> field_206959_a = func_206956_a("water");
-    public static final Tag<Fluid> field_206960_b = func_206956_a("lava");
+    public static final Tag<Fluid> WATER = func_206956_a("water");
+    public static final Tag<Fluid> LAVA = func_206956_a("lava");
 
     public static void func_206953_a(TagCollection<Fluid> p_206953_0_)
     {

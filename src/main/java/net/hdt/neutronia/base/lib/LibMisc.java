@@ -1,11 +1,16 @@
 package net.hdt.neutronia.base.lib;
 
 import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.List;
 
 public final class LibMisc {
+
+	// Logger
+	public static final Logger LOGGER = LogManager.getLogger("Neutronia");
 
 	// Mod Constants
 	public static final String MOD_ID = "neutronia";

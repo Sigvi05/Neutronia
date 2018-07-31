@@ -83,7 +83,7 @@ public class NItems {
         ironSpear = new ItemSpear("iron_spear", Item.ToolMaterial.IRON).setCreativeTab(null);
         goldSpear = new ItemSpear("gold_spear", Item.ToolMaterial.GOLD).setCreativeTab(null);
         diamondSpear = new ItemSpear("diamond_spear", Item.ToolMaterial.DIAMOND).setCreativeTab(null);
-        trident = new ItemSpear("trident", Item.ToolMaterial.DIAMOND).setCreativeTab(null);
+        trident = new ItemTrident().setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
         anchor = new ItemSpear("anchor", Item.ToolMaterial.IRON).setCreativeTab(null);
         easter_egg = new ItemEasterEgg();
 
