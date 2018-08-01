@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockFireStoneSlab extends BlockNeutroniaSlab {
 
 	public BlockFireStoneSlab(boolean doubleSlab) {
-		super("fire_stone_slab", Material.ROCK, doubleSlab);
+		super("fire_stone", Material.ROCK, doubleSlab);
 		setHardness(1.5F);
 		setResistance(10.0F);
 		setSoundType(SoundType.STONE);

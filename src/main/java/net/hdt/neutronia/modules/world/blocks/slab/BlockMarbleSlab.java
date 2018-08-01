@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockMarbleSlab extends BlockNeutroniaSlab {
 
 	public BlockMarbleSlab(boolean doubleSlab) {
-		super("stone_marble_slab", Material.ROCK, doubleSlab);
+		super("stone_marble", Material.ROCK, doubleSlab);
 		setHardness(1.5F);
 		setResistance(10.0F);
 		setSoundType(SoundType.STONE);

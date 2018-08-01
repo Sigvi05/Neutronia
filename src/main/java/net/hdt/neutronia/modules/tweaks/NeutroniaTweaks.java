@@ -25,6 +25,7 @@ public class NeutroniaTweaks extends Module {
         registerFeature(new ChickensShedFeathers());
         registerFeature(new AxesBreakLeaves());
         registerFeature(new ConvertClay());
+        registerFeature(new ExtendedToolProgression());
     }
 
     @Override
