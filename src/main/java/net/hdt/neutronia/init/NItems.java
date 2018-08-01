@@ -23,13 +23,28 @@ public class NItems {
     public static final Item.ToolMaterial CSHOVEL = EnumHelper.addToolMaterial("cshovel", 3, 325, 7.0F, 4.0F, 12);
     public static final Item.ToolMaterial CSWORD = EnumHelper.addToolMaterial("csword", 3, 325, 7.0F, 8.0F, 12);
 
-    public static final Item.ToolMaterial OBSDIDIAN = EnumHelper.addToolMaterial("obsidian", 3, 1561 * 2, 10F, 6.0F, 22);
+    public static final Item.ToolMaterial OBSIDIAN = EnumHelper.addToolMaterial("obsidian", 3, 1561 * 2, 10F, 6.0F, 22);
+    public static final Item.ToolMaterial BRASS = EnumHelper.addToolMaterial("brass", 3, 1561 * 2, 10F, 6.0F, 22);
+    public static final Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("steel", 3, 1561 * 2, 10F, 6.0F, 22);
+    public static final Item.ToolMaterial COPPER = EnumHelper.addToolMaterial("copper", 3, 1561 * 2, 10F, 6.0F, 22);
+    public static final Item.ToolMaterial ZINC = EnumHelper.addToolMaterial("zinc", 3, 1561 * 2, 10F, 6.0F, 22);
 
     public static final Item ancientSword, bandage, /*witherBone, witherBonemeal, driedKelp, stinger, chitin, */ phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
 //    public static final Item rawSeaweed;
 
 //    public static final Item AXE_CHITIN, PICKAXE_CHITIN, HOE_CHITIN, SHOVEL_CHITIN, SWORD_CHITIN;
     public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE,  OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
+
+    public static final Item BRASS_AXE, BRASS_PICKAXE,  BRASS_SHOVEL, BRASS_SWORD;
+    public static final Item STEEL_AXE, STEEL_PICKAXE,  STEEL_SHOVEL, STEEL_SWORD;
+    public static final Item COPPER_AXE, COPPER_PICKAXE,  COPPER_SHOVEL, COPPER_SWORD;
+    public static final Item ZINC_AXE, ZINC_PICKAXE,  ZINC_SHOVEL, ZINC_SWORD;
+    public static final Item brassIngot, brassNugget;
+    public static final Item copperIngot, copperNugget;
+    public static final Item steelIngot, steelNugget;
+    public static final Item zincCunk;
+    public static final Item bronzeIngot, bronzeNugget;
+    public static final Item tinIngot, tinNugget;
 
     public static final Item woodSpear;
     public static final Item stoneSpear;
@@ -73,10 +88,42 @@ public class NItems {
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(chisel, 1), "I", "S", 'I', Items.IRON_INGOT, 'S', Items.STICK);
         RecipeHandler.addShapedRecipe(ProxyRegistry.newStack(logStripper, 1), "II ", " I ", " S ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
 
-        OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSDIDIAN).setCreativeTab(tab);
-        OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSDIDIAN).setCreativeTab(tab);
-        OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSDIDIAN).setCreativeTab(tab);
-        OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSDIDIAN).setCreativeTab(tab);
+        OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSIDIAN).setCreativeTab(tab);
+        OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSIDIAN).setCreativeTab(tab);
+        OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSIDIAN).setCreativeTab(tab);
+        OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSIDIAN).setCreativeTab(tab);
+
+        BRASS_AXE = new BaseAxe("brass_axe", BRASS).setCreativeTab(tab);
+        BRASS_PICKAXE = new BasePickaxe("brass_pickaxe", BRASS).setCreativeTab(tab);
+        BRASS_SHOVEL = new BaseShovel("brass_shovel", BRASS).setCreativeTab(tab);
+        BRASS_SWORD = new BaseSword("brass_sword", BRASS).setCreativeTab(tab);
+
+        STEEL_AXE = new BaseAxe("steel_axe", STEEL).setCreativeTab(tab);
+        STEEL_PICKAXE = new BasePickaxe("steel_pickaxe", STEEL).setCreativeTab(tab);
+        STEEL_SHOVEL = new BaseShovel("steel_shovel", STEEL).setCreativeTab(tab);
+        STEEL_SWORD = new BaseSword("steel_sword", STEEL).setCreativeTab(tab);
+
+        COPPER_AXE = new BaseAxe("copper_axe", COPPER).setCreativeTab(tab);
+        COPPER_PICKAXE = new BasePickaxe("copper_pickaxe", COPPER).setCreativeTab(tab);
+        COPPER_SHOVEL = new BaseShovel("copper_shovel", COPPER).setCreativeTab(tab);
+        COPPER_SWORD = new BaseSword("copper_sword", COPPER).setCreativeTab(tab);
+
+        ZINC_AXE = new BaseAxe("zinc_axe", ZINC).setCreativeTab(tab);
+        ZINC_PICKAXE = new BasePickaxe("zinc_pickaxe", ZINC).setCreativeTab(tab);
+        ZINC_SHOVEL = new BaseShovel("zinc_shovel", ZINC).setCreativeTab(tab);
+        ZINC_SWORD = new BaseSword("zinc_sword", ZINC).setCreativeTab(tab);
+
+        brassIngot = new ItemBase("brass_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
+        brassNugget = new ItemBase("brass_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
+        copperIngot = new ItemBase("copper_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
+        copperNugget = new ItemBase("copper_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
+        steelIngot = new ItemBase("steel_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
+        steelNugget = new ItemBase("steel_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
+        zincCunk = new ItemBase("zinc_chunk", NCreativeTabs.ITEM_EXPANSION_TAB);
+        tinIngot = new ItemBase("tin_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
+        tinNugget = new ItemBase("tin_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
+        bronzeIngot = new ItemBase("bronze_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
+        bronzeNugget = new ItemBase("bronze_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
 
         woodSpear = new ItemSpear("wood_spear", Item.ToolMaterial.WOOD).setCreativeTab(null);
         stoneSpear = new ItemSpear("stone_spear", Item.ToolMaterial.STONE).setCreativeTab(null);

@@ -4,6 +4,7 @@ import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaOre;
 import net.hdt.neutronia.blocks.*;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.*;
@@ -31,6 +32,8 @@ public class NBlocks {
 
     // Misc
     public static final Block blackSand;
+    public static final Block brassBlock, steelBlock, copperBlock, bronzeBlock;
+    public static final Block brassOre, steelOre, copperOre, bronzeOre, tinOre, zincOre;
 //    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
 //    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
@@ -249,6 +252,17 @@ public class NBlocks {
 //        darkIronAnvil = new BlockModAnvil("dark_iron_anvil", OVERWORLD_EXPANSION_TAB);
 
         blackSand = new BlockFalling("black_sand", OVERWORLD_EXPANSION_TAB);
+        brassBlock = new BlockOverworldBase(Material.IRON, "brass_block", false);
+        steelBlock = new BlockOverworldBase(Material.IRON, "steel_block", false);
+        copperBlock = new BlockOverworldBase(Material.IRON, "copper_block", false);
+        bronzeBlock = new BlockOverworldBase(Material.IRON, "bronze_block", false);
+
+        brassOre = new BlockNeutroniaOre("brass_ore").setIngot(NItems.brassIngot);
+        steelOre = new BlockNeutroniaOre("steel_ore").setIngot(NItems.steelIngot);
+        copperOre = new BlockNeutroniaOre("copper_ore").setIngot(NItems.copperIngot);
+        bronzeOre = new BlockNeutroniaOre("bronze_ore").setIngot(NItems.bronzeIngot);
+        tinOre = new BlockNeutroniaOre("tin_ore").setIngot(NItems.tinIngot);
+        zincOre = new BlockNeutroniaOre("zinc_ore").setIngot(NItems.zincCunk);
 
         sandstonePillar = new MRPillar(Material.ROCK, "sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);
         redSandstonePillar = new MRPillar(Material.ROCK, "red_sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);

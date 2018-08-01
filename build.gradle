@@ -41,6 +41,8 @@ repositories {
     maven { url = "http://tehnut.info/maven" }
     maven { url = "http://maven.tterrag.com" }
     maven { url = "http://maven.covers1624.net" }
+    maven { url 'https://www.dimdev.org/maven/' }
+    maven { url = 'https://repo.spongepowered.org/maven/' }
 }
 
 dependencies {
@@ -48,6 +50,7 @@ dependencies {
     compile "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
+    compile('org.dimdev:mixin:0.7.11-SNAPSHOT')
 }
 
 processResources {
