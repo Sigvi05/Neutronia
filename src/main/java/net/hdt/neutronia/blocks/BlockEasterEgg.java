@@ -2,6 +2,7 @@ package net.hdt.neutronia.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
+import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.tileentity.TileEntityEasterEgg;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -14,7 +15,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.thegaminghuskymc.gadgetmod.init.GadgetItems;
 
 public class BlockEasterEgg extends BlockMod implements ITileEntityProvider, INeutroniaBlock {
 
@@ -30,7 +30,7 @@ public class BlockEasterEgg extends BlockMod implements ITileEntityProvider, INe
             TileEntity te = worldIn.getTileEntity(pos);
             if (te instanceof TileEntityEasterEgg) {
                 TileEntityEasterEgg eggte = (TileEntityEasterEgg) te;
-                ItemStack egg = new ItemStack(GadgetItems.easter_egg);
+                ItemStack egg = new ItemStack(NItems.easter_egg);
                 NBTTagCompound nbt = eggte.writeColorsToNBT(new NBTTagCompound());
                 egg.setTagCompound(nbt);
                 worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), egg));
@@ -45,7 +45,7 @@ public class BlockEasterEgg extends BlockMod implements ITileEntityProvider, INe
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 
