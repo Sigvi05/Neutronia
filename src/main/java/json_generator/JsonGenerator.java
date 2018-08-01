@@ -888,7 +888,7 @@ public class JsonGenerator {
 
             writer.close();
 
-            Writer writer2 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + "_down" + ".json"), "UTF-8");
+            Writer writer2 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + blockName + "_down" + ".json"), StandardCharsets.UTF_8);
             JsonWriter jw2 = gson.newJsonWriter(writer2);
 
             jw2.beginObject();
