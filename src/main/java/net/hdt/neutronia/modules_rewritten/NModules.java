@@ -15,7 +15,6 @@ public class NModules {
                 .withDesc("This is the building module")
                 .withIcon(new ItemStack(Blocks.STONE))
                 .withFeature(new TestBlocks())
-                .withModule(testBuilding)
                 .register();
 //        testBuilding.registerFeature(new TestBlocks());
     }

@@ -190,7 +190,7 @@ public class Module implements Comparable<Module> {
 		return new ItemStack(Blocks.BARRIER);
 	}
 
-	public final void forEachFeature(Consumer<Feature> consumer) {
+	private void forEachFeature(Consumer<Feature> consumer) {
 		features.values().forEach(consumer);
 	}
 
@@ -228,6 +228,7 @@ public class Module implements Comparable<Module> {
 		private String name, desc;
 		private ItemStack icon;
 		private Feature feature;
+        private Module module = new Module(this);
 
 		public Builder withName(String name) {
 			this.name = name;
@@ -241,6 +242,7 @@ public class Module implements Comparable<Module> {
 
 		public Builder withFeature(Feature feature) {
 		    this.feature = feature;
+		    module.registerFeature(feature);
 		    return this;
         }
 
@@ -250,7 +252,6 @@ public class Module implements Comparable<Module> {
         }
 
 		public Module register() {
-		    Module module = new Module(this);
             ModuleLoader.registerModule(module);
 		    return module;
         }
