@@ -34,6 +34,9 @@ public class Module implements Comparable<Module> {
 
     public Module(Builder builder) {
         name = builder.name;
+        for(Feature feature : builder.features) {
+            registerFeature(feature);
+        }
     }
 
     public void addFeatures() {
@@ -228,7 +231,6 @@ public class Module implements Comparable<Module> {
 		private String name, desc;
 		private ItemStack icon;
 		private Feature feature;
-        private Module module = new Module(this);
         private List<Feature> features = new ArrayList<>();
 
 		public Builder withName(String name) {
@@ -253,10 +255,8 @@ public class Module implements Comparable<Module> {
         }
 
 		public Module register() {
+            Module module = new Module(this);
             ModuleLoader.registerModule(module);
-            for(Feature feature : features) {
-                module.registerFeature(feature);
-            }
 		    return module;
         }
 
