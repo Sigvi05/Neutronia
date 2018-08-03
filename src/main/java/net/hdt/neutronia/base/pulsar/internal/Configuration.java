@@ -1,29 +1,20 @@
-package slimeknights.mantle.pulsar.internal;
+package net.hdt.neutronia.base.pulsar.internal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
+import net.hdt.neutronia.base.pulsar.config.IConfiguration;
+import net.hdt.neutronia.base.pulsar.pulse.PulseMeta;
 import net.minecraftforge.fml.common.Loader;
-
 import org.apache.logging.log4j.Logger;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
-
-import slimeknights.mantle.pulsar.config.IConfiguration;
-import slimeknights.mantle.pulsar.pulse.PulseMeta;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Default Gson Configuration helper.

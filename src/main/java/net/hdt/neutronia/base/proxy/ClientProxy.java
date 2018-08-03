@@ -17,11 +17,13 @@ import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.Timer;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 import java.util.List;
@@ -53,6 +55,7 @@ public class ClientProxy extends CommonProxy {
         overrideBlock("stone_diorite_smooth", true);
 
         ModuleLoader.preInitClient(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.preInitClient(event);
     }
 
     @Override
@@ -60,6 +63,7 @@ public class ClientProxy extends CommonProxy {
         super.init(event);
 
         ModuleLoader.initClient(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.initClient(event);
 
         /*ItemColors items = Minecraft.getMinecraft().getItemColors();
         BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
@@ -116,10 +120,115 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(ConfigEvents.class);
     }
 
+    @SubscribeEvent
+    public void onColorBlocks(ColorHandlerEvent.Block event) {
+        BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
+
+        IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        IItemColor handlerItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColor = new Block[][] {
+                NBlocks.coloredCandles,
+                NBlocks.coloredLitCandles,
+                NBlocks.coloredLanterns,
+                NBlocks.coloredLitLanterns,
+                NBlocks.coloredRedstoneLamp,
+                NBlocks.coloredLitRedstoneLamp,
+                NBlocks.coloredPlanks
+        };
+        Block[] coloredStuff = new Block[16 * toColor.length];
+
+        for(int i = 0; i < toColor.length; i++) {
+            Block[] colored = toColor[i];
+            System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
+
+        IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        Block[][] toColorTranslucent = new Block[][] {
+                NBlocks.coloredSlimeBlock
+        };
+        Block[] coloredStuffTranslucent = new Block[16 * toColorTranslucent.length];
+
+        for(int i = 0; i < toColorTranslucent.length; i++) {
+            Block[] colored = toColorTranslucent[i];
+            System.arraycopy(colored, 0, coloredStuffTranslucent, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerBlocksTranslucent, coloredStuffTranslucent);
+
+        IBlockColor handlerSlabBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        Block[][] toColorSlabs = new Block[][] {
+                NBlocks.coloredPlanksSlabSingle,
+                NBlocks.coloredPlanksSlabDouble
+        };
+        Block[] coloredSlabs = new Block[16 * toColorSlabs.length];
+
+        for(int i = 0; i < toColorSlabs.length; i++) {
+            Block[] colored = toColorSlabs[i];
+            System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerSlabBlocks, coloredSlabs);
+    }
+
+    @SubscribeEvent
+    public void onItemColored(ColorHandlerEvent.Item event) {
+        ItemColors items = event.getItemColors();
+        BlockColors blocks = event.getBlockColors();
+
+        IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        IItemColor handlerItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColor = new Block[][] {
+                NBlocks.coloredCandles,
+                NBlocks.coloredLitCandles,
+                NBlocks.coloredLanterns,
+                NBlocks.coloredLitLanterns,
+                NBlocks.coloredRedstoneLamp,
+                NBlocks.coloredLitRedstoneLamp,
+                NBlocks.coloredPlanks
+        };
+        Block[] coloredStuff = new Block[16 * toColor.length];
+
+        for(int i = 0; i < toColor.length; i++) {
+            Block[] colored = toColor[i];
+            System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
+        items.registerItemColorHandler(handlerItems, coloredStuff);
+
+        IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        IItemColor handlerItemsTranslucent = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColorTranslucent = new Block[][] {
+                NBlocks.coloredSlimeBlock
+        };
+        Block[] coloredStuffTranslucent = new Block[16 * toColorTranslucent.length];
+
+        for(int i = 0; i < toColorTranslucent.length; i++) {
+            Block[] colored = toColorTranslucent[i];
+            System.arraycopy(colored, 0, coloredStuffTranslucent, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerBlocksTranslucent, coloredStuffTranslucent);
+        items.registerItemColorHandler(handlerItemsTranslucent, coloredStuffTranslucent);
+
+        IBlockColor handlerSlabBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+        IItemColor handlerSlabItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+        Block[][] toColorSlabs = new Block[][] {
+                NBlocks.coloredPlanksSlabSingle,
+                NBlocks.coloredPlanksSlabDouble
+        };
+        Block[] coloredSlabs = new Block[16 * toColorSlabs.length];
+
+        for(int i = 0; i < toColorSlabs.length; i++) {
+            Block[] colored = toColorSlabs[i];
+            System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
+        }
+        blocks.registerBlockColorHandler(handlerSlabBlocks, coloredSlabs);
+        items.registerItemColorHandler(handlerSlabItems, coloredSlabs);
+    }
+
     @Override
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
         ModuleLoader.postInitClient(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.postInitClient(event);
     }
 
     @Override

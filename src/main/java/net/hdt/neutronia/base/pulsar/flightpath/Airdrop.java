@@ -1,4 +1,4 @@
-package slimeknights.mantle.pulsar.flightpath;
+package net.hdt.neutronia.base.pulsar.flightpath;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

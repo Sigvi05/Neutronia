@@ -18,6 +18,7 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
 //        NBiomes.registerBiomes();
         ModuleLoader.preInit(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.preInit(event);
         MessageRegister.init();
     }
 
@@ -26,18 +27,22 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
         GameRegistry.registerTileEntity(TileEntityPot.class, new ResourceLocation(MOD_ID, "pot"));
         ModuleLoader.init(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.init(event);
     }
 
     public void postInit(FMLPostInitializationEvent event) {
         ModuleLoader.postInit(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.postInit(event);
     }
 
     public void finalInit(FMLPostInitializationEvent event) {
         ModuleLoader.finalInit(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.finalInit(event);
     }
 
     public void serverStarting(FMLServerStartingEvent event) {
         ModuleLoader.serverStarting(event);
+        net.hdt.neutronia.base.module_rewrite.ModuleLoader.serverStarting(event);
     }
 
     public void addResourceOverride(String space, String dir, String file, String ext) {

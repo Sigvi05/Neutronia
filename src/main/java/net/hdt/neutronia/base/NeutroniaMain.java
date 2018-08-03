@@ -1,12 +1,14 @@
 package net.hdt.neutronia.base;
 
 import net.hdt.neutronia.base.lib.LibMisc;
+import net.hdt.neutronia.base.module_rewrite.ModuleLoader;
 import net.hdt.neutronia.base.proxy.CommonProxy;
 import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.events.ILifeCycleHandler;
 import net.hdt.neutronia.events.handlers.EventHandlers;
 import net.hdt.neutronia.events.handlers.RecipeHandlers;
 import net.hdt.neutronia.init.NEnchantments;
+import net.hdt.neutronia.modules_rewritten.NModules;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -45,6 +47,9 @@ public class NeutroniaMain {
         LOGGER = event.getModLog();
         handlers.forEach(handler -> handler.preInit(event));
         proxy.preInit(event);
+        if(ModuleLoader.moduleInstances.containsKey(NModules.testBuilding.getClass())) {
+            NeutroniaMain.LOGGER.info("Module Test Building is loaded!");
+        }
     }
 
     @Mod.EventHandler

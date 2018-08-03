@@ -1,16 +1,15 @@
-package slimeknights.mantle.pulsar.flightpath.lib;
+package net.hdt.neutronia.base.pulsar.flightpath.lib;
 
+import net.hdt.neutronia.base.pulsar.flightpath.ISubscriberLocator;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import slimeknights.mantle.pulsar.flightpath.ISubscriberLocator;
 
 /**
  * Default implementation of ISubscriberLocator

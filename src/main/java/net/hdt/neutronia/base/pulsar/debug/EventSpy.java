@@ -1,13 +1,10 @@
-package slimeknights.mantle.pulsar.debug;
+package net.hdt.neutronia.base.pulsar.debug;
 
 import com.google.common.eventbus.Subscribe;
-
+import net.hdt.neutronia.base.pulsar.pulse.Pulse;
 import net.minecraftforge.fml.common.Loader;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import slimeknights.mantle.pulsar.pulse.Pulse;
 
 /**
  * Debug Pulse to 'eavesdrop' on the PulseManager event bus traffic.

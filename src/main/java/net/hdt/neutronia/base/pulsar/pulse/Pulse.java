@@ -1,4 +1,4 @@
-package slimeknights.mantle.pulsar.pulse;
+package net.hdt.neutronia.base.pulsar.pulse;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
