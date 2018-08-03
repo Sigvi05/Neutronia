@@ -23,12 +23,10 @@ import java.util.function.Consumer;
 public final class ModuleLoader {
 
 	static {
-		moduleClasses = new ArrayList<>();
 		modules = new ArrayList<>();
 		NModules.registerModules();
 	}
 
-	private static List<Class<? extends Module>> moduleClasses;
     private static List<Module> modules;
 	public static Map<Class<? extends Module>, Module> moduleInstances = new HashMap<>();
 	static Map<Class<? extends Feature>, Feature> featureInstances = new HashMap<>();
@@ -39,13 +37,6 @@ public final class ModuleLoader {
 	public static Configuration config;
 
     public static void preInit(FMLPreInitializationEvent event) {
-		moduleClasses.forEach(clazz -> {
-			try {
-				moduleInstances.put(clazz, clazz.newInstance());
-			} catch (Exception e) {
-				throw new RuntimeException("Can't initialize module " + clazz, e);
-			}
-		});
 		for(Module module : modules) {
             try {
                 moduleInstances.put(module.getClass(), module);
@@ -143,13 +134,6 @@ public final class ModuleLoader {
 
 	private static void forEachEnabled(Consumer<Module> consumer) {
 		enabledModules.forEach(consumer);
-	}
-
-	public static void registerModule(Class<? extends Module> clazz) {
-		if(!moduleClasses.contains(clazz)) {
-            moduleClasses.add(clazz);
-            LibMisc.LOGGER.info("Registering Module " + clazz.getSimpleName());
-        }
 	}
 
     public static void registerModule(Module module) {
