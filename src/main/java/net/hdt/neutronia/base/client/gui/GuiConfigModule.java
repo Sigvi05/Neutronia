@@ -1,8 +1,8 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.module.Feature;
-import net.hdt.neutronia.base.module.Module;
-import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Group;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.text.translation.I18n;
@@ -16,19 +16,19 @@ public class GuiConfigModule extends GuiConfigBase {
 
 	private static final int FEATURES_PER_PAGE = 12;
 	
-	private final Module module;
+	private final Group group;
 	private final List<Feature> features;
 	private int page = 0;
 	private int totalPages;
 	
 	private GuiButton left, right;
 	
-	GuiConfigModule(GuiScreen parent, Module module) {
+	GuiConfigModule(GuiScreen parent, Group group) {
 		super(parent);
-		this.module = module;
+		this.group = group;
 		
 		features = new ArrayList<>();
-		module.forEachFeature(features::add);
+		group.forEachFeature(features::add);
 		Collections.sort(features);
 
 		totalPages = (features.size() - 1) / FEATURES_PER_PAGE + 1;
@@ -37,7 +37,7 @@ public class GuiConfigModule extends GuiConfigBase {
 	public void initGui() {
 		super.initGui();
 		
-		title += " - " + I18n.translateToLocal("neutronia.config.module." + module.name) + " (" + features.size() + ")";
+		title += " - " + I18n.translateToLocal("neutronia.config.group." + group.name) + " (" + features.size() + ")";
 
 		int x = width / 2 - 100;
 		int y = height / 6 + 167;
@@ -72,7 +72,7 @@ public class GuiConfigModule extends GuiConfigBase {
 
 			buttonList.add(new GuiButtonConfigSetting(x + 150, y, feature.prop, true, feature.getFeatureIngameConfigName()));
 
-			if(ModuleLoader.config.hasCategory(feature.configCategory))
+			if(GroupLoader.config.hasCategory(feature.configCategory))
 				buttonList.add(new GuiButtonFeatureSettings(x + 170, y, feature.configCategory));
 		}
 

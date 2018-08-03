@@ -3,7 +3,7 @@ package net.hdt.neutronia.base.proxy;
 import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.lib.LibObfuscation;
-import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
@@ -54,16 +54,16 @@ public class ClientProxy extends CommonProxy {
         overrideBlock("stone_granite_smooth", true);
         overrideBlock("stone_diorite_smooth", true);
 
-        ModuleLoader.preInitClient(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.preInitClient(event);
+        GroupLoader.preInitClient(event);
+        GroupLoader.preInitClient(event);
     }
 
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
 
-        ModuleLoader.initClient(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.initClient(event);
+        GroupLoader.initClient(event);
+        GroupLoader.initClient(event);
 
         /*ItemColors items = Minecraft.getMinecraft().getItemColors();
         BlockColors blocks = Minecraft.getMinecraft().getBlockColors();
@@ -227,8 +227,8 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
-        ModuleLoader.postInitClient(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.postInitClient(event);
+        GroupLoader.postInitClient(event);
+        GroupLoader.postInitClient(event);
     }
 
     @Override

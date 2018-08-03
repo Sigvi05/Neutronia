@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.module.*;
+import net.hdt.neutronia.base.groups.*;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.text.translation.I18n;
@@ -16,19 +16,19 @@ public class GuiConfigRoot extends GuiConfigBase {
     private int page = 0;
     private int totalPages;
     private GuiButton left, right;
-    private final List<Module> modules;
+    private final List<Group> groups;
 	
 	GuiConfigRoot(GuiScreen parent) {
 		super(parent);
 
-        modules = new ArrayList<>();
-        modules.addAll(ModuleLoader.moduleInstances.values());
-        Collections.sort(modules);
+        groups = new ArrayList<>();
+        groups.addAll(GroupLoader.groupInstances.values());
+        Collections.sort(groups);
 		
 		qEnabled = GlobalConfig.enableNButton;
 
-		System.out.println(modules.size());
-        totalPages = (modules.size() - 1) / MODULES_PER_PAGE + 1;
+		System.out.println(groups.size());
+        totalPages = (groups.size() - 1) / MODULES_PER_PAGE + 1;
 	}
 
 	@Override
@@ -57,13 +57,13 @@ public class GuiConfigRoot extends GuiConfigBase {
         buttonList.removeIf((b) -> b instanceof GuiButtonModule || b instanceof GuiButtonConfigSetting);
 
         int start = page * MODULES_PER_PAGE;
-        for(int j = start; j < Math.min(start + MODULES_PER_PAGE, modules.size()); j++) {
+        for(int j = start; j < Math.min(start + MODULES_PER_PAGE, groups.size()); j++) {
             int k = j - start;
             x = startX + k % 2 * 180;
             y = startY + k / 2 * 22;
-            Module module = modules.get(j);
-            buttonList.add(new GuiButtonModule(x, y, module));
-            buttonList.add(new GuiButtonConfigSetting(x + 150, y, module.prop, false));
+            Group group = groups.get(j);
+            buttonList.add(new GuiButtonModule(x, y, group));
+            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
         }
 
         if(left != null) {
@@ -109,7 +109,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 
 		if(button instanceof GuiButtonModule) {
 			GuiButtonModule moduleButton = (GuiButtonModule) button;
-			mc.displayGuiScreen(new GuiConfigModule(this, moduleButton.module));
+			mc.displayGuiScreen(new GuiConfigModule(this, moduleButton.group));
 		}  else if(button == left || button == right) {
             if(button == left)
                 page = Math.max(page - 1, 0);

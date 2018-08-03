@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.proxy;
 
-import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.network.MessageRegister;
 import net.hdt.neutronia.tileentity.TileEntityPot;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
@@ -17,8 +17,8 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
 //        NBiomes.registerBiomes();
-        ModuleLoader.preInit(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.preInit(event);
+        GroupLoader.preInit(event);
+        GroupLoader.preInit(event);
         MessageRegister.init();
     }
 
@@ -26,23 +26,23 @@ public class CommonProxy {
 //        GameRegistry.registerWorldGenerator(new OreGen(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
         GameRegistry.registerTileEntity(TileEntityPot.class, new ResourceLocation(MOD_ID, "pot"));
-        ModuleLoader.init(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.init(event);
+        GroupLoader.init(event);
+        GroupLoader.init(event);
     }
 
     public void postInit(FMLPostInitializationEvent event) {
-        ModuleLoader.postInit(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.postInit(event);
+        GroupLoader.postInit(event);
+        GroupLoader.postInit(event);
     }
 
     public void finalInit(FMLPostInitializationEvent event) {
-        ModuleLoader.finalInit(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.finalInit(event);
+        GroupLoader.finalInit(event);
+        GroupLoader.finalInit(event);
     }
 
     public void serverStarting(FMLServerStartingEvent event) {
-        ModuleLoader.serverStarting(event);
-        net.hdt.neutronia.base.module_rewrite.ModuleLoader.serverStarting(event);
+        GroupLoader.serverStarting(event);
+        GroupLoader.serverStarting(event);
     }
 
     public void addResourceOverride(String space, String dir, String file, String ext) {

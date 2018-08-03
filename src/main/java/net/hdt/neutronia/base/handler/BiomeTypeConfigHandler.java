@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.handler;
 
-import net.hdt.neutronia.base.module.ModuleLoader;
-import net.hdt.neutronia.modules.world.world.StoneInfoBasedGenerator;
+import net.hdt.neutronia.base.groups.GroupLoader;
+import net.hdt.neutronia.groups.world.world.StoneInfoBasedGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -17,7 +17,7 @@ public final class BiomeTypeConfigHandler {
 
 	public static List<BiomeDictionary.Type> parseBiomeTypeArrayConfig(String name, String category, BiomeDictionary.Type... biomes) {
 		String[] defaultBiomes = Arrays.stream(biomes).map(BiomeDictionary.Type::getName).toArray(String[]::new);
-		String[] readBiomes = ModuleLoader.config.getStringList(name, category, defaultBiomes,
+		String[] readBiomes = GroupLoader.config.getStringList(name, category, defaultBiomes,
 				"Biome Type List: https://github.com/MinecraftForge/MinecraftForge/blob/1.11.x/src/main/java/net/minecraftforge/common/BiomeDictionary.java#L44-L90\n"
 				+ "Types per Biome: https://github.com/MinecraftForge/MinecraftForge/blob/1.11.x/src/main/java/net/minecraftforge/common/BiomeDictionary.java#L402-L463");
 		

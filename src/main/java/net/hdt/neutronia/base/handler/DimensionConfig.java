@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.handler;
 
-import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -21,9 +21,9 @@ public class DimensionConfig {
 	
 	public DimensionConfig(String parent, boolean blacklist, String... defaultStrs) {
 		String category = parent + ".dimensions";
-		this.blacklist = ModuleLoader.config.getBoolean("Is Blacklist", category, blacklist, "");
+		this.blacklist = GroupLoader.config.getBoolean("Is Blacklist", category, blacklist, "");
 		
-		String[] dimStrs = ModuleLoader.config.getStringList("Dimensions", category, defaultStrs, "");
+		String[] dimStrs = GroupLoader.config.getStringList("Dimensions", category, defaultStrs, "");
 		dims = new ArrayList();
 		for(String s : dimStrs)
 			try {

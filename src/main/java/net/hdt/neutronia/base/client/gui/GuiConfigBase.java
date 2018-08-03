@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.client.gui;
 
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.gui.GuiScreen;
@@ -67,7 +67,7 @@ public class GuiConfigBase extends GuiScreen {
 						
 				mayRequireRestart = !restartRequiringProperties.isEmpty();
 			}
-			ModuleLoader.loadConfig();
+			GroupLoader.loadConfig();
 		}
 	}
 

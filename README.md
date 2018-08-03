@@ -26,7 +26,7 @@ Neutronia is made out of different modules and those modules are:
     * Neutronia: PE-Sun
     
 ## Neutronia: Overworld Expansion
-This module is aimed at the Overworld and expanding as much as I can in it like adding new biomes, structures, new blocks, new items and new entities.
+This group is aimed at the Overworld and expanding as much as I can in it like adding new biomes, structures, new blocks, new items and new entities.
 
 ## Neutronia: End Expansion
 This is wip

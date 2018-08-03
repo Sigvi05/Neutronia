@@ -10,7 +10,7 @@
  */
 package net.hdt.neutronia.base.network.message;
 
-import net.hdt.neutronia.base.module.GlobalConfig;
+import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.network.NetworkMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
