@@ -1,13 +1,13 @@
-package vazkii.quark.world.feature;
+package net.hdt.neutronia.modules.world.features;
 
+import net.hdt.neutronia.base.handler.DimensionConfig;
+import net.hdt.neutronia.base.module.Feature;
+import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.modules.world.blocks.BlockSpeleothem;
+import net.hdt.neutronia.modules.world.world.SpeleothemGenerator;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import vazkii.quark.base.handler.DimensionConfig;
-import vazkii.quark.base.module.Feature;
-import vazkii.quark.base.module.ModuleLoader;
-import vazkii.quark.world.block.BlockSpeleothem;
-import vazkii.quark.world.world.SpeleothemGenerator;
 
 public class Speleothems extends Feature {
 

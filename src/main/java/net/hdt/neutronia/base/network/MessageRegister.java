@@ -9,6 +9,7 @@ public class MessageRegister {
 		NetworkHandler.register(MessageChangeConfig.class, Side.CLIENT);
 		NetworkHandler.register(MessageUpdateAfk.class, Side.SERVER);
 		NetworkHandler.register(MessageFavoriteItem.class, Side.SERVER);
+		NetworkHandler.register(MessageAddToShulkerBox.class, Side.SERVER);
 	}
 	
 }

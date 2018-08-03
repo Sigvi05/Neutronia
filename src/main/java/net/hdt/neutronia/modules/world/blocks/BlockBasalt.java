@@ -27,8 +27,8 @@ public class BlockBasalt extends BlockMetaVariants implements INeutroniaBlock {
 	}
 
 	public enum Variants implements EnumBase {
-		STONE_BASALT,
-		STONE_BASALT_SMOOTH
+		RAW_BASALT,
+		SMOOTH_BASALT
 	}
 
 }

@@ -28,6 +28,8 @@ public class NeutroniaWorld extends Module {
 
         registerFeature(new RealisticWorldType());
         registerFeature(new DefaultWorldOptions());
+        registerFeature(new Speleothems());
+        registerFeature(new BetterCaves());
     }
 
     @Override

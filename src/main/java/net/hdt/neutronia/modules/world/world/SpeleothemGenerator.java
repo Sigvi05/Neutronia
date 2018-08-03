@@ -1,7 +1,9 @@
-package vazkii.quark.world.world;
+package net.hdt.neutronia.modules.world.world;
 
-import java.util.Random;
-
+import net.hdt.neutronia.modules.world.blocks.BlockSpeleothem;
+import net.hdt.neutronia.modules.world.features.Basalt;
+import net.hdt.neutronia.modules.world.features.RevampStoneGen;
+import net.hdt.neutronia.modules.world.features.Speleothems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
@@ -12,11 +14,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vazkii.quark.world.block.BlockSpeleothem;
-import vazkii.quark.world.block.BlockSpeleothem.EnumSize;
-import vazkii.quark.world.feature.Basalt;
-import vazkii.quark.world.feature.RevampStoneGen;
-import vazkii.quark.world.feature.Speleothems;
+
+import java.util.Random;
 
 public class SpeleothemGenerator implements IWorldGenerator {
 
@@ -93,7 +92,7 @@ public class SpeleothemGenerator implements IWorldGenerator {
 			if(!world.isAirBlock(pos))
 				return;
 			
-			EnumSize sizeType = EnumSize.values()[size - i - 1];
+			BlockSpeleothem.EnumSize sizeType = BlockSpeleothem.EnumSize.values()[size - i - 1];
 			IBlockState targetBlock = type.getDefaultState().withProperty(BlockSpeleothem.SIZE, sizeType);
 			world.setBlockState(pos, targetBlock);
 		}

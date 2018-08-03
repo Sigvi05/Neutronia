@@ -65,7 +65,7 @@ public class WorldStoneBricks extends Feature {
 	}
 
 	@Override
-	public void postPreInit(FMLPreInitializationEvent event) {		
+	public void postPreInit(FMLPreInitializationEvent event) {
 		for(int i = 0; i < 3; i++)
 			RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(world_stone_bricks, 4, i),
 					"SS", "SS",

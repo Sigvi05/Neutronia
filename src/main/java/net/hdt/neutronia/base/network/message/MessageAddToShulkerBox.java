@@ -1,11 +1,10 @@
-package vazkii.quark.base.network.message;
+package net.hdt.neutronia.base.network.message;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.hdt.neutronia.base.network.NetworkMessage;
+import net.hdt.neutronia.modules.management.features.RightClickAddToShulkerBox;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import vazkii.arl.network.NetworkMessage;
-import vazkii.quark.management.feature.RightClickAddToShulkerBox;
 
 public class MessageAddToShulkerBox extends NetworkMessage<MessageAddToShulkerBox> {
 

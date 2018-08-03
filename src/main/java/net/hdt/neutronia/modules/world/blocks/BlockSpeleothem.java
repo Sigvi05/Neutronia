@@ -1,7 +1,8 @@
-package vazkii.quark.world.block;
+package net.hdt.neutronia.modules.world.blocks;
 
-import java.util.Random;
-
+import net.hdt.huskylib2.block.BlockMetaVariants;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -19,11 +20,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import vazkii.arl.block.BlockMetaVariants.EnumBase;
-import vazkii.arl.block.BlockMod;
-import vazkii.quark.base.block.IQuarkBlock;
 
-public class BlockSpeleothem extends BlockMod implements IQuarkBlock {
+import java.util.Random;
+
+public class BlockSpeleothem extends BlockMod implements INeutroniaBlock {
 
 	public static PropertyEnum<EnumSize> SIZE = PropertyEnum.create("size", EnumSize.class);
 	
@@ -137,7 +137,7 @@ public class BlockSpeleothem extends BlockMod implements IQuarkBlock {
 		return getDefaultState().withProperty(SIZE, EnumSize.values()[Math.min(EnumSize.values().length - 1, meta)]);
 	}
 	
-	public static enum EnumSize implements EnumBase {
+	public static enum EnumSize implements BlockMetaVariants.EnumBase {
 		
 		SMALL(0, 2),
 		MEDIUM(1, 4),

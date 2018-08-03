@@ -8,9 +8,9 @@
         }
     },
     "variants": {
-        "inventory": [{ "model": "quark:speleothem_medium" }],
-        "size=small": [{ "model": "quark:speleothem_small" }],
-        "size=medium": [{ "model": "quark:speleothem_medium" }],
-        "size=big": [{ "model": "quark:speleothem_big" }]
+        "inventory": [{ "model": "neutronia:speleothem_medium" }],
+        "size=small": [{ "model": "neutronia:speleothem_small" }],
+        "size=medium": [{ "model": "neutronia:speleothem_medium" }],
+        "size=big": [{ "model": "neutronia:speleothem_big" }]
     }
 }

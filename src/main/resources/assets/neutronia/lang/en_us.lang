@@ -945,3 +945,4 @@ neutroniaMisc.signShift=Shift
 neutroniaMisc.signClear=Clear
 neutroniaMisc.rotationLockBefore=You have enabled Rotation Lock. Any blocks you place will be oriented in the direction you were looking. Press [
 neutroniaMisc.rotationLockAfter=] to change or reset it. This message won't appear again.
+neutroniaMisc.rightClickAdd=Right Click to Add

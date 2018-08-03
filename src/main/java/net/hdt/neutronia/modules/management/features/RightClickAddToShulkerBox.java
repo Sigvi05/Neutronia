@@ -1,9 +1,10 @@
-package vazkii.quark.management.feature;
+package net.hdt.neutronia.modules.management.features;
 
-import java.util.Arrays;
-
-import org.lwjgl.input.Mouse;
-
+import net.hdt.huskylib2.util.RenderHelper;
+import net.hdt.neutronia.base.module.Feature;
+import net.hdt.neutronia.base.module.ModuleLoader;
+import net.hdt.neutronia.base.network.NetworkHandler;
+import net.hdt.neutronia.base.network.message.MessageAddToShulkerBox;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -20,11 +21,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import vazkii.arl.network.NetworkHandler;
-import vazkii.arl.util.RenderHelper;
-import vazkii.quark.base.module.Feature;
-import vazkii.quark.base.module.ModuleLoader;
-import vazkii.quark.base.network.message.MessageAddToShulkerBox;
+import org.lwjgl.input.Mouse;
+
+import java.util.Collections;
 
 public class RightClickAddToShulkerBox extends Feature {
 
@@ -46,7 +45,7 @@ public class RightClickAddToShulkerBox extends Feature {
 						if(s == under) {
 							int x = event.getMouseX();
 							int y = event.getMouseY();
-							RenderHelper.renderTooltip(x, y, Arrays.asList(I18n.translateToLocal("quarkmisc.rightClickAdd")));
+							RenderHelper.renderTooltip(x, y, Collections.singletonList(I18n.translateToLocal("neutroniaMisc.rightClickAdd")));
 						} else {
 							int x = container.getGuiLeft() + s.xPos;
 							int y = container.getGuiTop() + s.yPos;

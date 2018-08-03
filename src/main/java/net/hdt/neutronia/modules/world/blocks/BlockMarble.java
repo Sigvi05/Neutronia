@@ -17,8 +17,8 @@ public class BlockMarble extends BlockMetaVariants implements INeutroniaBlock {
 	}
 
 	public enum Variants implements EnumBase {
-		STONE_MARBLE,
-		STONE_MARBLE_SMOOTH
+		RAW_MARBLE,
+		SMOOTH_MARBLE
 	}
 
 }

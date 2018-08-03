@@ -27,16 +27,15 @@ public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutron
 	}
 
 	public enum Variants implements EnumBase {
-		
 		STONE_GRANITE_BRICKS(WorldStoneBricks.class),
 		STONE_DIORITE_BRICKS(WorldStoneBricks.class),
 		STONE_ANDESITE_BRICKS(WorldStoneBricks.class);
 		
-		private Variants(Class<? extends Feature> clazz) {
+		Variants(Class<? extends Feature> clazz) {
 			this(clazz, () -> true);
 		}
 		
-		private Variants(Class<? extends Feature> clazz, Supplier<Boolean> enabledCond) {
+		Variants(Class<? extends Feature> clazz, Supplier<Boolean> enabledCond) {
 			featureLink = clazz;
 			this.enabledCond = enabledCond;
 		}

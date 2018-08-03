@@ -17,8 +17,8 @@ public class BlockLimestone extends BlockMetaVariants implements INeutroniaBlock
 	}
 
 	public enum Variants implements EnumBase {
-		STONE_LIMESTONE,
-		STONE_LIMESTONE_SMOOTH
+		RAW_LIMESTONE,
+		SMOOTH_LIMESTONE
 	}
 
 }

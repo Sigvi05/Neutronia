@@ -1,13 +1,6 @@
 package net.hdt.neutronia.modules.world.world.gen;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.google.common.base.MoreObjects;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,25 +12,30 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorSimplex;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Mod of Mojang's CaveGenBase and RavineGenBase by
  * 
  * @author PersonTheCat
  */
-public class CaveGen extends MapGenBase {
+public class WorldGenNewCave extends MapGenBase {
 
 	/**
 	 * Avoid repeatedly initializing noise generators.
 	 */
-	protected static SimplexNoiseGenerator3D noise;
-	protected static NoiseGeneratorSimplex noise2D1;
-	protected static NoiseGeneratorSimplex noise2D2;
+	private static SimplexNoiseGenerator3D noise;
+	private static NoiseGeneratorSimplex noise2D1;
+	private static NoiseGeneratorSimplex noise2D2;
 
 	protected Random indRand = new Random(12345); //Prevents artifacting.
 	
-	protected static final IBlockState
+	private static final IBlockState
 		BLK_STONE = Blocks.STONE.getDefaultState(),
 		BLK_LAVA = Blocks.LAVA.getDefaultState(),
 		BLK_WATER = Blocks.WATER.getDefaultState(),
@@ -46,21 +44,17 @@ public class CaveGen extends MapGenBase {
 	/**
 	 * A list of replaceable blocks. Stone is handled elsewhere for performance efforts.
 	 */
-	protected static final List<Block> replaceableBlocks = Arrays.asList(new Block[] {
-		Blocks.DIRT,
-		Blocks.GRASS,
-		Blocks.HARDENED_CLAY,
-		Blocks.STAINED_HARDENED_CLAY,
-		Blocks.SANDSTONE,
-		Blocks.RED_SANDSTONE,
-		Blocks.MYCELIUM,
-		Blocks.SNOW_LAYER
-	});
+	private static final List<Block> replaceableBlocks = Arrays.asList(Blocks.DIRT,
+			Blocks.GRASS,
+			Blocks.HARDENED_CLAY,
+			Blocks.STAINED_HARDENED_CLAY,
+			Blocks.SANDSTONE,
+			Blocks.RED_SANDSTONE,
+			Blocks.MYCELIUM,
+			Blocks.SNOW_LAYER);
 	
-	protected static final List<Biome> exceptionBiomes = Arrays.asList(new Biome[] {
-		Biomes.BEACH,
-		Biomes.DESERT
-	});
+	private static final List<Biome> exceptionBiomes = Arrays.asList(Biomes.BEACH,
+			Biomes.DESERT);
 	
 	protected static final float
 		PI_OVER_2 = (float) (Math.PI / 2.0),
@@ -412,7 +406,7 @@ public class CaveGen extends MapGenBase {
 		Biome biome = world.getBiome(new BlockPos(x + (chunkX * 16), 0, z + (chunkZ * 16)));
 		
 		IBlockState state = data.getBlockState(x, y, z);
-		IBlockState up = (IBlockState) MoreObjects.firstNonNull(data.getBlockState(x, y + 1, z), BLK_AIR);
+		IBlockState up = MoreObjects.firstNonNull(data.getBlockState(x, y + 1, z), BLK_AIR);
 		IBlockState top = biome.topBlock;
 		IBlockState filler = biome.fillerBlock;
 				
