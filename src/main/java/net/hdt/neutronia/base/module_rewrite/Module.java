@@ -21,14 +21,14 @@ import java.util.function.Consumer;
 
 public class Module implements Comparable<Module> {
 
-	public String name = getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
-	private static Module module;
+	public String name;
 	public final Map<String, Feature> features = new HashMap<>();
 	private final List<Feature> enabledFeatures = new ArrayList<>();
 	public boolean enabled;
 	public Property prop;
 
     public Module() {
+        name = getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
         ModuleLoader.registerModule(this);
     }
 
@@ -249,13 +249,10 @@ public class Module implements Comparable<Module> {
 		    return this;
         }
 
-        public Builder withModule(Module module) {
-            ModuleLoader.registerModule(module);
-		    return this;
-        }
-
 		public Module register() {
-		    return new Module(this);
+		    Module module = new Module(this);
+            ModuleLoader.registerModule(module);
+		    return module;
         }
 
 	}
