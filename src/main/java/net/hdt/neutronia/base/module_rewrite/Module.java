@@ -229,6 +229,7 @@ public class Module implements Comparable<Module> {
 		private ItemStack icon;
 		private Feature feature;
         private Module module = new Module(this);
+        private List<Feature> features = new ArrayList<>();
 
 		public Builder withName(String name) {
 			this.name = name;
@@ -242,7 +243,7 @@ public class Module implements Comparable<Module> {
 
 		public Builder withFeature(Feature feature) {
 		    this.feature = feature;
-		    module.registerFeature(feature);
+		    features.add(feature);
 		    return this;
         }
 
@@ -253,6 +254,9 @@ public class Module implements Comparable<Module> {
 
 		public Module register() {
             ModuleLoader.registerModule(module);
+            for(Feature feature : features) {
+                module.registerFeature(feature);
+            }
 		    return module;
         }
 
