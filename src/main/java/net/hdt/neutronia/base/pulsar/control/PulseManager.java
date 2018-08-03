@@ -1,34 +1,30 @@
-package slimeknights.mantle.pulsar.control;
+package net.hdt.neutronia.base.pulsar.control;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-
+import net.hdt.neutronia.base.pulsar.config.IConfiguration;
+import net.hdt.neutronia.base.pulsar.flightpath.Flightpath;
+import net.hdt.neutronia.base.pulsar.flightpath.IExceptionHandler;
+import net.hdt.neutronia.base.pulsar.flightpath.lib.AnnotationLocator;
+import net.hdt.neutronia.base.pulsar.internal.BusExceptionHandler;
+import net.hdt.neutronia.base.pulsar.internal.Configuration;
+import net.hdt.neutronia.base.pulsar.internal.CrashHandler;
+import net.hdt.neutronia.base.pulsar.pulse.Pulse;
+import net.hdt.neutronia.base.pulsar.pulse.PulseMeta;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.FMLModContainer;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import slimeknights.mantle.pulsar.config.IConfiguration;
-import slimeknights.mantle.pulsar.flightpath.Flightpath;
-import slimeknights.mantle.pulsar.flightpath.IExceptionHandler;
-import slimeknights.mantle.pulsar.flightpath.lib.AnnotationLocator;
-import slimeknights.mantle.pulsar.internal.BusExceptionHandler;
-import slimeknights.mantle.pulsar.internal.Configuration;
-import slimeknights.mantle.pulsar.internal.CrashHandler;
-import slimeknights.mantle.pulsar.pulse.Pulse;
-import slimeknights.mantle.pulsar.pulse.PulseMeta;
 
 /**
  * Manager class for a given mods Pulses.
@@ -74,7 +70,7 @@ public class PulseManager {
      * Custom configuration-using constructor.
      *
      * Don't like JSON? Heathen. Lets you handle configuration, to whatever media you like - File, database, death star.
-     * Whatever really. See {@link slimeknights.mantle.pulsar.config.IConfiguration}.
+     * Whatever really. See {@link IConfiguration}.
      *
      * @param config Configuration handler.
      */
@@ -161,6 +157,7 @@ public class PulseManager {
             flightpath.register(pulse);
             // Work around to catch the new registry events added from the registry rewrite.
             MinecraftForge.EVENT_BUS.register(pulse);
+            log.info(String.format("Loaded module called '%s' with a description of '%s'", meta.getId(),  meta.getDescription()));
         }
     }
 

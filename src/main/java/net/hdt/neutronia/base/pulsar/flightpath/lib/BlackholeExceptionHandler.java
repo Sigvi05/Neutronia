@@ -1,8 +1,8 @@
-package slimeknights.mantle.pulsar.flightpath.lib;
+package net.hdt.neutronia.base.pulsar.flightpath.lib;
+
+import net.hdt.neutronia.base.pulsar.flightpath.IExceptionHandler;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-import slimeknights.mantle.pulsar.flightpath.IExceptionHandler;
 
 /**
  * Default exception handler when Flightpath has been asked to ignore errors.

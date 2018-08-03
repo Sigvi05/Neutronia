@@ -1,4 +1,4 @@
-package slimeknights.mantle.pulsar.pulse;
+package net.hdt.neutronia.base.pulsar.pulse;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;

@@ -1,9 +1,8 @@
-package slimeknights.mantle.pulsar.internal;
+package net.hdt.neutronia.base.pulsar.internal;
 
+import net.hdt.neutronia.base.pulsar.control.PulseManager;
+import net.hdt.neutronia.base.pulsar.pulse.PulseMeta;
 import net.minecraftforge.fml.common.ICrashCallable;
-
-import slimeknights.mantle.pulsar.control.PulseManager;
-import slimeknights.mantle.pulsar.pulse.PulseMeta;
 
 /**
  * FML crash callable for Pulse Managers; dumps a list of loaded pulses to the error log.

@@ -1,11 +1,10 @@
-package slimeknights.mantle.pulsar.internal;
+package net.hdt.neutronia.base.pulsar.internal;
 
+import net.hdt.neutronia.base.pulsar.flightpath.IExceptionHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-import slimeknights.mantle.pulsar.flightpath.IExceptionHandler;
 
 /**
  * Custom exception catcher that logs events.
