@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.client.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.minecraft.block.BlockShulkerBox;
 import net.minecraft.client.Minecraft;
@@ -25,7 +25,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShulkerBoxTooltip extends Feature {
+public class ShulkerBoxTooltip extends Component {
 
 	public static ResourceLocation WIDGET_RESOURCE = new ResourceLocation("neutronia", "textures/misc/shulker_widget.png");
 

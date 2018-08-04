@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.client;
 
 import com.google.common.collect.ImmutableSet;
-import net.hdt.neutronia.base.NeutroniaMain;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraftforge.fml.common.Loader;
@@ -39,7 +39,7 @@ public class ResourceProxy extends AbstractResourcePack {
 
 	@Override
 	protected InputStream getInputStreamByName(String name) {
-		return NeutroniaMain.class.getResourceAsStream(overrides.get(name));
+		return Neutronia.class.getResourceAsStream(overrides.get(name));
 	}
 
 	@Override

@@ -1,12 +1,12 @@
 package net.hdt.neutronia.groups.experimental.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.experimental.world.BigCaveGenerator;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.event.terraingen.InitMapGenEvent.EventType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class BiggerCaves extends Feature {
+public class BiggerCaves extends Component {
 
 	public static float overallCaveSizeVariance, overallCaveSizeBase;
 

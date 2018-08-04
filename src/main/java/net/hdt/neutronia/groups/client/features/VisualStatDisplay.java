@@ -2,8 +2,8 @@ package net.hdt.neutronia.groups.client.features;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.groups.Feature;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
@@ -26,7 +26,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Collection;
 import java.util.List;
 
-public class VisualStatDisplay extends Feature {
+public class VisualStatDisplay extends Component {
 
 	public static final ImmutableSet<String> VALID_ATTRIBUTES = ImmutableSet.of("generic.attackDamage", "generic.attackSpeed", "generic.armor", "generic.armorToughness");
 	

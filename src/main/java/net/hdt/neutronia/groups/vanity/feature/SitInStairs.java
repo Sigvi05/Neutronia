@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.vanity.feature;
 
 import com.google.common.base.Predicate;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockStairs;
@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
 
-public class SitInStairs extends Feature {
+public class SitInStairs extends Component {
 
 	@SubscribeEvent
 	public void onInteractWithBlock(PlayerInteractEvent.RightClickBlock event) {

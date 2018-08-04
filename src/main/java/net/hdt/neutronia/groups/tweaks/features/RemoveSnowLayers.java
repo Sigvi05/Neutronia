@@ -10,7 +10,7 @@
  */
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.BlockSnow;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class RemoveSnowLayers extends Feature {
+public class RemoveSnowLayers extends Component {
 
 	@SubscribeEvent
 	public void onPlayerRightClick(PlayerInteractEvent.RightClickBlock event) {
@@ -65,7 +65,7 @@ public class RemoveSnowLayers extends Feature {
 	}
 	
 	@Override
-	public String getFeatureIngameConfigName() {
+	public String getComponentIngameConfigName() {
 		return "Shave Snow Layers";
 	}
 

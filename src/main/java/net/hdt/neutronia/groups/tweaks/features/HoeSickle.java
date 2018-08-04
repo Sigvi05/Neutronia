@@ -10,7 +10,7 @@
  */
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockLilyPad;
@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class HoeSickle extends Feature {
+public class HoeSickle extends Component {
 
 	@SubscribeEvent
 	public void onBlockBroken(BlockEvent.BreakEvent event) {

@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.huskylib2.recipe.MultiRecipe;
 import net.hdt.huskylib2.recipe.RecipeHandler;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.state.IBlockState;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SlabsToBlocks extends Feature {
+public class SlabsToBlocks extends Component {
 
 	public static Map<IBlockState, ItemStack> slabs = new HashMap<>();
 	

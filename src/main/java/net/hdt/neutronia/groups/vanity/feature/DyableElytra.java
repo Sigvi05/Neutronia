@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.vanity.feature;
 
 import net.hdt.neutronia.base.lib.LibObfuscation;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.hdt.neutronia.groups.vanity.client.layer.LayerBetterElytra;
 import net.hdt.neutronia.groups.vanity.recipes.ElytraDyingRecipe;
@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Map;
 
-public class DyableElytra extends Feature {
+public class DyableElytra extends Component {
 
 	public static final String TAG_ELYTRA_DYE = "quark:elytraDye";
 

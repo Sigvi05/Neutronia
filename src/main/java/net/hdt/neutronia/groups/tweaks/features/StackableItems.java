@@ -11,12 +11,12 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
 import com.google.common.collect.ImmutableSet;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-public class StackableItems extends Feature {
+public class StackableItems extends Component {
 
 	int potions, minecarts, writableBooks, records;
 

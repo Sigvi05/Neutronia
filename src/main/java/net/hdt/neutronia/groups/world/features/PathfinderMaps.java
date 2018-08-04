@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.world.features;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.experimental.world.BiomeLocator;
 import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class PathfinderMaps extends Feature {
+public class PathfinderMaps extends Component {
 
 	public static Multimap<Integer, TradeInfo> trades;
 

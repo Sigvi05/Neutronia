@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.world.blocks.corals.BlockCoralBlock;
 import net.hdt.neutronia.groups.world.blocks.corals.BlockCoralFan;
 import net.hdt.neutronia.groups.world.blocks.corals.BlockCoralPlant;
@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.util.ArrayList;
 
-public class Corals extends Feature {
+public class Corals extends Component {
 
     private static final Block[] coralBlock = new Block[5];
     private static final Block[] deadCoralBlock = new Block[5];

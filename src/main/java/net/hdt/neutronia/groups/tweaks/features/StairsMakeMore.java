@@ -12,7 +12,7 @@ package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.huskylib2.recipe.MultiRecipe;
 import net.hdt.huskylib2.recipe.RecipeHandler;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
@@ -32,7 +32,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.*;
 
-public class StairsMakeMore extends Feature {
+public class StairsMakeMore extends Component {
 
 	public static Map<IBlockState, ItemStack> stairs = new HashMap<>();
 	

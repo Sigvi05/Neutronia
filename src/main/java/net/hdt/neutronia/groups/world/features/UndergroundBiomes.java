@@ -6,7 +6,7 @@ import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.neutronia.base.handler.BiomeTypeConfigHandler;
 import net.hdt.neutronia.base.handler.DimensionConfig;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.building.features.VanillaWalls;
@@ -38,7 +38,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UndergroundBiomes extends Feature {
+public class UndergroundBiomes extends Component {
 
 	public static List<UndergroundBiomeGenerator> biomes;
 	

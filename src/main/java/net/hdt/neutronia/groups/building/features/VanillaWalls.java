@@ -1,13 +1,13 @@
 package net.hdt.neutronia.groups.building.features;
 
 import net.hdt.neutronia.base.blocks.BlockNeutroniaWall;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class VanillaWalls extends Feature {
+public class VanillaWalls extends Component {
 
 	boolean stone, granite, diorite, andesite, sandstone, chiseledSandstone, smoothSandstone, redSandstone, chiseledRedSandstone, smoothRedSandstone, stoneBricks, bricks, quartz, prismarine, prismarineBricks, darkPrismarine, purpurBlock, endBricks;
 

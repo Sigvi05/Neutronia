@@ -5,7 +5,7 @@ import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.groups.world.features.RevampStoneGen.StoneInfo;
 import net.hdt.neutronia.groups.building.features.VanillaWalls;
@@ -22,7 +22,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class Basalt extends Feature {
+public class Basalt extends Component {
 
 	public static BlockMod basalt;
 

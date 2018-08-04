@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.vanity.feature;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.management.features.FavoriteItems;
 import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.minecraft.client.Minecraft;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.awt.*;
 
-public class DyeItemNames extends Feature {
+public class DyeItemNames extends Component {
 
 	private static final String TAG_DYE = "Quark:ItemNameDye";
 	

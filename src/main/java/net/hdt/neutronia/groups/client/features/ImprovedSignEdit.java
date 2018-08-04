@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.client.features;
 
 import net.hdt.neutronia.base.lib.LibObfuscation;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.client.gui.GuiBetterEditSign;
 import net.minecraft.client.gui.inventory.GuiEditSign;
 import net.minecraft.tileentity.TileEntitySign;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ImprovedSignEdit extends Feature {
+public class ImprovedSignEdit extends Component {
 
 	public static boolean enableCancel, enableClear, enableShift;
 	

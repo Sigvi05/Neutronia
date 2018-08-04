@@ -1,9 +1,9 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class ExtendedToolProgression extends Feature {
+public class ExtendedToolProgression extends Component {
 
     private float attackDamage;
 

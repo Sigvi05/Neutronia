@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.management.features;
 
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.groups.Feature;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.network.NetworkHandler;
 import net.hdt.neutronia.base.network.message.MessageFavoriteItem;
@@ -29,7 +29,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Mouse;
 
-public class FavoriteItems extends Feature {
+public class FavoriteItems extends Component {
 
 	public static String TAG_FAVORITE_ITEM = "Quark:FavoriteItem";
 
@@ -164,7 +164,7 @@ public class FavoriteItems extends Feature {
 	}
 	
 	@Override
-	public String getFeatureIngameConfigName() {
+	public String getComponentIngameConfigName() {
 		return "Favorite Items";
 	}
 

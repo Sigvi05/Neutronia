@@ -1,13 +1,13 @@
 package net.hdt.neutronia.groups.decoration.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.decoration.blocks.corals.BlockDecorativeCoralBlockBase;
 import net.hdt.neutronia.groups.decoration.blocks.corals.BlockDecorativeCoralPlantBase;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class DecorativeCorals extends Feature {
+public class DecorativeCorals extends Component {
 
     private static final Block[] decorativeCoralBlock = new Block[5];
     private static final Block[] decorativeDeadCoralBlock = new Block[5];

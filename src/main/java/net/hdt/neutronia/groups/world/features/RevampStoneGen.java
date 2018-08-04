@@ -8,7 +8,7 @@ import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.handler.BiomeTypeConfigHandler;
 import net.hdt.neutronia.base.handler.DimensionConfig;
 import net.hdt.neutronia.base.handler.ModIntegrationHandler;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.building.features.VanillaWalls;
@@ -36,7 +36,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RevampStoneGen extends Feature {
+public class RevampStoneGen extends Component {
 
 	public static BlockMod marble;
 	public static BlockMod limestone;

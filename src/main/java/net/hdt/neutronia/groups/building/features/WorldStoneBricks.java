@@ -5,8 +5,8 @@ import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.handler.ModIntegrationHandler;
-import net.hdt.neutronia.base.groups.Feature;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.groups.building.blocks.BlockWorldStoneBricks;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
@@ -16,7 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class WorldStoneBricks extends Feature {
+public class WorldStoneBricks extends Component {
 
 	public static BlockMod world_stone_bricks;
 

@@ -4,7 +4,7 @@ import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.blocks.base.BlockModPillar;
 import net.hdt.neutronia.blocks.base.BlockRodBase;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldSlabBase;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import static net.hdt.neutronia.init.NCreativeTabs.WOOD_EXPANSION_TAB;
 
-public class LogBlocks extends Feature {
+public class LogBlocks extends Component {
 
     private static final Block[] strippedLogs = new Block[6], logPoles = new Block[6], strippedLogPoles = new Block[6], logDowels = new Block[6], strippedLogDowels = new Block[6],
             plankButtons = new Block[6], plankPressurePlates = new Block[6], plankPoles = new Block[6];

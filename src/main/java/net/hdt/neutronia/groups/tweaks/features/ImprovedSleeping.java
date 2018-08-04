@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.network.NetworkHandler;
 import net.hdt.neutronia.base.network.message.MessageUpdateAfk;
@@ -29,7 +29,7 @@ import org.lwjgl.input.Mouse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImprovedSleeping extends Feature {
+public class ImprovedSleeping extends Component {
 
 	private int timeSinceKeystroke;
 	private static List<String> sleepingPlayers = new ArrayList<>();

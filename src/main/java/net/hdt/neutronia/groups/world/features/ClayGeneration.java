@@ -1,11 +1,11 @@
 package net.hdt.neutronia.groups.world.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.world.world.ClayGenerator;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ClayGeneration extends Feature {
+public class ClayGeneration extends Component {
 
 	int clusterSize, clusterCount;
 
@@ -26,7 +26,7 @@ public class ClayGeneration extends Feature {
 	}
 	
 	@Override
-	public String getFeatureIngameConfigName() {
+	public String getComponentIngameConfigName() {
 		return "Underground Clay";
 	}
 

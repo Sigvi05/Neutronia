@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.client.features;
 
 import com.google.common.base.Predicate;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
@@ -29,7 +29,7 @@ import org.apache.commons.lang3.text.WordUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsageTicker extends Feature {
+public class UsageTicker extends Component {
 
 	List<TickerElement> elements;
 	boolean invert;

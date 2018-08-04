@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
-public class VariedDungeons extends Feature {
+public class VariedDungeons extends Component {
 
 	ResourceLocation lootTable;
 

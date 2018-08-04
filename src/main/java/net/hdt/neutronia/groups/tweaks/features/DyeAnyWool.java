@@ -2,15 +2,15 @@ package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.groups.Feature;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class DyeAnyWool extends Feature {
+public class DyeAnyWool extends Component {
 
 	boolean add8WoolRecipe;
 

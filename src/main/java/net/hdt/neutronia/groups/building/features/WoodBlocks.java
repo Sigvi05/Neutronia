@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.building.features;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldWoodBase;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import static net.hdt.neutronia.init.NCreativeTabs.WOOD_EXPANSION_TAB;
 
-public class WoodBlocks extends Feature {
+public class WoodBlocks extends Component {
 
     private static final Block[] barkBlocks = new Block[6], chiseledBarkBlocks = new Block[6], strippedBarkBlocks = new Block[6], unnamedChiseledBarkBlock = new Block[6], barkButtons = new Block[6],
             barkPressurePlates = new Block[6];

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
 
-public class SquidsInkYou extends Feature {
+public class SquidsInkYou extends Component {
 
 	int time = 80;
 	

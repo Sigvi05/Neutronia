@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.groups.Feature;
 import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class BuriedTreasure extends Feature {
+public class BuriedTreasure extends Component {
 
 	public static String TAG_TREASURE_MAP = "Quark:TreasureMap";
 	public static String TAG_TREASURE_MAP_DELEGATE = "Quark:TreasureMapDelegate";

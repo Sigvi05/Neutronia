@@ -1,8 +1,8 @@
 package net.hdt.neutronia.groups.decoration.features;
 
-import net.hdt.neutronia.base.NeutroniaMain;
+import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.lib.LibEntityIDs;
-import net.hdt.neutronia.base.groups.Feature;
 import net.hdt.neutronia.groups.decoration.client.render.RenderFlatItemFrame;
 import net.hdt.neutronia.groups.decoration.entity.EntityFlatItemFrame;
 import net.minecraft.entity.EntityHanging;
@@ -21,12 +21,12 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class FlatItemFrames extends Feature {
+public class FlatItemFrames extends Component {
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		String flatItemFrameName = "quark:flat_item_frame";
-		EntityRegistry.registerModEntity(new ResourceLocation(flatItemFrameName), EntityFlatItemFrame.class, flatItemFrameName, LibEntityIDs.FLAT_ITEM_FRAME, NeutroniaMain.instance, 256, 64, false);
+		EntityRegistry.registerModEntity(new ResourceLocation(flatItemFrameName), EntityFlatItemFrame.class, flatItemFrameName, LibEntityIDs.FLAT_ITEM_FRAME, Neutronia.instance, 256, 64, false);
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package net.hdt.neutronia.items;
 
 import com.google.common.collect.Multimap;
 import net.hdt.huskylib2.item.ItemMod;
-import net.hdt.neutronia.base.NeutroniaMain;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.entity.projectile.EntityTrident;
 import net.hdt.neutronia.init.NSounds;
@@ -80,7 +80,7 @@ public class ItemTrident extends ItemMod implements INeutroniaItem {
 
             if (i >= 10)
             {
-                int j = NeutroniaMain.func_203190_g(stack);
+                int j = Neutronia.func_203190_g(stack);
 
                 if (j <= 0 || entityplayer.isWet())
                 {
@@ -160,7 +160,7 @@ public class ItemTrident extends ItemMod implements INeutroniaItem {
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
         }
-        else if (NeutroniaMain.func_203190_g(itemstack) > 0 && !playerIn.isWet())
+        else if (Neutronia.func_203190_g(itemstack) > 0 && !playerIn.isWet())
         {
             return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
         }

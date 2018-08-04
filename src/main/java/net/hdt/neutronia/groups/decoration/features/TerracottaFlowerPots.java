@@ -3,7 +3,7 @@ package net.hdt.neutronia.groups.decoration.features;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.decoration.blocks.BlockTerracottaFlowerPot;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -17,7 +17,7 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class TerracottaFlowerPots extends Feature {
+public class TerracottaFlowerPots extends Component {
 
 	private static BlockTerracottaFlowerPot[] pots = new BlockTerracottaFlowerPot[16];
 	
