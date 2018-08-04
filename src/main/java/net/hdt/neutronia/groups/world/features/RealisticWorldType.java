@@ -11,7 +11,7 @@
 package net.hdt.neutronia.groups.world.features;
 
 import net.hdt.neutronia.base.lib.LibObfuscation;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.world.world.WorldTypeRealistic;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.world.WorldType;
@@ -22,7 +22,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class RealisticWorldType extends Feature {
+public class RealisticWorldType extends Component {
 
 	WorldType realistic;
 	boolean makeRealisticDefault;

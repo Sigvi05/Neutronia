@@ -10,7 +10,7 @@
  */
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class BabyZombiesBurn extends Feature {
+public class BabyZombiesBurn extends Component {
 
 	@SubscribeEvent
 	public void entityUpdate(LivingUpdateEvent event) {

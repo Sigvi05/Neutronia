@@ -1,13 +1,13 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class TorchesBurnInFurnaces extends Feature {
+public class TorchesBurnInFurnaces extends Component {
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {

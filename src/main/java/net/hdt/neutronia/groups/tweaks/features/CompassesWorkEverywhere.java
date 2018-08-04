@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.tweaks.client.item.ClockTimeGetter;
 import net.hdt.neutronia.groups.tweaks.client.item.CompassAngleGetter;
 import net.minecraft.init.Items;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
-public class CompassesWorkEverywhere extends Feature {
+public class CompassesWorkEverywhere extends Component {
 
 	public static boolean enableCompassNerf, enableClockNerf, enableNether, enableEnd;
 	

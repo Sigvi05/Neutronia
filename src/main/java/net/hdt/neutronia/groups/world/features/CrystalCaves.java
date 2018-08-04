@@ -1,14 +1,14 @@
 package net.hdt.neutronia.groups.world.features;
 
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.handler.DimensionConfig;
-import net.hdt.neutronia.base.groups.Feature;
 import net.hdt.neutronia.groups.world.blocks.BlockCrystal;
 import net.hdt.neutronia.groups.world.world.CrystalCaveGenerator;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class CrystalCaves extends Feature {
+public class CrystalCaves extends Component {
 
 	public static Block crystal;
 	

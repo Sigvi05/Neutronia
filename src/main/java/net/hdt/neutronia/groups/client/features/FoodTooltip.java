@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.client.features;
 
 import net.hdt.neutronia.base.lib.LibObfuscation;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
@@ -15,7 +15,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
-public class FoodTooltip extends Feature {
+public class FoodTooltip extends Component {
 
 	int divisor = 2;
 

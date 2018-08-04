@@ -28,8 +28,8 @@ public final class GroupLoader {
 
     private static List<Group> groups;
 	public static Map<Class<? extends Group>, Group> groupInstances = new HashMap<>();
-	public static Map<Class<? extends Feature>, Feature> featureInstances = new HashMap<>();
-	public static Map<String, Feature> featureClassNames = new HashMap<>();
+	public static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
+	public static Map<String, Component> componentClassNames = new HashMap<>();
 
 	private static List<Group> enabledGroups;
 
@@ -99,14 +99,14 @@ public final class GroupLoader {
 		MinecraftForge.EVENT_BUS.register(new ChangeListener());
 	}
 	
-	private static void loadConfig() {
+	public static void loadConfig() {
 		GlobalConfig.initGlobalConfig();
 
 		forEachModule(module -> {
 			module.enabled = true;
 			if(module.canBeDisabled()) {
 				ConfigHelper.needsRestart = true;
-				module.enabled = ConfigHelper.loadPropBool(module.name, "_modules", module.getModuleDescription(), module.isEnabledByDefault());
+				module.enabled = ConfigHelper.loadPropBool(module.name, "_groups", module.getModuleDescription(), module.isEnabledByDefault());
 				module.prop = ConfigHelper.lastProp;
 			}
 		});
@@ -124,8 +124,8 @@ public final class GroupLoader {
 		forEachModule(Group::setupConfig);
 	}
 
-	public static boolean isFeatureEnabled(Class<? extends Feature> clazz) {
-		return featureInstances.get(clazz).enabled;
+	public static boolean isFeatureEnabled(Class<? extends Component> clazz) {
+		return componentInstances.get(clazz).enabled;
 	}
 
 	static void forEachModule(Consumer<Group> consumer) {
@@ -136,7 +136,7 @@ public final class GroupLoader {
 		enabledGroups.forEach(consumer);
 	}
 
-    public static void registerModule(Group group) {
+    public static void registerGroup(Group group) {
         if(!groups.contains(group)) {
             groups.add(group);
             if(!group.name.isEmpty())

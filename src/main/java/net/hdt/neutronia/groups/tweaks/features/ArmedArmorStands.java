@@ -1,11 +1,11 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class ArmedArmorStands extends Feature {
+public class ArmedArmorStands extends Component {
 
 	@SubscribeEvent
 	public void entityConstruct(EntityEvent.EntityConstructing event) {

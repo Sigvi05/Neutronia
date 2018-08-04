@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.gui.GuiButton;
@@ -12,32 +12,32 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GuiConfigModule extends GuiConfigBase {
+public class GuiConfigGroup extends GuiConfigBase {
 
 	private static final int FEATURES_PER_PAGE = 12;
 	
 	private final Group group;
-	private final List<Feature> features;
+	private final List<Component> components;
 	private int page = 0;
 	private int totalPages;
 	
 	private GuiButton left, right;
 	
-	GuiConfigModule(GuiScreen parent, Group group) {
+	GuiConfigGroup(GuiScreen parent, Group group) {
 		super(parent);
 		this.group = group;
 		
-		features = new ArrayList<>();
-		group.forEachFeature(features::add);
-		Collections.sort(features);
+		components = new ArrayList<>();
+		group.forEachComponent(components::add);
+		Collections.sort(components);
 
-		totalPages = (features.size() - 1) / FEATURES_PER_PAGE + 1;
+		totalPages = (components.size() - 1) / FEATURES_PER_PAGE + 1;
 	}
 	
 	public void initGui() {
 		super.initGui();
 		
-		title += " - " + I18n.translateToLocal("neutronia.config.group." + group.name) + " (" + features.size() + ")";
+		title += " - " + I18n.translateToLocal("neutronia.config.group." + group.name) + " (" + components.size() + ")";
 
 		int x = width / 2 - 100;
 		int y = height / 6 + 167;
@@ -63,17 +63,17 @@ public class GuiConfigModule extends GuiConfigBase {
 		int x, y;
 		
 		int start = page * FEATURES_PER_PAGE;
-		for(int i = start; i < Math.min(start + FEATURES_PER_PAGE, features.size()); i++) {
+		for(int i = start; i < Math.min(start + FEATURES_PER_PAGE, components.size()); i++) {
 			int j = i - start;
 			x = startX + j % 2 * 200;
 			y = startY + j / 2 * 22;
 
-			Feature feature = features.get(i);
+			Component component = components.get(i);
 
-			buttonList.add(new GuiButtonConfigSetting(x + 150, y, feature.prop, true, feature.getFeatureIngameConfigName()));
+			buttonList.add(new GuiButtonConfigSetting(x + 150, y, component.prop, true, component.getComponentIngameConfigName()));
 
-			if(GroupLoader.config.hasCategory(feature.configCategory))
-				buttonList.add(new GuiButtonFeatureSettings(x + 170, y, feature.configCategory));
+			if(GroupLoader.config.hasCategory(component.configCategory))
+				buttonList.add(new GuiButtonFeatureSettings(x + 170, y, component.configCategory));
 		}
 
 		if(left != null) {
@@ -108,8 +108,8 @@ public class GuiConfigModule extends GuiConfigBase {
 			drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
 		}
 
-        /*for(int i = 0; i < features.size(); i++) {
-            if(features.size() < 2)
+        /*for(int i = 0; i < components.size(); i++) {
+            if(components.size() < 2)
                 drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100, Color.WHITE.getRGB());
             else
                 drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100 * i, Color.WHITE.getRGB());

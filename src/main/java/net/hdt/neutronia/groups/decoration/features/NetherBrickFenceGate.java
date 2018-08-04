@@ -2,13 +2,13 @@ package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.decoration.blocks.BlockNetherBrickFenceGate;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class NetherBrickFenceGate extends Feature {
+public class NetherBrickFenceGate extends Component {
 
 	public static Block nether_brick_fence_gate;
 

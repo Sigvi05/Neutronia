@@ -17,7 +17,7 @@ import org.apache.commons.lang3.text.WordUtils;
 
 import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
-public class Feature implements Comparable<Feature> {
+public class Component implements Comparable<Component> {
 
 	public Group group;
 	
@@ -35,20 +35,20 @@ public class Feature implements Comparable<Feature> {
 	
 	boolean forceLoad;
 
-    public Feature() {
+    public Component() {
     }
 
-    public Feature(Builder builder) {
+    public Component(Builder builder) {
 
 	}
 
 	final void setupConstantConfig() {
 		String[] incompat = getIncompatibleMods();
 		if(incompat != null && incompat.length > 0) {
-			StringBuilder desc = new StringBuilder("This feature disables itself if any of the following mods are loaded: \n");
+			StringBuilder desc = new StringBuilder("This component disables itself if any of the following mods are loaded: \n");
 			for(String s : incompat)
 				desc.append(" - ").append(s).append("\n");
-			desc.append("This is done to prevent content overlap.\nYou can turn this on to force the feature to be loaded even if the above mods are also loaded.");
+			desc.append("This is done to prevent content overlap.\nYou can turn this on to force the component to be loaded even if the above mods are also loaded.");
 				
 			ConfigHelper.needsRestart = true;
 			forceLoad = loadPropBool("Force Enabled", desc.toString(), false);
@@ -126,7 +126,7 @@ public class Feature implements Comparable<Feature> {
 		return "";
 	}
 	
-	public String getFeatureIngameConfigName() {
+	public String getComponentIngameConfigName() {
 		return WordUtils.capitalizeFully(configName);
 	}
 	
@@ -163,7 +163,7 @@ public class Feature implements Comparable<Feature> {
 	}
 
 	@Override
-	public int compareTo(Feature o) {
+	public int compareTo(Component o) {
 		return configName.compareTo(o.configName);
 	}
 
@@ -186,29 +186,29 @@ public class Feature implements Comparable<Feature> {
 
 		private String name, desc;
 		private ItemStack icon;
-		private Feature feature;
+		private Component component;
 
-		public Builder(Feature feature) {
-			this.feature = feature;
+		public Builder(Component component) {
+			this.component = component;
 		}
 
-		public Feature.Builder withName(String name) {
+		public Component.Builder withName(String name) {
 			this.name = name;
 			return this;
 		}
 
-		public Feature.Builder withDesc(String desc) {
+		public Component.Builder withDesc(String desc) {
 			this.desc = desc;
 			return this;
 		}
 
-		public Feature.Builder withIcon(ItemStack icon) {
+		public Component.Builder withIcon(ItemStack icon) {
 			this.icon = icon;
 			return this;
 		}
 
-		public Feature register() {
-			return new Feature(this);
+		public Component register() {
+			return new Component(this);
 		}
 
 	}

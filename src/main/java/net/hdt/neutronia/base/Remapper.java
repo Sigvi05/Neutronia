@@ -36,9 +36,9 @@ final class Remapper<T extends IForgeRegistryEntry<T>> {
 
 	private void remapAll(final List<Mapping<T>> missingMappings) {
 		for (final Mapping<T> missingMapping : missingMappings) {
-			NeutroniaMain.LOGGER.info(MARKER, "Trying to remap %s", missingMapping.key);
+			Neutronia.LOGGER.info(MARKER, "Trying to remap %s", missingMapping.key);
 			final boolean remapped = remappingFunctions.stream().anyMatch(mappingPredicate -> mappingPredicate.test(missingMapping));
-			if (!remapped) NeutroniaMain.LOGGER.info(MARKER, "Couldn't remap %s", missingMapping.key);
+			if (!remapped) Neutronia.LOGGER.info(MARKER, "Couldn't remap %s", missingMapping.key);
 		}
 	}
 
@@ -46,7 +46,7 @@ final class Remapper<T extends IForgeRegistryEntry<T>> {
 		final IForgeRegistry<T> registry = missingMapping.registry;
 		final T value = registry.getValue(registryName);
 		if (registry.containsKey(registryName) && value != null) {
-			NeutroniaMain.LOGGER.info(MARKER, "Remapped %s %s to %s", registry.getRegistrySuperType().getSimpleName(), missingMapping.key, registryName);
+			Neutronia.LOGGER.info(MARKER, "Remapped %s %s to %s", registry.getRegistrySuperType().getSimpleName(), missingMapping.key, registryName);
 			missingMapping.remap(value);
 			return true;
 		}

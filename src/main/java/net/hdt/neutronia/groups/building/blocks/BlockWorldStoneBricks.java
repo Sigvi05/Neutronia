@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.building.blocks;
 
 import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.building.features.WorldStoneBricks;
 import net.minecraft.block.SoundType;
@@ -31,16 +31,16 @@ public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutron
 		STONE_DIORITE_BRICKS(WorldStoneBricks.class),
 		STONE_ANDESITE_BRICKS(WorldStoneBricks.class);
 		
-		Variants(Class<? extends Feature> clazz) {
+		Variants(Class<? extends Component> clazz) {
 			this(clazz, () -> true);
 		}
 		
-		Variants(Class<? extends Feature> clazz, Supplier<Boolean> enabledCond) {
+		Variants(Class<? extends Component> clazz, Supplier<Boolean> enabledCond) {
 			featureLink = clazz;
 			this.enabledCond = enabledCond;
 		}
 		
-		public final Class<? extends Feature> featureLink;
+		public final Class<? extends Component> featureLink;
 		private final Supplier<Boolean> enabledCond;
 		
 		public boolean isEnabled() {

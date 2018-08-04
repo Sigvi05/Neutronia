@@ -85,11 +85,11 @@ public class Util {
 				return (ItemStack) stack;
 			}
 		} catch (Exception e) {
-			NeutroniaMain.LOGGER.error(e);
+			Neutronia.LOGGER.error(e);
 		}
 
 		// if it fails, do a fallback of damageDropped and item.getItemFromBlock
-		NeutroniaMain.LOGGER.error("Failed to get silk touch drop for {}, using fallback", state);
+		Neutronia.LOGGER.error("Failed to get silk touch drop for {}, using fallback", state);
 
 		// fallback, use item and damage dropped
 		Item item = Item.getItemFromBlock(block);

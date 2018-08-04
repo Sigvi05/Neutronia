@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.world.features;
 
 import com.google.common.collect.ImmutableSet;
 import net.hdt.neutronia.base.lib.LibObfuscation;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.world.client.sound.GuardianSound2UnderwaterBoogaloo;
 import net.minecraft.client.audio.GuardianSound;
 import net.minecraft.client.audio.ISound;
@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Set;
 
-public class OceanGuardians extends Feature {
+public class OceanGuardians extends Component {
 
 	boolean deepOceanOnly;
 	int weight, min, max;

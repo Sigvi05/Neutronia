@@ -19,14 +19,14 @@ public final class GlobalConfig {
 		ConfigHelper.needsRestart = ConfigHelper.allNeedRestart = true;
 
 		enableAntiOverlap = ConfigHelper.loadPropBool("Enable Anti-Overlap", category,
-				"Set this to false to remove the system that has features turn themselves off automatically when "
-				+ "other mods are present that add similar features."
-				+ "\nNote that you can force features to be enabled individually through their respective configs.", true);
+				"Set this to false to remove the system that has components turn themselves off automatically when "
+				+ "other mods are present that add similar components."
+				+ "\nNote that you can force components to be enabled individually through their respective configs.", true);
 
 		enableSeasonalFeatures = ConfigHelper.loadPropBool("Enable Seasonal Features", category,
-				"Whether features that are based on the time of year should be enabled."
+				"Whether components that are based on the time of year should be enabled."
 						+ "\nAn example is chests turning to presents when it's Christmas."
-						+ "\nNote that this will not affect vanilla's own seasonal features.", true);
+						+ "\nNote that this will not affect vanilla's own seasonal components.", true);
 
 		enableVariants = ConfigHelper.loadPropBool("Allow Block Variants", category,
 				"Set this to false to disable stairs, slabs, and walls, mod-wide. As these blocks can use a lot of Block IDs,\n"

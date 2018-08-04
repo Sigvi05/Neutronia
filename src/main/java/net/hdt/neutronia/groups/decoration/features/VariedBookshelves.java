@@ -4,7 +4,7 @@ import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.huskylib2.recipe.BlacklistOreIngredient;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomBookshelf;
 import net.hdt.neutronia.properties.EnumVanillaWoodTypes;
 import net.minecraft.init.Blocks;
@@ -24,7 +24,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VariedBookshelves extends Feature {
+public class VariedBookshelves extends Component {
 
 	private static BlockMod acacia_bookshelf;
     private static BlockMod birch_bookshelf;

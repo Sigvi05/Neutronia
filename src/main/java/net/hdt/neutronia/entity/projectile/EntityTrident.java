@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity.projectile;
 
-import net.hdt.neutronia.base.NeutroniaMain;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.init.NSounds;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -41,7 +41,7 @@ public class EntityTrident extends EntityArrow {
     {
         super(world, entityLivingBase);
         this.field_203054_h = itemStack.copy();
-        this.dataManager.set(field_203053_g, (byte)NeutroniaMain.func_203191_f(itemStack));
+        this.dataManager.set(field_203053_g, (byte) Neutronia.func_203191_f(itemStack));
     }
 
     public EntityTrident(World p_i48791_1_, double p_i48791_2_, double p_i48791_4_, double p_i48791_6_)
@@ -141,7 +141,7 @@ public class EntityTrident extends EntityArrow {
             f += EnchantmentHelper.getModifierForCreature(this.field_203054_h, entitylivingbase.getCreatureAttribute());
         }
 
-        DamageSource damagesource = NeutroniaMain.func_203096_a(this, this.shootingEntity == null ? this : this.shootingEntity);
+        DamageSource damagesource = Neutronia.func_203096_a(this, this.shootingEntity == null ? this : this.shootingEntity);
         this.field_203051_au = true;
         SoundEvent soundevent = NSounds.field_203268_ij;
 
@@ -163,7 +163,7 @@ public class EntityTrident extends EntityArrow {
         this.motionZ *= -0.009999999776482582D;
         float f1 = 1.0F;
 
-        if (this.world.isThundering() && NeutroniaMain.func_203192_h(this.field_203054_h))
+        if (this.world.isThundering() && Neutronia.func_203192_h(this.field_203054_h))
         {
             BlockPos blockpos = entity.getPosition();
 

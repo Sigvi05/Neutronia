@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Biomes;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Random;
 
-public class MushroomsInSwamps extends Feature {
+public class MushroomsInSwamps extends Component {
 
 	private WorldGenerator bigMushroomGen = new WorldGenBigMushroom();
 
@@ -51,7 +51,7 @@ public class MushroomsInSwamps extends Feature {
 	}
 	
 	@Override
-	public String getFeatureIngameConfigName() {
+	public String getComponentIngameConfigName() {
 		return "Big Mushrooms In Swamps";
 	}
 

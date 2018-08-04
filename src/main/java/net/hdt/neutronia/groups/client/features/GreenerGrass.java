@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.client.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class GreenerGrass extends Feature {
+public class GreenerGrass extends Component {
 
 	boolean affectFolliage;
 	boolean alphaGrass;

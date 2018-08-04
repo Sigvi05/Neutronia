@@ -27,12 +27,12 @@ import java.util.Objects;
 import static net.hdt.neutronia.base.util.Reference.*;
 
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY, updateJSON = UPDATE_JSON)
-public class NeutroniaMain {
+public class Neutronia {
 
     public static Logger LOGGER;
 
     @Mod.Instance
-    public static NeutroniaMain instance;
+    public static Neutronia instance;
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
@@ -48,7 +48,7 @@ public class NeutroniaMain {
         handlers.forEach(handler -> handler.preInit(event));
         proxy.preInit(event);
         if(GroupLoader.groupInstances.containsKey(NGroups.building.getClass())) {
-            NeutroniaMain.LOGGER.info("Group Test Building is loaded!");
+            Neutronia.LOGGER.info("Group Test Building is loaded!");
         }
     }
 

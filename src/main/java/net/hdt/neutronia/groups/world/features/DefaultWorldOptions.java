@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultWorldOptions extends Feature {
+public class DefaultWorldOptions extends Component {
 
 	private static Map<String, Integer> intProps = new HashMap<>();
 	private static Map<String, Double> doubleProps = new HashMap<>();

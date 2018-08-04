@@ -3,7 +3,7 @@ package net.hdt.neutronia.groups.building.features;
 import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaStairs;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
 import net.minecraft.block.Block;
@@ -11,7 +11,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class VanillaStairsAndSlabs extends Feature {
+public class VanillaStairsAndSlabs extends Component {
 
 	boolean stone, granite, diorite, andesite, endBricks, prismarine, prismarineBricks, darkPrismarine, redNetherBricks;
 

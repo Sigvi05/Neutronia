@@ -109,7 +109,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 
 		if(button instanceof GuiButtonModule) {
 			GuiButtonModule moduleButton = (GuiButtonModule) button;
-			mc.displayGuiScreen(new GuiConfigModule(this, moduleButton.group));
+			mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
 		}  else if(button == left || button == right) {
             if(button == left)
                 page = Math.max(page - 1, 0);

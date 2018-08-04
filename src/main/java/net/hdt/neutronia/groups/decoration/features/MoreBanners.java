@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
 import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
-public class MoreBanners extends Feature {
+public class MoreBanners extends Component {
 
 	private boolean dragon, eye, shield, sword, scute, phantom, nautilus, trident, anchor;
 

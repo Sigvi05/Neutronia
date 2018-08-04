@@ -150,7 +150,7 @@ public class WorldGenNewCave extends MapGenBase {
 	}
 	
 	/**
-	 * Add other noise-base features here.
+	 * Add other noise-base components here.
 	 */
 	private void decidePlace(int chunkX, int chunkZ, ChunkPrimer primer, int x, int y, int z) {
 		if (!primer.getBlockState(x, y, z).equals(BLK_WATER) && !primer.getBlockState(x, y + 1, z).equals(BLK_WATER)) {

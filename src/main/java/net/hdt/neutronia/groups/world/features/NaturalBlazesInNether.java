@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityBlaze;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.Arrays;
 import java.util.List;
 
-public class NaturalBlazesInNether extends Feature {
+public class NaturalBlazesInNether extends Component {
 
 	int weight, min, max;
 	boolean restrictToNetherrack;
@@ -74,7 +74,7 @@ public class NaturalBlazesInNether extends Feature {
 	}
 	
 	@Override
-	public String getFeatureIngameConfigName() {
+	public String getComponentIngameConfigName() {
 		return "Naturally Spawning Blazes";
 	}
 	

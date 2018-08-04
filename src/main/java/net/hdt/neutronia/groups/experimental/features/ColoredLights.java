@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.experimental.features;
 
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.experimental.lighting.BlockTinter;
 import net.hdt.neutronia.groups.experimental.lighting.ColoredLightSystem;
 import net.minecraft.block.state.IBlockState;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.RenderTickEvent;
 
-public class ColoredLights extends Feature {
+public class ColoredLights extends Component {
 
 	private static boolean enabled;
 	public static boolean simulateTravel;

@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.management.features;
 
 import net.hdt.huskylib2.util.RenderHelper;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.network.NetworkHandler;
 import net.hdt.neutronia.base.network.message.MessageAddToShulkerBox;
@@ -25,7 +25,7 @@ import org.lwjgl.input.Mouse;
 
 import java.util.Collections;
 
-public class RightClickAddToShulkerBox extends Feature {
+public class RightClickAddToShulkerBox extends Component {
 
 	@SubscribeEvent
 	public void onDrawScreen(GuiScreenEvent.DrawScreenEvent.Post event) {

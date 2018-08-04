@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ImprovedStoneToolCrafting extends Feature {
+public class ImprovedStoneToolCrafting extends Component {
 
 	String mat = "materialStoneTool";
 	
@@ -46,7 +46,7 @@ public class ImprovedStoneToolCrafting extends Feature {
 	}
 	
 	@Override
-	public String getFeatureIngameConfigName() {
+	public String getComponentIngameConfigName() {
 		return "Better Stone Tool Crafting";
 	}
 	

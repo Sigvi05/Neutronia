@@ -1,11 +1,11 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
 import com.google.common.collect.ImmutableSet;
-import net.hdt.neutronia.base.groups.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class BlastproofShulkerBoxes extends Feature {
+public class BlastproofShulkerBoxes extends Component {
 
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {

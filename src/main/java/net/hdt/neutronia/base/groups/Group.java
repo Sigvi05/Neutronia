@@ -22,33 +22,33 @@ import java.util.function.Consumer;
 public class Group implements Comparable<Group> {
 
 	public String name;
-	public final Map<String, Feature> features = new HashMap<>();
-	private final List<Feature> enabledFeatures = new ArrayList<>();
+	public final Map<String, Component> components = new HashMap<>();
+	private final List<Component> enabledComponents = new ArrayList<>();
 	public boolean enabled;
 	public Property prop;
 
     public Group() {
         name = getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
-        GroupLoader.registerModule(this);
+        GroupLoader.registerGroup(this);
     }
 
     public Group(Builder builder) {
         name = builder.name;
-        for(Feature feature : builder.features) {
-            registerFeature(feature);
+        for(Component component : builder.components) {
+            registerComponent(component);
         }
     }
 
-    public void addFeatures() {
+    private void addComponents() {
 		// NO-OP
 	}
 
-	public void registerFeature(Feature feature) {
-		registerFeature(feature, convertName(feature.getClass().getSimpleName()));
+	private void registerComponent(Component component) {
+		registerComponent(component, convertName(component.getClass().getSimpleName()));
 	}
 
-	public void registerFeature(Feature feature, boolean enabledByDefault) {
-		registerFeature(feature, convertName(feature.getClass().getSimpleName()), enabledByDefault);
+	public void registerComponent(Component component, boolean enabledByDefault) {
+		registerComponent(component, convertName(component.getClass().getSimpleName()), enabledByDefault);
 	}
 
 	private String convertName(String origName) {
@@ -56,125 +56,125 @@ public class Group implements Comparable<Group> {
 		return Character.toUpperCase(withSpaces.charAt(0)) + withSpaces.substring(1);
 	}
 
-	public void registerFeature(Feature feature, String name) {
-		registerFeature(feature, name, true);
+	private void registerComponent(Component component, String name) {
+		registerComponent(component, name, true);
 	}
 
-	private void registerFeature(Feature feature, String name, boolean enabledByDefault) {
-		Class<? extends Feature> clazz = feature.getClass();
-		if(GroupLoader.featureInstances.containsKey(clazz))
-			throw new IllegalArgumentException("Feature " + clazz + " is already registered!");
+	private void registerComponent(Component component, String name, boolean enabledByDefault) {
+		Class<? extends Component> clazz = component.getClass();
+		if(GroupLoader.componentInstances.containsKey(clazz))
+			throw new IllegalArgumentException("Component " + clazz + " is already registered!");
 
-		GroupLoader.featureInstances.put(clazz, feature);
-		GroupLoader.featureClassNames.put(clazz.getSimpleName(), feature);
-		features.put(name, feature);
+		GroupLoader.componentInstances.put(clazz, component);
+		GroupLoader.componentClassNames.put(clazz.getSimpleName(), component);
+		components.put(name, component);
 
-		feature.enabledByDefault = enabledByDefault;
-		feature.prevEnabled = false;
+		component.enabledByDefault = enabledByDefault;
+		component.prevEnabled = false;
 
-		feature.group = this;
-		feature.configName = name;
-		feature.configCategory = this.name + "." + name;
+		component.group = this;
+		component.configName = name;
+		component.configCategory = this.name + "." + name;
 	}
 
 	public void setupConfig() {
-		if(features.isEmpty())
-			addFeatures();
+		if(components.isEmpty())
+			addComponents();
 
-		forEachFeature(feature -> {
-			ConfigHelper.needsRestart = feature.requiresMinecraftRestartToEnable();
-			feature.enabled = loadPropBool(feature.configName, feature.getFeatureDescription(), feature.enabledByDefault) && enabled;
-			feature.prop = ConfigHelper.lastProp;
+		forEachComponent(component -> {
+			ConfigHelper.needsRestart = component.requiresMinecraftRestartToEnable();
+			component.enabled = loadPropBool(component.configName, component.getFeatureDescription(), component.enabledByDefault) && enabled;
+			component.prop = ConfigHelper.lastProp;
 
-			feature.setupConstantConfig();
+			component.setupConstantConfig();
 
-			if(!feature.forceLoad && GlobalConfig.enableAntiOverlap) {
-				String[] incompatibilities = feature.getIncompatibleMods();
+			if(!component.forceLoad && GlobalConfig.enableAntiOverlap) {
+				String[] incompatibilities = component.getIncompatibleMods();
 				if(incompatibilities != null) {
 					List<String> failiures = new ArrayList<>();
 
 					for(String s : incompatibilities)
 						if(Loader.isModLoaded(s)) {
-							feature.enabled = false;
+							component.enabled = false;
 							failiures.add(s);
 						}
 
 					if(!failiures.isEmpty())
-						LibMisc.LOGGER.info("'" + feature.configName + "' is forcefully disabled as it's incompatible with the following loaded mods: " + failiures);
+						LibMisc.LOGGER.info("'" + component.configName + "' is forcefully disabled as it's incompatible with the following loaded mods: " + failiures);
 				}
 			}
 
-			if(!feature.loadtimeDone) {
-				feature.enabledAtLoadtime = feature.enabled;
-				feature.loadtimeDone = true;
+			if(!component.loadtimeDone) {
+				component.enabledAtLoadtime = component.enabled;
+				component.loadtimeDone = true;
 			}
 
-			if(feature.enabled && !enabledFeatures.contains(feature))
-				enabledFeatures.add(feature);
-			else if(!feature.enabled)
-				enabledFeatures.remove(feature);
+			if(component.enabled && !enabledComponents.contains(component))
+				enabledComponents.add(component);
+			else if(!component.enabled)
+				enabledComponents.remove(component);
 
-			feature.setupConfig();
+			component.setupConfig();
 
-			if(!feature.enabled && feature.prevEnabled) {
-				if(feature.hasSubscriptions())
-					MinecraftForge.EVENT_BUS.unregister(feature);
-				if(feature.hasTerrainSubscriptions())
-					MinecraftForge.TERRAIN_GEN_BUS.unregister(feature);
-				if(feature.hasOreGenSubscriptions())
-					MinecraftForge.ORE_GEN_BUS.unregister(feature);
-				feature.onDisabled();
-			} else if(feature.enabled && (feature.enabledAtLoadtime || !feature.requiresMinecraftRestartToEnable()) && !feature.prevEnabled) {
-				if(feature.hasSubscriptions())
-					MinecraftForge.EVENT_BUS.register(feature);
-				if(feature.hasTerrainSubscriptions())
-					MinecraftForge.TERRAIN_GEN_BUS.register(feature);
-				if(feature.hasOreGenSubscriptions())
-					MinecraftForge.ORE_GEN_BUS.register(feature);
-				feature.onEnabled();
+			if(!component.enabled && component.prevEnabled) {
+				if(component.hasSubscriptions())
+					MinecraftForge.EVENT_BUS.unregister(component);
+				if(component.hasTerrainSubscriptions())
+					MinecraftForge.TERRAIN_GEN_BUS.unregister(component);
+				if(component.hasOreGenSubscriptions())
+					MinecraftForge.ORE_GEN_BUS.unregister(component);
+				component.onDisabled();
+			} else if(component.enabled && (component.enabledAtLoadtime || !component.requiresMinecraftRestartToEnable()) && !component.prevEnabled) {
+				if(component.hasSubscriptions())
+					MinecraftForge.EVENT_BUS.register(component);
+				if(component.hasTerrainSubscriptions())
+					MinecraftForge.TERRAIN_GEN_BUS.register(component);
+				if(component.hasOreGenSubscriptions())
+					MinecraftForge.ORE_GEN_BUS.register(component);
+				component.onEnabled();
 			}
 
-			feature.prevEnabled = feature.enabled;
+			component.prevEnabled = component.enabled;
 		});
 	}
 
 	public void preInit(FMLPreInitializationEvent event) {
-		forEachEnabled(feature -> feature.preInit(event));
+		forEachEnabled(component -> component.preInit(event));
 	}
 
 	void postPreInit(FMLPreInitializationEvent event) {
-		forEachEnabled(feature -> feature.postPreInit(event));
+		forEachEnabled(component -> component.postPreInit(event));
 	}
 
 	public void init(FMLInitializationEvent event) {
-		forEachEnabled(feature -> feature.init(event));
+		forEachEnabled(component -> component.init(event));
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-		forEachEnabled(feature -> feature.postInit(event));
+		forEachEnabled(component -> component.postInit(event));
 	}
 
 	void finalInit(FMLPostInitializationEvent event) {
-		forEachEnabled(feature -> feature.finalInit(event));
+		forEachEnabled(component -> component.finalInit(event));
 	}
 
 	@SideOnly(Side.CLIENT)
 	void preInitClient(FMLPreInitializationEvent event) {
-		forEachEnabled(feature -> feature.preInitClient(event));
+		forEachEnabled(component -> component.preInitClient(event));
 	}
 
 	@SideOnly(Side.CLIENT)
 	void initClient(FMLInitializationEvent event) {
-		forEachEnabled(feature -> feature.initClient(event));
+		forEachEnabled(component -> component.initClient(event));
 	}
 
 	@SideOnly(Side.CLIENT)
 	void postInitClient(FMLPostInitializationEvent event) {
-		forEachEnabled(feature -> feature.postInitClient(event));
+		forEachEnabled(component -> component.postInitClient(event));
 	}
 
 	void serverStarting(FMLServerStartingEvent event) {
-		forEachEnabled(feature -> feature.serverStarting(event));
+		forEachEnabled(component -> component.serverStarting(event));
 	}
 
 	boolean canBeDisabled() {
@@ -185,7 +185,7 @@ public class Group implements Comparable<Group> {
 		return true;
 	}
 
-	public String getModuleDescription() {
+	String getModuleDescription() {
 		return "";
 	}
 
@@ -193,12 +193,12 @@ public class Group implements Comparable<Group> {
 		return new ItemStack(Blocks.BARRIER);
 	}
 
-	private void forEachFeature(Consumer<Feature> consumer) {
-		features.values().forEach(consumer);
+	public void forEachComponent(Consumer<Component> consumer) {
+		components.values().forEach(consumer);
 	}
 
-	private void forEachEnabled(Consumer<Feature> consumer) {
-		enabledFeatures.forEach(consumer);
+	private void forEachEnabled(Consumer<Component> consumer) {
+		enabledComponents.forEach(consumer);
 	}
 
 	public final int loadPropInt(String propName, String desc, int default_) {
@@ -230,9 +230,9 @@ public class Group implements Comparable<Group> {
 
 		private String name, desc;
 		private ItemStack icon;
-		private Feature feature;
+		private Component component;
 		private Group group;
-        private List<Feature> features = new ArrayList<>();
+        private static final List<Component> components = new ArrayList<>();
 
 		public Builder withName(String name) {
 			if(!name.isEmpty()) {
@@ -253,9 +253,9 @@ public class Group implements Comparable<Group> {
 			return this;
 		}
 
-		public Builder withFeature(Feature feature) {
-		    this.feature = feature;
-		    features.add(feature);
+		public Builder withComponent(Component component) {
+		    this.component = component;
+		    components.add(component);
 		    return this;
         }
 
@@ -270,7 +270,7 @@ public class Group implements Comparable<Group> {
 
 		public Group register() {
             group = new Group(this);
-            GroupLoader.registerModule(group);
+            GroupLoader.registerGroup(group);
 		    return group;
         }
 
