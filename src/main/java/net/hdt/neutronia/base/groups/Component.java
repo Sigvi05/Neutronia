@@ -24,7 +24,7 @@ public class Component implements Comparable<Component> {
 	boolean loadtimeDone;
 	boolean enabledAtLoadtime;
 	
-	boolean enabledByDefault;
+	public boolean enabledByDefault;
 	public boolean enabled;
 	boolean prevEnabled;
 	public String configCategory;

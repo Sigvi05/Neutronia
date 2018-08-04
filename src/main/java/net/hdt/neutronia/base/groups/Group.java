@@ -62,8 +62,9 @@ public class Group implements Comparable<Group> {
 
 	private void registerComponent(Component component, String name, boolean enabledByDefault) {
 		Class<? extends Component> clazz = component.getClass();
-		if(GroupLoader.componentInstances.containsKey(clazz))
-			throw new IllegalArgumentException("Component " + clazz + " is already registered!");
+		if(GroupLoader.componentInstances.containsKey(clazz)) {
+            components.clear();
+        }
 
 		GroupLoader.componentInstances.put(clazz, component);
 		GroupLoader.componentClassNames.put(clazz.getSimpleName(), component);

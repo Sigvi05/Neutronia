@@ -1,8 +1,8 @@
 package net.hdt.neutronia.base.client.gui;
 
 import com.google.common.collect.ImmutableSet;
-import net.hdt.huskylib2.module.Feature;
-import net.hdt.huskylib2.module.ModuleLoader;
+import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -125,8 +125,8 @@ public class GuiConfigImport extends GuiConfigBase {
 		if(disables.length > 0) {
 			Set<String> disabledSet = ImmutableSet.copyOf(disables);
 			
-			for(String name : ModuleLoader.featureClassnames.keySet()) {
-				Feature f = ModuleLoader.featureClassnames.get(name);
+			for(String name : GroupLoader.componentClassNames.keySet()) {
+				Component f = GroupLoader.componentClassNames.get(name);
 				boolean enabled = disabledSet.contains(name) != f.enabledByDefault;
 				if(f.prop.getBoolean() != enabled)
 					f.prop.set(enabled);
@@ -141,7 +141,7 @@ public class GuiConfigImport extends GuiConfigBase {
 		 
 		needsRestart = false;
 		if(changed) {
-			ModuleLoader.loadConfig();
+			GroupLoader.loadConfig();
 			needsRestart = true;
 		}
 	}
