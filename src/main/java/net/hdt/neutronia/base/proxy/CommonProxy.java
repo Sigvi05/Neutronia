@@ -18,7 +18,6 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
 //        NBiomes.registerBiomes();
         GroupLoader.preInit(event);
-        GroupLoader.preInit(event);
         MessageRegister.init();
     }
 
@@ -27,21 +26,17 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
         GameRegistry.registerTileEntity(TileEntityPot.class, new ResourceLocation(MOD_ID, "pot"));
         GroupLoader.init(event);
-        GroupLoader.init(event);
     }
 
     public void postInit(FMLPostInitializationEvent event) {
-        GroupLoader.postInit(event);
         GroupLoader.postInit(event);
     }
 
     public void finalInit(FMLPostInitializationEvent event) {
         GroupLoader.finalInit(event);
-        GroupLoader.finalInit(event);
     }
 
     public void serverStarting(FMLServerStartingEvent event) {
-        GroupLoader.serverStarting(event);
         GroupLoader.serverStarting(event);
     }
 

@@ -232,7 +232,7 @@ public class Group implements Comparable<Group> {
 		private ItemStack icon;
 		private Component component;
 		private Group group;
-        private static final List<Component> components = new ArrayList<>();
+        private List<Component> components = new ArrayList<>();
 
 		public Builder withName(String name) {
 			if(!name.isEmpty()) {
