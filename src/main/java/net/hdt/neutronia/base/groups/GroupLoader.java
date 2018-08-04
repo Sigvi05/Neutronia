@@ -28,7 +28,7 @@ public final class GroupLoader {
 
     private static List<Group> groups;
 	public static Map<Class<? extends Group>, Group> groupInstances = new HashMap<>();
-	public static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
+	static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
 	public static Map<String, Component> componentClassNames = new HashMap<>();
 
 	private static List<Group> enabledGroups;
@@ -90,12 +90,9 @@ public final class GroupLoader {
 
 	public static void setupConfig(FMLPreInitializationEvent event) {
         File configFile = event.getSuggestedConfigurationFile();
-
 		config = new Configuration(configFile);
 		config.load();
-		
 		loadConfig();
-
 		MinecraftForge.EVENT_BUS.register(new ChangeListener());
 	}
 	
@@ -136,7 +133,7 @@ public final class GroupLoader {
 		enabledGroups.forEach(consumer);
 	}
 
-    public static void registerGroup(Group group) {
+    static void registerGroup(Group group) {
         if(!groups.contains(group)) {
             groups.add(group);
             if(!group.name.isEmpty())
