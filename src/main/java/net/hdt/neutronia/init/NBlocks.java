@@ -12,6 +12,7 @@ import net.hdt.neutronia.blocks.nether.*;
 import net.hdt.neutronia.blocks.overworld.*;
 import net.hdt.neutronia.properties.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSandStone;
 import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.block.material.Material;
@@ -97,6 +98,8 @@ public class NBlocks {
     public static final BlockBrickChiseled chiseledBricks;
     public static final BlockBrickChiseled chiseledBricksFilled;
     public static final Block scaffoldingBlock;
+
+    public static final Block[] closet = new Block[6];
 
     static {
         for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
@@ -272,6 +275,11 @@ public class NBlocks {
         chiseledBricksFilled = new BlockBrickChiseled("chiseled_bricks_filled", true);
 
         scaffoldingBlock = new BlockScaffoldingBlock();
+
+        for(BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+            closet[woodType.getMetadata()] = new BlockRandom(woodType);
+        }
+
     }
 
     @SubscribeEvent

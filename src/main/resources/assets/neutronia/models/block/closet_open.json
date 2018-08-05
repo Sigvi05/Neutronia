@@ -1,8 +1,7 @@
 {
 	"credit": "Model made by HuskyTheArtist, All Rights Reserved",
 	"textures": {
-		"0": "blocks/planks_acacia",
-		"particle": "blocks/planks_acacia"
+		"particle": "#0"
 	},
 	"elements": [
 		{
@@ -217,9 +216,9 @@
 			"rotation": {"angle": 45, "axis": "y", "origin": [3, 16, -1]},
 			"faces": {
 				"north": {"uv": [0, 0, 2, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 10, 16], "texture": "#0"},
+				"east": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"south": {"uv": [0, 0, 2, 16], "texture": "#0"},
-				"west": {"uv": [6, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"up": {"uv": [0, 0, 10, 2], "texture": "#0", "rotation": 270},
 				"down": {"uv": [0, 0, 10, 2], "texture": "#0", "rotation": 270}
 			}
@@ -230,9 +229,9 @@
 			"rotation": {"angle": 45, "axis": "y", "origin": [3, 16, -1]},
 			"faces": {
 				"north": {"uv": [0, 0, 2, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 10, 16], "texture": "#0"},
+				"east": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"south": {"uv": [0, 0, 2, 16], "texture": "#0"},
-				"west": {"uv": [6, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"up": {"uv": [0, 0, 10, 2], "texture": "#0", "rotation": 90},
 				"down": {"uv": [6, 0, 16, 2], "texture": "#0", "rotation": 270}
 			}
@@ -243,9 +242,9 @@
 			"rotation": {"angle": -45, "axis": "y", "origin": [13, 16, -1]},
 			"faces": {
 				"north": {"uv": [0, 0, 2, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 10, 16], "texture": "#0"},
+				"east": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"south": {"uv": [14, 0, 16, 16], "texture": "#0"},
-				"west": {"uv": [6, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"up": {"uv": [6, 0, 16, 2], "texture": "#0", "rotation": 90},
 				"down": {"uv": [0, 0, 10, 2], "texture": "#0", "rotation": 270}
 			}
@@ -256,9 +255,9 @@
 			"rotation": {"angle": -45, "axis": "y", "origin": [13, 16, -1]},
 			"faces": {
 				"north": {"uv": [0, 0, 2, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 10, 16], "texture": "#0"},
+				"east": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"south": {"uv": [14, 0, 16, 16], "texture": "#0"},
-				"west": {"uv": [6, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [3, 0, 13, 16], "texture": "#0"},
 				"up": {"uv": [0, 0, 10, 2], "texture": "#0", "rotation": 90},
 				"down": {"uv": [0, 0, 10, 2], "texture": "#0", "rotation": 90}
 			}
@@ -294,7 +293,7 @@
 			"isOpen": false,
 			"shade": true,
 			"display": {
-				"visibility": true,
+				"visibility": false,
 				"autouv": true
 			},
 			"children": [0, 1, 2, 3]
@@ -331,10 +330,10 @@
 		},
 		{
 			"name": "Doors Open",
-			"isOpen": false,
+			"isOpen": true,
 			"shade": true,
 			"display": {
-				"visibility": false,
+				"visibility": true,
 				"autouv": true
 			},
 			"children": [16, 17, 18, 19]
