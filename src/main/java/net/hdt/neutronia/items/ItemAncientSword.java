@@ -2,7 +2,7 @@ package net.hdt.neutronia.items;
 
 import net.hdt.huskylib2.item.ItemModSword;
 import net.hdt.neutronia.base.items.INeutroniaItem;
-import net.hdt.neutronia.base.util.ColorUtils;
+import net.hdt.neutronia.base.util.ColorUtilsIdk;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -32,7 +32,7 @@ public class ItemAncientSword extends ItemModSword implements INeutroniaItem {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return ColorUtils.getClosest(16351261) + super.getItemStackDisplayName(stack);
+        return ColorUtilsIdk.getClosest(16351261) + super.getItemStackDisplayName(stack);
     }
 
     @Override

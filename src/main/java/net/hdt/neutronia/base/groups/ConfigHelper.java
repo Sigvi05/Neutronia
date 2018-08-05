@@ -8,7 +8,7 @@ public class ConfigHelper {
 	static boolean allNeedRestart = false;
 	static Property lastProp;
 	
-	static int loadPropInt(String propName, String category, String desc, int default_) {
+	public static int loadPropInt(String propName, String category, String desc, int default_) {
 		Property prop = GroupLoader.config.get(category, propName, default_);
 		prop.setComment(desc);
 		setNeedsRestart(prop);

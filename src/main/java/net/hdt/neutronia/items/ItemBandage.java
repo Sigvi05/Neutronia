@@ -2,7 +2,7 @@ package net.hdt.neutronia.items;
 
 import net.hdt.huskylib2.item.ItemMod;
 import net.hdt.neutronia.base.items.INeutroniaItem;
-import net.hdt.neutronia.base.util.ColorUtils;
+import net.hdt.neutronia.base.util.ColorUtilsIdk;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,7 +42,7 @@ public class ItemBandage extends ItemMod implements INeutroniaItem {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return ColorUtils.getClosest(16351261) + super.getItemStackDisplayName(stack);
+        return ColorUtilsIdk.getClosest(16351261) + super.getItemStackDisplayName(stack);
     }
 
     @Override
