@@ -1,14 +1,14 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.module.Feature;
-import betterwithmods.util.player.PlayerHelper;
+import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.util.player.PlayerHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class FoodPoisoning extends Feature {
+public class FoodPoisoning extends Component {
     @Override
     public boolean hasSubscriptions() {
         return true;

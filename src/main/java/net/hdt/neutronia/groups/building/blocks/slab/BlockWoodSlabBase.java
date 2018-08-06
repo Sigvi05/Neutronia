@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockWoodSlabBase extends BlockModSlab implements INeutroniaBlock {
 
-    public BlockWoodSlabBase(String name,  boolean isDouble, CreativeTabs tab) {
+    public BlockWoodSlabBase(String name, boolean isDouble, CreativeTabs tab) {
         super(name + "_slab", Material.WOOD, isDouble);
         setCreativeTab(isDouble ? null : tab);
     }

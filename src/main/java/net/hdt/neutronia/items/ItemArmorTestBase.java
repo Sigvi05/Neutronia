@@ -22,20 +22,20 @@ public class ItemArmorTestBase extends ItemModArmor implements INeutroniaItem {
         return isHasColor();
     }
 
-    public void setHasColor(boolean hasColor) {
-        this.hasColor = hasColor;
+    public boolean isHasOverlay() {
+        return hasOverlay;
     }
 
     public void setHasOverlay(boolean hasOverlay) {
         this.hasOverlay = hasOverlay;
     }
 
-    public boolean isHasOverlay() {
-        return hasOverlay;
-    }
-
     public boolean isHasColor() {
         return hasColor;
+    }
+
+    public void setHasColor(boolean hasColor) {
+        this.hasColor = hasColor;
     }
 
 }

@@ -1,8 +1,8 @@
 package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
-import net.hdt.neutronia.blocks.base.BlockModColoredStairs;
 import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.blocks.base.BlockModColoredStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;

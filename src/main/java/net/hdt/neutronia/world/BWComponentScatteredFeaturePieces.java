@@ -1,9 +1,6 @@
-package betterwithmods.common.world;
+package net.hdt.neutronia.world;
 
-import betterwithmods.common.BWMBlocks;
-import betterwithmods.common.blocks.BlockAesthetic;
-import betterwithmods.common.blocks.mechanical.BlockCookingPot;
-import betterwithmods.module.hardcore.world.HCStructures;
+import net.hdt.neutronia.groups.tweaks.features.HCStructures;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityWitch;
@@ -103,8 +100,8 @@ public class BWComponentScatteredFeaturePieces {
 
                 //Remove chest loot
                 for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL) {
-                    int k1 = enumfacing.getFrontOffsetX() * 2;
-                    int l1 = enumfacing.getFrontOffsetZ() * 2;
+                    int k1 = enumfacing.getXOffset() * 2;
+                    int l1 = enumfacing.getZOffset() * 2;
                     TileEntity tileentity = worldIn.getTileEntity(new BlockPos(this.getXWithOffset(10 + k1, 10 + l1), this.getYWithOffset(-11), this.getZWithOffset(10 + k1, 10 + l1)));
                     if (tileentity instanceof TileEntityChest)
                         ((TileEntityChest) tileentity).setLootTable(null, randomIn.nextLong());
@@ -224,8 +221,8 @@ public class BWComponentScatteredFeaturePieces {
         @Override
         public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn) {
             boolean result = super.addComponentParts(worldIn, randomIn, structureBoundingBoxIn);
-            this.setBlockState(worldIn, BWMBlocks.AESTHETIC.getDefaultState().withProperty(BlockAesthetic.TYPE, BlockAesthetic.EnumType.CHOPBLOCKBLOOD), 5, 4, 11, structureBoundingBoxIn);
-            this.setBlockState(worldIn, BWMBlocks.AESTHETIC.getDefaultState().withProperty(BlockAesthetic.TYPE, BlockAesthetic.EnumType.CHOPBLOCKBLOOD), 6, 4, 11, structureBoundingBoxIn);
+//            this.setBlockState(worldIn, BWMBlocks.AESTHETIC.getDefaultState().withProperty(BlockAesthetic.TYPE, BlockAesthetic.EnumType.CHOPBLOCKBLOOD), 5, 4, 11, structureBoundingBoxIn);
+//            this.setBlockState(worldIn, BWMBlocks.AESTHETIC.getDefaultState().withProperty(BlockAesthetic.TYPE, BlockAesthetic.EnumType.CHOPBLOCKBLOOD), 6, 4, 11, structureBoundingBoxIn);
             this.setAir(worldIn, 6, 3, 10, structureBoundingBoxIn);
             this.setAir(worldIn, 5, 3, 10, structureBoundingBoxIn);
 
@@ -260,8 +257,8 @@ public class BWComponentScatteredFeaturePieces {
                 removeChest(worldIn, 8, -3, 3, randomIn);
                 removeChest(worldIn, 9, -3, 10, randomIn);
             } else {
-                this.setBlockState(worldIn, BWMBlocks.HAND_CRANK.getDefaultState(), 5, 3, 10, structureBoundingBoxIn);
-                this.setBlockState(worldIn, BWMBlocks.COOKING_POTS.getDefaultState().withProperty(BlockCookingPot.TYPE,BlockCookingPot.EnumType.DRAGONVESSEL), 6, 3, 10, structureBoundingBoxIn);
+//                this.setBlockState(worldIn, BWMBlocks.HAND_CRANK.getDefaultState(), 5, 3, 10, structureBoundingBoxIn);
+//                this.setBlockState(worldIn, BWMBlocks.COOKING_POTS.getDefaultState().withProperty(BlockCookingPot.TYPE,BlockCookingPot.EnumType.DRAGONVESSEL), 6, 3, 10, structureBoundingBoxIn);
             }
 
             return result;

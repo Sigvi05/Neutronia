@@ -1,14 +1,14 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.common.entity.ai.EntityAIMate;
-import betterwithmods.module.Feature;
-import betterwithmods.util.EntityUtils;
+import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.util.EntityUtils;
+import net.hdt.neutronia.entity.ai.EntityAIMate;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class AnimalBirth extends Feature {
+public class AnimalBirth extends Component {
 
     @SubscribeEvent
     public void addEntityAI(EntityJoinWorldEvent evt) {

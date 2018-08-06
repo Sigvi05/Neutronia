@@ -1,7 +1,7 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.module.Feature;
 import com.google.common.collect.Lists;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,9 +21,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
 
-import static betterwithmods.module.hardcore.needs.HCMovement.dirtpathQuality;
+import static net.hdt.neutronia.groups.tweaks.features.HCMovement.dirtpathQuality;
 
-public class GrassPath extends Feature {
+public class GrassPath extends Component {
     public static List<ItemStack> SHOVEL_BLACKLIST = Lists.newArrayList();
 
     public static int getShovelQuality(ItemStack stack) {

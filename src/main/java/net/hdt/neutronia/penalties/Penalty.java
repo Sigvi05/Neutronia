@@ -1,9 +1,9 @@
-package betterwithmods.common.penalties;
+package net.hdt.neutronia.penalties;
 
-import betterwithmods.common.penalties.attribute.Attribute;
-import betterwithmods.common.penalties.attribute.IAttribute;
-import betterwithmods.common.penalties.attribute.IAttributeInstance;
 import com.google.common.collect.Maps;
+import net.hdt.neutronia.penalties.attribute.Attribute;
+import net.hdt.neutronia.penalties.attribute.IAttribute;
+import net.hdt.neutronia.penalties.attribute.IAttributeInstance;
 import org.apache.commons.lang3.Range;
 
 import javax.annotation.Nonnull;

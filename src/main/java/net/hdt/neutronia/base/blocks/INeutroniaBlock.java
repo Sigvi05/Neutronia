@@ -7,14 +7,14 @@ import net.minecraft.item.ItemStack;
 
 public interface INeutroniaBlock extends IModBlock {
 
-	@Override
-	default String getModNamespace() {
-		return LibMisc.MOD_ID;
-	}
+    @Override
+    default String getModNamespace() {
+        return LibMisc.MOD_ID;
+    }
 
-	@Override
-	default EnumRarity getBlockRarity(ItemStack stack) {
-		return EnumRarity.COMMON;
-	}
-	
+    @Override
+    default EnumRarity getBlockRarity(ItemStack stack) {
+        return EnumRarity.COMMON;
+    }
+
 }

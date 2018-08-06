@@ -1,8 +1,8 @@
-package betterwithmods.event;
+package net.hdt.neutronia.events;
 
-import betterwithmods.common.BWRegistry;
-import betterwithmods.common.BWSounds;
-import betterwithmods.util.player.PlayerHelper;
+import net.hdt.neutronia.base.BWRegistry;
+import net.hdt.neutronia.base.util.player.PlayerHelper;
+import net.hdt.neutronia.init.BWSounds;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -57,7 +57,6 @@ public class PenaltyEventHandler {
     public static void onPlayerUpdate(LivingEvent.LivingUpdateEvent event) {
         if (event.getEntityLiving() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-
 
 
             if (!PlayerHelper.isSurvival(player) || player.isRiding()) {

@@ -9,7 +9,8 @@ public class MessageFavoriteItem extends NetworkMessage {
 
     public int index;
 
-    public MessageFavoriteItem() { }
+    public MessageFavoriteItem() {
+    }
 
     public MessageFavoriteItem(int index) {
         this.index = index;

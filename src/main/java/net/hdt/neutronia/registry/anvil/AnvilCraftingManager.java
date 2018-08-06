@@ -48,7 +48,7 @@ public class AnvilCraftingManager {
         if (recipe != null && recipe.matches(inventory, craftMatrix)) {
             return recipe.getRemainingItems(inventory);
         }
-        
+
         for (IRecipe irecipe : ANVIL_CRAFTING) {
             if (irecipe.matches(inventory, craftMatrix)) {
                 recipe = irecipe;

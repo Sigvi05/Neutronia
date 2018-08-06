@@ -30,97 +30,97 @@ import java.util.Random;
 
 public class BlockTerracottaFlowerPot extends BlockFlowerPot implements INeutroniaBlock, IBlockColorProvider, IRecipeGrouped {
 
-	private final String[] variants;
-	private final String bareName;
     public final EnumDyeColor color;
+    private final String[] variants;
+    private final String bareName;
 
-	public BlockTerracottaFlowerPot(EnumDyeColor color) {
-	    this.color = color;
-		String name = color.getName() + "_terracotta_pot";
-		variants = new String[] { name };
-		bareName = name;
-		
-		setHardness(0.0F);
-		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.DECORATIONS);
-		
-		setTranslationKey(name);
-	}
+    public BlockTerracottaFlowerPot(EnumDyeColor color) {
+        this.color = color;
+        String name = color.getName() + "_terracotta_pot";
+        variants = new String[]{name};
+        bareName = name;
 
-	@Override
-	public Block setTranslationKey(String name) {
-		super.setTranslationKey(name);
-		setRegistryName(LibMisc.PREFIX_MOD + name);
-		ProxyRegistry.register(this);
-		ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
-		return this;
-	}
-	
-	@Override
+        setHardness(0.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(CreativeTabs.DECORATIONS);
+
+        setTranslationKey(name);
+    }
+
+    @Override
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
+        setRegistryName(LibMisc.PREFIX_MOD + name);
+        ProxyRegistry.register(this);
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        return this;
+    }
+
+    @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         ItemStack stack = super.getItem(worldIn, pos, state);
-        if(stack.getItem() == Items.FLOWER_POT)
-        	stack = new ItemStack(Item.getItemFromBlock(this));
-        
+        if (stack.getItem() == Items.FLOWER_POT)
+            stack = new ItemStack(Item.getItemFromBlock(this));
+
         return stack;
     }
 
-	@Override
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return Item.getItemFromBlock(this);
-	}
-	
-	@Override
+        return Item.getItemFromBlock(this);
+    }
+
+    @Override
     public String getLocalizedName() {
         return I18n.translateToLocal(getTranslationKey() + ".name");
     }
-	
-	@Override
-	public String getBareName() {
-		return bareName;
-	}
 
-	@Override
-	public String[] getVariants() {
-		return variants;
-	}
+    @Override
+    public String getBareName() {
+        return bareName;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ItemMeshDefinition getCustomMeshDefinition() {
-		return null;
-	}
+    @Override
+    public String[] getVariants() {
+        return variants;
+    }
 
-	@Override
-	public IProperty[] getIgnoredProperties() {
-		return new IProperty[] { LEGACY_DATA };
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemMeshDefinition getCustomMeshDefinition() {
+        return null;
+    }
 
-	@Override
-	public IProperty getVariantProp() {
-		return null;
-	}
+    @Override
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[]{LEGACY_DATA};
+    }
 
-	@Override
-	public Class getVariantEnum() {
-		return null;
-	}
+    @Override
+    public IProperty getVariantProp() {
+        return null;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IBlockColor getBlockColor() {
-		return (state, worldIn, pos, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
-	}
+    @Override
+    public Class getVariantEnum() {
+        return null;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IItemColor getItemColor() {
-		return (stack, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
-	}
-	
-	@Override
-	public String getRecipeGroup() {
-		return "terracotta_flower_pot";
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IBlockColor getBlockColor() {
+        return (state, worldIn, pos, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IItemColor getItemColor() {
+        return (stack, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
+    }
+
+    @Override
+    public String getRecipeGroup() {
+        return "terracotta_flower_pot";
+    }
 
 }

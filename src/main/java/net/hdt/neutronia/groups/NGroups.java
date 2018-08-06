@@ -26,8 +26,10 @@ import net.minecraft.item.ItemStack;
 
 public class NGroups {
 
+    public static Group building, client, decoration, dimensions, experimental, management, tweaks, vanity, world;
+
     public static void registerGroups() {
-       Group.builder()
+        building = Group.builder()
                 .withName("Building")
                 .withDesc("This group adds new structural building blocks and building utensils.")
                 .withIcon(new ItemStack(Blocks.BRICK_BLOCK))
@@ -39,9 +41,10 @@ public class NGroups {
                 .withComponent(new VanillaWalls())
                 .withComponent(new WoodBlocks())
                 .withComponent(new WorldStoneBricks())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        client = Group.builder()
                 .withName("Client")
                 .withDesc("This group adds components that alter the client, not needing Quark to be loaded on the server.")
                 .withIcon(new ItemStack(Items.ENDER_EYE))
@@ -53,9 +56,10 @@ public class NGroups {
                 .withComponent(new ShulkerBoxTooltip())
                 .withComponent(new UsageTicker())
                 .withComponent(new VisualStatDisplay())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        decoration = Group.builder()
                 .withName("Decoration")
                 .withDesc("This group adds new decorative building blocks and improves vanilla ones.")
                 .withIcon(new ItemStack(Blocks.RED_FLOWER))
@@ -67,9 +71,10 @@ public class NGroups {
                 .withComponent(new VariedBookshelves())
                 .withComponent(new FlatItemFrames())
                 .withComponent(new DecorativeAquamarine())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        dimensions = Group.builder()
                 .withName("Dimensions")
                 .withDesc("This group adds some new dimensions")
                 .withIcon(new ItemStack(Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.WHITE).getBlock()))
@@ -77,26 +82,29 @@ public class NGroups {
                 .withComponent(new MoonBiomes())
                 .withComponent(new MoonDimension())
                 .withComponent(new SunDimension())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        experimental = Group.builder()
                 .withName("Experimental")
                 .withDesc("Experimental Features. All components in this group are disabled by default. Use at your own risk.")
                 .withIcon(new ItemStack(Blocks.TNT))
                 .withComponent(new BiggerCaves())
                 .withComponent(new ColoredLights())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        management = Group.builder()
                 .withName("Management")
                 .withDesc("This module adds inventory management features.")
                 .withIcon(new ItemStack(Items.BOOK))
                 .withComponent(new FavoriteItems())
                 .withComponent(new BetterCraftShifting())
                 .withComponent(new RightClickAddToShulkerBox())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        tweaks = Group.builder()
                 .withName("Tweaks")
                 .withDesc("This module tweaks various gameplay elements.")
                 .withIcon(new ItemStack(Items.IRON_PICKAXE))
@@ -117,19 +125,21 @@ public class NGroups {
                 .withComponent(new AxesBreakLeaves())
                 .withComponent(new ConvertClay())
                 .withComponent(new ExtendedToolProgression())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        vanity = Group.builder()
                 .withName("Vanity")
                 .withDesc("This module tweaks various gameplay elements.")
                 .withIcon(new ItemStack(Items.LEATHER_HELMET))
                 .withComponent(new DyableElytra())
                 .withComponent(new DyeItemNames())
                 .withComponent(new SitInStairs())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
-                .withName("Dimensions")
+        world = Group.builder()
+                .withName("World")
                 .withDesc("This module adds world generation features.")
                 .withIcon(new ItemStack(Blocks.GRASS))
                 .withComponent(new Corals())
@@ -151,12 +161,28 @@ public class NGroups {
                 .withComponent(new DefaultWorldOptions())
                 .withComponent(new Speleothems())
                 .withComponent(new BetterCaves())
+                .isEnabled(true)
                 .register();
 
-       Group.builder()
+        Group.builder()
                 .withName("Example Group")
                 .withDesc("This is an example group")
                 .withIcon(new ItemStack(Blocks.STONE))
+                .isEnabled(true)
+                .register();
+
+        Group.builder()
+                .withName("Example Group 2")
+                .withDesc("This is an example group")
+                .withIcon(new ItemStack(Blocks.STONE))
+                .isEnabled(true)
+                .register();
+
+        Group.builder()
+                .withName("Example Group 3")
+                .withDesc("This is an example group")
+                .withIcon(new ItemStack(Blocks.STONE))
+                .isEnabled(true)
                 .register();
     }
 

@@ -5,8 +5,8 @@ import net.hdt.neutronia.groups.world.features.UndergroundBiomes;
 
 public class BlockIcyStoneStairs extends BlockNeutroniaStairs {
 
-	public BlockIcyStoneStairs() {
-		super("icy_stone_stairs", UndergroundBiomes.biome_cobblestone.getStateFromMeta(1));
-	}
-	
+    public BlockIcyStoneStairs() {
+        super("icy_stone_stairs", UndergroundBiomes.biome_cobblestone.getStateFromMeta(1));
+    }
+
 }

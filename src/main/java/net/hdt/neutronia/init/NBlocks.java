@@ -35,14 +35,6 @@ public class NBlocks {
     public static final Block blackSand;
     public static final Block brassBlock, steelBlock, copperBlock, bronzeBlock;
     public static final Block brassOre, steelOre, copperOre, bronzeOre, tinOre, zincOre;
-//    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
-//    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
-    // Sea Blocks
-    private static final Block[] aquamarine = new Block[6];
-    public static Block seaPickle, turtleEgg;
-    private static final Block driedKelpBlock;
-    private static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
-    private static final MRPillar prismarineColumn;
     public static final BlockPrismarineChiseled chiseledPrismarine;
     public static final BlockPrismarineChiseled chiseledPrismarineFilled;
     //Stone Blocks
@@ -53,25 +45,10 @@ public class NBlocks {
     public static final Block[] strippedLogPoles = new Block[6];
     //Blocks for the nether
     public static final Block[] glowingNetherBlocks = new Block[24];
-    private static final Block[] soulStone = new Block[3];
-    private static final Block[] soulStoneSlabSingle = new Block[3];
-    private static final Block[] soulStoneSlabDouble = new Block[3];
-    public static Block[] netherPlants = new Block[3];
-    public static Block[] tallNetherPlants = new Block[2];
-    private static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
     public static final BlockSoulGlass soulGlass, soulGlassOn;
-    private static final MRPillar netherbrickPillar;
     public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
-    //Frosted versions of some blocks
-    public static Block[] frostedStones = new Block[6];
-    public static Block[] frostedDirts = new Block[12];
-    public static Block[] frostedClay = new Block[16];
-    // Some colored blocks
-    public static Block[] coloredSand = new Block[16];
-    public static Block[] coloredSandstone = new Block[16];
     public static final BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
     public static final Block[] coloredPlanks = new Block[16];
-    public static Block[] coloredPlanksStair = new Block[16];
     public static final Block[] coloredPlanksSlabSingle = new Block[16], coloredPlanksSlabDouble = new Block[16];
     public static final BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
@@ -79,18 +56,7 @@ public class NBlocks {
     public static final BlockColoredAlt[] coloredRedstoneLamp = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitRedstoneLamp = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredSlimeBlock = new BlockColoredAlt[16];
-    public static Block[] coloredVases = new Block[16];
-    public static Block[] terracottaPots = new Block[16];
-    private static final Block[] centeredGlazedTerracottaBlocks = new Block[16];
-    private static Block[] coffins = new Block[13];
-    private static Block slumpedWitherSkeleton, slumpedSkeleton;
-    private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
     public static final Block fireflyBulbOff, fireflyBulbOn;
-//    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
-//    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
-//    public static final Block whiteBricks, redBricks, greenBricks;
-//    public static final Block redClayBlock, greenClayBlock;
-
     public static final MRPillar sandstonePillar;
     public static final MRPillar redSandstonePillar;
     public static final BlockPurpurChiseled chiseledPurpur;
@@ -98,8 +64,40 @@ public class NBlocks {
     public static final BlockBrickChiseled chiseledBricks;
     public static final BlockBrickChiseled chiseledBricksFilled;
     public static final Block scaffoldingBlock;
-
     public static final Block[] closet = new Block[6];
+    //    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+//    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
+    // Sea Blocks
+    private static final Block[] aquamarine = new Block[6];
+    private static final Block driedKelpBlock;
+    private static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
+    private static final MRPillar prismarineColumn;
+    private static final Block[] soulStone = new Block[3];
+    private static final Block[] soulStoneSlabSingle = new Block[3];
+    private static final Block[] soulStoneSlabDouble = new Block[3];
+    private static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
+    private static final MRPillar netherbrickPillar;
+    private static final Block[] centeredGlazedTerracottaBlocks = new Block[16];
+    public static Block seaPickle, turtleEgg;
+    public static Block[] netherPlants = new Block[3];
+    public static Block[] tallNetherPlants = new Block[2];
+    //Frosted versions of some blocks
+    public static Block[] frostedStones = new Block[6];
+    public static Block[] frostedDirts = new Block[12];
+    public static Block[] frostedClay = new Block[16];
+    //    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
+//    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
+//    public static final Block whiteBricks, redBricks, greenBricks;
+//    public static final Block redClayBlock, greenClayBlock;
+    // Some colored blocks
+    public static Block[] coloredSand = new Block[16];
+    public static Block[] coloredSandstone = new Block[16];
+    public static Block[] coloredPlanksStair = new Block[16];
+    public static Block[] coloredVases = new Block[16];
+    public static Block[] terracottaPots = new Block[16];
+    private static Block[] coffins = new Block[13];
+    private static Block slumpedWitherSkeleton, slumpedSkeleton;
+    private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
 
     static {
         for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
@@ -192,7 +190,8 @@ public class NBlocks {
             coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
             coloredRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, false);
             coloredLitRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, true);
-            */coloredSlimeBlock[dyeColor.getMetadata()] = new BlockColoredSlime(dyeColor);
+            */
+            coloredSlimeBlock[dyeColor.getMetadata()] = new BlockColoredSlime(dyeColor);
             add(String.format("%s_glass", dyeColor.getName()), Blocks.STAINED_GLASS, Material.GLASS, dyeColor.getMetadata(), true, false, NCreativeTabs.OVERWORLD_EXPANSION_TAB);
             centeredGlazedTerracottaBlocks[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("centered_glazed_terracotta_%s", dyeColor.getName()), false);
         }
@@ -276,7 +275,7 @@ public class NBlocks {
 
         scaffoldingBlock = new BlockScaffoldingBlock();
 
-        for(BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
             closet[woodType.getMetadata()] = new BlockRandom(woodType);
         }
 

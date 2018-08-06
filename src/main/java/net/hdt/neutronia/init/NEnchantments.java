@@ -29,7 +29,7 @@ public class NEnchantments {
     }
 
     @SubscribeEvent
-    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event)  {
+    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
         event.getRegistry().registerAll(field_203193_C, field_203194_D, field_203195_E, field_203196_F);
     }
 

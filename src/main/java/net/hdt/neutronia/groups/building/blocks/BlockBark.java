@@ -8,20 +8,20 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockBark extends BlockMetaVariants implements INeutroniaBlock {
 
-	public BlockBark() {
-		super("bark", Material.WOOD, Variants.class);
-		setHardness(2.0F);
-		setSoundType(SoundType.WOOD);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockBark() {
+        super("bark", Material.WOOD, Variants.class);
+        setHardness(2.0F);
+        setSoundType(SoundType.WOOD);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
-	public enum Variants implements EnumBase {
-		BARK_OAK,
-		BARK_SPRUCE,
-		BARK_BIRCH,
-		BARK_JUNGLE,
-		BARK_ACACIA,
-		BARK_DARK_OAK
-	}
+    public enum Variants implements EnumBase {
+        BARK_OAK,
+        BARK_SPRUCE,
+        BARK_BIRCH,
+        BARK_JUNGLE,
+        BARK_ACACIA,
+        BARK_DARK_OAK
+    }
 
 }

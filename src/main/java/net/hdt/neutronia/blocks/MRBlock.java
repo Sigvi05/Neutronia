@@ -16,8 +16,7 @@ public class MRBlock extends BlockMod implements INeutroniaBlock {
         setResistance(resistance);
     }
 
-    public void slipperiness(float x)
-    {
+    public void slipperiness(float x) {
         this.slipperiness = x;
     }
 }

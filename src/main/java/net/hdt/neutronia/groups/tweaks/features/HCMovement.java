@@ -31,6 +31,7 @@ public class HCMovement extends Component {
     public static final float DEFAULT_SPEED = 0.75f;
     public static final float FAST = 1.2f;
     public static boolean dirtpathQuality;
+    public static HashMap<UUID, Float> PREVIOUS_SPEED = Maps.newHashMap();
 
     @Override
     public void setupConfig() {
@@ -67,13 +68,11 @@ public class HCMovement extends Component {
         BLOCK_OVERRIDE_MOVEMENT.put(Blocks.GRASS_PATH.getDefaultState(), FAST);
     }
 
-    public static HashMap<UUID, Float> PREVIOUS_SPEED = Maps.newHashMap();
-
     @SubscribeEvent
     public void onWalk(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
             EntityPlayer player = event.player;
-            if(player.isRiding())
+            if (player.isRiding())
                 return;
             float speed = 0;
 

@@ -5,8 +5,8 @@ import net.hdt.neutronia.groups.world.features.RevampStoneGen;
 
 public class BlockLimestoneStairs extends BlockNeutroniaStairs {
 
-	public BlockLimestoneStairs() {
-		super("stone_limestone_stairs", RevampStoneGen.limestone.getDefaultState());
-	}
+    public BlockLimestoneStairs() {
+        super("stone_limestone_stairs", RevampStoneGen.limestone.getDefaultState());
+    }
 
 }

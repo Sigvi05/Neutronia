@@ -7,12 +7,12 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockIcyStoneSlab extends BlockNeutroniaSlab {
 
-	public BlockIcyStoneSlab(boolean doubleSlab) {
-		super("icy_stone", Material.ROCK, doubleSlab);
-		setHardness(1.5F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockIcyStoneSlab(boolean doubleSlab) {
+        super("icy_stone", Material.ROCK, doubleSlab);
+        setHardness(1.5F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
 }

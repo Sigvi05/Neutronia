@@ -27,39 +27,14 @@ import static net.hdt.neutronia.base.util.Reference.MOD_ID;
  */
 final class Remapper<T extends IForgeRegistryEntry<T>> {
 
-	private static final Marker MARKER = MarkerManager.getMarker("Remapper").addParents(MarkerManager.getMarker(MOD_ID));
+    private static final Marker MARKER = MarkerManager.getMarker("Remapper").addParents(MarkerManager.getMarker(MOD_ID));
+    /**
+     * Custom names to remap. Keys are the old names, values are the new names.
+     */
+    private static final Map<String, String> customNames;
 
-	private final List<Predicate<Mapping<T>>> remappingFunctions = ImmutableList.of(this::remapCustomName);
-
-	private Remapper() {
-	}
-
-	private void remapAll(final List<Mapping<T>> missingMappings) {
-		for (final Mapping<T> missingMapping : missingMappings) {
-			Neutronia.LOGGER.info(MARKER, "Trying to remap %s", missingMapping.key);
-			final boolean remapped = remappingFunctions.stream().anyMatch(mappingPredicate -> mappingPredicate.test(missingMapping));
-			if (!remapped) Neutronia.LOGGER.info(MARKER, "Couldn't remap %s", missingMapping.key);
-		}
-	}
-
-	private boolean tryRemap(final Mapping<T> missingMapping, final ResourceLocation registryName) {
-		final IForgeRegistry<T> registry = missingMapping.registry;
-		final T value = registry.getValue(registryName);
-		if (registry.containsKey(registryName) && value != null) {
-			Neutronia.LOGGER.info(MARKER, "Remapped %s %s to %s", registry.getRegistrySuperType().getSimpleName(), missingMapping.key, registryName);
-			missingMapping.remap(value);
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Custom names to remap. Keys are the old names, values are the new names.
-	 */
-	private static final Map<String, String> customNames;
-
-	static {
-		customNames = ImmutableMap.<String, String>builder()
+    static {
+        customNames = ImmutableMap.<String, String>builder()
                 .put("blue_coral", "tube_coral")
                 .put("pink_coral", "brain_coral")
                 .put("purple_coral", "bubble_coral")
@@ -93,12 +68,12 @@ final class Remapper<T extends IForgeRegistryEntry<T>> {
                 .put("red_dead_coral_fan", "dead_fire_coral_fan")
                 .put("yellow_dead_coral_fan", "dead_horn_coral_fan")
 
-				.put("oak_bark", "oak_wood")
-				.put("spruce_bark", "spruce_wood")
-				.put("birch_bark", "birch_wood")
-				.put("jungle_bark", "jungle_wood")
-				.put("acacia_bark", "acacia_wood")
-				.put("dark_oak_bark", "dark_oak_wood")
+                .put("oak_bark", "oak_wood")
+                .put("spruce_bark", "spruce_wood")
+                .put("birch_bark", "birch_wood")
+                .put("jungle_bark", "jungle_wood")
+                .put("acacia_bark", "acacia_wood")
+                .put("dark_oak_bark", "dark_oak_wood")
 
                 .put("oak_bark_slab", "oak_wood_slab")
                 .put("spruce_bark_slab", "spruce_wood_slab")
@@ -114,30 +89,54 @@ final class Remapper<T extends IForgeRegistryEntry<T>> {
                 .put("acacia_bark_stair", "acacia_wood_stair")
                 .put("dark_oak_bark_stair", "dark_oak_wood_stair")
                 .build();
-	}
+    }
 
-	private boolean remapCustomName(final Mapping<T> missingMapping) {
-		final String missingPath = missingMapping.key.getPath();
-		if (!customNames.containsKey(missingPath)) return false;
-		final String newPath = customNames.get(missingPath);
-		final ResourceLocation newRegistryName = new ResourceLocation(missingMapping.key.getPath(), newPath);
-		return tryRemap(missingMapping, newRegistryName);
-	}
+    private final List<Predicate<Mapping<T>>> remappingFunctions = ImmutableList.of(this::remapCustomName);
 
-	@Mod.EventBusSubscriber(modid = MOD_ID)
-	@SuppressWarnings("unused")
-	private static class EventHandler {
-		private static final Remapper<Block> blockRemapper = new Remapper<>();
-		private static final Remapper<Item> itemRemapper = new Remapper<>();
+    private Remapper() {
+    }
 
-		@SubscribeEvent
-		public static void missingBlockMappings(final RegistryEvent.MissingMappings<Block> event) {
-			blockRemapper.remapAll(event.getMappings());
-		}
+    private void remapAll(final List<Mapping<T>> missingMappings) {
+        for (final Mapping<T> missingMapping : missingMappings) {
+            Neutronia.LOGGER.info(MARKER, "Trying to remap %s", missingMapping.key);
+            final boolean remapped = remappingFunctions.stream().anyMatch(mappingPredicate -> mappingPredicate.test(missingMapping));
+            if (!remapped) Neutronia.LOGGER.info(MARKER, "Couldn't remap %s", missingMapping.key);
+        }
+    }
 
-		@SubscribeEvent
-		public static void missingItemMappings(final RegistryEvent.MissingMappings<Item> event) {
-			itemRemapper.remapAll(event.getMappings());
-		}
-	}
+    private boolean tryRemap(final Mapping<T> missingMapping, final ResourceLocation registryName) {
+        final IForgeRegistry<T> registry = missingMapping.registry;
+        final T value = registry.getValue(registryName);
+        if (registry.containsKey(registryName) && value != null) {
+            Neutronia.LOGGER.info(MARKER, "Remapped %s %s to %s", registry.getRegistrySuperType().getSimpleName(), missingMapping.key, registryName);
+            missingMapping.remap(value);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean remapCustomName(final Mapping<T> missingMapping) {
+        final String missingPath = missingMapping.key.getPath();
+        if (!customNames.containsKey(missingPath)) return false;
+        final String newPath = customNames.get(missingPath);
+        final ResourceLocation newRegistryName = new ResourceLocation(missingMapping.key.getPath(), newPath);
+        return tryRemap(missingMapping, newRegistryName);
+    }
+
+    @Mod.EventBusSubscriber(modid = MOD_ID)
+    @SuppressWarnings("unused")
+    private static class EventHandler {
+        private static final Remapper<Block> blockRemapper = new Remapper<>();
+        private static final Remapper<Item> itemRemapper = new Remapper<>();
+
+        @SubscribeEvent
+        public static void missingBlockMappings(final RegistryEvent.MissingMappings<Block> event) {
+            blockRemapper.remapAll(event.getMappings());
+        }
+
+        @SubscribeEvent
+        public static void missingItemMappings(final RegistryEvent.MissingMappings<Item> event) {
+            itemRemapper.remapAll(event.getMappings());
+        }
+    }
 }

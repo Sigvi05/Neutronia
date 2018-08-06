@@ -11,27 +11,27 @@ import net.minecraft.util.text.translation.I18n;
 
 public class GuiButtonModule extends GuiButton {
 
-	final Group group;
-	
-	public GuiButtonModule(int x, int y, Group group) {
-		super(0, x, y, 150, 20, I18n.translateToLocal("neutronia.config.group." + group.name));
-		this.group = group;
-	}
-	
-	@Override
-	public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
-		super.drawButton(mc, mouseX, mouseY, partialTicks);
-		if(visible) {
-			ItemStack stack = group.getIconStack();
-			RenderHelper.enableGUIStandardItemLighting();
-			GlStateManager.enableDepth();
-			mc.getRenderItem().renderItemIntoGUI(stack, x + 6, y + 2);
-		}
-	}
-	
-	@Override
-	public void drawCenteredString(FontRenderer fontRendererIn, String text, int x, int y, int color) {
-		super.drawCenteredString(fontRendererIn, text, x + 14, y, color);
-	}
+    final Group group;
+
+    public GuiButtonModule(int x, int y, Group group) {
+        super(0, x, y, 150, 20, I18n.translateToLocal("neutronia.config.group." + group.name));
+        this.group = group;
+    }
+
+    @Override
+    public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
+        super.drawButton(mc, mouseX, mouseY, partialTicks);
+        if (visible) {
+            ItemStack stack = group.getIconStack();
+            RenderHelper.enableGUIStandardItemLighting();
+            GlStateManager.enableDepth();
+            mc.getRenderItem().renderItemIntoGUI(stack, x + 6, y + 2);
+        }
+    }
+
+    @Override
+    public void drawCenteredString(FontRenderer fontRendererIn, String text, int x, int y, int color) {
+        super.drawCenteredString(fontRendererIn, text, x + 14, y, color);
+    }
 
 }

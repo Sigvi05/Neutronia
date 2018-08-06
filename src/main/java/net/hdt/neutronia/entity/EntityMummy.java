@@ -1,8 +1,8 @@
 package net.hdt.neutronia.entity;
 
+import net.hdt.neutronia.base.util.handlers.LootTableHandler;
 import net.hdt.neutronia.entity.ai.EntityAIMummyAttack;
 import net.hdt.neutronia.init.NItems;
-import net.hdt.neutronia.base.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -168,14 +168,13 @@ public class EntityMummy extends EntityMob {
                 entityIn.setFire(2 * (int) f);
         }
 
-        if (flag && this.getHeldItemMainhand().isEmpty() && entityIn instanceof EntityLivingBase)
-        {
+        if (flag && this.getHeldItemMainhand().isEmpty() && entityIn instanceof EntityLivingBase) {
             float f = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
-            ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 140 * (int)f));
-            ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 140 * (int)f));
+            ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.HUNGER, 140 * (int) f));
+            ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 140 * (int) f));
 
-            if(world.getDifficulty() == EnumDifficulty.HARD) {
-                ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 140 * (int)f));
+            if (world.getDifficulty() == EnumDifficulty.HARD) {
+                ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 140 * (int) f));
             }
         }
 

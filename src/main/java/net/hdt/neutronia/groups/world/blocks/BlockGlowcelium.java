@@ -19,40 +19,40 @@ import java.util.Random;
 
 public class BlockGlowcelium extends BlockMod implements INeutroniaBlock {
 
-	public BlockGlowcelium() {
-		super("glowcelium", Material.GRASS);
-		setTickRandomly(true);
-		setHardness(0.2F);
-		setLightLevel(0.5F);
-		setSoundType(SoundType.PLANT);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockGlowcelium() {
+        super("glowcelium", Material.GRASS);
+        setTickRandomly(true);
+        setHardness(0.2F);
+        setLightLevel(0.5F);
+        setSoundType(SoundType.PLANT);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
-	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if(!worldIn.isRemote) {
-			if(worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > 2)
-				worldIn.setBlockState(pos, Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.DIRT));
-			else for(int i = 0; i < 4; ++i) {
-					BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-					IBlockState iblockstate = worldIn.getBlockState(blockpos);
-					IBlockState iblockstate1 = worldIn.getBlockState(blockpos.up());
+    @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        if (!worldIn.isRemote) {
+            if (worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > 2)
+                worldIn.setBlockState(pos, Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.DIRT));
+            else for (int i = 0; i < 4; ++i) {
+                BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
+                IBlockState iblockstate = worldIn.getBlockState(blockpos);
+                IBlockState iblockstate1 = worldIn.getBlockState(blockpos.up());
 
-					if(iblockstate.getBlock() == Blocks.DIRT && iblockstate.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT && iblockstate1.getLightOpacity(worldIn, blockpos.up()) <= 2)
-						worldIn.setBlockState(blockpos, getDefaultState());
-				}
-		}
-	}
+                if (iblockstate.getBlock() == Blocks.DIRT && iblockstate.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT && iblockstate1.getLightOpacity(worldIn, blockpos.up()) <= 2)
+                    worldIn.setBlockState(blockpos, getDefaultState());
+            }
+        }
+    }
 
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		super.randomDisplayTick(stateIn, worldIn, pos, rand);
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+        super.randomDisplayTick(stateIn, worldIn, pos, rand);
 
-		if(rand.nextInt(40) == 0)
-			worldIn.spawnParticle(EnumParticleTypes.END_ROD, pos.getX() + rand.nextFloat(), pos.getY() + 1.15F, pos.getZ() + rand.nextFloat(), 0, 0, 0, new int[0]);
-	}
-	
-	@Override
+        if (rand.nextInt(40) == 0)
+            worldIn.spawnParticle(EnumParticleTypes.END_ROD, pos.getX() + rand.nextFloat(), pos.getY() + 1.15F, pos.getZ() + rand.nextFloat(), 0, 0, 0, new int[0]);
+    }
+
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Blocks.DIRT.getItemDropped(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.DIRT), rand, fortune);
     }

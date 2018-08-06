@@ -14,99 +14,99 @@ import java.util.List;
 
 public class GuiConfigGroup extends GuiConfigBase {
 
-	private static final int FEATURES_PER_PAGE = 12;
-	
-	private final Group group;
-	private final List<Component> components;
-	private int page = 0;
-	private int totalPages;
-	
-	private GuiButton left, right;
-	
-	GuiConfigGroup(GuiScreen parent, Group group) {
-		super(parent);
-		this.group = group;
-		
-		components = new ArrayList<>();
-		group.forEachComponent(components::add);
-		Collections.sort(components);
+    private static final int FEATURES_PER_PAGE = 12;
 
-		totalPages = (components.size() - 1) / FEATURES_PER_PAGE + 1;
-	}
-	
-	public void initGui() {
-		super.initGui();
-		
-		title += " - " + I18n.translateToLocal("neutronia.config.group." + group.name) + " (" + components.size() + ")";
+    private final Group group;
+    private final List<Component> components;
+    private int page = 0;
+    private int totalPages;
 
-		int x = width / 2 - 100;
-		int y = height / 6 + 167;
-		
-		buttonList.add(backButton = new GuiButton(0, x, y, 200, 20, I18n.translateToLocal("gui.done")));
+    private GuiButton left, right;
 
-		if(totalPages > 1) {
-			x = width / 2;
-			y = height / 6 - 12;
-			buttonList.add(left = new GuiButton(0, x - 40, y, 20, 20, "<"));
-			buttonList.add(right = new GuiButton(0, x + 20, y, 20, 20, ">"));
-		}
-		
-		addFeatureButtons();
-	}
+    GuiConfigGroup(GuiScreen parent, Group group) {
+        super(parent);
+        this.group = group;
 
-	private void addFeatureButtons() {
-		int startX = width / 2 - 195;
-		int startY = height / 6 + 20;
-		
-		buttonList.removeIf((b) -> b instanceof GuiButtonConfigSetting || b instanceof GuiButtonFeatureSettings);
-		
-		int x, y;
-		
-		int start = page * FEATURES_PER_PAGE;
-		for(int i = start; i < Math.min(start + FEATURES_PER_PAGE, components.size()); i++) {
-			int j = i - start;
-			x = startX + j % 2 * 200;
-			y = startY + j / 2 * 22;
+        components = new ArrayList<>();
+        group.forEachComponent(components::add);
+        Collections.sort(components);
 
-			Component component = components.get(i);
+        totalPages = (components.size() - 1) / FEATURES_PER_PAGE + 1;
+    }
 
-			buttonList.add(new GuiButtonConfigSetting(x + 150, y, component.prop, true, component.getComponentIngameConfigName()));
+    public void initGui() {
+        super.initGui();
 
-			if(GroupLoader.config.hasCategory(component.configCategory))
-				buttonList.add(new GuiButtonFeatureSettings(x + 170, y, component.configCategory));
-		}
+        title += " - " + I18n.translateToLocal("neutronia.config.group." + group.name) + " (" + components.size() + ")";
 
-		if(left != null) {
-			left.enabled = (page > 0);
-			right.enabled = (page < totalPages - 1);
-		}
-	}
-	
-	@Override
-	protected void actionPerformed(GuiButton button) throws IOException {
-		super.actionPerformed(button);
-		
-		if(button instanceof GuiButtonFeatureSettings) {
-			GuiButtonFeatureSettings featureButton = (GuiButtonFeatureSettings) button;
-			mc.displayGuiScreen(new GuiConfigCategory(this, featureButton.category));
-		} else if(button == left || button == right) {
-			if(button == left)
-				page = Math.max(page - 1, 0);
-			else page = Math.min(page + 1, totalPages - 1);
+        int x = width / 2 - 100;
+        int y = height / 6 + 167;
 
-			addFeatureButtons();
-		}
-	}
+        buttonList.add(backButton = new GuiButton(0, x, y, 200, 20, I18n.translateToLocal("gui.done")));
 
-	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		super.drawScreen(mouseX, mouseY, partialTicks);
-		
-		if(totalPages > 1) {
-			int x = width / 2;
-			int y = height / 6 - 7;
-			drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
-		}
+        if (totalPages > 1) {
+            x = width / 2;
+            y = height / 6 - 12;
+            buttonList.add(left = new GuiButton(0, x - 40, y, 20, 20, "<"));
+            buttonList.add(right = new GuiButton(0, x + 20, y, 20, 20, ">"));
+        }
+
+        addFeatureButtons();
+    }
+
+    private void addFeatureButtons() {
+        int startX = width / 2 - 195;
+        int startY = height / 6 + 20;
+
+        buttonList.removeIf((b) -> b instanceof GuiButtonConfigSetting || b instanceof GuiButtonFeatureSettings);
+
+        int x, y;
+
+        int start = page * FEATURES_PER_PAGE;
+        for (int i = start; i < Math.min(start + FEATURES_PER_PAGE, components.size()); i++) {
+            int j = i - start;
+            x = startX + j % 2 * 200;
+            y = startY + j / 2 * 22;
+
+            Component component = components.get(i);
+
+            buttonList.add(new GuiButtonConfigSetting(x + 150, y, component.prop, true, component.getComponentIngameConfigName()));
+
+            if (GroupLoader.config.hasCategory(component.configCategory))
+                buttonList.add(new GuiButtonFeatureSettings(x + 170, y, component.configCategory));
+        }
+
+        if (left != null) {
+            left.enabled = (page > 0);
+            right.enabled = (page < totalPages - 1);
+        }
+    }
+
+    @Override
+    protected void actionPerformed(GuiButton button) throws IOException {
+        super.actionPerformed(button);
+
+        if (button instanceof GuiButtonFeatureSettings) {
+            GuiButtonFeatureSettings featureButton = (GuiButtonFeatureSettings) button;
+            mc.displayGuiScreen(new GuiConfigCategory(this, featureButton.category));
+        } else if (button == left || button == right) {
+            if (button == left)
+                page = Math.max(page - 1, 0);
+            else page = Math.min(page + 1, totalPages - 1);
+
+            addFeatureButtons();
+        }
+    }
+
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        super.drawScreen(mouseX, mouseY, partialTicks);
+
+        if (totalPages > 1) {
+            int x = width / 2;
+            int y = height / 6 - 7;
+            drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
+        }
 
         /*for(int i = 0; i < components.size(); i++) {
             if(components.size() < 2)
@@ -116,11 +116,11 @@ public class GuiConfigGroup extends GuiConfigBase {
             mc.getTextureManager().bindTexture(new ResourceLocation("neutronia", "textures/config_gui/test_icon.png"));
             drawModalRectWithCustomSizedTexture(10, 10, 128, 128, 80, 80, 128, 128);
         }*/
-		
-		if(mayRequireRestart) {
-			String s = I18n.translateToLocal("neutronia.config.needrestart");
-			drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
-		}
-	}
-	
+
+        if (mayRequireRestart) {
+            String s = I18n.translateToLocal("neutronia.config.needrestart");
+            drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
+        }
+    }
+
 }

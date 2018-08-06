@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.base.groups.GroupLoader;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.gui.GuiScreen;
@@ -16,96 +16,94 @@ import java.util.List;
 
 public class GuiConfigBase extends GuiScreen {
 
-	String title;
-	GuiScreen parent;
-	
-	private static List<Property> restartRequiringProperties = new LinkedList<>();
-	static boolean mayRequireRestart = false;
+    static boolean mayRequireRestart = false;
+    private static List<Property> restartRequiringProperties = new LinkedList<>();
+    String title;
+    GuiScreen parent;
+    GuiButton backButton;
 
-	GuiButton backButton;
+    GuiConfigBase(GuiScreen parent) {
+        this.parent = parent;
+    }
 
-	GuiConfigBase(GuiScreen parent) {
-		this.parent = parent;
-	}
+    @Override
+    public void initGui() {
+        super.initGui();
 
-	@Override
-	public void initGui() {
-		super.initGui();
-		
-		buttonList.clear();
-		title = I18n.translateToLocal("neutronia.config.title");
-	}
+        buttonList.clear();
+        title = I18n.translateToLocal("neutronia.config.title");
+    }
 
-	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		drawDefaultBackground();
-		drawCenteredString(fontRenderer, title, width / 2, 15, 0xFFFFFF);
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        drawDefaultBackground();
+        drawCenteredString(fontRenderer, title, width / 2, 15, 0xFFFFFF);
 
-		super.drawScreen(mouseX, mouseY, partialTicks);
-	}
+        super.drawScreen(mouseX, mouseY, partialTicks);
+    }
 
-	@Override 
-	protected void keyTyped(char typedChar, int keyCode) throws IOException {
-		if(keyCode == 1) // Esc
-			returnToParent();
-	}
+    @Override
+    protected void keyTyped(char typedChar, int keyCode) throws IOException {
+        if (keyCode == 1) // Esc
+            returnToParent();
+    }
 
-	@Override
-	protected void actionPerformed(GuiButton button) throws IOException {
-		super.actionPerformed(button);
+    @Override
+    protected void actionPerformed(GuiButton button) throws IOException {
+        super.actionPerformed(button);
 
-		if(backButton != null && button == backButton)
-			returnToParent();
+        if (backButton != null && button == backButton)
+            returnToParent();
 
-		if(button instanceof GuiButtonConfigSetting) {
-			GuiButtonConfigSetting configButton = (GuiButtonConfigSetting) button;
-			configButton.prop.set(!configButton.prop.getBoolean());
-			if(configButton.prop.requiresMcRestart()) {
-				if(restartRequiringProperties.contains(configButton.prop))
-					restartRequiringProperties.remove(configButton.prop);
-				else restartRequiringProperties.add(configButton.prop);
-						
-				mayRequireRestart = !restartRequiringProperties.isEmpty();
-			}
-			GroupLoader.loadConfig();
-		}
-	}
+        if (button instanceof GuiButtonConfigSetting) {
+            GuiButtonConfigSetting configButton = (GuiButtonConfigSetting) button;
+            configButton.prop.set(!configButton.prop.getBoolean());
+            if (configButton.prop.requiresMcRestart()) {
+                if (restartRequiringProperties.contains(configButton.prop))
+                    restartRequiringProperties.remove(configButton.prop);
+                else restartRequiringProperties.add(configButton.prop);
 
-	private void returnToParent() {
-		mc.displayGuiScreen(parent);
+                mayRequireRestart = !restartRequiringProperties.isEmpty();
+            }
+            GroupLoader.loadConfig();
+        }
+    }
 
-		if(mc.currentScreen == null)
-			mc.setIngameFocus();
-	}
+    private void returnToParent() {
+        mc.displayGuiScreen(parent);
 
-	void tryOpenWebsite() {
-		GuiConfirmOpenLink gui = new GuiConfigLink(this);
-		mc.displayGuiScreen(gui);
-	}
-	
-	@Override
-	public void confirmClicked(boolean result, int id) {
-		if(id == 0) {
-			try {
-				if (result)
-					openWebLink(new URI(LibMisc.MOD_WEBSITE));
-			} catch (URISyntaxException e) {
-				e.printStackTrace();
-			}
+        if (mc.currentScreen == null)
+            mc.setIngameFocus();
+    }
 
-			mc.displayGuiScreen(this);
-		}
-	}
+    void tryOpenWebsite() {
+        GuiConfirmOpenLink gui = new GuiConfigLink(this);
+        mc.displayGuiScreen(gui);
+    }
 
-	private void openWebLink(URI url) {
-		try {
-			Class<?> oclass = Class.forName("java.awt.Desktop");
-			Object object = oclass.getMethod("getDesktop").invoke(null);
-			oclass.getMethod("browse", URI.class).invoke(object, url);
-		} catch(Throwable throwable1) {
-			Throwable throwable = throwable1.getCause();
-			LibMisc.LOGGER.warn("Couldn't open link: {}", (throwable == null ? "<UNKNOWN>" : throwable.getMessage()));
-		}
-	}
+    @Override
+    public void confirmClicked(boolean result, int id) {
+        if (id == 0) {
+            try {
+                if (result)
+                    openWebLink(new URI(LibMisc.MOD_WEBSITE));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+
+            mc.displayGuiScreen(this);
+        }
+    }
+
+    private void openWebLink(URI url) {
+        try {
+            Class<?> oclass = Class.forName("java.awt.Desktop");
+            Object object = oclass.getMethod("getDesktop").invoke(null);
+            oclass.getMethod("browse", URI.class).invoke(object, url);
+        } catch (Throwable throwable1) {
+            Throwable throwable = throwable1.getCause();
+            LibMisc.LOGGER.warn("Couldn't open link: {}", (throwable == null ? "<UNKNOWN>" : throwable.getMessage()));
+        }
+    }
 
 }

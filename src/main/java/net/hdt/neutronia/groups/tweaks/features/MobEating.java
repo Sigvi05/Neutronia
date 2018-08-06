@@ -1,7 +1,7 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.common.entity.ai.eat.EntityAIMonsterEat;
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.entity.ai.eat.EntityAIMonsterEat;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.monster.EntitySpider;
@@ -10,7 +10,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreIngredient;
 
-public class MobEating extends Feature {
+public class MobEating extends Component {
     private static final int radius = 4;
 
     @Override

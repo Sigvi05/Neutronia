@@ -1,11 +1,11 @@
 package net.hdt.neutronia.base.util.player;
 
-import betterwithmods.common.registry.BrokenToolRegistry;
 import com.google.common.collect.Sets;
 import com.mojang.authlib.GameProfile;
 import net.hdt.neutronia.base.BWMRecipes;
 import net.hdt.neutronia.base.BWOreDictionary;
 import net.hdt.neutronia.groups.tweaks.features.HCArmor;
+import net.hdt.neutronia.registry.BrokenToolRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;

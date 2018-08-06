@@ -9,79 +9,79 @@ import net.minecraft.tileentity.TileEntity;
 import java.util.Random;
 
 public class TileEntityPot extends TileEntity {
-	EnumDyeColor color;
-	EnumDyeColor patternColor;
-	int pattern;
-	Random random = new Random();
+    EnumDyeColor color;
+    EnumDyeColor patternColor;
+    int pattern;
+    Random random = new Random();
 
-	public TileEntityPot() {
+    public TileEntityPot() {
 
-	}
+    }
 
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		compound = super.writeToNBT(compound);
-		compound.setInteger("Color", color.getMetadata());
-		compound.setInteger("PatternColor", patternColor.getMetadata());
-		compound.setInteger("Pattern", pattern);
-		return compound;
-	}
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound = super.writeToNBT(compound);
+        compound.setInteger("Color", color.getMetadata());
+        compound.setInteger("PatternColor", patternColor.getMetadata());
+        compound.setInteger("Pattern", pattern);
+        return compound;
+    }
 
-	@Override
-	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
-		color = EnumDyeColor.byMetadata(compound.getInteger("Color"));
-		patternColor = EnumDyeColor.byMetadata(compound.getInteger("PatternColor"));
-		pattern = compound.getInteger("Pattern");
-	}
+    @Override
+    public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        color = EnumDyeColor.byMetadata(compound.getInteger("Color"));
+        patternColor = EnumDyeColor.byMetadata(compound.getInteger("PatternColor"));
+        pattern = compound.getInteger("Pattern");
+    }
 
-	@Override
-	public NBTTagCompound getUpdateTag() {
-		return writeToNBT(new NBTTagCompound());
-	}
+    @Override
+    public NBTTagCompound getUpdateTag() {
+        return writeToNBT(new NBTTagCompound());
+    }
 
-	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		NBTTagCompound nbt = new NBTTagCompound();
-		this.writeToNBT(nbt);
-		return new SPacketUpdateTileEntity(getPos(), 1, nbt);
-	}
+    @Override
+    public SPacketUpdateTileEntity getUpdatePacket() {
+        NBTTagCompound nbt = new NBTTagCompound();
+        this.writeToNBT(nbt);
+        return new SPacketUpdateTileEntity(getPos(), 1, nbt);
+    }
 
-	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
-		this.readFromNBT(packet.getNbtCompound());
-		world.markBlockRangeForRenderUpdate(pos, pos);
-	}
+    @Override
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
+        this.readFromNBT(packet.getNbtCompound());
+        world.markBlockRangeForRenderUpdate(pos, pos);
+    }
 
-	public void setColor(EnumDyeColor color) {
-		this.color = color;
-		notifyUpdate();
-	}
+    public void notifyUpdate() {
+        world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
+        markDirty();
+    }
 
-	public void setPatternColor(EnumDyeColor patternColor) {
-		this.patternColor = patternColor;
-		notifyUpdate();
-	}
+    public EnumDyeColor getColor() {
+        return color;
+    }
 
-	public void setPattern(int pattern) {
-		this.pattern = pattern;
-		notifyUpdate();
-	}
+    public void setColor(EnumDyeColor color) {
+        this.color = color;
+        notifyUpdate();
+    }
 
-	public void notifyUpdate() {
-		world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
-		markDirty();
-	}
+    public EnumDyeColor getPatternColor() {
+        return patternColor;
+    }
 
-	public EnumDyeColor getColor() {
-		return color;
-	}
+    public void setPatternColor(EnumDyeColor patternColor) {
+        this.patternColor = patternColor;
+        notifyUpdate();
+    }
 
-	public EnumDyeColor getPatternColor() {
-		return patternColor;
-	}
+    public int getPattern() {
+        return pattern;
+    }
 
-	public int getPattern() {
-		return pattern;
-	}
+    public void setPattern(int pattern) {
+        this.pattern = pattern;
+        notifyUpdate();
+    }
 }

@@ -26,8 +26,8 @@ import java.util.Objects;
 
 public class BlockScaffoldingBlock extends BlockMod implements INeutroniaBlock {
 
-	private static AxisAlignedBB AABB = new AxisAlignedBB(1.0/16.0, 0, 1.0/16.0, 15.0/16.0, 1, 15.0/16.0);
-	
+    private static AxisAlignedBB AABB = new AxisAlignedBB(1.0 / 16.0, 0, 1.0 / 16.0, 15.0 / 16.0, 1, 15.0 / 16.0);
+
     public BlockScaffoldingBlock() {
         super("scaffolding_block", Material.WOOD);
         this.setCreativeTab(CreativeTabs.DECORATIONS);
@@ -35,7 +35,7 @@ public class BlockScaffoldingBlock extends BlockMod implements INeutroniaBlock {
         setHarvestLevel("axe", 0);
         this.setSoundType(SoundType.WOOD);
     }
-    
+
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
@@ -43,20 +43,20 @@ public class BlockScaffoldingBlock extends BlockMod implements INeutroniaBlock {
     public boolean isFullCube(IBlockState state) {
         return false;
     }
-    
+
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-    	return AABB;
+        return AABB;
     }
-    
+
     @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-    	return AABB;
+        return AABB;
     }
-    
+
     @Override
     public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
-    	return AABB;
+        return AABB;
     }
 
     public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
@@ -75,7 +75,7 @@ public class BlockScaffoldingBlock extends BlockMod implements INeutroniaBlock {
 
     @Override
     public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
-    	return true;
+        return true;
     }
 
 }

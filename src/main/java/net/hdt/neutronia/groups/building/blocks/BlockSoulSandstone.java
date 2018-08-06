@@ -7,16 +7,16 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockSoulSandstone extends BlockMetaVariants implements INeutroniaBlock {
 
-	public BlockSoulSandstone() {
-		super("soul_sandstone", Material.ROCK, Variants.class);
-		setHardness(1F);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockSoulSandstone() {
+        super("soul_sandstone", Material.ROCK, Variants.class);
+        setHardness(1F);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
-	public enum Variants implements EnumBase {
-		SOUL_SANDSTONE,
-		CHISELED_SOUL_SANDSTONE,
-		SMOOTH_SOUL_SANDSTONE
-	}
-	
+    public enum Variants implements EnumBase {
+        SOUL_SANDSTONE,
+        CHISELED_SOUL_SANDSTONE,
+        SMOOTH_SOUL_SANDSTONE
+    }
+
 }

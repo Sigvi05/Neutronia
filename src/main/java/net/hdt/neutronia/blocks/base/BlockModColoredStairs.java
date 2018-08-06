@@ -56,6 +56,43 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 4), "B  ", "BB ", "BBB", 'B', ProxyRegistry.newStack(base, 1, meta));
     }
 
+    private static TextFormatting getFromColor(EnumDyeColor color) {
+        switch (color) {
+            case ORANGE:
+                return TextFormatting.GOLD;
+            case MAGENTA:
+                return TextFormatting.LIGHT_PURPLE;
+            case LIGHT_BLUE:
+                return TextFormatting.BLUE;
+            case YELLOW:
+                return TextFormatting.YELLOW;
+            case LIME:
+                return TextFormatting.GREEN;
+            case PINK:
+                return TextFormatting.LIGHT_PURPLE;
+            case GRAY:
+                return TextFormatting.DARK_GRAY;
+            case SILVER:
+                return TextFormatting.GRAY;
+            case CYAN:
+                return TextFormatting.DARK_AQUA;
+            case PURPLE:
+                return TextFormatting.DARK_PURPLE;
+            case BLUE:
+                return TextFormatting.DARK_BLUE;
+            case BROWN:
+                return TextFormatting.GOLD;
+            case GREEN:
+                return TextFormatting.DARK_GREEN;
+            case RED:
+                return TextFormatting.DARK_RED;
+            case BLACK:
+                return TextFormatting.BLACK;
+            default:
+                return TextFormatting.WHITE;
+        }
+    }
+
     public Block setTranslationKey(String name) {
         super.setTranslationKey(name);
         this.setRegistryName(this.getPrefix(), name);
@@ -83,7 +120,7 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
     @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-        if(blockState.getMaterial() == Material.GLASS) {
+        if (blockState.getMaterial() == Material.GLASS) {
             if (this.getDefaultState().withProperty(SHAPE, EnumShape.STRAIGHT) == blockState) {
                 return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
             } else if (side != EnumFacing.UP && side != EnumFacing.DOWN && !super.shouldSideBeRendered(blockState, blockAccess, pos, side)) {
@@ -187,43 +224,6 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
 
     public Class getVariantEnum() {
         return null;
-    }
-
-    private static TextFormatting getFromColor(EnumDyeColor color) {
-        switch (color) {
-            case ORANGE:
-                return TextFormatting.GOLD;
-            case MAGENTA:
-                return TextFormatting.LIGHT_PURPLE;
-            case LIGHT_BLUE:
-                return TextFormatting.BLUE;
-            case YELLOW:
-                return TextFormatting.YELLOW;
-            case LIME:
-                return TextFormatting.GREEN;
-            case PINK:
-                return TextFormatting.LIGHT_PURPLE;
-            case GRAY:
-                return TextFormatting.DARK_GRAY;
-            case SILVER:
-                return TextFormatting.GRAY;
-            case CYAN:
-                return TextFormatting.DARK_AQUA;
-            case PURPLE:
-                return TextFormatting.DARK_PURPLE;
-            case BLUE:
-                return TextFormatting.DARK_BLUE;
-            case BROWN:
-                return TextFormatting.GOLD;
-            case GREEN:
-                return TextFormatting.DARK_GREEN;
-            case RED:
-                return TextFormatting.DARK_RED;
-            case BLACK:
-                return TextFormatting.BLACK;
-            default:
-                return TextFormatting.WHITE;
-        }
     }
 
     @Override

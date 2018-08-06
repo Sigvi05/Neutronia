@@ -54,7 +54,7 @@ public class EntityBird extends EntityFlyingMob {
     public void onUpdate() {
         super.onUpdate();
 
-        if(getEntityWorld().getBlockState(getPosition().down()).isSideSolid(getEntityWorld(), getPosition().down(), EnumFacing.UP))
+        if (getEntityWorld().getBlockState(getPosition().down()).isSideSolid(getEntityWorld(), getPosition().down(), EnumFacing.UP))
             getMoveHelper().setMoveTo(this.posX, this.posY + 1, this.posZ, 0.32D);
     }
 

@@ -1,4 +1,4 @@
-package betterwithmods.common.registry.block.recipe;
+package net.hdt.neutronia.registry.block.recipe;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

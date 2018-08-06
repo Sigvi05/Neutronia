@@ -30,8 +30,7 @@ public class BlockPrismarineChiseled extends BlockMod implements INeutroniaBlock
 
         if (itemstack.isEmpty()) {
             return false;
-        }
-        else {
+        } else {
             Item item = itemstack.getItem();
 
             if (item == Items.PRISMARINE_CRYSTALS) {
@@ -41,8 +40,7 @@ public class BlockPrismarineChiseled extends BlockMod implements INeutroniaBlock
                     return true;
                 }
                 return false;
-            }
-            else {
+            } else {
                 if (filled) {
                     worldIn.setBlockState(pos, NBlocks.chiseledPrismarine.getDefaultState(), 2);
                     playerIn.inventory.addItemStackToInventory(new ItemStack(Items.PRISMARINE_CRYSTALS));

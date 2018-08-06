@@ -1,8 +1,8 @@
-package betterwithmods.common.registry.block.recipe;
+package net.hdt.neutronia.registry.block.recipe;
 
-import betterwithmods.api.recipe.IRecipeOutputs;
-import betterwithmods.api.recipe.impl.ListOutputs;
-import betterwithmods.util.InvUtils;
+import net.hdt.neutronia.api.recipe.IRecipeOutputs;
+import net.hdt.neutronia.api.recipe.impl.ListOutputs;
+import net.hdt.neutronia.base.util.InvUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 /**
  * Purpose:

@@ -13,40 +13,40 @@ import java.util.function.Supplier;
 
 public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutroniaBlock {
 
-	public BlockWorldStoneBricks() {
-		super("world_stone_bricks", Material.ROCK, Variants.class);
-		setHardness(1.5F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockWorldStoneBricks() {
+        super("world_stone_bricks", Material.ROCK, Variants.class);
+        setHardness(1.5F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
-	@Override
-	public boolean shouldDisplayVariant(int variant) {
-		return Variants.class.getEnumConstants()[variant].isEnabled();
-	}
+    @Override
+    public boolean shouldDisplayVariant(int variant) {
+        return Variants.class.getEnumConstants()[variant].isEnabled();
+    }
 
-	public enum Variants implements EnumBase {
-		STONE_GRANITE_BRICKS(WorldStoneBricks.class),
-		STONE_DIORITE_BRICKS(WorldStoneBricks.class),
-		STONE_ANDESITE_BRICKS(WorldStoneBricks.class);
-		
-		Variants(Class<? extends Component> clazz) {
-			this(clazz, () -> true);
-		}
-		
-		Variants(Class<? extends Component> clazz, Supplier<Boolean> enabledCond) {
-			featureLink = clazz;
-			this.enabledCond = enabledCond;
-		}
-		
-		public final Class<? extends Component> featureLink;
-		private final Supplier<Boolean> enabledCond;
-		
-		public boolean isEnabled() {
-			return GroupLoader.isFeatureEnabled(featureLink) && enabledCond.get();
-		}
-		
-	}
+    public enum Variants implements EnumBase {
+        STONE_GRANITE_BRICKS(WorldStoneBricks.class),
+        STONE_DIORITE_BRICKS(WorldStoneBricks.class),
+        STONE_ANDESITE_BRICKS(WorldStoneBricks.class);
+
+        public final Class<? extends Component> featureLink;
+        private final Supplier<Boolean> enabledCond;
+
+        Variants(Class<? extends Component> clazz) {
+            this(clazz, () -> true);
+        }
+
+        Variants(Class<? extends Component> clazz, Supplier<Boolean> enabledCond) {
+            featureLink = clazz;
+            this.enabledCond = enabledCond;
+        }
+
+        public boolean isEnabled() {
+            return GroupLoader.isFeatureEnabled(featureLink) && enabledCond.get();
+        }
+
+    }
 
 }

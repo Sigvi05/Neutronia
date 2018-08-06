@@ -29,16 +29,17 @@ public class NItems {
     public static final Item.ToolMaterial COPPER = EnumHelper.addToolMaterial("copper", 3, 1561 * 2, 10F, 6.0F, 22);
     public static final Item.ToolMaterial ZINC = EnumHelper.addToolMaterial("zinc", 3, 1561 * 2, 10F, 6.0F, 22);
 
-    public static final Item ancientSword, bandage, /*witherBone, witherBonemeal, driedKelp, stinger, chitin, */ phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
+    public static final Item ancientSword, bandage, /*witherBone, witherBonemeal, driedKelp, stinger, chitin, */
+            phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
 //    public static final Item rawSeaweed;
 
-//    public static final Item AXE_CHITIN, PICKAXE_CHITIN, HOE_CHITIN, SHOVEL_CHITIN, SWORD_CHITIN;
-    public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE,  OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
+    //    public static final Item AXE_CHITIN, PICKAXE_CHITIN, HOE_CHITIN, SHOVEL_CHITIN, SWORD_CHITIN;
+    public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE, OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
 
-    public static final Item BRASS_AXE, BRASS_PICKAXE,  BRASS_SHOVEL, BRASS_SWORD;
-    public static final Item STEEL_AXE, STEEL_PICKAXE,  STEEL_SHOVEL, STEEL_SWORD;
-    public static final Item COPPER_AXE, COPPER_PICKAXE,  COPPER_SHOVEL, COPPER_SWORD;
-    public static final Item ZINC_AXE, ZINC_PICKAXE,  ZINC_SHOVEL, ZINC_SWORD;
+    public static final Item BRASS_AXE, BRASS_PICKAXE, BRASS_SHOVEL, BRASS_SWORD;
+    public static final Item STEEL_AXE, STEEL_PICKAXE, STEEL_SHOVEL, STEEL_SWORD;
+    public static final Item COPPER_AXE, COPPER_PICKAXE, COPPER_SHOVEL, COPPER_SWORD;
+    public static final Item ZINC_AXE, ZINC_PICKAXE, ZINC_SHOVEL, ZINC_SWORD;
     public static final Item brassIngot, brassNugget;
     public static final Item copperIngot, copperNugget;
     public static final Item steelIngot, steelNugget;
@@ -134,7 +135,7 @@ public class NItems {
         anchor = new ItemSpear("anchor", Item.ToolMaterial.IRON).setCreativeTab(null);
         easter_egg = new ItemEasterEgg();
 
-        for(BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
 //            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
 //            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
             barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), tab);

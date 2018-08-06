@@ -5,11 +5,11 @@ import net.minecraft.block.SoundType;
 
 public class BlockNetherBrickFenceGate extends BlockNeutroniaFenceGate {
 
-	public BlockNetherBrickFenceGate() {
-		super("nether_brick_fence_gate");
-		setHardness(2.0F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-	}
+    public BlockNetherBrickFenceGate() {
+        super("nether_brick_fence_gate");
+        setHardness(2.0F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+    }
 
 }

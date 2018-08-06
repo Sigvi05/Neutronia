@@ -9,14 +9,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class TorchesBurnInFurnaces extends Component {
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		GameRegistry.registerFuelHandler((ItemStack stack) -> stack.getItem() == Item.getItemFromBlock(Blocks.TORCH) ? 400 : 0);
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-	
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        GameRegistry.registerFuelHandler((ItemStack stack) -> stack.getItem() == Item.getItemFromBlock(Blocks.TORCH) ? 400 : 0);
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

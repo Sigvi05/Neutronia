@@ -4,13 +4,11 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class ModelTrident extends ModelBase
-{
+public class ModelTrident extends ModelBase {
     public static final ResourceLocation field_203080_a = new ResourceLocation("textures/entity/trident.png");
     private final ModelRenderer field_203081_b;
 
-    public ModelTrident()
-    {
+    public ModelTrident() {
         this.textureWidth = 32;
         this.textureHeight = 32;
         this.field_203081_b = new ModelRenderer(this, 0, 0);
@@ -27,8 +25,7 @@ public class ModelTrident extends ModelBase
         this.field_203081_b.addChild(modelrenderer2);
     }
 
-    public void func_203079_a()
-    {
+    public void func_203079_a() {
         this.field_203081_b.render(0.0625F);
     }
 }

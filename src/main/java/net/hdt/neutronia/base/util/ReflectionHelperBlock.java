@@ -23,13 +23,12 @@ Copyright (C) 2017 AlgorithmX2 LGPLv3.0
 public class ReflectionHelperBlock extends Block {
     public String MethodName;
 
-    private void markMethod() {
-        MethodName = new Throwable().fillInStackTrace().getStackTrace()[1].getMethodName();
-    }
-
-
     public ReflectionHelperBlock() {
         super(Material.AIR);
+    }
+
+    private void markMethod() {
+        MethodName = new Throwable().fillInStackTrace().getStackTrace()[1].getMethodName();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package betterwithmods.common.registry.block.recipe;
+package net.hdt.neutronia.registry.block.recipe;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

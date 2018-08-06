@@ -14,9 +14,9 @@ import java.util.function.IntPredicate;
 
 public class MathHelper {
     public static final float SQRT_2 = sqrt(2.0F);
-    private static final float[] SIN_TABLE = (float[])Util.func_200696_a(new float[65536], (p_203445_0_) -> {
-        for(int lvt_1_1_ = 0; lvt_1_1_ < p_203445_0_.length; ++lvt_1_1_) {
-            p_203445_0_[lvt_1_1_] = (float)Math.sin((double)lvt_1_1_ * 3.141592653589793D * 2.0D / 65536.0D);
+    private static final float[] SIN_TABLE = (float[]) Util.func_200696_a(new float[65536], (p_203445_0_) -> {
+        for (int lvt_1_1_ = 0; lvt_1_1_ < p_203445_0_.length; ++lvt_1_1_) {
+            p_203445_0_[lvt_1_1_] = (float) Math.sin((double) lvt_1_1_ * 3.141592653589793D * 2.0D / 65536.0D);
         }
 
     });
@@ -25,6 +25,16 @@ public class MathHelper {
     private static final double FRAC_BIAS = Double.longBitsToDouble(4805340802404319232L);
     private static final double[] ASINE_TAB = new double[257];
     private static final double[] COS_TAB = new double[257];
+
+    static {
+        for (int lvt_0_1_ = 0; lvt_0_1_ < 257; ++lvt_0_1_) {
+            double lvt_1_1_ = (double) lvt_0_1_ / 256.0D;
+            double lvt_3_1_ = Math.asin(lvt_1_1_);
+            COS_TAB[lvt_0_1_] = Math.cos(lvt_3_1_);
+            ASINE_TAB[lvt_0_1_] = lvt_3_1_;
+        }
+
+    }
 
     public static float sin(float p_sin_0_) {
         return SIN_TABLE[(int) (p_sin_0_ * 10430.378F)];
@@ -35,34 +45,34 @@ public class MathHelper {
     }
 
     public static float sqrt(float p_sqrt_0_) {
-        return (float)Math.sqrt((double)p_sqrt_0_);
+        return (float) Math.sqrt((double) p_sqrt_0_);
     }
 
     public static float sqrt(double p_sqrt_0_) {
-        return (float)Math.sqrt(p_sqrt_0_);
+        return (float) Math.sqrt(p_sqrt_0_);
     }
 
     public static int floor(float p_floor_0_) {
-        int lvt_1_1_ = (int)p_floor_0_;
-        return p_floor_0_ < (float)lvt_1_1_ ? lvt_1_1_ - 1 : lvt_1_1_;
+        int lvt_1_1_ = (int) p_floor_0_;
+        return p_floor_0_ < (float) lvt_1_1_ ? lvt_1_1_ - 1 : lvt_1_1_;
     }
 
     public static int fastFloor(double p_fastFloor_0_) {
-        return (int)(p_fastFloor_0_ + 1024.0D) - 1024;
+        return (int) (p_fastFloor_0_ + 1024.0D) - 1024;
     }
 
     public static int floor(double p_floor_0_) {
-        int lvt_2_1_ = (int)p_floor_0_;
-        return p_floor_0_ < (double)lvt_2_1_ ? lvt_2_1_ - 1 : lvt_2_1_;
+        int lvt_2_1_ = (int) p_floor_0_;
+        return p_floor_0_ < (double) lvt_2_1_ ? lvt_2_1_ - 1 : lvt_2_1_;
     }
 
     public static long lfloor(double p_lfloor_0_) {
-        long lvt_2_1_ = (long)p_lfloor_0_;
-        return p_lfloor_0_ < (double)lvt_2_1_ ? lvt_2_1_ - 1L : lvt_2_1_;
+        long lvt_2_1_ = (long) p_lfloor_0_;
+        return p_lfloor_0_ < (double) lvt_2_1_ ? lvt_2_1_ - 1L : lvt_2_1_;
     }
 
     public static int func_207806_e(double p_207806_0_) {
-        return (int)(p_207806_0_ >= 0.0D ? p_207806_0_ : -p_207806_0_ + 1.0D);
+        return (int) (p_207806_0_ >= 0.0D ? p_207806_0_ : -p_207806_0_ + 1.0D);
     }
 
     public static float abs(float p_abs_0_) {
@@ -74,13 +84,13 @@ public class MathHelper {
     }
 
     public static int ceil(float p_ceil_0_) {
-        int lvt_1_1_ = (int)p_ceil_0_;
-        return p_ceil_0_ > (float)lvt_1_1_ ? lvt_1_1_ + 1 : lvt_1_1_;
+        int lvt_1_1_ = (int) p_ceil_0_;
+        return p_ceil_0_ > (float) lvt_1_1_ ? lvt_1_1_ + 1 : lvt_1_1_;
     }
 
     public static int ceil(double p_ceil_0_) {
-        int lvt_2_1_ = (int)p_ceil_0_;
-        return p_ceil_0_ > (double)lvt_2_1_ ? lvt_2_1_ + 1 : lvt_2_1_;
+        int lvt_2_1_ = (int) p_ceil_0_;
+        return p_ceil_0_ > (double) lvt_2_1_ ? lvt_2_1_ + 1 : lvt_2_1_;
     }
 
     public static int clamp(int p_clamp_0_, int p_clamp_1_, int p_clamp_2_) {
@@ -148,12 +158,12 @@ public class MathHelper {
         long[] var3 = p_average_0_;
         int var4 = p_average_0_.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             long lvt_6_1_ = var3[var5];
             lvt_1_1_ += lvt_6_1_;
         }
 
-        return (double)lvt_1_1_ / (double)p_average_0_.length;
+        return (double) lvt_1_1_ / (double) p_average_0_.length;
     }
 
     public static boolean epsilonEquals(float p_epsilonEquals_0_, float p_epsilonEquals_1_) {
@@ -267,7 +277,7 @@ public class MathHelper {
 
     public static int log2DeBruijn(int p_log2DeBruijn_0_) {
         p_log2DeBruijn_0_ = isPowerOfTwo(p_log2DeBruijn_0_) ? p_log2DeBruijn_0_ : smallestEncompassingPowerOfTwo(p_log2DeBruijn_0_);
-        return MULTIPLY_DE_BRUIJN_BIT_POSITION[(int)((long)p_log2DeBruijn_0_ * 125613361L >> 27) & 31];
+        return MULTIPLY_DE_BRUIJN_BIT_POSITION[(int) ((long) p_log2DeBruijn_0_ * 125613361L >> 27) & 31];
     }
 
     public static int log2(int p_log2_0_) {
@@ -306,9 +316,9 @@ public class MathHelper {
         int lvt_5_1_ = (p_multiplyColor_1_ & '\uff00') >> 8;
         int lvt_6_1_ = (p_multiplyColor_0_ & 255) >> 0;
         int lvt_7_1_ = (p_multiplyColor_1_ & 255) >> 0;
-        int lvt_8_1_ = (int)((float)lvt_2_1_ * (float)lvt_3_1_ / 255.0F);
-        int lvt_9_1_ = (int)((float)lvt_4_1_ * (float)lvt_5_1_ / 255.0F);
-        int lvt_10_1_ = (int)((float)lvt_6_1_ * (float)lvt_7_1_ / 255.0F);
+        int lvt_8_1_ = (int) ((float) lvt_2_1_ * (float) lvt_3_1_ / 255.0F);
+        int lvt_9_1_ = (int) ((float) lvt_4_1_ * (float) lvt_5_1_ / 255.0F);
+        int lvt_10_1_ = (int) ((float) lvt_6_1_ * (float) lvt_7_1_ / 255.0F);
         return p_multiplyColor_0_ & -16777216 | lvt_8_1_ << 16 | lvt_9_1_ << 8 | lvt_10_1_;
     }
 
@@ -321,7 +331,7 @@ public class MathHelper {
     }
 
     public static long getCoordinateRandom(int p_getCoordinateRandom_0_, int p_getCoordinateRandom_1_, int p_getCoordinateRandom_2_) {
-        long lvt_3_1_ = (long)(p_getCoordinateRandom_0_ * 3129871) ^ (long)p_getCoordinateRandom_2_ * 116129781L ^ (long)p_getCoordinateRandom_1_;
+        long lvt_3_1_ = (long) (p_getCoordinateRandom_0_ * 3129871) ^ (long) p_getCoordinateRandom_2_ * 116129781L ^ (long) p_getCoordinateRandom_1_;
         lvt_3_1_ = lvt_3_1_ * lvt_3_1_ * 42317861L + lvt_3_1_ * 11L;
         return lvt_3_1_ >> 16;
     }
@@ -367,7 +377,7 @@ public class MathHelper {
             p_atan2_2_ *= lvt_9_2_;
             p_atan2_0_ *= lvt_9_2_;
             double lvt_11_1_ = FRAC_BIAS + p_atan2_0_;
-            int lvt_13_1_ = (int)Double.doubleToRawLongBits(lvt_11_1_);
+            int lvt_13_1_ = (int) Double.doubleToRawLongBits(lvt_11_1_);
             double lvt_14_1_ = ASINE_TAB[lvt_13_1_];
             double lvt_16_1_ = COS_TAB[lvt_13_1_];
             double lvt_18_1_ = lvt_11_1_ - FRAC_BIAS;
@@ -400,52 +410,52 @@ public class MathHelper {
     }
 
     public static int hsvToRGB(float p_hsvToRGB_0_, float p_hsvToRGB_1_, float p_hsvToRGB_2_) {
-        int lvt_3_1_ = (int)(p_hsvToRGB_0_ * 6.0F) % 6;
-        float lvt_4_1_ = p_hsvToRGB_0_ * 6.0F - (float)lvt_3_1_;
+        int lvt_3_1_ = (int) (p_hsvToRGB_0_ * 6.0F) % 6;
+        float lvt_4_1_ = p_hsvToRGB_0_ * 6.0F - (float) lvt_3_1_;
         float lvt_5_1_ = p_hsvToRGB_2_ * (1.0F - p_hsvToRGB_1_);
         float lvt_6_1_ = p_hsvToRGB_2_ * (1.0F - lvt_4_1_ * p_hsvToRGB_1_);
         float lvt_7_1_ = p_hsvToRGB_2_ * (1.0F - (1.0F - lvt_4_1_) * p_hsvToRGB_1_);
         float lvt_8_7_;
         float lvt_9_7_;
         float lvt_10_7_;
-        switch(lvt_3_1_) {
-        case 0:
-            lvt_8_7_ = p_hsvToRGB_2_;
-            lvt_9_7_ = lvt_7_1_;
-            lvt_10_7_ = lvt_5_1_;
-            break;
-        case 1:
-            lvt_8_7_ = lvt_6_1_;
-            lvt_9_7_ = p_hsvToRGB_2_;
-            lvt_10_7_ = lvt_5_1_;
-            break;
-        case 2:
-            lvt_8_7_ = lvt_5_1_;
-            lvt_9_7_ = p_hsvToRGB_2_;
-            lvt_10_7_ = lvt_7_1_;
-            break;
-        case 3:
-            lvt_8_7_ = lvt_5_1_;
-            lvt_9_7_ = lvt_6_1_;
-            lvt_10_7_ = p_hsvToRGB_2_;
-            break;
-        case 4:
-            lvt_8_7_ = lvt_7_1_;
-            lvt_9_7_ = lvt_5_1_;
-            lvt_10_7_ = p_hsvToRGB_2_;
-            break;
-        case 5:
-            lvt_8_7_ = p_hsvToRGB_2_;
-            lvt_9_7_ = lvt_5_1_;
-            lvt_10_7_ = lvt_6_1_;
-            break;
-        default:
-            throw new RuntimeException("Something went wrong when converting from HSV to RGB. Input was " + p_hsvToRGB_0_ + ", " + p_hsvToRGB_1_ + ", " + p_hsvToRGB_2_);
+        switch (lvt_3_1_) {
+            case 0:
+                lvt_8_7_ = p_hsvToRGB_2_;
+                lvt_9_7_ = lvt_7_1_;
+                lvt_10_7_ = lvt_5_1_;
+                break;
+            case 1:
+                lvt_8_7_ = lvt_6_1_;
+                lvt_9_7_ = p_hsvToRGB_2_;
+                lvt_10_7_ = lvt_5_1_;
+                break;
+            case 2:
+                lvt_8_7_ = lvt_5_1_;
+                lvt_9_7_ = p_hsvToRGB_2_;
+                lvt_10_7_ = lvt_7_1_;
+                break;
+            case 3:
+                lvt_8_7_ = lvt_5_1_;
+                lvt_9_7_ = lvt_6_1_;
+                lvt_10_7_ = p_hsvToRGB_2_;
+                break;
+            case 4:
+                lvt_8_7_ = lvt_7_1_;
+                lvt_9_7_ = lvt_5_1_;
+                lvt_10_7_ = p_hsvToRGB_2_;
+                break;
+            case 5:
+                lvt_8_7_ = p_hsvToRGB_2_;
+                lvt_9_7_ = lvt_5_1_;
+                lvt_10_7_ = lvt_6_1_;
+                break;
+            default:
+                throw new RuntimeException("Something went wrong when converting from HSV to RGB. Input was " + p_hsvToRGB_0_ + ", " + p_hsvToRGB_1_ + ", " + p_hsvToRGB_2_);
         }
 
-        int lvt_11_1_ = clamp((int)(lvt_8_7_ * 255.0F), 0, 255);
-        int lvt_12_1_ = clamp((int)(lvt_9_7_ * 255.0F), 0, 255);
-        int lvt_13_1_ = clamp((int)(lvt_10_7_ * 255.0F), 0, 255);
+        int lvt_11_1_ = clamp((int) (lvt_8_7_ * 255.0F), 0, 255);
+        int lvt_12_1_ = clamp((int) (lvt_9_7_ * 255.0F), 0, 255);
+        int lvt_13_1_ = clamp((int) (lvt_10_7_ * 255.0F), 0, 255);
         return lvt_11_1_ << 16 | lvt_12_1_ << 8 | lvt_13_1_;
     }
 
@@ -461,7 +471,7 @@ public class MathHelper {
     public static int func_199093_a(int p_199093_0_, int p_199093_1_, IntPredicate p_199093_2_) {
         int lvt_3_1_ = p_199093_1_ - p_199093_0_;
 
-        while(lvt_3_1_ > 0) {
+        while (lvt_3_1_ > 0) {
             int lvt_4_1_ = lvt_3_1_ / 2;
             int lvt_5_1_ = p_199093_0_ + lvt_4_1_;
             if (p_199093_2_.test(lvt_5_1_)) {
@@ -473,15 +483,5 @@ public class MathHelper {
         }
 
         return p_199093_0_;
-    }
-
-    static {
-        for(int lvt_0_1_ = 0; lvt_0_1_ < 257; ++lvt_0_1_) {
-            double lvt_1_1_ = (double)lvt_0_1_ / 256.0D;
-            double lvt_3_1_ = Math.asin(lvt_1_1_);
-            COS_TAB[lvt_0_1_] = Math.cos(lvt_3_1_);
-            ASINE_TAB[lvt_0_1_] = lvt_3_1_;
-        }
-
     }
 }

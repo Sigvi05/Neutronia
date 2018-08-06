@@ -5,8 +5,8 @@ import net.minecraft.block.material.Material;
 
 public class BlockNeutroniaSlab extends BlockModSlab implements INeutroniaBlock {
 
-	public BlockNeutroniaSlab(String name, Material materialIn, boolean doubleSlab) {
-		super(name + "_slab", materialIn, doubleSlab);
-	}
+    public BlockNeutroniaSlab(String name, Material materialIn, boolean doubleSlab) {
+        super(name + "_slab", materialIn, doubleSlab);
+    }
 
 }

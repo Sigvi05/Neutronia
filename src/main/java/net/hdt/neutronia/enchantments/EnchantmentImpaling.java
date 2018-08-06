@@ -11,32 +11,28 @@ public class EnchantmentImpaling extends Enchantment {
 
     private static final EnumEnchantmentType TRIDENT = EnumHelper.addEnchantmentType("trident", itemIn -> itemIn instanceof ItemTrident);
 
-    public EnchantmentImpaling(Enchantment.Rarity p_i48786_1_, EntityEquipmentSlot... p_i48786_2_)
-    {
+    public EnchantmentImpaling(Enchantment.Rarity p_i48786_1_, EntityEquipmentSlot... p_i48786_2_) {
         super(p_i48786_1_, TRIDENT, p_i48786_2_);
     }
 
     /**
      * Returns the minimal value of enchantability needed on the enchantment level passed.
      */
-    public int getMinEnchantability(int enchantmentLevel)
-    {
+    public int getMinEnchantability(int enchantmentLevel) {
         return 1 + (enchantmentLevel - 1) * 8;
     }
 
     /**
      * Returns the maximum value of enchantability nedded on the enchantment level passed.
      */
-    public int getMaxEnchantability(int enchantmentLevel)
-    {
+    public int getMaxEnchantability(int enchantmentLevel) {
         return this.getMinEnchantability(enchantmentLevel) + 20;
     }
 
     /**
      * Returns the maximum level that the enchantment can have.
      */
-    public int getMaxLevel()
-    {
+    public int getMaxLevel() {
         return 5;
     }
 
@@ -46,6 +42,6 @@ public class EnchantmentImpaling extends Enchantment {
      */
     @Override
     public float calcDamageByCreature(int level, EnumCreatureAttribute creatureType) {
-        return creatureType == EnumCreatureAttribute.UNDEAD ? (float)level * 2.5F : 0.0F;
+        return creatureType == EnumCreatureAttribute.UNDEAD ? (float) level * 2.5F : 0.0F;
     }
 }

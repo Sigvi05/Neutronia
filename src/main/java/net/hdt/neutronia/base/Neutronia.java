@@ -35,10 +35,26 @@ public class Neutronia {
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
 
-    private List<ILifeCycleHandler> handlers = new ArrayList<ILifeCycleHandler>(){{
+    private List<ILifeCycleHandler> handlers = new ArrayList<ILifeCycleHandler>() {{
         add(new EventHandlers());
         add(new RecipeHandlers());
     }};
+
+    public static DamageSource func_203096_a(Entity p_203096_0_, @Nullable Entity p_203096_1_) {
+        return (new EntityDamageSourceIndirect("trident", p_203096_0_, p_203096_1_)).setProjectile();
+    }
+
+    public static int func_203191_f(ItemStack p_203191_0_) {
+        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.field_203193_C), p_203191_0_);
+    }
+
+    public static int func_203190_g(ItemStack p_203190_0_) {
+        return EnchantmentHelper.getEnchantmentLevel(NEnchantments.field_203195_E, p_203190_0_);
+    }
+
+    public static boolean func_203192_h(ItemStack p_203192_0_) {
+        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.field_203196_F), p_203192_0_) > 0;
+    }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -60,33 +76,13 @@ public class Neutronia {
     }
 
     @Mod.EventHandler
-    public void loadComplete(FMLLoadCompleteEvent event){
+    public void loadComplete(FMLLoadCompleteEvent event) {
         handlers.forEach(handler -> handler.loadComplete(event));
     }
 
     @Mod.EventHandler
     public void serverInit(FMLServerStartingEvent event) {
         handlers.forEach(handler -> handler.serverInit(event));
-    }
-
-    public static DamageSource func_203096_a(Entity p_203096_0_, @Nullable Entity p_203096_1_)
-    {
-        return (new EntityDamageSourceIndirect("trident", p_203096_0_, p_203096_1_)).setProjectile();
-    }
-
-    public static int func_203191_f(ItemStack p_203191_0_)
-    {
-        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.field_203193_C), p_203191_0_);
-    }
-
-    public static int func_203190_g(ItemStack p_203190_0_)
-    {
-        return EnchantmentHelper.getEnchantmentLevel(NEnchantments.field_203195_E, p_203190_0_);
-    }
-
-    public static boolean func_203192_h(ItemStack p_203192_0_)
-    {
-        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.field_203196_F), p_203192_0_) > 0;
     }
 
 }

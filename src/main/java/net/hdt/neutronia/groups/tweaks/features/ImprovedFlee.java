@@ -1,8 +1,8 @@
 package betterwithmods.module.tweaks;
 
-import betterwithmods.common.entity.ai.EntityAIFlee;
-import betterwithmods.module.Feature;
-import betterwithmods.util.EntityUtils;
+import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.util.EntityUtils;
+import net.hdt.neutronia.entity.ai.EntityAIFlee;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -10,7 +10,6 @@ import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.passive.AbstractHorse;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityTameable;
-import net.minecraft.pathfinding.Path;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -23,12 +22,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 /**
  * Created by primetoxinz on 4/20/17.
  */
-public class ImprovedFlee extends Feature {
+public class ImprovedFlee extends Component {
 
     private static boolean blockPlace, blockBreak, groupFlee;
 
     public static boolean canSeeBlock(BlockPos pos, EntityLiving entity) {
-        RayTraceResult result = entity.world.rayTraceBlocks(entity.getPositionVector(), new Vec3d(pos).addVector(0.5,0.5,0.5));
+        RayTraceResult result = entity.world.rayTraceBlocks(entity.getPositionVector(), new Vec3d(pos).add(0.5, 0.5, 0.5));
         return result != null && pos.equals(result.getBlockPos());
     }
 

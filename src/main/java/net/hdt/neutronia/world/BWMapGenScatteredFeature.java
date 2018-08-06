@@ -1,7 +1,7 @@
-package betterwithmods.common.world;
+package net.hdt.neutronia.world;
 
-import betterwithmods.module.GlobalConfig;
 import com.google.common.collect.Sets;
+import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

@@ -1,6 +1,6 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 /**
  * Created by primetoxinz on 5/6/17.
  */
-public class Sinkholes extends Feature {
+public class Sinkholes extends Component {
     @SubscribeEvent
     public void playerTick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player = event.player;
@@ -24,8 +24,8 @@ public class Sinkholes extends Feature {
             BlockPos pos = new BlockPos(j6, i1, k6);
             World world = player.world;
             IBlockState standing = world.getBlockState(pos);
-            if(world.isAirBlock(pos.down()) && standing.getBlock() instanceof BlockFalling) {
-                world.scheduleBlockUpdate(pos,standing.getBlock(),0,5);
+            if (world.isAirBlock(pos.down()) && standing.getBlock() instanceof BlockFalling) {
+                world.scheduleBlockUpdate(pos, standing.getBlock(), 0, 5);
             }
 
         }

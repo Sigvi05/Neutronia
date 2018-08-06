@@ -1,11 +1,11 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.common.BWMRecipes;
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.BWMRecipes;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class CheaperAxes extends Feature {
+public class CheaperAxes extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

@@ -7,12 +7,12 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockBasaltSlab extends BlockNeutroniaSlab {
 
-	public BlockBasaltSlab(boolean doubleSlab) {
-		super("stone_basalt", Material.ROCK, doubleSlab);
-		setHardness(1.5F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockBasaltSlab(boolean doubleSlab) {
+        super("stone_basalt", Material.ROCK, doubleSlab);
+        setHardness(1.5F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
 }

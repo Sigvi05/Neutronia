@@ -1,10 +1,8 @@
 package net.hdt.neutronia.entity.render.model;
 
-import net.hdt.neutronia.entity.EntityMummy;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 /**
  * Mummy - Undefined
@@ -75,7 +73,7 @@ public class ModelMummy extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.LeftLeg.render(f5);
         this.Head.render(f5);
         this.Body1.render(f5);

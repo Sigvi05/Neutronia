@@ -3,17 +3,14 @@ package net.hdt.neutronia.world.biome.overworld;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 
-public class BiomeColdOcean extends Biome
-{
-    public BiomeColdOcean(Biome.BiomeProperties properties)
-    {
+public class BiomeColdOcean extends Biome {
+    public BiomeColdOcean(Biome.BiomeProperties properties) {
         super(properties);
         this.spawnableCreatureList.clear();
         this.topBlock = Blocks.GRAVEL.getDefaultState();
     }
 
-    public Biome.TempCategory getTempCategory()
-    {
+    public Biome.TempCategory getTempCategory() {
         return TempCategory.COLD;
     }
 }

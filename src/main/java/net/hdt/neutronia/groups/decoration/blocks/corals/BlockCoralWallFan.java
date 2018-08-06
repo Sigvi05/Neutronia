@@ -34,8 +34,8 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
  */
 public class BlockCoralWallFan extends BlockWaterPlantBase {
 
-    private static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
     public static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
+    private static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
     private boolean dead;
     private ArrayList<Block> livingVersion, deadVersion;
     private EnumCoralColor color;

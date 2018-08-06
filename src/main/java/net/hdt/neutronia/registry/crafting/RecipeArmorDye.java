@@ -1,6 +1,5 @@
-package betterwithmods.common.registry.crafting;
+package net.hdt.neutronia.registry.crafting;
 
-import betterwithmods.BWMod;
 import com.google.common.collect.Lists;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemArmor;
@@ -14,13 +13,15 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.List;
 
+import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
+
 public class RecipeArmorDye extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
     private Ingredient validArmor;
 
     public RecipeArmorDye(Ingredient validArmor) {
         this.validArmor = validArmor;
-        setRegistryName(new ResourceLocation(BWMod.MODID,"armor_dye"));
+        setRegistryName(new ResourceLocation(MOD_ID, "armor_dye"));
     }
 
     @Override

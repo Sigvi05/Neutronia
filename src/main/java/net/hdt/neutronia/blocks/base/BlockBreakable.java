@@ -11,44 +11,38 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBreakable extends BlockColoredAlt
-{
+public class BlockBreakable extends BlockColoredAlt {
     private final boolean ignoreSimilarity;
 
-    protected BlockBreakable(Material materialIn, String name, EnumDyeColor color, boolean ignoreSimilarityIn)
-    {
+    protected BlockBreakable(Material materialIn, String name, EnumDyeColor color, boolean ignoreSimilarityIn) {
         super(materialIn, name, color);
         this.ignoreSimilarity = ignoreSimilarityIn;
     }
 
     /**
      * Used to determine ambient occlusion and culling when rebuilding chunks for render
+     *
      * @deprecated call via {@link IBlockState#isOpaqueCube()} whenever possible. Implementing/overriding is fine.
      */
-    public boolean isOpaqueCube(IBlockState state)
-    {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
     /**
-     * @deprecated call via {@link IBlockState#shouldSideBeRendered(IBlockAccess,BlockPos,EnumFacing)} whenever
+     * @deprecated call via {@link IBlockState#shouldSideBeRendered(IBlockAccess, BlockPos, EnumFacing)} whenever
      * possible. Implementing/overriding is fine.
      */
     @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
-    {
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
         Block block = iblockstate.getBlock();
 
-        if (this == Blocks.GLASS)
-        {
-            if (blockState != iblockstate)
-            {
+        if (this == Blocks.GLASS) {
+            if (blockState != iblockstate) {
                 return true;
             }
 
-            if (block == this)
-            {
+            if (block == this) {
                 return false;
             }
         }

@@ -26,46 +26,46 @@ import java.util.List;
 
 public class VariedBookshelves extends Component {
 
-	private static BlockMod acacia_bookshelf;
+    private static BlockMod acacia_bookshelf;
     private static BlockMod birch_bookshelf;
     private static BlockMod dark_oak_bookshelf;
     private static BlockMod jungle_bookshelf;
     private static BlockMod spruce_bookshelf;
 
-	private boolean renameVanillaBookshelves;
+    private boolean renameVanillaBookshelves;
 
-	@Override
-	public void setupConfig() {
-		renameVanillaBookshelves = loadPropBool("Rename vanilla bookshelves to Oak Bookshelf", "", true);
-	}
+    @Override
+    public void setupConfig() {
+        renameVanillaBookshelves = loadPropBool("Rename vanilla bookshelves to Oak Bookshelf", "", true);
+    }
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		if(renameVanillaBookshelves)
-			Blocks.BOOKSHELF.setTranslationKey("oak_bookshelf");
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        if (renameVanillaBookshelves)
+            Blocks.BOOKSHELF.setTranslationKey("oak_bookshelf");
 
-		acacia_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.ACACIA);
-		birch_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.BIRCH);
-		dark_oak_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.DARK_OAK);
-		jungle_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.JUNGLE);
-		spruce_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
+        acacia_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.ACACIA);
+        birch_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.BIRCH);
+        dark_oak_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.DARK_OAK);
+        jungle_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.JUNGLE);
+        spruce_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
 
-		List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
-		for(ResourceLocation res : recipeList) {
-			IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
-			ItemStack out = recipe.getRecipeOutput();
-			if(recipe instanceof ShapedRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.BOOKSHELF))) {
-				ShapedRecipes shaped = (ShapedRecipes) recipe;
-				NonNullList<Ingredient> ingredients = shaped.recipeItems;
-				for(int i = 0; i < ingredients.size(); i++) {
-					Ingredient ingr = ingredients.get(i);
-					if(ingr.apply(ProxyRegistry.newStack(Blocks.PLANKS)))
-						ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.PLANKS, 1, 0)));
-				}
-			}
-		}
+        List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
+        for (ResourceLocation res : recipeList) {
+            IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
+            ItemStack out = recipe.getRecipeOutput();
+            if (recipe instanceof ShapedRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.BOOKSHELF))) {
+                ShapedRecipes shaped = (ShapedRecipes) recipe;
+                NonNullList<Ingredient> ingredients = shaped.recipeItems;
+                for (int i = 0; i < ingredients.size(); i++) {
+                    Ingredient ingr = ingredients.get(i);
+                    if (ingr.apply(ProxyRegistry.newStack(Blocks.PLANKS)))
+                        ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.PLANKS, 1, 0)));
+                }
+            }
+        }
 
-		RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(acacia_bookshelf, 1, 0),
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(acacia_bookshelf, 1, 0),
                 "WWW", "BBB", "WWW",
                 'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 4),
                 'B', ProxyRegistry.newStack(Items.BOOK));
@@ -90,28 +90,28 @@ public class VariedBookshelves extends Component {
                 'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 1),
                 'B', ProxyRegistry.newStack(Items.BOOK));
 
-		Ingredient wood = new BlacklistOreIngredient("plankWood", (stack) -> stack.getItem() == Item.getItemFromBlock(Blocks.PLANKS));
-		RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.BOOKSHELF),
-				"WWW", "BBB", "WWW",
-				'W', wood,
-				'B', ProxyRegistry.newStack(Items.BOOK));
-	}
+        Ingredient wood = new BlacklistOreIngredient("plankWood", (stack) -> stack.getItem() == Item.getItemFromBlock(Blocks.PLANKS));
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.BOOKSHELF),
+                "WWW", "BBB", "WWW",
+                'W', wood,
+                'B', ProxyRegistry.newStack(Items.BOOK));
+    }
 
-	@Override
-	public void init(FMLInitializationEvent event) {
-		OreDictionary.registerOre("bookshelf", Blocks.BOOKSHELF);
+    @Override
+    public void init(FMLInitializationEvent event) {
+        OreDictionary.registerOre("bookshelf", Blocks.BOOKSHELF);
 
-		OreDictionary.registerOre("bookshelfOak", Blocks.BOOKSHELF);
-		OreDictionary.registerOre("bookshelfSpruce", ProxyRegistry.newStack(spruce_bookshelf, 1, 0));
-		OreDictionary.registerOre("bookshelfBirch", ProxyRegistry.newStack(birch_bookshelf, 1, 0));
-		OreDictionary.registerOre("bookshelfJungle", ProxyRegistry.newStack(jungle_bookshelf, 1, 0));
-		OreDictionary.registerOre("bookshelfAcacia", ProxyRegistry.newStack(acacia_bookshelf, 1, 0));
-		OreDictionary.registerOre("bookshelfDarkOak", ProxyRegistry.newStack(dark_oak_bookshelf, 1, 0));
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-	
+        OreDictionary.registerOre("bookshelfOak", Blocks.BOOKSHELF);
+        OreDictionary.registerOre("bookshelfSpruce", ProxyRegistry.newStack(spruce_bookshelf, 1, 0));
+        OreDictionary.registerOre("bookshelfBirch", ProxyRegistry.newStack(birch_bookshelf, 1, 0));
+        OreDictionary.registerOre("bookshelfJungle", ProxyRegistry.newStack(jungle_bookshelf, 1, 0));
+        OreDictionary.registerOre("bookshelfAcacia", ProxyRegistry.newStack(acacia_bookshelf, 1, 0));
+        OreDictionary.registerOre("bookshelfDarkOak", ProxyRegistry.newStack(dark_oak_bookshelf, 1, 0));
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

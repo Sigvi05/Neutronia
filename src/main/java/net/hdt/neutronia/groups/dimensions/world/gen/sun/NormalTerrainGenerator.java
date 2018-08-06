@@ -14,24 +14,20 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import java.util.Random;
 
 public class NormalTerrainGenerator {
+    private final double[] heightMap;
+    private final float[] biomeWeights;
     private World world;
     private Random random;
-
-    private final double[] heightMap;
     private double[] mainNoiseRegion;
     private double[] minLimitRegion;
     private double[] maxLimitRegion;
     private double[] depthRegion;
-
     private NoiseGeneratorOctaves minLimitPerlinNoise;
     private NoiseGeneratorOctaves maxLimitPerlinNoise;
     private NoiseGeneratorOctaves mainPerlinNoise;
     private NoiseGeneratorPerlin surfaceNoise;
-
     // A NoiseGeneratorOctaves used in generating terrain
     private NoiseGeneratorOctaves depthNoise;
-
-    private final float[] biomeWeights;
     private double[] depthBuffer = new double[256];
 
     private Biome[] biomesForGeneration;
@@ -66,7 +62,7 @@ public class NormalTerrainGenerator {
 
         net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld ctx =
                 new net.minecraftforge.event.terraingen.InitNoiseGensEvent.ContextOverworld(minLimitPerlinNoise,
-                    maxLimitPerlinNoise, mainPerlinNoise, surfaceNoise, noiseGen5, depthNoise, mobSpawnerNoise);
+                        maxLimitPerlinNoise, mainPerlinNoise, surfaceNoise, noiseGen5, depthNoise, mobSpawnerNoise);
         ctx = net.minecraftforge.event.terraingen.TerrainGen.getModdedNoiseGenerators(world, rand, ctx);
         this.minLimitPerlinNoise = ctx.getLPerlin1();
         this.maxLimitPerlinNoise = ctx.getLPerlin2();
@@ -226,7 +222,8 @@ public class NormalTerrainGenerator {
     }
 
     public void replaceBiomeBlocks(int x, int z, ChunkPrimer primer, IChunkGenerator generator, Biome[] biomes) {
-        if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(generator, x, z, primer, this.world)) return;
+        if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(generator, x, z, primer, this.world))
+            return;
         this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, (x * 16), (z * 16), 16, 16, 0.0625D, 0.0625D, 1.0D);
 
         for (int i = 0; i < 16; ++i) {

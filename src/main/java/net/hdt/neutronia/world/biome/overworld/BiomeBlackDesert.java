@@ -43,22 +43,19 @@ public class BiomeBlackDesert extends Biome {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public int getSkyColorByTemp(float par1)
-    {
+    public int getSkyColorByTemp(float par1) {
         return 0;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public int getGrassColorAtPos(BlockPos pos)
-    {
+    public int getGrassColorAtPos(BlockPos pos) {
         return 0x2c452e;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public int getFoliageColorAtPos(BlockPos pos)
-    {
+    public int getFoliageColorAtPos(BlockPos pos) {
         return 0x2c452e;
     }
 

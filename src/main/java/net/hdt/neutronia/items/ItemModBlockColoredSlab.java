@@ -21,7 +21,7 @@ public class ItemModBlockColoredSlab extends ItemSlab implements IVariantHolder 
         modBlock = block;
 
         ItemMod.variantHolders.add(this);
-        if(getVariants().length > 1)
+        if (getVariants().length > 1)
             setHasSubtypes(true);
         setRegistryName(res);
     }
@@ -42,7 +42,7 @@ public class ItemModBlockColoredSlab extends ItemSlab implements IVariantHolder 
         String[] variants = getVariants();
 
         String name;
-        if(dmg >= variants.length)
+        if (dmg >= variants.length)
             name = modBlock.getBareName();
         else name = variants[dmg];
 
@@ -52,8 +52,8 @@ public class ItemModBlockColoredSlab extends ItemSlab implements IVariantHolder 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
         String[] variants = getVariants();
-        if(isInCreativeTab(tab))
-            for(int i = 0; i < variants.length; i++)
+        if (isInCreativeTab(tab))
+            for (int i = 0; i < variants.length; i++)
                 subItems.add(new ItemStack(this, 1, i));
     }
 

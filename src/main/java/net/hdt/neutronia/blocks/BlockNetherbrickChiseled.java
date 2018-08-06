@@ -42,20 +42,19 @@ public class BlockNetherbrickChiseled extends BlockMod implements INeutroniaBloc
 
         if (itemstack.isEmpty()) {
             return false;
-        }
-        else {
+        } else {
             Item item = itemstack.getItem();
 
             if (item == Items.LAVA_BUCKET) {
                 if (!filled) {
-                    worldIn.playSound( null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    worldIn.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     worldIn.setBlockState(pos, NBlocks.chiseledNetherbrickFilled.getDefaultState(), 2);
                     playerIn.setHeldItem(hand, new ItemStack(Items.BUCKET));
                 }
                 return true;
             } else if (item == Items.BUCKET) {
                 if (filled) {
-                    worldIn.playSound( null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    worldIn.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     worldIn.setBlockState(pos, NBlocks.chiseledNetherbrick.getDefaultState(), 2);
                     itemstack.shrink(1);
                     playerIn.setHeldItem(hand, new ItemStack(Items.LAVA_BUCKET));
@@ -66,18 +65,15 @@ public class BlockNetherbrickChiseled extends BlockMod implements INeutroniaBloc
         return false;
     }
 
-    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
-    {
-        if (filled)
-        {
+    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
+        if (filled) {
             int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
             harvesters.set(player);
             this.dropBlockAsItem(worldIn, pos, state, i);
             harvesters.set(null);
             Material material = worldIn.getBlockState(pos.down()).getMaterial();
 
-            if (material.blocksMovement() || material.isLiquid())
-            {
+            if (material.blocksMovement() || material.isLiquid()) {
                 worldIn.setBlockState(pos, Blocks.FLOWING_LAVA.getDefaultState());
             }
         }

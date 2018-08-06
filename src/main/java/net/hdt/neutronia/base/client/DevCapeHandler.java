@@ -18,27 +18,27 @@ import java.util.WeakHashMap;
 
 public class DevCapeHandler {
 
-	private static final ImmutableSet<String> UUIDS = ImmutableSet.of(
-			"8c826f34-113b-4238-a173-44639c53b6e6",
-			"0d054077-a977-4b19-9df9-8a4d5bf20ec3");
+    private static final ImmutableSet<String> UUIDS = ImmutableSet.of(
+            "8c826f34-113b-4238-a173-44639c53b6e6",
+            "0d054077-a977-4b19-9df9-8a4d5bf20ec3");
 
-	private static final Set<Object> done = Collections.newSetFromMap(new WeakHashMap<>());
+    private static final Set<Object> done = Collections.newSetFromMap(new WeakHashMap<>());
 
-	@SubscribeEvent
-	public static void onRenderPlayer(RenderPlayerEvent.Post event) {
-		EntityPlayer player = event.getEntityPlayer();
-		String uuid = EntityPlayer.getUUID(player.getGameProfile()).toString();
-		if(player instanceof AbstractClientPlayer && UUIDS.contains(uuid) && !done.contains(player)) {
-			AbstractClientPlayer clplayer = (AbstractClientPlayer) player;
-			if(clplayer.hasPlayerInfo()) {
-				NetworkPlayerInfo info = ReflectionHelper.getPrivateValue(AbstractClientPlayer.class, clplayer, LibObfuscation.PLAYER_INFO);
-				Map<Type, ResourceLocation> textures = ReflectionHelper.getPrivateValue(NetworkPlayerInfo.class, info, LibObfuscation.PLAYER_TEXTURES);
-				ResourceLocation loc = new ResourceLocation("neutronia", "textures/misc/dev_cape.png");
-				textures.put(Type.CAPE, loc);
-				textures.put(Type.ELYTRA, loc);
-				done.add(player);
-			}
-		}
-	}
+    @SubscribeEvent
+    public static void onRenderPlayer(RenderPlayerEvent.Post event) {
+        EntityPlayer player = event.getEntityPlayer();
+        String uuid = EntityPlayer.getUUID(player.getGameProfile()).toString();
+        if (player instanceof AbstractClientPlayer && UUIDS.contains(uuid) && !done.contains(player)) {
+            AbstractClientPlayer clplayer = (AbstractClientPlayer) player;
+            if (clplayer.hasPlayerInfo()) {
+                NetworkPlayerInfo info = ReflectionHelper.getPrivateValue(AbstractClientPlayer.class, clplayer, LibObfuscation.PLAYER_INFO);
+                Map<Type, ResourceLocation> textures = ReflectionHelper.getPrivateValue(NetworkPlayerInfo.class, info, LibObfuscation.PLAYER_TEXTURES);
+                ResourceLocation loc = new ResourceLocation("neutronia", "textures/misc/dev_cape.png");
+                textures.put(Type.CAPE, loc);
+                textures.put(Type.ELYTRA, loc);
+                done.add(player);
+            }
+        }
+    }
 
 }

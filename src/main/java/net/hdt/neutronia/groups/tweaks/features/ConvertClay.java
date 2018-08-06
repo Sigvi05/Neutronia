@@ -9,14 +9,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ConvertClay extends Component {
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Items.CLAY_BALL, 4), ProxyRegistry.newStack(Blocks.CLAY));
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Items.CLAY_BALL, 4), ProxyRegistry.newStack(Blocks.CLAY));
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

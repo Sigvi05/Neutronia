@@ -1,8 +1,8 @@
-package betterwithmods.common.registry.block.managers;
+package net.hdt.neutronia.registry.block.managers;
 
-import betterwithmods.common.registry.block.recipe.BlockRecipe;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import net.hdt.neutronia.registry.block.recipe.BlockRecipe;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -60,7 +60,7 @@ public abstract class CraftingManagerBlock<T extends BlockRecipe> {
         boolean hasTile = state.getBlock().hasTileEntity(state);
         if (!hasTile && recipeCache.containsKey(state)) {
             T t = recipeCache.get(state);
-            if(t != null && t.matches(world,pos,state)) {
+            if (t != null && t.matches(world, pos, state)) {
                 return Optional.of(t);
             }
         }

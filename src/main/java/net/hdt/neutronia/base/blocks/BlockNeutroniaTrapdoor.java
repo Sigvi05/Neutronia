@@ -20,71 +20,71 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockNeutroniaTrapdoor extends BlockTrapDoor implements INeutroniaBlock {
 
-	private final String[] variants;
-	private final String bareName;
+    private final String[] variants;
+    private final String bareName;
 
-	public BlockNeutroniaTrapdoor(String name) {
-		super(Material.WOOD);
+    public BlockNeutroniaTrapdoor(String name) {
+        super(Material.WOOD);
 
-		setHardness(3.0F);
-		setSoundType(SoundType.WOOD);
+        setHardness(3.0F);
+        setSoundType(SoundType.WOOD);
 
-		variants = new String[] { name };
-		bareName = name;
+        variants = new String[]{name};
+        bareName = name;
 
-		setTranslationKey(name);
-		useNeighborBrightness = true;
-	}
-	
+        setTranslationKey(name);
+        useNeighborBrightness = true;
+    }
+
     @Override
     public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
-        if(state.getValue(OPEN))  {
+        if (state.getValue(OPEN)) {
             IBlockState down = world.getBlockState(pos.down());
-            if(down.getBlock() == Blocks.LADDER)
+            if (down.getBlock() == Blocks.LADDER)
                 return down.getValue(FACING) == state.getValue(FACING);
         }
-        
+
         return false;
     }
 
-	@Override
-	public Block setTranslationKey(String name) {
-		super.setTranslationKey(name);
-		setRegistryName(LibMisc.PREFIX_MOD + name);
-		ProxyRegistry.register(this);
-		ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
-		return this;
-	}
+    @Override
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
+        setRegistryName(LibMisc.PREFIX_MOD + name);
+        ProxyRegistry.register(this);
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        return this;
+    }
 
-	@Override
-	public String getBareName() {
-		return bareName;
-	}
+    @Override
+    public String getBareName() {
+        return bareName;
+    }
 
-	@Override
-	public String[] getVariants() {
-		return variants;
-	}
+    @Override
+    public String[] getVariants() {
+        return variants;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ItemMeshDefinition getCustomMeshDefinition() {
-		return null;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemMeshDefinition getCustomMeshDefinition() {
+        return null;
+    }
 
-	@Override
-	public IProperty[] getIgnoredProperties() {
-		return new IProperty[0];
-	}
+    @Override
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[0];
+    }
 
-	@Override
-	public IProperty getVariantProp() {
-		return null;
-	}
+    @Override
+    public IProperty getVariantProp() {
+        return null;
+    }
 
-	@Override
-	public Class getVariantEnum() {
-		return null;
-	}
+    @Override
+    public Class getVariantEnum() {
+        return null;
+    }
 
 }

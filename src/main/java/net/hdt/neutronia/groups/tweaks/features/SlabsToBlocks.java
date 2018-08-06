@@ -27,82 +27,82 @@ import java.util.Map;
 
 public class SlabsToBlocks extends Component {
 
-	public static Map<IBlockState, ItemStack> slabs = new HashMap<>();
-	
-	int originalSize;
-	private MultiRecipe multiRecipe;
-	
-	@Override
-	public void setupConfig() {
-		originalSize = loadPropInt("Vanilla stack size", "The stack size for the vanilla slab recipe, used for automatically detecting slab recipes", 6);
-	}
-	
-	@Override
-	public void postPreInit(FMLPreInitializationEvent event) {
-		multiRecipe = new MultiRecipe(new ResourceLocation("neutronia", "slabs_to_blocks"));
-	}
-	
-	@Override
-	public void postInit(FMLPostInitializationEvent event) {
-		List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
-		for(ResourceLocation res : recipeList) {
-			IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
-			if(recipe instanceof ShapedRecipes || recipe instanceof ShapedOreRecipe) {
-				NonNullList<Ingredient> recipeItems;
-				if(recipe instanceof ShapedRecipes)
-					recipeItems = ((ShapedRecipes) recipe).recipeItems;
-				else recipeItems = recipe.getIngredients();
+    public static Map<IBlockState, ItemStack> slabs = new HashMap<>();
 
-				ItemStack output = recipe.getRecipeOutput();
-				if(!output.isEmpty() && output.getCount() == originalSize) {
-					Item outputItem = output.getItem();
-					Block outputBlock = Block.getBlockFromItem(outputItem);
-					if(outputBlock instanceof BlockSlab) {
-						ItemStack outStack = ItemStack.EMPTY;
-						int inputItems = 0;
+    int originalSize;
+    private MultiRecipe multiRecipe;
 
-						for(Ingredient ingredient : recipeItems) {
-							ItemStack recipeItem = ItemStack.EMPTY;
-							ItemStack[] matches = ingredient.getMatchingStacks();
-							if(matches.length > 0)
-								recipeItem = matches[0];
-							
-							if(recipeItem != null && !recipeItem.isEmpty()) {
-								ItemStack recipeStack = recipeItem;
-								if(outStack.isEmpty())
-									outStack = recipeStack;
-								
-								if(ItemStack.areItemsEqual(outStack, recipeStack))
-									inputItems++;
-								else {
-									outStack = ItemStack.EMPTY;
-									break;
-								}
-							}
-						}
+    @Override
+    public void setupConfig() {
+        originalSize = loadPropInt("Vanilla stack size", "The stack size for the vanilla slab recipe, used for automatically detecting slab recipes", 6);
+    }
 
-						if(!outStack.isEmpty() && inputItems == 3) {
-							ItemStack outCopy = outStack.copy();
-							if(outCopy.getItemDamage() == OreDictionary.WILDCARD_VALUE)
-								outCopy.setItemDamage(0);
+    @Override
+    public void postPreInit(FMLPreInitializationEvent event) {
+        multiRecipe = new MultiRecipe(new ResourceLocation("neutronia", "slabs_to_blocks"));
+    }
 
-							ItemStack in = output.copy();
-							in.setCount(1);
-							if(in.getItem() instanceof ItemBlock && outCopy.getItem() instanceof ItemBlock) {
-								Block block = Block.getBlockFromItem(outCopy.getItem());
-								slabs.put(block.getStateFromMeta(outCopy.getItemDamage()), in);
-							}
-							RecipeHandler.addShapelessOreDictRecipe(multiRecipe, outCopy, in, in);
-						}
-					}
-				}
-			}
-		}
-	}
+    @Override
+    public void postInit(FMLPostInitializationEvent event) {
+        List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
+        for (ResourceLocation res : recipeList) {
+            IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
+            if (recipe instanceof ShapedRecipes || recipe instanceof ShapedOreRecipe) {
+                NonNullList<Ingredient> recipeItems;
+                if (recipe instanceof ShapedRecipes)
+                    recipeItems = ((ShapedRecipes) recipe).recipeItems;
+                else recipeItems = recipe.getIngredients();
 
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-	
+                ItemStack output = recipe.getRecipeOutput();
+                if (!output.isEmpty() && output.getCount() == originalSize) {
+                    Item outputItem = output.getItem();
+                    Block outputBlock = Block.getBlockFromItem(outputItem);
+                    if (outputBlock instanceof BlockSlab) {
+                        ItemStack outStack = ItemStack.EMPTY;
+                        int inputItems = 0;
+
+                        for (Ingredient ingredient : recipeItems) {
+                            ItemStack recipeItem = ItemStack.EMPTY;
+                            ItemStack[] matches = ingredient.getMatchingStacks();
+                            if (matches.length > 0)
+                                recipeItem = matches[0];
+
+                            if (recipeItem != null && !recipeItem.isEmpty()) {
+                                ItemStack recipeStack = recipeItem;
+                                if (outStack.isEmpty())
+                                    outStack = recipeStack;
+
+                                if (ItemStack.areItemsEqual(outStack, recipeStack))
+                                    inputItems++;
+                                else {
+                                    outStack = ItemStack.EMPTY;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (!outStack.isEmpty() && inputItems == 3) {
+                            ItemStack outCopy = outStack.copy();
+                            if (outCopy.getItemDamage() == OreDictionary.WILDCARD_VALUE)
+                                outCopy.setItemDamage(0);
+
+                            ItemStack in = output.copy();
+                            in.setCount(1);
+                            if (in.getItem() instanceof ItemBlock && outCopy.getItem() instanceof ItemBlock) {
+                                Block block = Block.getBlockFromItem(outCopy.getItem());
+                                slabs.put(block.getStateFromMeta(outCopy.getItemDamage()), in);
+                            }
+                            RecipeHandler.addShapelessOreDictRecipe(multiRecipe, outCopy, in, in);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

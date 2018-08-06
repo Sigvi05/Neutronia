@@ -16,7 +16,7 @@ public class DecorativeAquamarine extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        for(EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
+        for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
             decorativeAquamarine[aquamarineVariants.getID()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName(), false).setCreativeTab(OCEAN_EXPANSION_TAB);
             VanillaStairsAndSlabs.add(aquamarineVariants.getName(), decorativeAquamarine[aquamarineVariants.getID()], 0, true);
         }

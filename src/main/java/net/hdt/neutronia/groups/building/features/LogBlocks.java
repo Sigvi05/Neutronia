@@ -9,9 +9,9 @@ import net.hdt.neutronia.blocks.base.BlockModPillar;
 import net.hdt.neutronia.blocks.base.BlockRodBase;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldSlabBase;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldStairBase;
-import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockWoodSlabBase;
 import net.hdt.neutronia.groups.building.blocks.stair.BlockWoodStairBase;
+import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
@@ -27,6 +27,23 @@ public class LogBlocks extends Component {
 
     private static final Block[] strippedLogs = new Block[6], logPoles = new Block[6], strippedLogPoles = new Block[6], logDowels = new Block[6], strippedLogDowels = new Block[6],
             plankButtons = new Block[6], plankPressurePlates = new Block[6], plankPoles = new Block[6];
+
+    public static void add(String name, Block block, Material material, int meta, CreativeTabs creativeTabs) {
+        add(name, block, material, meta, true, true, creativeTabs);
+    }
+
+    public static void add(String name, Block block, Material material, int meta, boolean slabs, boolean stairs, CreativeTabs creativeTabs) {
+        IBlockState state = block.getStateFromMeta(meta);
+        String stairsName = name + "_stairs";
+        String slabName = name + "_slab";
+
+        if (stairs) {
+            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(stairsName, state, creativeTabs));
+        }
+        if (slabs) {
+            BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, material, false, creativeTabs), new BlockOverworldSlabBase(slabName, material, true, creativeTabs));
+        }
+    }
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
@@ -52,23 +69,6 @@ public class LogBlocks extends Component {
         VanillaWalls.add("jungle_log", Blocks.LOG, 3, true);
         VanillaWalls.add("acacia_log", Blocks.LOG2, 0, true);
         VanillaWalls.add("dark_oak_log", Blocks.LOG2, 1, true);
-    }
-
-    public static void add(String name, Block block, Material material, int meta, CreativeTabs creativeTabs) {
-        add(name, block, material, meta, true, true, creativeTabs);
-    }
-
-    public static void add(String name, Block block, Material material, int meta, boolean slabs, boolean stairs, CreativeTabs creativeTabs) {
-        IBlockState state = block.getStateFromMeta(meta);
-        String stairsName = name + "_stairs";
-        String slabName = name + "_slab";
-
-        if (stairs) {
-            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(stairsName, state, creativeTabs));
-        }
-        if (slabs) {
-            BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, material, false, creativeTabs), new BlockOverworldSlabBase(slabName, material, true, creativeTabs));
-        }
     }
 
 }

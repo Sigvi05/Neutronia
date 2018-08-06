@@ -14,8 +14,6 @@ import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class NSounds {
 
-    private static List<SoundEvent> soundEvents = Lists.newArrayList();
-
     public static final SoundEvent field_204326_e;
     public static final SoundEvent field_204327_f;
     public static final SoundEvent field_204323_b;
@@ -121,6 +119,7 @@ public class NSounds {
     public static final SoundEvent ENTITY_TURTLE_SWIM;
     public static final SoundEvent ENTITY_ZOMBIE_CONVERT_TO_DROWNED;
     public static final SoundEvent ENTITY_ZOMBIE_DESTROY_EGG;
+    private static List<SoundEvent> soundEvents = Lists.newArrayList();
 
     static {
         field_204326_e = registerSound("ambient.underwater.enter");
@@ -238,9 +237,9 @@ public class NSounds {
 
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-       for(SoundEvent soundEvent : soundEvents) {
-           event.getRegistry().register(soundEvent);
-       }
+        for (SoundEvent soundEvent : soundEvents) {
+            event.getRegistry().register(soundEvent);
+        }
     }
 
 }

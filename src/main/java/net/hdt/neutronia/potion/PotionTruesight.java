@@ -16,38 +16,6 @@ public class PotionTruesight extends BWPotion {
         super(name, b, potionColor);
     }
 
-    @Override
-    public void tick(EntityLivingBase entity) {
-        World world = entity.getEntityWorld();
-        if (world.isRemote) {
-            Minecraft mc = Minecraft.getMinecraft();
-            int var3 = mc.gameSettings.particleSetting;
-            if (!mc.isGamePaused()  && (world.provider.getDimension() == 0 || world.provider.getDimension() == 1)) {
-
-                int var4 = MathHelper.floor(entity.posX);
-                int var5 = MathHelper.floor(entity.posY);
-                int var6 = MathHelper.floor(entity.posZ);
-                int radius = 10;
-                for (int x = var4 - radius; x <= var4 + radius; ++x) {
-                    for (int y = var5 - radius; y <= var5 + radius; ++y) {
-                        for (int z = var6 - radius; z <= var6 + radius; ++z) {
-                            if (canMobsSpawnHere(world, new BlockPos(x, y, z))
-                                    && (var3 == 0 || world.rand.nextInt(12) <= 2 - var3 << 1)) {
-
-                                double i = (double) x + world.rand.nextDouble();
-                                double j = (double) y + world.rand.nextDouble() * 0.25D;
-                                double k = (double) z + world.rand.nextDouble();
-
-                                mc.effectRenderer.spawnEffectParticle(EnumParticleTypes.SPELL_MOB.getParticleID(), i, j, k, 0,0,0);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-    }
-
     public static boolean canMobsSpawnHere(World world, BlockPos pos) {
         if (!world.isSideSolid(pos.down(), EnumFacing.UP)) {
             return false;
@@ -64,6 +32,38 @@ public class PotionTruesight extends BWPotion {
             }
         } else {
             return false;
+        }
+
+    }
+
+    @Override
+    public void tick(EntityLivingBase entity) {
+        World world = entity.getEntityWorld();
+        if (world.isRemote) {
+            Minecraft mc = Minecraft.getMinecraft();
+            int var3 = mc.gameSettings.particleSetting;
+            if (!mc.isGamePaused() && (world.provider.getDimension() == 0 || world.provider.getDimension() == 1)) {
+
+                int var4 = MathHelper.floor(entity.posX);
+                int var5 = MathHelper.floor(entity.posY);
+                int var6 = MathHelper.floor(entity.posZ);
+                int radius = 10;
+                for (int x = var4 - radius; x <= var4 + radius; ++x) {
+                    for (int y = var5 - radius; y <= var5 + radius; ++y) {
+                        for (int z = var6 - radius; z <= var6 + radius; ++z) {
+                            if (canMobsSpawnHere(world, new BlockPos(x, y, z))
+                                    && (var3 == 0 || world.rand.nextInt(12) <= 2 - var3 << 1)) {
+
+                                double i = (double) x + world.rand.nextDouble();
+                                double j = (double) y + world.rand.nextDouble() * 0.25D;
+                                double k = (double) z + world.rand.nextDouble();
+
+                                mc.effectRenderer.spawnEffectParticle(EnumParticleTypes.SPELL_MOB.getParticleID(), i, j, k, 0, 0, 0);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
     }

@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.util.handlers;
 
-import net.hdt.neutronia.entity.*;
 import net.hdt.neutronia.base.util.Reference;
+import net.hdt.neutronia.entity.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntitySquid;
@@ -29,7 +29,7 @@ public class EntityEventHandler {
         if (event.getEntity() instanceof EntityVillager) {
             World world = event.getEntity().world;
             BlockPos pos = event.getEntity().getPosition();
-            if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.BEACH || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.MUTATED_DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT_HILLS   && !world.isRemote) {
+            if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.BEACH || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.MUTATED_DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT_HILLS && !world.isRemote) {
                 EntityMummyVillager mummyVillager = new EntityMummyVillager(world);
                 if (mummyVillager.isAIDisabled())
                     mummyVillager.setNoAI(false);

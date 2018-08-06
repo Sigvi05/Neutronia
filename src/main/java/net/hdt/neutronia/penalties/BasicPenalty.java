@@ -1,7 +1,7 @@
-package betterwithmods.common.penalties;
+package net.hdt.neutronia.penalties;
 
-import betterwithmods.common.penalties.attribute.BWMAttributes;
-import betterwithmods.module.ConfigHelper;
+import net.hdt.neutronia.base.groups.ConfigHelper;
+import net.hdt.neutronia.penalties.attribute.BWMAttributes;
 import org.apache.commons.lang3.Range;
 
 public class BasicPenalty<T extends Number & Comparable> extends Penalty<T> {

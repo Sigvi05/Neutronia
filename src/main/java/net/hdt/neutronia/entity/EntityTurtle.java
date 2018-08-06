@@ -144,8 +144,54 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     *//*
+ * (abstract) Protected helper method to write subclass entity data to NBT.
+ * <p>
+ * (abstract) Protected helper method to read subclass entity data from NBT.
+ * <p>
+ * Get this Entity's EnumCreatureAttribute
+ * <p>
+ * Get number of ticks, at least during which the living entity will be silent.
+ * <p>
+ * "Sets the scale for an ageable entity according to the boolean parameter, which says if it's a child."
+ * <p>
+ * Returns new PathNavigateGround instance
+ * <p>
+ * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
+ * the animal type)
+ * <p>
+ * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
+ * use this to react to sunlight and start to burn.
+ * <p>
+ * This is called when Entity's growing age timer reaches 0 (negative values are considered as a child, positive as
+ * an adult)
+ * <p>
+ * Called when a lightning bolt hits the entity.
+ * <p>
+ * Called when the mob's health reaches 0.
+ * <p>
+ * (abstract) Protected helper method to read subclass entity data from NBT.
+ * <p>
+ * Get this Entity's EnumCreatureAttribute
+ * <p>
+ * Get number of ticks, at least during which the living entity will be silent.
+ * <p>
+ * "Sets the scale for an ageable entity according to the boolean parameter, which says if it's a child."
+ * <p>
+ * Returns new PathNavigateGround instance
+ * <p>
+ * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
+ * the animal type)
+ * <p>
+ * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
+ * use this to react to sunlight and start to burn.
+ * <p>
+ * This is called when Entity's growing age timer reaches 0 (negative values are considered as a child, positive as
+ * an adult)
+ * <p>
+ * Called when a lightning bolt hits the entity.
+ * <p>
+ * Called when the mob's health reaches 0.
+ *//*
 
     public void writeEntityToNBT(NBTTagCompound compound)
     {
@@ -161,8 +207,8 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     *//*
+ * (abstract) Protected helper method to read subclass entity data from NBT.
+ *//*
 
     public void readEntityFromNBT(NBTTagCompound compound)
     {
@@ -224,8 +270,8 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * Get this Entity's EnumCreatureAttribute
-     *//*
+ * Get this Entity's EnumCreatureAttribute
+ *//*
 
     public EnumCreatureAttribute getCreatureAttribute()
     {
@@ -234,8 +280,8 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * Get number of ticks, at least during which the living entity will be silent.
-     *//*
+ * Get number of ticks, at least during which the living entity will be silent.
+ *//*
 
     public int getTalkInterval()
     {
@@ -288,8 +334,8 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * "Sets the scale for an ageable entity according to the boolean parameter, which says if it's a child."
-     *//*
+ * "Sets the scale for an ageable entity according to the boolean parameter, which says if it's a child."
+ *//*
 
     public void setScaleForAge(boolean child)
     {
@@ -298,8 +344,8 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * Returns new PathNavigateGround instance
-     *//*
+ * Returns new PathNavigateGround instance
+ *//*
 
     protected PathNavigate createNavigator(World worldIn)
     {
@@ -314,9 +360,9 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
-     * the animal type)
-     *//*
+ * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
+ * the animal type)
+ *//*
 
     public boolean isBreedingItem(ItemStack stack)
     {
@@ -330,9 +376,9 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-     * use this to react to sunlight and start to burn.
-     *//*
+ * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
+ * use this to react to sunlight and start to burn.
+ *//*
 
     public void onLivingUpdate()
     {
@@ -351,9 +397,9 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * This is called when Entity's growing age timer reaches 0 (negative values are considered as a child, positive as
-     * an adult)
-     *//*
+ * This is called when Entity's growing age timer reaches 0 (negative values are considered as a child, positive as
+ * an adult)
+ *//*
 
     protected void onGrowingAdult()
     {
@@ -395,8 +441,8 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * Called when a lightning bolt hits the entity.
-     *//*
+ * Called when a lightning bolt hits the entity.
+ *//*
 
     public void onStruckByLightning(EntityLightningBolt lightningBolt)
     {
@@ -405,8 +451,8 @@ public class EntityTurtle extends EntityAnimal
 
     */
 /**
-     * Called when the mob's health reaches 0.
-     *//*
+ * Called when the mob's health reaches 0.
+ *//*
 
     public void onDeath(DamageSource cause)
     {

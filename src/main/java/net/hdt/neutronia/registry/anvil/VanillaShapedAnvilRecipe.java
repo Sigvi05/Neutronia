@@ -1,4 +1,4 @@
-package betterwithmods.common.registry.anvil;
+package net.hdt.neutronia.registry.anvil;
 
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
@@ -18,8 +18,8 @@ public class VanillaShapedAnvilRecipe extends ShapedAnvilRecipe {
     }
 
     private static Object[] buildIngredientList(IRecipe recipe) {
-        int width = recipe instanceof ShapedRecipes ? ((ShapedRecipes)recipe).getWidth() : ((ShapedOreRecipe)recipe).getWidth();
-        int height = recipe instanceof ShapedRecipes ? ((ShapedRecipes)recipe).getHeight() : ((ShapedOreRecipe)recipe).getHeight();
+        int width = recipe instanceof ShapedRecipes ? ((ShapedRecipes) recipe).getWidth() : ((ShapedOreRecipe) recipe).getWidth();
+        int height = recipe instanceof ShapedRecipes ? ((ShapedRecipes) recipe).getHeight() : ((ShapedOreRecipe) recipe).getHeight();
         NonNullList<Ingredient> ings = recipe.getIngredients();
         char[] args = {'A', 'B', 'C', 'E', 'F', 'G', 'I', 'J', 'K'};
         List<Object> obj = new ArrayList<>();
@@ -33,8 +33,7 @@ public class VanillaShapedAnvilRecipe extends ShapedAnvilRecipe {
             if (ings.get(i) != Ingredient.EMPTY) {
                 str.append(args[i]);
                 ingredientMap.put(i, ings.get(i));
-            }
-            else {
+            } else {
                 str.append(' ');
             }
         }

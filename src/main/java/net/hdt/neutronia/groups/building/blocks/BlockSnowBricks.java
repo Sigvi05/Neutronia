@@ -15,31 +15,31 @@ import java.util.Random;
 
 public class BlockSnowBricks extends BlockMod implements INeutroniaBlock {
 
-	public BlockSnowBricks() {
-		super("snow_bricks", Material.CRAFTED_SNOW);
-		setHardness(0.2F);
-		setSoundType(SoundType.SNOW);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockSnowBricks() {
+        super("snow_bricks", Material.CRAFTED_SNOW);
+        setHardness(0.2F);
+        setSoundType(SoundType.SNOW);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
-	@Override
-	public boolean isToolEffective(String type, IBlockState state) {
-		return type.equals("shovel");
-	}
+    @Override
+    public boolean isToolEffective(String type, IBlockState state) {
+        return type.equals("shovel");
+    }
 
-	@Override
-	public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
-		return true;
-	}
+    @Override
+    public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
+        return true;
+    }
 
-	@Override
-	public int quantityDropped(Random random) {
-		return 1;
-	}
+    @Override
+    public int quantityDropped(Random random) {
+        return 1;
+    }
 
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return Item.getItemFromBlock(this);
-	}
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return Item.getItemFromBlock(this);
+    }
 
 }

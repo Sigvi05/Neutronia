@@ -36,17 +36,16 @@ public class BlockRandom extends BlockOverworldFacing {
     /**
      * @deprecated call via {@link IBlockState#isFullCube()} whenever possible. Implementing/overriding is fine.
      */
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
     /**
      * Used to determine ambient occlusion and culling when rebuilding chunks for render
+     *
      * @deprecated call via {@link IBlockState#isOpaqueCube()} whenever possible. Implementing/overriding is fine.
      */
-    public boolean isOpaqueCube(IBlockState state)
-    {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
@@ -55,21 +54,15 @@ public class BlockRandom extends BlockOverworldFacing {
      * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
      * block, etc.
      */
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         EnumFacing enumfacing = state.getValue(FACING);
 
-        if (state.getValue(PART) == EnumPart.BOTTOM)
-        {
-            if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() != this)
-            {
+        if (state.getValue(PART) == EnumPart.BOTTOM) {
+            if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() != this) {
                 worldIn.setBlockToAir(pos);
             }
-        }
-        else if (worldIn.getBlockState(pos.offset(enumfacing.getOpposite())).getBlock() != this)
-        {
-            if (!worldIn.isRemote)
-            {
+        } else if (worldIn.getBlockState(pos.offset(enumfacing.getOpposite())).getBlock() != this) {
+            if (!worldIn.isRemote) {
                 this.dropBlockAsItem(worldIn, pos, state, 0);
             }
 
@@ -80,17 +73,15 @@ public class BlockRandom extends BlockOverworldFacing {
     /**
      * Get the Item that this Block should drop when harvested.
      */
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return state.getValue(PART) == EnumPart.BOTTOM ? Items.AIR : Item.getItemFromBlock(this);
     }
 
     /**
-     * @deprecated call via {@link IBlockState#getBoundingBox(IBlockAccess,BlockPos)} whenever possible.
+     * @deprecated call via {@link IBlockState#getBoundingBox(IBlockAccess, BlockPos)} whenever possible.
      * Implementing/overriding is fine.
      */
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return CLOSET_AABB;
     }
 
@@ -99,18 +90,15 @@ public class BlockRandom extends BlockOverworldFacing {
      * is fine.
      */
     @SideOnly(Side.CLIENT)
-    public boolean hasCustomBreakingProgress(IBlockState state)
-    {
+    public boolean hasCustomBreakingProgress(IBlockState state) {
         return true;
     }
 
     /**
      * Spawns this Block's drops into the World as EntityItems.
      */
-    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
-    {
-        if (state.getValue(PART) == EnumPart.TOP)
-        {
+    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {
+        if (state.getValue(PART) == EnumPart.TOP) {
             spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
         }
     }
@@ -118,8 +106,7 @@ public class BlockRandom extends BlockOverworldFacing {
     /**
      * @deprecated call via  whenever possible. Implementing/overriding is fine.
      */
-    public EnumPushReaction getPushReaction(IBlockState state)
-    {
+    public EnumPushReaction getPushReaction(IBlockState state) {
         return EnumPushReaction.DESTROY;
     }
 
@@ -128,23 +115,21 @@ public class BlockRandom extends BlockOverworldFacing {
      * transparency (glass, reeds), TRANSLUCENT for fully blended transparency (stained glass)
      */
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getRenderLayer()
-    {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 
     /**
      * The type of render function called. MODEL for mixed tesr and static model, MODELBLOCK_ANIMATED for TESR-only,
      * LIQUID for vanilla liquids, INVISIBLE to skip all rendering
+     *
      * @deprecated call via {@link IBlockState#getRenderType()} whenever possible. Implementing/overriding is fine.
      */
-    public EnumBlockRenderType getRenderType(IBlockState state)
-    {
+    public EnumBlockRenderType getRenderType(IBlockState state) {
         return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(this, 1);
     }
 
@@ -152,14 +137,11 @@ public class BlockRandom extends BlockOverworldFacing {
      * Called before the Block is set to air in the world. Called regardless of if the player's tool can actually
      * collect this block
      */
-    public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player)
-    {
-        if (player.capabilities.isCreativeMode && state.getValue(PART) == EnumPart.BOTTOM)
-        {
+    public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
+        if (player.capabilities.isCreativeMode && state.getValue(PART) == EnumPart.BOTTOM) {
             BlockPos blockpos = pos.offset(state.getValue(FACING));
 
-            if (worldIn.getBlockState(blockpos).getBlock() == this)
-            {
+            if (worldIn.getBlockState(blockpos).getBlock() == this) {
                 worldIn.setBlockToAir(blockpos);
             }
         }
@@ -168,8 +150,7 @@ public class BlockRandom extends BlockOverworldFacing {
     /**
      * Convert the given metadata into a BlockState for this Block
      */
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         EnumFacing enumfacing = EnumFacing.byHorizontalIndex(meta);
         return (meta & 8) > 0 ? this.getDefaultState().withProperty(PART, EnumPart.TOP).withProperty(FACING, enumfacing) : this.getDefaultState().withProperty(PART, EnumPart.BOTTOM).withProperty(FACING, enumfacing);
     }
@@ -178,34 +159,32 @@ public class BlockRandom extends BlockOverworldFacing {
     /**
      * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
      * blockstate.
+     *
      * @deprecated call via {@link IBlockState#withRotation(Rotation)} whenever possible. Implementing/overriding is
      * fine.
      */
-    public IBlockState withRotation(IBlockState state, Rotation rot)
-    {
+    public IBlockState withRotation(IBlockState state, Rotation rot) {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     /**
      * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed
      * blockstate.
+     *
      * @deprecated call via {@link IBlockState#withMirror(Mirror)} whenever possible. Implementing/overriding is fine.
      */
-    public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
-    {
+    public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
         return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
     /**
      * Convert the BlockState into the correct metadata value
      */
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i = 0;
         i = i | (state.getValue(FACING)).getHorizontalIndex();
 
-        if (state.getValue(PART) == EnumPart.TOP)
-        {
+        if (state.getValue(PART) == EnumPart.TOP) {
             i |= 8;
         }
 
@@ -220,38 +199,32 @@ public class BlockRandom extends BlockOverworldFacing {
      * does not fit the other descriptions and will generally cause other things not to connect to the face.
      *
      * @return an approximation of the form of the given face
-     * @deprecated call via {@link IBlockState#getBlockFaceShape(IBlockAccess,BlockPos,EnumFacing)} whenever possible.
+     * @deprecated call via {@link IBlockState#getBlockFaceShape(IBlockAccess, BlockPos, EnumFacing)} whenever possible.
      * Implementing/overriding is fine.
      */
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
 
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING, PART);
     }
 
-    public enum EnumPart implements IStringSerializable
-    {
+    public enum EnumPart implements IStringSerializable {
         TOP("top"),
         BOTTOM("bottom");
 
         private final String name;
 
-        EnumPart(String name)
-        {
+        EnumPart(String name) {
             this.name = name;
         }
 
-        public String toString()
-        {
+        public String toString() {
             return this.name;
         }
 
-        public String getName()
-        {
+        public String getName() {
             return this.name;
         }
     }

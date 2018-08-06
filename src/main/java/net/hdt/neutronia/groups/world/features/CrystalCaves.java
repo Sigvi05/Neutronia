@@ -10,27 +10,26 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CrystalCaves extends Component {
 
-	public static Block crystal;
-	
-	DimensionConfig dims;
-	public static int crystalCaveRarity;
-	
-	@Override
-	public void setupConfig() {
-		crystalCaveRarity = loadPropInt("Crystal Cave Rarity", "Given this value as X, crystal caves will spawn on average 1 per X chunks", 150);
-		dims = new DimensionConfig(configCategory);
-	}
-	
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		crystal = new BlockCrystal();
-		
-		GameRegistry.registerWorldGenerator(new CrystalCaveGenerator(dims), 1);
-	}
+    public static Block crystal;
+    public static int crystalCaveRarity;
+    DimensionConfig dims;
 
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-	
+    @Override
+    public void setupConfig() {
+        crystalCaveRarity = loadPropInt("Crystal Cave Rarity", "Given this value as X, crystal caves will spawn on average 1 per X chunks", 150);
+        dims = new DimensionConfig(configCategory);
+    }
+
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        crystal = new BlockCrystal();
+
+        GameRegistry.registerWorldGenerator(new CrystalCaveGenerator(dims), 1);
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

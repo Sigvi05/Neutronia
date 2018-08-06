@@ -1,4 +1,4 @@
-package betterwithmods.common.registry.crafting;
+package net.hdt.neutronia.registry.crafting;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Streams;
@@ -12,9 +12,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class IngredientTool extends Ingredient {
+    public static HashMap<ItemStack, ItemStack[]> TOOLS = Maps.newHashMap();
     private Predicate<ItemStack> tool;
     private ItemStack example;
-    public static HashMap<ItemStack, ItemStack[]> TOOLS = Maps.newHashMap();
 
     public IngredientTool(Predicate<ItemStack> tool, ItemStack exampleStack) {
         this.tool = tool;
@@ -28,6 +28,13 @@ public class IngredientTool extends Ingredient {
         this(s -> s.getItem().getHarvestLevel(s, toolClass, null, null) > -1, ItemStack.EMPTY);
     }
 
+    public static ItemStack[] collectAllTools(Predicate<ItemStack> tool) {
+        List<ItemStack> list = Streams.stream(ForgeRegistries.ITEMS).map(ItemStack::new).filter(tool).collect(Collectors.toList());
+        ItemStack[] stacks = new ItemStack[list.size()];
+        return list.toArray(stacks);
+
+    }
+
     @Override
     public ItemStack[] getMatchingStacks() {
         ItemStack stack = TOOLS.keySet().stream().filter(s -> s.isItemEqual(example)).findFirst().orElse(null);
@@ -39,12 +46,5 @@ public class IngredientTool extends Ingredient {
     @Override
     public boolean apply(ItemStack stack) {
         return tool.test(stack);
-    }
-
-    public static ItemStack[] collectAllTools(Predicate<ItemStack> tool) {
-        List<ItemStack> list = Streams.stream(ForgeRegistries.ITEMS).map(ItemStack::new).filter(tool).collect(Collectors.toList());
-        ItemStack[] stacks = new ItemStack[list.size()];
-        return list.toArray(stacks);
-
     }
 }

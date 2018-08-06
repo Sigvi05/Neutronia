@@ -1,11 +1,11 @@
-package betterwithmods.common.registry.block.recipe;
+package net.hdt.neutronia.registry.block.recipe;
 
-import betterwithmods.common.BWMRecipes;
-import betterwithmods.util.InvUtils;
 import com.google.common.collect.Sets;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntComparators;
 import it.unimi.dsi.fastutil.ints.IntList;
+import net.hdt.neutronia.base.BWMRecipes;
+import net.hdt.neutronia.base.util.InvUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.RecipeItemHelper;
 import net.minecraft.creativetab.CreativeTabs;
@@ -58,7 +58,7 @@ public class BlockIngredient extends Ingredient {
             if (states == null) states = Sets.newHashSet();
             NonNullList<ItemStack> lst = NonNullList.create();
             Iterator<ItemStack> iter = this.stacks.iterator();
-            while(iter.hasNext()) {
+            while (iter.hasNext()) {
                 ItemStack itemstack = iter.next();
                 Set<IBlockState> s = BWMRecipes.getStatesFromStack(itemstack);
                 if (s.isEmpty()) {

@@ -1,4 +1,4 @@
-package betterwithmods.common.registry.anvil;
+package net.hdt.neutronia.registry.anvil;
 
 import com.google.gson.JsonObject;
 import net.minecraft.block.Block;

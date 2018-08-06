@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.tweaks.util.item;
 
-import betterwithmods.util.ReflectionLib;
+import net.hdt.neutronia.base.util.ReflectionLib;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.*;

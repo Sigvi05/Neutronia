@@ -16,19 +16,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockCrystal extends BlockMetaVariants implements INeutroniaBlock {
 
-	public BlockCrystal() {
-		super("crystal", Material.GLASS, Variants.class);
-		setHardness(0.3F);
-		setSoundType(SoundType.GLASS);
-		setLightLevel(1.0F * 11F / 15F);
-		setCreativeTab(CreativeTabs.DECORATIONS);
-	}
-	
-	@Override
+    public BlockCrystal() {
+        super("crystal", Material.GLASS, Variants.class);
+        setHardness(0.3F);
+        setSoundType(SoundType.GLASS);
+        setLightLevel(1.0F * 11F / 15F);
+        setCreativeTab(CreativeTabs.DECORATIONS);
+    }
+
+    @Override
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
-    
+
     @Override
     public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.TRANSLUCENT;
@@ -42,15 +42,15 @@ public class BlockCrystal extends BlockMetaVariants implements INeutroniaBlock {
         return block != this && super.shouldSideBeRendered(blockState, blockAccess, pos, side);
     }
 
-	public enum Variants implements EnumBase {
-		CRYSTAL_WHITE,
-		CRYSTAL_RED,
-		CRYSTAL_ORANGE,
-		CRYSTAL_YELLOW,
-		CRYSTAL_GREEN,
-		CRYSTAL_BLUE,
-		CRYSTAL_INDIGO,
-		CRYSTAL_VIOLET
-	}
+    public enum Variants implements EnumBase {
+        CRYSTAL_WHITE,
+        CRYSTAL_RED,
+        CRYSTAL_ORANGE,
+        CRYSTAL_YELLOW,
+        CRYSTAL_GREEN,
+        CRYSTAL_BLUE,
+        CRYSTAL_INDIGO,
+        CRYSTAL_VIOLET
+    }
 
 }

@@ -14,12 +14,12 @@ public class BWIMCHandler {
 
     private static final HashMap<String, Consumer<Object>> IMC_HANDLER = new HashMap<>();
 
-    public static void registerIMC(String key, Consumer<Object> function) {
-        IMC_HANDLER.put(key, function);
-    }
-
     static {
 
+    }
+
+    public static void registerIMC(String key, Consumer<Object> function) {
+        IMC_HANDLER.put(key, function);
     }
 
     public static void processIMC(ImmutableList<IMCMessage> message) {

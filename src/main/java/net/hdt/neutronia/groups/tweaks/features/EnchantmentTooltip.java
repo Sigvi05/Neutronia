@@ -1,7 +1,6 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.common.items.ItemArcaneScroll;
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemEnchantedBook;
@@ -16,13 +15,13 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
 
-public class EnchantmentTooltip extends Feature {
+public class EnchantmentTooltip extends Component {
 
     @SideOnly(Side.CLIENT)
     public static String getTranslatedEnchantment(@Nullable Enchantment enchantment) {
         if (enchantment != null && enchantment.type != null) {
             String name = enchantment.type.name().toLowerCase();
-            String key = String.format("bwm.enchantment.type.%s", name);
+            String key = String.format("neutronia.enchantment.type.%s", name);
             if (I18n.hasKey(key)) {
                 return I18n.format(key);
             }
@@ -51,13 +50,13 @@ public class EnchantmentTooltip extends Feature {
                     event.getToolTip().add(tooltip);
                 }
             }
-        } else if (stack.getItem() instanceof ItemArcaneScroll) {
+        }/* else if (stack.getItem() instanceof ItemArcaneScroll) {
             Enchantment enchantment = ItemArcaneScroll.getEnchantment(stack);
             String tooltip = getTranslatedEnchantment(enchantment);
             if (tooltip != null) {
                 event.getToolTip().add(tooltip);
             }
-        }
+        }*/
     }
 
     @Override

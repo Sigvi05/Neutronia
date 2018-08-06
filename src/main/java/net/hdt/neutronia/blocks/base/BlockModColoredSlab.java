@@ -47,10 +47,10 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
     public static HashMap<BlockModColoredSlab, BlockModColoredSlab> halfSlabs = new HashMap<>();
     public static HashMap<BlockModColoredSlab, BlockModColoredSlab> fullSlabs = new HashMap<>();
     static boolean tempDoubleSlab;
+    public final EnumDyeColor color;
     private final String[] variants;
     private final String bareName;
     boolean doubleSlab;
-    public final EnumDyeColor color;
 
     public BlockModColoredSlab(String name, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
         super(hacky(materialIn, doubleSlab));
@@ -89,6 +89,43 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(half, 6),
                 "BBB",
                 'B', ProxyRegistry.newStack(base, 1, meta));
+    }
+
+    private static TextFormatting getFromColor(EnumDyeColor color) {
+        switch (color) {
+            case ORANGE:
+                return TextFormatting.GOLD;
+            case MAGENTA:
+                return TextFormatting.LIGHT_PURPLE;
+            case LIGHT_BLUE:
+                return TextFormatting.BLUE;
+            case YELLOW:
+                return TextFormatting.YELLOW;
+            case LIME:
+                return TextFormatting.GREEN;
+            case PINK:
+                return TextFormatting.LIGHT_PURPLE;
+            case GRAY:
+                return TextFormatting.DARK_GRAY;
+            case SILVER:
+                return TextFormatting.GRAY;
+            case CYAN:
+                return TextFormatting.DARK_AQUA;
+            case PURPLE:
+                return TextFormatting.DARK_PURPLE;
+            case BLUE:
+                return TextFormatting.DARK_BLUE;
+            case BROWN:
+                return TextFormatting.GOLD;
+            case GREEN:
+                return TextFormatting.DARK_GREEN;
+            case RED:
+                return TextFormatting.DARK_RED;
+            case BLACK:
+                return TextFormatting.BLACK;
+            default:
+                return TextFormatting.WHITE;
+        }
     }
 
     @Override
@@ -179,7 +216,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
     @Override
     public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side) {
         IBlockState state = getActualState(base_state, world, pos);
-        if(base_state.getMaterial() == Material.GLASS) {
+        if (base_state.getMaterial() == Material.GLASS) {
             return isDouble()
                     || (state.getValue(BlockSlab.HALF) == EnumBlockHalf.TOP && side == EnumFacing.UP)
                     || (state.getValue(BlockSlab.HALF) == EnumBlockHalf.BOTTOM && side == EnumFacing.DOWN);
@@ -211,7 +248,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
     @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-        if(blockState.getMaterial() == Material.GLASS) {
+        if (blockState.getMaterial() == Material.GLASS) {
             if (this.isDouble()) {
                 return this.originalShouldSideBeRendered(blockState, blockAccess, pos, side);
             } else if (side != EnumFacing.UP && side != EnumFacing.DOWN && !super.shouldSideBeRendered(blockState, blockAccess, pos, side)) {
@@ -287,7 +324,6 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
         return BlockRenderLayer.TRANSLUCENT;
     }
 
-
     /**
      * Used to determine ambient occlusion and culling when rebuilding chunks for render
      */
@@ -298,47 +334,6 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
     @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
         return true;
-    }
-
-    public static enum DummyEnum implements BlockMetaVariants.EnumBase {
-        BLARG
-    }
-
-    private static TextFormatting getFromColor(EnumDyeColor color) {
-        switch (color) {
-            case ORANGE:
-                return TextFormatting.GOLD;
-            case MAGENTA:
-                return TextFormatting.LIGHT_PURPLE;
-            case LIGHT_BLUE:
-                return TextFormatting.BLUE;
-            case YELLOW:
-                return TextFormatting.YELLOW;
-            case LIME:
-                return TextFormatting.GREEN;
-            case PINK:
-                return TextFormatting.LIGHT_PURPLE;
-            case GRAY:
-                return TextFormatting.DARK_GRAY;
-            case SILVER:
-                return TextFormatting.GRAY;
-            case CYAN:
-                return TextFormatting.DARK_AQUA;
-            case PURPLE:
-                return TextFormatting.DARK_PURPLE;
-            case BLUE:
-                return TextFormatting.DARK_BLUE;
-            case BROWN:
-                return TextFormatting.GOLD;
-            case GREEN:
-                return TextFormatting.DARK_GREEN;
-            case RED:
-                return TextFormatting.DARK_RED;
-            case BLACK:
-                return TextFormatting.BLACK;
-            default:
-                return TextFormatting.WHITE;
-        }
     }
 
     @Override
@@ -360,6 +355,10 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
     @Override
     public IItemColor getItemColor() {
         return (stack, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
+    }
+
+    public static enum DummyEnum implements BlockMetaVariants.EnumBase {
+        BLARG
     }
 
 }

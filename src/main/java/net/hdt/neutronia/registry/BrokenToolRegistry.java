@@ -1,6 +1,6 @@
-package betterwithmods.common.registry;
+package net.hdt.neutronia.registry;
 
-import betterwithmods.util.player.PlayerHelper;
+import net.hdt.neutronia.base.util.player.PlayerHelper;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

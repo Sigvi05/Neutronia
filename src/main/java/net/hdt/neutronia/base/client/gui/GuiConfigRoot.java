@@ -1,43 +1,46 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.groups.*;
+import net.hdt.neutronia.base.groups.GlobalConfig;
+import net.hdt.neutronia.base.groups.Group;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.text.translation.I18n;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GuiConfigRoot extends GuiConfigBase {
-	
-	boolean qEnabled;
 
-	private static int MODULES_PER_PAGE = 8;
+    private static int MODULES_PER_PAGE = 8;
+    private final List<Group> groups;
+    boolean qEnabled;
     private int page = 0;
     private int totalPages;
     private GuiButton left, right;
-    private final List<Group> groups;
-	
-	GuiConfigRoot(GuiScreen parent) {
-		super(parent);
+
+    GuiConfigRoot(GuiScreen parent) {
+        super(parent);
 
         groups = new ArrayList<>();
-        groups.addAll(GroupLoader.groupInstances.values());
+        groups.addAll(GroupLoader.groups);
         Collections.sort(groups);
-		
-		qEnabled = GlobalConfig.enableNButton;
 
-		System.out.println(groups.size());
+        qEnabled = GlobalConfig.enableNButton;
+
+        System.out.println(groups.size());
         totalPages = (groups.size() - 1) / MODULES_PER_PAGE + 1;
-	}
+    }
 
-	@Override
-	public void initGui() {
-		super.initGui();
+    @Override
+    public void initGui() {
+        super.initGui();
 
-		int x, y;
+        int x, y;
 
-        if(totalPages > 1) {
+        if (totalPages > 1) {
             x = width / 2;
             y = height / 6 - 12;
             buttonList.add(left = new GuiButton(0, x - 40, y, 20, 20, "<"));
@@ -45,7 +48,7 @@ public class GuiConfigRoot extends GuiConfigBase {
         }
 
         addFeatureButtons();
-	}
+    }
 
     private void addFeatureButtons() {
 
@@ -57,7 +60,7 @@ public class GuiConfigRoot extends GuiConfigBase {
         buttonList.removeIf((b) -> b instanceof GuiButtonModule || b instanceof GuiButtonConfigSetting);
 
         int start = page * MODULES_PER_PAGE;
-        for(int j = start; j < Math.min(start + MODULES_PER_PAGE, groups.size()); j++) {
+        for (int j = start; j < Math.min(start + MODULES_PER_PAGE, groups.size()); j++) {
             int k = j - start;
             x = startX + k % 2 * 180;
             y = startY + k / 2 * 22;
@@ -66,7 +69,7 @@ public class GuiConfigRoot extends GuiConfigBase {
             buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
         }
 
-        if(left != null) {
+        if (left != null) {
             left.enabled = (page > 0);
             right.enabled = (page < totalPages - 1);
         }
@@ -82,52 +85,51 @@ public class GuiConfigRoot extends GuiConfigBase {
 
         buttonList.add(backButton = new GuiButton(0, x - 100, y + 66, 200, 20, I18n.translateToLocal("gui.done")));
     }
-	
-	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		super.drawScreen(mouseX, mouseY, partialTicks);
-		
-		String s = null;
-		if(mayRequireRestart)
-			s = I18n.translateToLocal("neutronia.config.needrestart");
-		else if(qEnabled && !GlobalConfig.enableNButton)
-			s = I18n.translateToLocal("neutronia.config.qdisabled");
 
-        if(totalPages > 1) {
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        super.drawScreen(mouseX, mouseY, partialTicks);
+
+        String s = null;
+        if (mayRequireRestart)
+            s = I18n.translateToLocal("neutronia.config.needrestart");
+        else if (qEnabled && !GlobalConfig.enableNButton)
+            s = I18n.translateToLocal("neutronia.config.qdisabled");
+
+        if (totalPages > 1) {
             int x = width / 2;
             int y = height / 6 - 7;
             drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
         }
 
-		if(s != null)
-			drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
-	}
+        if (s != null)
+            drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
+    }
 
-	@Override
-	protected void actionPerformed(GuiButton button) throws IOException {
-		super.actionPerformed(button);
+    @Override
+    protected void actionPerformed(GuiButton button) throws IOException {
+        super.actionPerformed(button);
 
-		if(button instanceof GuiButtonModule) {
-			GuiButtonModule moduleButton = (GuiButtonModule) button;
-			mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
-		}  else if(button == left || button == right) {
-            if(button == left)
+        if (button instanceof GuiButtonModule) {
+            GuiButtonModule moduleButton = (GuiButtonModule) button;
+            mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
+        } else if (button == left || button == right) {
+            if (button == left)
                 page = Math.max(page - 1, 0);
             else page = Math.min(page + 1, totalPages - 1);
 
             addFeatureButtons();
+        } else switch (button.id) {
+            case 1: // General Settings
+                mc.displayGuiScreen(new GuiConfigCategory(this, "_global"));
+                break;
+            case 2: // Import Config
+                mc.displayGuiScreen(new GuiConfigImport(this));
+                break;
+            case 3: // Open Website
+                tryOpenWebsite();
+                break;
         }
-		else switch(button.id) {
-		case 1: // General Settings
-			mc.displayGuiScreen(new GuiConfigCategory(this, "_global"));
-			break;
-		case 2: // Import Config
-			mc.displayGuiScreen(new GuiConfigImport(this));
-			break;
-		case 3: // Open Website
-			tryOpenWebsite();
-			break;
-		}
-	}
+    }
 
 }

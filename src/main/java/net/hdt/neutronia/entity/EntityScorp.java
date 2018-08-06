@@ -1,8 +1,8 @@
 package net.hdt.neutronia.entity;
 
+import net.hdt.neutronia.base.util.handlers.LootTableHandler;
 import net.hdt.neutronia.entity.ai.EntityAIScorpAttack;
 import net.hdt.neutronia.entity.ai.EntityAIScorpTarget;
-import net.hdt.neutronia.base.util.handlers.LootTableHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;

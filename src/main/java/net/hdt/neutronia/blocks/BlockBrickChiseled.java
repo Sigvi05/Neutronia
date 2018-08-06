@@ -34,8 +34,7 @@ public class BlockBrickChiseled extends BlockMod implements INeutroniaBlock {
 
         if (itemstack.isEmpty()) {
             return false;
-        }
-        else {
+        } else {
             Item item = itemstack.getItem();
 
             if (item == Item.getItemFromBlock(Blocks.STONE_SLAB)) {
@@ -45,8 +44,7 @@ public class BlockBrickChiseled extends BlockMod implements INeutroniaBlock {
                     return true;
                 }
                 return false;
-            }
-            else {
+            } else {
                 if (filled) {
                     worldIn.setBlockState(pos, NBlocks.chiseledBricks.getDefaultState(), 2);
                     playerIn.inventory.addItemStackToInventory(new ItemStack(Blocks.STONE_SLAB));

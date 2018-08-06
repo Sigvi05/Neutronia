@@ -23,158 +23,158 @@ import org.apache.commons.lang3.Validate;
 
 public class EntityFlatItemFrame extends EntityItemFrame implements IEntityAdditionalSpawnData {
 
-	protected static final Predicate<Entity> IS_HANGING_ENTITY = p_apply_1_ -> p_apply_1_ instanceof EntityHanging;
+    protected static final Predicate<Entity> IS_HANGING_ENTITY = p_apply_1_ -> p_apply_1_ instanceof EntityHanging;
 
-	private static final String TAG_ITEMDROPCHANCE = "ItemDropChance";
-	private static final String TAG_REALFACINGDIRECTION = "RealFacing";
+    private static final String TAG_ITEMDROPCHANCE = "ItemDropChance";
+    private static final String TAG_REALFACINGDIRECTION = "RealFacing";
 
-	public EnumFacing realFacingDirection;
-	private float itemDropChance = 1.0F;
+    public EnumFacing realFacingDirection;
+    private float itemDropChance = 1.0F;
 
-	public EntityFlatItemFrame(World worldIn) {
-		super(worldIn);
-	}
+    public EntityFlatItemFrame(World worldIn) {
+        super(worldIn);
+    }
 
-	public EntityFlatItemFrame(World worldIn, BlockPos p_i45852_2_, EnumFacing p_i45852_3_) {
-		super(worldIn, p_i45852_2_, p_i45852_3_);
-	}
+    public EntityFlatItemFrame(World worldIn, BlockPos p_i45852_2_, EnumFacing p_i45852_3_) {
+        super(worldIn, p_i45852_2_, p_i45852_3_);
+    }
 
-	@Override
-	public void dropItemOrSelf(Entity entityIn, boolean p_146065_2_) {
-		if(!p_146065_2_) {
-			super.dropItemOrSelf(entityIn, p_146065_2_);
-			return;
-		}
+    @Override
+    public void dropItemOrSelf(Entity entityIn, boolean p_146065_2_) {
+        if (!p_146065_2_) {
+            super.dropItemOrSelf(entityIn, p_146065_2_);
+            return;
+        }
 
-		if(getEntityWorld().getGameRules().getBoolean("doEntityDrops")) {
-			ItemStack itemstack = getDisplayedItem();
+        if (getEntityWorld().getGameRules().getBoolean("doEntityDrops")) {
+            ItemStack itemstack = getDisplayedItem();
 
-			if(entityIn instanceof EntityPlayer) {
-				EntityPlayer entityplayer = (EntityPlayer)entityIn;
+            if (entityIn instanceof EntityPlayer) {
+                EntityPlayer entityplayer = (EntityPlayer) entityIn;
 
-				if(entityplayer.capabilities.isCreativeMode) {
-					removeFrameFromMap(itemstack);
-					return;
-				}
-			}
+                if (entityplayer.capabilities.isCreativeMode) {
+                    removeFrameFromMap(itemstack);
+                    return;
+                }
+            }
 
-			dropFrame();
+            dropFrame();
 
-			if(!itemstack.isEmpty() && rand.nextFloat() < itemDropChance) {
-				itemstack = itemstack.copy();
-				removeFrameFromMap(itemstack);
-				entityDropItem(itemstack, 0.0F);
-			}
+            if (!itemstack.isEmpty() && rand.nextFloat() < itemDropChance) {
+                itemstack = itemstack.copy();
+                removeFrameFromMap(itemstack);
+                entityDropItem(itemstack, 0.0F);
+            }
 
-		}
-	}
+        }
+    }
 
-	protected void dropFrame() {
-		entityDropItem(new ItemStack(Items.ITEM_FRAME, 1), 0.0F);
-	}
+    protected void dropFrame() {
+        entityDropItem(new ItemStack(Items.ITEM_FRAME, 1), 0.0F);
+    }
 
-	@Override
-	public EntityItem entityDropItem(ItemStack stack, float offsetY) {
-		EntityItem entityitem = new EntityItem(this.world, this.posX + (double)((float)this.realFacingDirection.getXOffset() * 0.15F), this.posY + (double)offsetY, this.posZ + (double)((float)this.realFacingDirection.getZOffset() * 0.15F), stack);
-		entityitem.setDefaultPickupDelay();
-		if (realFacingDirection == EnumFacing.DOWN)
-			entityitem.motionY = -entityitem.motionY;
-		this.world.spawnEntity(entityitem);
-		return entityitem;
-	}
+    @Override
+    public EntityItem entityDropItem(ItemStack stack, float offsetY) {
+        EntityItem entityitem = new EntityItem(this.world, this.posX + (double) ((float) this.realFacingDirection.getXOffset() * 0.15F), this.posY + (double) offsetY, this.posZ + (double) ((float) this.realFacingDirection.getZOffset() * 0.15F), stack);
+        entityitem.setDefaultPickupDelay();
+        if (realFacingDirection == EnumFacing.DOWN)
+            entityitem.motionY = -entityitem.motionY;
+        this.world.spawnEntity(entityitem);
+        return entityitem;
+    }
 
-	@Override
-	public boolean onValidSurface() {
-		if(this.realFacingDirection.getAxis() == EnumFacing.Axis.Y) {
-			if(!this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty()) {
-				return false;
-			} else {
-				BlockPos blockpos = this.hangingPosition.offset(this.realFacingDirection.getOpposite());
-				IBlockState iblockstate = this.world.getBlockState(blockpos);
-				if(!iblockstate.isSideSolid(this.world, blockpos, this.realFacingDirection))                  
-					if(!iblockstate.getMaterial().isSolid() && !BlockRedstoneDiode.isDiode(iblockstate))
-						return false;
+    @Override
+    public boolean onValidSurface() {
+        if (this.realFacingDirection.getAxis() == EnumFacing.Axis.Y) {
+            if (!this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty()) {
+                return false;
+            } else {
+                BlockPos blockpos = this.hangingPosition.offset(this.realFacingDirection.getOpposite());
+                IBlockState iblockstate = this.world.getBlockState(blockpos);
+                if (!iblockstate.isSideSolid(this.world, blockpos, this.realFacingDirection))
+                    if (!iblockstate.getMaterial().isSolid() && !BlockRedstoneDiode.isDiode(iblockstate))
+                        return false;
 
-				return this.world.getEntitiesInAABBexcluding(this, this.getEntityBoundingBox(), IS_HANGING_ENTITY).isEmpty();
-			}
-		} else
-			return super.onValidSurface();
-	}
+                return this.world.getEntitiesInAABBexcluding(this, this.getEntityBoundingBox(), IS_HANGING_ENTITY).isEmpty();
+            }
+        } else
+            return super.onValidSurface();
+    }
 
-	@Override
-	protected void updateFacingWithBoundingBox(EnumFacing facingDirectionIn) {
-		Validate.notNull(facingDirectionIn);
-		this.realFacingDirection = facingDirectionIn;
-		this.facingDirection = realFacingDirection.getAxis() == EnumFacing.Axis.Y ? EnumFacing.SOUTH : realFacingDirection;
-		this.rotationYaw = realFacingDirection.getAxis() == EnumFacing.Axis.Y ? 0 : (float)(this.realFacingDirection.getHorizontalIndex() * 90);
-		this.rotationPitch = realFacingDirection.getAxis() == EnumFacing.Axis.Y ? (realFacingDirection == EnumFacing.UP ? -90.0F : 90.0F) : 0F;
-		this.prevRotationYaw = this.rotationYaw;
-		this.updateBoundingBox();
-	}
+    @Override
+    protected void updateFacingWithBoundingBox(EnumFacing facingDirectionIn) {
+        Validate.notNull(facingDirectionIn);
+        this.realFacingDirection = facingDirectionIn;
+        this.facingDirection = realFacingDirection.getAxis() == EnumFacing.Axis.Y ? EnumFacing.SOUTH : realFacingDirection;
+        this.rotationYaw = realFacingDirection.getAxis() == EnumFacing.Axis.Y ? 0 : (float) (this.realFacingDirection.getHorizontalIndex() * 90);
+        this.rotationPitch = realFacingDirection.getAxis() == EnumFacing.Axis.Y ? (realFacingDirection == EnumFacing.UP ? -90.0F : 90.0F) : 0F;
+        this.prevRotationYaw = this.rotationYaw;
+        this.updateBoundingBox();
+    }
 
-	@Override
-	protected void updateBoundingBox() {
-		if(this.realFacingDirection == null)
-			return;
-		
-		if(this.realFacingDirection.getAxis() == EnumFacing.Axis.Y) {
-			double d0 = (double)this.hangingPosition.getX() + 0.5D;
-			double d1 = (double)this.hangingPosition.getY() + 0.5D;
-			double d2 = (double)this.hangingPosition.getZ() + 0.5D;
-			d1 = d1 - (double)this.realFacingDirection.getYOffset() * 0.46875D;
+    @Override
+    protected void updateBoundingBox() {
+        if (this.realFacingDirection == null)
+            return;
 
-			double d6 = (double)this.getHeightPixels();
-			double d7 = -(double)this.realFacingDirection.getYOffset();
-			double d8 = (double)this.getHeightPixels();
+        if (this.realFacingDirection.getAxis() == EnumFacing.Axis.Y) {
+            double d0 = (double) this.hangingPosition.getX() + 0.5D;
+            double d1 = (double) this.hangingPosition.getY() + 0.5D;
+            double d2 = (double) this.hangingPosition.getZ() + 0.5D;
+            d1 = d1 - (double) this.realFacingDirection.getYOffset() * 0.46875D;
 
-			d6 = d6 / 32.0D;
-			d7 = d7 / 32.0D;
-			d8 = d8 / 32.0D;
+            double d6 = (double) this.getHeightPixels();
+            double d7 = -(double) this.realFacingDirection.getYOffset();
+            double d8 = (double) this.getHeightPixels();
 
-			this.posX = d0;
-			this.posY = d1 - d7;
-			this.posZ = d2;
-			this.height = 1.0F / 16.0F;
-			this.setEntityBoundingBox(new AxisAlignedBB(d0 - d6, d1 - d7, d2 - d8, d0 + d6, d1 + d7, d2 + d8));
-		} else
-			super.updateBoundingBox();
-	}
+            d6 = d6 / 32.0D;
+            d7 = d7 / 32.0D;
+            d8 = d8 / 32.0D;
 
-	private void removeFrameFromMap(ItemStack stack) {
-		if(!stack.isEmpty()) {
-			if(stack.getItem() instanceof ItemMap) {
-				MapData mapdata = ((ItemMap) stack.getItem()).getMapData(stack, getEntityWorld());
-				mapdata.mapDecorations.remove("frame-" + getEntityId());
-			}
+            this.posX = d0;
+            this.posY = d1 - d7;
+            this.posZ = d2;
+            this.height = 1.0F / 16.0F;
+            this.setEntityBoundingBox(new AxisAlignedBB(d0 - d6, d1 - d7, d2 - d8, d0 + d6, d1 + d7, d2 + d8));
+        } else
+            super.updateBoundingBox();
+    }
 
-			stack.setItemFrame((EntityItemFrame) null);
-		}
-	}
+    private void removeFrameFromMap(ItemStack stack) {
+        if (!stack.isEmpty()) {
+            if (stack.getItem() instanceof ItemMap) {
+                MapData mapdata = ((ItemMap) stack.getItem()).getMapData(stack, getEntityWorld());
+                mapdata.mapDecorations.remove("frame-" + getEntityId());
+            }
 
-	@Override
-	public void writeEntityToNBT(NBTTagCompound compound) {
-		compound.setByte(TAG_REALFACINGDIRECTION, (byte)this.realFacingDirection.getIndex());
-		super.writeEntityToNBT(compound);
-	}
+            stack.setItemFrame((EntityItemFrame) null);
+        }
+    }
 
-	@Override
-	public void readEntityFromNBT(NBTTagCompound compound) {
-		if(compound.hasKey(TAG_ITEMDROPCHANCE, 99)) {
-			itemDropChance = compound.getFloat(TAG_ITEMDROPCHANCE);
-		}
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        compound.setByte(TAG_REALFACINGDIRECTION, (byte) this.realFacingDirection.getIndex());
+        super.writeEntityToNBT(compound);
+    }
 
-		super.readEntityFromNBT(compound);
-		this.updateFacingWithBoundingBox(EnumFacing.fromAngle(compound.getByte(TAG_REALFACINGDIRECTION)));
-	}
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound) {
+        if (compound.hasKey(TAG_ITEMDROPCHANCE, 99)) {
+            itemDropChance = compound.getFloat(TAG_ITEMDROPCHANCE);
+        }
 
-	@Override
-	public void writeSpawnData(ByteBuf buffer) {
-		buffer.writeShort(realFacingDirection.getIndex());
-	}
+        super.readEntityFromNBT(compound);
+        this.updateFacingWithBoundingBox(EnumFacing.fromAngle(compound.getByte(TAG_REALFACINGDIRECTION)));
+    }
 
-	@Override
-	public void readSpawnData(ByteBuf additionalData) {
-		updateFacingWithBoundingBox(EnumFacing.fromAngle(additionalData.readShort()));
-	}
+    @Override
+    public void writeSpawnData(ByteBuf buffer) {
+        buffer.writeShort(realFacingDirection.getIndex());
+    }
+
+    @Override
+    public void readSpawnData(ByteBuf additionalData) {
+        updateFacingWithBoundingBox(EnumFacing.fromAngle(additionalData.readShort()));
+    }
 
 }

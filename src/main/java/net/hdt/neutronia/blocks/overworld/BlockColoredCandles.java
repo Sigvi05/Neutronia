@@ -22,8 +22,8 @@ import java.util.Random;
 
 public class BlockColoredCandles extends BlockColoredAlt {
 
-    private boolean lit;
     public EnumDyeColor color;
+    private boolean lit;
 
     public BlockColoredCandles(EnumDyeColor color, boolean lit) {
         super(lit ? "lit_candle" : "candle", color);
@@ -49,13 +49,13 @@ public class BlockColoredCandles extends BlockColoredAlt {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if(!worldIn.isRemote){
-            if(!lit && playerIn.getHeldItem(hand).getItem() == Items.FLINT_AND_STEEL){
+        if (!worldIn.isRemote) {
+            if (!lit && playerIn.getHeldItem(hand).getItem() == Items.FLINT_AND_STEEL) {
                 lit = true;
                 worldIn.scheduleUpdate(pos, this, 4);
                 playerIn.getHeldItem(hand).damageItem(1, playerIn);
                 return true;
-            }else if(lit && playerIn.getHeldItem(hand).isEmpty() && playerIn.isSneaking()) {
+            } else if (lit && playerIn.getHeldItem(hand).isEmpty() && playerIn.isSneaking()) {
                 lit = false;
                 return true;
             }

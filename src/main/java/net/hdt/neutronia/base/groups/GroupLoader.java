@@ -22,133 +22,127 @@ import java.util.function.Consumer;
 
 public final class GroupLoader {
 
-	static {
-		groups = new ArrayList<>();
-	}
+    public static Map<String, Component> componentClassNames = new HashMap<>();
+    public static Configuration config;
+    static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
+    public static List<Group> groups;
+    private static List<Group> enabledGroups;
 
-    private static List<Group> groups;
-	public static Map<Class<? extends Group>, Group> groupInstances = new HashMap<>();
-	static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
-	public static Map<String, Component> componentClassNames = new HashMap<>();
-
-	private static List<Group> enabledGroups;
-
-	public static Configuration config;
+    static {
+        groups = new ArrayList<>();
+    }
 
     public static void preInit(FMLPreInitializationEvent event) {
         NGroups.registerGroups();
-		for(Group group : groups) {
-            try {
-                groupInstances.put(group.getClass(), group);
-            } catch (Exception e) {
-                throw new RuntimeException("Can't initialize group " + group, e);
+
+        setupConfig(event);
+
+        forEachModule(group -> {
+            if (group.enabled) {
+                LibMisc.LOGGER.info("Enabling Group " + group.name);
             }
-        }
-
-		setupConfig(event);
-
-		forEachModule(module -> {
-		    if(module.enabled) {
-                LibMisc.LOGGER.info("Enabling Group " + module.name);
+            else {
+                LibMisc.LOGGER.error("Could not enable " + group.name);
             }
         });
 
-		forEachEnabled(module -> module.preInit(event));
-		forEachEnabled(module -> module.postPreInit(event));
-	}
+        forEachEnabled(module -> module.preInit(event));
+        forEachEnabled(module -> module.postPreInit(event));
+    }
 
-	public static void init(FMLInitializationEvent event) {
-		forEachEnabled(module -> module.init(event));
-	}
+    public static void init(FMLInitializationEvent event) {
+        forEachEnabled(module -> module.init(event));
+    }
 
-	public static void postInit(FMLPostInitializationEvent event) {
-		forEachEnabled(module -> module.postInit(event));
-	}
+    public static void postInit(FMLPostInitializationEvent event) {
+        forEachEnabled(module -> module.postInit(event));
+    }
 
-	public static void finalInit(FMLPostInitializationEvent event) {
-		forEachEnabled(module -> module.finalInit(event));
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void preInitClient(FMLPreInitializationEvent event) {
-		forEachEnabled(module -> module.preInitClient(event));
-	}
+    public static void finalInit(FMLPostInitializationEvent event) {
+        forEachEnabled(module -> module.finalInit(event));
+    }
 
-	@SideOnly(Side.CLIENT)
-	public static void initClient(FMLInitializationEvent event) {
-		forEachEnabled(module -> module.initClient(event));
-	}
+    @SideOnly(Side.CLIENT)
+    public static void preInitClient(FMLPreInitializationEvent event) {
+        forEachEnabled(module -> module.preInitClient(event));
+    }
 
-	@SideOnly(Side.CLIENT)
-	public static void postInitClient(FMLPostInitializationEvent event) {
-		forEachEnabled(module -> module.postInitClient(event));
-	}
+    @SideOnly(Side.CLIENT)
+    public static void initClient(FMLInitializationEvent event) {
+        forEachEnabled(module -> module.initClient(event));
+    }
 
-	public static void serverStarting(FMLServerStartingEvent event) {
-		forEachEnabled(module -> module.serverStarting(event));
-	}
+    @SideOnly(Side.CLIENT)
+    public static void postInitClient(FMLPostInitializationEvent event) {
+        forEachEnabled(module -> module.postInitClient(event));
+    }
 
-	public static void setupConfig(FMLPreInitializationEvent event) {
+    public static void serverStarting(FMLServerStartingEvent event) {
+        forEachEnabled(module -> module.serverStarting(event));
+    }
+
+    public static void setupConfig(FMLPreInitializationEvent event) {
         File configFile = event.getSuggestedConfigurationFile();
-		config = new Configuration(configFile);
-		config.load();
-		loadConfig();
-		MinecraftForge.EVENT_BUS.register(new ChangeListener());
-	}
-	
-	public static void loadConfig() {
-		GlobalConfig.initGlobalConfig();
+        config = new Configuration(configFile);
+        config.load();
+        loadConfig();
+        MinecraftForge.EVENT_BUS.register(new ChangeListener());
+    }
 
-		forEachModule(module -> {
-			module.enabled = true;
-			if(module.canBeDisabled()) {
-				ConfigHelper.needsRestart = true;
-				module.enabled = ConfigHelper.loadPropBool(module.name, "_groups", module.getModuleDescription(), module.isEnabledByDefault());
-				module.prop = ConfigHelper.lastProp;
-			}
-		});
+    public static void loadConfig() {
+        GlobalConfig.initGlobalConfig();
 
-		enabledGroups = new ArrayList<>(groupInstances.values());
-		enabledGroups.removeIf(module -> !module.enabled);
+        forEachModule(module -> {
+            module.enabled = true;
+            if (module.canBeDisabled()) {
+                ConfigHelper.needsRestart = true;
+//                module.enabled = ConfigHelper.loadPropBool(module.name, "_groups", module.getModuleDescription(), module.isEnabledByDefault());
+                module.enabled = true;
+                module.prop = ConfigHelper.lastProp;
+            }
+        });
 
-		loadModuleConfigs();
-		
-		if(config.hasChanged())
-			config.save();
-	}
+        enabledGroups = new ArrayList<>(groups);
+//        enabledGroups.removeIf(module -> !module.enabled);
 
-	private static void loadModuleConfigs() {
-		forEachModule(Group::setupConfig);
-	}
+        loadModuleConfigs();
 
-	public static boolean isFeatureEnabled(Class<? extends Component> clazz) {
-		return componentInstances.get(clazz).enabled;
-	}
+        if (config.hasChanged())
+            config.save();
+    }
 
-	static void forEachModule(Consumer<Group> consumer) {
-		groupInstances.values().forEach(consumer);
-	}
+    private static void loadModuleConfigs() {
+        forEachModule(Group::setupConfig);
+    }
 
-	private static void forEachEnabled(Consumer<Group> consumer) {
-		enabledGroups.forEach(consumer);
-	}
+    public static boolean isFeatureEnabled(Class<? extends Component> clazz) {
+        return componentInstances.get(clazz).enabled;
+    }
+
+    static void forEachModule(Consumer<Group> consumer) {
+        groups.forEach(consumer);
+    }
+
+    private static void forEachEnabled(Consumer<Group> consumer) {
+        enabledGroups.forEach(consumer);
+    }
 
     static void registerGroup(Group group) {
-        if(!groups.contains(group)) {
+        if (!groups.contains(group)) {
             groups.add(group);
-            if(!group.name.isEmpty())
+            if (!group.name.isEmpty())
                 LibMisc.LOGGER.info("Registering Group " + group.name);
         }
     }
 
-	public static class ChangeListener {
+    public static class ChangeListener {
 
-		@SubscribeEvent
-		public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-			if(eventArgs.getModID().equals(LibMisc.MOD_ID))
-				loadConfig();
-		}
+        @SubscribeEvent
+        public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
+            if (eventArgs.getModID().equals(LibMisc.MOD_ID))
+                loadConfig();
+        }
 
-	}
+    }
 
 }

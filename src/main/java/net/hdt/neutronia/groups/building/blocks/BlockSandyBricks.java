@@ -8,12 +8,12 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockSandyBricks extends BlockMod implements INeutroniaBlock {
 
-	public BlockSandyBricks() {
-		super("sandy_bricks", Material.ROCK);
-		setHardness(2.0F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockSandyBricks() {
+        super("sandy_bricks", Material.ROCK);
+        setHardness(2.0F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
 }

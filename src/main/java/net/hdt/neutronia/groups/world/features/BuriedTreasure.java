@@ -37,146 +37,147 @@ import java.util.Random;
 
 public class BuriedTreasure extends Component {
 
-	public static String TAG_TREASURE_MAP = "Quark:TreasureMap";
-	public static String TAG_TREASURE_MAP_DELEGATE = "Quark:TreasureMapDelegate";
+    public static String TAG_TREASURE_MAP = "Quark:TreasureMap";
+    public static String TAG_TREASURE_MAP_DELEGATE = "Quark:TreasureMapDelegate";
 
-	ImmutableSet<ResourceLocation> tablesToEdit = ImmutableSet.of(LootTableList.CHESTS_DESERT_PYRAMID, LootTableList.CHESTS_JUNGLE_TEMPLE, LootTableList.CHESTS_STRONGHOLD_CORRIDOR);
-	Map<ResourceLocation, String> customPools = new HashMap();
+    ImmutableSet<ResourceLocation> tablesToEdit = ImmutableSet.of(LootTableList.CHESTS_DESERT_PYRAMID, LootTableList.CHESTS_JUNGLE_TEMPLE, LootTableList.CHESTS_STRONGHOLD_CORRIDOR);
+    Map<ResourceLocation, String> customPools = new HashMap();
 
-	int rarity, quality;
+    int rarity, quality;
 
-	@Override
-	public void setupConfig() {
-		rarity = loadPropInt("Treasure map Rarity", "", 10);
-		quality = loadPropInt("Treasure map item quality", "This is used for the luck attribute in loot tables. It doesn't affect the loot you get from the map itself.", 2);
-	}
+    @Override
+    public void setupConfig() {
+        rarity = loadPropInt("Treasure map Rarity", "", 10);
+        quality = loadPropInt("Treasure map item quality", "This is used for the luck attribute in loot tables. It doesn't affect the loot you get from the map itself.", 2);
+    }
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		LootFunctionManager.registerFunction(new SetAsTreasureFunction.Serializer());
-	}
-	
-	@SubscribeEvent
-	public void onLootTableLoad(LootTableLoadEvent event) {
-		ResourceLocation res = event.getName();
-		if(tablesToEdit.contains(res)) {
-			if(customPools.containsKey(res))
-				customPools.get(res);
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        LootFunctionManager.registerFunction(new SetAsTreasureFunction.Serializer());
+    }
 
-			event.getTable().getPool("main").addEntry(new LootEntryItem(Items.FILLED_MAP, rarity, quality, new LootFunction[] { new SetAsTreasureFunction() }, new LootCondition[0], "quark:treasure_map"));
-		}
-	}
+    @SubscribeEvent
+    public void onLootTableLoad(LootTableLoadEvent event) {
+        ResourceLocation res = event.getName();
+        if (tablesToEdit.contains(res)) {
+            if (customPools.containsKey(res))
+                customPools.get(res);
 
-	@SubscribeEvent
-	public void onUpdate(LivingUpdateEvent event) {
-		if(event.getEntity() instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.getEntity();
-			for(int i = 0; i < player.inventory.getSizeInventory(); i++) {
-				ItemStack stack = player.inventory.getStackInSlot(i);
-				if(!stack.isEmpty() && stack.hasTagCompound()) {
-					if(ItemNBTHelper.getBoolean(stack, TAG_TREASURE_MAP_DELEGATE, false))
-						makeMap(stack, player.getEntityWorld(), player.getPosition());
-				}
-			}
-		}
-	}
+            event.getTable().getPool("main").addEntry(new LootEntryItem(Items.FILLED_MAP, rarity, quality, new LootFunction[]{new SetAsTreasureFunction()}, new LootCondition[0], "quark:treasure_map"));
+        }
+    }
 
-	public ItemStack makeMap(ItemStack itemstack, World world, BlockPos sourcePos) {
-		Random r = world.rand;
+    @SubscribeEvent
+    public void onUpdate(LivingUpdateEvent event) {
+        if (event.getEntity() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getEntity();
+            for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+                ItemStack stack = player.inventory.getStackInSlot(i);
+                if (!stack.isEmpty() && stack.hasTagCompound()) {
+                    if (ItemNBTHelper.getBoolean(stack, TAG_TREASURE_MAP_DELEGATE, false))
+                        makeMap(stack, player.getEntityWorld(), player.getPosition());
+                }
+            }
+        }
+    }
 
-		BlockPos treasurePos;
-		boolean validPos = false;
-		int tries = 0;
+    public ItemStack makeMap(ItemStack itemstack, World world, BlockPos sourcePos) {
+        Random r = world.rand;
 
-		do {
-			if(tries > 100)
-				return null;
+        BlockPos treasurePos;
+        boolean validPos = false;
+        int tries = 0;
 
-			int distance = 400 + r.nextInt(200);
-			double angle = r.nextFloat() * (Math.PI * 2);
-			int x = (int) (sourcePos.getX() + Math.cos(angle) * distance);
-			int z = (int) (sourcePos.getZ() + Math.sin(angle) * distance);
-			treasurePos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 255, z)).add(0, -4, 0);
-			IBlockState state = world.getBlockState(treasurePos);
-			if(state.getBlock() == Blocks.DIRT)
-				validPos = true;
-			tries++;
-		} while(!validPos);
+        do {
+            if (tries > 100)
+                return null;
 
-		String s = "map_" + itemstack.getMetadata();
-		MapData mapdata = new MapData(s);
-		world.setData(s, mapdata);
-		mapdata.scale = 1;
-		mapdata.xCenter = treasurePos.getX() + (int) ((Math.random() - 0.5) * 100);
-		mapdata.zCenter = treasurePos.getZ() + (int) ((Math.random() - 0.5) * 100);
-		mapdata.dimension = 0;
-		mapdata.trackingPosition = true;
-		mapdata.unlimitedTracking = true;
+            int distance = 400 + r.nextInt(200);
+            double angle = r.nextFloat() * (Math.PI * 2);
+            int x = (int) (sourcePos.getX() + Math.cos(angle) * distance);
+            int z = (int) (sourcePos.getZ() + Math.sin(angle) * distance);
+            treasurePos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 255, z)).add(0, -4, 0);
+            IBlockState state = world.getBlockState(treasurePos);
+            if (state.getBlock() == Blocks.DIRT)
+                validPos = true;
+            tries++;
+        } while (!validPos);
+
+        String s = "map_" + itemstack.getMetadata();
+        MapData mapdata = new MapData(s);
+        world.setData(s, mapdata);
+        mapdata.scale = 1;
+        mapdata.xCenter = treasurePos.getX() + (int) ((Math.random() - 0.5) * 100);
+        mapdata.zCenter = treasurePos.getZ() + (int) ((Math.random() - 0.5) * 100);
+        mapdata.dimension = 0;
+        mapdata.trackingPosition = true;
+        mapdata.unlimitedTracking = true;
         ItemMap.renderBiomePreviewMap(world, itemstack);
-		mapdata.addTargetDecoration(itemstack, treasurePos, "x", Type.TARGET_X);
+        mapdata.addTargetDecoration(itemstack, treasurePos, "x", Type.TARGET_X);
 
-		mapdata.markDirty();
+        mapdata.markDirty();
 
-		world.setBlockState(treasurePos, Blocks.CHEST.getDefaultState());
-		TileEntityChest chest = (TileEntityChest) world.getTileEntity(treasurePos);
+        world.setBlockState(treasurePos, Blocks.CHEST.getDefaultState());
+        TileEntityChest chest = (TileEntityChest) world.getTileEntity(treasurePos);
 
-		chest.setLootTable(LootTableList.CHESTS_SIMPLE_DUNGEON, r.nextLong());
+        chest.setLootTable(LootTableList.CHESTS_SIMPLE_DUNGEON, r.nextLong());
 
-		ItemNBTHelper.setBoolean(itemstack, TAG_TREASURE_MAP, true);
-		ItemNBTHelper.setBoolean(itemstack, TAG_TREASURE_MAP_DELEGATE, false);
+        ItemNBTHelper.setBoolean(itemstack, TAG_TREASURE_MAP, true);
+        ItemNBTHelper.setBoolean(itemstack, TAG_TREASURE_MAP_DELEGATE, false);
 
-		return itemstack;
-	}
+        return itemstack;
+    }
 
-	public int xy(int x, int y) {
-		return x + y * 128;
-	}
+    public int xy(int x, int y) {
+        return x + y * 128;
+    }
 
-	@Override
-	public boolean hasSubscriptions() {
-		return true;
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
 
-	public static class SetAsTreasureFunction extends LootFunction {
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
-		protected SetAsTreasureFunction() {
-			super(new LootCondition[0]);
-		}
+    public static class SetAsTreasureFunction extends LootFunction {
 
-		@Override
-		public ItemStack apply(ItemStack stack, Random rand, LootContext context) {
-			int id = context.getWorld().getUniqueDataId("map");
-			stack.setItemDamage(id);
-			stack.setTranslatableName("neutroniaMisc.buried_chest_map");
-			NBTTagCompound cmp = ItemNBTHelper.getCompound(stack, "display", false);
-			cmp.setInteger("MapColor", 0x8C0E0E);
-			ItemNBTHelper.setCompound(stack, "display", cmp);
-			ItemNBTHelper.setBoolean(stack, TAG_TREASURE_MAP_DELEGATE, true);
-			
-			return stack;
-		}
+        protected SetAsTreasureFunction() {
+            super(new LootCondition[0]);
+        }
 
-		public static class Serializer extends LootFunction.Serializer<SetAsTreasureFunction> {
+        @Override
+        public ItemStack apply(ItemStack stack, Random rand, LootContext context) {
+            int id = context.getWorld().getUniqueDataId("map");
+            stack.setItemDamage(id);
+            stack.setTranslatableName("neutroniaMisc.buried_chest_map");
+            NBTTagCompound cmp = ItemNBTHelper.getCompound(stack, "display", false);
+            cmp.setInteger("MapColor", 0x8C0E0E);
+            ItemNBTHelper.setCompound(stack, "display", cmp);
+            ItemNBTHelper.setBoolean(stack, TAG_TREASURE_MAP_DELEGATE, true);
 
-			protected Serializer() {
-				super(new ResourceLocation(LibMisc.MOD_ID, "set_treasure"),SetAsTreasureFunction.class);
-			}
+            return stack;
+        }
 
-			@Override
-			public void serialize(JsonObject object, SetAsTreasureFunction functionClazz,
-					JsonSerializationContext serializationContext) {}
+        public static class Serializer extends LootFunction.Serializer<SetAsTreasureFunction> {
 
-			@Override
-			public SetAsTreasureFunction deserialize(JsonObject object, JsonDeserializationContext deserializationContext,
-					LootCondition[] conditionsIn) {
-				return new SetAsTreasureFunction();
-			}
-		}
-	}
+            protected Serializer() {
+                super(new ResourceLocation(LibMisc.MOD_ID, "set_treasure"), SetAsTreasureFunction.class);
+            }
+
+            @Override
+            public void serialize(JsonObject object, SetAsTreasureFunction functionClazz,
+                                  JsonSerializationContext serializationContext) {
+            }
+
+            @Override
+            public SetAsTreasureFunction deserialize(JsonObject object, JsonDeserializationContext deserializationContext,
+                                                     LootCondition[] conditionsIn) {
+                return new SetAsTreasureFunction();
+            }
+        }
+    }
 
 }

@@ -1,7 +1,7 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.common.BWMRecipes;
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.BWMRecipes;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.block.state.IBlockState;
@@ -25,27 +25,46 @@ import java.util.stream.Collectors;
 /**
  * Created by primetoxinz on 4/20/17.
  */
-public class MossGeneration extends Feature {
-    private static HashMap<Block,IBlockState> CONVERTED_BLOCKS = new HashMap<>();
-
+public class MossGeneration extends Component {
     public static int RADIUS;
     public static int RATE;
     public static boolean DISABLE_VINE_RECIPES;
+    private static HashMap<Block, IBlockState> CONVERTED_BLOCKS = new HashMap<>();
 
     public static void addBlockConversion(Block block, IBlockState mossyState) { //TODO: Could be the new block meta ingredient possibly
-        CONVERTED_BLOCKS.put(block,mossyState);
+        CONVERTED_BLOCKS.put(block, mossyState);
+    }
+
+    private static Optional<BlockPos> randomPosition(World world, BlockPos start, BlockPos end) {
+        if (world.isAreaLoaded(start, end)) {
+            return Optional.of(new BlockPos(
+                    randomRange(start.getX(), end.getX()),
+                    randomRange(start.getY(), end.getY()),
+                    randomRange(start.getZ(), end.getZ())
+            ));
+        }
+        return Optional.empty();
+    }
+
+    private static Optional<IBlockState> getMossyVariant(IBlockState state) {
+        return Optional.ofNullable(CONVERTED_BLOCKS.get(state.getBlock()));
+    }
+
+    private static int randomRange(int start, int end) {
+        int d = end - start;
+        return start + RandomUtils.nextInt(0, d);
     }
 
     @Override
     public void setupConfig() {
         RADIUS = loadPropInt("Moss radius from the mob spawner", "", 5);
         RATE = loadPropInt("Moss grow rate", "1 out of this rate will cause a moss to try to generate", 100);
-        DISABLE_VINE_RECIPES = loadPropBool("Disable Vine Recipes","Disables the mossy cobblestone and mossy brick recipes involving vines.",true);
+        DISABLE_VINE_RECIPES = loadPropBool("Disable Vine Recipes", "Disables the mossy cobblestone and mossy brick recipes involving vines.", true);
     }
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        if(DISABLE_VINE_RECIPES) {
+        if (DISABLE_VINE_RECIPES) {
             BWMRecipes.removeRecipe("minecraft:mossy_cobblestone");
             BWMRecipes.removeRecipe("minecraft:mossy_stonebrick");
         }
@@ -53,8 +72,8 @@ public class MossGeneration extends Feature {
 
     @Override
     public void init(FMLInitializationEvent event) {
-        addBlockConversion(Blocks.COBBLESTONE,Blocks.MOSSY_COBBLESTONE.getDefaultState());
-        addBlockConversion(Blocks.STONEBRICK,Blocks.STONEBRICK.getDefaultState().withProperty(BlockStoneBrick.VARIANT, BlockStoneBrick.EnumType.MOSSY));
+        addBlockConversion(Blocks.COBBLESTONE, Blocks.MOSSY_COBBLESTONE.getDefaultState());
+        addBlockConversion(Blocks.STONEBRICK, Blocks.STONEBRICK.getDefaultState().withProperty(BlockStoneBrick.VARIANT, BlockStoneBrick.EnumType.MOSSY));
     }
 
     @SubscribeEvent
@@ -80,21 +99,6 @@ public class MossGeneration extends Feature {
         });
     }
 
-    private static Optional<BlockPos> randomPosition(World world, BlockPos start, BlockPos end) {
-        if (world.isAreaLoaded(start, end)) {
-            return Optional.of(new BlockPos(
-                    randomRange(start.getX(), end.getX()),
-                    randomRange(start.getY(), end.getY()),
-                    randomRange(start.getZ(), end.getZ())
-            ));
-        }
-        return Optional.empty();
-    }
-
-    private static Optional<IBlockState> getMossyVariant(IBlockState state) {
-        return Optional.ofNullable(CONVERTED_BLOCKS.get(state.getBlock()));
-    }
-
     @Override
     public boolean hasSubscriptions() {
         return true;
@@ -103,10 +107,5 @@ public class MossGeneration extends Feature {
     @Override
     public String getFeatureDescription() {
         return "Cobblestone or Stonebrick within the spawning radius of a Mob Spawner will randomly grow into the Mossy version.";
-    }
-
-    private static int randomRange(int start, int end) {
-        int d = end - start;
-        return start + RandomUtils.nextInt(0, d);
     }
 }

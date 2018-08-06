@@ -90,7 +90,7 @@ public abstract class EntityWaterMob extends EntityCreature implements IAnimals 
 
         boolean var3;
         try {
-            var3 = this.world.isRainingAt(lvt_1_1_) || this.world.isRainingAt(lvt_1_1_.setPos(this.posX, this.posY + (double)this.height, this.posZ));
+            var3 = this.world.isRainingAt(lvt_1_1_) || this.world.isRainingAt(lvt_1_1_.setPos(this.posX, this.posY + (double) this.height, this.posZ));
         } catch (Throwable var12) {
             var2 = var12;
             throw var12;
@@ -177,27 +177,27 @@ public abstract class EntityWaterMob extends EntityCreature implements IAnimals 
             lvt_3_1_ = 1.0F;
         }
 
-        if ((double)lvt_3_1_ < 0.25D) {
+        if ((double) lvt_3_1_ < 0.25D) {
             this.playSound(this.getSplashSound(), lvt_3_1_, 1.0F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
         } else {
             this.playSound(this.getHighspeedSplashSound(), lvt_3_1_, 1.0F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.4F);
         }
 
-        float lvt_4_1_ = (float)MathHelper.floor(this.getEntityBoundingBox().minY);
+        float lvt_4_1_ = (float) MathHelper.floor(this.getEntityBoundingBox().minY);
 
         int lvt_5_2_;
         float lvt_6_2_;
         float lvt_7_2_;
-        for(lvt_5_2_ = 0; (float)lvt_5_2_ < 1.0F + this.width * 20.0F; ++lvt_5_2_) {
+        for (lvt_5_2_ = 0; (float) lvt_5_2_ < 1.0F + this.width * 20.0F; ++lvt_5_2_) {
             lvt_6_2_ = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width;
             lvt_7_2_ = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width;
-            this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX + (double)lvt_6_2_, (double)(lvt_4_1_ + 1.0F), this.posZ + (double)lvt_7_2_, this.motionX, this.motionY - (double)(this.rand.nextFloat() * 0.2F), this.motionZ);
+            this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX + (double) lvt_6_2_, (double) (lvt_4_1_ + 1.0F), this.posZ + (double) lvt_7_2_, this.motionX, this.motionY - (double) (this.rand.nextFloat() * 0.2F), this.motionZ);
         }
 
-        for(lvt_5_2_ = 0; (float)lvt_5_2_ < 1.0F + this.width * 20.0F; ++lvt_5_2_) {
+        for (lvt_5_2_ = 0; (float) lvt_5_2_ < 1.0F + this.width * 20.0F; ++lvt_5_2_) {
             lvt_6_2_ = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width;
             lvt_7_2_ = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width;
-            this.world.spawnParticle(EnumParticleTypes.WATER_SPLASH, this.posX + (double)lvt_6_2_, (double)(lvt_4_1_ + 1.0F), this.posZ + (double)lvt_7_2_, this.motionX, this.motionY, this.motionZ);
+            this.world.spawnParticle(EnumParticleTypes.WATER_SPLASH, this.posX + (double) lvt_6_2_, (double) (lvt_4_1_ + 1.0F), this.posZ + (double) lvt_7_2_, this.motionX, this.motionY, this.motionZ);
         }
 
     }

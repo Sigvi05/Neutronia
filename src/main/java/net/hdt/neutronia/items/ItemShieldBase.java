@@ -25,7 +25,7 @@ import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class ItemShieldBase extends ItemMod implements INeutroniaItem {
 
-    public ItemShieldBase(String name){
+    public ItemShieldBase(String name) {
         super(name, MOD_ID);
         this.setCreativeTab(CreativeTabs.COMBAT);
         setMaxStackSize(1);

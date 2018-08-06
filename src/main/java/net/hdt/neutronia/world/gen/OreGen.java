@@ -41,8 +41,8 @@ public class OreGen implements IWorldGenerator {
 
 //            this.runGenerator(basalt, world, random, chunkX, chunkZ, 400, 1, 15);
             this.runGenerator(fieryStone, world, random, chunkX, chunkZ, 90, 0, i2 - 5 + random.nextInt(10));
-            this.runGenerator(volcanicGlowRock, world, random, chunkX, chunkZ, 90, 0,  i2 - 5 + random.nextInt(10));
-            this.runGenerator(volcanicRock, world, random, chunkX, chunkZ, 90, 0,  i2 - 5 + random.nextInt(10));
+            this.runGenerator(volcanicGlowRock, world, random, chunkX, chunkZ, 90, 0, i2 - 5 + random.nextInt(10));
+            this.runGenerator(volcanicRock, world, random, chunkX, chunkZ, 90, 0, i2 - 5 + random.nextInt(10));
         }
         if (world.provider.getDimension() == 0) {
             this.runGenerator(marble, world, random, chunkX, chunkZ, 10, 60, 180);
@@ -55,11 +55,11 @@ public class OreGen implements IWorldGenerator {
             throw new IllegalArgumentException("Wrong Height Arguments");
 
         int heightDiff = maxHeight - minHeight + 1;
-        for (int i = 0; i < chancesToSpawn; i ++) {
+        for (int i = 0; i < chancesToSpawn; i++) {
             int x = chunk_X * 16 + rand.nextInt(16);
             int y = minHeight + rand.nextInt(heightDiff);
             int z = chunk_Z * 16 + rand.nextInt(16);
-            BlockPos pos = new BlockPos(x,y,z);
+            BlockPos pos = new BlockPos(x, y, z);
             generator.generate(world, rand, pos);
 
         }

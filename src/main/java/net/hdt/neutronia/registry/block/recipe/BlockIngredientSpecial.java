@@ -1,4 +1,4 @@
-package betterwithmods.common.registry.block.recipe;
+package net.hdt.neutronia.registry.block.recipe;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -18,6 +18,6 @@ public class BlockIngredientSpecial extends BlockIngredient {
 
     @Override
     public boolean apply(World world, BlockPos pos, @Nullable IBlockState state) {
-        return predicate.test(world,pos);
+        return predicate.test(world, pos);
     }
 }

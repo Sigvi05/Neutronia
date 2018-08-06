@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.base.groups.GroupLoader;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.config.GuiConfig;
@@ -12,12 +12,12 @@ import java.util.List;
 
 class GuiConfigCategory extends GuiConfig {
 
-	GuiConfigCategory(GuiScreen parentScreen, String baseCategory) {
-		super(parentScreen, getAllElements(baseCategory), LibMisc.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(GroupLoader.config.toString()));
-	}
+    GuiConfigCategory(GuiScreen parentScreen, String baseCategory) {
+        super(parentScreen, getAllElements(baseCategory), LibMisc.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(GroupLoader.config.toString()));
+    }
 
-	private static List<IConfigElement> getAllElements(String baseCategory) {
-		return new ArrayList<>(new ConfigElement(GroupLoader.config.getCategory(baseCategory)).getChildElements());
-	}
+    private static List<IConfigElement> getAllElements(String baseCategory) {
+        return new ArrayList<>(new ConfigElement(GroupLoader.config.getCategory(baseCategory)).getChildElements());
+    }
 
 }

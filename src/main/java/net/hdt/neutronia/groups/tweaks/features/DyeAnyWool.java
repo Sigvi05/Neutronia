@@ -12,29 +12,29 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class DyeAnyWool extends Component {
 
-	boolean add8WoolRecipe;
+    boolean add8WoolRecipe;
 
-	@Override
-	public void setupConfig() {
-		add8WoolRecipe = loadPropBool("Add 8 Dyed Wool Recipe", "", true);
-	}
+    @Override
+    public void setupConfig() {
+        add8WoolRecipe = loadPropBool("Add 8 Dyed Wool Recipe", "", true);
+    }
 
-	@Override
-	public void postPreInit(FMLPreInitializationEvent event) {
-		for(int i = 0; i < 16; i++) {
-			String dye = LibMisc.OREDICT_DYES.get(15 - i);
+    @Override
+    public void postPreInit(FMLPreInitializationEvent event) {
+        for (int i = 0; i < 16; i++) {
+            String dye = LibMisc.OREDICT_DYES.get(15 - i);
 
-			addRecipe(Blocks.WOOL, i, dye);
-		}
-	}
+            addRecipe(Blocks.WOOL, i, dye);
+        }
+    }
 
-	private void addRecipe(Block block, int meta, String dye) {
-		ItemStack in = ProxyRegistry.newStack(block, 1, OreDictionary.WILDCARD_VALUE);
-		RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(block, 1, meta), in, dye);
+    private void addRecipe(Block block, int meta, String dye) {
+        ItemStack in = ProxyRegistry.newStack(block, 1, OreDictionary.WILDCARD_VALUE);
+        RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(block, 1, meta), in, dye);
 
-		if(add8WoolRecipe)
-			RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(block, 8, meta), 
-					dye, in, in, in, in, in, in, in, in);
-	}
+        if (add8WoolRecipe)
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(block, 8, meta),
+                    dye, in, in, in, in, in, in, in, in);
+    }
 
 }

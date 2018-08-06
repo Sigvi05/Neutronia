@@ -1,4 +1,4 @@
-package betterwithmods.common.penalties;
+package net.hdt.neutronia.penalties;
 
 import net.minecraft.entity.player.EntityPlayer;
 import org.apache.commons.lang3.Range;

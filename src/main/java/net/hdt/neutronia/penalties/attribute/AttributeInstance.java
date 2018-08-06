@@ -1,4 +1,4 @@
-package betterwithmods.common.penalties.attribute;
+package net.hdt.neutronia.penalties.attribute;
 
 public class AttributeInstance<V> implements IAttributeInstance<V> {
 

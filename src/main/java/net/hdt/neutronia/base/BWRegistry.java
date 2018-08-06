@@ -3,28 +3,15 @@ package net.hdt.neutronia.base;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.util.InvUtils;
-import net.hdt.neutronia.blocks.other.BlockBDispenser;
 import net.hdt.neutronia.groups.tweaks.features.HCTools;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockDispenser;
+import net.hdt.neutronia.penalties.PenaltyHandlerRegistry;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -47,66 +34,29 @@ public class BWRegistry {
 
     public static final PenaltyHandlerRegistry PENALTY_HANDLERS = new PenaltyHandlerRegistry();
 
-    public static final CookingPotManager CAULDRON = new CookingPotManager();
-    public static final CookingPotManager CRUCIBLE = new CookingPotManager();
-    public static final MillManager MILLSTONE = new MillManager();
-    public static final SawManagerBlock WOOD_SAW = new SawManagerBlock();
-    public static final KilnManagerBlock KILN = new KilnManagerBlock();
-    public static final TurntableManagerBlock TURNTABLE = new TurntableManagerBlock();
-    public static final HopperFilters HOPPER_FILTERS = new HopperFilters();
-
-    @GameRegistry.ObjectHolder("betterwithmods:true_sight")
+    @GameRegistry.ObjectHolder("neutronia:true_sight")
     public static final Potion POTION_TRUESIGHT = null;
-    @GameRegistry.ObjectHolder("betterwithmods:fortune")
+    @GameRegistry.ObjectHolder("neutronia:fortune")
     public static final Potion POTION_FORTUNE = null;
-    @GameRegistry.ObjectHolder("betterwithmods:looting")
+    @GameRegistry.ObjectHolder("neutronia:looting")
     public static final Potion POTION_LOOTING = null;
-    @GameRegistry.ObjectHolder("betterwithmods:slow_fall")
+    @GameRegistry.ObjectHolder("neutronia:slow_fall")
     public static final Potion POTION_SLOWFALL = null;
 
     private static int availableEntityId = 0;
-
-    static {
-        BWMAPI.IMPLEMENTATION = new MechanicalUtil();
-    }
-
-    public static void preInit() {
-        API.manualAPI = ManualDefinitionImpl.INSTANCE;
-        BWAdvancements.registerAdvancements();
-        BWNetwork.registerNetworking();
-        BWMBlocks.registerBlocks();
-        BWMItems.registerItems();
-        BWMBlocks.registerTileEntities();
-        BWRegistry.registerEntities();
-        BWRegistry.registerBlockDispenserBehavior();
-        CapabilityManager.INSTANCE.register(IMechanicalPower.class, new CapabilityMechanicalPower.Impl(), CapabilityMechanicalPower.Default::new);
-        CapabilityManager.INSTANCE.register(IAxle.class, new CapabilityAxle.Impl(), CapabilityAxle.Default::new);
-        KilnStructureManager.registerKilnBlock(Blocks.BRICK_BLOCK.getDefaultState());
-        KilnStructureManager.registerKilnBlock(Blocks.NETHER_BRICK.getDefaultState());
-    }
-
-    @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        BWMBlocks.getBlocks().forEach(event.getRegistry()::register);
-    }
-
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
-        BWMItems.getItems().forEach(event.getRegistry()::register);
-    }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         ForgeRegistry<IRecipe> reg = (ForgeRegistry<IRecipe>) event.getRegistry();
 
-        for(IRecipe recipe: BWMRecipes.getRecipes()) {
+        for (IRecipe recipe : BWMRecipes.getRecipes()) {
             event.getRegistry().register(recipe);
         }
 
         for (IRecipe recipe : reg) {
-            for(Pattern pattern: BWMRecipes.REMOVE_BY_REGEX) {
+            for (Pattern pattern : BWMRecipes.REMOVE_BY_REGEX) {
                 Matcher matcher = pattern.matcher(recipe.getRegistryName().toString());
-                if(matcher.matches()) {
+                if (matcher.matches()) {
                     reg.remove(recipe.getRegistryName());
                 }
             }
@@ -128,87 +78,15 @@ public class BWRegistry {
     }
 
     public static void init() {
-        BWRegistry.registerHeatSources();
         BWOreDictionary.registerOres();
     }
 
     public static void postInit() {
         BWOreDictionary.postInitOreDictGathering();
-        BellowsManager.postInit();
     }
 
     public static void postPostInit() {
         registerRecipes();
-    }
-
-    /**
-     * All names should be snake_case by convention (enforced in 1.11).
-     */
-    private static void registerEntities() {
-        BWRegistry.registerEntity(EntityExtendingRope.class, "extending_rope", 64, 20, true);
-        BWRegistry.registerEntity(EntityDynamite.class, "bwm_dynamite", 10, 50, true);
-        BWRegistry.registerEntity(EntityUrn.class, "bwm_urn", 10, 50, true);
-        BWRegistry.registerEntity(EntityMiningCharge.class, "bwm_mining_charge", 10, 50, true);
-        BWRegistry.registerEntity(EntityShearedCreeper.class, "entity_sheared_creeper", 64, 1, true);
-        BWRegistry.registerEntity(EntityBroadheadArrow.class, "entity_broadhead_arrow", 64, 1, true);
-        BWRegistry.registerEntity(EntityFallingGourd.class, "entity_falling_gourd", 64, 1, true);
-        BWRegistry.registerEntity(EntityFallingBlockCustom.class, "falling_block_custom", 64, 20, true);
-        BWRegistry.registerEntity(EntitySpiderWeb.class, "bwm_spider_web", 64, 20, true);
-        BWRegistry.registerEntity(EntityHCFishHook.class, "bwm_fishing_hook", 64, 20, true);
-        BWRegistry.registerEntity(EntityTentacle.class, "bwm_tentacle", 64, 1, true);
-
-        BWRegistry.registerEntity(EntityJungleSpider.class, "bwm_jungle_spider", 64, 1, true, 0x3C6432, 0x648C50 );
-    }
-
-    public static void registerBlockDispenserBehavior() {
-        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(BWMItems.DYNAMITE, new DispenserBehaviorDynamite());
-        BlockBDispenser.BLOCK_DISPENSER_REGISTRY.putObject(BWMItems.DYNAMITE, new DispenserBehaviorDynamite());
-        BlockBDispenser.BLOCK_DISPENSER_REGISTRY.putObject(Items.REPEATER, new BehaviorDiodeDispense());
-        BlockBDispenser.BLOCK_DISPENSER_REGISTRY.putObject(Items.COMPARATOR, new BehaviorDiodeDispense());
-        BlockBDispenser.BLOCK_DISPENSER_REGISTRY.putObject(Item.getItemFromBlock(BWMBlocks.MINING_CHARGE),
-                (source, stack) -> {
-                    World worldIn = source.getWorld();
-                    EnumFacing facing = source.getBlockState().getValue(BlockDispenser.FACING);
-                    BlockPos pos = source.getBlockPos().offset(facing);
-                    EntityMiningCharge miningCharge = new EntityMiningCharge(worldIn, pos.getX() + 0.5F, pos.getY(),
-                            pos.getZ() + 0.5F, null, facing);
-                    miningCharge.setNoGravity(false);
-                    worldIn.spawnEntity(miningCharge);
-                    worldIn.playSound(null, miningCharge.posX, miningCharge.posY, miningCharge.posZ,
-                            SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    return stack;
-                });
-        BlockBDispenser.BLOCK_COLLECT_REGISTRY.putObject(Blocks.STONE, new BehaviorSilkTouch());
-        BlockBDispenser.BLOCK_COLLECT_REGISTRY.putObject(Blocks.LOG, new BehaviorSilkTouch());
-        BlockBDispenser.BLOCK_COLLECT_REGISTRY.putObject(Blocks.LOG2, new BehaviorSilkTouch());
-
-
-        BlockBDispenser.ENTITY_COLLECT_REGISTRY.putObject(new ResourceLocation("minecraft:sheep"), (world, pos, entity, stack) -> {
-            EntitySheep sheep = (EntitySheep) entity;
-            if (sheep.isShearable(new ItemStack(Items.SHEARS), world, pos)) {
-                return InvUtils.asNonnullList(sheep.onSheared(new ItemStack(Items.SHEARS), world, pos, 0));
-            }
-            return NonNullList.create();
-        });
-        BlockBDispenser.ENTITY_COLLECT_REGISTRY.putObject(new ResourceLocation("minecraft:chicken"), (world, pos, entity, stack) -> {
-            if (((EntityAgeable) entity).isChild())
-                return NonNullList.create();
-            InvUtils.ejectStackWithOffset(world, pos, new ItemStack(Items.FEATHER, 1 + world.rand.nextInt(2)));
-            world.playSound(null, pos, SoundEvents.ENTITY_CHICKEN_HURT, SoundCategory.NEUTRAL, 0.75F, 1.0F);
-            entity.setDead();
-            return InvUtils.asNonnullList(new ItemStack(Items.EGG));
-        });
-        BlockBDispenser.ENTITY_COLLECT_REGISTRY.putObject(new ResourceLocation("minecraft:cow"), (world, pos, entity, stack) -> {
-            if (((EntityAgeable) entity).isChild())
-                return NonNullList.create();
-            if (stack.isItemEqual(new ItemStack(Items.BUCKET))) {
-                stack.shrink(1);
-                world.playSound(null, pos, SoundEvents.ENTITY_COW_MILK, SoundCategory.BLOCKS, 1.0F, 1.0F);
-
-                InvUtils.ejectStackWithOffset(world, pos, new ItemStack(Items.MILK_BUCKET));
-            }
-            return NonNullList.create();
-        });
     }
 
     /**

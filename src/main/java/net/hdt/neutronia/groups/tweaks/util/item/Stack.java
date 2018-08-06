@@ -59,6 +59,7 @@ public class Stack {
     public ItemStack getItemStack() {
         return new ItemStack(getItem(), 1, getMeta());
     }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Stack))
@@ -73,13 +74,13 @@ public class Stack {
         return Objects.hashCode(item);
     }
 
-    private enum Type {
-        BLOCK,
-        ITEM
-    }
-
     @Override
     public String toString() {
         return String.format("%s->%s:%s:%s", getType(), getItem().getTranslationKey(new ItemStack(item, 0, meta)), getMeta(), hashCode());
+    }
+
+    private enum Type {
+        BLOCK,
+        ITEM
     }
 }

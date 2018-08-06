@@ -1,6 +1,6 @@
-package betterwithmods.common.registry.block.recipe;
+package net.hdt.neutronia.registry.block.recipe;
 
-import betterwithmods.common.BWMRecipes;
+import net.hdt.neutronia.base.BWMRecipes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;

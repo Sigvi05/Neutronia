@@ -1,9 +1,10 @@
-package betterwithmods.common.penalties.attribute;
+package net.hdt.neutronia.penalties.attribute;
 
-import betterwithmods.BWMod;
-import betterwithmods.module.ConfigHelper;
+import net.hdt.neutronia.base.groups.ConfigHelper;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.lang3.Range;
+
+import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
 public class BWMAttributes {
 
@@ -11,16 +12,16 @@ public class BWMAttributes {
     public static Attribute<Float> SPEED, SPOOKED;
 
     public static void registerAttributes() {
-        JUMP = new BooleanAttribute(new ResourceLocation(BWMod.MODID, "jump"), true).setDescription("Can the player jump with this penalty active?");
-        SWIM = new BooleanAttribute(new ResourceLocation(BWMod.MODID, "swim"), true).setDescription("Can the player swim with this penalty active?");
-        HEAL = new BooleanAttribute(new ResourceLocation(BWMod.MODID, "heal"), true).setDescription("Can the player heal with this penalty active?");
-        SPRINT = new BooleanAttribute(new ResourceLocation(BWMod.MODID, "sprint"), true).setDescription("Can the player sprint with this penalty active?");
-        ATTACK = new BooleanAttribute(new ResourceLocation(BWMod.MODID, "attack"), true).setDescription("Can the player attack with this penalty active?");
-        PAIN = new BooleanAttribute(new ResourceLocation(BWMod.MODID, "pain"), false).setDescription("Is the player in pain? (Plays the OOF noise periodically)");
-        GRUE = new BooleanAttribute(new ResourceLocation(BWMod.MODID, "grue"), false).setDescription("Can the player be eaten by the Grue when this is active?");
+        JUMP = new BooleanAttribute(new ResourceLocation(MOD_ID, "jump"), true).setDescription("Can the player jump with this penalty active?");
+        SWIM = new BooleanAttribute(new ResourceLocation(MOD_ID, "swim"), true).setDescription("Can the player swim with this penalty active?");
+        HEAL = new BooleanAttribute(new ResourceLocation(MOD_ID, "heal"), true).setDescription("Can the player heal with this penalty active?");
+        SPRINT = new BooleanAttribute(new ResourceLocation(MOD_ID, "sprint"), true).setDescription("Can the player sprint with this penalty active?");
+        ATTACK = new BooleanAttribute(new ResourceLocation(MOD_ID, "attack"), true).setDescription("Can the player attack with this penalty active?");
+        PAIN = new BooleanAttribute(new ResourceLocation(MOD_ID, "pain"), false).setDescription("Is the player in pain? (Plays the OOF noise periodically)");
+        GRUE = new BooleanAttribute(new ResourceLocation(MOD_ID, "grue"), false).setDescription("Can the player be eaten by the Grue when this is active?");
 
-        SPEED = new FloatAttribute(new ResourceLocation(BWMod.MODID, "speed"), 1f).setDescription("Speed modifier when this penalty is active. (Multiplies the player's existing speed)");
-        SPOOKED = new FloatAttribute(new ResourceLocation(BWMod.MODID, "spooked"), 0f).setDescription("Does the player start to go insane when this is active?");
+        SPEED = new FloatAttribute(new ResourceLocation(MOD_ID, "speed"), 1f).setDescription("Speed modifier when this penalty is active. (Multiplies the player's existing speed)");
+        SPOOKED = new FloatAttribute(new ResourceLocation(MOD_ID, "spooked"), 0f).setDescription("Does the player start to go insane when this is active?");
     }
 
     public static boolean isCustom(String category) {
@@ -29,12 +30,12 @@ public class BWMAttributes {
 
     public static AttributeInstance<Boolean> getBooleanAttribute(IAttribute<Boolean> parent, String category, String penalty, String desc, Boolean defaultValue) {
 
-        boolean value = isCustom(category) ? ConfigHelper.loadPropBool(parent.getRegistryName().getResourcePath(), String.join(".", category, penalty), desc, defaultValue) : defaultValue;
+        boolean value = isCustom(category) ? ConfigHelper.loadPropBool(parent.getRegistryName().getPath(), String.join(".", category, penalty), desc, defaultValue) : defaultValue;
         return new AttributeInstance<>(parent, value);
     }
 
     public static AttributeInstance<Float> getFloatAttribute(IAttribute<Float> parent, String category, String penalty, String desc, Float defaultValue) {
-        float value = isCustom(category) ? (float) ConfigHelper.loadPropDouble(parent.getRegistryName().getResourcePath(), String.join(".", category, penalty), desc, defaultValue) : defaultValue;
+        float value = isCustom(category) ? (float) ConfigHelper.loadPropDouble(parent.getRegistryName().getPath(), String.join(".", category, penalty), desc, defaultValue) : defaultValue;
         return new AttributeInstance<>(parent, value);
     }
 

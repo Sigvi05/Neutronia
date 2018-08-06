@@ -8,10 +8,10 @@ import net.minecraft.util.NonNullList;
 
 public class ModCreativeTab extends CreativeTabs {
 
-    private ItemStack icon = getIcon();
     private boolean displayRandom;
     private int tempIndex = 0;
     private ItemStack tempDisplayStack = ItemStack.EMPTY;
+    private ItemStack icon = getIcon();
 
     public ModCreativeTab(String label, boolean displayRandom) {
         super(label);

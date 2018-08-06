@@ -1,18 +1,18 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class BabyJumping extends Feature {
+public class BabyJumping extends Component {
 
     @SubscribeEvent
     public void onJump(LivingEvent.LivingJumpEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
-        if(entity instanceof EntityLiving) {
+        if (entity instanceof EntityLiving) {
             if (!entity.isChild())
                 return;
 

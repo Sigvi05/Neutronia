@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
  */
 public class HCTools extends Component {
 
-
     public static final HashMap<Item.ToolMaterial, ToolMaterialOverride> OVERRIDES = Maps.newHashMap();
     public static boolean removeLowTools;
     public static int noHungerThreshold;

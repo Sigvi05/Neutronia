@@ -15,19 +15,16 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockSeaPickle extends BlockModBush implements IGrowable
-{
+public class BlockSeaPickle extends BlockModBush implements IGrowable {
     public static final PropertyInteger field_204902_a = BlockStateProperties.field_208135_aj;
     private static final PropertyBool field_204903_b = BlockStateProperties.field_208198_y;
 
-    public BlockSeaPickle()
-    {
+    public BlockSeaPickle() {
         super("sea_pickle", Material.CORAL);
         this.setDefaultState((this.blockState.getBaseState()).withProperty(field_204902_a, 1).withProperty(field_204903_b, Boolean.TRUE));
     }
 
-    private boolean func_204901_j(IBlockState p_204901_1_)
-    {
+    private boolean func_204901_j(IBlockState p_204901_1_) {
         return !p_204901_1_.getValue(field_204903_b);
     }
 
@@ -44,49 +41,38 @@ public class BlockSeaPickle extends BlockModBush implements IGrowable
         return true;
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         return true;
     }
 
-    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
-        if (!this.func_204901_j(state) && worldIn.getBlockState(pos.down()).getBlock() instanceof BlockCoralBlock)
-        {
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        if (!this.func_204901_j(state) && worldIn.getBlockState(pos.down()).getBlock() instanceof BlockCoralBlock) {
             int j = 1;
             int l = 0;
             int i1 = pos.getX() - 2;
             int j1 = 0;
 
-            for (int k1 = 0; k1 < 5; ++k1)
-            {
-                for (int l1 = 0; l1 < j; ++l1)
-                {
+            for (int k1 = 0; k1 < 5; ++k1) {
+                for (int l1 = 0; l1 < j; ++l1) {
                     int i2 = 2 + pos.getY() - 1;
 
-                    for (int j2 = i2 - 2; j2 < i2; ++j2)
-                    {
+                    for (int j2 = i2 - 2; j2 < i2; ++j2) {
                         BlockPos blockpos = new BlockPos(i1 + k1, j2, pos.getZ() - j1 + l1);
 
-                        if (blockpos != pos && rand.nextInt(6) == 0 && worldIn.getBlockState(blockpos).getBlock() == Blocks.WATER)
-                        {
+                        if (blockpos != pos && rand.nextInt(6) == 0 && worldIn.getBlockState(blockpos).getBlock() == Blocks.WATER) {
                             IBlockState iblockstate = worldIn.getBlockState(blockpos.down());
 
-                            if (iblockstate.getBlock() instanceof BlockCoralBlock)
-                            {
+                            if (iblockstate.getBlock() instanceof BlockCoralBlock) {
                                 worldIn.setBlockState(blockpos, SeaPickles.SEA_PICKLE.getDefaultState().withProperty(field_204902_a, rand.nextInt(4) + 1), 3);
                             }
                         }
                     }
                 }
 
-                if (l < 2)
-                {
+                if (l < 2) {
                     j += 2;
                     ++j1;
-                }
-                else
-                {
+                } else {
                     j -= 2;
                     --j1;
                 }

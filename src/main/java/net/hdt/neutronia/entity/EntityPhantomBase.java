@@ -28,6 +28,11 @@ import java.util.Objects;
 
 public class EntityPhantomBase extends EntityFlying implements IMob {
     private static final DataParameter<Integer> field_203035_a;
+
+    static {
+        field_203035_a = EntityDataManager.createKey(EntityPhantom.class, DataSerializers.VARINT);
+    }
+
     private Vec3d field_203036_b;
     private BlockPos field_203037_c;
     private EntityPhantom.AttackPhase field_203038_bx;
@@ -80,13 +85,13 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
     }
 
     public void func_203033_m() {
-        int lvt_1_1_ = (Integer)this.dataManager.get(field_203035_a);
-        this.setSize(0.9F + 0.2F * (float)lvt_1_1_, 0.5F + 0.1F * (float)lvt_1_1_);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double)(6 + lvt_1_1_));
+        int lvt_1_1_ = (Integer) this.dataManager.get(field_203035_a);
+        this.setSize(0.9F + 0.2F * (float) lvt_1_1_, 0.5F + 0.1F * (float) lvt_1_1_);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue((double) (6 + lvt_1_1_));
     }
 
     public int func_203032_dq() {
-        return (Integer)this.dataManager.get(field_203035_a);
+        return (Integer) this.dataManager.get(field_203035_a);
     }
 
     public float getEyeHeight() {
@@ -104,16 +109,16 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
     public void onUpdate() {
         super.onUpdate();
         if (this.world.isRemote) {
-            float lvt_1_1_ = net.minecraft.util.math.MathHelper.cos((float)(this.getEntityId() * 3 + this.ticksExisted) * 0.13F + 3.1415927F);
-            float lvt_2_1_ = net.minecraft.util.math.MathHelper.cos((float)(this.getEntityId() * 3 + this.ticksExisted + 1) * 0.13F + 3.1415927F);
+            float lvt_1_1_ = net.minecraft.util.math.MathHelper.cos((float) (this.getEntityId() * 3 + this.ticksExisted) * 0.13F + 3.1415927F);
+            float lvt_2_1_ = net.minecraft.util.math.MathHelper.cos((float) (this.getEntityId() * 3 + this.ticksExisted + 1) * 0.13F + 3.1415927F);
             if (lvt_1_1_ > 0.0F && lvt_2_1_ <= 0.0F) {
                 this.world.playSound(this.posX, this.posY, this.posZ, NSounds.ENTITY_PHANTOM_FLAP, this.getSoundCategory(), 0.95F + this.rand.nextFloat() * 0.05F, 0.95F + this.rand.nextFloat() * 0.05F, false);
             }
 
             int lvt_3_1_ = this.func_203032_dq();
-            float lvt_4_1_ = net.minecraft.util.math.MathHelper.cos(this.rotationYaw * 0.017453292F) * (1.3F + 0.21F * (float)lvt_3_1_);
-            float lvt_5_1_ = net.minecraft.util.math.MathHelper.sin(this.rotationYaw * 0.017453292F) * (1.3F + 0.21F * (float)lvt_3_1_);
-            float lvt_6_1_ = (0.3F + lvt_1_1_ * 0.45F) * ((float)lvt_3_1_ * 0.2F + 1.0F);
+            float lvt_4_1_ = net.minecraft.util.math.MathHelper.cos(this.rotationYaw * 0.017453292F) * (1.3F + 0.21F * (float) lvt_3_1_);
+            float lvt_5_1_ = net.minecraft.util.math.MathHelper.sin(this.rotationYaw * 0.017453292F) * (1.3F + 0.21F * (float) lvt_3_1_);
+            float lvt_6_1_ = (0.3F + lvt_1_1_ * 0.45F) * ((float) lvt_3_1_ * 0.2F + 1.0F);
 //            this.world.spawnParticle(EnumNeutroniaParticles.MYCELIUM, this.posX + (double)lvt_4_1_, this.posY + (double)lvt_6_1_, this.posZ + (double)lvt_5_1_, 0.0D, 0.0D, 0.0D);
 //            this.world.addParticle(EnumNeutroniaParticles.MYCELIUM, this.posX - (double)lvt_4_1_, this.posY + (double)lvt_6_1_, this.posZ - (double)lvt_5_1_, 0.0D, 0.0D, 0.0D);
         }
@@ -132,15 +137,15 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
         super.onLivingUpdate();
     }
 
-    protected void updateAITasks() {
-        super.updateAITasks();
-    }
-
     /*public IEntityLivingData func_204210_a(DifficultyInstance p_204210_1_, @Nullable IEntityLivingData p_204210_2_, @Nullable NBTTagCompound p_204210_3_) {
         this.field_203037_c = (new BlockPos(this)).up(5);
         this.func_203034_a(0);
         return super.func_204210_a(p_204210_1_, p_204210_2_, p_204210_3_);
     }*/
+
+    protected void updateAITasks() {
+        super.updateAITasks();
+    }
 
     public void readEntityFromNBT(NBTTagCompound p_readEntityFromNBT_1_) {
         super.readEntityFromNBT(p_readEntityFromNBT_1_);
@@ -175,14 +180,14 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
         return NSounds.ENTITY_PHANTOM_HURT;
     }
 
-    protected SoundEvent getDeathSound() {
-        return NSounds.ENTITY_PHANTOM_DEATH;
-    }
-
     /*@Nullable
     protected ResourceLocation getLootTable() {
         return LootTableList.field_203250_E;
     }*/
+
+    protected SoundEvent getDeathSound() {
+        return NSounds.ENTITY_PHANTOM_DEATH;
+    }
 
     public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.UNDEAD;
@@ -196,8 +201,12 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
         return true;
     }
 
-    static {
-        field_203035_a = EntityDataManager.createKey(EntityPhantom.class, DataSerializers.VARINT);
+    static enum AttackPhase {
+        CIRCLE,
+        SWOOP;
+
+        private AttackPhase() {
+        }
     }
 
     class AIAttackPlayer extends EntityAIBase {
@@ -221,8 +230,8 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
                     });
                     Iterator var3 = lvt_2_1_.iterator();
 
-                    while(var3.hasNext()) {
-                        EntityPlayer lvt_4_1_ = (EntityPlayer)var3.next();
+                    while (var3.hasNext()) {
+                        EntityPlayer lvt_4_1_ = (EntityPlayer) var3.next();
                         if (EntityAITarget.isSuitableTarget(new EntityPhantomBase(world), lvt_4_1_, false, false)) {
                             setAttackTarget(lvt_4_1_);
                             return true;
@@ -295,7 +304,7 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
 
         public void updateTask() {
             EntityLivingBase lvt_1_1_ = getAttackTarget();
-            field_203036_b = new Vec3d(Objects.requireNonNull(lvt_1_1_).posX, lvt_1_1_.posY + (double)lvt_1_1_.height * 0.5D, lvt_1_1_.posZ);
+            field_203036_b = new Vec3d(Objects.requireNonNull(lvt_1_1_).posX, lvt_1_1_.posY + (double) lvt_1_1_.height * 0.5D, lvt_1_1_.posZ);
             if (getEntityBoundingBox().grow(0.20000000298023224D).intersects(lvt_1_1_.getEntityBoundingBox())) {
                 attackEntityAsMob(lvt_1_1_);
                 field_203038_bx = EntityPhantom.AttackPhase.CIRCLE;
@@ -368,7 +377,7 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
             }
 
             this.field_203150_c += this.field_203153_f * 15.0F * 0.017453292F;
-            field_203036_b = (new Vec3d(field_203037_c)).add((double)(this.field_203151_d * MathHelper.cos(this.field_203150_c)), (double)(-4.0F + this.field_203152_e), (double)(this.field_203151_d * MathHelper.sin(this.field_203150_c)));
+            field_203036_b = (new Vec3d(field_203037_c)).add((double) (this.field_203151_d * MathHelper.cos(this.field_203150_c)), (double) (-4.0F + this.field_203152_e), (double) (this.field_203151_d * MathHelper.sin(this.field_203150_c)));
         }
     }
 
@@ -415,17 +424,17 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
                 this.field_203105_j = 0.1F;
             }
 
-            float lvt_1_1_ = (float)(field_203036_b.x - posX);
-            float lvt_2_1_ = (float)(field_203036_b.y - posY);
-            float lvt_3_1_ = (float)(field_203036_b.z - posZ);
-            double lvt_4_1_ = (double)MathHelper.sqrt(lvt_1_1_ * lvt_1_1_ + lvt_3_1_ * lvt_3_1_);
-            double lvt_6_1_ = 1.0D - (double)MathHelper.abs(lvt_2_1_ * 0.7F) / lvt_4_1_;
-            lvt_1_1_ = (float)((double)lvt_1_1_ * lvt_6_1_);
-            lvt_3_1_ = (float)((double)lvt_3_1_ * lvt_6_1_);
-            lvt_4_1_ = (double)MathHelper.sqrt(lvt_1_1_ * lvt_1_1_ + lvt_3_1_ * lvt_3_1_);
-            double lvt_8_1_ = (double)MathHelper.sqrt(lvt_1_1_ * lvt_1_1_ + lvt_3_1_ * lvt_3_1_ + lvt_2_1_ * lvt_2_1_);
+            float lvt_1_1_ = (float) (field_203036_b.x - posX);
+            float lvt_2_1_ = (float) (field_203036_b.y - posY);
+            float lvt_3_1_ = (float) (field_203036_b.z - posZ);
+            double lvt_4_1_ = (double) MathHelper.sqrt(lvt_1_1_ * lvt_1_1_ + lvt_3_1_ * lvt_3_1_);
+            double lvt_6_1_ = 1.0D - (double) MathHelper.abs(lvt_2_1_ * 0.7F) / lvt_4_1_;
+            lvt_1_1_ = (float) ((double) lvt_1_1_ * lvt_6_1_);
+            lvt_3_1_ = (float) ((double) lvt_3_1_ * lvt_6_1_);
+            lvt_4_1_ = (double) MathHelper.sqrt(lvt_1_1_ * lvt_1_1_ + lvt_3_1_ * lvt_3_1_);
+            double lvt_8_1_ = (double) MathHelper.sqrt(lvt_1_1_ * lvt_1_1_ + lvt_3_1_ * lvt_3_1_ + lvt_2_1_ * lvt_2_1_);
             float lvt_10_1_ = rotationYaw;
-            float lvt_11_1_ = (float)MathHelper.atan2((double)lvt_3_1_, (double)lvt_1_1_);
+            float lvt_11_1_ = (float) MathHelper.atan2((double) lvt_3_1_, (double) lvt_1_1_);
             float lvt_12_1_ = MathHelper.wrapDegrees(rotationYaw + 90.0F);
             float lvt_13_1_ = MathHelper.wrapDegrees(lvt_11_1_ * 57.295776F);
             rotationYaw = MathHelper.clamp(lvt_12_1_, lvt_13_1_, 4.0F) - 90.0F;
@@ -436,23 +445,15 @@ public class EntityPhantomBase extends EntityFlying implements IMob {
                 this.field_203105_j = MathHelper.func_203300_b(this.field_203105_j, 0.2F, 0.025F);
             }
 
-            float lvt_14_1_ = (float)(-(MathHelper.atan2((double)(-lvt_2_1_), lvt_4_1_) * 57.2957763671875D));
+            float lvt_14_1_ = (float) (-(MathHelper.atan2((double) (-lvt_2_1_), lvt_4_1_) * 57.2957763671875D));
             rotationPitch = lvt_14_1_;
             float lvt_15_1_ = rotationYaw + 90.0F;
-            double lvt_16_1_ = (double)(this.field_203105_j * MathHelper.cos(lvt_15_1_ * 0.017453292F)) * Math.abs((double)lvt_1_1_ / lvt_8_1_);
-            double lvt_18_1_ = (double)(this.field_203105_j * MathHelper.sin(lvt_15_1_ * 0.017453292F)) * Math.abs((double)lvt_3_1_ / lvt_8_1_);
-            double lvt_20_1_ = (double)(this.field_203105_j * MathHelper.sin(lvt_14_1_ * 0.017453292F)) * Math.abs((double)lvt_2_1_ / lvt_8_1_);
+            double lvt_16_1_ = (double) (this.field_203105_j * MathHelper.cos(lvt_15_1_ * 0.017453292F)) * Math.abs((double) lvt_1_1_ / lvt_8_1_);
+            double lvt_18_1_ = (double) (this.field_203105_j * MathHelper.sin(lvt_15_1_ * 0.017453292F)) * Math.abs((double) lvt_3_1_ / lvt_8_1_);
+            double lvt_20_1_ = (double) (this.field_203105_j * MathHelper.sin(lvt_14_1_ * 0.017453292F)) * Math.abs((double) lvt_2_1_ / lvt_8_1_);
             motionX += (lvt_16_1_ - motionX) * 0.2D;
             motionY += (lvt_20_1_ - motionY) * 0.2D;
             motionZ += (lvt_18_1_ - motionZ) * 0.2D;
-        }
-    }
-
-    static enum AttackPhase {
-        CIRCLE,
-        SWOOP;
-
-        private AttackPhase() {
         }
     }
 

@@ -1,10 +1,9 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.common.entity.EntityJungleSpider;
-import betterwithmods.common.registry.block.recipe.BlockIngredient;
-import betterwithmods.common.registry.block.recipe.BlockMaterialIngredient;
-import betterwithmods.module.Feature;
 import com.google.common.collect.Lists;
+import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.registry.block.recipe.BlockIngredient;
+import net.hdt.neutronia.registry.block.recipe.BlockMaterialIngredient;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -33,10 +32,10 @@ import java.util.List;
 /**
  * Created by primetoxinz on 4/20/17.
  */
-public class MobSpawning extends Feature {
+public class MobSpawning extends Component {
     public static final SpawnWhitelist NETHER = new SpawnWhitelist();
     public static final SpawnWhitelist SLIME = new SpawnWhitelist();
-    
+
     private boolean slime;
     private boolean nether;
     private boolean witches;
@@ -59,8 +58,6 @@ public class MobSpawning extends Feature {
         Iterator<Biome> iterator = Biome.REGISTRY.iterator();
         while (iterator.hasNext()) {
             Biome biome = iterator.next();
-            if (jungleSpiders && BiomeDictionary.hasType(biome, BiomeDictionary.Type.JUNGLE))
-                EntityRegistry.addSpawn(EntityJungleSpider.class, 100, 1, 3, EnumCreatureType.MONSTER, biome);
             if (witches && !BiomeDictionary.hasType(biome, BiomeDictionary.Type.SWAMP))
                 EntityRegistry.removeSpawn(EntityWitch.class, EnumCreatureType.MONSTER, biome);
         }

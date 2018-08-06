@@ -1,12 +1,17 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
+import net.hdt.neutronia.base.BWRegistry;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.tweaks.util.item.StackMap;
+import net.hdt.neutronia.penalties.ArmorPenalties;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 /**
  * Created by primetoxinz on 5/10/17.
@@ -14,7 +19,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class HCArmor extends Component {
 
     public static final StackMap<Integer> weights = new StackMap<>(0);
-
+    public static ArmorPenalties penalties;
     public static boolean shieldRebalance;
 
     public static float getWeight(ItemStack stack) {
@@ -22,8 +27,6 @@ public class HCArmor extends Component {
             return 0;
         return weights.get(stack);
     }
-
-
 
     public static void initWeights() {
 
@@ -50,11 +53,11 @@ public class HCArmor extends Component {
 
     @Override
     public void init(FMLInitializationEvent event) {
-        /*if (shieldRebalance) {
+        if (shieldRebalance) {
             addHardcoreRecipe(new ShapedOreRecipe(null, new ItemStack(Items.SHIELD),
-                    "SWS", "WIW", " W ", 'S', "strapLeather", 'W', "sidingWood", 'I', "ingotIron"
+                    "SWS", "WIW", " W ", 'S', Items.LEATHER, 'W', Blocks.PLANKS, 'I', "ingotIron"
             ).setRegistryName("minecraft:shield"));
-        }*/
+        }
         initWeights();
     }
 
@@ -66,6 +69,11 @@ public class HCArmor extends Component {
     @Override
     public void setupConfig() {
         shieldRebalance = loadPropBool("Shield Rebalance", "Experimental recipes for rebalacing shields", false);
+    }
+
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        BWRegistry.PENALTY_HANDLERS.add(penalties = new ArmorPenalties());
     }
 
     @Override

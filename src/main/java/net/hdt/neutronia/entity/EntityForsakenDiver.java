@@ -1,7 +1,7 @@
 package net.hdt.neutronia.entity;
 
-import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.base.util.handlers.LootTableHandler;
+import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.*;
@@ -73,7 +73,7 @@ public class EntityForsakenDiver extends EntityMob {
     }
 
     @Override
-    protected PathNavigate createNavigator(World world){
+    protected PathNavigate createNavigator(World world) {
         return new PathNavigateSwimmer(this, world);
     }
 
@@ -106,7 +106,7 @@ public class EntityForsakenDiver extends EntityMob {
             rotationYaw = rand.nextFloat() * 360.0F;
             onGround = false;
             isAirBorne = true;
-            if(getEntityWorld().getTotalWorldTime()%5==0)
+            if (getEntityWorld().getTotalWorldTime() % 5 == 0)
                 getEntityWorld().playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GUARDIAN_FLOP, SoundCategory.HOSTILE, 1F, 1F);
             damageEntity(DamageSource.DROWN, 0.5F);
         }
@@ -116,8 +116,8 @@ public class EntityForsakenDiver extends EntityMob {
 
     @Override
     public void onUpdate() {
-        if(!getEntityWorld().isRemote) {
-            if(getAttackTarget() != null && !getEntityWorld().containsAnyLiquid(getAttackTarget().getEntityBoundingBox())) {
+        if (!getEntityWorld().isRemote) {
+            if (getAttackTarget() != null && !getEntityWorld().containsAnyLiquid(getAttackTarget().getEntityBoundingBox())) {
                 Double distance = getPosition().getDistance((int) getAttackTarget().posX, (int) getAttackTarget().posY, (int) getAttackTarget().posZ);
                 if (distance > 1.0F && distance < 6.0F) // && getAttackTarget().getEntityBoundingBox().maxY >= getEntityBoundingBox().minY && getAttackTarget().getEntityBoundingBox().minY <= getEntityBoundingBox().maxY && rand.nextInt(3) == 0)
                     if (isInWater() && getEntityWorld().isAirBlock(new BlockPos((int) posX, (int) posY + 1, (int) posZ))) {
@@ -137,7 +137,7 @@ public class EntityForsakenDiver extends EntityMob {
     public void travel(float strafe, float up, float forward) {
         if (isServerWorld()) {
             if (isInWater()) {
-                moveRelative(strafe, up,  forward, 0.1F);
+                moveRelative(strafe, up, forward, 0.1F);
                 move(MoverType.SELF, motionX, motionY, motionZ);
                 motionX *= 0.8999999761581421D;
                 motionY *= 1D;
@@ -157,8 +157,7 @@ public class EntityForsakenDiver extends EntityMob {
     /**
      * Checks that the entity is not colliding with any blocks / liquids
      */
-    public boolean isNotColliding()
-    {
+    public boolean isNotColliding() {
         return this.world.checkNoEntityCollision(this.getEntityBoundingBox(), this) && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty();
     }
 
@@ -187,13 +186,11 @@ public class EntityForsakenDiver extends EntityMob {
         this.getDataManager().set(ARMS_RAISED, armsRaised);
     }
 
-    public boolean canBreatheUnderwater()
-    {
+    public boolean canBreatheUnderwater() {
         return true;
     }
 
-    public boolean isPushedByWater()
-    {
+    public boolean isPushedByWater() {
         return false;
     }
 

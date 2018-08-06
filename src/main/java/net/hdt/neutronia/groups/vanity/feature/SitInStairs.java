@@ -23,124 +23,132 @@ import java.util.List;
 
 public class SitInStairs extends Component {
 
-	@SubscribeEvent
-	public void onInteractWithBlock(PlayerInteractEvent.RightClickBlock event) {
-		EntityPlayer player = event.getEntityPlayer();
-		if(player.getRidingEntity() != null)
-			return;
-		
-		World world = event.getWorld();
-		BlockPos pos = event.getPos();
-		
-		Vec3d vec = new Vec3d(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-		double maxDist = 2;
-		if((vec.x - player.posX) * (vec.x - player.posX) + (vec.y - player.posY) * (vec.y - player.posY) + (vec.z - player.posZ) * (vec.z - player.posZ) > maxDist * maxDist)
-			return;
-		
-		IBlockState state = world.getBlockState(pos);
+    public static boolean canBeAbove(World world, BlockPos pos) {
+        BlockPos upPos = pos.up();
+        IBlockState state = world.getBlockState(upPos);
+        Block block = state.getBlock();
+        return block.getCollisionBoundingBox(state, world, upPos) == null;
+    }
 
-		ItemStack stack1 = player.getHeldItemMainhand();
-		ItemStack stack2 = player.getHeldItemOffhand();
-		if(!stack1.isEmpty() || !stack2.isEmpty())
-			return;
+    @SubscribeEvent
+    public void onInteractWithBlock(PlayerInteractEvent.RightClickBlock event) {
+        EntityPlayer player = event.getEntityPlayer();
+        if (player.getRidingEntity() != null)
+            return;
 
-		if(state.getBlock() instanceof BlockStairs && state.getValue(BlockStairs.HALF) == EnumHalf.BOTTOM && !state.getBlock().isSideSolid(state, world, pos, event.getFace()) && canBeAbove(world, pos)) {
-			List<SeatStair> seats = world.getEntitiesWithinAABB(SeatStair.class, new AxisAlignedBB(pos, pos.add(1, 1, 1)));
+        World world = event.getWorld();
+        BlockPos pos = event.getPos();
 
-			if(seats.isEmpty()) {
+        Vec3d vec = new Vec3d(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+        double maxDist = 2;
+        if ((vec.x - player.posX) * (vec.x - player.posX) + (vec.y - player.posY) * (vec.y - player.posY) + (vec.z - player.posZ) * (vec.z - player.posZ) > maxDist * maxDist)
+            return;
+
+        IBlockState state = world.getBlockState(pos);
+
+        ItemStack stack1 = player.getHeldItemMainhand();
+        ItemStack stack2 = player.getHeldItemOffhand();
+        if (!stack1.isEmpty() || !stack2.isEmpty())
+            return;
+
+        if (state.getBlock() instanceof BlockStairs && state.getValue(BlockStairs.HALF) == EnumHalf.BOTTOM && !state.getBlock().isSideSolid(state, world, pos, event.getFace()) && canBeAbove(world, pos)) {
+            List<SeatStair> seats = world.getEntitiesWithinAABB(SeatStair.class, new AxisAlignedBB(pos, pos.add(1, 1, 1)));
+
+            if (seats.isEmpty()) {
                 SeatStair seat = new SeatStair(world, pos);
-				world.spawnEntity(seat);
-				event.getEntityPlayer().startRiding(seat);
-			}
-		}
+                world.spawnEntity(seat);
+                event.getEntityPlayer().startRiding(seat);
+            }
+        }
 
-		if(state.getBlock() instanceof BlockSlab && state.getValue(BlockSlab.HALF) == BlockSlab.EnumBlockHalf.BOTTOM && !state.getBlock().isSideSolid(state, world, pos, event.getFace()) && canBeAbove(world, pos)) {
-			List<SeatSlab> seats = world.getEntitiesWithinAABB(SeatSlab.class, new AxisAlignedBB(pos, pos.add(1, 0.5, 1)));
+        if (state.getBlock() instanceof BlockSlab && state.getValue(BlockSlab.HALF) == BlockSlab.EnumBlockHalf.BOTTOM && !state.getBlock().isSideSolid(state, world, pos, event.getFace()) && canBeAbove(world, pos)) {
+            List<SeatSlab> seats = world.getEntitiesWithinAABB(SeatSlab.class, new AxisAlignedBB(pos, pos.add(1, 0.5, 1)));
 
-			if(seats.isEmpty()) {
+            if (seats.isEmpty()) {
                 SeatSlab seat = new SeatSlab(world, pos);
-				world.spawnEntity(seat);
-				event.getEntityPlayer().startRiding(seat);
-			}
-		}
+                world.spawnEntity(seat);
+                event.getEntityPlayer().startRiding(seat);
+            }
+        }
 
-        if(state.getBlock() instanceof Block && canBeAbove(world, pos)) {
+        if (state.getBlock() instanceof Block && canBeAbove(world, pos)) {
             List<SeatFullBlock> seats = world.getEntitiesWithinAABB(SeatFullBlock.class, new AxisAlignedBB(pos, pos.add(1, 1, 1)));
 
-            if(seats.isEmpty()) {
+            if (seats.isEmpty()) {
                 SeatFullBlock seat = new SeatFullBlock(world, pos);
                 world.spawnEntity(seat);
                 event.getEntityPlayer().startRiding(seat);
             }
         }
-	}
+    }
 
-	@SubscribeEvent
-	public void onInteractWithEntity(PlayerInteractEvent.EntityInteract event) {
+    @SubscribeEvent
+    public void onInteractWithEntity(PlayerInteractEvent.EntityInteract event) {
         EntityPlayer player = event.getEntityPlayer();
-        if(player.getRidingEntity() != null)
+        if (player.getRidingEntity() != null)
             return;
 
         World world = event.getWorld();
 
-        if(event.getTarget() instanceof EntityChicken) {
+        if (event.getTarget() instanceof EntityChicken) {
             List<? extends Entity> seats = world.getEntities(event.getTarget().getClass(), (Predicate<Entity>) input -> true);
 
-            if(seats.isEmpty()) {
+            if (seats.isEmpty()) {
                 SeatEntity seat = new SeatEntity(player, world);
                 world.spawnEntity(seat);
             }
         }
     }
 
-	@Override
-	public boolean hasSubscriptions() {
-		return true;
-	}
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
 
-	public static boolean canBeAbove(World world, BlockPos pos) {
-		BlockPos upPos = pos.up();
-		IBlockState state = world.getBlockState(upPos);
-		Block block = state.getBlock();
-		return block.getCollisionBoundingBox(state, world, upPos) == null;
-	}
+    public static class SeatStair extends Entity {
 
-	public static class SeatStair extends Entity {
+        public SeatStair(World world, BlockPos pos) {
+            this(world);
 
-		public SeatStair(World world, BlockPos pos) {
-			this(world);
+            setPosition(pos.getX() + 0.5, pos.getY() + 0.25, pos.getZ() + 0.5);
+        }
 
-			setPosition(pos.getX() + 0.5, pos.getY() + 0.25, pos.getZ() + 0.5);
-		}
+        public SeatStair(World par1World) {
+            super(par1World);
 
-		public SeatStair(World par1World) {
-			super(par1World);
+            setSize(0F, 0F);
+        }
 
-			setSize(0F, 0F);
-		}
+        @Override
+        public void onUpdate() {
+            super.onUpdate();
 
-		@Override
-		public void onUpdate() {
-			super.onUpdate();
+            BlockPos pos = getPosition();
+            if (!(getEntityWorld().getBlockState(pos).getBlock() instanceof BlockStairs) || !canBeAbove(getEntityWorld(), pos)) {
+                setDead();
+                return;
+            }
 
-			BlockPos pos = getPosition();
-			if(!(getEntityWorld().getBlockState(pos).getBlock() instanceof BlockStairs) || !canBeAbove(getEntityWorld(), pos)) {
-				setDead();
-				return;
-			}
+            List<Entity> passengers = getPassengers();
+            if (passengers.isEmpty())
+                setDead();
+            for (Entity e : passengers)
+                if (e.isSneaking())
+                    setDead();
+        }
 
-			List<Entity> passengers = getPassengers();
-			if(passengers.isEmpty())
-				setDead();
-			for(Entity e : passengers)
-				if(e.isSneaking())
-					setDead();
-		}
+        @Override
+        protected void entityInit() {
+        }
 
-		@Override protected void entityInit() { }
-		@Override protected void readEntityFromNBT(NBTTagCompound nbttagcompound) { }
-		@Override protected void writeEntityToNBT(NBTTagCompound nbttagcompound) { }
-	}
+        @Override
+        protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+        }
+
+        @Override
+        protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+        }
+    }
 
     public static class SeatEntity extends Entity {
 
@@ -160,9 +168,17 @@ public class SitInStairs extends Component {
             super.onUpdate();
         }
 
-        @Override protected void entityInit() { }
-        @Override protected void readEntityFromNBT(NBTTagCompound nbttagcompound) { }
-        @Override protected void writeEntityToNBT(NBTTagCompound nbttagcompound) { }
+        @Override
+        protected void entityInit() {
+        }
+
+        @Override
+        protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+        }
+
+        @Override
+        protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+        }
     }
 
     public static class SeatSlab extends Entity {
@@ -184,22 +200,30 @@ public class SitInStairs extends Component {
             super.onUpdate();
 
             BlockPos pos = getPosition();
-            if(!(getEntityWorld().getBlockState(pos).getBlock() instanceof BlockSlab) || !canBeAbove(getEntityWorld(), pos)) {
+            if (!(getEntityWorld().getBlockState(pos).getBlock() instanceof BlockSlab) || !canBeAbove(getEntityWorld(), pos)) {
                 setDead();
                 return;
             }
 
             List<Entity> passengers = getPassengers();
-            if(passengers.isEmpty())
+            if (passengers.isEmpty())
                 setDead();
-            for(Entity e : passengers)
-                if(e.isSneaking())
+            for (Entity e : passengers)
+                if (e.isSneaking())
                     setDead();
         }
 
-        @Override protected void entityInit() { }
-        @Override protected void readEntityFromNBT(NBTTagCompound nbttagcompound) { }
-        @Override protected void writeEntityToNBT(NBTTagCompound nbttagcompound) { }
+        @Override
+        protected void entityInit() {
+        }
+
+        @Override
+        protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+        }
+
+        @Override
+        protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+        }
     }
 
     public static class SeatFullBlock extends Entity {
@@ -221,22 +245,30 @@ public class SitInStairs extends Component {
             super.onUpdate();
 
             BlockPos pos = getPosition();
-            if(!canBeAbove(getEntityWorld(), pos)) {
+            if (!canBeAbove(getEntityWorld(), pos)) {
                 setDead();
                 return;
             }
 
             List<Entity> passengers = getPassengers();
-            if(passengers.isEmpty())
+            if (passengers.isEmpty())
                 setDead();
-            for(Entity e : passengers)
-                if(e.isSneaking())
+            for (Entity e : passengers)
+                if (e.isSneaking())
                     setDead();
         }
 
-        @Override protected void entityInit() { }
-        @Override protected void readEntityFromNBT(NBTTagCompound nbttagcompound) { }
-        @Override protected void writeEntityToNBT(NBTTagCompound nbttagcompound) { }
+        @Override
+        protected void entityInit() {
+        }
+
+        @Override
+        protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+        }
+
+        @Override
+        protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+        }
     }
 
 }

@@ -15,63 +15,63 @@ import net.minecraft.util.ResourceLocation;
 
 public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroniaBlock {
 
-	private final String[] variants;
-	private final String bareName;
+    private final String[] variants;
+    private final String bareName;
 
-	public BlockNeutroniaFenceGate(String name) {
-		super(BlockPlanks.EnumType.DARK_OAK);
+    public BlockNeutroniaFenceGate(String name) {
+        super(BlockPlanks.EnumType.DARK_OAK);
 
-		setHardness(3.0F);
-		setSoundType(SoundType.WOOD);
+        setHardness(3.0F);
+        setSoundType(SoundType.WOOD);
 
-		variants = new String[] { name };
-		bareName = name;
+        variants = new String[]{name};
+        bareName = name;
 
-		setTranslationKey(name);
-	}
+        setTranslationKey(name);
+    }
 
-	@Override
-	public Block setTranslationKey(String name) {
-		super.setTranslationKey(name);
-		setRegistryName(LibMisc.PREFIX_MOD + name);
-		ProxyRegistry.register(this);
-		ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
-		return this;
-	}
+    @Override
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
+        setRegistryName(LibMisc.PREFIX_MOD + name);
+        ProxyRegistry.register(this);
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        return this;
+    }
 
-	@Override
-	public String getBareName() {
-		return bareName;
-	}
+    @Override
+    public String getBareName() {
+        return bareName;
+    }
 
-	@Override
-	public String[] getVariants() {
-		return variants;
-	}
+    @Override
+    public String[] getVariants() {
+        return variants;
+    }
 
-	@Override
-	public ItemMeshDefinition getCustomMeshDefinition() {
-		return null;
-	}
+    @Override
+    public ItemMeshDefinition getCustomMeshDefinition() {
+        return null;
+    }
 
-	@Override
-	public EnumRarity getBlockRarity(ItemStack stack) {
-		return EnumRarity.COMMON;
-	}
+    @Override
+    public EnumRarity getBlockRarity(ItemStack stack) {
+        return EnumRarity.COMMON;
+    }
 
-	@Override
-	public IProperty[] getIgnoredProperties() {
-		return new IProperty[] { POWERED };
-	}
+    @Override
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[]{POWERED};
+    }
 
-	@Override
-	public IProperty getVariantProp() {
-		return null;
-	}
+    @Override
+    public IProperty getVariantProp() {
+        return null;
+    }
 
-	@Override
-	public Class getVariantEnum() {
-		return null;
-	}
+    @Override
+    public Class getVariantEnum() {
+        return null;
+    }
 
 }

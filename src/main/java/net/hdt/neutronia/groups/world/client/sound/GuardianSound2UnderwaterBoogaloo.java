@@ -7,22 +7,22 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class GuardianSound2UnderwaterBoogaloo extends GuardianSound {
 
-	EntityGuardian visibleGuardian;
+    EntityGuardian visibleGuardian;
 
-	public GuardianSound2UnderwaterBoogaloo(EntityGuardian guardian) {
-		super(guardian);
-		visibleGuardian = guardian;
-	}
+    public GuardianSound2UnderwaterBoogaloo(EntityGuardian guardian) {
+        super(guardian);
+        visibleGuardian = guardian;
+    }
 
-	@Override
-	public void update() {
-		EntityLivingBase target = visibleGuardian.getTargetedEntity();
-		if(target == null || !(target instanceof EntityPlayer)) {
-			donePlaying = true;
-			return;
-		}
+    @Override
+    public void update() {
+        EntityLivingBase target = visibleGuardian.getTargetedEntity();
+        if (target == null || !(target instanceof EntityPlayer)) {
+            donePlaying = true;
+            return;
+        }
 
-		super.update();
-	}
+        super.update();
+    }
 
 }

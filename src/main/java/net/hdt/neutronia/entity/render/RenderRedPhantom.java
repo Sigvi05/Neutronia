@@ -1,8 +1,8 @@
 package net.hdt.neutronia.entity.render;
 
+import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.entity.EntityBloodPhantom;
 import net.hdt.neutronia.entity.render.model.ModelPhantom;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

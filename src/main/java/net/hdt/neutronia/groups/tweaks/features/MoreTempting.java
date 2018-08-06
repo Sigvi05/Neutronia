@@ -1,9 +1,7 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.common.BWMBlocks;
-import betterwithmods.common.BWMItems;
-import betterwithmods.common.entity.ai.eat.EntityAITempt;
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.entity.ai.eat.EntityAITempt;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -16,7 +14,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class MoreTempting extends Feature {
+public class MoreTempting extends Component {
 
     private static Ingredient CHICKEN;
     private static Ingredient PIG;
@@ -45,8 +43,7 @@ public class MoreTempting extends Feature {
 
     @Override
     public void postInit(FMLPostInitializationEvent event) {
-        CHICKEN = Ingredient.fromStacks(new ItemStack(Items.WHEAT_SEEDS), new ItemStack(Items.MELON_SEEDS), new ItemStack(Items.PUMPKIN_SEEDS), new ItemStack(Items.BEETROOT_SEEDS), new ItemStack(BWMBlocks.HEMP));
-        PIG = Ingredient.fromItems(BWMItems.CHOCOLATE, Items.CARROT, Items.POTATO, Items.BEETROOT, Items.WHEAT);
+        CHICKEN = Ingredient.fromStacks(new ItemStack(Items.WHEAT_SEEDS), new ItemStack(Items.MELON_SEEDS), new ItemStack(Items.PUMPKIN_SEEDS), new ItemStack(Items.BEETROOT_SEEDS));
         HERD_ANIMAL = Ingredient.fromStacks(new ItemStack(Items.WHEAT), new ItemStack(Blocks.TALLGRASS));
     }
 

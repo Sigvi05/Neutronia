@@ -10,21 +10,21 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class NetherBrickFenceGate extends Component {
 
-	public static Block nether_brick_fence_gate;
+    public static Block nether_brick_fence_gate;
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		nether_brick_fence_gate = new BlockNetherBrickFenceGate();
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        nether_brick_fence_gate = new BlockNetherBrickFenceGate();
 
-		RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(nether_brick_fence_gate, 2),
-				"NBN", "NBN",
-				'N', ProxyRegistry.newStack(Blocks.NETHER_BRICK_FENCE),
-				'B', ProxyRegistry.newStack(Blocks.NETHER_BRICK));
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(nether_brick_fence_gate, 2),
+                "NBN", "NBN",
+                'N', ProxyRegistry.newStack(Blocks.NETHER_BRICK_FENCE),
+                'B', ProxyRegistry.newStack(Blocks.NETHER_BRICK));
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

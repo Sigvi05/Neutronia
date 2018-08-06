@@ -9,16 +9,16 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockBarkSlab extends BlockNeutroniaSlab implements IRecipeGrouped {
 
-	public BlockBarkSlab(BlockBark.Variants variant, boolean doubleSlab) {
-		super(variant.getName() + "_slab", Material.WOOD, doubleSlab);
-		setHardness(2.0F);
-		setSoundType(SoundType.WOOD);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockBarkSlab(BlockBark.Variants variant, boolean doubleSlab) {
+        super(variant.getName() + "_slab", Material.WOOD, doubleSlab);
+        setHardness(2.0F);
+        setSoundType(SoundType.WOOD);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
-	@Override
-	public String getRecipeGroup() {
-		return "bark_slab";
-	}
-	
+    @Override
+    public String getRecipeGroup() {
+        return "bark_slab";
+    }
+
 }

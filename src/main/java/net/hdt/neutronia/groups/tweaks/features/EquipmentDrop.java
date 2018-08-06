@@ -1,6 +1,6 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 /**
  * Created by primetoxinz on 4/20/17.
  */
-public class EquipmentDrop extends Feature {
+public class EquipmentDrop extends Component {
 
     @SubscribeEvent
     public void setDropChance(EntityJoinWorldEvent e) {

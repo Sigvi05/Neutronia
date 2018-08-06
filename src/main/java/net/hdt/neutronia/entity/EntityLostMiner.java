@@ -1,7 +1,7 @@
 package net.hdt.neutronia.entity;
 
-import net.hdt.neutronia.init.NItems;
 import net.hdt.neutronia.base.util.handlers.LootTableHandler;
+import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;

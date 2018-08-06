@@ -2,8 +2,8 @@ package net.hdt.neutronia.base.proxy;
 
 import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
-import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.groups.GroupLoader;
+import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
@@ -33,9 +33,9 @@ import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class ClientProxy extends CommonProxy {
 
-    private static ResourceProxy resourceProxy;
     public static final Minecraft minecraft = Minecraft.getMinecraft();
     private static final Timer timer = ReflectionHelper.getPrivateValue(Minecraft.class, ClientProxy.minecraft, "timer", "field_71428_T", "aa");
+    private static ResourceProxy resourceProxy;
 
     static {
         List<IResourcePack> packs = ReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), LibObfuscation.DEFAULT_RESOURCE_PACKS);
@@ -72,7 +72,7 @@ public class ClientProxy extends CommonProxy {
 
         IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
         IItemColor handlerItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
-        Block[][] toColor = new Block[][] {
+        Block[][] toColor = new Block[][]{
                 NBlocks.coloredCandles,
                 NBlocks.coloredLitCandles,
                 NBlocks.coloredLanterns,
@@ -83,32 +83,32 @@ public class ClientProxy extends CommonProxy {
         };
         Block[] coloredStuff = new Block[16 * toColor.length];
 
-        for(int i = 0; i < toColor.length; i++) {
+        for (int i = 0; i < toColor.length; i++) {
             Block[] colored = toColor[i];
             System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerBlocks, coloredStuff);
 
         IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
-        Block[][] toColorTranslucent = new Block[][] {
+        Block[][] toColorTranslucent = new Block[][]{
                 NBlocks.coloredSlimeBlock
         };
         Block[] coloredStuffTranslucent = new Block[16 * toColorTranslucent.length];
 
-        for(int i = 0; i < toColorTranslucent.length; i++) {
+        for (int i = 0; i < toColorTranslucent.length; i++) {
             Block[] colored = toColorTranslucent[i];
             System.arraycopy(colored, 0, coloredStuffTranslucent, i * 16, 16);
         }
         blocks.registerBlockColorHandler(handlerBlocksTranslucent, coloredStuffTranslucent);
 
         IBlockColor handlerSlabBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
-        Block[][] toColorSlabs = new Block[][] {
+        Block[][] toColorSlabs = new Block[][]{
                 NBlocks.coloredPlanksSlabSingle,
                 NBlocks.coloredPlanksSlabDouble
         };
         Block[] coloredSlabs = new Block[16 * toColorSlabs.length];
 
-        for(int i = 0; i < toColorSlabs.length; i++) {
+        for (int i = 0; i < toColorSlabs.length; i++) {
             Block[] colored = toColorSlabs[i];
             System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
         }
@@ -122,7 +122,7 @@ public class ClientProxy extends CommonProxy {
 
         IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
         IItemColor handlerItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
-        Block[][] toColor = new Block[][] {
+        Block[][] toColor = new Block[][]{
                 NBlocks.coloredCandles,
                 NBlocks.coloredLitCandles,
                 NBlocks.coloredLanterns,
@@ -133,7 +133,7 @@ public class ClientProxy extends CommonProxy {
         };
         Block[] coloredStuff = new Block[16 * toColor.length];
 
-        for(int i = 0; i < toColor.length; i++) {
+        for (int i = 0; i < toColor.length; i++) {
             Block[] colored = toColor[i];
             System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
         }
@@ -142,12 +142,12 @@ public class ClientProxy extends CommonProxy {
 
         IBlockColor handlerBlocksTranslucent = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
         IItemColor handlerItemsTranslucent = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
-        Block[][] toColorTranslucent = new Block[][] {
+        Block[][] toColorTranslucent = new Block[][]{
                 NBlocks.coloredSlimeBlock
         };
         Block[] coloredStuffTranslucent = new Block[16 * toColorTranslucent.length];
 
-        for(int i = 0; i < toColorTranslucent.length; i++) {
+        for (int i = 0; i < toColorTranslucent.length; i++) {
             Block[] colored = toColorTranslucent[i];
             System.arraycopy(colored, 0, coloredStuffTranslucent, i * 16, 16);
         }
@@ -156,13 +156,13 @@ public class ClientProxy extends CommonProxy {
 
         IBlockColor handlerSlabBlocks = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
         IItemColor handlerSlabItems = (s, t) -> blocks.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
-        Block[][] toColorSlabs = new Block[][] {
+        Block[][] toColorSlabs = new Block[][]{
                 NBlocks.coloredPlanksSlabSingle,
                 NBlocks.coloredPlanksSlabDouble
         };
         Block[] coloredSlabs = new Block[16 * toColorSlabs.length];
 
-        for(int i = 0; i < toColorSlabs.length; i++) {
+        for (int i = 0; i < toColorSlabs.length; i++) {
             Block[] colored = toColorSlabs[i];
             System.arraycopy(colored, 0, coloredSlabs, i * 16, 16);
         }

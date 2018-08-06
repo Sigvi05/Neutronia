@@ -27,10 +27,27 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     private static final WorldGenStructure CORALS = new WorldGenStructure(Lists.newArrayList("ocean_structures/coral_1", "ocean_structures/coral_2", "ocean_structures/coral_3", "ocean_structures/coral_4", "ocean_structures/coral_5", "ocean_structures/coral_blue", "ocean_structures/coral_pink", "ocean_structures/coral_purple", "ocean_structures/coral_yellow", "ocean_structures/coral_red"));
     private static final WorldGenStructure MISC_STRUCTURES = new WorldGenStructure(Lists.newArrayList("dungeon_top"));
 
-    /**TODO: Add Mini Castle, More Village Stuff, Spider Nests, Endermite Nests, Guardian Ruins, Mesa Temple, Mesa Village, Desert Labyrinth, Actual Pyramids,
-    **/
+    /**
+     * TODO: Add Mini Castle, More Village Stuff, Spider Nests, Endermite Nests, Guardian Ruins, Mesa Temple, Mesa Village, Desert Labyrinth, Actual Pyramids,
+     **/
     public WorldGenCustomStructures() {
         super();
+    }
+
+    private static Biome[] getBiomes(final BiomeDictionary.Type type) {
+        return BiomeDictionary.getBiomes(type).toArray(new Biome[0]);
+    }
+
+    private static int calculateGenerationHeight(World world, int x, int z, Block topBlock) {
+        int y = world.getHeight();
+        boolean foundGround = false;
+
+        while (!foundGround && y-- >= 0) {
+            Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
+            foundGround = block == topBlock;
+        }
+
+        return y;
     }
 
     @Override
@@ -43,10 +60,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    private static Biome[] getBiomes(final BiomeDictionary.Type type) {
-        return BiomeDictionary.getBiomes(type).toArray(new Biome[0]);
-    }
-
     private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Biome... classes) {
         Set<Biome> biomeSet = new HashSet<>();
         Collections.addAll(biomeSet, classes);
@@ -54,17 +67,15 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         int x = (chunkX * 16) + random.nextInt(16);
         int z = (chunkZ * 16) + random.nextInt(16);
         int y = calculateGenerationHeight(world, x, z, topBlock);
-        BlockPos pos = new BlockPos(x,y,z);
+        BlockPos pos = new BlockPos(x, y, z);
 
         Biome biome = world.getBiome(pos);
 
-        if(world.getWorldType() != WorldType.FLAT)
-        {
+        if (world.getWorldType() != WorldType.FLAT) {
             if (!biomeSet.contains(biome)) {
                 return;
             }
-            if(random.nextInt(chance) == 0)
-            {
+            if (random.nextInt(chance) == 0) {
                 generator.generate(world, random, pos);
 //                System.out.print(String.format("This structure has a %d percent of spawning" + "\n", random.nextInt(chance)));
             }
@@ -86,8 +97,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             if (!biomeSet.contains(biome)) {
                 return;
             }
-            if(random.nextInt(chance) == 0)
-            {
+            if (random.nextInt(chance) == 0) {
                 if (y + structureHeight < world.getHeight()) {
                     generator.generate(world, random, pos);
                 }
@@ -112,20 +122,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 }
             }
         }
-    }
-
-    private static int calculateGenerationHeight(World world, int x, int z, Block topBlock)
-    {
-        int y = world.getHeight();
-        boolean foundGround = false;
-
-        while(!foundGround && y-- >= 0)
-        {
-            Block block = world.getBlockState(new BlockPos(x,y,z)).getBlock();
-            foundGround = block == topBlock;
-        }
-
-        return y;
     }
 
 }

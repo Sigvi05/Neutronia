@@ -27,7 +27,7 @@ public class JsonGenerator {
     private static String modid = "neutronia";
 
     public static void main(String[] args) {
-        for(EnumDyeColor color : EnumDyeColor.values()) {
+        for (EnumDyeColor color : EnumDyeColor.values()) {
 //            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_slime_block", color.getName())), new ResourceLocation(modid, "colored_slime_block"), new ResourceLocation(modid, "colored_slime_block"));
 //            genCustomBlock(new ResourceLocation(modid, String.format("%s_terracotta_pot", color.getName())), new ResourceLocation(modid, "custom_flower_pot"));
         }
@@ -53,7 +53,7 @@ public class JsonGenerator {
         defaults.addProperty("model", "cube_all");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", textureName.getNamespace() + ":block/" +textureName.getPath());
+        textures.addProperty("all", textureName.getNamespace() + ":block/" + textureName.getPath());
         defaults.add("textures", textures);
 
         defaults.addProperty("transform", "forge:default-block");
@@ -131,7 +131,7 @@ public class JsonGenerator {
         defaults.addProperty("model", modelPath.getNamespace() + ":" + modelPath.getPath());
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", textureLocation.getNamespace() + ":block/" +textureLocation.getPath());
+        textures.addProperty("all", textureLocation.getNamespace() + ":block/" + textureLocation.getPath());
         defaults.add("textures", textures);
 
         defaults.addProperty("transform", "forge:default-block");
@@ -218,7 +218,7 @@ public class JsonGenerator {
         root.addProperty("parent", "neutronia:block/coral_fan");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("fan", textureName.getNamespace() + ":block/" +textureName.getPath());
+        textures.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -244,7 +244,7 @@ public class JsonGenerator {
         root.addProperty("parent", "item/generated");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("layer0", textureName.getNamespace() + ":block/" +textureName.getPath());
+        textures.addProperty("layer0", textureName.getNamespace() + ":block/" + textureName.getPath());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -320,7 +320,7 @@ public class JsonGenerator {
         root.addProperty("parent", "block/cross");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("cross", textureName.getNamespace() + ":block/" +textureName.getPath());
+        textures.addProperty("cross", textureName.getNamespace() + ":block/" + textureName.getPath());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -346,7 +346,7 @@ public class JsonGenerator {
         root.addProperty("parent", "item/generated");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("layer0", textureName.getNamespace() + ":block/" +textureName.getPath());
+        textures.addProperty("layer0", textureName.getNamespace() + ":block/" + textureName.getPath());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -411,7 +411,7 @@ public class JsonGenerator {
         root.addProperty("parent", "block/cross");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("cross", modId + ":block/" +textureName);
+        textures.addProperty("cross", modId + ":block/" + textureName);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -437,7 +437,7 @@ public class JsonGenerator {
         root.addProperty("parent", "item/generated");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("layer0", modId + ":block/" +textureName);
+        textures.addProperty("layer0", modId + ":block/" + textureName);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -467,13 +467,13 @@ public class JsonGenerator {
         defaults.addProperty("model", "block/orientable");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("top", topTextureName.getNamespace() + ":block/" +topTextureName.getPath());
-        textures.addProperty("front", frontTextureName.getNamespace() + ":block/" +frontTextureName.getPath());
-        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" +sidesTextureName.getPath());
+        textures.addProperty("top", topTextureName.getNamespace() + ":block/" + topTextureName.getPath());
+        textures.addProperty("front", frontTextureName.getNamespace() + ":block/" + frontTextureName.getPath());
+        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" + sidesTextureName.getPath());
         defaults.add("textures", textures);
 
         defaults.addProperty("transform", "forge:default-block");
-        
+
         root.add("defaults", defaults);
 
         JsonObject variants = new JsonObject();
@@ -522,9 +522,9 @@ public class JsonGenerator {
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
         root.addProperty("parent", "block/orientable");
         JsonObject textures = new JsonObject();
-        textures.addProperty("top", topTextureName.getNamespace() + ":block/" +topTextureName.getPath());
-        textures.addProperty("front", frontTextureName.getNamespace() + ":block/" +frontTextureName.getPath());
-        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" +sidesTextureName.getPath());
+        textures.addProperty("top", topTextureName.getNamespace() + ":block/" + topTextureName.getPath());
+        textures.addProperty("front", frontTextureName.getNamespace() + ":block/" + frontTextureName.getPath());
+        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" + sidesTextureName.getPath());
         root.add("textures", textures);
         String json = gson.toJson(root);
         try {
@@ -551,8 +551,8 @@ public class JsonGenerator {
         defaults.addProperty("model", "block/cube_column");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("end", endTextureName.getNamespace() + ":block/" +endTextureName.getPath());
-        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" +sidesTextureName.getPath());
+        textures.addProperty("end", endTextureName.getNamespace() + ":block/" + endTextureName.getPath());
+        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" + sidesTextureName.getPath());
         defaults.add("textures", textures);
 
         defaults.addProperty("transform", "forge:default-block");
@@ -607,8 +607,8 @@ public class JsonGenerator {
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
         root.addProperty("parent", "block/cube_column");
         JsonObject textures = new JsonObject();
-        textures.addProperty("end", endTextureName.getNamespace() + ":block/" +endTextureName.getPath());
-        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" +sidesTextureName.getPath());
+        textures.addProperty("end", endTextureName.getNamespace() + ":block/" + endTextureName.getPath());
+        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" + sidesTextureName.getPath());
         root.add("textures", textures);
         String json = gson.toJson(root);
         try {
@@ -636,9 +636,9 @@ public class JsonGenerator {
         JsonObject defaults = new JsonObject();
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", modId + ":block/" +bottomTexture);
-        textures.addProperty("side", modId + ":block/" +sideTexture);
-        textures.addProperty("top", modId + ":block/" +topTexture);
+        textures.addProperty("bottom", modId + ":block/" + bottomTexture);
+        textures.addProperty("side", modId + ":block/" + sideTexture);
+        textures.addProperty("top", modId + ":block/" + topTexture);
 
         defaults.add("textures", textures);
         defaults.addProperty("transform", "forge:default-block");
@@ -719,9 +719,9 @@ public class JsonGenerator {
         root.addProperty("parent", "block/stairs");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", modId + ":block/" +bottomTexture);
-        textures.addProperty("side", modId + ":block/" +sideTexture);
-        textures.addProperty("top", modId + ":block/" +topTexture);
+        textures.addProperty("bottom", modId + ":block/" + bottomTexture);
+        textures.addProperty("side", modId + ":block/" + sideTexture);
+        textures.addProperty("top", modId + ":block/" + topTexture);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -733,7 +733,6 @@ public class JsonGenerator {
         }
 
     }
-
 
 
     public static void genTest(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
@@ -754,9 +753,9 @@ public class JsonGenerator {
         JsonObject defaults = new JsonObject();
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", modId + ":block/" +bottomTexture);
-        textures.addProperty("side", modId + ":block/" +sideTexture);
-        textures.addProperty("top", modId + ":block/" +topTexture);
+        textures.addProperty("bottom", modId + ":block/" + bottomTexture);
+        textures.addProperty("side", modId + ":block/" + sideTexture);
+        textures.addProperty("top", modId + ":block/" + topTexture);
 
         defaults.add("textures", textures);
         defaults.addProperty("transform", "forge:default-block");
@@ -807,9 +806,9 @@ public class JsonGenerator {
         root.addProperty("parent", "block/stairs");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", modId + ":block/" +bottomTexture);
-        textures.addProperty("side", modId + ":block/" +sideTexture);
-        textures.addProperty("top", modId + ":block/" +topTexture);
+        textures.addProperty("bottom", modId + ":block/" + bottomTexture);
+        textures.addProperty("side", modId + ":block/" + sideTexture);
+        textures.addProperty("top", modId + ":block/" + topTexture);
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -882,7 +881,7 @@ public class JsonGenerator {
             jw.name("parent").value("block/pressure_plate_up");
             jw.name("textures");
             jw.beginObject();
-            jw.name("texture").value(modId + ":block/" +textureName);
+            jw.name("texture").value(modId + ":block/" + textureName);
             jw.endObject();
             jw.endObject();
 
@@ -896,7 +895,7 @@ public class JsonGenerator {
             jw2.name("parent").value("block/pressure_plate_down");
             jw2.name("textures");
             jw2.beginObject();
-            jw2.name("texture").value(modId + ":block/" +textureName);
+            jw2.name("texture").value(modId + ":block/" + textureName);
             jw2.endObject();
             jw2.endObject();
 
@@ -980,7 +979,7 @@ public class JsonGenerator {
         blarg.addProperty("model", "cube_all");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", sideTextureLocation.getNamespace() + ":block/" +sideTextureLocation.getPath());
+        textures.addProperty("all", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
 
         blarg.add("textures", textures);
 
@@ -1047,7 +1046,7 @@ public class JsonGenerator {
         blarg.addProperty("model", "neutronia:cube_all_colored");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", sideTextureLocation.getNamespace() + ":block/" +sideTextureLocation.getPath());
+        textures.addProperty("all", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
 
         blarg.add("textures", textures);
 
@@ -1085,9 +1084,9 @@ public class JsonGenerator {
         root.addProperty("parent", "neutronia:block/slab");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" +bottomTextureLocation.getPath());
-        textures.addProperty("side", sideTextureLocation.getNamespace() + ":block/" +sideTextureLocation.getPath());
-        textures.addProperty("top", topTextureLocation.getNamespace() + ":block/" +topTextureLocation.getPath());
+        textures.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
+        textures.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
+        textures.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -1097,9 +1096,9 @@ public class JsonGenerator {
         root2.addProperty("parent", "neutronia:block/slab_top");
 
         JsonObject textures2 = new JsonObject();
-        textures2.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" +bottomTextureLocation.getPath());
-        textures2.addProperty("side", sideTextureLocation.getNamespace() + ":block/" +sideTextureLocation.getPath());
-        textures2.addProperty("top", topTextureLocation.getNamespace() + ":block/" +topTextureLocation.getPath());
+        textures2.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
+        textures2.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
+        textures2.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
         root2.add("textures", textures2);
 
         String json2 = gson.toJson(root2);
@@ -1127,9 +1126,9 @@ public class JsonGenerator {
         root.addProperty("parent", "neutronia:block/slab");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" +bottomTextureLocation.getPath());
-        textures.addProperty("side", sideTextureLocation.getNamespace() + ":block/" +sideTextureLocation.getPath());
-        textures.addProperty("top", topTextureLocation.getNamespace() + ":block/" +topTextureLocation.getPath());
+        textures.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
+        textures.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
+        textures.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -1139,9 +1138,9 @@ public class JsonGenerator {
         root2.addProperty("parent", "neutronia:block/slab_top");
 
         JsonObject textures2 = new JsonObject();
-        textures2.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" +bottomTextureLocation.getPath());
-        textures2.addProperty("side", sideTextureLocation.getNamespace() + ":block/" +sideTextureLocation.getPath());
-        textures2.addProperty("top", topTextureLocation.getNamespace() + ":block/" +topTextureLocation.getPath());
+        textures2.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
+        textures2.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
+        textures2.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
         root2.add("textures", textures2);
 
         String json2 = gson.toJson(root2);
@@ -1221,7 +1220,7 @@ public class JsonGenerator {
         blarg.addProperty("model", "cube_all");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", modId + ":block/" +textureName);
+        textures.addProperty("all", modId + ":block/" + textureName);
 
         blarg.add("textures", textures);
 
@@ -1318,7 +1317,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", new ResourceLocation("neutronia","block/cube_bottom_half_overlay_all").toString());
+        root.addProperty("parent", new ResourceLocation("neutronia", "block/cube_bottom_half_overlay_all").toString());
 
         JsonObject textures = new JsonObject();
         textures.addProperty("all", mainTexture.toString());
@@ -1329,7 +1328,7 @@ public class JsonGenerator {
 
         JsonObject root2 = new JsonObject();
         root2.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root2.addProperty("parent", new ResourceLocation("neutronia","block/cube_top_half_overlay_all").toString());
+        root2.addProperty("parent", new ResourceLocation("neutronia", "block/cube_top_half_overlay_all").toString());
 
         JsonObject textures2 = new JsonObject();
         textures2.addProperty("all", mainTexture.toString());
@@ -1603,7 +1602,7 @@ public class JsonGenerator {
             root.addProperty("parent", "block/fence_post");
 
             JsonObject textures = new JsonObject();
-            textures.addProperty("texture", textureName.getNamespace() + ":block/" +textureName.getPath());
+            textures.addProperty("texture", textureName.getNamespace() + ":block/" + textureName.getPath());
             root.add("textures", textures);
 
             String json = gson.toJson(root);
@@ -1620,7 +1619,7 @@ public class JsonGenerator {
             root.addProperty("parent", "block/fence_side");
 
             JsonObject textures = new JsonObject();
-            textures.addProperty("texture", textureName.getNamespace() + ":block/" +textureName.getPath());
+            textures.addProperty("texture", textureName.getNamespace() + ":block/" + textureName.getPath());
             root.add("textures", textures);
 
             String json = gson.toJson(root);
@@ -1637,7 +1636,7 @@ public class JsonGenerator {
             root.addProperty("parent", "block/fence_inventory");
 
             JsonObject textures = new JsonObject();
-            textures.addProperty("texture", textureName.getNamespace() + ":block/" +textureName.getPath());
+            textures.addProperty("texture", textureName.getNamespace() + ":block/" + textureName.getPath());
             root.add("textures", textures);
 
             String json = gson.toJson(root);

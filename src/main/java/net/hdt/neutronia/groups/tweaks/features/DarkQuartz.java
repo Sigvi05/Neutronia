@@ -1,10 +1,9 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
-import betterwithmods.BWMod;
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class DarkQuartz extends Feature {
+public class DarkQuartz extends Component {
 
     @Override
     public String getFeatureDescription() {

@@ -1,4 +1,4 @@
-package betterwithmods.common.penalties.attribute;
+package net.hdt.neutronia.penalties.attribute;
 
 import net.minecraft.util.ResourceLocation;
 

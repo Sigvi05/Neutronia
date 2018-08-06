@@ -5,8 +5,8 @@ import net.hdt.neutronia.groups.world.features.Basalt;
 
 public class BlockBasaltStairs extends BlockNeutroniaStairs {
 
-	public BlockBasaltStairs() {
-		super("stone_basalt_stairs", Basalt.basalt.getDefaultState());
-	}
+    public BlockBasaltStairs() {
+        super("stone_basalt_stairs", Basalt.basalt.getDefaultState());
+    }
 
 }

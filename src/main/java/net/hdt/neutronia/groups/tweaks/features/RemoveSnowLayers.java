@@ -2,10 +2,10 @@
  * This class was created by <Vazkii>. It's distributed as
  * part of the Quark Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Quark
- *
+ * <p>
  * Quark is Open Source and distributed under the
  * CC-BY-NC-SA 3.0 License: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB
- *
+ * <p>
  * File Created @ [03/07/2016, 00:46:39 (GMT)]
  */
 package net.hdt.neutronia.groups.tweaks.features;
@@ -27,46 +27,46 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class RemoveSnowLayers extends Component {
 
-	@SubscribeEvent
-	public void onPlayerRightClick(PlayerInteractEvent.RightClickBlock event) {
-		if(event.getFace() != EnumFacing.UP)
-			return;
+    @SubscribeEvent
+    public void onPlayerRightClick(PlayerInteractEvent.RightClickBlock event) {
+        if (event.getFace() != EnumFacing.UP)
+            return;
 
-		World world = event.getWorld();
-		BlockPos pos = event.getPos();
-		EntityPlayer player = event.getEntityPlayer();
+        World world = event.getWorld();
+        BlockPos pos = event.getPos();
+        EntityPlayer player = event.getEntityPlayer();
 
-		IBlockState state = world.getBlockState(pos);
-		if(state.getBlock() != Blocks.SNOW_LAYER && state.getBlock() != Blocks.SNOW)
-			return;
+        IBlockState state = world.getBlockState(pos);
+        if (state.getBlock() != Blocks.SNOW_LAYER && state.getBlock() != Blocks.SNOW)
+            return;
 
-		ItemStack stack = event.getEntityPlayer().getHeldItem(event.getHand());
+        ItemStack stack = event.getEntityPlayer().getHeldItem(event.getHand());
 
-		if(!stack.isEmpty() && stack.getItem() instanceof ItemSpade) {
-			if(state.getBlock() == Blocks.SNOW)
-				world.setBlockState(pos, Blocks.SNOW_LAYER.getDefaultState().withProperty(BlockSnow.LAYERS, 7));
-			else {
-				int layers = state.getValue(BlockSnow.LAYERS);
-				if(layers == 1)
-					world.setBlockToAir(pos);
-				else world.setBlockState(pos, state.withProperty(BlockSnow.LAYERS, layers - 1));
-			}
+        if (!stack.isEmpty() && stack.getItem() instanceof ItemSpade) {
+            if (state.getBlock() == Blocks.SNOW)
+                world.setBlockState(pos, Blocks.SNOW_LAYER.getDefaultState().withProperty(BlockSnow.LAYERS, 7));
+            else {
+                int layers = state.getValue(BlockSnow.LAYERS);
+                if (layers == 1)
+                    world.setBlockToAir(pos);
+                else world.setBlockState(pos, state.withProperty(BlockSnow.LAYERS, layers - 1));
+            }
 
-			world.playSound(event.getEntityPlayer(), pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
-			stack.damageItem(1, event.getEntityPlayer());
-			player.swingArm(event.getHand());
-			event.setCanceled(true);
-		}
-	}
+            world.playSound(event.getEntityPlayer(), pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            stack.damageItem(1, event.getEntityPlayer());
+            player.swingArm(event.getHand());
+            event.setCanceled(true);
+        }
+    }
 
-	@Override
-	public boolean hasSubscriptions() {
-		return true;
-	}
-	
-	@Override
-	public String getComponentIngameConfigName() {
-		return "Shave Snow Layers";
-	}
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
+
+    @Override
+    public String getComponentIngameConfigName() {
+        return "Shave Snow Layers";
+    }
 
 }

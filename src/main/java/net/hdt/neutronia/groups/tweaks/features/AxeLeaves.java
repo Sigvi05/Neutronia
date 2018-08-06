@@ -1,13 +1,13 @@
 package betterwithmods.module.tweaks;
 
-import betterwithmods.module.Feature;
+import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * Created by primetoxinz on 4/20/17.
  */
-public class AxeLeaves extends Feature {
+public class AxeLeaves extends Component {
     @Override
     public String getFeatureDescription() {
         return "Axes are fast at breaking leaves";

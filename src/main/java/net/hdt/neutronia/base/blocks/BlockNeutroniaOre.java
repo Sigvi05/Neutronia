@@ -28,7 +28,7 @@ public class BlockNeutroniaOre extends BlockMod implements INeutroniaBlock {
     }
 
     private void registerRecipes() {
-        if(ingot != null) {
+        if (ingot != null) {
             GameRegistry.addSmelting(this, new ItemStack(ingot), 3F);
         }
     }
@@ -65,21 +65,16 @@ public class BlockNeutroniaOre extends BlockMod implements INeutroniaBlock {
         return drop;
     }
 
-    public int quantityDroppedWithBonus(int fortune, Random random)
-    {
-        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getBlockState().getValidStates().iterator().next(), random, fortune))
-        {
+    public int quantityDroppedWithBonus(int fortune, Random random) {
+        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getBlockState().getValidStates().iterator().next(), random, fortune)) {
             int i = random.nextInt(fortune + 2) - 1;
 
-            if (i < 0)
-            {
+            if (i < 0) {
                 i = 0;
             }
 
             return this.quantityDropped(random) * (i + 1);
-        }
-        else
-        {
+        } else {
             return this.quantityDropped(random);
         }
     }

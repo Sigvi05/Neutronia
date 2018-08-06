@@ -5,11 +5,11 @@ import net.hdt.neutronia.base.groups.GroupLoader;
 
 public class BetterCraftShifting extends Component {
 
-	public static int getInventoryBoundary(int curr) {
-		if(!GroupLoader.isFeatureEnabled(BetterCraftShifting.class))
-			return curr;
-		
-		return curr == 37 ? 0 : 10;
-	}
-	
+    public static int getInventoryBoundary(int curr) {
+        if (!GroupLoader.isFeatureEnabled(BetterCraftShifting.class))
+            return curr;
+
+        return curr == 37 ? 0 : 10;
+    }
+
 }

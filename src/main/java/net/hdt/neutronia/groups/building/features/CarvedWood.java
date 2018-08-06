@@ -10,21 +10,21 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CarvedWood extends Component {
 
-	public static BlockMod carvedWood;
+    public static BlockMod carvedWood;
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		carvedWood = new BlockCarvedWood();
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        carvedWood = new BlockCarvedWood();
 
-		for(int i = 0; i < 6; i++)
-			RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(carvedWood, 2, i),
-					"WW", "WW",
-					'W', ProxyRegistry.newStack(Blocks.WOODEN_SLAB, 1, i));
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+        for (int i = 0; i < 6; i++)
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(carvedWood, 2, i),
+                    "WW", "WW",
+                    'W', ProxyRegistry.newStack(Blocks.WOODEN_SLAB, 1, i));
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

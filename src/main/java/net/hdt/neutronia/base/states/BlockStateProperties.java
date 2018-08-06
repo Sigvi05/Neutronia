@@ -6,8 +6,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.util.EnumFacing;
 
-public class BlockStateProperties
-{
+public class BlockStateProperties {
     public static final PropertyBool field_208174_a = PropertyBool.create("attached");
     public static final PropertyBool field_208176_c = PropertyBool.create("conditional");
     public static final PropertyBool field_208178_e = PropertyBool.create("disarmed");

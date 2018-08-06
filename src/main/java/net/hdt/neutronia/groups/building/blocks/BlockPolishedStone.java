@@ -8,12 +8,12 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockPolishedStone extends BlockMod implements INeutroniaBlock {
 
-	public BlockPolishedStone() {
-		super("polished_sone", Material.ROCK);
-		setHardness(1.5F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-	}
+    public BlockPolishedStone() {
+        super("polished_sone", Material.ROCK);
+        setHardness(1.5F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    }
 
 }

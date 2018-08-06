@@ -9,33 +9,41 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ModelPharaoGolem extends ModelBase
-{
-    /** The head model for the iron golem. */
+public class ModelPharaoGolem extends ModelBase {
+    /**
+     * The head model for the iron golem.
+     */
     public ModelRenderer ironGolemHead;
-    /** The body model for the iron golem. */
+    /**
+     * The body model for the iron golem.
+     */
     public ModelRenderer ironGolemBody;
-    /** The right arm model for the iron golem. */
+    /**
+     * The right arm model for the iron golem.
+     */
     public ModelRenderer ironGolemRightArm;
-    /** The left arm model for the iron golem. */
+    /**
+     * The left arm model for the iron golem.
+     */
     public ModelRenderer ironGolemLeftArm;
-    /** The left leg model for the Iron Golem. */
+    /**
+     * The left leg model for the Iron Golem.
+     */
     public ModelRenderer ironGolemLeftLeg;
-    /** The right leg model for the Iron Golem. */
+    /**
+     * The right leg model for the Iron Golem.
+     */
     public ModelRenderer ironGolemRightLeg;
 
-    public ModelPharaoGolem()
-    {
+    public ModelPharaoGolem() {
         this(0.0F);
     }
 
-    public ModelPharaoGolem(float p_i1161_1_)
-    {
+    public ModelPharaoGolem(float p_i1161_1_) {
         this(p_i1161_1_, -7.0F);
     }
 
-    public ModelPharaoGolem(float p_i46362_1_, float p_i46362_2_)
-    {
+    public ModelPharaoGolem(float p_i46362_1_, float p_i46362_2_) {
         int i = 128;
         int j = 128;
         this.ironGolemHead = (new ModelRenderer(this)).setTextureSize(128, 128);
@@ -64,8 +72,7 @@ public class ModelPharaoGolem extends ModelBase
     /**
      * Sets the models various rotation angles then renders the model.
      */
-    public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-    {
+    public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
         this.ironGolemHead.render(scale);
         this.ironGolemBody.render(scale);
@@ -80,8 +87,7 @@ public class ModelPharaoGolem extends ModelBase
      * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
      * "far" arms and legs can swing at most.
      */
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
-    {
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.ironGolemHead.rotateAngleY = netHeadYaw * 0.017453292F;
         this.ironGolemHead.rotateAngleX = headPitch * 0.017453292F;
         this.ironGolemLeftLeg.rotateAngleX = -1.5F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
@@ -94,25 +100,20 @@ public class ModelPharaoGolem extends ModelBase
      * Used for easily adding entity-dependent animations. The second and third float params here are the same second
      * and third as in the setRotationAngles method.
      */
-    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime)
-    {
-        EntityPharaohGolem entityirongolem = (EntityPharaohGolem)entitylivingbaseIn;
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+        EntityPharaohGolem entityirongolem = (EntityPharaohGolem) entitylivingbaseIn;
         int i = entityirongolem.getAttackTimer();
 
-        if (i > 0)
-        {
-            this.ironGolemRightArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float)i - partialTickTime, 10.0F);
-            this.ironGolemLeftArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float)i - partialTickTime, 10.0F);
-        }
-        else
-        {
+        if (i > 0) {
+            this.ironGolemRightArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float) i - partialTickTime, 10.0F);
+            this.ironGolemLeftArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float) i - partialTickTime, 10.0F);
+        } else {
             this.ironGolemRightArm.rotateAngleX = (-0.2F + 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
             this.ironGolemLeftArm.rotateAngleX = (-0.2F - 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;
         }
     }
 
-    private float triangleWave(float p_78172_1_, float p_78172_2_)
-    {
+    private float triangleWave(float p_78172_1_, float p_78172_2_) {
         return (Math.abs(p_78172_1_ % p_78172_2_ - p_78172_2_ * 0.5F) - p_78172_2_ * 0.25F) / (p_78172_2_ * 0.25F);
     }
 }

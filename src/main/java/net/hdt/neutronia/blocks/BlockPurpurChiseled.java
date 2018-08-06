@@ -34,8 +34,7 @@ public class BlockPurpurChiseled extends BlockMod implements INeutroniaBlock {
 
         if (itemstack.isEmpty()) {
             return false;
-        }
-        else {
+        } else {
             Item item = itemstack.getItem();
 
             if (item == Items.ENDER_PEARL) {
@@ -45,8 +44,7 @@ public class BlockPurpurChiseled extends BlockMod implements INeutroniaBlock {
                     return true;
                 }
                 return false;
-            }
-            else {
+            } else {
                 if (filled) {
                     worldIn.setBlockState(pos, NBlocks.chiseledPurpur.getDefaultState(), 2);
                     playerIn.inventory.addItemStackToInventory(new ItemStack(Items.ENDER_PEARL));

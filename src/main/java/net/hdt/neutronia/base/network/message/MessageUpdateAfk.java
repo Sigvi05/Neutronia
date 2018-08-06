@@ -7,18 +7,19 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class MessageUpdateAfk extends NetworkMessage {
 
-	public boolean afk;
-	
-	public MessageUpdateAfk() { }
+    public boolean afk;
 
-	public MessageUpdateAfk(boolean afk) { 
-		this.afk = afk;
-	}
-	
-	@Override
-	public IMessage handleMessage(MessageContext context) {
-		ImprovedSleeping.updateAfk(context.getServerHandler().player, afk);
-		return null;
-	}
+    public MessageUpdateAfk() {
+    }
+
+    public MessageUpdateAfk(boolean afk) {
+        this.afk = afk;
+    }
+
+    @Override
+    public IMessage handleMessage(MessageContext context) {
+        ImprovedSleeping.updateAfk(context.getServerHandler().player, afk);
+        return null;
+    }
 
 }

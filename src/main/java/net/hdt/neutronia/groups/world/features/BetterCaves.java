@@ -7,16 +7,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BetterCaves extends Component {
 
-	@SubscribeEvent
-	public static void onMapGen(InitMapGenEvent event) {
-		if (event.getType().equals(InitMapGenEvent.EventType.CAVE))	{
-			event.setNewGen(new WorldGenNewCave());
-		}
+    @SubscribeEvent
+    public static void onMapGen(InitMapGenEvent event) {
+        if (event.getType().equals(InitMapGenEvent.EventType.CAVE)) {
+            event.setNewGen(new WorldGenNewCave());
+        }
     }
 
-	@Override
-	public boolean hasTerrainSubscriptions() {
-		return true;
-	}
+    @Override
+    public boolean hasTerrainSubscriptions() {
+        return true;
+    }
 
 }
