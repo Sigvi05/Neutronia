@@ -1,5 +1,6 @@
 package net.hdt.neutronia.groups;
 
+import betterwithmods.module.tweaks.ImprovedFlee;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.groups.building.features.*;
 import net.hdt.neutronia.groups.client.features.*;
@@ -40,7 +41,7 @@ public class NGroups {
                 .withComponent(new VanillaStairsAndSlabs())
                 .withComponent(new VanillaWalls())
                 .withComponent(new WoodBlocks())
-                .withComponent(new WorldStoneBricks())
+//                .withComponent(new WorldStoneBricks())
                 .isEnabled(true)
                 .register();
 
@@ -125,6 +126,29 @@ public class NGroups {
                 .withComponent(new AxesBreakLeaves())
                 .withComponent(new ConvertClay())
                 .withComponent(new ExtendedToolProgression())
+                .withComponent(new AnimalBirth())
+                .withComponent(new BabyJumping())
+                .withComponent(new BetterBlockHardness())
+                .withComponent(new CactusSkeleton())
+                .withComponent(new CheaperAxes())
+                .withComponent(new DarkQuartz())
+                .withComponent(new EnchantmentTooltip())
+                .withComponent(new EquipmentDrop())
+                .withComponent(new FoodTooltip())
+                .withComponent(new GrassPath())
+                .withComponent(new HCArmor())
+                .withComponent(new HCMovement())
+                .withComponent(new HCStructures())
+                .withComponent(new HCTools())
+                .withComponent(new HeadDrops())
+                .withComponent(new ImprovedFlee())
+                .withComponent(new MobEating())
+                .withComponent(new MobSpawning())
+                .withComponent(new MoreTempting())
+                .withComponent(new MossGeneration())
+                .withComponent(new Sinkholes())
+                .withComponent(new VisibleStorms())
+                .withComponent(new WoolArmor())
                 .isEnabled(true)
                 .register();
 
@@ -164,26 +188,6 @@ public class NGroups {
                 .isEnabled(true)
                 .register();
 
-        Group.builder()
-                .withName("Example Group")
-                .withDesc("This is an example group")
-                .withIcon(new ItemStack(Blocks.STONE))
-                .isEnabled(true)
-                .register();
-
-        Group.builder()
-                .withName("Example Group 2")
-                .withDesc("This is an example group")
-                .withIcon(new ItemStack(Blocks.STONE))
-                .isEnabled(true)
-                .register();
-
-        Group.builder()
-                .withName("Example Group 3")
-                .withDesc("This is an example group")
-                .withIcon(new ItemStack(Blocks.STONE))
-                .isEnabled(true)
-                .register();
     }
 
 }
