@@ -173,7 +173,7 @@ public class NGroups {
                 .withComponent(new NaturalBlazesInNether())
                 .withComponent(new MushroomsInSwamps())
                 .withComponent(new BuriedTreasure())
-//                .withComponent(new RevampStoneGen())
+                .withComponent(new RevampStoneGen())
                 .withComponent(new CrystalCaves())
                 .withComponent(new VariedDungeons())
                 .withComponent(new UndergroundBiomes())
