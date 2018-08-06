@@ -11,10 +11,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class WoolArmor extends Component {
 
-    public static final Item WOOL_HELMET = new ItemWoolArmor(EntityEquipmentSlot.HEAD).setRegistryName("wool_helmet");
-    public static final Item WOOL_CHEST = new ItemWoolArmor(EntityEquipmentSlot.CHEST).setRegistryName("wool_chest");
-    public static final Item WOOL_PANTS = new ItemWoolArmor(EntityEquipmentSlot.LEGS).setRegistryName("wool_pants");
-    public static final Item WOOL_BOOTS = new ItemWoolArmor(EntityEquipmentSlot.FEET).setRegistryName("wool_boots");
+    public static final Item WOOL_HELMET = new ItemWoolArmor("wool_helmet", EntityEquipmentSlot.HEAD);
+    public static final Item WOOL_CHEST = new ItemWoolArmor("wool_chest", EntityEquipmentSlot.CHEST);
+    public static final Item WOOL_PANTS = new ItemWoolArmor("wool_pants", EntityEquipmentSlot.LEGS);
+    public static final Item WOOL_BOOTS = new ItemWoolArmor("wool_boots", EntityEquipmentSlot.FEET);
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
