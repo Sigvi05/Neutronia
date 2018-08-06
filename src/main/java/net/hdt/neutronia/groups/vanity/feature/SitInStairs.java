@@ -110,7 +110,7 @@ public class SitInStairs extends Component {
         public SeatStair(World world, BlockPos pos) {
             this(world);
 
-            setPosition(pos.getX() + 0.5, pos.getY() + 0.25, pos.getZ() + 0.5);
+            setPosition(pos.getX() + 0.5, pos.getY() + 0.45, pos.getZ() + 0.5);
         }
 
         public SeatStair(World par1World) {
