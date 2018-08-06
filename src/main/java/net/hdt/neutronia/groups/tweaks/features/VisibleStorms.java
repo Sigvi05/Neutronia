@@ -130,7 +130,7 @@ public class VisibleStorms extends Component {
                     totalweight += 1;
                 } else if (aboveground) {
                     desiredDistance += fogEvent.getFarPlaneDistance();
-                    desiredDistanceScale += 0.75f;
+                    desiredDistanceScale += 0.25f;
                     totalweight += 1;
                 }
             }
@@ -138,7 +138,7 @@ public class VisibleStorms extends Component {
             desiredDistanceScale /= totalweight;
         } else {
             desiredDistance = fogEvent.getFarPlaneDistance();
-            desiredDistanceScale = 0.75F;
+            desiredDistanceScale = 0.25F;
         }
 
         if (Math.abs(fogEvent.getFarPlaneDistance() - currentDistance) > 0.001f)
@@ -197,13 +197,11 @@ public class VisibleStorms extends Component {
 
     private boolean shouldStorm(World world, BlockPos pos) {
         Biome biome = world.getBiome(pos);
-
         return world.isRaining() && !biome.canRain() && !biome.isSnowyBiome();
     }
 
     private boolean isDesert(World world, BlockPos pos) {
         Biome biome = world.getBiome(pos);
-
         return BiomeDictionary.hasType(biome, BiomeDictionary.Type.SANDY);
     }
 }
