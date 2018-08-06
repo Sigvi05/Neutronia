@@ -6,7 +6,6 @@ import org.apache.commons.lang3.Range;
 
 public class BasicPenalty<T extends Number & Comparable> extends Penalty<T> {
 
-
     public BasicPenalty(boolean jump, boolean swim, boolean heal, boolean sprint, boolean attack, boolean pain, float speed, float severity, String name, String lang, String category, Range<T> range) {
         super(lang, severity, BWMAttributes.getRange(category, name, "Numberic range for whether this penalty it active", range),
                 BWMAttributes.JUMP.fromConfig(category, name, jump),
@@ -19,7 +18,6 @@ public class BasicPenalty<T extends Number & Comparable> extends Penalty<T> {
         );
         ConfigHelper.setDescription(category + "." + name, "Configure values for the " + name + " penalty");
     }
-
 
 }
 

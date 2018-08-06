@@ -134,7 +134,6 @@ public class NGroups {
                 .withComponent(new DarkQuartz())
                 .withComponent(new EnchantmentTooltip())
                 .withComponent(new EquipmentDrop())
-                .withComponent(new FoodTooltip())
                 .withComponent(new GrassPath())
                 .withComponent(new HCArmor())
                 .withComponent(new HCMovement())
