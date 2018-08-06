@@ -1,5 +1,6 @@
 package net.hdt.neutronia.entity.render.model;
 
+import net.hdt.neutronia.entity.EntityAxolotl;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -79,7 +80,7 @@ public class ModelAxolotl extends ModelBase {
         this.RightFrontFoot.render(f5);
 
         if(entity instanceof EntityAxolotl) {
-            if (entity.getDisplayName().getString().equals("Royal Axolotl")) {
+            if (entity.getDisplayName().equals("Royal Axolotl")) {
                 this.TopHat1.render(f5);
             }
         }
