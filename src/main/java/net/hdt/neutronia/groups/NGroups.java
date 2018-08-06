@@ -135,7 +135,7 @@ public class NGroups {
                 .withComponent(new EnchantmentTooltip())
                 .withComponent(new EquipmentDrop())
                 .withComponent(new GrassPath())
-                .withComponent(new HCArmor())
+//                .withComponent(new HCArmor())
                 .withComponent(new HCMovement())
                 .withComponent(new HCStructures())
                 .withComponent(new HCTools())
