@@ -60,8 +60,8 @@ public class RevampStoneGen extends Component {
     public void setupConfig() {
         enableStairsAndSlabs = loadPropBool("Enable stairs and slabs", "", true) && GlobalConfig.enableVariants;
         enableWalls = loadPropBool("Enable walls", "", true) && GlobalConfig.enableVariants;
-        enableMarble = loadPropBool("Enable Marble", "", false);
-        enableLimestone = loadPropBool("Enable Limestone", "", false);
+        enableMarble = loadPropBool("Enable Marble", "", true);
+        enableLimestone = loadPropBool("Enable Limestone", "", true);
         generateBasedOnBiomes = loadPropBool("Generate Based on Biomes", "Note: The stone rarity values are tuned based on this being true. If you turn it off, also change the stones' rarity (around 50 is fine).", true);
         outputCSV = loadPropBool("Output CSV Debug Info", "If this is true, CSV debug info will be printed out to the console on init, to help test biome spreads.", false);
 
