@@ -1,3 +1,4 @@
+/*
 package net.hdt.neutronia.base.block;
 
 import motherlode.item.ItemLantern;
@@ -139,3 +140,4 @@ public class MotherlodeBlocks {
 
 	public static void load() {}
 }
+*/
