@@ -78,15 +78,6 @@ public class ModelAxolotl extends ModelBase {
         this.LeftBackFoot.render(f5);
         this.RightFrontFoot.render(f5);
         this.TopHat1.render(f5);
-<<<<<<< Updated upstream
-=======
-
-        if(entity instanceof EntityAxolotl) {
-            if (entity.getDisplayName().equals("Royal Axolotl")) {
-                this.TopHat1.render(f5);
-            }
-        }
->>>>>>> Stashed changes
     }
 
     /**
