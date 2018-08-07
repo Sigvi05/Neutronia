@@ -148,6 +148,10 @@ public class NGroups {
                 .withComponent(new Sinkholes())
                 .withComponent(new VisibleStorms())
                 .withComponent(new WoolArmor())
+                .withComponent(new ToolEffTweaks())
+                .withComponent(new SheepDyeFix())
+                .withComponent(new PeacefulSurface())
+                .withComponent(new MobDropBuffs())
                 .isEnabled(true)
                 .register();
 
