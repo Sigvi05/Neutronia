@@ -23,12 +23,12 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockSpeleothem extends BlockMod implements INeutroniaBlock {
+public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
 
     public static PropertyEnum<EnumSize> SIZE = PropertyEnum.create("size", EnumSize.class);
 
-    public BlockSpeleothem(String name) {
-        super(name + "_speleothem", Material.ROCK);
+    public BlockStalagmite(String name) {
+        super(name + "_stalagmite", Material.ROCK);
         setHardness(1.5F);
         setSoundType(SoundType.STONE);
         setCreativeTab(CreativeTabs.DECORATIONS);
@@ -36,7 +36,7 @@ public class BlockSpeleothem extends BlockMod implements INeutroniaBlock {
         setDefaultState(blockState.getBaseState().withProperty(SIZE, EnumSize.MEDIUM));
     }
 
-    public BlockSpeleothem setNetherrack() {
+    public BlockStalagmite setNetherrack() {
         setHardness(0.4F);
         return this;
     }

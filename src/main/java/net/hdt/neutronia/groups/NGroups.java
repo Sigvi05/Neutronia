@@ -186,7 +186,7 @@ public class NGroups {
                 .withComponent(new NetherMushrooms())
                 .withComponent(new RealisticWorldType())
                 .withComponent(new DefaultWorldOptions())
-                .withComponent(new Speleothems())
+                .withComponent(new Stalactite())
                 .withComponent(new BetterCaves())
                 .isEnabled(true)
                 .register();
