@@ -214,7 +214,7 @@ public class Component implements Comparable<Component> {
     }
 
     public void overrideBlock(String str) {
-        Neutronia.proxy.addResourceOverride("textures", "blocks", str, "png");
+        Neutronia.proxy.addResourceOverride("textures", "block", str, "png");
     }
 
     public void overrideItem(String str) {
