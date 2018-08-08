@@ -25,12 +25,17 @@
 * Added recipes for chisel and bark stripper
 * Added more wood recipes
 
-### 0.3.0 - The Big Renaming Update
+### 0.3.0 - The Grouping Update
 * Renamed Corals to Coral Blocks and Coral Plants into Corals
 * Added Dead Coral Fans
+* Added Dead Corals (plants)
 * Fixed Basalt Biome Top Block
 * Fixed Red Desert Fill Block
 * Renamed a lot of wood blocks
-* Made the mod into modules (WIP Config Screen)
-* Added a lot of new features
+* Divided the whole mod into groups that have their own components/features
 * Updated to latest mappings (this version will not work on earlier versions)
+* Fixed a lot of bugs
+* Added Brass, Copper and Steel armor, tools and materials
+* Added Wood armor
+* Made new stats for vanilla tools and armor
+* Added sand and dust storms
