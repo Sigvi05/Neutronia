@@ -5,26 +5,18 @@ import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.client.ColorHandlers;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
-
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
 public class BWMArmor extends ItemModArmor implements IColorable, INeutroniaItem {
     private String name;
+    private ArmorMaterial material;
 
     public BWMArmor(ArmorMaterial material, EntityEquipmentSlot equipmentSlotIn, String name) {
         super(name, material, 2, equipmentSlotIn);
         this.name = name;
         this.setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
-    }
-
-    @Override
-    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        return new ResourceLocation(MOD_ID, String.format("textures/models/armor/%s_layer_%s%s.png", this.name, (this.armorType.getSlotIndex() == 2 ? "2" : "1"), type != null ? "_" + type : "")).toString();
     }
 
     @Override

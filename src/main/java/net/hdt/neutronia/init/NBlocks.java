@@ -264,7 +264,7 @@ public class NBlocks {
         copperOre = new BlockNeutroniaOre("copper_ore").setIngot(NItems.copperIngot);
         bronzeOre = new BlockNeutroniaOre("bronze_ore").setIngot(NItems.bronzeIngot);
         tinOre = new BlockNeutroniaOre("tin_ore").setIngot(NItems.tinIngot);
-        zincOre = new BlockNeutroniaOre("zinc_ore").setIngot(NItems.zincCunk);
+        zincOre = new BlockNeutroniaOre("zinc_ore").setIngot(NItems.zincChunk);
 
         sandstonePillar = new MRPillar(Material.ROCK, "sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);
         redSandstonePillar = new MRPillar(Material.ROCK, "red_sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);

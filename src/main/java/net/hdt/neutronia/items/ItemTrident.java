@@ -136,12 +136,12 @@ public class ItemTrident extends ItemMod implements INeutroniaItem {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
 
         if (itemstack.getItemDamage() >= itemstack.getMaxDamage()) {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
+            return new ActionResult<>(EnumActionResult.FAIL, itemstack);
         } else if (Neutronia.func_203190_g(itemstack) > 0 && !playerIn.isWet()) {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
+            return new ActionResult<>(EnumActionResult.FAIL, itemstack);
         } else {
             playerIn.setActiveHand(handIn);
-            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+            return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
         }
     }
 

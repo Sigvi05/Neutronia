@@ -9,7 +9,15 @@ public class ItemArmorTestBase extends ItemModArmor implements INeutroniaItem {
     private boolean hasOverlay, hasColor;
 
     public ItemArmorTestBase(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
-        super(name, materialIn, renderIndexIn, equipmentSlotIn);
+        super(setName(name, equipmentSlotIn), materialIn, renderIndexIn, equipmentSlotIn);
+    }
+
+    public static String setName(String name, EntityEquipmentSlot equipmentSlot) {
+        if(equipmentSlot == EntityEquipmentSlot.HEAD) return name + "_helmet";
+        if(equipmentSlot == EntityEquipmentSlot.CHEST) return name + "_chestplate";
+        if(equipmentSlot == EntityEquipmentSlot.LEGS) return name + "_leggings";
+        if(equipmentSlot == EntityEquipmentSlot.FEET) return name + "_boots";
+        return name;
     }
 
     @Override

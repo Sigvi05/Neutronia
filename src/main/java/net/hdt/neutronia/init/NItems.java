@@ -10,18 +10,15 @@ import net.hdt.neutronia.items.base.tools.BaseSword;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class NItems {
-
-    public static final Item.ToolMaterial CAXE = EnumHelper.addToolMaterial("caxe", 3, 350, 7.0F, 4.0F, 12);
-    public static final Item.ToolMaterial CPICK = EnumHelper.addToolMaterial("cpick", 3, 350, 7.0F, 4.0F, 12);
-    public static final Item.ToolMaterial CHOE = EnumHelper.addToolMaterial("choe", 3, 325, 7.0F, 4.0F, 12);
-    public static final Item.ToolMaterial CSHOVEL = EnumHelper.addToolMaterial("cshovel", 3, 325, 7.0F, 4.0F, 12);
-    public static final Item.ToolMaterial CSWORD = EnumHelper.addToolMaterial("csword", 3, 325, 7.0F, 8.0F, 12);
 
     public static final Item.ToolMaterial OBSIDIAN = EnumHelper.addToolMaterial("obsidian", 3, 1561 * 2, 10F, 6.0F, 22);
     public static final Item.ToolMaterial BRASS = EnumHelper.addToolMaterial("brass", 3, 1561 * 2, 10F, 6.0F, 22);
@@ -29,7 +26,19 @@ public class NItems {
     public static final Item.ToolMaterial COPPER = EnumHelper.addToolMaterial("copper", 3, 1561 * 2, 10F, 6.0F, 22);
     public static final Item.ToolMaterial ZINC = EnumHelper.addToolMaterial("zinc", 3, 1561 * 2, 10F, 6.0F, 22);
 
-    public static final Item ancientSword, bandage, /*witherBone, witherBonemeal, driedKelp, stinger, chitin, */
+    public static final ItemArmor.ArmorMaterial BRASS_ARMOR = EnumHelper.addArmorMaterial("brass", "brass", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+    public static final ItemArmor.ArmorMaterial STEEL_ARMOR = EnumHelper.addArmorMaterial("steel", "steel", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+    public static final ItemArmor.ArmorMaterial COPPER_ARMOR = EnumHelper.addArmorMaterial("copper", "copper", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+    public static final ItemArmor.ArmorMaterial ZINC_ARMOR = EnumHelper.addArmorMaterial("zinc", "zinc", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+
+    public static final ItemArmor.ArmorMaterial ACACIA_ARMOR = EnumHelper.addArmorMaterial("acacia", "acacia", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor.ArmorMaterial DARK_OAK_ARMOR = EnumHelper.addArmorMaterial("dark_oak", "big_oak", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor.ArmorMaterial BIRCH_ARMOR = EnumHelper.addArmorMaterial("birch", "birch", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor.ArmorMaterial JUNGLE_ARMOR = EnumHelper.addArmorMaterial("jungle", "jungle", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor.ArmorMaterial OAK_ARMOR = EnumHelper.addArmorMaterial("oak", "oak", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor.ArmorMaterial SPRUCE_ARMOR = EnumHelper.addArmorMaterial("spruce", "spruce", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+
+    public static final Item ancientSword, bandage, witherBone, witherBonemeal, /*driedKelp, stinger, chitin, */
             phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
 //    public static final Item rawSeaweed;
 
@@ -43,9 +52,21 @@ public class NItems {
     public static final Item brassIngot, brassNugget;
     public static final Item copperIngot, copperNugget;
     public static final Item steelIngot, steelNugget;
-    public static final Item zincCunk;
+    public static final Item zincChunk;
     public static final Item bronzeIngot, bronzeNugget;
     public static final Item tinIngot, tinNugget;
+
+    public static final Item BRASS_HELMET, BRASS_CHESTPLATE, BRASS_LEGGINGS, BRASS_BOOTS;
+    /*public static final Item STEEL_HELMET, STEEL_CHESTPLATE, STEEL_LEGGINGS, STEEL_BOOTS;
+    public static final Item COPPER_HELMET, COPPER_CHESTPLATE, COPPER_LEGGINGS, COPPER_BOOTS;
+    public static final Item ZINC_HELMET, ZINC_CHESTPLATE, ZINC_LEGGINGS, ZINC_BOOTS;
+
+    public static final Item ACACIA_HELMET, ACACIA_CHESTPLATE, ACACIA_LEGGINGS, ACACIA_BOOTS;
+    public static final Item DARK_OAK_HELMET, DARK_OAK_CHESTPLATE, DARK_OAK_LEGGINGS, DARK_OAK_BOOTS;
+    public static final Item BIRCH__HELMET, BIRCH__CHESTPLATE, BIRCH__LEGGINGS, BIRCH__BOOTS;
+    public static final Item JUNGLE_HELMET, JUNGLE_CHESTPLATE, JUNGLE_LEGGINGS, JUNGLE_BOOTS;
+    public static final Item OAK_HELMET, OAK_CHESTPLATE, OAK_LEGGINGS, OAK_BOOTS;
+    public static final Item SPRUCE_HELMET, SPRUCE_CHESTPLATE, SPRUCE_LEGGINGS, SPRUCE_BOOTS;*/
 
     public static final Item woodSpear;
     public static final Item stoneSpear;
@@ -73,8 +94,8 @@ public class NItems {
 
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();
-//        witherBone = new ItemBase("wither_bone", tab);
-//        witherBonemeal = new ItemBase("wither_bonemeal", tab);
+        witherBone = new ItemBase("wither_bone", tab);
+        witherBonemeal = new ItemBase("wither_bonemeal", tab);
 //        driedKelp = new ItemFood("dried_kelp", tab, 1, false);
 //        stinger = new ItemBase("stinger", tab);
 //        chitin = new ItemBase("chitin", tab);
@@ -114,13 +135,18 @@ public class NItems {
         ZINC_SHOVEL = new BaseShovel("zinc_shovel", ZINC).setCreativeTab(tab);
         ZINC_SWORD = new BaseSword("zinc_sword", ZINC).setCreativeTab(tab);
 
+        BRASS_HELMET = new ItemArmorTestBase("brass", BRASS_ARMOR, 0, EntityEquipmentSlot.HEAD);
+        BRASS_CHESTPLATE = new ItemArmorTestBase("brass", BRASS_ARMOR, 0, EntityEquipmentSlot.CHEST);
+        BRASS_LEGGINGS = new ItemArmorTestBase("brass", BRASS_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        BRASS_BOOTS = new ItemArmorTestBase("brass", BRASS_ARMOR, 1, EntityEquipmentSlot.FEET);
+
         brassIngot = new ItemBase("brass_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
         brassNugget = new ItemBase("brass_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
         copperIngot = new ItemBase("copper_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
         copperNugget = new ItemBase("copper_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
         steelIngot = new ItemBase("steel_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
         steelNugget = new ItemBase("steel_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
-        zincCunk = new ItemBase("zinc_chunk", NCreativeTabs.ITEM_EXPANSION_TAB);
+        zincChunk = new ItemBase("zinc_chunk", NCreativeTabs.ITEM_EXPANSION_TAB);
         tinIngot = new ItemBase("tin_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
         tinNugget = new ItemBase("tin_nugget", NCreativeTabs.ITEM_EXPANSION_TAB);
         bronzeIngot = new ItemBase("bronze_ingot", NCreativeTabs.ITEM_EXPANSION_TAB);
