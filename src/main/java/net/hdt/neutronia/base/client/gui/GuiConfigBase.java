@@ -55,7 +55,7 @@ public class GuiConfigBase extends GuiScreen {
         if (backButton != null && button == backButton)
             returnToParent();
 
-        if (button instanceof GuiButtonConfigSetting) {
+        /*if (button instanceof GuiButtonConfigSetting) {
             GuiButtonConfigSetting configButton = (GuiButtonConfigSetting) button;
             configButton.prop.set(!configButton.prop.getBoolean());
             if (configButton.prop.requiresMcRestart()) {
@@ -66,7 +66,7 @@ public class GuiConfigBase extends GuiScreen {
                 mayRequireRestart = !restartRequiringProperties.isEmpty();
             }
             GroupLoader.loadConfig();
-        }
+        }*/
     }
 
     private void returnToParent() {

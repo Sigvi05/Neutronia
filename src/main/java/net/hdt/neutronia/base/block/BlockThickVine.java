@@ -1,13 +1,9 @@
 package net.hdt.neutronia.base.block;
 
-import net.hdt.neutronia.base.client.models.BlockModelDefinition;
-import net.hdt.neutronia.base.client.models.ItemBlockModelDefinition;
-import net.hdt.neutronia.base.client.models.ItemModelDefinition;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,13 +11,9 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.IShearable;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -89,7 +81,7 @@ public class BlockThickVine extends BlockHangingClimbable implements IShearable 
 		}
 	}
 
-	@SideOnly(Side.CLIENT)
+	/*@SideOnly(Side.CLIENT)
 	@Override
 	public BlockModelDefinition getBlockModelDefinition() {
 		if (hasFlowers) {
@@ -138,7 +130,7 @@ public class BlockThickVine extends BlockHangingClimbable implements IShearable 
 				}
 				return 0xFFFFFFFF;
 			});
-	}
+	}*/
 
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {

@@ -37,8 +37,8 @@ import java.util.Random;
 
 public class BuriedTreasure extends Component {
 
-    public static String TAG_TREASURE_MAP = "Quark:TreasureMap";
-    public static String TAG_TREASURE_MAP_DELEGATE = "Quark:TreasureMapDelegate";
+    public static String TAG_TREASURE_MAP = "Neutronia:TreasureMap";
+    public static String TAG_TREASURE_MAP_DELEGATE = "Neutronia:TreasureMapDelegate";
 
     ImmutableSet<ResourceLocation> tablesToEdit = ImmutableSet.of(LootTableList.CHESTS_DESERT_PYRAMID, LootTableList.CHESTS_JUNGLE_TEMPLE, LootTableList.CHESTS_STRONGHOLD_CORRIDOR);
     Map<ResourceLocation, String> customPools = new HashMap();
@@ -63,7 +63,7 @@ public class BuriedTreasure extends Component {
             if (customPools.containsKey(res))
                 customPools.get(res);
 
-            event.getTable().getPool("main").addEntry(new LootEntryItem(Items.FILLED_MAP, rarity, quality, new LootFunction[]{new SetAsTreasureFunction()}, new LootCondition[0], "quark:treasure_map"));
+            event.getTable().getPool("main").addEntry(new LootEntryItem(Items.FILLED_MAP, rarity, quality, new LootFunction[]{new SetAsTreasureFunction()}, new LootCondition[0], "neutronia:treasure_map"));
         }
     }
 

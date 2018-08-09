@@ -4,11 +4,11 @@ import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-public class ItemArmorTestBase extends ItemModArmor implements INeutroniaItem {
+public class ItemArmorBase extends ItemModArmor implements INeutroniaItem {
 
     private boolean hasOverlay, hasColor;
 
-    public ItemArmorTestBase(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public ItemArmorBase(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(setName(name, equipmentSlotIn), materialIn, renderIndexIn, equipmentSlotIn);
     }
 

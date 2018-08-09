@@ -4,7 +4,6 @@ import net.hdt.neutronia.base.BWRegistry;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.tweaks.util.item.StackMap;
-import net.hdt.neutronia.penalties.ArmorPenalties;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -19,7 +18,6 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class HCArmor extends Component {
 
     public static final StackMap<Integer> weights = new StackMap<>(0);
-    public static ArmorPenalties penalties;
     public static boolean shieldRebalance;
 
     public static float getWeight(ItemStack stack) {
@@ -69,11 +67,6 @@ public class HCArmor extends Component {
     @Override
     public void setupConfig() {
         shieldRebalance = loadPropBool("Shield Rebalance", "Experimental recipes for rebalacing shields", false);
-    }
-
-    @Override
-    public void preInit(FMLPreInitializationEvent event) {
-        BWRegistry.PENALTY_HANDLERS.add(penalties = new ArmorPenalties());
     }
 
     @Override

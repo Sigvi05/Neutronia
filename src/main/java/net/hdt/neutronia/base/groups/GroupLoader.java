@@ -26,7 +26,7 @@ public final class GroupLoader {
     public static Configuration config;
     static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
     public static List<Group> groups;
-    private static List<Group> enabledGroups;
+    public static List<Group> enabledGroups;
 
     static {
         groups = new ArrayList<>();
@@ -96,14 +96,13 @@ public final class GroupLoader {
             module.enabled = true;
             if (module.canBeDisabled()) {
                 ConfigHelper.needsRestart = true;
-//                module.enabled = ConfigHelper.loadPropBool(module.name, "_groups", module.getModuleDescription(), module.isEnabledByDefault());
-                module.enabled = true;
+                module.enabled = ConfigHelper.loadPropBool(module.name, "_groups", module.getModuleDescription(), module.isEnabledByDefault());
                 module.prop = ConfigHelper.lastProp;
             }
         });
 
         enabledGroups = new ArrayList<>(groups);
-//        enabledGroups.removeIf(module -> !module.enabled);
+        enabledGroups.removeIf(module -> !module.enabled);
 
         loadModuleConfigs();
 

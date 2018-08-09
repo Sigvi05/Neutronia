@@ -77,7 +77,7 @@ public class BlockRotatableDecoration extends BlockHorizontal implements INeutro
     /**
      * @deprecated call via  whenever possible. Implementing/overriding is fine.
      */
-    public EnumPushReaction getMobilityFlag(IBlockState state) {
+    public EnumPushReaction getPushReaction(IBlockState state) {
         return EnumPushReaction.PUSH_ONLY;
     }
 }

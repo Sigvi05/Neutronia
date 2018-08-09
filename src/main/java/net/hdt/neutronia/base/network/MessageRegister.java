@@ -1,6 +1,5 @@
 package net.hdt.neutronia.base.network;
 
-import net.hdt.neutronia.base.network.message.MessageAddToShulkerBox;
 import net.hdt.neutronia.base.network.message.MessageChangeConfig;
 import net.hdt.neutronia.base.network.message.MessageFavoriteItem;
 import net.hdt.neutronia.base.network.message.MessageUpdateAfk;
@@ -12,7 +11,6 @@ public class MessageRegister {
         NetworkHandler.register(MessageChangeConfig.class, Side.CLIENT);
         NetworkHandler.register(MessageUpdateAfk.class, Side.SERVER);
         NetworkHandler.register(MessageFavoriteItem.class, Side.SERVER);
-        NetworkHandler.register(MessageAddToShulkerBox.class, Side.SERVER);
     }
 
 }

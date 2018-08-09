@@ -68,7 +68,7 @@ public class BlockFloorTile extends BlockFacing implements ITileEntityProvider, 
         return this.getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta));
     }
 
-    public EnumPushReaction getMobilityFlag(IBlockState state) {
+    public EnumPushReaction getPushReaction(IBlockState state) {
         return EnumPushReaction.PUSH_ONLY;
     }
 

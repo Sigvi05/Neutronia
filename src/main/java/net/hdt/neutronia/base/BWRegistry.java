@@ -4,7 +4,6 @@ import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.util.InvUtils;
 import net.hdt.neutronia.groups.tweaks.features.HCTools;
-import net.hdt.neutronia.penalties.PenaltyHandlerRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -31,8 +30,6 @@ import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 @SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class BWRegistry {
-
-    public static final PenaltyHandlerRegistry PENALTY_HANDLERS = new PenaltyHandlerRegistry();
 
     @GameRegistry.ObjectHolder("neutronia:true_sight")
     public static final Potion POTION_TRUESIGHT = null;

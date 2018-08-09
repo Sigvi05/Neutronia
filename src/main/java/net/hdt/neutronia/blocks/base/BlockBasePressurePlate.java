@@ -219,7 +219,7 @@ public abstract class BlockBasePressurePlate extends BlockMod {
     /**
      * @deprecated call via  whenever possible. Implementing/overriding is fine.
      */
-    public EnumPushReaction getMobilityFlag(IBlockState state) {
+    public EnumPushReaction getPushReaction(IBlockState state) {
         return EnumPushReaction.DESTROY;
     }
 

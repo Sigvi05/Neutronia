@@ -25,7 +25,7 @@ public class GuiConfigRoot extends GuiConfigBase {
         super(parent);
 
         groups = new ArrayList<>();
-        groups.addAll(GroupLoader.groups);
+        groups.addAll(GroupLoader.enabledGroups);
         Collections.sort(groups);
 
         qEnabled = GlobalConfig.enableNButton;
@@ -66,7 +66,7 @@ public class GuiConfigRoot extends GuiConfigBase {
             y = startY + k / 2 * 22;
             Group group = groups.get(j);
             buttonList.add(new GuiButtonModule(x, y, group));
-            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
+//            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
         }
 
         if (left != null) {
@@ -78,7 +78,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 
         x = width / 2;
         y = startYButtons + 103;
-        buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
+//        buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
         buttonList.add(new GuiButton(1, x - 100, y + 22, 200, 20, I18n.translateToLocal("neutronia.config.general")));
         buttonList.add(new GuiButton(2, x - 100, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.import")));
         buttonList.add(new GuiButton(3, x + 2, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.opensite")));

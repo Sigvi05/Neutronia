@@ -14,4 +14,5 @@ public class ItemPhantomMembrane extends ItemBase {
     public String getItemStackDisplayName(ItemStack stack) {
         return ColorUtilsIdk.getClosest(0xd8cda9) + super.getItemStackDisplayName(stack);
     }
+
 }

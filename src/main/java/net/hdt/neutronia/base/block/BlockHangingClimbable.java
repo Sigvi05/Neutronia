@@ -1,5 +1,7 @@
 package net.hdt.neutronia.base.block;
 
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.util.AABBUtil;
 import net.hdt.neutronia.base.util.MotherlodeCache;
 import net.minecraft.block.Block;
@@ -24,7 +26,8 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockHangingClimbable extends BlockMotherlode implements IClimbable {
+public class BlockHangingClimbable extends BlockMod implements IClimbable, INeutroniaBlock {
+
 	public static final AxisAlignedBB AABB = AABBUtil.makeAABB(5, 0, 5, 16 - 5, 16, 16 - 5);
 
 	public BlockHangingClimbable(String name, Material material) {
