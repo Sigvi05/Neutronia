@@ -54,6 +54,16 @@ public class ClientProxy extends CommonProxy {
         overrideBlock("stone_granite_smooth", true);
         overrideBlock("stone_diorite_smooth", true);
 
+        overrideBlock("quartz_ore", true);
+        overrideBlock("quartz_block_bottom", true);
+        overrideBlock("quartz_block_top", true);
+        overrideBlock("quartz_block_side", true);
+        overrideBlock("quartz_block_chiseled_top", true);
+        overrideBlock("quartz_block_chiseled", true);
+        overrideBlock("quartz_block_lines_top", true);
+        overrideBlock("quartz_block_lines", true);
+        overrideItem("quartz", true);
+
         GroupLoader.preInitClient(event);
     }
 
@@ -183,7 +193,12 @@ public class ClientProxy extends CommonProxy {
 
     private void overrideBlock(String str, boolean flag) {
         if (flag)
-            addResourceOverride("textures", "blocks", str, "png");
+            addResourceOverride("textures", "block", str, "png");
+    }
+
+    private void overrideItem(String str, boolean flag) {
+        if (flag)
+            addResourceOverride("textures", "items", str, "png");
     }
 
     @Override

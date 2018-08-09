@@ -14,6 +14,7 @@ import net.hdt.neutronia.groups.experimental.features.ColoredLights;
 import net.hdt.neutronia.groups.management.features.BetterCraftShifting;
 import net.hdt.neutronia.groups.management.features.FavoriteItems;
 import net.hdt.neutronia.groups.management.features.RightClickAddToShulkerBox;
+import net.hdt.neutronia.groups.misc.feature.*;
 import net.hdt.neutronia.groups.tweaks.features.*;
 import net.hdt.neutronia.groups.vanity.feature.DyableElytra;
 import net.hdt.neutronia.groups.vanity.feature.DyeItemNames;
@@ -27,7 +28,7 @@ import net.minecraft.item.ItemStack;
 
 public class NGroups {
 
-    public static Group building, client, decoration, dimensions, experimental, management, tweaks, vanity, world;
+    public static Group building, client, decoration, dimensions, experimental, management, misc, tweaks, vanity, world;
 
     public static void registerGroups() {
         building = Group.builder()
@@ -49,11 +50,16 @@ public class NGroups {
                 .withName("Client")
                 .withDesc("This group adds components that alter the client, not needing Quark to be loaded on the server.")
                 .withIcon(new ItemStack(Items.ENDER_EYE))
+                .withComponent(new BetterVanillaTextures())
                 .withComponent(new FoodTooltip())
                 .withComponent(new GreenerGrass())
+                .withComponent(new ImprovedMountHUD())
                 .withComponent(new ImprovedSignEdit())
+                .withComponent(new ItemsFlashBeforeExpiring())
+                .withComponent(new LessIntrusiveShields())
                 .withComponent(new MapTooltip())
                 .withComponent(new NewMenuScreenBackgrounds())
+                .withComponent(new NoPotionShift())
                 .withComponent(new ShulkerBoxTooltip())
                 .withComponent(new UsageTicker())
                 .withComponent(new VisualStatDisplay())
@@ -64,14 +70,18 @@ public class NGroups {
                 .withName("Decoration")
                 .withDesc("This group adds new decorative building blocks and improves vanilla ones.")
                 .withIcon(new ItemStack(Blocks.RED_FLOWER))
+                .withComponent(new CharcoalBlock())
+                .withComponent(new DecorativeAquamarine())
                 .withComponent(new DecorativeCorals())
-                .withComponent(new VariedTrapdoors())
+                .withComponent(new FlatItemFrames())
+                .withComponent(new LitLamp())
+                .withComponent(new MoreBannerLayers())
                 .withComponent(new MoreBanners())
                 .withComponent(new NetherBrickFenceGate())
-                .withComponent(new CharcoalBlock())
+                .withComponent(new TerracottaFlowerPots())
                 .withComponent(new VariedBookshelves())
-                .withComponent(new FlatItemFrames())
-                .withComponent(new DecorativeAquamarine())
+                .withComponent(new VariedButtonsAndPressurePlates())
+                .withComponent(new VariedTrapdoors())
                 .isEnabled(true)
                 .register();
 
@@ -103,6 +113,19 @@ public class NGroups {
                 .withComponent(new BetterCraftShifting())
                 .withComponent(new RightClickAddToShulkerBox())
                 .isEnabled(true)
+                .register();
+
+        misc = Group.builder()
+                .withName("Misc")
+                .withDesc("This module adds miscellaneous features that didn't fit in any other modules.")
+                .withIcon(new ItemStack(Items.CARROT_ON_A_STICK))
+                .withComponent(new ColorRunes())
+                .withComponent(new EnchantedScrolls())
+                .withComponent(new EndermitesIntoShulkers())
+                .withComponent(new MapMarkers())
+                .withComponent(new NoteBlocksMobSounds())
+                .withComponent(new PoisonPotatoUsage())
+                .withComponent(new UtilityRecipes())
                 .register();
 
         tweaks = Group.builder()
