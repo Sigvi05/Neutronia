@@ -24,9 +24,9 @@ public final class GroupLoader {
 
     public static Map<String, Component> componentClassNames = new HashMap<>();
     public static Configuration config;
-    static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
     public static List<Group> groups;
     public static List<Group> enabledGroups;
+    static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
 
     static {
         groups = new ArrayList<>();
@@ -40,8 +40,7 @@ public final class GroupLoader {
         forEachModule(group -> {
             if (group.enabled) {
                 LibMisc.LOGGER.info("Enabling Group " + group.name);
-            }
-            else {
+            } else {
                 LibMisc.LOGGER.error("Could not enable " + group.name);
             }
         });

@@ -15,30 +15,30 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockLitLamp extends BlockMod implements INeutroniaBlock, IColoredLightSource {
 
-	public BlockLitLamp() {
-		super("lit_lamp", Material.GLASS);
-		setHardness(0.3F);
-		setLightLevel(1F);
-		setSoundType(SoundType.GLASS);
-		setCreativeTab(CreativeTabs.REDSTONE);
-	}
-	
-	@Override
-	public int getLightOpacity(IBlockState state, IBlockAccess world, BlockPos pos) {
-		ColoredLights.addLightSource(world, pos, state);
-		return super.getLightOpacity(state, world, pos);
-	}
+    public BlockLitLamp() {
+        super("lit_lamp", Material.GLASS);
+        setHardness(0.3F);
+        setLightLevel(1F);
+        setSoundType(SoundType.GLASS);
+        setCreativeTab(CreativeTabs.REDSTONE);
+    }
 
-	@Override
-	public float[] getColoredLight(IBlockAccess world, BlockPos pos) {
-		int index = 0;
-		
-		BlockPos down = pos.down();
-		IBlockState state = world.getBlockState(down);
-		if(state.getBlock() == Blocks.CONCRETE)
-			index = state.getValue(BlockColored.COLOR).ordinal();
-		
-		return VANILLA_SPECTRUM_COLORS[index];
-	}
+    @Override
+    public int getLightOpacity(IBlockState state, IBlockAccess world, BlockPos pos) {
+        ColoredLights.addLightSource(world, pos, state);
+        return super.getLightOpacity(state, world, pos);
+    }
+
+    @Override
+    public float[] getColoredLight(IBlockAccess world, BlockPos pos) {
+        int index = 0;
+
+        BlockPos down = pos.down();
+        IBlockState state = world.getBlockState(down);
+        if (state.getBlock() == Blocks.CONCRETE)
+            index = state.getValue(BlockColored.COLOR).ordinal();
+
+        return VANILLA_SPECTRUM_COLORS[index];
+    }
 
 }

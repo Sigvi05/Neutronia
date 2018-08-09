@@ -10,18 +10,18 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class LitLamp extends Component {
 
-	public static Block lit_lamp;
+    public static Block lit_lamp;
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		lit_lamp = new BlockLitLamp();
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        lit_lamp = new BlockLitLamp();
 
-		RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(lit_lamp), ProxyRegistry.newStack(Blocks.REDSTONE_LAMP), ProxyRegistry.newStack(Blocks.REDSTONE_TORCH));
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+        RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(lit_lamp), ProxyRegistry.newStack(Blocks.REDSTONE_LAMP), ProxyRegistry.newStack(Blocks.REDSTONE_TORCH));
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

@@ -16,18 +16,14 @@ public class PeacefulSurface extends Component {
     }
 
     @SubscribeEvent
-    public void registerTweak(LivingSpawnEvent event)
-    {
-        if (!enabled)
-        {
+    public void registerTweak(LivingSpawnEvent event) {
+        if (!enabled) {
             return;
         }
-        if (event.getEntity() == null || !(event.getEntity() instanceof EntityMob))
-        {
+        if (event.getEntity() == null || !(event.getEntity() instanceof EntityMob)) {
             return;
         }
-        if (event.getWorld().provider.getMoonPhase(event.getWorld().getWorldTime()) != 4 && event.getEntity().getPosition().getY() >= event.getWorld().provider.getAverageGroundLevel())
-        {
+        if (event.getWorld().provider.getMoonPhase(event.getWorld().getWorldTime()) != 4 && event.getEntity().getPosition().getY() >= event.getWorld().provider.getAverageGroundLevel()) {
             event.setResult(Event.Result.DENY);
         }
     }

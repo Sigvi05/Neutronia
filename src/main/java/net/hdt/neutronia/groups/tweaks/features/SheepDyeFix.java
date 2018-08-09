@@ -13,8 +13,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class SheepDyeFix extends Component {
 
-    private boolean enabled;
     public String[] blacklist;
+    private boolean enabled;
 
     @Override
     public void setupConfig() {
@@ -23,35 +23,28 @@ public class SheepDyeFix extends Component {
     }
 
     @SubscribeEvent
-    public void registerEvent(EntityInteract event)
-    {
+    public void registerEvent(EntityInteract event) {
         // Checks if feature is enabled
-        if (!enabled)
-        {
+        if (!enabled) {
             return;
         }
         // Checks that the entity is a sheep
-        if (event.getTarget() == null || !(event.getTarget() instanceof EntitySheep))
-        {
+        if (event.getTarget() == null || !(event.getTarget() instanceof EntitySheep)) {
             return;
         }
 
         EntitySheep sheep = (EntitySheep) event.getTarget();
         EntityPlayer player = event.getEntityPlayer();
 
-        if (!sheep.isChild() && !sheep.getSheared())
-        {
-            if (!player.getHeldItemMainhand().isEmpty())
-            {
+        if (!sheep.isChild() && !sheep.getSheared()) {
+            if (!player.getHeldItemMainhand().isEmpty()) {
                 int dyeColor = getDye(player.getHeldItemMainhand());
 
-                if (dyeColor == -1)
-                {
+                if (dyeColor == -1) {
                     return;
                 }
 
-                if (sheep.getFleeceColor() != EnumDyeColor.byDyeDamage(dyeColor))
-                {
+                if (sheep.getFleeceColor() != EnumDyeColor.byDyeDamage(dyeColor)) {
                     sheep.setFleeceColor(EnumDyeColor.byDyeDamage(dyeColor));
                     player.getHeldItemMainhand().shrink(1);
                 }
@@ -59,26 +52,20 @@ public class SheepDyeFix extends Component {
         }
     }
 
-    private int getDye(ItemStack itemstack)
-    {
+    private int getDye(ItemStack itemstack) {
         // Checks if it's a blacklisted dye class first
-        if (ignore(itemstack))
-        {
+        if (ignore(itemstack)) {
             return -1;
         }
 
         // Otherwise continues to find the proper value
         int[] ids = OreDictionary.getOreIDs(itemstack);
-        for (int id : ids)
-        {
+        for (int id : ids) {
             String name = OreDictionary.getOreName(id);
-            for (int meta = 0; meta < EnumDyeColor.values().length; meta++)
-            {
+            for (int meta = 0; meta < EnumDyeColor.values().length; meta++) {
                 int[] dyeIDs = OreDictionary.getOreIDs(new ItemStack(Items.DYE, 1, meta));
-                for (int dyeID : dyeIDs)
-                {
-                    if (name.equalsIgnoreCase(OreDictionary.getOreName(dyeID)))
-                    {
+                for (int dyeID : dyeIDs) {
+                    if (name.equalsIgnoreCase(OreDictionary.getOreName(dyeID))) {
                         return meta;
                     }
                 }
@@ -87,13 +74,10 @@ public class SheepDyeFix extends Component {
         return -1;
     }
 
-    private boolean ignore(ItemStack itemstack)
-    {
+    private boolean ignore(ItemStack itemstack) {
         Item stackItem = itemstack.getItem();
-        for (String s : blacklist)
-        {
-            if (stackItem.getClass().getName().contains(s))
-            {
+        for (String s : blacklist) {
+            if (stackItem.getClass().getName().contains(s)) {
                 return true;
             }
         }

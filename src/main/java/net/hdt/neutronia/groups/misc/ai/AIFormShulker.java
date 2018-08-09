@@ -12,70 +12,69 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class AIFormShulker extends EntityAIWander
-{
-	private final EntityEndermite endermite;
-	private EnumFacing facing;
-	private boolean doMerge;
+public class AIFormShulker extends EntityAIWander {
+    private final EntityEndermite endermite;
+    private EnumFacing facing;
+    private boolean doMerge;
 
-	public AIFormShulker(EntityEndermite endermite) {
-		super(endermite, 1.0D, 10);
-		this.endermite = endermite;
-		this.setMutexBits(1);
-	}
-	
-	@Override
-	public boolean shouldExecute() {
-		if(!endermite.getEntityWorld().getGameRules().getBoolean("mobGriefing"))
-			return false;
-		else if(endermite.getAttackTarget() != null)
-			return false;
-		else if(!endermite.getNavigator().noPath())
-			return false;
-		else {
-			Random random = endermite.getRNG();
+    public AIFormShulker(EntityEndermite endermite) {
+        super(endermite, 1.0D, 10);
+        this.endermite = endermite;
+        this.setMutexBits(1);
+    }
 
-			if(random.nextInt(EndermitesIntoShulkers.chance) == 0) {
-				facing = EnumFacing.random(random);
-				BlockPos blockpos = (new BlockPos(endermite.posX, endermite.posY + 0.5D, endermite.posZ)).offset(facing);
-				IBlockState iblockstate = endermite.getEntityWorld().getBlockState(blockpos);
+    @Override
+    public boolean shouldExecute() {
+        if (!endermite.getEntityWorld().getGameRules().getBoolean("mobGriefing"))
+            return false;
+        else if (endermite.getAttackTarget() != null)
+            return false;
+        else if (!endermite.getNavigator().noPath())
+            return false;
+        else {
+            Random random = endermite.getRNG();
 
-				if(iblockstate.getBlock() == Blocks.PURPUR_BLOCK) {
-					doMerge = true;
-					return true;
-				}
-			}
+            if (random.nextInt(EndermitesIntoShulkers.chance) == 0) {
+                facing = EnumFacing.random(random);
+                BlockPos blockpos = (new BlockPos(endermite.posX, endermite.posY + 0.5D, endermite.posZ)).offset(facing);
+                IBlockState iblockstate = endermite.getEntityWorld().getBlockState(blockpos);
 
-			doMerge = false;
-			return super.shouldExecute();
-		}
-	}
+                if (iblockstate.getBlock() == Blocks.PURPUR_BLOCK) {
+                    doMerge = true;
+                    return true;
+                }
+            }
 
-	@Override
-	public boolean shouldContinueExecuting() {
-		return doMerge ? false : super.shouldContinueExecuting();
-	}
-	
-	@Override
-	public void startExecuting() {
-		if(!doMerge)
-			super.startExecuting();
-		else {
-			World world = endermite.getEntityWorld();
-			BlockPos blockpos = (new BlockPos(endermite.posX, endermite.posY + 0.5D, endermite.posZ)).offset(facing);
-			IBlockState iblockstate = world.getBlockState(blockpos);
+            doMerge = false;
+            return super.shouldExecute();
+        }
+    }
 
-			if(iblockstate.getBlock() == Blocks.PURPUR_BLOCK) {
-				world.setBlockToAir(blockpos);
-				endermite.spawnExplosionParticle();
-				endermite.setDead();
-				
-				EntityShulker shulker = new EntityShulker(world);
-				shulker.setAttachmentPos(blockpos);
-				shulker.setPosition(blockpos.getX() + 0.5, blockpos.getY() + 0.5, blockpos.getZ() + 0.5);
-				world.spawnEntity(shulker);
-			}
-		}
-	}
-	
+    @Override
+    public boolean shouldContinueExecuting() {
+        return doMerge ? false : super.shouldContinueExecuting();
+    }
+
+    @Override
+    public void startExecuting() {
+        if (!doMerge)
+            super.startExecuting();
+        else {
+            World world = endermite.getEntityWorld();
+            BlockPos blockpos = (new BlockPos(endermite.posX, endermite.posY + 0.5D, endermite.posZ)).offset(facing);
+            IBlockState iblockstate = world.getBlockState(blockpos);
+
+            if (iblockstate.getBlock() == Blocks.PURPUR_BLOCK) {
+                world.setBlockToAir(blockpos);
+                endermite.spawnExplosionParticle();
+                endermite.setDead();
+
+                EntityShulker shulker = new EntityShulker(world);
+                shulker.setAttachmentPos(blockpos);
+                shulker.setPosition(blockpos.getX() + 0.5, blockpos.getY() + 0.5, blockpos.getZ() + 0.5);
+                world.spawnEntity(shulker);
+            }
+        }
+    }
+
 }

@@ -13,10 +13,10 @@ public class ItemArmorBase extends ItemModArmor implements INeutroniaItem {
     }
 
     public static String setName(String name, EntityEquipmentSlot equipmentSlot) {
-        if(equipmentSlot == EntityEquipmentSlot.HEAD) return name + "_helmet";
-        if(equipmentSlot == EntityEquipmentSlot.CHEST) return name + "_chestplate";
-        if(equipmentSlot == EntityEquipmentSlot.LEGS) return name + "_leggings";
-        if(equipmentSlot == EntityEquipmentSlot.FEET) return name + "_boots";
+        if (equipmentSlot == EntityEquipmentSlot.HEAD) return name + "_helmet";
+        if (equipmentSlot == EntityEquipmentSlot.CHEST) return name + "_chestplate";
+        if (equipmentSlot == EntityEquipmentSlot.LEGS) return name + "_leggings";
+        if (equipmentSlot == EntityEquipmentSlot.FEET) return name + "_boots";
         return name;
     }
 

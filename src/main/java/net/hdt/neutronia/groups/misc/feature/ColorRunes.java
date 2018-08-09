@@ -24,147 +24,144 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ColorRunes extends Component {
 
-	public static final String TAG_RUNE_ATTACHED = "Neutronia:RuneAttached";
-	public static final String TAG_RUNE_COLOR = "Neutronia:RuneColor";
+    public static final String TAG_RUNE_ATTACHED = "Neutronia:RuneAttached";
+    public static final String TAG_RUNE_COLOR = "Neutronia:RuneColor";
+    public static Item rune;
+    private static ItemStack targetStack;
+    int dungeonWeight, netherFortressWeight, jungleTempleWeight, desertTempleWeight, itemQuality, applyCost;
+    boolean enableRainbowRuneCrafting, enableRainbowRuneChests, stackable;
 
-	private static ItemStack targetStack;
+    public static void setTargetStack(ItemStack stack) {
+        targetStack = stack;
+    }
 
-	public static Item rune;
+    public static int getColor(int original) {
+        if (!GroupLoader.isFeatureEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack) && !targetStack.isEmpty() && !(targetStack.getItem() instanceof ICustomEnchantColor))
+            return original;
 
-	int dungeonWeight, netherFortressWeight, jungleTempleWeight, desertTempleWeight, itemQuality, applyCost;
-	boolean enableRainbowRuneCrafting, enableRainbowRuneChests, stackable;
-	
-	@Override
-	public void setupConfig() {
-		dungeonWeight = loadPropInt("Dungeon loot weight", "", 20);
-		netherFortressWeight = loadPropInt("Nether Fortress loot weight", "", 15);
-		jungleTempleWeight = loadPropInt("Jungle Temple loot weight", "", 15);
-		desertTempleWeight = loadPropInt("Desert Temple loot weight", "", 15);
-		itemQuality = loadPropInt("Item quality for loot", "", 0);
-		applyCost = loadPropInt("Cost to apply rune", "", 15);
-		enableRainbowRuneCrafting = loadPropBool("Enable Rainbow Rune Crafting", "", true);
-		enableRainbowRuneChests = loadPropBool("Enable Rainbow Rune in Chests", "", false);
-		stackable = loadPropBool("Stackable Runes", "", true);
-	}
+        return getColorFromStack(targetStack);
+    }
 
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {		
-		rune = new ItemRune(stackable);
-		
-		if(enableRainbowRuneCrafting) {
-			RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(rune, 7, 16),
-					"345", "2G6", "1W7",
-					'G', ProxyRegistry.newStack(Blocks.GLASS),
-					'W', ProxyRegistry.newStack(rune, 1, 0),
-					'1', ProxyRegistry.newStack(rune, 1, 14),
-					'2', ProxyRegistry.newStack(rune, 1, 1),
-					'3', ProxyRegistry.newStack(rune, 1, 4),
-					'4', ProxyRegistry.newStack(rune, 1, 5),
-					'5', ProxyRegistry.newStack(rune, 1, 3),
-					'6', ProxyRegistry.newStack(rune, 1, 11),
-					'7', ProxyRegistry.newStack(rune, 1, 2));
-		}
-	}
-	
-	@SubscribeEvent
-	public void onLootTableLoad(LootTableLoadEvent event) {
-		LootFunction[] funcs = new LootFunction[] { new SetMetadata(new LootCondition[0], new RandomValueRange(0, enableRainbowRuneChests ? 16 : 15)) };
+    public static void applyColor() {
+        if (!GroupLoader.isFeatureEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack)) {
+            return;
+        }
 
-		if(event.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON))
-			event.getTable().getPool("main").addEntry(new LootEntryItem(rune, dungeonWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
-		else if(event.getName().equals(LootTableList.CHESTS_NETHER_BRIDGE))
-			event.getTable().getPool("main").addEntry(new LootEntryItem(rune, netherFortressWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
-		else if(event.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE))
-			event.getTable().getPool("main").addEntry(new LootEntryItem(rune, jungleTempleWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
-		else if(event.getName().equals(LootTableList.CHESTS_DESERT_PYRAMID))
-			event.getTable().getPool("main").addEntry(new LootEntryItem(rune, desertTempleWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
-	}
+        int color = getColorFromStack(targetStack);
+        float r = (color >> 16 & 0xFF) / 255F;
+        float g = (color >> 8 & 0xFF) / 255F;
+        float b = (color & 0xFF) / 255F;
 
-	@SubscribeEvent
-	public void onAnvilUpdate(AnvilUpdateEvent event) {
-		ItemStack left = event.getLeft();
-		ItemStack right = event.getRight();
+        GlStateManager.color(r, g, b, 1F);
+    }
 
-		if(!left.isEmpty() && !right.isEmpty() && left.isItemEnchanted() && right.getItem() == rune) {
-			ItemStack out = left.copy();
-			ItemNBTHelper.setBoolean(out, TAG_RUNE_ATTACHED, true);
-			ItemNBTHelper.setInt(out, TAG_RUNE_COLOR, right.getItemDamage());
-			event.setOutput(out);
-			event.setCost(applyCost);
-		}
-	}
+    public static int getColorFromStack(ItemStack stack) {
+        if (stack.isEmpty())
+            return 0xFFFFFF;
 
-	@Override
-	public boolean hasSubscriptions() {
-		return true;
-	}
-	
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+        int retColor = 0xFFFFFF;
+        boolean truncate = true;
 
-	public static void setTargetStack(ItemStack stack) {
-		targetStack = stack;
-	}
+        if (stack.getItem() instanceof ICustomEnchantColor) {
+            int color = ((ICustomEnchantColor) stack.getItem()).getEnchantEffectColor(stack);
+            truncate = ((ICustomEnchantColor) stack.getItem()).shouldTruncateColorBrightness(stack);
+            retColor = 0xFF000000 | color;
+        } else if (doesStackHaveRune(stack)) {
+            int color = ItemRune.getColor(ItemNBTHelper.getInt(targetStack, TAG_RUNE_COLOR, 0));
+            retColor = 0xFF000000 | color;
+        }
 
-	public static int getColor(int original) {
-		if(!GroupLoader.isFeatureEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack) && !targetStack.isEmpty() && !(targetStack.getItem() instanceof ICustomEnchantColor))
-			return original;
+        if (truncate) {
+            int r = retColor >> 16 & 0xFF;
+            int g = retColor >> 8 & 0xFF;
+            int b = retColor & 0xFF;
 
-		return getColorFromStack(targetStack);
-	}
+            int t = r + g + b;
+            if (t > 396) {
+                float mul = 396F / t;
+                r = (int) (r * mul);
+                g = (int) (g * mul);
+                b = (int) (b * mul);
 
-	public static void applyColor() {
-		if(!GroupLoader.isFeatureEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack)) {
-			return;
-		}
+                retColor = (0xFF << 24) + (r << 16) + (g << 8) + b;
+            }
+        }
 
-		int color = getColorFromStack(targetStack);
-		float r = (color >> 16 & 0xFF) / 255F;
-		float g = (color >> 8 & 0xFF) / 255F;
-		float b = (color & 0xFF) / 255F;
+        return retColor;
+    }
 
-		GlStateManager.color(r, g, b, 1F);
-	}
+    public static boolean doesStackHaveRune(ItemStack stack) {
+        return !stack.isEmpty() && stack.hasTagCompound() && ItemNBTHelper.getBoolean(stack, TAG_RUNE_ATTACHED, false);
+    }
 
-	public static int getColorFromStack(ItemStack stack) {
-		if(stack.isEmpty())
-			return 0xFFFFFF;
+    @Override
+    public void setupConfig() {
+        dungeonWeight = loadPropInt("Dungeon loot weight", "", 20);
+        netherFortressWeight = loadPropInt("Nether Fortress loot weight", "", 15);
+        jungleTempleWeight = loadPropInt("Jungle Temple loot weight", "", 15);
+        desertTempleWeight = loadPropInt("Desert Temple loot weight", "", 15);
+        itemQuality = loadPropInt("Item quality for loot", "", 0);
+        applyCost = loadPropInt("Cost to apply rune", "", 15);
+        enableRainbowRuneCrafting = loadPropBool("Enable Rainbow Rune Crafting", "", true);
+        enableRainbowRuneChests = loadPropBool("Enable Rainbow Rune in Chests", "", false);
+        stackable = loadPropBool("Stackable Runes", "", true);
+    }
 
-		int retColor = 0xFFFFFF;
-		boolean truncate = true;
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        rune = new ItemRune(stackable);
 
-		if (stack.getItem() instanceof ICustomEnchantColor) {
-			int color = ((ICustomEnchantColor) stack.getItem()).getEnchantEffectColor(stack);
-			truncate = ((ICustomEnchantColor) stack.getItem()).shouldTruncateColorBrightness(stack);
-			retColor = 0xFF000000 | color;
-		} else if (doesStackHaveRune(stack)) {
-			int color = ItemRune.getColor(ItemNBTHelper.getInt(targetStack, TAG_RUNE_COLOR, 0));
-			retColor = 0xFF000000 | color;
-		}
+        if (enableRainbowRuneCrafting) {
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(rune, 7, 16),
+                    "345", "2G6", "1W7",
+                    'G', ProxyRegistry.newStack(Blocks.GLASS),
+                    'W', ProxyRegistry.newStack(rune, 1, 0),
+                    '1', ProxyRegistry.newStack(rune, 1, 14),
+                    '2', ProxyRegistry.newStack(rune, 1, 1),
+                    '3', ProxyRegistry.newStack(rune, 1, 4),
+                    '4', ProxyRegistry.newStack(rune, 1, 5),
+                    '5', ProxyRegistry.newStack(rune, 1, 3),
+                    '6', ProxyRegistry.newStack(rune, 1, 11),
+                    '7', ProxyRegistry.newStack(rune, 1, 2));
+        }
+    }
 
-		if(truncate) {
-			int r = retColor >> 16 & 0xFF;
-			int g = retColor >> 8 & 0xFF;
-			int b = retColor & 0xFF;
+    @SubscribeEvent
+    public void onLootTableLoad(LootTableLoadEvent event) {
+        LootFunction[] funcs = new LootFunction[]{new SetMetadata(new LootCondition[0], new RandomValueRange(0, enableRainbowRuneChests ? 16 : 15))};
 
-			int t = r + g + b;
-			if (t > 396) {
-				float mul = 396F / t;
-				r = (int) (r * mul);
-				g = (int) (g * mul);
-				b = (int) (b * mul);
+        if (event.getName().equals(LootTableList.CHESTS_SIMPLE_DUNGEON))
+            event.getTable().getPool("main").addEntry(new LootEntryItem(rune, dungeonWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
+        else if (event.getName().equals(LootTableList.CHESTS_NETHER_BRIDGE))
+            event.getTable().getPool("main").addEntry(new LootEntryItem(rune, netherFortressWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
+        else if (event.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE))
+            event.getTable().getPool("main").addEntry(new LootEntryItem(rune, jungleTempleWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
+        else if (event.getName().equals(LootTableList.CHESTS_DESERT_PYRAMID))
+            event.getTable().getPool("main").addEntry(new LootEntryItem(rune, desertTempleWeight, itemQuality, funcs, new LootCondition[0], "neutronia:rune"));
+    }
 
-				retColor = (0xFF << 24) + (r << 16) + (g << 8) + b;
-			}
-		}
+    @SubscribeEvent
+    public void onAnvilUpdate(AnvilUpdateEvent event) {
+        ItemStack left = event.getLeft();
+        ItemStack right = event.getRight();
 
-		return retColor;
-	}
+        if (!left.isEmpty() && !right.isEmpty() && left.isItemEnchanted() && right.getItem() == rune) {
+            ItemStack out = left.copy();
+            ItemNBTHelper.setBoolean(out, TAG_RUNE_ATTACHED, true);
+            ItemNBTHelper.setInt(out, TAG_RUNE_COLOR, right.getItemDamage());
+            event.setOutput(out);
+            event.setCost(applyCost);
+        }
+    }
 
-	public static boolean doesStackHaveRune(ItemStack stack) {
-		return !stack.isEmpty() && stack.hasTagCompound() && ItemNBTHelper.getBoolean(stack, TAG_RUNE_ATTACHED, false);
-	}
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

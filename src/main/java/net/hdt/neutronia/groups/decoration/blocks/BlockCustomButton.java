@@ -4,8 +4,8 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaButton;
 
 public class BlockCustomButton extends BlockNeutroniaButton {
 
-	public BlockCustomButton(String variant) {
-		super(variant + "_button", true);
-	}
+    public BlockCustomButton(String variant) {
+        super(variant + "_button", true);
+    }
 
 }

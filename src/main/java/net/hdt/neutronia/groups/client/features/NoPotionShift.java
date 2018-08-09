@@ -6,14 +6,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class NoPotionShift extends Component {
 
-	@Override
-	public boolean hasSubscriptions() {
-		return isClient();
-	}
+    @Override
+    public boolean hasSubscriptions() {
+        return isClient();
+    }
 
-	@SubscribeEvent
-	public void onPotionShiftEvent(GuiScreenEvent.PotionShiftEvent event) {
-		event.setCanceled(true);
-	}
+    @SubscribeEvent
+    public void onPotionShiftEvent(GuiScreenEvent.PotionShiftEvent event) {
+        event.setCanceled(true);
+    }
 
 }

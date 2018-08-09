@@ -20,66 +20,66 @@ import java.util.List;
 
 public class BlockThickVine extends BlockHangingClimbable implements IShearable {
 
-	public static final PropertyEnum<EnumFlower> FLOWERS = PropertyEnum.create("flowers", EnumFlower.class);
-	public boolean hasFlowers;
-	public BlockStateContainer flowersState;
+    public static final PropertyEnum<EnumFlower> FLOWERS = PropertyEnum.create("flowers", EnumFlower.class);
+    public boolean hasFlowers;
+    public BlockStateContainer flowersState;
 
-	public BlockThickVine(boolean hasFlowers) {
-		super(hasFlowers ? "flowered_thick_vine" : "thick_vine", Material.VINE);
-		this.hasFlowers = hasFlowers;
-		flowersState = new BlockStateContainer(this, FLOWERS);
-		setDefaultState(getBlockState().getBaseState());
-	}
+    public BlockThickVine(boolean hasFlowers) {
+        super(hasFlowers ? "flowered_thick_vine" : "thick_vine", Material.VINE);
+        this.hasFlowers = hasFlowers;
+        flowersState = new BlockStateContainer(this, FLOWERS);
+        setDefaultState(getBlockState().getBaseState());
+    }
 
-	@Override
-	public BlockStateContainer getBlockState() {
-		return hasFlowers ? flowersState : super.getBlockState();
-	}
+    @Override
+    public BlockStateContainer getBlockState() {
+        return hasFlowers ? flowersState : super.getBlockState();
+    }
 
-	@Override
-	@Deprecated
-	public IBlockState getStateFromMeta(int meta) {
-		return hasFlowers ? this.getDefaultState().withProperty(FLOWERS, EnumFlower.values()[meta]) : super.getStateFromMeta(meta);
-	}
+    @Override
+    @Deprecated
+    public IBlockState getStateFromMeta(int meta) {
+        return hasFlowers ? this.getDefaultState().withProperty(FLOWERS, EnumFlower.values()[meta]) : super.getStateFromMeta(meta);
+    }
 
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return hasFlowers ? ((EnumFlower) state.getValue(FLOWERS)).ordinal() : super.getMetaFromState(state);
-	}
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return hasFlowers ? ((EnumFlower) state.getValue(FLOWERS)).ordinal() : super.getMetaFromState(state);
+    }
 
-	@Override
-	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		drops.clear();
+    @Override
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        drops.clear();
 		/*if (RandomUtil.chance(1, 5)) {
 			drops.add(new ItemStack(MotherlodeItems.PLANT_FIBER));
 		}*/
-	}
+    }
 
-	@Override
-	public boolean isShearable(
-		@Nonnull
-			ItemStack item, IBlockAccess world, BlockPos pos) {
-		return true;
-	}
+    @Override
+    public boolean isShearable(
+            @Nonnull
+                    ItemStack item, IBlockAccess world, BlockPos pos) {
+        return true;
+    }
 
-	@Nonnull
-	@Override
-	public List<ItemStack> onSheared(
-		@Nonnull
-			ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
-		return NonNullList.withSize(1, new ItemStack(this));
-	}
+    @Nonnull
+    @Override
+    public List<ItemStack> onSheared(
+            @Nonnull
+                    ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
+        return NonNullList.withSize(1, new ItemStack(this));
+    }
 
-	@Override
-	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-		if (hasFlowers) {
-			for (EnumFlower flower : EnumFlower.values()) {
-				items.add(new ItemStack(this, 1, flower.ordinal()));
-			}
-		} else {
-			super.getSubBlocks(itemIn, items);
-		}
-	}
+    @Override
+    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+        if (hasFlowers) {
+            for (EnumFlower flower : EnumFlower.values()) {
+                items.add(new ItemStack(this, 1, flower.ordinal()));
+            }
+        } else {
+            super.getSubBlocks(itemIn, items);
+        }
+    }
 
 	/*@SideOnly(Side.CLIENT)
 	@Override
@@ -132,48 +132,48 @@ public class BlockThickVine extends BlockHangingClimbable implements IShearable 
 			});
 	}*/
 
-	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-		if (hasFlowers) {
-			return new ItemStack(this, 1, getMetaFromState(state));
-		}
-		return super.getPickBlock(state, target, world, pos, player);
-	}
+    @Override
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+        if (hasFlowers) {
+            return new ItemStack(this, 1, getMetaFromState(state));
+        }
+        return super.getPickBlock(state, target, world, pos, player);
+    }
 
-	public enum EnumFlower implements IStringSerializable {
-		RED_DARK("red_dark"),
-		RED_LIGHT("red_light"),
-		ORANGE_LIGHT("orange_light"),
-		YELLOW_DARK("yellow_dark"),
-		YELLOW_LIGHT("yellow_light"),
-		MIX_RED_YELLOW("mix_red_yellow"),
-		GREEN_DARK("green_dark"),
-		BLUE_DARK("blue_dark"),
-		LIGHT_BLUE_DARK("light_blue_dark"),
-		LIGHT_BLUE_LIGHT("light_blue_light"),
-		PINK_DARK("pink_dark"),
-		PINK_LIGHT("pink_light"),
-		MIX("mix"),
-		BLACK_LIGHT("black_light"),
-		WHITE_DARK("white_dark"),
-		MIX_BLACK_WHITE("mix_black_white");
-		String name;
+    public enum EnumFlower implements IStringSerializable {
+        RED_DARK("red_dark"),
+        RED_LIGHT("red_light"),
+        ORANGE_LIGHT("orange_light"),
+        YELLOW_DARK("yellow_dark"),
+        YELLOW_LIGHT("yellow_light"),
+        MIX_RED_YELLOW("mix_red_yellow"),
+        GREEN_DARK("green_dark"),
+        BLUE_DARK("blue_dark"),
+        LIGHT_BLUE_DARK("light_blue_dark"),
+        LIGHT_BLUE_LIGHT("light_blue_light"),
+        PINK_DARK("pink_dark"),
+        PINK_LIGHT("pink_light"),
+        MIX("mix"),
+        BLACK_LIGHT("black_light"),
+        WHITE_DARK("white_dark"),
+        MIX_BLACK_WHITE("mix_black_white");
+        String name;
 
-		EnumFlower(String name) {
-			this.name = name;
-		}
+        EnumFlower(String name) {
+            this.name = name;
+        }
 
-		@Override
-		public String getName() {
-			return name;
-		}
+        public static String[] getAllNames() {
+            String[] strings = new String[values().length];
+            for (EnumFlower flower : values()) {
+                strings[flower.ordinal()] = flower.getName();
+            }
+            return strings;
+        }
 
-		public static String[] getAllNames() {
-			String[] strings = new String[values().length];
-			for (EnumFlower flower : values()) {
-				strings[flower.ordinal()] = flower.getName();
-			}
-			return strings;
-		}
-	}
+        @Override
+        public String getName() {
+            return name;
+        }
+    }
 }

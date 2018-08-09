@@ -11,15 +11,15 @@ import java.util.List;
 
 public class BlockCustomPressurePlate extends BlockNeutroniaPressurePlate {
 
-	public BlockCustomPressurePlate(String variant) {
-		super(variant + "_pressure_plate", Material.WOOD, Sensitivity.EVERYTHING);
-		setHardness(0.5F);
-		setSoundType(SoundType.WOOD);
-	}
+    public BlockCustomPressurePlate(String variant) {
+        super(variant + "_pressure_plate", Material.WOOD, Sensitivity.EVERYTHING);
+        setHardness(0.5F);
+        setSoundType(SoundType.WOOD);
+    }
 
-	@Override
-	protected List<Entity> getValidEntities(World world, AxisAlignedBB aabb) {
-		return world.getEntitiesWithinAABBExcludingEntity(null, aabb);
-	}
+    @Override
+    protected List<Entity> getValidEntities(World world, AxisAlignedBB aabb) {
+        return world.getEntitiesWithinAABBExcludingEntity(null, aabb);
+    }
 
 }

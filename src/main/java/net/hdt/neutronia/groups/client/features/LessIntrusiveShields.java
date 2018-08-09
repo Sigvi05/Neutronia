@@ -12,16 +12,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class LessIntrusiveShields extends Component {
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void preInitClient(FMLPreInitializationEvent event) {
-		ModelHandler.registerModels(Items.SHIELD, LibMisc.PREFIX_MOD, new String[] { "shield_override" }, null, true);
-		ModelLoader.setCustomMeshDefinition(Items.SHIELD, stack -> new ModelResourceLocation("neutronia:shield_override", "inventory"));
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void preInitClient(FMLPreInitializationEvent event) {
+        ModelHandler.registerModels(Items.SHIELD, LibMisc.PREFIX_MOD, new String[]{"shield_override"}, null, true);
+        ModelLoader.setCustomMeshDefinition(Items.SHIELD, stack -> new ModelResourceLocation("neutronia:shield_override", "inventory"));
+    }
 
-	@Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-	
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

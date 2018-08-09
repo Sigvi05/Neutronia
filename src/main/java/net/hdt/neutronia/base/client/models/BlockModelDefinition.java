@@ -19,92 +19,92 @@ import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
 @SideOnly(Side.CLIENT)
 public class BlockModelDefinition extends StateMapperBase {
-	protected Block block;
-	protected ResourceLocation fileLocation;
-	protected List<String> prepends = new ArrayList<>();
-	protected List<String> appends = new ArrayList<>();
-	protected IProperty<?>[] ignoredProperties = null;
-	protected VariantStateGetter variant = state -> "";
-	protected IBlockColor iBlockColor = null;
+    protected Block block;
+    protected ResourceLocation fileLocation;
+    protected List<String> prepends = new ArrayList<>();
+    protected List<String> appends = new ArrayList<>();
+    protected IProperty<?>[] ignoredProperties = null;
+    protected VariantStateGetter variant = state -> "";
+    protected IBlockColor iBlockColor = null;
 
-	public BlockModelDefinition(Block block, IProperty<?>... ignoredProperties) {
-		this(block, block.getRegistryName(), ignoredProperties);
-	}
+    public BlockModelDefinition(Block block, IProperty<?>... ignoredProperties) {
+        this(block, block.getRegistryName(), ignoredProperties);
+    }
 
-	public BlockModelDefinition(Block block, String fileLocation, IProperty<?>... ignoredProperties) {
-		this(block, new ResourceLocation(MOD_ID, fileLocation), ignoredProperties);
-	}
+    public BlockModelDefinition(Block block, String fileLocation, IProperty<?>... ignoredProperties) {
+        this(block, new ResourceLocation(MOD_ID, fileLocation), ignoredProperties);
+    }
 
-	public BlockModelDefinition(Block block, ResourceLocation fileLocation, IProperty<?>... ignoredProperties) {
-		this.block = block;
-		this.fileLocation = fileLocation;
-		this.ignoredProperties = ignoredProperties;
-	}
+    public BlockModelDefinition(Block block, ResourceLocation fileLocation, IProperty<?>... ignoredProperties) {
+        this.block = block;
+        this.fileLocation = fileLocation;
+        this.ignoredProperties = ignoredProperties;
+    }
 
-	public BlockModelDefinition prepend(String prepend) {
-		this.prepends.add(prepend);
-		return this;
-	}
+    public BlockModelDefinition prepend(String prepend) {
+        this.prepends.add(prepend);
+        return this;
+    }
 
-	public BlockModelDefinition append(String append) {
-		this.appends.add(append);
-		return this;
-	}
+    public BlockModelDefinition append(String append) {
+        this.appends.add(append);
+        return this;
+    }
 
-	public BlockModelDefinition setVariant(String variant) {
-		this.variant = state -> variant;
-		return this;
-	}
+    public BlockModelDefinition setVariant(String variant) {
+        this.variant = state -> variant;
+        return this;
+    }
 
-	public BlockModelDefinition setVariant(VariantStateGetter variant) {
-		this.variant = variant;
-		return this;
-	}
+    public Block getBlock() {
+        return block;
+    }
 
-	public BlockModelDefinition setIBlockColor(IBlockColor iBlockColor) {
-		this.iBlockColor = iBlockColor;
-		return this;
-	}
+    public ResourceLocation getFileLocation() {
+        return fileLocation;
+    }
 
-	public Block getBlock() {
-		return block;
-	}
+    public List<String> getPrepends() {
+        return prepends;
+    }
 
-	public ResourceLocation getFileLocation() {
-		return fileLocation;
-	}
+    public List<String> getAppends() {
+        return appends;
+    }
 
-	public List<String> getPrepends() {
-		return prepends;
-	}
+    public VariantStateGetter getVariant() {
+        return variant;
+    }
 
-	public List<String> getAppends() {
-		return appends;
-	}
+    public BlockModelDefinition setVariant(VariantStateGetter variant) {
+        this.variant = variant;
+        return this;
+    }
 
-	public VariantStateGetter getVariant() {
-		return variant;
-	}
+    public IProperty<?>[] getIgnoredProperties() {
+        return ignoredProperties;
+    }
 
-	public IProperty<?>[] getIgnoredProperties() {
-		return ignoredProperties;
-	}
+    public IBlockColor getIBlockColor() {
+        return iBlockColor;
+    }
 
-	public IBlockColor getIBlockColor() {
-		return iBlockColor;
-	}
+    public BlockModelDefinition setIBlockColor(IBlockColor iBlockColor) {
+        this.iBlockColor = iBlockColor;
+        return this;
+    }
 
-	public String getVariantForState(IBlockState state) {
-		Map<IProperty<?>, Comparable<?>> map = Maps.newLinkedHashMap(state.getProperties()); // gets a map of the state's properties
-		for (IProperty<?> iproperty : getIgnoredProperties()) { // removes ignored properties
-			map.remove(iproperty);
-		}
-		String customVariant = this.variant.getVariantForState(state);
-		return customVariant.isEmpty() ? getPropertyString(map) : customVariant;
-	}
+    public String getVariantForState(IBlockState state) {
+        Map<IProperty<?>, Comparable<?>> map = Maps.newLinkedHashMap(state.getProperties()); // gets a map of the state's properties
+        for (IProperty<?> iproperty : getIgnoredProperties()) { // removes ignored properties
+            map.remove(iproperty);
+        }
+        String customVariant = this.variant.getVariantForState(state);
+        return customVariant.isEmpty() ? getPropertyString(map) : customVariant;
+    }
 
-	@Override
-	protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
-		return new MRLBuilder(fileLocation).setPrepends(prepends).setAppends(appends).setVariant(getVariantForState(state)).build();
-	}
+    @Override
+    protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+        return new MRLBuilder(fileLocation).setPrepends(prepends).setAppends(appends).setVariant(getVariantForState(state)).build();
+    }
 }

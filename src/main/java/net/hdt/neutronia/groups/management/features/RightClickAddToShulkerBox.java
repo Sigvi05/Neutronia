@@ -11,17 +11,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class RightClickAddToShulkerBox extends Component {
 
-	private static final ResourceLocation SHULKER_BOX_CAP = new ResourceLocation(LibMisc.MOD_ID, "shulker_box_drop_in");
-	
-	@SubscribeEvent
-	public void onAttachCapability(AttachCapabilitiesEvent<ItemStack> event) {
-		if(event.getObject().getItem() instanceof ItemShulkerBox)
-			event.addCapability(SHULKER_BOX_CAP, new ShulkerBoxDropIn());
-	}
-	
-	@Override
-	public boolean hasSubscriptions() {
-		return true;
-	}
-	
+    private static final ResourceLocation SHULKER_BOX_CAP = new ResourceLocation(LibMisc.MOD_ID, "shulker_box_drop_in");
+
+    @SubscribeEvent
+    public void onAttachCapability(AttachCapabilitiesEvent<ItemStack> event) {
+        if (event.getObject().getItem() instanceof ItemShulkerBox)
+            event.addCapability(SHULKER_BOX_CAP, new ShulkerBoxDropIn());
+    }
+
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
+
 }

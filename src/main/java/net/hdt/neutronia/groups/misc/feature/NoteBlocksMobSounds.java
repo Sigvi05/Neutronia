@@ -17,76 +17,76 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class NoteBlocksMobSounds extends Component {
 
-	public static final EnumFacing[] SKULL_SERACH_FACINGS = new EnumFacing[] {
-			EnumFacing.NORTH,
-			EnumFacing.SOUTH,
-			EnumFacing.EAST,
-			EnumFacing.WEST
-	};
+    public static final EnumFacing[] SKULL_SERACH_FACINGS = new EnumFacing[]{
+            EnumFacing.NORTH,
+            EnumFacing.SOUTH,
+            EnumFacing.EAST,
+            EnumFacing.WEST
+    };
 
-	@SubscribeEvent
-	public void noteBlockPlayed(NoteBlockEvent.Play event) {
-		BlockPos pos = event.getPos();
-		if(event.getWorld().getBlockState(pos).getBlock() != Blocks.NOTEBLOCK)
-			return;
+    public static int getSkullType(World world, BlockPos pos) {
+        TileEntity tile = null;
+        boolean can = false;
+        for (EnumFacing face : SKULL_SERACH_FACINGS) {
+            BlockPos apos = pos.offset(face);
+            tile = world.getTileEntity(apos);
+            if (tile != null && tile instanceof TileEntitySkull) {
+                IBlockState state = world.getBlockState(apos);
+                if (state.getValue(BlockSkull.FACING) == face) {
+                    can = true;
+                    break;
+                }
+            }
+        }
 
-		int type = getSkullType(event.getWorld(), pos);
-		if(type != -1 && type != 3) {
-			event.setCanceled(true);
+        if (can && tile != null) {
+            int type = ((TileEntitySkull) tile).getSkullType();
+            return type;
+        }
 
-			SoundEvent sound = null;
-			switch(type) {
-			case 0:
-				sound = SoundEvents.ENTITY_SKELETON_AMBIENT;
-				break;
-			case 1:
-				sound = SoundEvents.ENTITY_WITHER_SKELETON_AMBIENT;
-				break;
-			case 2:
-				sound = SoundEvents.ENTITY_ZOMBIE_AMBIENT;
-				break;
-			case 4:
-				sound = SoundEvents.ENTITY_CREEPER_PRIMED;
-				break;
-			case 5:
-				sound = SoundEvents.ENTITY_ENDERDRAGON_AMBIENT;
-				break;
-			}
+        return -1;
+    }
 
-			if(sound != null) {
-				float pitch = (float) Math.pow(2.0, (event.getVanillaNoteId() - 12) / 12.0);
-				event.getWorld().playSound(null, pos.getX() + 0.5, pos.getY() + 1.5, pos.getZ() + 0.5, sound, SoundCategory.BLOCKS, 1F, pitch);
-			}
-		}
-	}
+    @SubscribeEvent
+    public void noteBlockPlayed(NoteBlockEvent.Play event) {
+        BlockPos pos = event.getPos();
+        if (event.getWorld().getBlockState(pos).getBlock() != Blocks.NOTEBLOCK)
+            return;
 
-	public static int getSkullType(World world, BlockPos pos) {
-		TileEntity tile = null;
-		boolean can = false;
-		for(EnumFacing face : SKULL_SERACH_FACINGS) {
-			BlockPos apos = pos.offset(face);
-			tile = world.getTileEntity(apos);
-			if(tile != null && tile instanceof TileEntitySkull) {
-				IBlockState state = world.getBlockState(apos);
-				if(state.getValue(BlockSkull.FACING) == face) {
-					can = true;
-					break;
-				}
-			}
-		}
+        int type = getSkullType(event.getWorld(), pos);
+        if (type != -1 && type != 3) {
+            event.setCanceled(true);
 
-		if(can && tile != null) {
-			int type = ((TileEntitySkull) tile).getSkullType();
-			return type;
-		}
+            SoundEvent sound = null;
+            switch (type) {
+                case 0:
+                    sound = SoundEvents.ENTITY_SKELETON_AMBIENT;
+                    break;
+                case 1:
+                    sound = SoundEvents.ENTITY_WITHER_SKELETON_AMBIENT;
+                    break;
+                case 2:
+                    sound = SoundEvents.ENTITY_ZOMBIE_AMBIENT;
+                    break;
+                case 4:
+                    sound = SoundEvents.ENTITY_CREEPER_PRIMED;
+                    break;
+                case 5:
+                    sound = SoundEvents.ENTITY_ENDERDRAGON_AMBIENT;
+                    break;
+            }
 
-		return -1;
-	}
+            if (sound != null) {
+                float pitch = (float) Math.pow(2.0, (event.getVanillaNoteId() - 12) / 12.0);
+                event.getWorld().playSound(null, pos.getX() + 0.5, pos.getY() + 1.5, pos.getZ() + 0.5, sound, SoundCategory.BLOCKS, 1F, pitch);
+            }
+        }
+    }
 
-	@Override
-	public boolean hasSubscriptions() {
-		return true;
-	}
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
 	
 	/*@Override
 	public String getFeatureIngameConfigName() {

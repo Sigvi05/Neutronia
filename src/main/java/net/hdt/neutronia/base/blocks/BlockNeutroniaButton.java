@@ -21,81 +21,81 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockNeutroniaButton extends BlockButton implements INeutroniaBlock {
 
-	private final String[] variants;
-	private final String bareName;
-	
-	boolean wooden;
-	
-	public BlockNeutroniaButton(String name, boolean wooden) {
-		super(wooden);
+    private final String[] variants;
+    private final String bareName;
 
-		this.wooden = wooden;
-		bareName = name;
-		variants = new String[] { bareName };
+    boolean wooden;
 
-		setTranslationKey(bareName);
-		
-		setHardness(0.5F);
-		setSoundType(wooden ? SoundType.WOOD : SoundType.STONE);
-	}
-	
-	@Override
-	public Block setTranslationKey(String name) {
-		super.setTranslationKey(name);
-		setRegistryName(LibMisc.PREFIX_MOD + name);
-		ProxyRegistry.register(this);
-		ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
-		return this;
-	}
+    public BlockNeutroniaButton(String name, boolean wooden) {
+        super(wooden);
 
-	@Override
-	public String getBareName() {
-		return bareName;
-	}
+        this.wooden = wooden;
+        bareName = name;
+        variants = new String[]{bareName};
 
-	@Override
-	public String[] getVariants() {
-		return variants;
-	}
+        setTranslationKey(bareName);
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ItemMeshDefinition getCustomMeshDefinition() {
-		return null;
-	}
+        setHardness(0.5F);
+        setSoundType(wooden ? SoundType.WOOD : SoundType.STONE);
+    }
 
-	@Override
-	public EnumRarity getBlockRarity(ItemStack stack) {
-		return EnumRarity.COMMON;
-	}
+    @Override
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
+        setRegistryName(LibMisc.PREFIX_MOD + name);
+        ProxyRegistry.register(this);
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        return this;
+    }
 
-	@Override
-	public IProperty[] getIgnoredProperties() {
-		return new IProperty[0];
-	}
+    @Override
+    public String getBareName() {
+        return bareName;
+    }
 
-	@Override
-	public IProperty getVariantProp() {
-		return null;
-	}
+    @Override
+    public String[] getVariants() {
+        return variants;
+    }
 
-	@Override
-	public Class getVariantEnum() {
-		return null;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemMeshDefinition getCustomMeshDefinition() {
+        return null;
+    }
 
-	@Override
-	protected void playClickSound(EntityPlayer player, World worldIn, BlockPos pos) {
-		if(wooden)
-			worldIn.playSound(player, pos, SoundEvents.BLOCK_WOOD_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 0.3F, 0.6F);
-		else worldIn.playSound(player, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 0.3F, 0.6F);
-	}
+    @Override
+    public EnumRarity getBlockRarity(ItemStack stack) {
+        return EnumRarity.COMMON;
+    }
 
-	@Override
-	protected void playReleaseSound(World worldIn, BlockPos pos) {
-		if(wooden)
-			worldIn.playSound(null, pos, SoundEvents.BLOCK_WOOD_BUTTON_CLICK_OFF, SoundCategory.BLOCKS, 0.3F, 0.5F);
-		else worldIn.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_OFF, SoundCategory.BLOCKS, 0.3F, 0.5F);		
-	}
+    @Override
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[0];
+    }
+
+    @Override
+    public IProperty getVariantProp() {
+        return null;
+    }
+
+    @Override
+    public Class getVariantEnum() {
+        return null;
+    }
+
+    @Override
+    protected void playClickSound(EntityPlayer player, World worldIn, BlockPos pos) {
+        if (wooden)
+            worldIn.playSound(player, pos, SoundEvents.BLOCK_WOOD_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 0.3F, 0.6F);
+        else worldIn.playSound(player, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 0.3F, 0.6F);
+    }
+
+    @Override
+    protected void playReleaseSound(World worldIn, BlockPos pos) {
+        if (wooden)
+            worldIn.playSound(null, pos, SoundEvents.BLOCK_WOOD_BUTTON_CLICK_OFF, SoundCategory.BLOCKS, 0.3F, 0.5F);
+        else worldIn.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_OFF, SoundCategory.BLOCKS, 0.3F, 0.5F);
+    }
 
 }

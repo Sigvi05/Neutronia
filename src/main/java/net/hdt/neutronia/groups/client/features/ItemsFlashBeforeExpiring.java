@@ -10,17 +10,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemsFlashBeforeExpiring extends Component {
 
-	public static int minTime;
-	
-	@Override
-	public void setupConfig() {
-		minTime = loadPropInt("Time To Start Flashing", "How many ticks should the item have left when it starts flashing. Default is 10 seconds (200).", 200);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void preInitClient(FMLPreInitializationEvent event) {
-		RenderingRegistry.registerEntityRenderingHandler(EntityItem.class, RenderItemFlashing.factory());
-	}
-	
+    public static int minTime;
+
+    @Override
+    public void setupConfig() {
+        minTime = loadPropInt("Time To Start Flashing", "How many ticks should the item have left when it starts flashing. Default is 10 seconds (200).", 200);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void preInitClient(FMLPreInitializationEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(EntityItem.class, RenderItemFlashing.factory());
+    }
+
 }

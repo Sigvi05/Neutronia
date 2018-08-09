@@ -7,14 +7,14 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 public abstract class AbstractDropIn implements ICapabilityProvider, IDropInItem {
 
-	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		return capability == DROP_IN_CAPABILITY;
-	}
+    @Override
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+        return capability == DROP_IN_CAPABILITY;
+    }
 
-	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		return capability == DROP_IN_CAPABILITY ? (T) this : null;
-	}
+    @Override
+    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+        return capability == DROP_IN_CAPABILITY ? (T) this : null;
+    }
 
 }

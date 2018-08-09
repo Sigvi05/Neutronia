@@ -22,76 +22,76 @@ import java.util.List;
 
 public abstract class BlockNeutroniaPressurePlate extends BlockPressurePlate implements INeutroniaBlock {
 
-	private final String[] variants;
-	private final String bareName;
+    private final String[] variants;
+    private final String bareName;
 
-	public BlockNeutroniaPressurePlate(String name, Material material, Sensitivity sensitivity) {
-		super(material, sensitivity);
+    public BlockNeutroniaPressurePlate(String name, Material material, Sensitivity sensitivity) {
+        super(material, sensitivity);
 
-		bareName = name;
-		variants = new String[] { bareName };
+        bareName = name;
+        variants = new String[]{bareName};
 
-		setTranslationKey(bareName);
-	}
+        setTranslationKey(bareName);
+    }
 
-	@Override
-	protected int computeRedstoneStrength(World worldIn, BlockPos pos) {
-		AxisAlignedBB axisalignedbb = PRESSURE_AABB.offset(pos);
-		List<? extends Entity> list = getValidEntities(worldIn, axisalignedbb);
+    @Override
+    protected int computeRedstoneStrength(World worldIn, BlockPos pos) {
+        AxisAlignedBB axisalignedbb = PRESSURE_AABB.offset(pos);
+        List<? extends Entity> list = getValidEntities(worldIn, axisalignedbb);
 
-		if(!list.isEmpty())
-			for(Entity entity : list)
-				if(!entity.doesEntityNotTriggerPressurePlate())
-					return 15;
+        if (!list.isEmpty())
+            for (Entity entity : list)
+                if (!entity.doesEntityNotTriggerPressurePlate())
+                    return 15;
 
-		return 0;
-	}
-	
-	protected abstract List<Entity> getValidEntities(World world, AxisAlignedBB aabb);
+        return 0;
+    }
 
-	@Override
-	public Block setTranslationKey(String name) {
-		super.setTranslationKey(name);
-		setRegistryName(LibMisc.PREFIX_MOD + name);
-		ProxyRegistry.register(this);
-		ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
-		return this;
-	}
+    protected abstract List<Entity> getValidEntities(World world, AxisAlignedBB aabb);
 
-	@Override
-	public String getBareName() {
-		return bareName;
-	}
+    @Override
+    public Block setTranslationKey(String name) {
+        super.setTranslationKey(name);
+        setRegistryName(LibMisc.PREFIX_MOD + name);
+        ProxyRegistry.register(this);
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        return this;
+    }
 
-	@Override
-	public String[] getVariants() {
-		return variants;
-	}
+    @Override
+    public String getBareName() {
+        return bareName;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ItemMeshDefinition getCustomMeshDefinition() {
-		return null;
-	}
+    @Override
+    public String[] getVariants() {
+        return variants;
+    }
 
-	@Override
-	public EnumRarity getBlockRarity(ItemStack stack) {
-		return EnumRarity.COMMON;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemMeshDefinition getCustomMeshDefinition() {
+        return null;
+    }
 
-	@Override
-	public IProperty[] getIgnoredProperties() {
-		return new IProperty[0];
-	}
+    @Override
+    public EnumRarity getBlockRarity(ItemStack stack) {
+        return EnumRarity.COMMON;
+    }
 
-	@Override
-	public IProperty getVariantProp() {
-		return null;
-	}
+    @Override
+    public IProperty[] getIgnoredProperties() {
+        return new IProperty[0];
+    }
 
-	@Override
-	public Class getVariantEnum() {
-		return null;
-	}
-	
+    @Override
+    public IProperty getVariantProp() {
+        return null;
+    }
+
+    @Override
+    public Class getVariantEnum() {
+        return null;
+    }
+
 }
