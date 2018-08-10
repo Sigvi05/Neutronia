@@ -3,6 +3,7 @@ package net.hdt.neutronia.base.proxy;
 import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.groups.GroupLoader;
+import net.hdt.neutronia.base.handler.client.ClientHandler;
 import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
 import net.minecraft.client.Minecraft;
@@ -43,16 +44,6 @@ public class ClientProxy extends CommonProxy {
         overrideBlock("stone_granite_smooth", true);
         overrideBlock("stone_diorite_smooth", true);
 
-        overrideBlock("quartz_ore", true);
-        overrideBlock("quartz_block_bottom", true);
-        overrideBlock("quartz_block_top", true);
-        overrideBlock("quartz_block_side", true);
-        overrideBlock("quartz_block_chiseled_top", true);
-        overrideBlock("quartz_block_chiseled", true);
-        overrideBlock("quartz_block_lines_top", true);
-        overrideBlock("quartz_block_lines", true);
-        overrideItem("quartz", true);
-
         GroupLoader.preInitClient(event);
     }
 
@@ -60,8 +51,9 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
         super.init(event);
 
-        GroupLoader.initClient(event);
+        MinecraftForge.EVENT_BUS.register(ClientHandler.class);
 
+        GroupLoader.initClient(event);
         MinecraftForge.EVENT_BUS.register(ConfigEvents.class);
     }
 
