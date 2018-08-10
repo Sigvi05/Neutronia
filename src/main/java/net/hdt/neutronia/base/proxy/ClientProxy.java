@@ -1,9 +1,7 @@
 package net.hdt.neutronia.base.proxy;
 
 import net.hdt.neutronia.base.client.ResourceProxy;
-import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.groups.GroupLoader;
-import net.hdt.neutronia.base.handler.client.ClientHandler;
 import net.hdt.neutronia.base.lib.LibObfuscation;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
 import net.minecraft.client.Minecraft;
@@ -14,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
-public class ClientProxy extends CommonProxy {
+public class ClientProxy implements IProxy {
 
     public static final Minecraft minecraft = Minecraft.getMinecraft();
     private static final Timer timer = ReflectionHelper.getPrivateValue(Minecraft.class, ClientProxy.minecraft, "timer", "field_71428_T", "aa");
@@ -35,7 +34,6 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        super.preInit(event);
         MinecraftForge.EVENT_BUS.register(EntityEventHandler.class);
 
         overrideBlock("stone_granite", true);
@@ -49,18 +47,23 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void init(FMLInitializationEvent event) {
-        super.init(event);
-
-        MinecraftForge.EVENT_BUS.register(ClientHandler.class);
-
         GroupLoader.initClient(event);
-        MinecraftForge.EVENT_BUS.register(ConfigEvents.class);
+//        MinecraftForge.EVENT_BUS.register(ConfigEvents.class);
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent event) {
-        super.postInit(event);
         GroupLoader.postInitClient(event);
+    }
+
+    @Override
+    public void finalInit(FMLPostInitializationEvent event) {
+
+    }
+
+    @Override
+    public void serverStarting(FMLServerStartingEvent event) {
+
     }
 
     @Override
@@ -71,11 +74,6 @@ public class ClientProxy extends CommonProxy {
     private void overrideBlock(String str, boolean flag) {
         if (flag)
             addResourceOverride("textures", "block", str, "png");
-    }
-
-    private void overrideItem(String str, boolean flag) {
-        if (flag)
-            addResourceOverride("textures", "items", str, "png");
     }
 
     @Override

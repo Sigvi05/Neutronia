@@ -13,39 +13,39 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
-public class CommonProxy {
+public class CommonProxy implements IProxy {
 
+    @Override
     public void preInit(FMLPreInitializationEvent event) {
-//        NBiomes.registerBiomes();
         GroupLoader.preInit(event);
         MessageRegister.init();
     }
 
+    @Override
     public void init(FMLInitializationEvent event) {
-//        GameRegistry.registerWorldGenerator(new OreGen(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
         GameRegistry.registerTileEntity(TileEntityPot.class, new ResourceLocation(MOD_ID, "pot"));
         GroupLoader.init(event);
     }
 
+    @Override
     public void postInit(FMLPostInitializationEvent event) {
         GroupLoader.postInit(event);
     }
 
+    @Override
     public void finalInit(FMLPostInitializationEvent event) {
         GroupLoader.finalInit(event);
     }
 
+    @Override
     public void serverStarting(FMLServerStartingEvent event) {
         GroupLoader.serverStarting(event);
     }
 
+    @Override
     public void addResourceOverride(String space, String dir, String file, String ext) {
 
-    }
-
-    public float getPartialTicks() {
-        return 0.0F;
     }
 
 }
