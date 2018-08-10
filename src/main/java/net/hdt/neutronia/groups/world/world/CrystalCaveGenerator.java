@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.world;
 
-import net.hdt.neutronia.base.handler.DimensionConfig;
+import net.hdt.neutronia.base.handler.server.DimensionConfig;
 import net.hdt.neutronia.groups.world.features.CrystalCaves;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

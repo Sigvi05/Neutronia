@@ -3,7 +3,7 @@ package net.hdt.neutronia.groups.decoration.features;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.handler.WoodVariantReplacer;
+import net.hdt.neutronia.base.handler.server.WoodVariantReplacer;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomButton;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomPressurePlate;
 import net.minecraft.block.Block;

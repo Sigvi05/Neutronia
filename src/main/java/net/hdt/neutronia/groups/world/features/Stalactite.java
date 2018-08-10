@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.world.features;
 
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
-import net.hdt.neutronia.base.handler.DimensionConfig;
+import net.hdt.neutronia.base.handler.server.DimensionConfig;
 import net.hdt.neutronia.groups.world.blocks.BlockStalactite;
 import net.hdt.neutronia.groups.world.world.StalactiteGenerator;
 import net.minecraft.block.Block;

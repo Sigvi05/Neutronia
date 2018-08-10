@@ -7,7 +7,7 @@ import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
-import net.hdt.neutronia.base.handler.ModIntegrationHandler;
+import net.hdt.neutronia.base.handler.server.ModIntegrationHandler;
 import net.hdt.neutronia.groups.building.blocks.BlockWorldStoneBricks;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
 import net.hdt.neutronia.groups.building.blocks.stair.BlockVanillaStairs;
