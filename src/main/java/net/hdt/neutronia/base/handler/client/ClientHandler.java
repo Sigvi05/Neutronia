@@ -8,13 +8,9 @@ import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
-@Mod.EventBusSubscriber(value = Side.CLIENT, modid = MOD_ID)
+//@Mod.EventBusSubscriber(value = Side.CLIENT, modid = MOD_ID)
 public class ClientHandler {
 
     private static Block[][] blocks = new Block[][]{
@@ -31,10 +27,14 @@ public class ClientHandler {
             NBlocks.coloredPlanksSlabSingle,
             NBlocks.coloredPlanksSlabDouble
     };
-    private static IBlockColor slabHandler = (s, w, p, t) -> t == 0 ? ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : ((BlockColoredAlt) s.getBlock()).color.getColorValue();
-    private static IBlockColor blockHandler = (s, w, p, t) -> t == 0 ? ((BlockColoredAlt) s.getBlock()).color.getColorValue() : ((BlockColoredAlt) s.getBlock()).color.getColorValue();
-    private static IItemColor itemBlockHandler = (s, t) -> blockHandler.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
-    private static IItemColor itemSlabHandler = (s, t) -> slabHandler.colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
+    private static IBlockColor slabHandler = (s, w, p, t) -> t == 0 ?
+            ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+    private static IBlockColor blockHandler = (s, w, p, t) -> t == 0 ?
+            ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+    private static IItemColor itemBlockHandler = (s, t) -> blockHandler.colorMultiplier(((ItemBlock) s.getItem())
+            .getBlock().getDefaultState(), null, null, t);
+    private static IItemColor itemSlabHandler = (s, t) -> slabHandler.colorMultiplier(((ItemBlock) s.getItem())
+            .getBlock().getDefaultState(), null, null, t);
 
     private static Block[] coloredStuff = new Block[16 * blocks.length];
     private static Block[] coloredSlabs = new Block[16 * slabs.length];

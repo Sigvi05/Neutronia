@@ -1,6 +1,0 @@
-sudo: enabled
-language: java
-jdk: oraclejdk8
-
-install: "gradlew setupDevWorkspace"
-script: "gradlew build"

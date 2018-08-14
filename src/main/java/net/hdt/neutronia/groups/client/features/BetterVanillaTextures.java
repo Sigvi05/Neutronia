@@ -8,7 +8,7 @@ import java.util.function.BiConsumer;
 
 public class BetterVanillaTextures extends Component {
 
-    boolean granite, andesite, diorite, bricks, glass, pumpkinFace, pistonModels, bowAnimation, observer;
+    boolean granite, andesite, diorite, smoothGranite, smoothAndesite, smoothDiorite, bricks, glass, pumpkinFace, pistonModels, bowAnimation, observer;
 
     @Override
     public void setupConfig() {
@@ -21,6 +21,9 @@ public class BetterVanillaTextures extends Component {
         pistonModels = loadPropBool("Override Piston Models", "", true);
         bowAnimation = loadPropBool("Override Bow Animation", "", true);
         observer = loadPropBool("Override Observer", "", true);
+        smoothAndesite = loadPropBool("Override Smooth Andesite", "", true);
+        smoothDiorite = loadPropBool("Override Smooth Diorite", "", true);
+        smoothGranite = loadPropBool("Override Smooth Granite", "", true);
     }
 
     @Override
@@ -31,6 +34,9 @@ public class BetterVanillaTextures extends Component {
         overrideBlock("brick", bricks);
         overrideBlock("glass", glass);
         overrideBlock("pumpkin_face_off", pumpkinFace);
+        overrideBlock("stone_granite_smooth", smoothGranite);
+        overrideBlock("stone_diorite_smooth", smoothDiorite);
+        overrideBlock("stone_andesite_smooth", smoothAndesite);
 
         batch(this::overrideBlockModel, pistonModels,
                 "piston_extended_normal", "piston_head_normal", "piston_head_short_sticky",

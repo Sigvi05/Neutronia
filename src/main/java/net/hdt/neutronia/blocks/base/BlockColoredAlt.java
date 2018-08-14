@@ -24,6 +24,8 @@ public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IN
     public BlockColoredAlt(String name, EnumDyeColor color) {
         super(color.getName() + "_" + name, Material.ROCK);
         this.color = color;
+//        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(getBlockColor(), this);
+//        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(getItemColor(), this);
     }
 
     public BlockColoredAlt(Material material, String name, EnumDyeColor color) {
@@ -81,12 +83,12 @@ public class BlockColoredAlt extends BlockMod implements IBlockColorProvider, IN
 
     @Override
     public IBlockColor getBlockColor() {
-        return (state, worldIn, pos, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
+        return (state, worldIn, pos, tintIndex) -> color.getColorValue();
     }
 
     @Override
     public IItemColor getItemColor() {
-        return (stack, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
+        return (stack, tintIndex) -> color.getColorValue();
     }
 
 }

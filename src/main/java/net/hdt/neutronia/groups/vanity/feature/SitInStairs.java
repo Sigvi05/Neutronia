@@ -70,16 +70,6 @@ public class SitInStairs extends Component {
                 event.getEntityPlayer().startRiding(seat);
             }
         }
-
-        if (state.getBlock() instanceof Block && canBeAbove(world, pos)) {
-            List<SeatFullBlock> seats = world.getEntitiesWithinAABB(SeatFullBlock.class, new AxisAlignedBB(pos, pos.add(1, 1, 1)));
-
-            if (seats.isEmpty()) {
-                SeatFullBlock seat = new SeatFullBlock(world, pos);
-                world.spawnEntity(seat);
-                event.getEntityPlayer().startRiding(seat);
-            }
-        }
     }
 
     @SubscribeEvent

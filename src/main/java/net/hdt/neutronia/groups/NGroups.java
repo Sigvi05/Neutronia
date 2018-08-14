@@ -211,6 +211,7 @@ public class NGroups {
                 .withComponent(new DefaultWorldOptions())
                 .withComponent(new Stalactite())
                 .withComponent(new BetterCaves())
+                .withComponent(new BetterUnderground())
                 .isEnabled(true)
                 .register();
 

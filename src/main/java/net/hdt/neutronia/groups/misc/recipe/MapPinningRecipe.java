@@ -1,5 +1,7 @@
 package net.hdt.neutronia.groups.misc.recipe;
 
+import net.hdt.huskylib2.recipe.ModRecipe;
+import net.hdt.huskylib2.util.ItemNBTHelper;
 import net.hdt.neutronia.groups.misc.feature.MapMarkers;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
@@ -7,8 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
-import vazkii.arl.recipe.ModRecipe;
-import vazkii.arl.util.ItemNBTHelper;
 
 public class MapPinningRecipe extends ModRecipe {
 
