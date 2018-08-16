@@ -37,6 +37,8 @@ public class ConfigHelper {
     public static int[] loadPropIntList(String propName, String category, String comment, int[] default_) {
         Property prop = GroupLoader.config.get(category, propName, default_, comment);
         setNeedsRestart(prop);
+
+        lastProp = prop;
         return prop.getIntList();
     }
 
@@ -45,6 +47,7 @@ public class ConfigHelper {
         prop.setComment(desc);
         setNeedsRestart(prop);
 
+        lastProp = prop;
         return prop.getInt(default_);
     }
 
@@ -53,6 +56,7 @@ public class ConfigHelper {
         prop.setComment(desc);
         setNeedsRestart(prop);
 
+        lastProp = prop;
         return prop.getInt(default_);
     }
 
@@ -61,6 +65,7 @@ public class ConfigHelper {
         prop.setComment(desc);
         setNeedsRestart(prop);
 
+        lastProp = prop;
         return prop.getDouble(default_);
     }
 
@@ -69,6 +74,7 @@ public class ConfigHelper {
         prop.setComment(desc);
         setNeedsRestart(prop);
 
+        lastProp = prop;
         return prop.getDouble(default_);
     }
 
@@ -77,6 +83,7 @@ public class ConfigHelper {
         prop.setComment(desc);
         setNeedsRestart(prop);
 
+        lastProp = prop;
         return prop.getBoolean(default_);
     }
 
@@ -85,6 +92,7 @@ public class ConfigHelper {
         prop.setComment(desc);
         setNeedsRestart(prop);
 
+        lastProp = prop;
         return prop.getString();
     }
 
@@ -92,6 +100,8 @@ public class ConfigHelper {
         Property prop = GroupLoader.config.get(category, propName, default_);
         prop.setComment(desc);
         setNeedsRestart(prop);
+
+        lastProp = prop;
         return prop.getStringList();
     }
 

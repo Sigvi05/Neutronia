@@ -1,6 +1,7 @@
 package net.hdt.neutronia.base.proxy;
 
 import net.hdt.neutronia.base.client.ResourceProxy;
+import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.client.gui.GuiReplacementEvents;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibObfuscation;
@@ -44,6 +45,7 @@ public class ClientProxy extends CommonProxy {
         super.init(event);
         GroupLoader.initClient(event);
         MinecraftForge.EVENT_BUS.register(GuiReplacementEvents.class);
+        MinecraftForge.EVENT_BUS.register(ConfigEvents.class);
     }
 
     @Override

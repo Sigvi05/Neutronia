@@ -26,6 +26,7 @@ public class Group implements Comparable<Group> {
     public String name;
     public boolean enabled;
     public Property prop;
+    private ItemStack iconStack;
 
     public Group() {
         name = getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
@@ -194,7 +195,15 @@ public class Group implements Comparable<Group> {
     }
 
     public ItemStack getIconStack() {
-        return new ItemStack(Blocks.BARRIER);
+        if(iconStack != null) {
+            return iconStack;
+        } else {
+            return new ItemStack(Blocks.BARRIER);
+        }
+    }
+
+    public void setIconStack(ItemStack stack) {
+        this.iconStack = stack;
     }
 
     public void forEachComponent(Consumer<Component> consumer) {
@@ -276,6 +285,7 @@ public class Group implements Comparable<Group> {
         public Group register() {
             group = new Group(this);
             group.enabled = this.enabled;
+            group.setIconStack(icon);
             GroupLoader.registerGroup(group);
             return group;
         }

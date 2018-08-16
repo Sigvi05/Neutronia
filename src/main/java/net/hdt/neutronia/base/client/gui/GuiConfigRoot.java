@@ -16,7 +16,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 
     private static int MODULES_PER_PAGE = 8;
     private final List<Group> groups;
-    boolean qEnabled;
+    boolean nEnabled;
     private int page = 0;
     private int totalPages;
     private GuiButton left, right;
@@ -24,11 +24,11 @@ public class GuiConfigRoot extends GuiConfigBase {
     GuiConfigRoot(GuiScreen parent) {
         super(parent);
 
-        groups = new ArrayList<>();
-        groups.addAll(GroupLoader.enabledGroups);
+        groups = new ArrayList<>(GroupLoader.groups);
+        groups.removeIf(module -> !module.enabled);
         Collections.sort(groups);
 
-        qEnabled = GlobalConfig.enableNButton;
+        nEnabled = GlobalConfig.enableNButton;
 
         System.out.println(groups.size());
         totalPages = (groups.size() - 1) / MODULES_PER_PAGE + 1;
@@ -66,7 +66,7 @@ public class GuiConfigRoot extends GuiConfigBase {
             y = startY + k / 2 * 22;
             Group group = groups.get(j);
             buttonList.add(new GuiButtonModule(x, y, group));
-//            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
+            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
         }
 
         if (left != null) {
@@ -78,7 +78,7 @@ public class GuiConfigRoot extends GuiConfigBase {
 
         x = width / 2;
         y = startYButtons + 103;
-//        buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
+        buttonList.add(new GuiButtonConfigSetting(x + 80, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
         buttonList.add(new GuiButton(1, x - 100, y + 22, 200, 20, I18n.translateToLocal("neutronia.config.general")));
         buttonList.add(new GuiButton(2, x - 100, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.import")));
         buttonList.add(new GuiButton(3, x + 2, y + 44, 98, 20, I18n.translateToLocal("neutronia.config.opensite")));
@@ -93,7 +93,7 @@ public class GuiConfigRoot extends GuiConfigBase {
         String s = null;
         if (mayRequireRestart)
             s = I18n.translateToLocal("neutronia.config.needrestart");
-        else if (qEnabled && !GlobalConfig.enableNButton)
+        else if (nEnabled && !GlobalConfig.enableNButton)
             s = I18n.translateToLocal("neutronia.config.qdisabled");
 
         if (totalPages > 1) {
